@@ -62,8 +62,8 @@
 <channel id="DE VODAFONE GO FILME 49"><display-name>DE VODAFONE GO FILME 49</display-name></channel>
 <channel id="DE VODAFONE GO FILME 50"><display-name>DE VODAFONE GO FILME 50</display-name></channel>
 <programme start="20260617000000 +0200" stop="20260618000000 +0200" channel="AKCIJA"><title>AKCIJA FILMOVI</title></programme>
-<programme start="20260618000000 +0200" stop="20260619000000 +0200" channel="AKCIJA"><title>AKCIJA</title></programme>
-<programme start="20260619000000 +0200" stop="20260620000000 +0200" channel="AKCIJA"><title>AKCIJA</title></programme>
+<programme start="20260618000000 +0200" stop="20260619000000 +0200" channel="AKCIJA"><title>AKCIJA FILMOVI</title></programme>
+<programme start="20260619000000 +0200" stop="20260620000000 +0200" channel="AKCIJA"><title>AKCIJA FILMOVI</title></programme>
 <programme start="20260620000000 +0200" stop="20260621000000 +0200" channel="AKCIJA"><title>AKCIJA</title></programme>
 <programme start="20260621000000 +0200" stop="20260622000000 +0200" channel="AKCIJA"><title>AKCIJA</title></programme>
 <programme start="20260622000000 +0200" stop="20260623000000 +0200" channel="AKCIJA"><title>AKCIJA</title></programme>
