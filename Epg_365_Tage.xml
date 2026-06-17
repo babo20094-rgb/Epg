@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv>
-<channel id="AKCIJA"><display-name>AKCIJA</display-name></channel>
+<channel id="AKCIJA"><display-name>AKCIJA</display-name><iconsrc="https://i.imgur.com/3aryqbG.png"/></channel>
 <channel id="CRTANI"><display-name>CRTANI</display-name></channel>
 <channel id="DRAMA"><display-name>DRAMA</display-name></channel>
 <channel id="HOROR"><display-name>HOROR</display-name></channel>
