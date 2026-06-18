@@ -68089,8 +68089,8 @@
   <programme start="20270617000000 +0200" stop="20270618000000 +0200" channel="DM SAT">
     <title>DM Sat Muzika Sms Chat</title>
   </programme>
-  <channel id="RS| MASA I MEDVJED">
-    <display-name>RS| MASA I MEDVJED</display-name>
+  <channel id="RS MASA I MEDVJED">
+    <display-name>RS MASA I MEDVJED</display-name>
     <icon src="https://www.talentshow.hr/Brands/Masha/Logo.png"/>
   </channel>
   <programme start="20260617000000 +0200" stop="20260618000000 +0200" channel="RS| MASA I MEDVJED">
