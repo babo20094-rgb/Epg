@@ -61,8 +61,8 @@
 <channel id="DE VODAFONE GO FILME 48"><display-name>DE VODAFONE GO FILME 48</display-name></channel>
 <channel id="DE VODAFONE GO FILME 49"><display-name>DE VODAFONE GO FILME 49</display-name></channel>
 <channel id="DE VODAFONE GO FILME 50"><display-name>DE VODAFONE GO FILME 50</display-name></channel>
-<channel id="RS| DM SAT">
-    <display-name>RS| DM SAT</display-name>
+<channel id="DM SAT">
+    <display-name>DM SAT</display-name>
     <icon src="https://upload.wikimedia.org/wikipedia/de/thumb/b/b8/Dmsat_logo.jpg/960px-Dmsat_logo.jpg?_=20100331091957"/>
 </channel>
 <programme start="20260617000000 +0200" stop="20260618000000 +0200" channel="AKCIJA"><title>AKCIJA FILMOVI</title></programme>
@@ -22330,7 +22330,7 @@
 <programme start="20270614000000 +0200" stop="20270615000000 +0200" channel="DE VODAFONE GO FILME 50"><title>FILME 50</title></programme>
 <programme start="20270615000000 +0200" stop="20270616000000 +0200" channel="DE VODAFONE GO FILME 50"><title>FILME 50</title></programme>
 <programme start="20270616000000 +0200" stop="20270617000000 +0200" channel="DE VODAFONE GO FILME 50"><title>FILME 50</title></programme>
-<programme start="20250618000000 +0200" stop="20260618000000 +0200" channel="RS| DM SAT">
+<programme start="20250618000000 +0200" stop="20260618000000 +0200" channel="DM SAT">
     <title>DM Sat Muzika</title>
 </programme>
 </tv>
