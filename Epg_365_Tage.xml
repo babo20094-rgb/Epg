@@ -22330,31 +22330,5 @@
 <programme start="20270614000000 +0200" stop="20270615000000 +0200" channel="DE VODAFONE GO FILME 50"><title>FILME 50</title></programme>
 <programme start="20270615000000 +0200" stop="20270616000000 +0200" channel="DE VODAFONE GO FILME 50"><title>FILME 50</title></programme>
 <programme start="20270616000000 +0200" stop="20270617000000 +0200" channel="DE VODAFONE GO FILME 50"><title>FILME 50</title></programme>
-<programme start="20260617000000 +0200" stop="20260619000000 +0200" channel="DM SAT">
-    <title>DM Sat Muzika</title>
-</programme>
-
-<programme start="20260619000000 +0200" stop="20260620000000 +0200" channel="DM SAT">
-    <title>DM Sat Muzika</title>
-</programme>
-
-<programme start="20260620000000 +0200" stop="20260621000000 +0200" channel="DM SAT">
-    <title>DM Sat Muzika</title>
-</programme>
-
-<programme start="20260621000000 +0200" stop="20260622000000 +0200" channel="DM SAT">
-    <title>DM Sat Muzika</title>
-</programme>
-
-<programme start="20260622000000 +0200" stop="20260623000000 +0200" channel="DM SAT">
-    <title>DM Sat Muzika</title>
-</programme>
-
-<programme start="20260623000000 +0200" stop="20260624000000 +0200" channel="DM SAT">
-    <title>DM Sat Muzika</title>
-</programme>
-
-<programme start="20260624000000 +0200" stop="20260625000000 +0200" channel="DM SAT">
-    <title>DM Sat Muzika</title>
-</programme>
+<programme start="20260617000000 +0200" stop="20270618000000 +0200" channel="DM SAT"> <title>DM Sat Muzika</title> </programme>
 </tv>
