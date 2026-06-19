@@ -74,14 +74,14 @@ if len(teile) > 3:
 
             alle_ids = [kanal] + alternative_ids
 
-for cid in alle_ids:
-    xml += f'''
-<programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
-stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
-channel="{cid}">
-    <title>{titel}</title>
-</programme>
-'''
+    for cid in alle_ids:
+            xml += f'''
+    <programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
+    stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
+    channel="{cid}">
+        <title>{titel}</title>
+    </programme>
+    '''
 
 xml += "\n</tv>"
 
