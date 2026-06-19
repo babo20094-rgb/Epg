@@ -7,7 +7,7 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 # Channels erzeugen
 for zeile in sender_liste:
-    teile = [x.strip() for x in zeile.split("|", 4)]
+    teile = [x.strip() for x in teile = [x.strip() for x in zeile.split(";", 3)]
 
 kanal = teile[0]
 titel = teile[1]
@@ -18,6 +18,18 @@ alternative_ids = []
 if len(teile) > 3:
     alternative_ids = [x.strip() for x in teile[3].split(",")]
 
+kanal = teile[0]
+titel = teile[1]
+logo = teile[2]
+
+alternative_ids = []
+
+if len(teile) > 3:
+    alternative_ids = [x.strip() for x in teile[3].split(",")]
+
+    alle_ids = [kanal] + alternative_ids
+
+for cid in alle_ids:
     alle_ids = [kanal] + alternative_ids
 
 for cid in alle_ids:
@@ -39,7 +51,16 @@ zeiten = [
 ]
 
 for zeile in sender_liste:
-    teile = [x.strip() for x in zeile.split("|", 4)]
+    teile = [x.strip() for x in teile = [x.strip() for x in zeile.split(";", 3)]
+
+kanal = teile[0]
+titel = teile[1]
+logo = teile[2]
+
+alternative_ids = []
+
+if len(teile) > 3:
+    alternative_ids = [x.strip() for x in teile[3].split(",")]
 
 kanal = teile[0]
 titel = teile[1]
@@ -59,10 +80,13 @@ if len(teile) > 3:
             start = basis.replace(hour=von, minute=0, second=0)
             stop = basis.replace(hour=0, minute=0, second=0) + timedelta(hours=bis)
 
-            xml += f'''
-<programme start="{start.strftime("%Y%m%d%H%M%S")} +0200"
-stop="{stop.strftime("%Y%m%d%H%M%S")} +0200"
-channel="{kanal}">
+            alle_ids = [kanal] + alternative_ids
+
+for cid in alle_ids:
+    xml += f'''
+<programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
+stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
+channel="{cid}">
     <title>{titel}</title>
 </programme>
 '''
