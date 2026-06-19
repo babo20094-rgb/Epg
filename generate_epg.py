@@ -6,9 +6,9 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
-# Sender erzeugen
 sender_daten = []
 
+# Sender erzeugen
 for zeile in sender_liste:
     teile = [x.strip() for x in zeile.split("|")]
 
@@ -34,7 +34,9 @@ starttag = datetime.now()
 for tag in range(365):
 
     start = (starttag + timedelta(days=tag)).replace(
-        hour=0, minute=0, second=0
+        hour=0,
+        minute=0,
+        second=0
     )
 
     stop = start + timedelta(days=1)
