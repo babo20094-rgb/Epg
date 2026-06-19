@@ -7,11 +7,23 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 # Channels erzeugen
 for zeile in sender_liste:
-    kanal, titel, logo = [x.strip() for x in zeile.split("|", 2)]
+    teile = [x.strip() for x in zeile.split("|", 4)]
 
+kanal = teile[0]
+titel = teile[1]
+logo = teile[2]
+
+alternative_ids = []
+
+if len(teile) > 3:
+    alternative_ids = [x.strip() for x in teile[3].split(",")]
+
+    alle_ids = [kanal] + alternative_ids
+
+for cid in alle_ids:
     xml += f'''
-<channel id="{kanal}">
-    <display-name>{kanal}</display-name>
+<channel id="{cid}">
+    <display-name>{cid}</display-name>
     <icon src="{logo}"/>
 </channel>
 '''
@@ -27,7 +39,16 @@ zeiten = [
 ]
 
 for zeile in sender_liste:
-    kanal, titel, logo = [x.strip() for x in zeile.split("|", 2)]
+    teile = [x.strip() for x in zeile.split("|", 4)]
+
+kanal = teile[0]
+titel = teile[1]
+logo = teile[2]
+
+alternative_ids = []
+
+if len(teile) > 3:
+    alternative_ids = [x.strip() for x in teile[3].split(",")]
 
     for tag in range(365):
 
