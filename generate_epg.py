@@ -7,15 +7,11 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 # Channels erzeugen
 for zeile in sender_liste:
-    teile = [x.strip() for x in zeile.split(";", 3)]
-
-    kanal = teile[0]
-    titel = teile[1]
-    logo = teile[2]
+    kanal, titel, logo = [x.strip() for x in zeile.split("|", 2)]
 
     xml += f'''
 <channel id="{kanal}">
-    <display-name>{titel}</display-name>
+    <display-name>{kanal}</display-name>
     <icon src="{logo}"/>
 </channel>
 '''
@@ -31,10 +27,7 @@ zeiten = [
 ]
 
 for zeile in sender_liste:
-    teile = [x.strip() for x in zeile.split(";", 3)]
-
-    kanal = teile[0]
-    titel = teile[1]
+    kanal, titel, logo = [x.strip() for x in zeile.split("|", 2)]
 
     for tag in range(365):
 
@@ -46,8 +39,8 @@ for zeile in sender_liste:
             stop = basis.replace(hour=0, minute=0, second=0) + timedelta(hours=bis)
 
             xml += f'''
-<programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
-stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
+<programme start="{start.strftime("%Y%m%d%H%M%S")} +0200"
+stop="{stop.strftime("%Y%m%d%H%M%S")} +0200"
 channel="{kanal}">
     <title>{titel}</title>
 </programme>
