@@ -15,7 +15,7 @@ for zeile in sender_liste:
     if len(teile) < 3:
         continue
 
-    kanal = teile[0]
+    kanal = teile[0] + "|" + teile [1]
     titel = teile[1]
     logo = teile[3] if len(teile) > 3 else""
 
