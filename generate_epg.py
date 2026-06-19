@@ -20,17 +20,7 @@ if len(teile) > 3:
 
 
 
-    alle_ids = [kanal] + alternative_ids
-
-
-
-for cid in alle_ids:
-    xml += f'''
-<channel id="{cid}">
-    <display-name>{cid}</display-name>
-    <icon src="{logo}"/>
-</channel>
-'''
+   
 
 # Programme erzeugen
 starttag = datetime.now()
