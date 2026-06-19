@@ -43,7 +43,7 @@ zeiten = [
 ]
 
 for zeile in sender_liste:
-    teile = [x.strip() for x in teile = [x.strip() for x in zeile.split(";", 3)]
+    teile = [x.strip() for x in zeile.split(";", 3)]
 
 kanal = teile[0]
 titel = teile[1]
@@ -54,14 +54,7 @@ alternative_ids = []
 if len(teile) > 3:
     alternative_ids = [x.strip() for x in teile[3].split(",")]
 
-kanal = teile[0]
-titel = teile[1]
-logo = teile[2]
 
-alternative_ids = []
-
-if len(teile) > 3:
-    alternative_ids = [x.strip() for x in teile[3].split(",")]
 
     for tag in range(365):
 
