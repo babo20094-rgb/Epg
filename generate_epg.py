@@ -13,16 +13,8 @@ for zeile in sender_liste:
     titel = teile[1]
     logo = teile[2]
 
-    alternative_ids = []
-
-    if len(teile) > 3:
-        alternative_ids = [x.strip() for x in teile[3].split(",")]
-
-    alle_ids = [kanal] + alternative_ids
-
-    for cid in alle_ids:
-        xml += f'''
-<channel id="{cid}">
+    xml += f'''
+<channel id="{kanal}">
     <display-name>{titel}</display-name>
     <icon src="{logo}"/>
 </channel>
@@ -44,11 +36,6 @@ for zeile in sender_liste:
     kanal = teile[0]
     titel = teile[1]
 
-    alternative_ids = []
-
-    if len(teile) > 3:
-        alternative_ids = [x.strip() for x in teile[3].split(",")]
-
     for tag in range(365):
 
         basis = starttag + timedelta(days=tag)
@@ -58,13 +45,10 @@ for zeile in sender_liste:
             start = basis.replace(hour=von, minute=0, second=0)
             stop = basis.replace(hour=0, minute=0, second=0) + timedelta(hours=bis)
 
-            alle_ids = [kanal] + alternative_ids
-
-            for cid in alle_ids:
-                xml += f'''
+            xml += f'''
 <programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
 stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
-channel="{cid}">
+channel="{kanal}">
     <title>{titel}</title>
 </programme>
 '''
