@@ -4,13 +4,13 @@ from datetime import datetime, timedelta
 with open("sender.txt", "r", encoding="utf-8") as f:
     sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
 
-# XML-Kopf
-xml = """<?xml version="1.0" encoding="UTF-8"?>
+xml = '''<?xml version="1.0" encoding="UTF-8"?>
 <tv>
-"""
+'''
 
-# Channels erzeugen
+# CHANNELS
 for zeile in sender_liste:
+
     teile = [x.strip() for x in zeile.split("|")]
 
     if len(teile) < 4:
@@ -23,14 +23,19 @@ for zeile in sender_liste:
 
     channel_id = f"{land}|{kanal}"
 
-    xml += f"""
+    xml += f'''
 <channel id="{channel_id}">
+    <display-name>{kanal}</display-name>
     <display-name>{titel}</display-name>
+    <display-name>{channel_id}</display-name>
+    <display-name>{kanal.lower()}</display-name>
+    <display-name>{kanal.replace(" ","")}</display-name>
+    <display-name lang="de">{kanal}</display-name>
     <icon src="{logo}"/>
 </channel>
-"""
+'''
 
-# Programme erzeugen
+# PROGRAMME
 starttag = datetime.now()
 
 zeiten = [
@@ -41,14 +46,25 @@ zeiten = [
 ]
 
 for tag in range(365):
+
     basis = starttag + timedelta(days=tag)
 
     for von, bis in zeiten:
 
-        start = basis.replace(hour=von, minute=0, second=0)
-        stop = basis.replace(hour=0, minute=0, second=0) + timedelta(hours=bis)
+        start = basis.replace(
+            hour=von,
+            minute=0,
+            second=0
+        )
+
+        stop = basis.replace(
+            hour=0,
+            minute=0,
+            second=0
+        ) + timedelta(hours=bis)
 
         for zeile in sender_liste:
+
             teile = [x.strip() for x in zeile.split("|")]
 
             if len(teile) < 4:
@@ -60,15 +76,17 @@ for tag in range(365):
 
             channel_id = f"{land}|{kanal}"
 
-            xml += f"""
-<programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
-stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
+            xml += f'''
+<programme start="{start.strftime("%Y%m%d%H%M%S")} +0200"
+stop="{stop.strftime("%Y%m%d%H%M%S")} +0200"
 channel="{channel_id}">
     <title>{titel}</title>
 </programme>
-"""
+'''
 
-xml += "\n</tv>"
+xml += '''
+</tv>
+'''
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
