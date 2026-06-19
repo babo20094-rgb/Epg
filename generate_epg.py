@@ -19,7 +19,7 @@ for zeile in sender_liste:
     titel = teile[1]
     logo = teile[3] if len(teile) > 3 else""
 
-    sender_daten.append((titel, titel))
+    sender_daten.append((kanal, titel))
 
     xml += f'''
 <channel id="{kanal}">
