@@ -1,31 +1,29 @@
 from datetime import datetime, timedelta
+import xml.etree.ElementTree as ET
 
-start = datetime.now()
+tree = ET.parse("Epg_365_Tage.xml")
+root = tree.getroot()
 
-xml = """<?xml version="1.0" encoding="UTF-8"?>
-<tv>
+today = datetime.now()
 
-<channel id="RS| MASA I MEDVJED">
-<display-name>RS| MASA I MEDVJED</display-name>
-<icon src="https://www.talentshow.hr/Brands/Masha/Logo.png"/>
-</channel>
+programmes = root.findall("programme")
 
-"""
+for i, programme in enumerate(programmes):
+    start = today + timedelta(days=i)
+    stop = start + timedelta(days=1)
 
-for i in range(365):
+    programme.set(
+        "start",
+        start.strftime("%Y%m%d000000 +0200")
+    )
 
-    a = start + timedelta(days=i)
-    b = a + timedelta(days=1)
+    programme.set(
+        "stop",
+        stop.strftime("%Y%m%d000000 +0200")
+    )
 
-    xml += f'''
-<programme start="{a.strftime("%Y%m%d")}000000 +0200"
-stop="{b.strftime("%Y%m%d")}000000 +0200"
-channel="RS| MASA I MEDVJED">
-<title>Masa i Medvjed Crtani Film</title>
-</programme>
-'''
-
-xml += "</tv>"
-
-with open("Epg_365_Tage.xml","w",encoding="utf-8") as f:
-    f.write(xml)
+tree.write(
+    "Epg_365_Tage.xml",
+    encoding="UTF-8",
+    xml_declaration=True
+)
