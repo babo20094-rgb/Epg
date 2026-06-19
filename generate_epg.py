@@ -1,20 +1,34 @@
 from datetime import datetime, timedelta
 
+# Senderliste laden
 with open("sender.txt", "r", encoding="utf-8") as f:
     sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
 
-xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
+# XML-Kopf
+xml = """<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+"""
 
 # Channels erzeugen
 for zeile in sender_liste:
-    kanal, titel, logo = [x.strip() for x in zeile.split("|", 2)]
+    teile = [x.strip() for x in zeile.split("|")]
 
-    xml += f'''
-<channel id="{kanal}">
-    <display-name>{kanal}</display-name>
+    if len(teile) < 4:
+        continue
+
+    land = teile[0]
+    kanal = teile[1]
+    titel = teile[2]
+    logo = teile[3]
+
+    channel_id = f"{land}|{kanal}"
+
+    xml += f"""
+<channel id="{channel_id}">
+    <display-name>{titel}</display-name>
     <icon src="{logo}"/>
 </channel>
-'''
+"""
 
 # Programme erzeugen
 starttag = datetime.now()
@@ -26,25 +40,33 @@ zeiten = [
     (18, 24)
 ]
 
-for zeile in sender_liste:
-    kanal, titel, logo = [x.strip() for x in zeile.split("|", 2)]
+for tag in range(365):
+    basis = starttag + timedelta(days=tag)
 
-    for tag in range(365):
+    for von, bis in zeiten:
 
-        basis = starttag + timedelta(days=tag)
+        start = basis.replace(hour=von, minute=0, second=0)
+        stop = basis.replace(hour=0, minute=0, second=0) + timedelta(hours=bis)
 
-        for von, bis in zeiten:
+        for zeile in sender_liste:
+            teile = [x.strip() for x in zeile.split("|")]
 
-            start = basis.replace(hour=von, minute=0, second=0)
-            stop = basis.replace(hour=0, minute=0, second=0) + timedelta(hours=bis)
+            if len(teile) < 4:
+                continue
 
-            xml += f'''
-<programme start="{start.strftime("%Y%m%d%H%M%S")} +0200"
-stop="{stop.strftime("%Y%m%d%H%M%S")} +0200"
-channel="{kanal}">
+            land = teile[0]
+            kanal = teile[1]
+            titel = teile[2]
+
+            channel_id = f"{land}|{kanal}"
+
+            xml += f"""
+<programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
+stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
+channel="{channel_id}">
     <title>{titel}</title>
 </programme>
-'''
+"""
 
 xml += "\n</tv>"
 
