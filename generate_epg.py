@@ -13,6 +13,7 @@ for zeile in sender_liste:
 
     teile = [x.strip() for x in zeile.split("|")]
 
+    # mindestens Land + Sendername + Beschreibung
     if len(teile) < 3:
         continue
 
@@ -28,14 +29,14 @@ for zeile in sender_liste:
 
     sender_daten.append((kanal, sendername, beschreibung))
 
-    xml += f'''
+    xml += f"""
     <channel id="{kanal}">
         <display-name>{sendername}</display-name>
         <icon src="{logo}"/>
     </channel>
-'''
+"""
 
-# Programme für 365 Tage erzeugen
+# 365 Tage erzeugen
 starttag = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
 for tag in range(365):
@@ -48,12 +49,12 @@ for tag in range(365):
 
     for kanal, sendername, beschreibung in sender_daten:
 
-        xml += f'''
+        xml += f"""
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
         <title>{beschreibung}</title>
         <desc>{beschreibung}</desc>
     </programme>
-'''
+"""
 
 xml += "\n</tv>"
 
