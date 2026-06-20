@@ -73,6 +73,24 @@ DE|ACTION 3 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/9
 DE|ACTION 4 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
 DE|POLICIER 1 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
 DE|POLICIER 2 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
-DE| HORROR 1 4K| Horror Filme aus dem Jahr 2022|https://www.shutterstock.com/image-vector/horror-movie-logo-concept-red-260nw-1178034781.jpg
-DE| HORROR 2 4K| Horror Filme aus dem Jahr 2021|https://www.shutterstock.com/image-vector/horror-movie-logo-concept-red-260nw-1178034781.jpg
-DE| HORROR 3 4K| Horror Filme aus dem Jahr 2021|https://www.shutterstock.com/image-vector/horror-movie-logo-concept-red-260nw-1178034781.jpg
+DE| HORROR 1 4K| Horror Filme aus dem Jahr 2022|https://https://i.imgur.com/9YkAId0.png
+DE| HORROR 2 4K| Horror Filme aus dem Jahr 2021|https://https://i.imgur.com/9YkAId0.png
+DE| HORROR 3 4K| Horror Filme aus dem Jahr 2021|https://i.imgur.com/9YkAId0.png
+DE|COMEDY 1 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
+DE|COMEDY 2 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
+DE|COMEDY 3 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
+DE|DOCU 1 4K|Dokumentar Filme von Discovery, viele interessante Themen|https://i.imgur.com/wxAVySv.jpeg
+DE|DOCU 2 4K|Dokumentar Filme von Discovery, viele interessante Themen|https://i.imgur.com/wxAVySv.jpeg
+DE|DOCU 3 4K|Dokumentar Filme von Discovery, viele interessante Themen|https://i.imgur.com/wxAVySv.jpeg
+DE|DOCU 4 4K|Dokumentar Filme von Discovery, viele interessante Themen|https://i.imgur.com/wxAVySv.jpeg
+DE|KIDS 1 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 2 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 3 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 4 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 5 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 6 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 7 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 8 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 9 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 10 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
+DE|KIDS 11 4K|Diverse Zeichentrickfilme für Alt und Jung|https://i.imgur.com/XKIUwqp.jpeg
