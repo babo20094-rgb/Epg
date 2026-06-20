@@ -10,52 +10,43 @@ sender_daten = []
 
 # Sender erzeugen
 for zeile in sender_liste:
+
     teile = [x.strip() for x in zeile.split("|")]
-
-    # Altes Format:
-    # DE|NETFLIX 1 4K|Beschreibung|Logo
-
-    # Neues Format:
-    # DE|NETFLIX 1 4K|Beschreibung
 
     if len(teile) < 3:
         continue
 
-    kanal = teile[0] + "|" + teile[1]
-    titel = teile[1]
+    land = teile[0]
+    sendername = teile[1]
     beschreibung = teile[2]
 
     logo = ""
     if len(teile) >= 4:
         logo = teile[3]
 
-    sender_daten.append((kanal, titel, beschreibung))
+    kanal = f"{land}|{sendername}"
+
+    sender_daten.append((kanal, sendername, beschreibung))
 
     xml += f'''
     <channel id="{kanal}">
-        <display-name>{titel}</display-name>
+        <display-name>{sendername}</display-name>
         <icon src="{logo}"/>
     </channel>
 '''
 
-# Programme erzeugen
-starttag = datetime.now()
+# Programme für 365 Tage erzeugen
+starttag = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
 for tag in range(365):
 
-    start = (starttag + timedelta(days=tag)).replace(
-        hour=0,
-        minute=0,
-        second=0,
-        microsecond=0
-    )
-
+    start = starttag + timedelta(days=tag)
     ende = start + timedelta(days=1)
 
-    start_str = start.strftime("%Y%m%d%H%M%S +0200")
-    ende_str = ende.strftime("%Y%m%d%H%M%S +0200")
+    start_str = start.strftime("%Y%m%d%H%M%S +0000")
+    ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-    for kanal, titel, beschreibung in sender_daten:
+    for kanal, sendername, beschreibung in sender_daten:
 
         xml += f'''
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
