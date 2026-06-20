@@ -54,10 +54,10 @@ DE|SKY GO FILME 47 FHD|Sky Filme 47|https://championstream.de/wp-content/uploads
 DE|SKY GO FILME 48 FHD|Sky Filme 48|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 49 FHD|Sky Filme 49|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 50 FHD|Sky Filme 50|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
-DE| FILME 2022 1 4k|https://i.imgur.com/U4a79nh.png|Filme aus 2022 Sender 1
-DE| FILME 2022 2 4k||https://i.imgur.com/U4a79nh.png|Filme aus 2022 Sender 2
-DE| FILME 2022 3 4k||https://i.imgur.com/U4a79nh.png|Filme aus 2022 Sender 3
-DE| FILME 2022 4 4k||https://i.imgur.com/U4a79nh.png|Filme aus 2022 Sender 4
+DE| FILME 2022 1 4k||Filme aus 2022 Sender 1|https://i.imgur.com/U4a79nh.png
+DE| FILME 2022 2 4k||Filme aus 2022 Sender 2|https://i.imgur.com/U4a79nh.png
+DE| FILME 2022 3 4k||Filme aus 2022 Sender 3|https://i.imgur.com/U4a79nh.png
+DE| FILME 2022 4 4k||Filme aus 2022 Sender 4|https://i.imgur.com/U4a79nh.png
 DE|NETFLIX 1 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/loXJ8zf.png
 DE|NETFLIX 2 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/TuyW97j.png
 DE|NETFLIX 3 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/zKs1XKw.png
@@ -73,8 +73,8 @@ DE|ACTION 3 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/9
 DE|ACTION 4 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
 DE|POLICIER 1 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
 DE|POLICIER 2 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
-DE| HORROR 1 4K| Horror Filme aus dem Jahr 2022|https://https://i.imgur.com/9YkAId0.png
-DE| HORROR 2 4K| Horror Filme aus dem Jahr 2021|https://https://i.imgur.com/9YkAId0.png
+DE| HORROR 1 4K| Horror Filme aus dem Jahr 2022|https://i.imgur.com/9YkAId0.png
+DE| HORROR 2 4K| Horror Filme aus dem Jahr 2021|https://i.imgur.com/9YkAId0.png
 DE| HORROR 3 4K| Horror Filme aus dem Jahr 2021|https://i.imgur.com/9YkAId0.png
 DE|COMEDY 1 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
 DE|COMEDY 2 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
