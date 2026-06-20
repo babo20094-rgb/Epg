@@ -54,3 +54,7 @@ DE|SKY GO FILME 47 FHD|Sky Filme 47|https://championstream.de/wp-content/uploads
 DE|SKY GO FILME 48 FHD|Sky Filme 48|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 49 FHD|Sky Filme 49|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 50 FHD|Sky Filme 50|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
+DE| FILME 2022 1 4k|Filme aus 2022 Sender 1|https://i.imgur.com/U4a79nh.png
+DE| FILME 2022 2 4k|Filme aus 2022 Sender 2|https://i.imgur.com/U4a79nh.png
+DE| FILME 2022 3 4k|Filme aus 2022 Sender 3|https://i.imgur.com/U4a79nh.png
+DE| FILME 2022 4 4k|Filme aus 2022 Sender 4|https://i.imgur.com/U4a79nh.png
