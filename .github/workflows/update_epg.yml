@@ -16,7 +16,9 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: python generate_epg.py
+      - run: |
+          pip install -r requirements.txt
+          python generate_epg.pyy
 
       - name: Commit changes
         run: |
