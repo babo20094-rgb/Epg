@@ -100,6 +100,7 @@ DE|PLEX BOX-OFFICE 3| Box-Office Filme|https://e7.pngegg.com/pngimages/111/900/p
 DE|PLEX CINEMA|Plex-Cinema Filme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX CINESTAR|Cinestar-Filme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX FILME|Plex-Filme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
+DE|PLEX IMAX|Plex-Imax Filme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX KINDER|Plex Kinder Zeichentrickfilme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX KINDER+|Kinder+ Zeichentrickfilme ( Kinder PLus )|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX MTV|Plex-MTV Diverse Filme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
