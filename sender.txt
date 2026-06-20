@@ -64,11 +64,15 @@ DE|NETFLIX 3 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/zKs1XKw.png
 DE|NETFLIX 4 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/lFEqiz4.png
 DE|NETFLIX 5 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/wqCksMG.png
 DE|NETFLIX 6 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/IltFeVw.png
-DE|NETFLIX 7 4K| Netflix Filme aus dem Jahr 2021|
+DE|NETFLIX 7 4K| Netflix Filme aus dem Jahr 2021|https://i.imgur.com/jQRCf3X.png
+DE|PRIME 1 4K| Prime Video Filme aus dem Jahr 2021|https://static.vecteezy.com/system/resources/thumbnails/019/766/188/small/prime-video-logo-prime-video-icon-transparent-logo-free-png.png
+DE|PRIME 2 4K| Prime Video Filme aus dem Jahr 2021|https://static.vecteezy.com/system/resources/thumbnails/019/766/188/small/prime-video-logo-prime-video-icon-transparent-logo-free-png.png
 DE|ACTION 1 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
 DE|ACTION 2 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
 DE|ACTION 3 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
 DE|ACTION 4 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
-DE|POLICIER 1 4K| Crime Filme aus dem Jahr 2021|
-DE|POLICIER 2 4K| Crime Filme aus dem Jahr 2021|
-
+DE|POLICIER 1 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
+DE|POLICIER 2 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
+DE| HORROR 1 4K| Horror Filme aus dem Jahr 2022|https://www.shutterstock.com/image-vector/horror-movie-logo-concept-red-260nw-1178034781.jpg
+DE| HORROR 2 4K| Horror Filme aus dem Jahr 2021|https://www.shutterstock.com/image-vector/horror-movie-logo-concept-red-260nw-1178034781.jpg
+DE| HORROR 3 4K| Horror Filme aus dem Jahr 2021|https://www.shutterstock.com/image-vector/horror-movie-logo-concept-red-260nw-1178034781.jpg
