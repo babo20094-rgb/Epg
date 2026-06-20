@@ -1,9 +1,9 @@
-DE| SKY GO DETEKTIV CONAN 1 FHD | Sky Go-Detektiv Conan 1 2002 | https://bilder.fernsehserien.de/sendung/hr2/detektiv-conan_626689.png
-DE| SKY GO DETEKTIV CONAN 2 FHD | Sky Go-Detektiv Conan 2 2002 | https://bilder.fernsehserien.de/sendung/hr2/detektiv-conan_626689.png
-DE| SKY GO KINDER 1 FHD | Sky Kinder-Sendungen 1 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
-DE| SKY GO KINDER 2 FHD | Sky Kinder-Sendungen 2 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
-DE| SKY GO KINDER 3 FHD | Sky Kinder-Sendungen 3 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
-DE| SKY GO KINDER 4 FHD | Sky Kinder-Sendungen 4 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
+DE|SKY GO DETEKTIV CONAN 1 FHD | Sky Go-Detektiv Conan 1 2002 | https://bilder.fernsehserien.de/sendung/hr2/detektiv-conan_626689.png
+DE|SKY GO DETEKTIV CONAN 2 FHD | Sky Go-Detektiv Conan 2 2002 | https://bilder.fernsehserien.de/sendung/hr2/detektiv-conan_626689.png
+DE|SKY GO KINDER 1 FHD | Sky Kinder-Sendungen 1 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
+DE|SKY GO KINDER 2 FHD | Sky Kinder-Sendungen 2 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
+DE|SKY GO KINDER 3 FHD | Sky Kinder-Sendungen 3 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
+DE|SKY GO KINDER 4 FHD | Sky Kinder-Sendungen 4 | https://cache.pressmailing.net/content/e56549da-8600-4ed0-ae44-86afccc04759/Sky%20Kids%20App%20Logo.jpg
 DE|SKY GO FILME 1 FHD|Sky Filme 1|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 2 FHD|Sky Filme 2|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 3 FHD|Sky Filme 3|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
@@ -73,9 +73,9 @@ DE|ACTION 3 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/9
 DE|ACTION 4 4K| Action Filme aus dem Jahr 2021|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
 DE|POLICIER 1 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
 DE|POLICIER 2 4K| Crime Filme aus dem Jahr 2021|https://i.imgur.com/BnKYJnk.png
-DE| HORROR 1 4K| Horror Filme aus dem Jahr 2022|https://i.imgur.com/9YkAId0.png
-DE| HORROR 2 4K| Horror Filme aus dem Jahr 2021|https://i.imgur.com/9YkAId0.png
-DE| HORROR 3 4K| Horror Filme aus dem Jahr 2021|https://i.imgur.com/9YkAId0.png
+DE|HORROR 1 4K| Horror Filme aus dem Jahr 2022|https://i.imgur.com/9YkAId0.png
+DE|HORROR 2 4K| Horror Filme aus dem Jahr 2021|https://i.imgur.com/9YkAId0.png
+DE|HORROR 3 4K| Horror Filme aus dem Jahr 2021|https://i.imgur.com/9YkAId0.png
 DE|COMEDY 1 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
 DE|COMEDY 2 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
 DE|COMEDY 3 4K|Comedy Filme aus dem Jahr 2021|https://i.imgur.com/MpVD3fi.png
