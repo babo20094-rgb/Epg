@@ -12,32 +12,31 @@ sender_daten = []
 for zeile in sender_liste:
     teile = [x.strip() for x in zeile.split("|")]
 
-    if len(teile) < 4:
+    # Altes Format:
+    # DE|NETFLIX 1 4K|Beschreibung|Logo
+
+    # Neues Format:
+    # DE|NETFLIX 1 4K|Beschreibung
+
+    if len(teile) < 3:
         continue
 
-    land = teile[0]
+    kanal = teile[0] + "|" + teile[1]
     titel = teile[1]
+    beschreibung = teile[2]
 
-    # Unterstützt beide Formate:
-    # Alt: DE|Sender|Beschreibung|Logo
-    # Neu: DE|Sender|Logo|Beschreibung
-    if teile[2].startswith("http"):
-        logo = teile[2]
-        beschreibung = teile[3]
-    else:
-        beschreibung = teile[2]
+    logo = ""
+    if len(teile) >= 4:
         logo = teile[3]
 
-    kanal = f"{land}|{titel}"
-
-    sender_daten.append((kanal, titel, logo, beschreibung))
+    sender_daten.append((kanal, titel, beschreibung))
 
     xml += f'''
     <channel id="{kanal}">
         <display-name>{titel}</display-name>
         <icon src="{logo}"/>
     </channel>
-    '''
+'''
 
 # Programme erzeugen
 starttag = datetime.now()
@@ -51,15 +50,16 @@ for tag in range(365):
         microsecond=0
     )
 
-    stop = start + timedelta(days=1)
+    ende = start + timedelta(days=1)
 
-    for kanal, titel, logo, beschreibung in sender_daten:
+    start_str = start.strftime("%Y%m%d%H%M%S +0200")
+    ende_str = ende.strftime("%Y%m%d%H%M%S +0200")
+
+    for kanal, titel, beschreibung in sender_daten:
 
         xml += f'''
-    <programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
-               stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
-               channel="{kanal}">
-        <title>{titel}</title>
+    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+        <title>{beschreibung}</title>
         <desc>{beschreibung}</desc>
     </programme>
 '''
@@ -68,3 +68,5 @@ xml += "\n</tv>"
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
+
+print("EPG-Datei erfolgreich erstellt.")
