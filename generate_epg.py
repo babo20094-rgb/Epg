@@ -12,14 +12,17 @@ sender_daten = []
 for zeile in sender_liste:
     teile = [x.strip() for x in zeile.split("|")]
 
-    if len(teile) < 3:
+    # Erwartet:
+    # DE|SKY GO FILME 1 FHD|https://logo.png|Beschreibung
+    if len(teile) < 4:
         continue
 
-    kanal = teile[0] + "|" + teile [1]
+    kanal = teile[0] + "|" + teile[1]
     titel = teile[1]
-    logo = teile[3] if len(teile) > 3 else""
+    logo = teile[2]
+    beschreibung = teile[3]
 
-    sender_daten.append((kanal, titel))
+    sender_daten.append((kanal, titel, beschreibung))
 
     xml += f'''
 <channel id="{kanal}">
@@ -36,18 +39,20 @@ for tag in range(365):
     start = (starttag + timedelta(days=tag)).replace(
         hour=0,
         minute=0,
-        second=0
+        second=0,
+        microsecond=0
     )
 
     stop = start + timedelta(days=1)
 
-    for kanal, titel in sender_daten:
+    for kanal, titel, beschreibung in sender_daten:
 
         xml += f'''
 <programme start="{start.strftime('%Y%m%d%H%M%S')} +0200"
            stop="{stop.strftime('%Y%m%d%H%M%S')} +0200"
            channel="{kanal}">
     <title>{titel}</title>
+    <desc>{beschreibung}</desc>
 </programme>
 '''
 
