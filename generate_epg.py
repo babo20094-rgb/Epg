@@ -71,7 +71,7 @@ try:
     if response.status_code == 200:
 
         daten = response.json()
-
+        print(daten)
         xml += """
     <channel id="dynsport">
         <display-name>Dyn Sport</display-name>
