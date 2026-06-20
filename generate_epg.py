@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import requests
 
 # sender.txt einlesen
 with open("sender.txt", "r", encoding="utf-8") as f:
@@ -55,6 +56,59 @@ for tag in range(365):
         <desc>{beschreibung}</desc>
     </programme>
 """
+
+# ======================
+# Dyn Sport hinzufügen
+# ======================
+
+try:
+
+    response = requests.get(
+        "https://streaming.contentdesk.sport/api/public/live-productions",
+        timeout=30
+    )
+
+    if response.status_code == 200:
+
+        daten = response.json()
+
+        xml += """
+    <channel id="dynsport">
+        <display-name>Dyn Sport</display-name>
+    </channel>
+"""
+
+        for eintrag in daten:
+
+            titel = eintrag.get("title", "Dyn Sport")
+
+            start = eintrag.get("startsAt")
+            ende = eintrag.get("endsAt")
+
+            if not start or not ende:
+                continue
+
+            startzeit = datetime.fromisoformat(
+                start.replace("Z", "+00:00")
+            ).strftime("%Y%m%d%H%M%S +0000")
+
+            endzeit = datetime.fromisoformat(
+                ende.replace("Z", "+00:00")
+            ).strftime("%Y%m%d%H%M%S +0000")
+
+            beschreibung = eintrag.get("description", titel)
+
+            xml += f"""
+    <programme start="{startzeit}"
+               stop="{endzeit}"
+               channel="dynsport">
+        <title>{titel}</title>
+        <desc>{beschreibung}</desc>
+    </programme>
+"""
+
+except Exception as e:
+    print("Dyn Sport Fehler:", e)
 
 xml += "\n</tv>"
 
