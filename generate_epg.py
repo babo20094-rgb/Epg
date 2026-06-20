@@ -71,7 +71,7 @@ try:
     if response.status_code == 200:
 
         daten = response.json()
-        print(daten)
+        
         xml += """
     <channel id="dynsport">
         <display-name>Dyn Sport</display-name>
@@ -82,8 +82,8 @@ try:
 
             titel = eintrag.get("title", "Dyn Sport")
 
-            start = eintrag.get("startsAt")
-            ende = eintrag.get("endsAt")
+            start = eintrag.get("scheduledAt")
+            ende = eintrag.get("scheduledEnd")
 
             if not start or not ende:
                 continue
