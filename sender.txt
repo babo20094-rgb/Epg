@@ -105,3 +105,7 @@ DE|PLEX KINDER|Plex Kinder Zeichentrickfilme|https://e7.pngegg.com/pngimages/111
 DE|PLEX KINDER+|Kinder+ Zeichentrickfilme ( Kinder PLus )|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX MTV|Plex-MTV Diverse Filme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX ORIGINAL|Plex-Original Diverse Filme|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
+BA|HAYAT HD
+BA|HAYAT PLUS
+BA|HAYAT MUSIC
+BA|HAYAT FOLK
