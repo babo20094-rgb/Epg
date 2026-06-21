@@ -1,3 +1,4 @@
+```python
 from datetime import datetime, timedelta
 import requests
 
@@ -5,11 +6,12 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
 
+# --------------------------------------------------
 # sender.txt einlesen
+# --------------------------------------------------
 with open("sender.txt", "r", encoding="utf-8") as f:
     sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
 
-# Normale Sender anlegen
 for zeile in sender_liste:
 
     teile = [x.strip() for x in zeile.split("|")]
@@ -36,16 +38,28 @@ for zeile in sender_liste:
     </channel>
 """
 
-# 20 Dyn-Kanäle hinzufügen
+# --------------------------------------------------
+# DYN PPV 1-20 anlegen
+# --------------------------------------------------
+
+dyn_logo = "https://upload.wikimedia.org/wikipedia/commons/7/72/Dyn_Logo.png"
+
 for i in range(1, 21):
+
+    kanal = f"DE| DYN PPV {i} HD"
+
     xml += f"""
-    <channel id="DE| DYN PPV {i} HD">
-        <display-name>DE| DYN PPV {i} HD</display-name>
+    <channel id="{kanal}">
+        <display-name>{kanal}</display-name>
+        <icon src="{dyn_logo}"/>
     </channel>
 """
 
-# Dummy-EPG für alle normalen Sender
-starttag = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+# --------------------------------------------------
+# Dummy EPG für normale Sender
+# --------------------------------------------------
+
+starttag = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
 
 for tag in range(365):
 
@@ -64,7 +78,10 @@ for tag in range(365):
     </programme>
 """
 
-# Dyn Sport abrufen
+# --------------------------------------------------
+# DYN LIVE EVENTS
+# --------------------------------------------------
+
 try:
 
     response = requests.get(
@@ -113,7 +130,30 @@ try:
                 kanal_nummer = 1
 
 except Exception as e:
-    print("Dyn Sport Fehler:", e)
+    print("Dyn Fehler:", e)
+
+# --------------------------------------------------
+# Leerlauf für alle 20 Dyn-Kanäle
+# --------------------------------------------------
+
+jetzt = datetime.utcnow()
+ende_dummy = jetzt + timedelta(days=30)
+
+start_str = jetzt.strftime("%Y%m%d%H%M%S +0000")
+ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
+
+for i in range(1, 21):
+
+    kanal = f"DE| DYN PPV {i} HD"
+
+    xml += f"""
+    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+        <title>Im Moment keine Live Events, bleib dran 🔜</title>
+        <desc>Im Moment keine Live Events, bleib dran 🔜</desc>
+    </programme>
+"""
+
+# --------------------------------------------------
 
 xml += "\n</tv>"
 
@@ -121,3 +161,4 @@ with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
 
 print("EPG-Datei erfolgreich erstellt.")
+```
