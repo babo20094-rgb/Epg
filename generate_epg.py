@@ -1,4 +1,3 @@
-```python
 from datetime import datetime, timedelta
 import requests
 
@@ -161,4 +160,3 @@ with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
 
 print("EPG-Datei erfolgreich erstellt.")
-```
