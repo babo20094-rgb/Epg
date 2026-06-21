@@ -8,6 +8,7 @@ sender_daten = []
 # --------------------------------------------------
 # sender.txt einlesen
 # --------------------------------------------------
+
 with open("sender.txt", "r", encoding="utf-8") as f:
     sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
 
@@ -38,10 +39,10 @@ for zeile in sender_liste:
 """
 
 # --------------------------------------------------
-# DYN PPV 1-20 anlegen
+# DYN PPV 1-20
 # --------------------------------------------------
 
-dyn_logo = "https://upload.wikimedia.org/wikipedia/commons/7/72/Dyn_Logo.png"
+dyn_logo = "https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"
 
 for i in range(1, 21):
 
@@ -55,10 +56,15 @@ for i in range(1, 21):
 """
 
 # --------------------------------------------------
-# Dummy EPG für normale Sender
+# Standard-EPG für normale Sender
 # --------------------------------------------------
 
-starttag = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+starttag = datetime.utcnow().replace(
+    hour=0,
+    minute=0,
+    second=0,
+    microsecond=0
+)
 
 for tag in range(365):
 
@@ -132,23 +138,27 @@ except Exception as e:
     print("Dyn Fehler:", e)
 
 # --------------------------------------------------
-# Leerlauf für alle 20 Dyn-Kanäle
+# Leerzeiten füllen
 # --------------------------------------------------
 
 jetzt = datetime.utcnow()
-ende_dummy = jetzt + timedelta(days=30)
-
-start_str = jetzt.strftime("%Y%m%d%H%M%S +0000")
-ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
 
 for i in range(1, 21):
 
     kanal = f"DE| DYN PPV {i} HD"
 
-    xml += f"""
+    for stunde in range(24 * 30):
+
+        start_dummy = jetzt + timedelta(hours=stunde)
+        ende_dummy = start_dummy + timedelta(hours=1)
+
+        start_str = start_dummy.strftime("%Y%m%d%H%M%S +0000")
+        ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
+
+        xml += f"""
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
-        <title>Im Moment keine Live Events, bleib dran 🔜</title>
-        <desc>Im Moment keine Live Events, bleib dran 🔜</desc>
+        <title>Im Moment keine Live Events, bleib dran</title>
+        <desc>Im Moment keine Live Events, bleib dran</desc>
     </programme>
 """
 
