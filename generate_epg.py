@@ -1,20 +1,19 @@
 from datetime import datetime, timedelta
 import requests
 
-# sender.txt einlesen
-with open("sender.txt", "r", encoding="utf-8") as f:
-    sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
-
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
 
-# Sender erzeugen
+# sender.txt einlesen
+with open("sender.txt", "r", encoding="utf-8") as f:
+    sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
+
+# Normale Sender anlegen
 for zeile in sender_liste:
 
     teile = [x.strip() for x in zeile.split("|")]
 
-    # mindestens Land + Sendername + Beschreibung
     if len(teile) < 3:
         continue
 
@@ -28,7 +27,7 @@ for zeile in sender_liste:
 
     kanal = f"{land}|{sendername}"
 
-    sender_daten.append((kanal, sendername, beschreibung))
+    sender_daten.append((kanal, beschreibung))
 
     xml += f"""
     <channel id="{kanal}">
@@ -37,7 +36,15 @@ for zeile in sender_liste:
     </channel>
 """
 
-# 365 Tage erzeugen
+# 20 Dyn-Kanäle hinzufügen
+for i in range(1, 21):
+    xml += f"""
+    <channel id="DE| DYN PPV {i} HD">
+        <display-name>DE| DYN PPV {i} HD</display-name>
+    </channel>
+"""
+
+# Dummy-EPG für alle normalen Sender
 starttag = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
 for tag in range(365):
@@ -48,7 +55,7 @@ for tag in range(365):
     start_str = start.strftime("%Y%m%d%H%M%S +0000")
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-    for kanal, sendername, beschreibung in sender_daten:
+    for kanal, beschreibung in sender_daten:
 
         xml += f"""
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
@@ -57,10 +64,7 @@ for tag in range(365):
     </programme>
 """
 
-# ======================
-# Dyn Sport hinzufügen
-# ======================
-
+# Dyn Sport abrufen
 try:
 
     response = requests.get(
@@ -71,12 +75,8 @@ try:
     if response.status_code == 200:
 
         daten = response.json()
-        
-        xml += """
-    <channel id="dynsport">
-        <display-name>Dyn Sport</display-name>
-    </channel>
-"""
+
+        kanal_nummer = 1
 
         for eintrag in daten:
 
@@ -96,16 +96,21 @@ try:
                 ende.replace("Z", "+00:00")
             ).strftime("%Y%m%d%H%M%S +0000")
 
+            kanal = f"DE| DYN PPV {kanal_nummer} HD"
+
             beschreibung = eintrag.get("description", titel)
 
             xml += f"""
-    <programme start="{startzeit}"
-               stop="{endzeit}"
-               channel="dynsport">
+    <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}">
         <title>{titel}</title>
         <desc>{beschreibung}</desc>
     </programme>
 """
+
+            kanal_nummer += 1
+
+            if kanal_nummer > 20:
+                kanal_nummer = 1
 
 except Exception as e:
     print("Dyn Sport Fehler:", e)
