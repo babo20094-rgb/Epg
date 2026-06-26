@@ -1,9 +1,53 @@
 from datetime import datetime, timedelta
 import requests
+import xml.etree.ElementTree as ET
+import re
 
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
+# --------------------------------------------------
+# TVPROFIL
+# --------------------------------------------------
+
+def tvprofil_id(sender):
+
+    name = sender.upper()
+
+    entfernen = [
+        "BA|",
+        "DE|",
+        "HD",
+        "FHD",
+        "UHD",
+        "VIP",
+        "RAW"
+    ]
+
+    for e in entfernen:
+        name = name.replace(e, "")
+
+    name = name.strip()
+
+    bekannte = {
+        "HERCEG TV": "herceg-tv.ba",
+        "HAYAT": "hayat-tv.ba",
+        "BN2 TV": "bn-tv.ba",
+        "AL JAZEERA BALKANS": "al-jazeera-balkans.ba",
+        "RTV SLON": "rtv-slon.ba",
+        "RTV USK": "rtv-usk.ba"
+    }
+
+    if name in bekannte:
+        return bekannte[name]
+
+    name = re.sub(r"\s+", "-", name)
+    name = name.lower()
+
+    if not name.endswith(".ba"):
+        name += ".ba"
+
+    return name
 
 # --------------------------------------------------
 # sender.txt einlesen
