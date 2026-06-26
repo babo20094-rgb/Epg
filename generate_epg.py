@@ -13,11 +13,10 @@ with open("sender.txt", "r", encoding="utf-8") as f:
     sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
 
 for zeile in sender_liste:
-
     teile = [x.strip() for x in zeile.split("|")]
 
-if len(teile) < 2:
-    continue
+    if len(teile) < 2:
+        continue
 
 land = teile[0]
 sendername = teile[1]
