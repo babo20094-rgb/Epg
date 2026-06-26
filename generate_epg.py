@@ -117,26 +117,18 @@ for tag in range(365):
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
     for kanal, beschreibung, epg_url in sender_daten:
-
-    if epg_url:
-
-        hole_externes_epg(epg_url)
-
-    xml += f"""
-    <programme start="{start_str}"
-               stop="{ende_str}"
-               channel="{kanal}">
-        <title>{beschreibung}</title>
-        <desc>{beschreibung}</desc>
-    </programme>
-"""
+    
+        if epg_url:
         
-    xml += f"""
-    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+            hole_externes_epg(epg_url)
+
+        xml += f"""
+        <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
         <title>{beschreibung}</title>
         <desc>{beschreibung}</desc>
     </programme>
-"""
+    """
+
 
 # --------------------------------------------------
 # DYN LIVE EVENTS
