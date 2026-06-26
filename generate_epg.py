@@ -1,54 +1,27 @@
 from datetime import datetime, timedelta
 import requests
 from bs4 import BeautifulSoup
-def lade_ntv_arena():
+def hole_externes_epg(epg_url):
 
-    tage = [
-        "ponedjeljak",
-        "utorak",
-        "srijeda",
-        "cetvrtak",
-        "petak",
-        "subota",
-        "nedjelja"
-    ]
+    try:
 
-    programme = []
+        response = requests.get(
+            epg_url,
+            timeout=20,
+            headers={
+                "User-Agent":
+                "Mozilla/5.0"
+            }
+        )
 
-    for tag in tage:
-        try:
-            url = f"https://ntvarena.com/{tag}/"
+        if response.status_code == 200:
+            print(f"EPG geladen: {epg_url}")
+            return True
 
-            response = requests.get(
-                url,
-                timeout=15,
-                headers={
-                    "User-Agent":
-                    "Mozilla/5.0"
-                }
-            )
+    except Exception as e:
+        print(f"EPG Fehler: {e}")
 
-            if response.status_code != 200:
-                continue
-
-            soup = BeautifulSoup(
-                response.text,
-                "html.parser"
-            )
-
-            # HIER kommt später das eigentliche
-            # Auslesen des Programms
-
-            print(
-                f"NTV Arena geladen: {tag}"
-            )
-
-        except Exception as e:
-            print(
-                f"NTV Arena Fehler: {e}"
-            )
-
-    return programme
+    return False
 
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
@@ -144,15 +117,20 @@ for tag in range(365):
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
     for kanal, beschreibung, epg_url in sender_daten:
-        if epg_url == "ntvarena":
 
-            print(
-                f"NTV Arena EPG: {kanal}"
-            )
+    if epg_url:
 
-            programme = lade_ntv_arena()
+        hole_externes_epg(epg_url)
 
-            continue
+    xml += f"""
+    <programme start="{start_str}"
+               stop="{ende_str}"
+               channel="{kanal}">
+        <title>{beschreibung}</title>
+        <desc>{beschreibung}</desc>
+    </programme>
+"""
+        
     xml += f"""
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
         <title>{beschreibung}</title>
