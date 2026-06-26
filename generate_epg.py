@@ -233,8 +233,8 @@ try:
             f"{len(programme)}"
         )
         for i in range(10):
-    print(
-        "TVPROFIL CHANNEL:",
+            print(
+                "TVPROFIL CHANNEL:",
         programme[i].get("channel")
     )
 
