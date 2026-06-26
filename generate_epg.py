@@ -146,14 +146,14 @@ for tag in range(365):
     for kanal, beschreibung, epg_url in sender_daten:
         if epg_url == "ntvarena":
 
-    print(
-        f"NTV Arena EPG: {kanal}"
-    )
+            print(
+                f"NTV Arena EPG: {kanal}"
+            )
 
-    programme = lade_ntv_arena()
+            programme = lade_ntv_arena()
 
-    continue
-        xml += f"""
+            continue
+    xml += f"""
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
         <title>{beschreibung}</title>
         <desc>{beschreibung}</desc>
