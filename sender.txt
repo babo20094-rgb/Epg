@@ -133,4 +133,4 @@ DE|THEMEN SENDER 8 RAW|RTL-Shine|https://upload.wikimedia.org/wikipedia/commons/
 BA|HERCEG TV VIP RAW|Programski sadržaj se bazira na informativnom, kulturnom i zabavnom programu sa fokusom na lokalne vijesti iz Trebinja, Bileće, Gacka, Nevesinja, Ljubinja i Berkovića|https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Logo_of_TV_Herceg-Bosne.png/500px-Logo_of_TV_Herceg-Bosne.png
 BA|O KANAL VIP RAW|Informativni program: Dnevne vijesti, intervjui i političke emisije.Zabavni program: Talk show formati i lifestyle sadržaji.Dječiji program: Animirani filmovi i crtani sadržaji u jutarnjim terminima.Filmski i serijski program: Strani i regionalni igrani sadržaji|https://tvprofil.com/img/kanali-logo/O_Kanal_BA_logo.png?1736330550
 BA|PROTV VIP RAW|Aktualne političke teme, pregledi događaja i izvještaji,Prijenosi hodočašća, crkvenih obljetnica (npr. obljetnice župa) i vjerskih manifestacija,Snimke i izravni prijenosi koncerata, smotri folklora i glazbenih večeri|https://tvprofil.com/img/kanali-logo/ProTV_BH_BA_logo_v2.png?1737021159
-BA|NTV ARENA VIP RAW|
+BA|NTV ARENA VIP RAW|||ntvarena
