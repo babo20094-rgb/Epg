@@ -1,27 +1,5 @@
 from datetime import datetime, timedelta
 import requests
-from bs4 import BeautifulSoup
-def hole_externes_epg(epg_url):
-
-    try:
-
-        response = requests.get(
-            epg_url,
-            timeout=20,
-            headers={
-                "User-Agent":
-                "Mozilla/5.0"
-            }
-        )
-
-        if response.status_code == 200:
-            print(f"EPG geladen: {epg_url}")
-            return True
-
-    except Exception as e:
-        print(f"EPG Fehler: {e}")
-
-    return False
 
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
@@ -35,43 +13,23 @@ with open("sender.txt", "r", encoding="utf-8") as f:
     sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
 
 for zeile in sender_liste:
+
     teile = [x.strip() for x in zeile.split("|")]
 
-    if len(teile) < 2:
+    if len(teile) < 3:
         continue
 
-land = teile[0]
-sendername = teile[1]
-
-beschreibung = ""
-logo = ""
-epg_url = ""
-
-# 3 Spalten
-if len(teile) == 3:
-    if teile[2].startswith("http"):
-        epg_url = teile[2]
-    else:
-        beschreibung = teile[2]
-
-# 4 Spalten
-elif len(teile) == 4:
+    land = teile[0]
+    sendername = teile[1]
     beschreibung = teile[2]
 
-    if teile[3].startswith("http"):
-        epg_url = teile[3]
-    else:
+    logo = ""
+    if len(teile) >= 4:
         logo = teile[3]
-
-# 5 Spalten
-elif len(teile) >= 5:
-    beschreibung = teile[2]
-    logo = teile[3]
-    epg_url = teile[4]
 
     kanal = f"{land}|{sendername}"
 
-    sender_daten.append((kanal, beschreibung, epg_url))
+    sender_daten.append((kanal, beschreibung))
 
     xml += f"""
     <channel id="{kanal}">
@@ -116,19 +74,14 @@ for tag in range(365):
     start_str = start.strftime("%Y%m%d%H%M%S +0000")
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-    for kanal, beschreibung, epg_url in sender_daten:
-    
-        if epg_url:
-        
-            hole_externes_epg(epg_url)
+    for kanal, beschreibung in sender_daten:
 
         xml += f"""
-        <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
         <title>{beschreibung}</title>
         <desc>{beschreibung}</desc>
     </programme>
-    """
-
+"""
 
 # --------------------------------------------------
 # DYN LIVE EVENTS
@@ -217,3 +170,4 @@ with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
 
 print("EPG-Datei erfolgreich erstellt.")
+    
