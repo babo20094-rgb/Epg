@@ -205,7 +205,71 @@ for i in range(1, 21):
         <desc>Im Moment keine Live Events, bleib dran</desc>
     </programme>
 """
+# --------------------------------------------------
+# TVPROFIL IMPORT
+# --------------------------------------------------
 
+print("Starte TVProfil Import...")
+
+for kanal, beschreibung in sender_daten:
+
+    try:
+
+        sender_id = tvprofil_id(kanal)
+
+        url = (
+            "https://tvprofil.net/xmltv/data/"
+            f"{sender_id}/"
+            f"weekly_{sender_id}_tvprofil.net.xml"
+        )
+
+        print(
+            f"TVProfil teste: "
+            f"{sender_id}"
+        )
+
+        response = requests.get(
+            url,
+            timeout=30
+        )
+
+        if response.status_code != 200:
+            continue
+
+        root = ET.fromstring(
+            response.content
+        )
+
+        anzahl = 0
+
+        for programme in root.findall(
+            "programme"
+        ):
+
+            programme.set(
+                "channel",
+                kanal
+            )
+
+            xml += ET.tostring(
+                programme,
+                encoding="unicode"
+            )
+
+            anzahl += 1
+
+        print(
+            f"{kanal}: "
+            f"{anzahl} Programme"
+        )
+
+    except Exception as e:
+
+        print(
+            "TVProfil Fehler:",
+            kanal,
+            e
+)
 # --------------------------------------------------
 
 xml += "\n</tv>"
