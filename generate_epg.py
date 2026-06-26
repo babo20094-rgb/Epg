@@ -232,17 +232,7 @@ try:
             f"TVProfil Programme geladen: "
             f"{len(programme)}"
         )
-        gefunden = set()
-
-for p in programme:
-    ch = p.get("channel")
-
-    if ch not in gefunden:
-        gefunden.add(ch)
-        print("TVPROFIL CHANNEL:", ch)
-
-    if len(gefunden) >= 100:
-        break
+        print("TVPROFIL CHANNELS:", sorted(set(p.get("channel") for p in programme))[:100])
 
         for eintrag in programme:
 
