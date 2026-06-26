@@ -232,6 +232,11 @@ try:
             f"TVProfil Programme geladen: "
             f"{len(programme)}"
         )
+        for i in range(10):
+    print(
+        "TVPROFIL CHANNEL:",
+        programme[i].get("channel")
+    )
 
         for eintrag in programme:
 
