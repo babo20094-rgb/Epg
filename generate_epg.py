@@ -209,68 +209,56 @@ for i in range(1, 21):
 # TVPROFIL IMPORT
 # --------------------------------------------------
 
-print("Starte TVProfil Import...")
-
-for kanal, beschreibung in sender_daten:
-
-    try:
-
-        sender_id = tvprofil_id(kanal)
-
-        url = (
-            "https://tvprofil.net/xmltv/data/"
-            f"{sender_id}/"
-            f"weekly_{sender_id}_tvprofil.net.xml"
-        )
-
-        print(
-            f"TVProfil teste: "
-            f"{sender_id}"
-        )
-
-        response = requests.get(
-            url,
-            timeout=30
-        )
-
-        if response.status_code != 200:
-            continue
-
-        root = ET.fromstring(
-            response.content
-        )
-
-        anzahl = 0
-
-        for programme in root.findall(
-            "programme"
-        ):
-
-            programme.set(
-                "channel",
-                kanal
-            )
-
-            xml += ET.tostring(
-                programme,
-                encoding="unicode"
-            )
-
-            anzahl += 1
-
-        print(
-            f"{kanal}: "
-            f"{anzahl} Programme"
-        )
-
-    except Exception as e:
-
-        print(
-            "TVProfil Fehler:",
-            kanal,
-            e
-)
 # --------------------------------------------------
+# TVPROFIL XMLTV IMPORT
+# --------------------------------------------------
+
+print("Lade TVProfil XMLTV...")
+
+try:
+
+    response = requests.get(
+        "https://tvprofil.net/xmltv/data/epg_tvprofil.net.xml",
+        timeout=120
+    )
+
+    if response.status_code == 200:
+
+        root = ET.fromstring(response.content)
+
+        programme = root.findall("programme")
+
+        print(
+            f"TVProfil Programme geladen: "
+            f"{len(programme)}"
+        )
+
+        for eintrag in programme:
+
+            channel = eintrag.get("channel", "").lower()
+
+            for kanal, beschreibung in sender_daten:
+
+                sender = tvprofil_id(kanal)
+
+                if sender.replace(".ba", "") in channel:
+
+                    eintrag.set(
+                        "channel",
+                        kanal
+                    )
+
+                    xml += ET.tostring(
+                        eintrag,
+                        encoding="unicode"
+                    )
+
+except Exception as e:
+
+    print(
+        "TVProfil Fehler:",
+        e
+    )
 
 xml += "\n</tv>"
 
