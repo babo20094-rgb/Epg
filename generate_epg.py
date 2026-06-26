@@ -1,5 +1,54 @@
 from datetime import datetime, timedelta
 import requests
+from bs4 import BeautifulSoup
+def lade_ntv_arena():
+
+    tage = [
+        "ponedjeljak",
+        "utorak",
+        "srijeda",
+        "cetvrtak",
+        "petak",
+        "subota",
+        "nedjelja"
+    ]
+
+    programme = []
+
+    for tag in tage:
+        try:
+            url = f"https://ntvarena.com/{tag}/"
+
+            response = requests.get(
+                url,
+                timeout=15,
+                headers={
+                    "User-Agent":
+                    "Mozilla/5.0"
+                }
+            )
+
+            if response.status_code != 200:
+                continue
+
+            soup = BeautifulSoup(
+                response.text,
+                "html.parser"
+            )
+
+            # HIER kommt später das eigentliche
+            # Auslesen des Programms
+
+            print(
+                f"NTV Arena geladen: {tag}"
+            )
+
+        except Exception as e:
+            print(
+                f"NTV Arena Fehler: {e}"
+            )
+
+    return programme
 
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
@@ -95,7 +144,15 @@ for tag in range(365):
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
     for kanal, beschreibung, epg_url in sender_daten:
+        if epg_url == "ntvarena":
 
+    print(
+        f"NTV Arena EPG: {kanal}"
+    )
+
+    programme = lade_ntv_arena()
+
+    continue
         xml += f"""
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
         <title>{beschreibung}</title>
