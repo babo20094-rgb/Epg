@@ -239,7 +239,7 @@ try:
             channel = eintrag.get("channel", "").lower()
 
             for kanal, beschreibung in sender_daten:
-            print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
+                print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
 
                 sender = tvprofil_id(kanal)
 
@@ -258,8 +258,8 @@ try:
 except Exception as e:
 
     print(
-        "TVProfil Fehler:",
-        e
+    "TVProfil Fehler:",
+    e
     )
 
 xml += "\n</tv>"
