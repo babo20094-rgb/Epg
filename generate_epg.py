@@ -16,20 +16,41 @@ for zeile in sender_liste:
 
     teile = [x.strip() for x in zeile.split("|")]
 
-    if len(teile) < 3:
-        continue
+if len(teile) < 2:
+    continue
 
-    land = teile[0]
-    sendername = teile[1]
+land = teile[0]
+sendername = teile[1]
+
+beschreibung = ""
+logo = ""
+epg_url = ""
+
+# 3 Spalten
+if len(teile) == 3:
+    if teile[2].startswith("http"):
+        epg_url = teile[2]
+    else:
+        beschreibung = teile[2]
+
+# 4 Spalten
+elif len(teile) == 4:
     beschreibung = teile[2]
 
-    logo = ""
-    if len(teile) >= 4:
+    if teile[3].startswith("http"):
+        epg_url = teile[3]
+    else:
         logo = teile[3]
+
+# 5 Spalten
+elif len(teile) >= 5:
+    beschreibung = teile[2]
+    logo = teile[3]
+    epg_url = teile[4]
 
     kanal = f"{land}|{sendername}"
 
-    sender_daten.append((kanal, beschreibung))
+    sender_daten.append((kanal, beschreibung, epg_url))
 
     xml += f"""
     <channel id="{kanal}">
@@ -74,7 +95,7 @@ for tag in range(365):
     start_str = start.strftime("%Y%m%d%H%M%S +0000")
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-    for kanal, beschreibung in sender_daten:
+    for kanal, beschreibung, epg_url in sender_daten:
 
         xml += f"""
     <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
