@@ -124,7 +124,7 @@ BA|RTV VOGOSCA|Centralne emisije poput "Vogošćanske hronike" koje prate aktuel
 BA|RTE1 HD|Vodeći dramski serijali i poznata irska sapunica Fair City, Talent natjecanja, talk-show emisije (poput poznatog The Late Late Show) i prijenosi nacionalnih događaja|https://i.imgur.com/oRXD9Mf.png
 DE|THEMEN SENDER 1 RAW|Shopping Queen|https://www.vhv.rs/dpng/d/517-5176101_shopping-queen-logo-hd-png-download.png
 DE|THEMEN SENDER 2 RAW|Alarm für Cobra 11/Balko|https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Alarm_f%C3%BCr_Cobra_11_Balko_Logo_2024.svg/3840px-Alarm_f%C3%BCr_Cobra_11_Balko_Logo_2024.svg.png
-DE|THEMEN SENDER 3 RAW|Bauer sucht Frau|https://images.seeklogo.com/logo-png/64/1/bauer-sucht-frau-logo-png_seeklogo-643038.png
+DE|THEMEN SENDER 3 RAW|Bauer sucht Frau|https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Bauer_sucht_Frau_Logo_2024.svg/1280px-Bauer_sucht_Frau_Logo_2024.svg.png
 DE|THEMEN SENDER 4 RAW|RTL Comedy|https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/RTL_Comedy_Logo_2024.svg/960px-RTL_Comedy_Logo_2024.svg.png
 DE|THEMEN SENDER 5 RAW|Alles was zählt Classics|https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Alles_was_z%C3%A4hlt_Classics_Logo_2024.svg/1280px-Alles_was_z%C3%A4hlt_Classics_Logo_2024.svg.png
 DE|THEMEN SENDER 6 RAW|Haus und Garten-Die Beet Brüder|https://bilder.fernsehserien.de/epg/epg-archiv/2026/01/23/6c1d7c67635340588465c3ce121b0e9e_b-w-970.jpg.jpg
