@@ -272,8 +272,6 @@ try:
         print("TVProfil HTTP Fehler:", response.status_code)
 
 except Exception as e:
-    print("TVProfil Fehler:", e)
-        )
-
+    print("TVProfil Fehler:", e)        
 print("EPG-Datei erfolgreich erstellt.")
     
