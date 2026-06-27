@@ -254,37 +254,31 @@ try:
         f"TVProfil Programme geladen: "
         f"{len(programme)}"
     )
-    print("TVPROFIL CHANNELS:", sorted(set(p.get("channel") for p in programme))[:100])
-    for eintrag in programme:
-        channel = eintrag.get("channel", "").lower()
+    print("TVPROFIL CHANNELS:", sorted(set(p.get("channel", "") for p in programme)))
+
+for eintrag in programme:
+    channel = eintrag.get("channel", "").lower()
 
     for kanal, beschreibung in sender_daten:
         print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
 
-    sender = tvprofil_id(kanal)
+        sender = tvprofil_id(kanal)
 
-    if sender.replace(".ba", "") in channel:
-
-        eintrag.set(
-            "channel",
-            kanal
-        )
+        if sender.replace(".ba", "") in channel:
+            eintrag.set(
+                "channel",
+                kanal
+            )
 
     xml += ET.tostring(
-            eintrag,
-            encoding="unicode"
-        )
- except Exception as e:
-
-    print(
-    "TVProfil Fehler:",
-    e
+        eintrag,
+        encoding="unicode"
     )
-
-xml += "\n</tv>"
-
-with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
-    f.write(xml)
+    except Exception as e:
+    print(
+        "TVProfil Fehler:",
+        e
+    )
 
 print("EPG-Datei erfolgreich erstellt.")
     
