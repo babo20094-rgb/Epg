@@ -143,3 +143,5 @@ BA|TB1 VIP RAW|Muzički blokovi: Fokus na folk i modernu zabavnu muziku.Zabavne 
 BA|SUPER TV MEDIA TUZLA VIP RAW|Igrani filmovi,Vjerski program,Sportski gong,Pogled & Sohbeti i 035 show|https://supertelevizija.com/wp-content/uploads/2023/03/supertv.jpg
 BA|BLAGOVIJESTI TV VIP RAW|Vjerski Program|https://static.tildacdn.net/tild3432-3764-4932-a663-383565393834/image.png
 BA|DOBRA MUZICKA TV VIP RAW|Muzički spotovi (24/7)|https://static.wixstatic.com/media/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png/v1/fill/w_2500,h_2500,al_c/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png
+BA|HAYAT STIL I ZIVOT VIP RAW|Hayat-Stil i Život|https://static.wikia.nocookie.net/logopedia/images/d/de/Hayat_Stil_i_%C5%BEivot_-_Logo.png/revision/latest?cb=20240223105710
+BA|HAYAT LOVE BOX VIP RAW|Hayat-Love Box🫶|https://static.wikia.nocookie.net/logopedia/images/0/0c/Hayat_Love_Box_-_Logo.png/revision/latest?cb=20240223105808
