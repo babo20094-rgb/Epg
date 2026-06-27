@@ -234,51 +234,46 @@ try:
         tvprofil_channels = {}
 
         for channel in root.findall("channel"):
-    cid = channel.get("id")
+            cid = channel.get("id")
 
-    display = cid
-    name = channel.find("display-name")
-    if name is not None and name.text:
-        display = name.text
+            display = cid
+            name = channel.find("display-name")
+            if name is not None and name.text:
+                   display = name.text
 
-    tvprofil_channels[cid] = display
+            tvprofil_channels[cid] = display
 
 # Datei zum manuellen Zuordnen erzeugen
-with open("tvprofil_channels.txt", "w", encoding="utf-8") as f:
-        for cid, name in sorted(tvprofil_channels.items()):
-                    f.write(f"{cid}|{name}\n")
+    with open("tvprofil_channels.txt", "w", encoding="utf-8") as f:
+                    for cid, name in sorted(tvprofil_channels.items()):
+                                        f.write(f"{cid}|{name}\n")
 
-            print(
-        "TVProfil Sender exportiert:",
-        len(tvprofil_channels)
-    )
+print("TVProfil Sender exportiert:",
+len(tvprofil_channels))
+print(
+    f"TVProfil Programme geladen: "
+    f"{len(programme)}"
+)
+print("TVPROFIL CHANNELS:", sorted(set(p.get("channel") for p in programme))[:100])
+for eintrag in programme:
+        channel = eintrag.get("channel", "").lower()
 
-    print(
-            f"TVProfil Programme geladen: "
-            f"{len(programme)}"
+    for kanal, beschreibung in sender_daten:
+    print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
+
+    sender = tvprofil_id(kanal)
+
+    if sender.replace(".ba", "") in channel:
+
+        eintrag.set(
+            "channel",
+            kanal
         )
-    print("TVPROFIL CHANNELS:", sorted(set(p.get("channel") for p in programme))[:100])
 
-    for eintrag in programme:
-
-            channel = eintrag.get("channel", "").lower()
-
-            for kanal, beschreibung in sender_daten:
-                print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
-
-                sender = tvprofil_id(kanal)
-
-                if sender.replace(".ba", "") in channel:
-
-                    eintrag.set(
-                        "channel",
-                        kanal
-                    )
-
-                    xml += ET.tostring(
-                        eintrag,
-                        encoding="unicode"
-                    )
+        xml += ET.tostring(
+            eintrag,
+            encoding="unicode"
+        )
 
 except Exception as e:
 
