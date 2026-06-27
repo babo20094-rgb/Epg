@@ -256,10 +256,10 @@ try:
     )
     print("TVPROFIL CHANNELS:", sorted(set(p.get("channel") for p in programme))[:100])
     for eintrag in programme:
-    channel = eintrag.get("channel", "").lower()
+        channel = eintrag.get("channel", "").lower()
 
-        for kanal, beschreibung in sender_daten:
-    print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
+    for kanal, beschreibung in sender_daten:
+        print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
 
     sender = tvprofil_id(kanal)
 
@@ -274,7 +274,7 @@ try:
             eintrag,
             encoding="unicode"
         )
-except Exception as e:
+ except Exception as e:
 
     print(
     "TVProfil Fehler:",
