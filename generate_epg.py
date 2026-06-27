@@ -6,6 +6,7 @@ import re
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
+
 # --------------------------------------------------
 # TVPROFIL
 # --------------------------------------------------
@@ -42,12 +43,14 @@ def tvprofil_id(sender):
         return bekannte[name]
 
     name = re.sub(r"\s+", "-", name)
-    name = name.lower()
+    
 
     if not name.endswith(".ba"):
         name += ".ba"
 
     return name
+    print("SUCHE:", tvprofil_id("DE|SKY GO FILME 1 FHD"))
+    print("SUCHE:", tvprofil_id("DE|SKY GO FILME 10 FHD"))
 
 # --------------------------------------------------
 # sender.txt einlesen
