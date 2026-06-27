@@ -245,8 +245,8 @@ try:
 
 # Datei zum manuellen Zuordnen erzeugen
         with open("tvprofil_channels.txt", "w", encoding="utf-8") as f:
-        for cid, name in sorted(tvprofil_channels.items()):
-        f.write(f"{cid}|{name}\n")
+            for cid, name in sorted(tvprofil_channels.items()):
+                f.write(f"{cid}|{name}\n")
 
     print("TVProfil Sender exportiert:",
     len(tvprofil_channels))
