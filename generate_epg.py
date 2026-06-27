@@ -219,41 +219,10 @@ for i in range(1, 21):
 # --------------------------------------------------
 # TVPROFIL XMLTV IMPORT
 # --------------------------------------------------
+print("TVProfil Sender exportiert:", len(tvprofil_channels))
+print("TVProfil Programme geladen:", len(programme))
 
-print("Lade TVProfil XMLTV...")
-
-try:
-    response = requests.get(
-        "https://tvprofil.net/xmltv/data/epg_tvprofil.net.xml",
-        timeout=120
-    )
-
-    if response.status_code == 200:
-        root = ET.fromstring(response.content)
-
-        programme = root.findall("programme")
-        tvprofil_channels = {}
-
-        # TVProfil-Sender sammeln
-        for channel in root.findall("channel"):
-            cid = channel.get("id")
-            display = ""
-
-            dn = channel.find("display-name")
-            if dn is not None and dn.text:
-                display = dn.text.lower()
-
-            tvprofil_channels[cid] = display
-
-        # Debug-Datei erzeugen
-        with open("tvprofil_channels.txt", "w", encoding="utf-8") as f:
-            for cid, name in sorted(tvprofil_channels.items()):
-                f.write(f"{cid}|{name}\n")
-
-        print("TVProfil Sender exportiert:", len(tvprofil_channels))
-        print("TVProfil Programme geladen:", len(programme))
-
-        for eintrag in programme:
+for eintrag in programme:
     channel = eintrag.get("channel", "").lower()
 
     for kanal, beschreibung in sender_daten.items():
@@ -268,7 +237,7 @@ try:
     xml += ET.tostring(
         eintrag,
         encoding="unicode"
-    )    
+    )
 except Exception as e:
     print("TVProfil Fehler:", e)        
 print("EPG-Datei erfolgreich erstellt.")
