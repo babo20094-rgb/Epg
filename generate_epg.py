@@ -254,24 +254,21 @@ try:
         print("TVProfil Programme geladen:", len(programme))
 
         for eintrag in programme:
-            channel = eintrag.get("channel", "").lower()
+    channel = eintrag.get("channel", "").lower()
 
-        for kanal, beschreibung in sender_daten:
-                print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
-                sender = tvprofil_id(kanal)
+    for kanal, beschreibung in sender_daten.items():
+        print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
 
-                if sender and sender.replace(".ba", "") in channel:
-                    eintrag.set("channel", kanal)
-                    break
+        sender = tvprofil_id(kanal)
 
-            xml += ET.tostring(
-                eintrag,
-                encoding="unicode"
-            )
+        if sender and sender.replace(".ba", "") in channel:
+            eintrag.set("channel", kanal)
+            break
 
-    else:
-        print("TVProfil HTTP Fehler:", response.status_code)
-
+    xml += ET.tostring(
+        eintrag,
+        encoding="unicode"
+    )    
 except Exception as e:
     print("TVProfil Fehler:", e)        
 print("EPG-Datei erfolgreich erstellt.")
