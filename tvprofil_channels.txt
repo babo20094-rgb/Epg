@@ -1,0 +1,56 @@
+arena-sport-1-ba.sport|arena sport 1 bih
+b92.sr|b92
+bbc1.uk|bbc1
+bht1.ba|bht1
+bloomberg.info|bloomberg
+cartoon-network.toons|cartoon network
+cinestar-tv.movie|cinestar tv1
+cmc.music|cmc
+cnbc.info|cnbc
+cnn.info|cnn
+discovery-europe.doc|discovery channel
+disney-channel.toons|disney channel
+doma-tv.movie|doma tv
+euronews.info|euronews
+eurosport.sport|eurosport
+ftv.ba|ftv
+hayat-tv.ba|hayat tv
+hbo.movie|hbo
+htv1.hr|htv1
+htv2.hr|htv2
+htv3.hr|htv3
+htv4.hr|htv4
+kabel-1.de|kabel 1
+kika.toons|kika
+nova-bh.ba|nova bh
+nova-m.cg|nova m
+nova-s.sr|nova s
+nova.hr|nova tv
+obn.ba|obn
+pink.sr|pink
+plava-televizija.hr|plava televizija
+pro-7.de|pro 7
+prva-srpska-tv.sr|prva
+rai-1.it|rai 1
+rtl-de.de|rtl de
+rtl.hr|rtl
+rtl2.hr|rtl2
+rtrs.sr|rtrs
+rts1.sr|rts1
+rts2.sr|rts2
+sat-1.de|sat.1
+scifi.movie|scifi
+skynews.info|skynews
+slo1.si|slo1
+slo2.si|slo2
+slo3.si|slo3
+sportklub-hr.sport|sk1 hr
+tv-arena-sport-1-hr.sport|arena sport 1 hr
+tv-arena-sport-1.sport|arena sport 1 rs
+tv-arena-sport-2.sport|arena sport 2 rs
+tv-arena-sport-3.sport|arena sport 3 rs
+tv-zapad.hr|tv zapad
+vinkovacka-tv.hr|plava vinkovačka
+zdf.de|zdf
+zonasport-2.sport|zonasport 2
+zonasport-tv.sport|zonasport tv
