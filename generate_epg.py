@@ -224,7 +224,7 @@ print("Lade TVProfil XMLTV...")
 
 try:
     response = requests.get(
-        "https://tvprofil.net/xmltv/data/epg.xml",
+        "https://tvprofil.net/xmltv/data/epg_tvprofil.net.xml",
         timeout=120
     )
 
