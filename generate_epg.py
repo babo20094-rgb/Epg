@@ -256,9 +256,9 @@ try:
         for eintrag in programme:
             channel = eintrag.get("channel", "").lower()
 
-            for kanal, beschreibung in sender_daten:
+        for kanal, beschreibung in sender_daten:
                 print("MEIN SENDER:", kanal, "->", tvprofil_id(kanal))
-                sender = tvprofil_id(kanal)
+                    sender = tvprofil_id(kanal)
 
                 if sender and sender.replace(".ba", "") in channel:
                     eintrag.set("channel", kanal)
