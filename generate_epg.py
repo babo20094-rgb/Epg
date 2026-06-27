@@ -230,14 +230,36 @@ try:
         root = ET.fromstring(response.content)
 
         programme = root.findall("programme")
+        # Alle TVProfil-Kanäle sammeln
+        tvprofil_channels = {}
 
-        print(
+        for channel in root.findall("channel"):
+    cid = channel.get("id")
+
+    display = cid
+    name = channel.find("display-name")
+    if name is not None and name.text:
+        display = name.text
+
+    tvprofil_channels[cid] = display
+
+# Datei zum manuellen Zuordnen erzeugen
+with open("tvprofil_channels.txt", "w", encoding="utf-8") as f:
+        for cid, name in sorted(tvprofil_channels.items()):
+                    f.write(f"{cid}|{name}\n")
+
+            print(
+        "TVProfil Sender exportiert:",
+        len(tvprofil_channels)
+    )
+
+    print(
             f"TVProfil Programme geladen: "
             f"{len(programme)}"
         )
-        print("TVPROFIL CHANNELS:", sorted(set(p.get("channel") for p in programme))[:100])
+    print("TVPROFIL CHANNELS:", sorted(set(p.get("channel") for p in programme))[:100])
 
-        for eintrag in programme:
+    for eintrag in programme:
 
             channel = eintrag.get("channel", "").lower()
 
