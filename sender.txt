@@ -140,8 +140,8 @@ BA|DOBOJ TV VIP RAW|Regionalne vijesti, servisne informacije, kulturu, sport i o
 BA|ELTA TV VIP RAW|Muzički programi – Domaći i strani muzički blokovi različitih žanrova.Dokumentarci i putopisi – Edukativne emisije i reportaže sa putovanja.Filmski i serijski program – Odabrani filmovi i televizijske serije|https://bhnovinari.ba/wp-content/uploads/2017/06/elta.png
 BA|SHOPTEL VIP RAW|Cjelodnevni program čine detaljne video prezentacije proizvoda, informacije o karakteristikama artikala, demonstracije rada, te objave specijalnih akcijskih cijena i popusta|https://shoptel.ba/wp-content/uploads/2023/04/logo-500.png
 BA|TB1 VIP RAW|Muzički blokovi: Fokus na folk i modernu zabavnu muziku.Zabavne emisije: Kolažni programi i prenosi lokalnih kulturnih dešavanja.Informacije iz regiona: Prilozi i aktuelnosti iz Trebinja i Istočne Hercegovine|https://upload.wikimedia.org/wikipedia/en/8/82/Tb1_wordmark.jpg
-BA|SUPER TV MEDIA TUZLA ⱽᴵᴾ ᴿᴬᵂ|Igrani filmovi,Vjerski program,Sportski gong,Pogled & Sohbeti i 035 show|https://supertelevizija.com/wp-content/uploads/2023/03/supertv.jpg
+BA|SUPER TV MEDIA TUZLA VIP RAW|Igrani filmovi,Vjerski program,Sportski gong,Pogled & Sohbeti i 035 show|https://supertelevizija.com/wp-content/uploads/2023/03/supertv.jpg
 BA|BLAGOVESTI TV VIP RAW|Vjerski Program|https://static.tildacdn.net/tild3432-3764-4932-a663-383565393834/image.png
 BA|DOBRA MUZICKA TV VIP RAW|Muzički spotovi (24/7)|https://static.wixstatic.com/media/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png/v1/fill/w_2500,h_2500,al_c/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png
-BA|HAYAT STIL I ZIVOT ⱽᴵᴾ ᴿᴬᵂ|Hayat-Stil i Život|https://static.wikia.nocookie.net/logopedia/images/d/de/Hayat_Stil_i_%C5%BEivot_-_Logo.png/revision/latest?cb=20240223105710
-BA|HAYAT LOVE BOX ⱽᴵᴾ ᴿᴬᵂ|Hayat-Love Box|https://static.wikia.nocookie.net/logopedia/images/0/0c/Hayat_Love_Box_-_Logo.png/revision/latest?cb=20240223105808
+BA|HAYAT STIL I ZIVOT VIP RAW|Hayat-Stil i Život|https://static.wikia.nocookie.net/logopedia/images/d/de/Hayat_Stil_i_%C5%BEivot_-_Logo.png/revision/latest?cb=20240223105710
+BA|HAYAT LOVE BOX VIP RAW|Hayat-Love Box|https://static.wikia.nocookie.net/logopedia/images/0/0c/Hayat_Love_Box_-_Logo.png/revision/latest?cb=20240223105808
