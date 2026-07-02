@@ -58,34 +58,15 @@ starttag = datetime.utcnow().replace(
 
 for tag in range(365):
 
-    for block in [0, 6, 12, 18]:
+    start = starttag + timedelta(days=tag)
+    ende = start + timedelta(days=1)
 
-        start = starttag + timedelta(
-            days=tag,
-            hours=block
-        )
+    start_str = start.strftime("%Y%m%d%H%M%S +0000")
+    ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-        ende = start + timedelta(hours=6)
+    for kanal, beschreibung in sender_daten:
 
-        start_str = start.strftime(
-            "%Y%m%d%H%M%S +0000"
-        )
-
-        ende_str = ende.strftime(
-            "%Y%m%d%H%M%S +0000"
-        )
-
-        for kanal, beschreibung in sender_daten:
-
-            xml += f"""
-<programme
-    start="{start_str}"
-    stop="{ende_str}"
-    channel="{kanal}">
-    <title>{beschreibung}</title>
-    <desc>{beschreibung}</desc>
-</programme>
-"""
+        xml += f""" <programme start="{start_str}" stop="{ende_str}" channel="{kanal}"> <title>{beschreibung}</title> <desc>{beschreibung}</desc> </programme> """
 
 # --------------------------------------------------
 # DYN LIVE EVENTS
