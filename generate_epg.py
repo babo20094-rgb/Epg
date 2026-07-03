@@ -126,7 +126,7 @@ except Exception as e:
 # Leerzeiten füllen
 # --------------------------------------------------
 
-jetzt = datetime.utcnow()
+jetzt = datetime.(2026, 7, 3, 0, 0, 0)
 
 for i in range(1, 21):
 
