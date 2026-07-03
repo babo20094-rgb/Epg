@@ -138,7 +138,34 @@ for i in range(1, 21):
         xml += f""" <programme start="{start_str}" stop="{ende_str}" channel="{kanal}"> <title>Im Moment keine Live Events, bleib dran</title> <desc>Im Moment keine Live Events, bleib dran</desc> </programme> """
 
 # --------------------------------------------------
+# --------------------------------------------------
+# Platzhalter-EPG für alle Sender aus sender.txt
+# --------------------------------------------------
 
+jetzt = datetime.utcnow()
+
+for kanal, beschreibung in sender_daten:
+
+    # DYN überspringen, weil DYN bereits echtes EPG bekommt
+    if kanal.startswith("DE| DYN PPV"):
+        continue
+
+    for stunde in range(24 * 30):
+
+        start_dummy = jetzt + timedelta(hours=stunde)
+        ende_dummy = start_dummy + timedelta(hours=1)
+
+        start_str = start_dummy.strftime("%Y%m%d%H%M%S +0000")
+        ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
+
+        xml += f"""
+<programme start="{start_str}"
+           stop="{ende_str}"
+           channel="{kanal}">
+    <title>{beschreibung}</title>
+    <desc>{beschreibung}</desc>
+</programme>
+"""
 xml += "\n</tv>"
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
