@@ -151,25 +151,25 @@ BA|HIT TELEVIZIJA BRCKO|Hit Televizija Brcko|
 BA|RTV VOGOSCA|Program Televizije Vogosca|
 BA|HIT TELEVIZIJA|Hit Televizija Dnevni Program|
 DE|ZDF KOCHT!|ZDF Koch Sendungen|
-DE|BARES FÜR RARES|Bares für Rares 24/7|
-DE|TERA X|Tera X Programm|
-DE|WILDER PLANET|Wilder Planet Dokumentationen|
-DE|CNN FAST|CNN Fast Programm|
-DE|FRANCE 24 FAST|France 24 Fast|
-DE|REUTERS|Reuters Tv|
-DE|FOCUS TV| Focus Tv|
-DE|LAGERFEUER|Lagerfeuer|
-DE|SCREEN GREEN|Screen Green channel|
-DE|THE JAMIE OLIVER CHANNEL|Der Jamie Oliver Sender|
-DE|MOTORVISION|Motorvision tv|
-DE|HORSE & COUNTRY|Horse und Country sender|
-DE|SUPERTOONS TV|Supertoons Tv|
-DE|TEEN NICK|Teen Nick programm|
-DE|CAR CITY ADVENTURES|Car City Adventures programm|
-DE|DELUXE DEUTSCHPOP|Deutschpop Musik auf Deluxe|
-DE|XITE ROCK X METAL|Rock und Metal Musik programm|
-DE|FANTASJA|Fantasja Tv prpgramm|
-DE|HEIMATKINO|Heimatkino programm|
-DE|DDR|Programm aus der DDR|
-DE|ALLESKINO|Alleskino programm|
-DE|HR HD|Hessisches Fernsehen programm|
+DE|BARES FÜR RARES|Bares für Rares 24/7|https://upload.wikimedia.org/wikipedia/commons/7/75/Bares_f%C3%BCr_Rares_Logo.png
+DE|TERA X|Tera X Programm
+DE|WILDER PLANET|Wilder Planet Dokumentationen
+DE|CNN FAST|CNN Fast Programm
+DE|FRANCE 24 FAST|France 24 Fast
+DE|REUTERS|Reuters Tv
+DE|FOCUS TV| Focus Tv
+DE|LAGERFEUER|Lagerfeuer
+DE|SCREEN GREEN|Screen Green channel
+DE|THE JAMIE OLIVER CHANNEL|Der Jamie Oliver Sender
+DE|MOTORVISION|Motorvision tv
+DE|HORSE & COUNTRY|Horse und Country sender
+DE|SUPERTOONS TV|Supertoons Tv
+DE|TEEN NICK|Teen Nick programm
+DE|CAR CITY ADVENTURES|Car City Adventures programm
+DE|DELUXE DEUTSCHPOP|Deutschpop Musik auf Deluxe
+DE|XITE ROCK X METAL|Rock und Metal Musik programm
+DE|FANTASJA|Fantasja Tv prpgramm
+DE|HEIMATKINO|Heimatkino programm
+DE|DDR|Programm aus der DDR
+DE|ALLESKINO|Alleskino programm
+DE|HR HD|Hessisches Fernsehen programm
