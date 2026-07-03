@@ -31,7 +31,12 @@ for zeile in sender_liste:
 
     sender_daten.append((kanal, beschreibung))
 
-    xml += f""" <channel id="{kanal}"> <display-name>{sendername}</display-name> <icon src="{logo}"/> </channel> """
+    xml += f"""
+<channel id="{kanal}">
+    <display-name>{kanal}</display-name>
+    <icon src="{logo}"/>
+</channel>
+"""
 
 # --------------------------------------------------
 # DYN PPV 1-20
