@@ -32,10 +32,10 @@ for zeile in sender_liste:
     sender_daten.append((kanal, beschreibung))
 
     xml += f"""
-<channel id="{kanal}">
-    <display-name>{kanal}</display-name>
-    <icon src="{logo}"/>
-</channel>
+    <channel id="{kanal}">
+        <display-name>{sendername}</display-name>
+        <icon src="{logo}"/>
+    </channel>
 """
 
 # --------------------------------------------------
@@ -48,7 +48,12 @@ for i in range(1, 21):
 
     kanal = f"DE| DYN PPV {i} HD"
 
-    xml += f""" <channel id="{kanal}"> <display-name>{kanal}</display-name> <icon src="{dyn_logo}"/> </channel> """
+    xml += f"""
+    <channel id="{kanal}">
+        <display-name>{kanal}</display-name>
+        <icon src="{dyn_logo}"/>
+    </channel>
+"""
 
 # --------------------------------------------------
 # Standard-EPG für normale Sender
@@ -71,7 +76,12 @@ for tag in range(365):
 
     for kanal, beschreibung in sender_daten:
 
-        xml += f""" <programme start="{start_str}" stop="{ende_str}" channel="{kanal}"> <title>{beschreibung}</title> <desc>{beschreibung}</desc> </programme> """
+        xml += f"""
+    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+        <title>{beschreibung}</title>
+        <desc>{beschreibung}</desc>
+    </programme>
+"""
 
 # --------------------------------------------------
 # DYN LIVE EVENTS
@@ -112,7 +122,12 @@ try:
 
             beschreibung = eintrag.get("description", titel)
 
-            xml += f""" <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}"> <title>{titel}</title> <desc>{beschreibung}</desc> </programme> """
+            xml += f"""
+    <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}">
+        <title>{titel}</title>
+        <desc>{beschreibung}</desc>
+    </programme>
+"""
 
             kanal_nummer += 1
 
@@ -126,41 +141,13 @@ except Exception as e:
 # Leerzeiten füllen
 # --------------------------------------------------
 
-jetzt = datetime.utcnow().replace(
-            hour=0,
-            minute=0,
-            second=0,
-            microsecond=0
-        )
+jetzt = datetime.utcnow()
 
 for i in range(1, 21):
 
     kanal = f"DE| DYN PPV {i} HD"
 
-    for stunde in range(24 * 3):
-
-        start_dummy = jetzt + timedelta(hours=stunde)
-        ende_dummy = start_dummy + timedelta(hours=1)
-
-        start_str = start_dummy.strftime("%Y%m%d%H%M%S +0000")
-        ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
-
-        xml += f""" <programme start="{start_str}" stop="{ende_str}" channel="{kanal}"> <title>Im Moment keine Live Events, bleib dran</title> <desc>Im Moment keine Live Events, bleib dran</desc> </programme> """
-
-# --------------------------------------------------
-# --------------------------------------------------
-# Platzhalter-EPG für alle Sender aus sender.txt
-# --------------------------------------------------
-
-jetzt = datetime.utcnow()
-
-for kanal, beschreibung in sender_daten:
-
-    # DYN überspringen, weil DYN bereits echtes EPG bekommt
-    if kanal.startswith("DE| DYN PPV"):
-        continue
-
-    for stunde in range(24 * 3):
+    for stunde in range(24 * 30):
 
         start_dummy = jetzt + timedelta(hours=stunde)
         ende_dummy = start_dummy + timedelta(hours=1)
@@ -169,13 +156,14 @@ for kanal, beschreibung in sender_daten:
         ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
 
         xml += f"""
-<programme start="{start_str}"
-           stop="{ende_str}"
-           channel="{kanal}">
-    <title>{beschreibung}</title>
-    <desc>{beschreibung}</desc>
-</programme>
+    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+        <title>Im Moment keine Live Events, bleib dran</title>
+        <desc>Im Moment keine Live Events, bleib dran</desc>
+    </programme>
 """
+
+# --------------------------------------------------
+
 xml += "\n</tv>"
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
