@@ -120,7 +120,7 @@ BA|SIMIC TV|Program ove stanice je pretežno fokusiran na lokalne događaje iz B
 BA|RTV SLON|Televizijski i radijski programski sadržaj koncipiran je tako da pokriva lokalne vijesti, ali i šire društvene, kulturne i političke teme iz Tuzle, TK i cijele BiH|https://tvprofil.com/img/kanali-logo/RTV_Slon_BA_logo.png?1736336424
 BA|RTV USK|RTV USK proizvodi i emitira cjelodnevni radijski i televizijski program koji obuhvaća širok spektar formata centralni Dnevnik, izvještaje s terena i političke emisije poput Razgovor s povodom|https://upload.wikimedia.org/wikipedia/en/f/ff/Logo_of_RTVUSK.png
 BA|MEKA TV|Tokom cijelog dana u pozadini se emituju visokokvalitetni audio snimci i recitacije Kur'ana koje uče najpoznatiji svjetski i saudijski hafizi|https://makkahtv.tv/assets/images/0.png-714x367.png
-BA|RTV VOGOSCA VIP RAW|Centralne emisije poput "Vogošćanske hronike" koje prate aktuelnosti, politička, ekonomska i društvena dešavanja u općini|https://www.rtvvogosca.ba/logo6.png
+BA|RTV VOGOSCA VIP RAW|Centralne emisije poput Vogošćanske hronike koje prate aktuelnosti, politička, ekonomska i društvena dešavanja u općini|https://www.rtvvogosca.ba/logo6.png
 BA|RTE1 HD|Vodeći dramski serijali i poznata irska sapunica Fair City, Talent natjecanja, talk-show emisije (poput poznatog The Late Late Show) i prijenosi nacionalnih događaja|https://i.imgur.com/oRXD9Mf.png
 DE|THEMEN SENDER 1 RAW|Shopping Queen|https://www.vhv.rs/dpng/d/517-5176101_shopping-queen-logo-hd-png-download.png
 DE|THEMEN SENDER 2 RAW|Alarm für Cobra 11/Balko|https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Alarm_f%C3%BCr_Cobra_11_Balko_Logo_2024.svg/3840px-Alarm_f%C3%BCr_Cobra_11_Balko_Logo_2024.svg.png
@@ -140,7 +140,7 @@ BA|DOBOJ TV VIP RAW|Regionalne vijesti, servisne informacije, kulturu, sport i o
 BA|ELTA TV VIP RAW|Muzički programi – Domaći i strani muzički blokovi različitih žanrova.Dokumentarci i putopisi – Edukativne emisije i reportaže sa putovanja.Filmski i serijski program – Odabrani filmovi i televizijske serije|https://bhnovinari.ba/wp-content/uploads/2017/06/elta.png
 BA|SHOPTEL VIP RAW|Cjelodnevni program čine detaljne video prezentacije proizvoda, informacije o karakteristikama artikala, demonstracije rada, te objave specijalnih akcijskih cijena i popusta|https://shoptel.ba/wp-content/uploads/2023/04/logo-500.png
 BA|TB1 VIP RAW|Muzički blokovi: Fokus na folk i modernu zabavnu muziku.Zabavne emisije: Kolažni programi i prenosi lokalnih kulturnih dešavanja.Informacije iz regiona: Prilozi i aktuelnosti iz Trebinja i Istočne Hercegovine|https://upload.wikimedia.org/wikipedia/en/8/82/Tb1_wordmark.jpg
-BA|SUPER TV MEDIA TUZLA VIP RAW|Igrani filmovi,Vjerski program,Sportski gong,Pogled & Sohbeti i 035 show|https://supertelevizija.com/wp-content/uploads/2023/03/supertv.jpg
+BA|SUPER TV MEDIA TUZLA VIP RAW|Igrani filmovi,Vjerski program,Sportski gong,Pogled i Sohbeti i 035 show|https://supertelevizija.com/wp-content/uploads/2023/03/supertv.jpg
 BA|BLAGOVESTI TV VIP RAW|Vjerski Program|https://static.tildacdn.net/tild3432-3764-4932-a663-383565393834/image.png
 BA|DOBRA MUZICKA TV VIP RAW|Muzički spotovi (24/7)|https://static.wixstatic.com/media/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png/v1/fill/w_2500,h_2500,al_c/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png
 BA|HAYAT STIL I ZIVOT VIP RAW|Hayat-Stil i zivot|https://static.wikia.nocookie.net/logopedia/images/d/de/Hayat_Stil_i_%C5%BEivot_-_Logo.png/revision/latest?cb=20240223105710
