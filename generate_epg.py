@@ -127,7 +127,7 @@ except Exception as e:
 # --------------------------------------------------
 
 jetzt = datetime.utcnow().replace(
-            houre=0,
+            hour=0,
             minute=0,
             second=0,
             microsecond=0
