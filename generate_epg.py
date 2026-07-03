@@ -137,7 +137,7 @@ for i in range(1, 21):
 
     kanal = f"DE| DYN PPV {i} HD"
 
-    for stunde in range(24 * 30):
+    for stunde in range(24 * 3):
 
         start_dummy = jetzt + timedelta(hours=stunde)
         ende_dummy = start_dummy + timedelta(hours=1)
@@ -160,7 +160,7 @@ for kanal, beschreibung in sender_daten:
     if kanal.startswith("DE| DYN PPV"):
         continue
 
-    for stunde in range(24 * 30):
+    for stunde in range(24 * 3):
 
         start_dummy = jetzt + timedelta(hours=stunde)
         ende_dummy = start_dummy + timedelta(hours=1)
