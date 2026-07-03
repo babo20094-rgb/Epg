@@ -154,3 +154,6 @@ RS|BALKANIKA|Balkanika Music Television|https://e7.pngegg.com/pngimages/862/556/
 DE|DDR|Filme aus der DDR|https://e7.pngegg.com/pngimages/220/902/png-clipart-national-emblem-of-east-germany-land-forces-of-the-national-people-s-army-military-indian-army-miscellaneous-emblem-thumbnail.png
 DE|ALLESKINO|Alles Kino programm|https://m.media-amazon.com/images/G/03/digital/video/merch/subs/benefit-id/a-f/alleskino/logos/3p-logo._CB485924756_.png
 DE|HEIMATKINO|Berlin Funke Gruppe programm|https://i.imgur.com/8YbZbgz.png
+DE|ZDF KOCHT|ZDF koch programm|https://i.imgur.com/mIedL82.jpeg
+DE|BARES FUR RARES|Bares Fuer Rares-Kaufen verkaufen verhandeln|https://upload.wikimedia.org/wikipedia/commons/7/75/Bares_f%C3%BCr_Rares_Logo.png
+DE|SPANNUNG EMOTIONEN|Spannung und Emotionen im programm|https://logopond.com/logos/5d2ec3777399bd2f055193a4894f2a75.png
