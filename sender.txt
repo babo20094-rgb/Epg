@@ -172,3 +172,4 @@ DE|FANTASJA|Fantasja Tv prpgramm|
 DE|HEIMATKINO|Heimatkino programm|
 DE|DDR|Programm aus der DDR|
 DE|ALLESKINO|Alleskino programm|
+DE|TESTEPG|Das ist ein Testptogramm|
