@@ -157,3 +157,8 @@ DE|HEIMATKINO|Berlin Funke Gruppe programm|https://i.imgur.com/8YbZbgz.png
 DE|ZDF KOCHT|ZDF koch programm|https://i.imgur.com/mIedL82.jpeg
 DE|BARES FUR RARES|Bares Fuer Rares-Kaufen verkaufen verhandeln|https://upload.wikimedia.org/wikipedia/commons/7/75/Bares_f%C3%BCr_Rares_Logo.png
 DE|SPANNUNG EMOTIONEN|Spannung und Emotionen im programm|https://logopond.com/logos/5d2ec3777399bd2f055193a4894f2a75.png
+DE|WILDER PLANET|Wilder Planet Tv|https://bilder.fernsehserien.de/sendung/hr/v16929.png
+DE|CNN FAST|CNN Dokumentationen|https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8kXR7vJiZYe_cyqvfupRFFfWPWq9g4ZprZizAND-lbx5YwjRNT6O1J9U2Nv1nh7BE8TS0V4ExT3gj0HDoG0K4cPsmEDG9J6E5So-XSl9E7xWLJoUm9vUOO70-G-RMqw6LvtFwkjFxvDhGOrZj98_IBW1Hm8JoJay804oDqIb3_hCcTT7rCRsA/s731/CNN_Logo_Fast_2024.png
+DE|FRANCE 24 FAST|France 24 Fast programm|https://w7.pngwing.com/pngs/529/986/png-transparent-france-24-hd-logo-thumbnail.png
+DE|REUTERS|Reuters Tv|https://toppng.com/uploads/preview/reuters-logo-vector-11573946714klp8valxok.png
+DE|FOCUS TV|Focus Tv programm|https://upload.wikimedia.org/wikipedia/commons/9/9b/Unternehmenslogo_-_FOCUS_TV.jpg
