@@ -5,9 +5,15 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
 
-# --------------------------------------------------
-# sender.txt einlesen
-# --------------------------------------------------
+# ----------------------------------------------------
+# Sender aus sender.txt einlesen
+# Format:
+# DE|WILDER PLANET|Wilder Planet Dokumentationen|
+# BA|HAYAT PLUS|Hayat Plus Programm|
+# US|CNN|CNN News|
+# ----------------------------------------------------
+
+sender_daten = []
 
 with open("sender.txt", "r", encoding="utf-8") as f:
     sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
@@ -16,6 +22,7 @@ for zeile in sender_liste:
 
     teile = [x.strip() for x in zeile.split("|")]
 
+    # mindestens Land | Sender | Beschreibung
     if len(teile) < 3:
         continue
 
@@ -27,17 +34,19 @@ for zeile in sender_liste:
     if len(teile) >= 4:
         logo = teile[3]
 
+    # universelle Kanal-ID
     kanal = f"{land}|{sendername}"
 
+    # für spätere Programme merken
     sender_daten.append((kanal, beschreibung))
 
+    # Channel erzeugen
     xml += f"""
-    <channel id="{kanal}">
-        <display-name>{sendername}</display-name>
-        <icon src="{logo}"/>
-    </channel>
+<channel id="{kanal}">
+    <display-name>{sendername}</display-name>
+    <icon src="{logo}"/>
+</channel>
 """
-
 # --------------------------------------------------
 # DYN PPV 1-20
 # --------------------------------------------------
