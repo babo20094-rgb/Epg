@@ -151,4 +151,6 @@ BA|HIT TELEVIZIJA BRCKO|Hit Televizija Brcko|
 BA|RTV VOGOSCA|Program Televizije Vogosca|
 BA|HIT TELEVIZIJA|Hit Televizija Dnevni Program|
 RS|BALKANIKA|Balkanika Music Television|https://e7.pngegg.com/pngimages/862/556/png-clipart-bulgaria-balkanika-tv-logo-television-music-national-geographic-animal-jam-television-logo.png
-DE|DDR|Filme aus der DDR|https://www.shutterstock.com/image-vector/old-coat-arms-east-germany-260nw-1165609636.jpg
+DE|DDR|Filme aus der DDR|https://e7.pngegg.com/pngimages/220/902/png-clipart-national-emblem-of-east-germany-land-forces-of-the-national-people-s-army-military-indian-army-miscellaneous-emblem-thumbnail.png
+DE|ALLESKINO|Alles Kino programm|https://m.media-amazon.com/images/G/03/digital/video/merch/subs/benefit-id/a-f/alleskino/logos/3p-logo._CB485924756_.png
+DE|HEIMATKINO|Berlin Funke Gruppe programm|https://i.imgur.com/8YbZbgz.png
