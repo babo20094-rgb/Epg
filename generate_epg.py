@@ -150,7 +150,12 @@ except Exception as e:
 # Leerzeiten füllen
 # --------------------------------------------------
 
-jetzt = datetime.utcnow()
+jetzt = datetime.utcnow().replace(
+             hour=0,
+             minute=0,
+             second=0,
+             microsecond=0
+)       
 
 for i in range(1, 21):
 
