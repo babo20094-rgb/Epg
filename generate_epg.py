@@ -41,19 +41,9 @@ for zeile in sender_liste:
     sender_daten.append((kanal, beschreibung))
 
     # Channel erzeugen
-    display1 = kanal
-display2 = sendername
-display3 = sendername.title()
-display4 = sendername.lower()
-display5 = f"{sendername} HD"
-
-xml += f"""
+    xml += f"""
 <channel id="{kanal}">
-    <display-name>{display1}</display-name>
-    <display-name>{display2}</display-name>
-    <display-name>{display3}</display-name>
-    <display-name>{display4}</display-name>
-    <display-name>{display5}</display-name>
+    <display-name>{sendername}</display-name>
     <icon src="{logo}"/>
 </channel>
 """
