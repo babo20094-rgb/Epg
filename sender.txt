@@ -174,3 +174,7 @@ DE|DELUXE DEUTSCHPOP|Deluxe DeutschPop Tv|https://img.netzwelt.de/dw1600_dh900_s
 DE|COOL SUMMER CHANNEL|Cool Summer Channel Tv Programm|https://e7.pngegg.com/pngimages/887/309/png-clipart-poster-summer-vacation-graphic-design-summer-cool-element-miscellaneous-logo-thumbnail.png
 DE|XITE ROCK X METAL|Xite Rock x Metal Tv Programm|https://m.media-amazon.com/images/G/01/LCXO_Station_Logos/xite_rock_x_metal._SL500_FMpng_.png
 DE|FANTASJA|Fantasja Tv|https://img.netzwelt.de/dw1600_dh900_sw240_sh135_sx5_sy57_sr16x9_nu2/picture/original/2024/08/fantasja-411112.png
+TUBI|WORLD'S MOST EVIL KILLERS RAW|Most Evil Killers 24/7 Programm|https://woodcutmedia.com/wp-content/uploads/2016/09/WORLDS-MOST-EVIL-KILLERS.jpg
+TUBI|WELCOME HOME RAW|Welcome Home Channel|https://www.pngfind.com/pngs/m/545-5459875_welcome-home-logo-hd-png-download.png
+TUBI|WANTED:DEAD OR ALIVE RAW|Dead or Alive Channel|https://images.vexels.com/media/users/3/249226/isolated/preview/e8f10cd25d283dcb3f19d5ec98369036-wanted-dead-or-alive-label.png
+TUBI|UNIQUE LIVES RAW|Unique Lives Channel|https://spng.pngfind.com/pngs/s/441-4419285_unique-logo-png-transparent-unique-uitzendbureau-png-download.png
