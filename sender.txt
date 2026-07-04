@@ -167,3 +167,10 @@ DE|LAGERFEUER|Lagerfeuer Tv|https://png.pngtree.com/png-vector/20240309/ourmid/p
 DE|SCREEN GREEN|Screen Green Tv|https://e7.pngegg.com/pngimages/953/804/png-clipart-green-and-white-letter-g-logo-grass-trademark-symbol-brand-groupon-trademark-logo.png
 DE|THE JAMIE OLIVER CHANNEL|Kochen mit Jamie Oliver|https://icon2.cleanpng.com/20180806/abg/kisspng-logo-brand-product-design-font-5b68728379b655.8766338215335717154985.jpg
 DE|HORSE COUNTRY|Horse und Country Programm|https://upload.wikimedia.org/wikipedia/en/4/49/Horseandcountry.PNG
+DE|SUPERTOONS TV|Supertoons Tv (Kinder Sendungen)|https://upload.wikimedia.org/wikipedia/commons/2/28/SuperToons.jpg
+DE|TEEN NICK|Teen Nick Tv|https://upload.wikimedia.org/wikipedia/commons/3/3c/TeenNick_2023_Outlined_Logo.png
+DE|CAR CITY ADVENTURES|Car City Adventures TV Programm|https://www.totallicensing.com/wp-content/uploads/2024/07/Screenshot-2024-07-03-at-10.16.56.png
+DE|DELUXE DEUTSCHPOP|Deluxe DeutschPop Tv|https://img.netzwelt.de/dw1600_dh900_sw0_sh0_sx0_sy0_sr16x9_nu2/picture/original/2023/08/deluxe-deutschpop-380342.png
+DE|COOL SUMMER CHANNEL|Cool Summer Channel Tv Programm|https://e7.pngegg.com/pngimages/887/309/png-clipart-poster-summer-vacation-graphic-design-summer-cool-element-miscellaneous-logo-thumbnail.png
+DE|XITE ROCK X METAL|Xite Rock x Metal Tv Programm|https://m.media-amazon.com/images/G/01/LCXO_Station_Logos/xite_rock_x_metal._SL500_FMpng_.png
+DE|FANTASJA|Fantasja Tv|https://img.netzwelt.de/dw1600_dh900_sw240_sh135_sx5_sy57_sr16x9_nu2/picture/original/2024/08/fantasja-411112.png
