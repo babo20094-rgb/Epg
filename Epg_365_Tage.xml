@@ -322181,32 +322181,27 @@
         <desc>Fantasja Tv</desc>
     </programme>
 
-    <programme start="20260704010000 +0000" stop="20260704070000 +0000" channel="DE| DYN PPV 1 HD">
-        <title>Session 2 Tisch 1 | United States Smash - Tag 6</title>
-        <desc>Session 2 Tisch 1 | United States Smash - Tag 6</desc>
-    </programme>
-
-    <programme start="20260704190000 +0000" stop="20260705010000 +0000" channel="DE| DYN PPV 2 HD">
+    <programme start="20260704190000 +0000" stop="20260705010000 +0000" channel="DE| DYN PPV 1 HD">
         <title>Session 1 Tisch 1 | United States Smash - Tag 7</title>
         <desc>Session 1 Tisch 1 | United States Smash - Tag 7</desc>
     </programme>
 
-    <programme start="20260705010000 +0000" stop="20260705070000 +0000" channel="DE| DYN PPV 3 HD">
+    <programme start="20260705010000 +0000" stop="20260705070000 +0000" channel="DE| DYN PPV 2 HD">
         <title>Session 2 Tisch 1 | United States Smash - Tag 7</title>
         <desc>Session 2 Tisch 1 | United States Smash - Tag 7</desc>
     </programme>
 
-    <programme start="20260705102000 +0000" stop="20260705123000 +0000" channel="DE| DYN PPV 4 HD">
+    <programme start="20260705102000 +0000" stop="20260705123000 +0000" channel="DE| DYN PPV 3 HD">
         <title>Deutschland vs. Dänemark | IHF U20 Women's Junior WM - Finale</title>
         <desc>Deutschland vs. Dänemark | IHF U20 Women's Junior WM - Finale</desc>
     </programme>
 
-    <programme start="20260705190000 +0000" stop="20260706010000 +0000" channel="DE| DYN PPV 5 HD">
+    <programme start="20260705190000 +0000" stop="20260706010000 +0000" channel="DE| DYN PPV 4 HD">
         <title>Session 1 Tisch 1 | United States Smash - Tag 8</title>
         <desc>Session 1 Tisch 1 | United States Smash - Tag 8</desc>
     </programme>
 
-    <programme start="20260706020000 +0000" stop="20260706050000 +0000" channel="DE| DYN PPV 6 HD">
+    <programme start="20260706020000 +0000" stop="20260706050000 +0000" channel="DE| DYN PPV 5 HD">
         <title>Session 2 Tisch 1 | United States Smash - Finalspiele</title>
         <desc>Session 2 Tisch 1 | United States Smash - Finalspiele</desc>
     </programme>
