@@ -162,3 +162,8 @@ DE|CNN FAST|CNN Dokumentationen|https://blogger.googleusercontent.com/img/b/R29v
 DE|FRANCE 24 FAST|France 24 Fast programm|https://w7.pngwing.com/pngs/529/986/png-transparent-france-24-hd-logo-thumbnail.png
 DE|REUTERS|Reuters Tv|https://toppng.com/uploads/preview/reuters-logo-vector-11573946714klp8valxok.png
 DE|FOCUS TV|Focus Tv programm|https://upload.wikimedia.org/wikipedia/commons/9/9b/Unternehmenslogo_-_FOCUS_TV.jpg
+DE|TERRA X|Spannende Dokumentationen bei Terra X|https://www.synchronsprecher.de/blog/wp-content/uploads/2026/01/Terra-X-Sprecher-Stimme.jpeg
+DE|LAGERFEUER|Lagerfeuer Tv|https://png.pngtree.com/png-vector/20240309/ourmid/pngtree-bonfire-vector-illustration-png-image_11903395.png
+DE|SCREEN GREEN|Screen Green Tv|https://e7.pngegg.com/pngimages/953/804/png-clipart-green-and-white-letter-g-logo-grass-trademark-symbol-brand-groupon-trademark-logo.png
+DE|THE JAMIE OLIVER CHANNEL|Kochen mit Jamie Oliver|https://icon2.cleanpng.com/20180806/abg/kisspng-logo-brand-product-design-font-5b68728379b655.8766338215335717154985.jpg
+DE|HORSE COUNTRY|Horse und Country Programm|https://upload.wikimedia.org/wikipedia/en/4/49/Horseandcountry.PNG
