@@ -189,3 +189,5 @@ TUBI|PAWS CLAWS RAW|Paws and Claws Channel|
 TUBI|THE JACK HANNA CHANNEL RAW|The Jack Hanna Channel tv|
 TUBI|THE MASKED SINGER RAW|The Masked Singer Music Show Channel|
 TUBI|TORQUE RAW|Torque Channel|
+TUBI|DEF JAM RAW|Def Jam Music Channel with the Best Music all Day|
+TUBI|MYSTERIOUS WORLDS RAW|Mysterious Worlda Channel|
