@@ -238,3 +238,6 @@ RS|EURO CINEMA 2 VIP RAW|Ekskluzivni filmski i serijski sadržaj iz evropskih ze
 RS|EURO CINEMA 3 VIP RAW|Ekskluzivni filmski i serijski sadržaj iz evropskih zemalja (Nemačka, Italija, Francuska, Španija, Švajcarska) i celog sveta|
 RS|EURO CINEMA 4 VIP RAW|Ekskluzivni filmski i serijski sadržaj iz evropskih zemalja (Nemačka, Italija, Francuska, Španija, Švajcarska) i celog sveta|
 RS|TIMELESS DIZI CHANNEL VIP RAW|Moj šampion, Drži me za ruku, Karadaji, Ljubav i novac, Kurt Sejit i Šura i 20 minuta.Ekskluzivni naslovi- Mehmed, Sudbina i Nevini|
+RS|SLOBODNA TV VIP RAW|Analiza aktuelnih društvenih i političkih dešavanja u Srbiji i svetu|
+RS|KUVO TV VIP RAW|Redovno emitovanje gejming sadržaja u saradnji sa poznatim balkanskim strimerima i influenserima PODCASTI|
+RS|EKO VIZIJA VIP RAW|Putopisi i dokumentarne emisije koje istražuju netaknute predele, istorijske lokalitete i kulturno nasleđe Srbije|
