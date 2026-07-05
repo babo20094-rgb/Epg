@@ -250,3 +250,52 @@ HR|HRT INT|HRT int. Emitira odabrane sadržaje iz programa HRT 1, HRT 2, HRT 3 i
 HR|TREND TV VIP RAW|Regionalni TV program-Program u toku|
 HR|SCI-FI VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
 HR|AMC BALKAN VIP RAW|Regionalni TV program-Program u toku|
+MK|FFM MK FOOTBALL 1 LIVE EVENT|>>Just by Live Events<< EVENT1|
+MK|FFM MK FOOTBALL 2 LIVE EVENT|>>Just by Live Events<< EVENT2|
+MK|FFM MK FOOTBALL 3 LIVE EVENT|>>Just by Live Events<< EVENT3|
+MK|FFM MK FOOTBALL 4 LIVE EVENT|>>Just by Live Events<< EVENT4|
+MK|FFM MK FOOTBALL 5 LIVE EVENT|>>Just by Live Events<< EVENT5|
+MK|FFM MK FOOTBALL 6 LIVE EVENT|>>Just by Live Events<< EVENT6|
+MK|FOLK KLUB TV HD|Regionalni TV program Makedonija-Program u toku|
+MK|TV PLUS|Regionalni TV program Makedonija-Program u toku|
+MK|FOLK HD|Regionalni TV program Makedonija-Program u toku|
+MK|INTV AVSRALIJA|Regionalni TV program Makedonija-Program u toku|
+MK|ROMA TV|Regionalni TV program Makedonija-Program u toku|
+MK|INTV AVSTRALIJA HD|Regionalni TV program Makedonija-Program u toku|
+MK|FOX LIVE|Regionalni TV program Makedonija-Program u toku|
+MK|FOX HD|Regionalni TV program Makedonija-Program u toku|
+MK|DISCOVERY CHANNEL MULTI SUB|Regionalni TV program Makedonija-Program u toku|
+MK|FILM BOX PLUS|Regionalni TV program Makedonija-Program u toku|
+MK|HUGO 2 TV|Regionalni TV program Makedonija-Program u toku|
+MK|HUGO TV HD|Regionalni TV program Makedonija-Program u toku|
+MK|MTM TV|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+MK|MPT SOBRANISKI HD|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+MK|K3|K3 Makedonija TV program Makedonija-Program u toku|
+MK|O2 OHRID HD|TV program Makedonija-Program u toku|
+MK|KTV KAVADARCI|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+MK|MEGA BITOLA HD|TV program Makedonija-Program u toku|
+MK|TV2 GOSTIVAR|TV program Makedonija-Program u toku|
+MK|TV KUMANOVO|TV program Makedonija-Program u toku|
+MK|KLAN MACEDONIA|TV program Makedonija-Program u toku|
+MK|KANAL 21 TV|TV program Makedonija-Program u toku|
+MK|SUTEL TV|TV program Makedonija-Program u toku|
+MK|TV SONCE|TV program Makedonija-Program u toku|
+MK|NASA TV|TV program Makedonija-Program u toku|
+MK|TV PLUS VIP RAW|Regionalni TV program Makedonija-Program u toku|
+MK|TV HUGO 1 VIP RAW|Tv Hugo 1|
+MK|TV HUGO 2 VIP RAW|Tv Hugo 2|
+MK|TV HUGO 3 VIP RAW|Tv Hugo 3|
+MK|TV HUGO 4 VIP RAW|Tv Hugo 4|
+MK|TV HUGO 5 VIP RAW|Tv Hugo 5|
+MK|TV HUGO 6 VIP RAW|Tv Hugo 6|
+MK|TV HUGO 7 VIP RAW|Tv Hugo 7|
+MK|TV HUGO 8 VIP RAW|Tv Hugo 8|
+MK|TV HUGO 9 VIP RAW|Tv Hugo 9|
+MK|TV HUGO 10 VIP RAW|Tv Hugo 10|
+MK|TV 24 VIP RAW|TV program Makedonija-Program u toku|
+MK|SOBRANISKI KANAL VIP RAW|TV program Makedonija-Program u toku|
+MK|SITEL VIP RAW|TV program Makedonija-Program u toku|
+MK|NATIONAL GEOGRAPHIC VIP RAW|Dokumentacije sa Makedonskog podrucija|
+MK|NASHA TV VIP RAW|TV program Makedonija-Program u toku|
+MK|INTV 1 VIP RAW|TV program Makedonija-Program u toku|
+MK|INTV 2 VIP RAW|TV program Makedonija-Program u toku|
