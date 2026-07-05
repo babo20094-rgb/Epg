@@ -243,3 +243,10 @@ RS|KUVO TV VIP RAW|Redovno emitovanje gejming sadržaja u saradnji sa poznatim b
 RS|EKO VIZIJA VIP RAW|Putopisi i dokumentarne emisije koje istražuju netaknute predele, istorijske lokalitete i kulturno nasleđe Srbije|
 HR|KREATOR HD|Kreator HD Tv Regionalni TV program-Program u toku|
 HR|GINIX|Ginix TV Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+HR|HAJDUK TV|Hajduk Tv program-Program u toku SPORTSKI DOGADAJI|
+HR|TREND AND KARLOVAC|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+HR|TREND TV HD|Informativni, zabavni i kulturni program fokusiran na Karlovac, Zagrebačku županiju i širu okolicu|https://trend.com.hr/wp-content/uploads/2020/03/trend_tv.png
+HR|HRT INT|HRT int. Emitira odabrane sadržaje iz programa HRT 1, HRT 2, HRT 3 i HRT 4|
+HR|TREND TV VIP RAW|Regionalni TV program-Program u toku|
+HR|SCI-FI VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+HR|AMC BALKAN VIP RAW|Regionalni TV program-Program u toku|
