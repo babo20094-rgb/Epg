@@ -193,3 +193,5 @@ TUBI|DEF JAM RAW|Def Jam Music Channel with the Best Music all Day|
 TUBI|MYSTERIOUS WORLDS RAW|Mysterious Worlda Channel|
 US|ABC 28 KAMC LUBBOCK TX|ABC 28 Channel from KAMC TX|https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/9957431-drive-download-20220825t183118z-300x300.png
 US|ABC 33 SPRINGFIELD MO KSPR|ABC 33 Channel from Springfield KSPR MO|https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/669044-kspr-stationlogo24-300x94.png
+US|CBS 30 FARGO ND KXJB|CBS Channel from Fargo KXJB|https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/KXJB-LD2_2024.webp/250px-KXJB-LD2_2024.webp.png
+US|CBS 7 BEND OR KBNZ|ABC Channel from Bend OR KBNZ|https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/KBNZ-LD_%282011%29.svg/250px-KBNZ-LD_%282011%29.svg.png
