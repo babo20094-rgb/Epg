@@ -195,3 +195,13 @@ US|ABC 28 KAMC LUBBOCK TX|ABC 28 Channel from KAMC TX|https://d2c0db5b8fb27c1c98
 US|ABC 33 SPRINGFIELD MO KSPR|ABC 33 Channel from Springfield KSPR MO|https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/669044-kspr-stationlogo24-300x94.png
 US|CBS 30 FARGO ND KXJB|CBS Channel from Fargo KXJB|https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/KXJB-LD2_2024.webp/250px-KXJB-LD2_2024.webp.png
 US|CBS 7 BEND OR KBNZ|ABC Channel from Bend OR KBNZ|https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/KBNZ-LD_%282011%29.svg/250px-KBNZ-LD_%282011%29.svg.png
+US|FOX 17 SIOUX FALLS SD KTTW|FOX Channel from Sioux Falls on KTTW|
+US|FOX 67 BROWNSVILLE TX KXFX|FOX Channel from Brownsville TX KXFX|
+US|FOX 41 YAKIMA WA KCYU|FOX Channel from Yakima WA at KCYU|
+US|NBC 36 AUSTIN KXAN|NBC Channel from Austin on KXAN|
+US|NBC 26 AUGUSTA GA WAGT|NBC Channel from Augusta GA life on WAGT|
+US|NBC 23 BRYAN TX KAGS|NBC Channel Life from Bryan TX on KAGS|
+US|PBS 36 ODESSA MIDLAND|PBS Channel 36 from Odessa-Midland|
+US|PBS ALBUQUERQUE SANTA FE|PBS Channel from Albuquerque in Santa Fe|
+US|PBS 19 KCPT KANSAS CITY|PBS Channel from Kansas City Life on KCPT|
+US|PBS PHOENIX|PBS Channel Life from Phoenix|
