@@ -205,3 +205,36 @@ US|PBS 36 ODESSA MIDLAND|PBS Channel 36 from Odessa-Midland|
 US|PBS ALBUQUERQUE SANTA FE|PBS Channel from Albuquerque in Santa Fe|
 US|PBS 19 KCPT KANSAS CITY|PBS Channel from Kansas City Life on KCPT|
 US|PBS PHOENIX|PBS Channel Life from Phoenix|
+RS|HRAM TV HD|Hram TV Regionalni TV program-Program u toku|
+RS|ROMA TV|Regionalni TV program-Program u toku|https://static.wixstatic.com/media/c8f2ae_3950d73fc62044e69718d84e5c724626~mv2.png/v1/crop/x_10,y_1162,w_6229,h_1753/fill/w_280,h_79,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c8f2ae_3950d73fc62044e69718d84e5c724626~mv2.png
+RS|KTV|Regionalni TV program-Program u toku|https://www.ktv.rs/wp-content/uploads/2025/03/500X-500.png
+RS|PESTER TV|Regionalni TV program-Program u toku|https://mojasupernova.mts.rs/Picture/1215/png/pester-tv-480x270.png
+RS|VIBE TV|Vibe Tv Regionalni TV program-Program u toku|
+RS|MLAVA TV|Mlava Tv Regionalni TV program-Program u toku|https://rtvmlava.com/wp-content/uploads/2018/11/default-990x601.jpg
+RS|UNA HD|Una HD Tv Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+RS|TV HRAM VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+RS|TV DR VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+RS|MOJ HAPPY ZIVOT VIP RAW|Moj Happy Zivot Tv|
+RS|MOJ HAPPY ZEMLJA VIP RAW|Moj Happy Zemlja Tv|
+RS|MOJ HAPPY MUZIKA VIP RAW|Moj Happy Muzika Tv|
+RS|MOJ HAPPY DRUSTVO VIP RAW|Moj Happy Drustvo Tv|
+RS|TV K23 VIP RAW|K23 Tv Regionalni TV program-Program u toku|
+RS|ZELENA TV ZDRAVLJE VIP RAW|Tv Zdralje Regionalni TV program-Program u toku|
+RS|DM SAT VIP RAW|DM SAT Muzicki Programm-sms Chat poruke|
+RS|TV RAS VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+RS|TV SUMADIJA VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+RS|TV POZEGA VIP RAW|Regionalni TV program-Program u toku|https://radiopozega.rs/wp-content/uploads/2024/05/logo-tv-pozega.png
+RS|KORENI VIP RAW|Regionalni TV program-Program u toku|
+RS|TV BAP VIP RAW|Regionalni TV program-Program u toku|
+RS|RTV TESLA VIP RAW|Pridružite nam se u misiji širenja znanja i osvetljavanja sveta, baš kao što je to činio Nikola Tesla|
+RS|INVESTIGATION DISCOVERY ID VIP RAW|TV program-Program u toku|
+RS|GAMETOON VIP RAW|Regionalni TV program-Program u toku|
+RS|DOX VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
+RS|TV PARTIZAN VIP RAW|Partizan Tv SPORTSKI PROGRAM|
+RS|TV ZVEZDA VIP RAW|Zvezda Tv SPORTSKI DOGADAJI|
+RS|LFCTV VIP RAW|Regionalni TV program-Program u toku|
+RS|EURO CINEMA 1 VIP RAW|Ekskluzivni filmski i serijski sadržaj iz evropskih zemalja (Nemačka, Italija, Francuska, Španija, Švajcarska) i celog sveta|
+RS|EURO CINEMA 2 VIP RAW|Ekskluzivni filmski i serijski sadržaj iz evropskih zemalja (Nemačka, Italija, Francuska, Španija, Švajcarska) i celog sveta|
+RS|EURO CINEMA 3 VIP RAW|Ekskluzivni filmski i serijski sadržaj iz evropskih zemalja (Nemačka, Italija, Francuska, Španija, Švajcarska) i celog sveta|
+RS|EURO CINEMA 4 VIP RAW|Ekskluzivni filmski i serijski sadržaj iz evropskih zemalja (Nemačka, Italija, Francuska, Španija, Švajcarska) i celog sveta|
+RS|TIMELESS DIZI CHANNEL VIP RAW|Moj šampion, Drži me za ruku, Karadaji, Ljubav i novac, Kurt Sejit i Šura i 20 minuta.Ekskluzivni naslovi- Mehmed, Sudbina i Nevini|
