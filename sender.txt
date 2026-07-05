@@ -241,3 +241,5 @@ RS|TIMELESS DIZI CHANNEL VIP RAW|Moj šampion, Drži me za ruku, Karadaji, Ljuba
 RS|SLOBODNA TV VIP RAW|Analiza aktuelnih društvenih i političkih dešavanja u Srbiji i svetu|
 RS|KUVO TV VIP RAW|Redovno emitovanje gejming sadržaja u saradnji sa poznatim balkanskim strimerima i influenserima PODCASTI|
 RS|EKO VIZIJA VIP RAW|Putopisi i dokumentarne emisije koje istražuju netaknute predele, istorijske lokalitete i kulturno nasleđe Srbije|
+HR|KREATOR HD|Kreator HD Tv Regionalni TV program-Program u toku|
+HR|GINIX|Ginix TV Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
