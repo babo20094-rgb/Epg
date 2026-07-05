@@ -250,12 +250,12 @@ HR|HRT INT|HRT int. Emitira odabrane sadržaje iz programa HRT 1, HRT 2, HRT 3 i
 HR|TREND TV VIP RAW|Regionalni TV program-Program u toku|
 HR|SCI-FI VIP RAW|Regionalni televizijski program dostupan 24 sata dnevno sa vijestima, zabavom, muzikom, filmovima, dokumentarnim emisijama, sportom i specijalnim događajima iz zemalja bivše Jugoslavije i Balkana|
 HR|AMC BALKAN VIP RAW|Regionalni TV program-Program u toku|
-MK|FFM MK FOOTBALL 1 LIVE EVENT|>>Just by Live Events<< EVENT1|
-MK|FFM MK FOOTBALL 2 LIVE EVENT|>>Just by Live Events<< EVENT2|
-MK|FFM MK FOOTBALL 3 LIVE EVENT|>>Just by Live Events<< EVENT3|
-MK|FFM MK FOOTBALL 4 LIVE EVENT|>>Just by Live Events<< EVENT4|
-MK|FFM MK FOOTBALL 5 LIVE EVENT|>>Just by Live Events<< EVENT5|
-MK|FFM MK FOOTBALL 6 LIVE EVENT|>>Just by Live Events<< EVENT6|
+MK|FFM MK FOOTBALL 1 LIVE EVENT|Just by Live Events-EVENT1|
+MK|FFM MK FOOTBALL 2 LIVE EVENT|Just by Live Events-EVENT2|
+MK|FFM MK FOOTBALL 3 LIVE EVENT|Just by Live Events-EVENT3|
+MK|FFM MK FOOTBALL 4 LIVE EVENT|Just by Live Events-EVENT4|
+MK|FFM MK FOOTBALL 5 LIVE EVENT|Just by Live Events-EVENT5|
+MK|FFM MK FOOTBALL 6 LIVE EVENT|Just by Live Events-EVENT6|
 MK|FOLK KLUB TV HD|Regionalni TV program Makedonija-Program u toku|
 MK|TV PLUS|Regionalni TV program Makedonija-Program u toku|
 MK|FOLK HD|Regionalni TV program Makedonija-Program u toku|
