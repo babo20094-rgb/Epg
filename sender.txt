@@ -319,13 +319,13 @@ HR|MAXCRO SELECT 1 HD|MaxCro Select Program|
 HR|MAXCRO SELECT 2 HD|MaxCro Select Program|
 HR|MAXCRO SELECT 3 HD|MaxCro Select Program|
 HR|MAXCRO SELECT KIDS HD|MaxCro Selcet-Kids Program|
-HR|NET IP SELECT 3 HD|Net IP Select 3|
-HR|NET IP SELECT 4 HD|Net IP Select 4|
+HR|NET IP SELECT 3 HD|Net IP Select3 Program|
+HR|NET IP SELECT 4 HD|Net IP Select4 Program|
 RS|CROMAX SELECT HD|CroMax Select-Srbija|
 RS|GORA SELECT 1 HD|Gora Select 1|
 RS|NETIP FILM 3 HD|Net IP Film 3 Srbija|
 RS|NETIP FILM 4 HD|Net IP Film 4 Srbija|
-RS|NETIP CINEMA 3 HD|Net IP Cinema 3 RS|
-RS|NETIP CINEMA 4 HD|Net IP Cinema 4 RS|
-RS|NETIP MOVIES 3 HD|Net IP Movies 3 RS|
+RS|NETIP CINEMA 3 HD|Net IP Cinema3 RS|
+RS|NETIP CINEMA 4 HD|Net IP Cinema4 RS|
+RS|NETIP MOVIES 3 HD|Net IP Movies3 RS|
 RS|FILM KLUB EXTRA|Film Klub Extra-Program u toku|
