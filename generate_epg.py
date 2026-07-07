@@ -47,6 +47,7 @@ for zeile in sender_liste:
     <display-name>{kanal}</display-name>
     <display-name>{sendername.title()}</display-name>
     <display-name>{sendername.lower()}</display-name>
+    <display-name>{sendername} HD</display-name>
     <icon src="{logo}"/>
 </channel>
 """
