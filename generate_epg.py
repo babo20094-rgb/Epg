@@ -44,6 +44,9 @@ for zeile in sender_liste:
     xml += f"""
 <channel id="{kanal}">
     <display-name>{sendername}</display-name>
+    <display-name>{kanal}</display-name>
+    <display-name>{sendername.title()}</display-name>
+    <display-name>{sendername.lower()}</display-name>
     <icon src="{logo}"/>
 </channel>
 """
