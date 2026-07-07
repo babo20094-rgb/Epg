@@ -315,9 +315,9 @@ BA|TV DUGAPLUS|Duga Plus Tv Program u toku|
 RS|TOP SOUND|Top Sound Tv Program|
 BA|BN MUSIC|BN Music Program u toku|
 HR|MAXCRO SELECT KIDS 2 HD|MaxCro Selcet-Kids Program|
-HR|MAXCRO SELECT 1 HD|MaxCro Selcet Program|
-HR|MAXCRO SELECT 2 HD|MaxCro Selcet Program|
-HR|MAXCRO SELECT 3 HD|MaxCro Selcet Program|
+HR|MAXCRO SELECT 1 HD|MaxCro Select Program|
+HR|MAXCRO SELECT 2 HD|MaxCro Select Program|
+HR|MAXCRO SELECT 3 HD|MaxCro Select Program|
 HR|MAXCRO SELECT KIDS HD|MaxCro Selcet-Kids Program|
 HR|NETIP SELECT 3 HD|Net IP Select|
 HR|NETIP SELECT 4 HD|Net IP Select|
