@@ -75,10 +75,10 @@ starttag = datetime.utcnow().replace(
     microsecond=0
 )
 
-for tag in range(365):
+for stunde in range(0, 24 * 365, 4):
 
-    start = starttag + timedelta(days=tag)
-    ende = start + timedelta(days=1)
+    start = starttag + timedelta(hours=stunde)
+    ende = start + timedelta(hours=4)
 
     start_str = start.strftime("%Y%m%d%H%M%S +0000")
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
@@ -86,10 +86,10 @@ for tag in range(365):
     for kanal, beschreibung in sender_daten:
 
         xml += f"""
-    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
-        <title>{beschreibung}</title>
-        <desc>{beschreibung}</desc>
-    </programme>
+<programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+    <title>{beschreibung}</title>
+    <desc>{beschreibung}</desc>
+</programme>
 """
 
 # --------------------------------------------------
