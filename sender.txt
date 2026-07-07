@@ -299,3 +299,33 @@ MK|NATIONAL GEOGRAPHIC VIP RAW|Dokumentacije sa Makedonskog podrucija|
 MK|NASHA TV VIP RAW|TV program Makedonija-Program u toku|
 MK|INTV 1 VIP RAW|TV program Makedonija-Program u toku|
 MK|INTV 2 VIP RAW|TV program Makedonija-Program u toku|
+EXYU|WISSPER|EXYU WISSPER|
+HR|TOON KIDS|HR Toon Kids-Program u toku|
+RS|COMEDY CENTRAL|Comedy Cebtral-Program u toku|
+RS|DISNEY CHANNEL|Disney Channel-Program u toku|
+HR|MASA I MEDVJED|Masa i Medvjed-Program u toku|
+SK|TV MARKIZA FHD|TV Markiza-Program u toku|
+RS|PAROVI LIVE|Parovi Live program|
+RS|NGC HD|NGC Tv-Program u toku|
+RS|DOCU BOX|Docu Box Program|
+BA|HAYAT MUSIC|Hayat Music Program|
+BA|HAYAT FOLK|Hayat Folk Program|
+BA|YU PLANET|YU Planet Program|
+BA|TV DUGAPLUS|Duga Plus Tv Program u toku|
+RS|TOP SOUND|Top Sound Tv Program|
+BA|BN MUSIC|BN Music Program u toku|
+HR|MAXCRO SELECT KIDS 2 HD|MaxCro Selcet-Kids Program|
+HR|MAXCRO SELECT 1 HD|MaxCro Selcet Program|
+HR|MAXCRO SELECT 2 HD|MaxCro Selcet Program|
+HR|MAXCRO SELECT 3 HD|MaxCro Selcet Program|
+HR|MAXCRO SELECT KIDS HD|MaxCro Selcet-Kids Program|
+HR|NET IP SELECT 3 HD|Net IP Select|
+HR|NET IP SELECT 4 HD|Net IP Select|
+RS|CROMAX SELECT HD|CroMax Select-Srbija|
+RS|GORA SELECT 1 HD|Gora Select 1|
+RS|NETIP FILM 3 HD|Net IP Film 3 Srbija|
+RS|NETIP FILM 4 HD|Net IP Film 4 Srbija|
+RS|NETIP CINEMA 3 HD|Net IP Cinema 3 RS|
+RS|NETIP CINEMA 4 HD|Net IP Cinema 4 RS|
+RS|NETIP MOVIES 3 HD|Net IP Movies 3 RS|
+RS|FILM KLUB EXTRA|Film Klub Extra-Program u toku|
