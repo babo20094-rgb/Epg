@@ -301,7 +301,7 @@ MK|INTV 1 VIP RAW|TV program Makedonija-Program u toku|
 MK|INTV 2 VIP RAW|TV program Makedonija-Program u toku|
 EXYU|WISSPER|EXYU WISSPER|
 HR|TOON KIDS|HR Toon Kids-Program u toku|
-RS|COMEDY CENTRAL|Comedy Cebtral-Program u toku|
+RS|COMEDY CENTRAL|Comedy Central-Program u toku|
 RS|DISNEY CHANNEL|Disney Channel-Program u toku|
 HR|MASA I MEDVJED|Masa i Medvjed-Program u toku|
 SK|TV MARKIZA FHD|TV Markiza-Program u toku|
@@ -319,8 +319,8 @@ HR|MAXCRO SELECT 1 HD|MaxCro Select Program|
 HR|MAXCRO SELECT 2 HD|MaxCro Select Program|
 HR|MAXCRO SELECT 3 HD|MaxCro Select Program|
 HR|MAXCRO SELECT KIDS HD|MaxCro Selcet-Kids Program|
-HR|NETIP SELECT 3 HD|Net IP Select|
-HR|NETIP SELECT 4 HD|Net IP Select|
+HR|NET IP SELECT 3 HD|Net IP Select 3|
+HR|NET IP SELECT 4 HD|Net IP Select 4|
 RS|CROMAX SELECT HD|CroMax Select-Srbija|
 RS|GORA SELECT 1 HD|Gora Select 1|
 RS|NETIP FILM 3 HD|Net IP Film 3 Srbija|
