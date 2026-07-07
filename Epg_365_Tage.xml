@@ -72590,21 +72590,6 @@
     <desc>Film Klub Extra-Program u toku</desc>
 </programme>
 
-    <programme start="20260709080000 +0000" stop="20260709110000 +0000" channel="DE| DYN PPV 1 HD">
-        <title>Test Konf Spiel 2</title>
-        <desc>Test Konf Spiel 2</desc>
-    </programme>
-
-    <programme start="20260709080000 +0000" stop="20260709110000 +0000" channel="DE| DYN PPV 2 HD">
-        <title>Test Konferenz</title>
-        <desc>Test Konferenz</desc>
-    </programme>
-
-    <programme start="20260709080000 +0000" stop="20260709110000 +0000" channel="DE| DYN PPV 3 HD">
-        <title>Test Konf- Spiel 1</title>
-        <desc>Test Konf- Spiel 1</desc>
-    </programme>
-
     <programme start="20260707000000 +0000" stop="20260707010000 +0000" channel="DE| DYN PPV 1 HD">
         <title>Im Moment keine Live Events, bleib dran</title>
         <desc>Im Moment keine Live Events, bleib dran</desc>
