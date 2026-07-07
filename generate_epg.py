@@ -75,7 +75,7 @@ starttag = datetime.utcnow().replace(
     microsecond=0
 )
 
-for stunde in range(0, 24 * 365, 4):
+for stunde in range(0, 24 * 7, 4):
 
     start = starttag + timedelta(hours=stunde)
     ende = start + timedelta(hours=4)
