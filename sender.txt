@@ -315,9 +315,9 @@ BA|TV DUGAPLUS|Duga Plus Tv Program u toku|
 RS|TOP SOUND|Top Sound Tv Program|
 BA|BN MUSIC|BN Music Program u toku|
 HR|MAXCRO SELECT KIDS 2 HD|MaxCro Selcet-Kids Program|
-HR|MAXCRO SELECT 1 HD|MaxCro Select Program|
-HR|MAXCRO SELECT 2 HD|MaxCro Select Program|
-HR|MAXCRO SELECT 3 HD|MaxCro Select Program|
+HR|MAXCRO SELECT 1 HD|MaxCro Select 1 Program|
+HR|MAXCRO SELECT 2 HD|MaxCro Select 2 Program|
+HR|MAXCRO SELECT 3 HD|MaxCro Select 3 Program|
 HR|MAXCRO SELECT KIDS HD|MaxCro Selcet-Kids Program|
 HR|NET IP SELECT 3 HD|Net IP Select3 Program|
 HR|NET IP SELECT 4 HD|Net IP Select4 Program|
@@ -329,3 +329,37 @@ RS|NETIP CINEMA 3 HD|Net IP Cinema3 RS|
 RS|NETIP CINEMA 4 HD|Net IP Cinema4 RS|
 RS|NETIP MOVIES 3 HD|Net IP Movies3 RS|
 RS|FILM KLUB EXTRA|Film Klub Extra-Program u toku|
+US|ACCN HD 60FPS|ACCN Channel|
+US|A-Z CLASSIC FLIX|A-Z Classic Flix Channel|
+PRIME|20 20 RAW|20-20 Channel|
+PRIME|ABC LAS VEGAS KTNV RAW|ABC Las Vegas on KTNV|
+PRIME|ADULT ANIMATION RAW|Adult Animation Channel|
+PRIME|ALL OUT ALASKA RAW|All-Out Alaska Channel|
+PRIME|AMAZON LIVE RAW|Amazon Live Channel|
+PRIME|AMERICAN GLADIATORS RAW|American Gladiators Channel|
+PRIME|BACHELOR NATION RAW|Bachelor Nation 24-7|
+PRIME|BBC FOOD RAW|BBC Food Channel|
+PRIME|BLACK LOVE RAW|Black Love Channel|
+PRIME|CARTOON REWIND RAW|Cartoon Rewind Ch.|
+PRIME|CHAOS ON CAM BY A E RAW|Chaos on Cam Record by AE|
+PRIME|CNN EXPRESS RAW|CNN Express Channel|
+PRIME|CRIME JUSTICE RAW|Crime and Justice Channel 24-7|
+PRIME|CRIMEN RAW|Crimen Channel|
+PRIME|CURB APPEAL RAW|Curb Appeal Channel|
+PRIME|DR PHIL PRIMETIME ON MERIT STREET RAW|Dr. Phil on Merit Street PRIMETIME|
+PRIME|DR PHIL RAW|Dr. Phil Channel|
+PRIME|DUNGEONS DRAGONS RAW|Dangeons and Dragons Channel|
+PRIME|ELLEN DEGENERES RAW|The Allen Degeneres Show|
+PRIME|ESPN OCHO RAW|ESPN Channel Ocho|
+PRIME|EXTREME EXPEDITIONS RAW|Extrem Expeditions Channel|
+PRIME|EXTREME JOBS BY LIONSGATE RAW|Extrem Jobs|
+PRIME|EXTREM LIVNG RAW|Extrem Living Channel|
+PRIME|FILMRISE BLACK TV RAW|Filmrise Black Channel|
+PRIME|FUNNY FAVORITES RAW|Funny Favorites|
+PRIME|HI YAH RAW|Hi-Yah Channel|
+PRIME|HISTORY UNDISCOVERED RAW|History Undiscovered Channel|
+PRIME|HISTORY UNTOLD RAW|History Untold|
+PRIME|HOME CHRASHERS RAW|Home Chrashers Channel|
+PRIME|HORROR STORIES RAW|Horror Storys Channel|
+PRIME|HOT ONES RAW|Hot Ones Channel|
+PRIME|HUNTER RAW|Haunter Channel|
