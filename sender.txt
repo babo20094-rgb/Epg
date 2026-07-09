@@ -363,15 +363,15 @@ PRIME|HOME CHRASHERS RAW|Home Chrashers Channel|
 PRIME|HORROR STORIES RAW|Horror Storys Channel|
 PRIME|HOT ONES RAW|Hot Ones Channel|
 PRIME|HUNTER RAW|Haunter Channel|
-DE|PLUTO TV SITCOMS|Pluto Sitcoms Tv|
-DE|COMEDY CENTRAL MADE IN GERMANY|Comedy Central Germany|
-DE|MTV PLUTO TV|Pluto Tv|
-DE|STARKE FRAUEN|Starke Frauen Programm|
-DE|MERHABA TÜRKISCHE SERIEN|Türkische Serien 24/7
-DE|PLUTO TV PARANORMAL|Paranormal Tv bei Pluto Tv|
-DE|PLUTO TV SCIENCE|Science Tv Programm|
-DE|PLUTO TV ANIMALS|Animals Tv bei Pluto Tv|
-DE|PLUTO TV FOOD|Food Tv-Pluto|
+DE|PLUTO TV SITCOMS|Pluto Sitcoms Tv|https://img.netzwelt.de/dw1600_dh900_sw240_sh135_sx5_sy57_sr16x9_nu2/picture/original/2024/07/pluto-tv-sitcoms-sender-logo-409409.jpeg
+DE|COMEDY CENTRAL MADE IN GERMANY|Comedy Central Germany|https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Comedy_Central_2018.svg/500px-Comedy_Central_2018.svg.png
+DE|MTV PLUTO TV|Pluto Tv|https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png
+DE|STARKE FRAUEN|Starke Frauen Programm|https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png
+DE|MERHABA TÜRKISCHE SERIEN|Türkische Serien 24/7|https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png
+DE|PLUTO TV PARANORMAL|Paranormal Tv bei Pluto Tv|https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png
+DE|PLUTO TV SCIENCE|Science Tv Programm|https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png
+DE|PLUTO TV ANIMALS|Animals Tv bei Pluto Tv|https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png
+DE|PLUTO TV FOOD|Food Tv-Pluto|https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png
 DE|ICARLY|Icarly Tv|
-DE|PLUTO TV MOVIES|Pluto Tv Movies|
-DE|ARTFLIX|Artflix Tv|
+DE|PLUTO TV MOVIES|Pluto Tv Movies|https://www.plutofilm.de/images/front/logo.png
+DE|ARTFLIX|Artflix Tv|https://img.netzwelt.de/dw1600_dh900_sw0_sh0_sx0_sy0_sr16x9_nu2/picture/original/2023/09/artflix-384481.png
