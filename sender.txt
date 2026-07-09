@@ -363,3 +363,15 @@ PRIME|HOME CHRASHERS RAW|Home Chrashers Channel|
 PRIME|HORROR STORIES RAW|Horror Storys Channel|
 PRIME|HOT ONES RAW|Hot Ones Channel|
 PRIME|HUNTER RAW|Haunter Channel|
+DE|PLUTO TV SITCOMS|Pluto Sitcoms Tv|
+DE|COMEDY CENTRAL MADE IN GERMANY|Comedy Central Germany|
+DE|MTV PLUTO TV|Pluto Tv|
+DE|STARKE FRAUEN|Starke Frauen Programm|
+DE|MERHABA TÜRKISCHE SERIEN|Türkische Serien 24/7
+DE|PLUTO TV PARANORMAL|Paranormal Tv bei Pluto Tv|
+DE|PLUTO TV SCIENCE|Science Tv Programm|
+DE|PLUTO TV ANIMALS|Animals Tv bei Pluto Tv|
+DE|PLUTO TV FOOD|Food Tv-Pluto|
+DE|ICARLY|Icarly Tv|
+DE|PLUTO TV MOVIES|Pluto Tv Movies|
+DE|ARTFLIX|Artflix Tv|
