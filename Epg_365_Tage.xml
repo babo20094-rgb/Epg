@@ -1828,47 +1828,47 @@
 
 <channel id="DE|PLUTO TV SITCOMS">
     <display-name>PLUTO TV SITCOMS</display-name>
-    <icon src=""/>
+    <icon src="https://img.netzwelt.de/dw1600_dh900_sw240_sh135_sx5_sy57_sr16x9_nu2/picture/original/2024/07/pluto-tv-sitcoms-sender-logo-409409.jpeg"/>
 </channel>
 
 <channel id="DE|COMEDY CENTRAL MADE IN GERMANY">
     <display-name>COMEDY CENTRAL MADE IN GERMANY</display-name>
-    <icon src=""/>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Comedy_Central_2018.svg/500px-Comedy_Central_2018.svg.png"/>
 </channel>
 
 <channel id="DE|MTV PLUTO TV">
     <display-name>MTV PLUTO TV</display-name>
-    <icon src=""/>
+    <icon src="https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png"/>
 </channel>
 
 <channel id="DE|STARKE FRAUEN">
     <display-name>STARKE FRAUEN</display-name>
-    <icon src=""/>
+    <icon src="https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png"/>
 </channel>
 
 <channel id="DE|MERHABA TÜRKISCHE SERIEN">
     <display-name>MERHABA TÜRKISCHE SERIEN</display-name>
-    <icon src=""/>
+    <icon src="https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png"/>
 </channel>
 
 <channel id="DE|PLUTO TV PARANORMAL">
     <display-name>PLUTO TV PARANORMAL</display-name>
-    <icon src=""/>
+    <icon src="https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png"/>
 </channel>
 
 <channel id="DE|PLUTO TV SCIENCE">
     <display-name>PLUTO TV SCIENCE</display-name>
-    <icon src=""/>
+    <icon src="https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png"/>
 </channel>
 
 <channel id="DE|PLUTO TV ANIMALS">
     <display-name>PLUTO TV ANIMALS</display-name>
-    <icon src=""/>
+    <icon src="https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png"/>
 </channel>
 
 <channel id="DE|PLUTO TV FOOD">
     <display-name>PLUTO TV FOOD</display-name>
-    <icon src=""/>
+    <icon src="https://images.seeklogo.com/logo-png/52/2/pluto-tv-logo-png_seeklogo-520780.png"/>
 </channel>
 
 <channel id="DE|ICARLY">
@@ -1878,12 +1878,12 @@
 
 <channel id="DE|PLUTO TV MOVIES">
     <display-name>PLUTO TV MOVIES</display-name>
-    <icon src=""/>
+    <icon src="https://www.plutofilm.de/images/front/logo.png"/>
 </channel>
 
 <channel id="DE|ARTFLIX">
     <display-name>ARTFLIX</display-name>
-    <icon src=""/>
+    <icon src="https://img.netzwelt.de/dw1600_dh900_sw0_sh0_sx0_sy0_sr16x9_nu2/picture/original/2023/09/artflix-384481.png"/>
 </channel>
 
     <channel id="DE| DYN PPV 1 HD">
