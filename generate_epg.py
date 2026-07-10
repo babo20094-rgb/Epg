@@ -77,7 +77,6 @@ if len(teile) >= 3 and teile[2].strip():
     beschreibung = teile[2].strip()
 else:
     beschreibung = standard_beschreibung(land, sendername)
-    beschreibung = teile[2]
 
     logo = ""
     if len(teile) >= 4:
