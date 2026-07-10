@@ -184,7 +184,7 @@ for stunde in range(0, 24 * 7, 4):
     stop="{ende_str}"
     channel="{daten['kanal']}">
 
-<title>{daten['sender']}</title>
+<title>{sender_anzeigename(daten['sender'])}</title>
 
 <desc>{daten['beschreibung']}</desc>
 
