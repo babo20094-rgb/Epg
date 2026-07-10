@@ -226,14 +226,7 @@ for i in range(1, 21):
     </programme>
 """
 
-        xml += f"""
-<programme start="{start_str}"
-           stop="{ende_str}"
-           channel="{kanal}">
-    <title>{beschreibung}</title>
-    <desc>{beschreibung}</desc>
-</programme>
-"""
+        xml += "\n</tv>"
 xml += "\n</tv>"
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
