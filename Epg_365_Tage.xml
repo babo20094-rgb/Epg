@@ -1790,6 +1790,58 @@
     <display-name>SOLO SPORT 5 SD</display-name>
 </channel>
 
+<channel id="MNG|TV POBEDA VIP RAW">
+    <display-name>TV POBEDA VIP RAW</display-name>
+</channel>
+
+<channel id="MNG|RTV HN VIP RAW">
+    <display-name>RTV HN VIP RAW</display-name>
+</channel>
+
+<channel id="MO|WOW MONTENEGRO">
+    <display-name>WOW MONTENEGRO</display-name>
+</channel>
+
+<channel id="MO|TV PARTIZAN">
+    <display-name>TV PARTIZAN</display-name>
+</channel>
+
+<channel id="MO|TEUTA TV">
+    <display-name>TEUTA TV</display-name>
+</channel>
+
+<channel id="MO|TB1">
+    <display-name>TB1</display-name>
+</channel>
+
+<channel id="MO|SARAJEVO TV">
+    <display-name>SARAJEVO TV</display-name>
+</channel>
+
+<channel id="MO|RTV HN">
+    <display-name>RTV HN</display-name>
+</channel>
+
+<channel id="MO|NICK MUSIC">
+    <display-name>NICK MUSIC</display-name>
+</channel>
+
+<channel id="MO|NBA TV">
+    <display-name>NBA TV</display-name>
+</channel>
+
+<channel id="MO|K CN 1">
+    <display-name>K CN 1</display-name>
+</channel>
+
+<channel id="MO|DM SAT">
+    <display-name>DM SAT</display-name>
+</channel>
+
+<channel id="MO|DIM TV">
+    <display-name>DIM TV</display-name>
+</channel>
+
 <channel id="DE|DYN PPV 1 HD">
     <display-name>DYN PPV 1 HD</display-name>
     <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/>
@@ -6269,6 +6321,149 @@
 </programme>
 
 <programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260710040000 +0000"
     stop="20260710080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -10647,6 +10842,149 @@
 </programme>
 
 <programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260710080000 +0000"
     stop="20260710120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -15025,6 +15363,149 @@
 </programme>
 
 <programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260710120000 +0000"
     stop="20260710160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -19403,6 +19884,149 @@
 </programme>
 
 <programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260710160000 +0000"
     stop="20260710200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -23781,6 +24405,149 @@
 </programme>
 
 <programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260710200000 +0000"
     stop="20260711000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -28159,6 +28926,149 @@
 </programme>
 
 <programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260711000000 +0000"
     stop="20260711040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -32537,6 +33447,149 @@
 </programme>
 
 <programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260711040000 +0000"
     stop="20260711080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -36915,6 +37968,149 @@
 </programme>
 
 <programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260711080000 +0000"
     stop="20260711120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -41293,6 +42489,149 @@
 </programme>
 
 <programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260711120000 +0000"
     stop="20260711160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -45671,6 +47010,149 @@
 </programme>
 
 <programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260711160000 +0000"
     stop="20260711200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -50049,6 +51531,149 @@
 </programme>
 
 <programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260711200000 +0000"
     stop="20260712000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -54427,6 +56052,149 @@
 </programme>
 
 <programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260712000000 +0000"
     stop="20260712040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -58805,6 +60573,149 @@
 </programme>
 
 <programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260712040000 +0000"
     stop="20260712080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -63183,6 +65094,149 @@
 </programme>
 
 <programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260712080000 +0000"
     stop="20260712120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -67561,6 +69615,149 @@
 </programme>
 
 <programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260712120000 +0000"
     stop="20260712160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -71939,6 +74136,149 @@
 </programme>
 
 <programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260712160000 +0000"
     stop="20260712200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -76317,6 +78657,149 @@
 </programme>
 
 <programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260712200000 +0000"
     stop="20260713000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -80695,6 +83178,149 @@
 </programme>
 
 <programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260713000000 +0000"
     stop="20260713040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -85073,6 +87699,149 @@
 </programme>
 
 <programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260713040000 +0000"
     stop="20260713080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -89451,6 +92220,149 @@
 </programme>
 
 <programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260713080000 +0000"
     stop="20260713120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -93829,6 +96741,149 @@
 </programme>
 
 <programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260713120000 +0000"
     stop="20260713160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -98207,6 +101262,149 @@
 </programme>
 
 <programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260713160000 +0000"
     stop="20260713200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -102585,6 +105783,149 @@
 </programme>
 
 <programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260713200000 +0000"
     stop="20260714000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -106963,6 +110304,149 @@
 </programme>
 
 <programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260714000000 +0000"
     stop="20260714040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -111341,6 +114825,149 @@
 </programme>
 
 <programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260714040000 +0000"
     stop="20260714080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -115719,6 +119346,149 @@
 </programme>
 
 <programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260714080000 +0000"
     stop="20260714120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -120097,6 +123867,149 @@
 </programme>
 
 <programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260714120000 +0000"
     stop="20260714160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -124475,6 +128388,149 @@
 </programme>
 
 <programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260714160000 +0000"
     stop="20260714200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -128853,6 +132909,149 @@
 </programme>
 
 <programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260714200000 +0000"
     stop="20260715000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -133231,6 +137430,149 @@
 </programme>
 
 <programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260715000000 +0000"
     stop="20260715040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -137609,6 +141951,149 @@
 </programme>
 
 <programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260715040000 +0000"
     stop="20260715080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -141987,6 +146472,149 @@
 </programme>
 
 <programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260715080000 +0000"
     stop="20260715120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -146365,6 +150993,149 @@
 </programme>
 
 <programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260715120000 +0000"
     stop="20260715160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -150743,6 +155514,149 @@
 </programme>
 
 <programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260715160000 +0000"
     stop="20260715200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -155121,6 +160035,149 @@
 </programme>
 
 <programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260715200000 +0000"
     stop="20260716000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -159499,6 +164556,149 @@
 </programme>
 
 <programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260716000000 +0000"
     stop="20260716040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -163877,6 +169077,149 @@
 </programme>
 
 <programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260716040000 +0000"
     stop="20260716080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -168255,6 +173598,149 @@
 </programme>
 
 <programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260716080000 +0000"
     stop="20260716120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -172633,6 +178119,149 @@
 </programme>
 
 <programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260716120000 +0000"
     stop="20260716160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -177011,6 +182640,149 @@
 </programme>
 
 <programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260716160000 +0000"
     stop="20260716200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -181389,6 +187161,149 @@
 </programme>
 
 <programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
     start="20260716200000 +0000"
     stop="20260717000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -185763,6 +191678,149 @@
 <title>SOLO SPORT 5 SD</title>
 
 <desc>Enjoy the programming on SOLO SPORT 5 SD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MNG|TV POBEDA VIP RAW">
+
+<title>TV POBEDA VIP RAW</title>
+
+<desc>Uživajte u programu TV POBEDA VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MNG|RTV HN VIP RAW">
+
+<title>RTV HN VIP RAW</title>
+
+<desc>Uživajte u programu RTV HN VIP RAW uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|WOW MONTENEGRO">
+
+<title>WOW MONTENEGRO</title>
+
+<desc>WOW MONTENEGRO donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|TV PARTIZAN">
+
+<title>TV PARTIZAN</title>
+
+<desc>Dobro došli u program TV PARTIZAN. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|TEUTA TV">
+
+<title>TEUTA TV</title>
+
+<desc>TEUTA TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|TB1">
+
+<title>TB1</title>
+
+<desc>TB1 donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|SARAJEVO TV">
+
+<title>SARAJEVO TV</title>
+
+<desc>SARAJEVO TV donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|RTV HN">
+
+<title>RTV HN</title>
+
+<desc>Uživajte u programu RTV HN uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|NICK MUSIC">
+
+<title>NICK MUSIC</title>
+
+<desc>Uživajte u programu NICK MUSIC uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|NBA TV">
+
+<title>NBA TV</title>
+
+<desc>Dobro došli u program NBA TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|K CN 1">
+
+<title>K CN 1</title>
+
+<desc>Dobro došli u program K CN 1. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|DM SAT">
+
+<title>DM SAT</title>
+
+<desc>Muzički program i SMS Poruke uživo</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="MO|DIM TV">
+
+<title>DIM TV</title>
+
+<desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
 
 </programme>
 
