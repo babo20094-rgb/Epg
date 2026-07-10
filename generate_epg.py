@@ -1,32 +1,33 @@
 from datetime import datetime, timedelta
 import requests
-# --------------------------------------------------
-# Standardbeschreibungen
-# --------------------------------------------------
+
+# ==========================================================
+# Standardtexte
+# ==========================================================
 
 DE_TEXTE = [
     "Willkommen beim Programm von {sender}. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.",
-
     "{sender} bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.",
-
     "Genießen Sie das Programm von {sender} mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten."
 ]
 
 EXYU_TEXTE = [
     "Dobro došli u program {sender}. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.",
-
     "{sender} donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.",
-
     "Uživajte u programu {sender} uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu."
 ]
 
 EN_TEXTE = [
     "Welcome to {sender}. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.",
-
     "{sender} brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.",
-
     "Enjoy the programming on {sender} with a great mix of entertainment, films, series, documentaries and much more."
 ]
+
+
+# ==========================================================
+# Automatische Beschreibung
+# ==========================================================
+
 def standard_beschreibung(land, sender):
 
     if land == "DE":
@@ -44,73 +45,91 @@ def standard_beschreibung(land, sender):
     nummer = sum(ord(c) for c in sender) % len(texte)
 
     return texte[nummer].format(sender=sender)
+
+
+# ==========================================================
+# XML starten
+# ==========================================================
+
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
 
-# ----------------------------------------------------
-# Sender aus sender.txt einlesen
-# Format:
-# DE|WILDER PLANET|Wilder Planet Dokumentationen|
-# BA|HAYAT PLUS|Hayat Plus Programm|
-# US|CNN|CNN News|
-# ----------------------------------------------------
 
-sender_daten = []
+# ==========================================================
+# sender.txt lesen
+#
+# Format:
+#
+# DE|RTL|
+# DE|SAT.1||
+# DE|RTL||https://...
+# BA|HAYAT|Eigene Beschreibung|
+#
+# ==========================================================
 
 with open("sender.txt", "r", encoding="utf-8") as f:
-    sender_liste = [zeile.strip() for zeile in f if zeile.strip()]
 
-for zeile in sender_liste:
+    for zeile in f:
 
-    teile = [x.strip() for x in zeile.split("|")]
+        zeile = zeile.strip()
 
-    # mindestens Land | Sender | Beschreibung
-    if len(teile) < 3:
-        continue
+        if not zeile:
+            continue
 
-    land = teile[0]
-sendername = teile[1]
+        teile = [x.strip() for x in zeile.split("|")]
 
-if len(teile) >= 3 and teile[2].strip():
-    beschreibung = teile[2].strip()
-else:
-    beschreibung = standard_beschreibung(land, sendername)
+        while len(teile) < 4:
+            teile.append("")
 
-logo = ""
-if len(teile) >= 4:
-    logo = teile[3]
+        land = teile[0]
+        sender = teile[1]
 
-kanal = f"{land}|{sendername}"
+        beschreibung = teile[2]
+        logo = teile[3]
 
-sender_daten.append((kanal, sendername))
+        if beschreibung == "":
+            beschreibung = standard_beschreibung(land, sender)
 
-xml += f"""
+        kanal = f"{land}|{sender}"
+
+        sender_daten.append({
+            "kanal": kanal,
+            "sender": sender,
+            "beschreibung": beschreibung,
+            "logo": logo
+        })
+
+        xml += f"""
 <channel id="{kanal}">
-    <display-name>{sendername}</display-name>
-    <icon src="{logo}"/>
-</channel>
+    <display-name>{sender}</display-name>
 """
-# --------------------------------------------------
-# DYN PPV 1-20
-# --------------------------------------------------
+
+        if logo:
+            xml += f'    <icon src="{logo}"/>\n'
+
+        xml += "</channel>\n"
+        # ==========================================================
+# DYN PPV CHANNELS
+# ==========================================================
 
 dyn_logo = "https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"
 
 for i in range(1, 21):
 
-    kanal = f"DE| DYN PPV {i} HD"
+    kanal = f"DE|DYN PPV {i} HD"
 
     xml += f"""
-    <channel id="{kanal}">
-        <display-name>{kanal}</display-name>
-        <icon src="{dyn_logo}"/>
-    </channel>
+<channel id="{kanal}">
+    <display-name>DYN PPV {i} HD</display-name>
+    <icon src="{dyn_logo}"/>
+</channel>
 """
 
-# --------------------------------------------------
-# Standard-EPG für normale Sender
-# --------------------------------------------------
+
+# ==========================================================
+# STANDARD-EPG
+# ==========================================================
 
 starttag = datetime.utcnow().replace(
     hour=0,
@@ -127,24 +146,23 @@ for stunde in range(0, 24 * 7, 4):
     start_str = start.strftime("%Y%m%d%H%M%S +0000")
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-for kanal, beschreibung in sender_daten:
+    for daten in sender_daten:
 
-    land = kanal.split("|", 1)[0]
-    sender = kanal.split("|", 1)[1]
+        xml += f"""
+<programme
+    start="{start_str}"
+    stop="{ende_str}"
+    channel="{daten['kanal']}">
 
-    titel = sender
-    beschreibung = standard_beschreibung(land, sender)
+<title>{daten['sender']}</title>
 
-    xml += f"""
-    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
-        <title>{titel}</title>
-        <desc>{beschreibung}</desc>
-    </programme>
-    """
+<desc>{daten['beschreibung']}</desc>
 
-# --------------------------------------------------
+</programme>
+"""
+# ==========================================================
 # DYN LIVE EVENTS
-# --------------------------------------------------
+# ==========================================================
 
 try:
 
@@ -159,12 +177,14 @@ try:
 
         kanal_nummer = 1
 
-        for eintrag in daten:
+        for event in daten:
 
-            titel = eintrag.get("title", "Dyn Sport")
+            titel = event.get("title", "Dyn Sport")
 
-            start = eintrag.get("scheduledAt")
-            ende = eintrag.get("scheduledEnd")
+            beschreibung = event.get("description", titel)
+
+            start = event.get("scheduledAt")
+            ende = event.get("scheduledEnd")
 
             if not start or not ende:
                 continue
@@ -177,15 +197,19 @@ try:
                 ende.replace("Z", "+00:00")
             ).strftime("%Y%m%d%H%M%S +0000")
 
-            kanal = f"DE| DYN PPV {kanal_nummer} HD"
-
-            beschreibung = eintrag.get("description", titel)
+            kanal = f"DE|DYN PPV {kanal_nummer} HD"
 
             xml += f"""
-    <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}">
-        <title>{titel}</title>
-        <desc>{beschreibung}</desc>
-    </programme>
+<programme
+    start="{startzeit}"
+    stop="{endzeit}"
+    channel="{kanal}">
+
+<title>{titel}</title>
+
+<desc>{beschreibung}</desc>
+
+</programme>
 """
 
             kanal_nummer += 1
@@ -194,42 +218,52 @@ try:
                 kanal_nummer = 1
 
 except Exception as e:
-    print("Dyn Fehler:", e)
 
-# --------------------------------------------------
-# Leerzeiten füllen
-# --------------------------------------------------
+    print("DYN Fehler:", e)
+
+
+# ==========================================================
+# DYN LEERZEITEN
+# ==========================================================
 
 jetzt = datetime.utcnow().replace(
-             hour=0,
-             minute=0,
-             second=0,
-             microsecond=0
-)       
+    hour=0,
+    minute=0,
+    second=0,
+    microsecond=0
+)
 
 for i in range(1, 21):
 
-    kanal = f"DE| DYN PPV {i} HD"
+    kanal = f"DE|DYN PPV {i} HD"
 
     for stunde in range(24 * 3):
 
-        start_dummy = jetzt + timedelta(hours=stunde)
-        ende_dummy = start_dummy + timedelta(hours=1)
+        start = jetzt + timedelta(hours=stunde)
+        ende = start + timedelta(hours=1)
 
-        start_str = start_dummy.strftime("%Y%m%d%H%M%S +0000")
-        ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
+        start_str = start.strftime("%Y%m%d%H%M%S +0000")
+        ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
         xml += f"""
-    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
-        <title>Im Moment keine Live Events, bleib dran</title>
-        <desc>Im Moment keine Live Events, bleib dran</desc>
-    </programme>
-"""
+<programme
+    start="{start_str}"
+    stop="{ende_str}"
+    channel="{kanal}">
 
-        xml += "\n</tv>"
+<title>Im Moment keine Live Events, bleib dran</title>
+
+<desc>Im Moment keine Live Events, bleib dran.</desc>
+
+</programme>
+"""
+# ==========================================================
+# XML ABSCHLIESSEN
+# ==========================================================
+
+xml += "\n</tv>"
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
 
-print("EPG-Datei erfolgreich erstellt.")
-    
+print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
