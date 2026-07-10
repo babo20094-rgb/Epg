@@ -1926,6 +1926,18 @@
     <display-name>Sky Highlights Hd</display-name>
 </channel>
 
+<channel id="DE|Sky Cinema Special HEVC">
+    <display-name>Sky Cinema Special Hevc</display-name>
+</channel>
+
+<channel id="DE|Hr HD Hessischer Rundfunk">
+    <display-name>Hr Hd Hessischer Rundfunk</display-name>
+</channel>
+
+<channel id="DE|UHD1 by Astra">
+    <display-name>Uhd1 By Astra</display-name>
+</channel>
+
 <channel id="DE|DYN PPV 1 HD">
     <display-name>DYN PPV 1 HD</display-name>
     <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/>
@@ -6779,6 +6791,39 @@
 </programme>
 
 <programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710040000 +0000"
     stop="20260710080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -11531,6 +11576,39 @@
 </programme>
 
 <programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710080000 +0000"
     stop="20260710120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -16283,6 +16361,39 @@
 </programme>
 
 <programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710120000 +0000"
     stop="20260710160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -21035,6 +21146,39 @@
 </programme>
 
 <programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710160000 +0000"
     stop="20260710200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -25787,6 +25931,39 @@
 </programme>
 
 <programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710200000 +0000"
     stop="20260711000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -30539,6 +30716,39 @@
 </programme>
 
 <programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711000000 +0000"
     stop="20260711040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -35291,6 +35501,39 @@
 </programme>
 
 <programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711040000 +0000"
     stop="20260711080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -40043,6 +40286,39 @@
 </programme>
 
 <programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711080000 +0000"
     stop="20260711120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -44795,6 +45071,39 @@
 </programme>
 
 <programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711120000 +0000"
     stop="20260711160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -49547,6 +49856,39 @@
 </programme>
 
 <programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711160000 +0000"
     stop="20260711200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -54299,6 +54641,39 @@
 </programme>
 
 <programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711200000 +0000"
     stop="20260712000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -59051,6 +59426,39 @@
 </programme>
 
 <programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712000000 +0000"
     stop="20260712040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -63803,6 +64211,39 @@
 </programme>
 
 <programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712040000 +0000"
     stop="20260712080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -68555,6 +68996,39 @@
 </programme>
 
 <programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712080000 +0000"
     stop="20260712120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -73307,6 +73781,39 @@
 </programme>
 
 <programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712120000 +0000"
     stop="20260712160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -78059,6 +78566,39 @@
 </programme>
 
 <programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712160000 +0000"
     stop="20260712200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -82811,6 +83351,39 @@
 </programme>
 
 <programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712200000 +0000"
     stop="20260713000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -87563,6 +88136,39 @@
 </programme>
 
 <programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713000000 +0000"
     stop="20260713040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -92315,6 +92921,39 @@
 </programme>
 
 <programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713040000 +0000"
     stop="20260713080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -97067,6 +97706,39 @@
 </programme>
 
 <programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713080000 +0000"
     stop="20260713120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -101819,6 +102491,39 @@
 </programme>
 
 <programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713120000 +0000"
     stop="20260713160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -106571,6 +107276,39 @@
 </programme>
 
 <programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713160000 +0000"
     stop="20260713200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -111323,6 +112061,39 @@
 </programme>
 
 <programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713200000 +0000"
     stop="20260714000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -116075,6 +116846,39 @@
 </programme>
 
 <programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714000000 +0000"
     stop="20260714040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -120827,6 +121631,39 @@
 </programme>
 
 <programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714040000 +0000"
     stop="20260714080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -125579,6 +126416,39 @@
 </programme>
 
 <programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714080000 +0000"
     stop="20260714120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -130331,6 +131201,39 @@
 </programme>
 
 <programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714120000 +0000"
     stop="20260714160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -135083,6 +135986,39 @@
 </programme>
 
 <programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714160000 +0000"
     stop="20260714200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -139835,6 +140771,39 @@
 </programme>
 
 <programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714200000 +0000"
     stop="20260715000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -144587,6 +145556,39 @@
 </programme>
 
 <programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715000000 +0000"
     stop="20260715040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -149339,6 +150341,39 @@
 </programme>
 
 <programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715040000 +0000"
     stop="20260715080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -154091,6 +155126,39 @@
 </programme>
 
 <programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715080000 +0000"
     stop="20260715120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -158843,6 +159911,39 @@
 </programme>
 
 <programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715120000 +0000"
     stop="20260715160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -163595,6 +164696,39 @@
 </programme>
 
 <programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715160000 +0000"
     stop="20260715200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -168347,6 +169481,39 @@
 </programme>
 
 <programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715200000 +0000"
     stop="20260716000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -173099,6 +174266,39 @@
 </programme>
 
 <programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716000000 +0000"
     stop="20260716040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -177851,6 +179051,39 @@
 </programme>
 
 <programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716040000 +0000"
     stop="20260716080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -182603,6 +183836,39 @@
 </programme>
 
 <programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716080000 +0000"
     stop="20260716120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -187355,6 +188621,39 @@
 </programme>
 
 <programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716120000 +0000"
     stop="20260716160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -192107,6 +193406,39 @@
 </programme>
 
 <programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716160000 +0000"
     stop="20260716200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -196859,6 +198191,39 @@
 </programme>
 
 <programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716200000 +0000"
     stop="20260717000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -201607,6 +202972,39 @@
 <title>Sky Highlights Hd</title>
 
 <desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="DE|Sky Cinema Special HEVC">
+
+<title>Sky Cinema Special Hevc</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special HEVC. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="DE|Hr HD Hessischer Rundfunk">
+
+<title>Hr Hd Hessischer Rundfunk</title>
+
+<desc>Hr HD Hessischer Rundfunk bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="DE|UHD1 by Astra">
+
+<title>Uhd1 By Astra</title>
+
+<desc>Genießen Sie das Programm von UHD1 by Astra mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
 
 </programme>
 
