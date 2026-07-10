@@ -70,26 +70,22 @@ for zeile in sender_liste:
         continue
 
     land = teile[0]
-    sendername = teile[1]
-    beschreibung = ""
+sendername = teile[1]
 
 if len(teile) >= 3 and teile[2].strip():
     beschreibung = teile[2].strip()
 else:
     beschreibung = standard_beschreibung(land, sendername)
 
-    logo = ""
-    if len(teile) >= 4:
-        logo = teile[3]
+logo = ""
+if len(teile) >= 4:
+    logo = teile[3]
 
-    # universelle Kanal-ID
-    kanal = f"{land}|{sendername}"
+kanal = f"{land}|{sendername}"
 
-    # für spätere Programme merken
-    sender_daten.append((kanal, sendername))
+sender_daten.append((kanal, sendername))
 
-    # Channel erzeugen
-    xml += f"""
+xml += f"""
 <channel id="{kanal}">
     <display-name>{sendername}</display-name>
     <icon src="{logo}"/>
