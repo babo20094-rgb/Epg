@@ -27,6 +27,23 @@ EN_TEXTE = [
 
     "Enjoy the programming on {sender} with a great mix of entertainment, films, series, documentaries and much more."
 ]
+def standard_beschreibung(land, sender):
+
+    if land == "DE":
+        texte = DE_TEXTE
+
+    elif land in ["BA", "RS", "HR", "ME", "MK"]:
+        texte = EXYU_TEXTE
+
+    elif land in ["UK", "US", "CA", "AU", "SO"]:
+        texte = EN_TEXTE
+
+    else:
+        texte = EN_TEXTE
+
+    nummer = sum(ord(c) for c in sender) % len(texte)
+
+    return texte[nummer].format(sender=sender)
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
