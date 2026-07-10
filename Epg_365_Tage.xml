@@ -1910,6 +1910,22 @@
     <display-name>Cc Raw</display-name>
 </channel>
 
+<channel id="DE|Sky Cinema Special FHD">
+    <display-name>Sky Cinema Special Fhd</display-name>
+</channel>
+
+<channel id="DE|Sky Cinema Special HD">
+    <display-name>Sky Cinema Special Hd</display-name>
+</channel>
+
+<channel id="DE|Sky Highlights FHD">
+    <display-name>Sky Highlights Fhd</display-name>
+</channel>
+
+<channel id="DE|Sky Highlights HD">
+    <display-name>Sky Highlights Hd</display-name>
+</channel>
+
 <channel id="DE|DYN PPV 1 HD">
     <display-name>DYN PPV 1 HD</display-name>
     <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/>
@@ -6719,6 +6735,50 @@
 </programme>
 
 <programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710040000 +0000"
     stop="20260710080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -11427,6 +11487,50 @@
 </programme>
 
 <programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710080000 +0000"
     stop="20260710120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -16135,6 +16239,50 @@
 </programme>
 
 <programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710120000 +0000"
     stop="20260710160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -20843,6 +20991,50 @@
 </programme>
 
 <programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710160000 +0000"
     stop="20260710200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -25551,6 +25743,50 @@
 </programme>
 
 <programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260710200000 +0000"
     stop="20260711000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -30259,6 +30495,50 @@
 </programme>
 
 <programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711000000 +0000"
     stop="20260711040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -34967,6 +35247,50 @@
 </programme>
 
 <programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711040000 +0000"
     stop="20260711080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -39675,6 +39999,50 @@
 </programme>
 
 <programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711080000 +0000"
     stop="20260711120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -44383,6 +44751,50 @@
 </programme>
 
 <programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711120000 +0000"
     stop="20260711160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -49091,6 +49503,50 @@
 </programme>
 
 <programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711160000 +0000"
     stop="20260711200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -53799,6 +54255,50 @@
 </programme>
 
 <programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260711200000 +0000"
     stop="20260712000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -58507,6 +59007,50 @@
 </programme>
 
 <programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712000000 +0000"
     stop="20260712040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -63215,6 +63759,50 @@
 </programme>
 
 <programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712040000 +0000"
     stop="20260712080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -67923,6 +68511,50 @@
 </programme>
 
 <programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712080000 +0000"
     stop="20260712120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -72631,6 +73263,50 @@
 </programme>
 
 <programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712120000 +0000"
     stop="20260712160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -77339,6 +78015,50 @@
 </programme>
 
 <programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712160000 +0000"
     stop="20260712200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -82047,6 +82767,50 @@
 </programme>
 
 <programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260712200000 +0000"
     stop="20260713000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -86755,6 +87519,50 @@
 </programme>
 
 <programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713000000 +0000"
     stop="20260713040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -91463,6 +92271,50 @@
 </programme>
 
 <programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713040000 +0000"
     stop="20260713080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -96171,6 +97023,50 @@
 </programme>
 
 <programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713080000 +0000"
     stop="20260713120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -100879,6 +101775,50 @@
 </programme>
 
 <programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713120000 +0000"
     stop="20260713160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -105587,6 +106527,50 @@
 </programme>
 
 <programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713160000 +0000"
     stop="20260713200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -110295,6 +111279,50 @@
 </programme>
 
 <programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260713200000 +0000"
     stop="20260714000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -115003,6 +116031,50 @@
 </programme>
 
 <programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714000000 +0000"
     stop="20260714040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -119711,6 +120783,50 @@
 </programme>
 
 <programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714040000 +0000"
     stop="20260714080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -124419,6 +125535,50 @@
 </programme>
 
 <programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714080000 +0000"
     stop="20260714120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -129127,6 +130287,50 @@
 </programme>
 
 <programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714120000 +0000"
     stop="20260714160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -133835,6 +135039,50 @@
 </programme>
 
 <programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714160000 +0000"
     stop="20260714200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -138543,6 +139791,50 @@
 </programme>
 
 <programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260714200000 +0000"
     stop="20260715000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -143251,6 +144543,50 @@
 </programme>
 
 <programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715000000 +0000"
     stop="20260715040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -147959,6 +149295,50 @@
 </programme>
 
 <programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715040000 +0000"
     stop="20260715080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -152667,6 +154047,50 @@
 </programme>
 
 <programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715080000 +0000"
     stop="20260715120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -157375,6 +158799,50 @@
 </programme>
 
 <programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715120000 +0000"
     stop="20260715160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -162083,6 +163551,50 @@
 </programme>
 
 <programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715160000 +0000"
     stop="20260715200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -166791,6 +168303,50 @@
 </programme>
 
 <programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260715200000 +0000"
     stop="20260716000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -171499,6 +173055,50 @@
 </programme>
 
 <programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716000000 +0000"
     stop="20260716040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -176207,6 +177807,50 @@
 </programme>
 
 <programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716040000 +0000"
     stop="20260716080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -180915,6 +182559,50 @@
 </programme>
 
 <programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716080000 +0000"
     stop="20260716120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -185623,6 +187311,50 @@
 </programme>
 
 <programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716120000 +0000"
     stop="20260716160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -190331,6 +192063,50 @@
 </programme>
 
 <programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716160000 +0000"
     stop="20260716200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -195039,6 +196815,50 @@
 </programme>
 
 <programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
     start="20260716200000 +0000"
     stop="20260717000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -199743,6 +201563,50 @@
 <title>Cc Raw</title>
 
 <desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="DE|Sky Cinema Special FHD">
+
+<title>Sky Cinema Special Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Cinema Special FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="DE|Sky Cinema Special HD">
+
+<title>Sky Cinema Special Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Cinema Special HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="DE|Sky Highlights FHD">
+
+<title>Sky Highlights Fhd</title>
+
+<desc>Willkommen beim Programm von Sky Highlights FHD. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="DE|Sky Highlights HD">
+
+<title>Sky Highlights Hd</title>
+
+<desc>Genießen Sie das Programm von Sky Highlights HD mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten.</desc>
 
 </programme>
 
