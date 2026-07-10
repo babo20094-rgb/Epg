@@ -375,3 +375,24 @@ DE|PLUTO TV FOOD|Food Tv-Pluto|https://upload.wikimedia.org/wikipedia/commons/th
 DE|ICARLY|Icarly Tv|https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Pluto_TV_logo_2024.svg/3840px-Pluto_TV_logo_2024.svg.png
 DE|PLUTO TV MOVIES|Pluto Tv Movies|https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Pluto_TV_logo_2024.svg/3840px-Pluto_TV_logo_2024.svg.png
 DE|ARTFLIX|Artflix Tv|https://img.netzwelt.de/dw1600_dh900_sw0_sh0_sx0_sy0_sr16x9_nu2/picture/original/2023/09/artflix-384481.png
+SO|SOLO SPORT HDR 4K|
+SO|SOLO SPORT 1 HEVC|
+SO|SOLO SPORT 1 FHD|
+SO|SOLO SPORT 1 HD|
+SO|SOLO SPORT 1 SD|
+SO|SOLO SPORT 2 HEVC|
+SO|SOLO SPORT 2 FHD|
+SO|SOLO SPORT 2 HD|
+SO|SOLO SPORT 2 SD|
+SO|SOLO SPORT 3 HEVC|
+SO|SOLO SPORT 3 FHD|
+SO|SOLO SPORT 3 HD|
+SO|SOLO SPORT 3 SD|
+SO|SOLO SPORT 4 HEVC|
+SO|SOLO SPORT 4 FHD|
+SO|SOLO SPORT 4 HD|
+SO|SOLO SPORT 4 SD|
+SO|SOLO SPORT 5 HEVC|
+SO|SOLO SPORT 5 FHD|
+SO|SOLO SPORT 5 HD|
+SO|SOLO SPORT 5 SD|
