@@ -126,7 +126,7 @@ for stunde in range(0, 24 * 7, 4):
     start_str = start.strftime("%Y%m%d%H%M%S +0000")
     ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-    for kanal, beschreibung in sender_daten:
+for kanal, beschreibung in sender_daten:
 
     land = kanal.split("|", 1)[0]
     sender = kanal.split("|", 1)[1]
@@ -135,11 +135,11 @@ for stunde in range(0, 24 * 7, 4):
     beschreibung = standard_beschreibung(land, sender)
 
     xml += f"""
-<programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
-    <title>{titel}</title>
-    <desc>{beschreibung}</desc>
-</programme>
-"""
+    <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
+        <title>{titel}</title>
+        <desc>{beschreibung}</desc>
+    </programme>
+    """
 
 # --------------------------------------------------
 # DYN LIVE EVENTS
