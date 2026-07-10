@@ -1842,6 +1842,46 @@
     <display-name>Dim Tv</display-name>
 </channel>
 
+<channel id="SI|Brio Tv Slo">
+    <display-name>Brio Tv Slo</display-name>
+</channel>
+
+<channel id="UK|PL Replay 1 HD">
+    <display-name>Pl Replay 1 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 2 HD">
+    <display-name>Pl Replay 2 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 3 HD">
+    <display-name>Pl Replay 3 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 4 HD">
+    <display-name>Pl Replay 4 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 5 HD">
+    <display-name>Pl Replay 5 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 6 HD">
+    <display-name>Pl Replay 6 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 7 HD">
+    <display-name>Pl Replay 7 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 8 HD">
+    <display-name>Pl Replay 8 Hd</display-name>
+</channel>
+
+<channel id="UK|PL Replay 9 HD">
+    <display-name>Pl Replay 9 Hd</display-name>
+</channel>
+
 <channel id="DE|DYN PPV 1 HD">
     <display-name>DYN PPV 1 HD</display-name>
     <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/>
@@ -6464,6 +6504,116 @@
 </programme>
 
 <programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710040000 +0000"
     stop="20260710080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -10985,6 +11135,116 @@
 </programme>
 
 <programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710080000 +0000"
     stop="20260710120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -15506,6 +15766,116 @@
 </programme>
 
 <programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710120000 +0000"
     stop="20260710160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -20027,6 +20397,116 @@
 </programme>
 
 <programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710160000 +0000"
     stop="20260710200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -24548,6 +25028,116 @@
 </programme>
 
 <programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710200000 +0000"
     stop="20260711000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -29069,6 +29659,116 @@
 </programme>
 
 <programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711000000 +0000"
     stop="20260711040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -33590,6 +34290,116 @@
 </programme>
 
 <programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711040000 +0000"
     stop="20260711080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -38111,6 +38921,116 @@
 </programme>
 
 <programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711080000 +0000"
     stop="20260711120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -42632,6 +43552,116 @@
 </programme>
 
 <programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711120000 +0000"
     stop="20260711160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -47153,6 +48183,116 @@
 </programme>
 
 <programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711160000 +0000"
     stop="20260711200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -51674,6 +52814,116 @@
 </programme>
 
 <programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711200000 +0000"
     stop="20260712000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -56195,6 +57445,116 @@
 </programme>
 
 <programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712000000 +0000"
     stop="20260712040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -60716,6 +62076,116 @@
 </programme>
 
 <programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712040000 +0000"
     stop="20260712080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -65237,6 +66707,116 @@
 </programme>
 
 <programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712080000 +0000"
     stop="20260712120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -69758,6 +71338,116 @@
 </programme>
 
 <programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712120000 +0000"
     stop="20260712160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -74279,6 +75969,116 @@
 </programme>
 
 <programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712160000 +0000"
     stop="20260712200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -78800,6 +80600,116 @@
 </programme>
 
 <programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712200000 +0000"
     stop="20260713000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -83321,6 +85231,116 @@
 </programme>
 
 <programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713000000 +0000"
     stop="20260713040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -87842,6 +89862,116 @@
 </programme>
 
 <programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713040000 +0000"
     stop="20260713080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -92363,6 +94493,116 @@
 </programme>
 
 <programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713080000 +0000"
     stop="20260713120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -96884,6 +99124,116 @@
 </programme>
 
 <programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713120000 +0000"
     stop="20260713160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -101405,6 +103755,116 @@
 </programme>
 
 <programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713160000 +0000"
     stop="20260713200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -105926,6 +108386,116 @@
 </programme>
 
 <programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713200000 +0000"
     stop="20260714000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -110447,6 +113017,116 @@
 </programme>
 
 <programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714000000 +0000"
     stop="20260714040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -114968,6 +117648,116 @@
 </programme>
 
 <programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714040000 +0000"
     stop="20260714080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -119489,6 +122279,116 @@
 </programme>
 
 <programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714080000 +0000"
     stop="20260714120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -124010,6 +126910,116 @@
 </programme>
 
 <programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714120000 +0000"
     stop="20260714160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -128531,6 +131541,116 @@
 </programme>
 
 <programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714160000 +0000"
     stop="20260714200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -133052,6 +136172,116 @@
 </programme>
 
 <programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714200000 +0000"
     stop="20260715000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -137573,6 +140803,116 @@
 </programme>
 
 <programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715000000 +0000"
     stop="20260715040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -142094,6 +145434,116 @@
 </programme>
 
 <programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715040000 +0000"
     stop="20260715080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -146615,6 +150065,116 @@
 </programme>
 
 <programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715080000 +0000"
     stop="20260715120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -151136,6 +154696,116 @@
 </programme>
 
 <programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715120000 +0000"
     stop="20260715160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -155657,6 +159327,116 @@
 </programme>
 
 <programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715160000 +0000"
     stop="20260715200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -160178,6 +163958,116 @@
 </programme>
 
 <programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715200000 +0000"
     stop="20260716000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -164699,6 +168589,116 @@
 </programme>
 
 <programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716000000 +0000"
     stop="20260716040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -169220,6 +173220,116 @@
 </programme>
 
 <programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716040000 +0000"
     stop="20260716080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -173741,6 +177851,116 @@
 </programme>
 
 <programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716080000 +0000"
     stop="20260716120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -178262,6 +182482,116 @@
 </programme>
 
 <programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716120000 +0000"
     stop="20260716160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -182783,6 +187113,116 @@
 </programme>
 
 <programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716160000 +0000"
     stop="20260716200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -187304,6 +191744,116 @@
 </programme>
 
 <programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716200000 +0000"
     stop="20260717000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -191821,6 +196371,116 @@
 <title>Dim Tv</title>
 
 <desc>Dobro došli u program DIM TV. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="SI|Brio Tv Slo">
+
+<title>Brio Tv Slo</title>
+
+<desc>Brio Tv Slo donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 1 HD">
+
+<title>Pl Replay 1 Hd</title>
+
+<desc>Welcome to PL Replay 1 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 2 HD">
+
+<title>Pl Replay 2 Hd</title>
+
+<desc>PL Replay 2 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 3 HD">
+
+<title>Pl Replay 3 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 3 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 4 HD">
+
+<title>Pl Replay 4 Hd</title>
+
+<desc>Welcome to PL Replay 4 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 5 HD">
+
+<title>Pl Replay 5 Hd</title>
+
+<desc>PL Replay 5 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 6 HD">
+
+<title>Pl Replay 6 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 6 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 7 HD">
+
+<title>Pl Replay 7 Hd</title>
+
+<desc>Welcome to PL Replay 7 HD. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 8 HD">
+
+<title>Pl Replay 8 Hd</title>
+
+<desc>PL Replay 8 HD brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="UK|PL Replay 9 HD">
+
+<title>Pl Replay 9 Hd</title>
+
+<desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
 
 </programme>
 
