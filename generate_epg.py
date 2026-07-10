@@ -1,6 +1,32 @@
 from datetime import datetime, timedelta
 import requests
+# --------------------------------------------------
+# Standardbeschreibungen
+# --------------------------------------------------
 
+DE_TEXTE = [
+    "Willkommen beim Programm von {sender}. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.",
+
+    "{sender} bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.",
+
+    "Genießen Sie das Programm von {sender} mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten."
+]
+
+EXYU_TEXTE = [
+    "Dobro došli u program {sender}. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.",
+
+    "{sender} donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.",
+
+    "Uživajte u programu {sender} uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu."
+]
+
+EN_TEXTE = [
+    "Welcome to {sender}. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.",
+
+    "{sender} brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.",
+
+    "Enjoy the programming on {sender} with a great mix of entertainment, films, series, documentaries and much more."
+]
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
