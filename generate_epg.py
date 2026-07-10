@@ -45,6 +45,25 @@ def standard_beschreibung(land, sender):
     nummer = sum(ord(c) for c in sender) % len(texte)
 
     return texte[nummer].format(sender=sender)
+    def sender_anzeigename(name):
+
+    AUSNAHMEN = {
+        "HD", "UHD", "FHD", "SD", "HEVC", "4K", "8K",
+        "TV", "RTL", "ORF", "SRF", "HRT", "RTS",
+        "RTRS", "BHT", "CNN", "BBC", "SKY",
+        "HBO", "AMC", "AXN", "MTV"
+    }
+
+    worte = []
+
+    for wort in name.split():
+
+        if wort.upper() in AUSNAHMEN:
+            worte.append(wort.upper())
+        else:
+            worte.append(wort.capitalize())
+
+    return " ".join(worte)
 
 
 # ==========================================================
@@ -102,7 +121,7 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         xml += f"""
 <channel id="{kanal}">
-    <display-name>{sender}</display-name>
+    <display-name>{sender_anzeigename(sender)}</display-name>
 """
 
         if logo:
@@ -154,7 +173,7 @@ for stunde in range(0, 24 * 7, 4):
     stop="{ende_str}"
     channel="{daten['kanal']}">
 
-<title>{daten['sender']}</title>
+<title>{sender_anzeigename(daten['sender'])}</title>
 
 <desc>{daten['beschreibung']}</desc>
 
