@@ -409,3 +409,13 @@ MO|NBA TV|
 MO|K CN 1|
 MO|DM SAT|Muzički program i SMS Poruke uživo|
 MO|DIM TV|
+SI|Brio Tv Slo|
+UK|PL Replay 1 HD|
+UK|PL Replay 2 HD|
+UK|PL Replay 3 HD|
+UK|PL Replay 4 HD|
+UK|PL Replay 5 HD|
+UK|PL Replay 6 HD|
+UK|PL Replay 7 HD|
+UK|PL Replay 8 HD|
+UK|PL Replay 9 HD|
