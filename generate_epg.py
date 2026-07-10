@@ -71,6 +71,12 @@ for zeile in sender_liste:
 
     land = teile[0]
     sendername = teile[1]
+    beschreibung = ""
+
+if len(teile) >= 3 and teile[2].strip():
+    beschreibung = teile[2].strip()
+else:
+    beschreibung = standard_beschreibung(land, sendername)
     beschreibung = teile[2]
 
     logo = ""
