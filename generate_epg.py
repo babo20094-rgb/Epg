@@ -74,7 +74,7 @@ def sender_oder_titel(name):
     ):
         return sender_anzeigename(name)
 
-    return name
+    return sender_anzeigename(name)
 
 
 # ==========================================================
