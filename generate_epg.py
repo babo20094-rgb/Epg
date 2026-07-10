@@ -227,7 +227,6 @@ for i in range(1, 21):
 """
 
         xml += "\n</tv>"
-xml += "\n</tv>"
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
