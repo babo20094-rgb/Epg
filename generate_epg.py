@@ -33,8 +33,8 @@ def standard_beschreibung(land, sender):
     if land == "DE":
         texte = DE_TEXTE
 
-    elif land in ["BA", "RS", "HR", "ME", "MK"]:
-        texte = EXYU_TEXTE
+    elif land in ["BA", "RS", "HR", "ME", "CG", "MNE", "MNG", "MO", "MK", "SI"]:
+    texte = EXYU_TEXTE
 
     elif land in ["UK", "US", "CA", "AU", "SO"]:
         texte = EN_TEXTE
