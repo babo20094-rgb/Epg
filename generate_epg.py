@@ -63,6 +63,18 @@ def sender_anzeigename(name):
             worte.append(wort.capitalize())
 
     return " ".join(worte)
+def sender_oder_titel(name):
+        worte = name.split()
+
+    if all(
+        wort.isupper() or
+        wort.isdigit() or
+        wort.upper() in AUSNAHMEN
+        for wort in worte
+    ):
+        return sender_anzeigename(name)
+
+    return name
 
 
 # ==========================================================
@@ -172,7 +184,7 @@ for stunde in range(0, 24 * 7, 4):
     stop="{ende_str}"
     channel="{daten['kanal']}">
 
-<title>{sender_anzeigename(daten['sender'])}</title>
+<title>{sender_oder_titel(daten['sender'])}</title>
 
 <desc>{daten['beschreibung']}</desc>
 
