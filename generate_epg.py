@@ -57,7 +57,7 @@ def sender_anzeigename(name):
     worte = []
 
     for wort in name.split():
-    worte.append(wort.capitalize()
+        worte.append(wort.capitalize())
 
     return " ".join(worte)
 def sender_oder_titel(name):
