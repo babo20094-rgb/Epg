@@ -81,7 +81,7 @@ for zeile in sender_liste:
     kanal = f"{land}|{sendername}"
 
     # für spätere Programme merken
-    sender_daten.append((kanal, beschreibung))
+    sender_daten.append((kanal, sendername))
 
     # Channel erzeugen
     xml += f"""
