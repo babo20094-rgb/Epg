@@ -45,8 +45,8 @@ def standard_beschreibung(land, sender):
     nummer = sum(ord(c) for c in sender) % len(texte)
 
     return texte[nummer].format(sender=sender)
-    def sender_anzeigename(name):
-
+    
+def sender_anzeigename(name):
     AUSNAHMEN = {
         "HD", "UHD", "FHD", "SD", "HEVC", "4K", "8K",
         "TV", "RTL", "ORF", "SRF", "HRT", "RTS",
@@ -57,7 +57,6 @@ def standard_beschreibung(land, sender):
     worte = []
 
     for wort in name.split():
-
         if wort.upper() in AUSNAHMEN:
             worte.append(wort.upper())
         else:
