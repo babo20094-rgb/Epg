@@ -1882,6 +1882,34 @@
     <display-name>Pl Replay 9 Hd</display-name>
 </channel>
 
+<channel id="PRIME|World's Wildest Police Videos Raw">
+    <display-name>World's Wildest Police Videos Raw</display-name>
+</channel>
+
+<channel id="PRIME|Turk on Video Raw">
+    <display-name>Turk On Video Raw</display-name>
+</channel>
+
+<channel id="PRIME|Nature Raw">
+    <display-name>Nature Raw</display-name>
+</channel>
+
+<channel id="PRIME|A&amp;E Tv Raw">
+    <display-name>A&amp;e Tv Raw</display-name>
+</channel>
+
+<channel id="PRIME|Grjngo-Westernfilme Raw">
+    <display-name>Grjngo-westernfilme Raw</display-name>
+</channel>
+
+<channel id="PRIME|Ein Engel auf Erden Raw">
+    <display-name>Ein Engel Auf Erden Raw</display-name>
+</channel>
+
+<channel id="PRIME|CC Raw">
+    <display-name>Cc Raw</display-name>
+</channel>
+
 <channel id="DE|DYN PPV 1 HD">
     <display-name>DYN PPV 1 HD</display-name>
     <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/>
@@ -6614,6 +6642,83 @@
 </programme>
 
 <programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710000000 +0000"
+    stop="20260710040000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710040000 +0000"
     stop="20260710080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -11245,6 +11350,83 @@
 </programme>
 
 <programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710040000 +0000"
+    stop="20260710080000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710080000 +0000"
     stop="20260710120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -15876,6 +16058,83 @@
 </programme>
 
 <programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710080000 +0000"
+    stop="20260710120000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710120000 +0000"
     stop="20260710160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -20507,6 +20766,83 @@
 </programme>
 
 <programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710120000 +0000"
+    stop="20260710160000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710160000 +0000"
     stop="20260710200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -25138,6 +25474,83 @@
 </programme>
 
 <programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710160000 +0000"
+    stop="20260710200000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260710200000 +0000"
     stop="20260711000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -29769,6 +30182,83 @@
 </programme>
 
 <programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260710200000 +0000"
+    stop="20260711000000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711000000 +0000"
     stop="20260711040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -34400,6 +34890,83 @@
 </programme>
 
 <programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711000000 +0000"
+    stop="20260711040000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711040000 +0000"
     stop="20260711080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -39031,6 +39598,83 @@
 </programme>
 
 <programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711040000 +0000"
+    stop="20260711080000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711080000 +0000"
     stop="20260711120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -43662,6 +44306,83 @@
 </programme>
 
 <programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711080000 +0000"
+    stop="20260711120000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711120000 +0000"
     stop="20260711160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -48293,6 +49014,83 @@
 </programme>
 
 <programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711120000 +0000"
+    stop="20260711160000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711160000 +0000"
     stop="20260711200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -52924,6 +53722,83 @@
 </programme>
 
 <programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711160000 +0000"
+    stop="20260711200000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260711200000 +0000"
     stop="20260712000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -57555,6 +58430,83 @@
 </programme>
 
 <programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260711200000 +0000"
+    stop="20260712000000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712000000 +0000"
     stop="20260712040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -62186,6 +63138,83 @@
 </programme>
 
 <programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712000000 +0000"
+    stop="20260712040000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712040000 +0000"
     stop="20260712080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -66817,6 +67846,83 @@
 </programme>
 
 <programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712040000 +0000"
+    stop="20260712080000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712080000 +0000"
     stop="20260712120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -71448,6 +72554,83 @@
 </programme>
 
 <programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712080000 +0000"
+    stop="20260712120000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712120000 +0000"
     stop="20260712160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -76079,6 +77262,83 @@
 </programme>
 
 <programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712120000 +0000"
+    stop="20260712160000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712160000 +0000"
     stop="20260712200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -80710,6 +81970,83 @@
 </programme>
 
 <programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712160000 +0000"
+    stop="20260712200000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260712200000 +0000"
     stop="20260713000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -85341,6 +86678,83 @@
 </programme>
 
 <programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260712200000 +0000"
+    stop="20260713000000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713000000 +0000"
     stop="20260713040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -89972,6 +91386,83 @@
 </programme>
 
 <programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713000000 +0000"
+    stop="20260713040000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713040000 +0000"
     stop="20260713080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -94603,6 +96094,83 @@
 </programme>
 
 <programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713040000 +0000"
+    stop="20260713080000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713080000 +0000"
     stop="20260713120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -99234,6 +100802,83 @@
 </programme>
 
 <programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713080000 +0000"
+    stop="20260713120000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713120000 +0000"
     stop="20260713160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -103865,6 +105510,83 @@
 </programme>
 
 <programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713120000 +0000"
+    stop="20260713160000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713160000 +0000"
     stop="20260713200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -108496,6 +110218,83 @@
 </programme>
 
 <programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713160000 +0000"
+    stop="20260713200000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260713200000 +0000"
     stop="20260714000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -113127,6 +114926,83 @@
 </programme>
 
 <programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260713200000 +0000"
+    stop="20260714000000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714000000 +0000"
     stop="20260714040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -117758,6 +119634,83 @@
 </programme>
 
 <programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714000000 +0000"
+    stop="20260714040000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714040000 +0000"
     stop="20260714080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -122389,6 +124342,83 @@
 </programme>
 
 <programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714040000 +0000"
+    stop="20260714080000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714080000 +0000"
     stop="20260714120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -127020,6 +129050,83 @@
 </programme>
 
 <programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714080000 +0000"
+    stop="20260714120000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714120000 +0000"
     stop="20260714160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -131651,6 +133758,83 @@
 </programme>
 
 <programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714120000 +0000"
+    stop="20260714160000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714160000 +0000"
     stop="20260714200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -136282,6 +138466,83 @@
 </programme>
 
 <programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714160000 +0000"
+    stop="20260714200000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260714200000 +0000"
     stop="20260715000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -140913,6 +143174,83 @@
 </programme>
 
 <programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260714200000 +0000"
+    stop="20260715000000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715000000 +0000"
     stop="20260715040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -145544,6 +147882,83 @@
 </programme>
 
 <programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715000000 +0000"
+    stop="20260715040000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715040000 +0000"
     stop="20260715080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -150175,6 +152590,83 @@
 </programme>
 
 <programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715040000 +0000"
+    stop="20260715080000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715080000 +0000"
     stop="20260715120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -154806,6 +157298,83 @@
 </programme>
 
 <programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715080000 +0000"
+    stop="20260715120000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715120000 +0000"
     stop="20260715160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -159437,6 +162006,83 @@
 </programme>
 
 <programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715120000 +0000"
+    stop="20260715160000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715160000 +0000"
     stop="20260715200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -164068,6 +166714,83 @@
 </programme>
 
 <programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715160000 +0000"
+    stop="20260715200000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260715200000 +0000"
     stop="20260716000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -168699,6 +171422,83 @@
 </programme>
 
 <programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260715200000 +0000"
+    stop="20260716000000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716000000 +0000"
     stop="20260716040000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -173330,6 +176130,83 @@
 </programme>
 
 <programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716000000 +0000"
+    stop="20260716040000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716040000 +0000"
     stop="20260716080000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -177961,6 +180838,83 @@
 </programme>
 
 <programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716040000 +0000"
+    stop="20260716080000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716080000 +0000"
     stop="20260716120000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -182592,6 +185546,83 @@
 </programme>
 
 <programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716080000 +0000"
+    stop="20260716120000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716120000 +0000"
     stop="20260716160000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -187223,6 +190254,83 @@
 </programme>
 
 <programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716120000 +0000"
+    stop="20260716160000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716160000 +0000"
     stop="20260716200000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -191854,6 +194962,83 @@
 </programme>
 
 <programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716160000 +0000"
+    stop="20260716200000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
     start="20260716200000 +0000"
     stop="20260717000000 +0000"
     channel="DE|SKY GO DETEKTIV CONAN 1 FHD">
@@ -196481,6 +199666,83 @@
 <title>Pl Replay 9 Hd</title>
 
 <desc>Enjoy the programming on PL Replay 9 HD with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="PRIME|World's Wildest Police Videos Raw">
+
+<title>World's Wildest Police Videos Raw</title>
+
+<desc>Welcome to World's Wildest Police Videos Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="PRIME|Turk on Video Raw">
+
+<title>Turk On Video Raw</title>
+
+<desc>Turk on Video Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="PRIME|Nature Raw">
+
+<title>Nature Raw</title>
+
+<desc>Enjoy the programming on Nature Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="PRIME|A&amp;E Tv Raw">
+
+<title>A&amp;e Tv Raw</title>
+
+<desc>Welcome to A&amp;E Tv Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="PRIME|Grjngo-Westernfilme Raw">
+
+<title>Grjngo-westernfilme Raw</title>
+
+<desc>Welcome to Grjngo-Westernfilme Raw. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="PRIME|Ein Engel auf Erden Raw">
+
+<title>Ein Engel Auf Erden Raw</title>
+
+<desc>Ein Engel auf Erden Raw brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.</desc>
+
+</programme>
+
+<programme
+    start="20260716200000 +0000"
+    stop="20260717000000 +0000"
+    channel="PRIME|CC Raw">
+
+<title>Cc Raw</title>
+
+<desc>Enjoy the programming on CC Raw with a great mix of entertainment, films, series, documentaries and much more.</desc>
 
 </programme>
 
