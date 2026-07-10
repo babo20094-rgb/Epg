@@ -430,3 +430,6 @@ DE|Sky Cinema Special FHD|
 DE|Sky Cinema Special HD|
 DE|Sky Highlights FHD|
 DE|Sky Highlights HD|
+DE|Sky Cinema Special HEVC|
+DE|Hr HD Hessischer Rundfunk|
+DE|UHD1 by Astra|
