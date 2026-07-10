@@ -64,7 +64,7 @@ def sender_anzeigename(name):
 
     return " ".join(worte)
 def sender_oder_titel(name):
-        worte = name.split()
+    worte = name.split()
 
     if all(
         wort.isupper() or
