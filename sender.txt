@@ -426,3 +426,7 @@ PRIME|H&amp;C Tv Raw|
 PRIME|Grjngo-Westernfilme Raw|
 PRIME|Ein Engel auf Erden Raw|
 PRIME|CC Raw|
+DE|Sky Cinema Special FHD|
+DE|Sky Cinema Special HD|
+DE|Sky Highlights FHD|
+DE|Sky Highlights HD|
