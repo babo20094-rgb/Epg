@@ -225,32 +225,6 @@ for i in range(1, 21):
     </programme>
 """
 
-# --------------------------------------------------
-# ----------------------------------------------------
-# Platzhalter-EPG für alle Sender aus sender.txt
-# ----------------------------------------------------
-
-jetzt = datetime.utcnow().replace(
-    hour=0,
-    minute=0,
-    second=0,
-    microsecond=0
-)
-
-for kanal, beschreibung in sender_daten:
-
-    # DYN überspringen
-    if kanal.startswith("DE| DYN PPV"):
-        continue
-
-    for stunde in range(24 * 3):   # 3 Tage
-
-        start_dummy = jetzt + timedelta(hours=stunde)
-        ende_dummy = start_dummy + timedelta(hours=1)
-
-        start_str = start_dummy.strftime("%Y%m%d%H%M%S +0000")
-        ende_str = ende_dummy.strftime("%Y%m%d%H%M%S +0000")
-
         xml += f"""
 <programme start="{start_str}"
            stop="{ende_str}"
