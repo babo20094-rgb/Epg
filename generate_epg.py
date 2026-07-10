@@ -128,9 +128,15 @@ for stunde in range(0, 24 * 7, 4):
 
     for kanal, beschreibung in sender_daten:
 
-        xml += f"""
+    land = kanal.split("|", 1)[0]
+    sender = kanal.split("|", 1)[1]
+
+    titel = sender
+    beschreibung = standard_beschreibung(land, sender)
+
+    xml += f"""
 <programme start="{start_str}" stop="{ende_str}" channel="{kanal}">
-    <title>{beschreibung}</title>
+    <title>{titel}</title>
     <desc>{beschreibung}</desc>
 </programme>
 """
