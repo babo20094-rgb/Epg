@@ -1,6 +1,2 @@
-# Eigene Senderlogos
-(Victory+ 001)|https://thestreamable.com/media/pages/video-streaming/victory-plus/a4bd2284d0-1756344304/victory-plus-banner-1536x864-crop.png
-(Victory+ 002)|https://thestreamable.com/media/pages/video-streaming/victory-plus/a4bd2284d0-1756344304/victory-plus-banner-1536x864-crop.png
-(Victory+ 003)|https://thestreamable.com/media/pages/video-streaming/victory-plus/a4bd2284d0-1756344304/victory-plus-banner-1536x864-crop.png
-(Victory+ 004)|https://thestreamable.com/media/pages/video-streaming/victory-plus/a4bd2284d0-1756344304/victory-plus-banner-1536x864-crop.png
-(Victory+ 005)|https://thestreamable.com/media/pages/video-streaming/victory-plus/a4bd2284d0-1756344304/victory-plus-banner-1536x864-crop.png
+DE|MAGENTA SPORT PPV 1 RAW|https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Magenta_Sport_Logo_2022.svg/3840px-Magenta_Sport_Logo_2022.svg.png
+DE|MAGENTA SPORT PPV 2 RAW|https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Magenta_Sport_Logo_2022.svg/3840px-Magenta_Sport_Logo_2022.svg.png
