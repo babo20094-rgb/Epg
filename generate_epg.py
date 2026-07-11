@@ -81,6 +81,24 @@ def sender_oder_titel(name):
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
+logos = {}
+
+try:
+    with open("logos.txt", "r", encoding="utf-8") as f:
+        for zeile in f:
+            zeile = zeile.strip()
+
+            if not zeile or zeile.startswith("#"):
+                continue
+
+            teile = [x.strip() for x in zeile.split("|", 2)]
+
+            if len(teile) == 3:
+                kanal = f"{teile[0]}|{teile[1]}"
+                logos[kanal] = teile[2]
+
+except FileNotFoundError:
+    pass
 
 
 # ==========================================================
@@ -114,11 +132,15 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         beschreibung = teile[2]
         logo = teile[3]
+           kanal = f"{land}|{sender}"
+
+           if kanal in logos:
+              logo = logos[kanal]
 
         if beschreibung == "":
             beschreibung = standard_beschreibung(land, sender)
 
-        kanal = f"{land}|{sender}"
+             kanal = f"{land}|{sender}"
 
         sender_daten.append({
             "kanal": kanal,
