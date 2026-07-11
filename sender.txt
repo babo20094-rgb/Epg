@@ -491,7 +491,7 @@ PRIME|The Real Mocoys Raw|
 PRIME|The Outpost Raw|
 PRIME|The Osbournes Raw|
 PRIME|The incredible Dr Pol Raw|
-PRIME|The Girla next Door Raw|
+PRIME|The Girls next Door Raw|
 PRIME|The Doctors Raw|
 PRIME|The Dead Files Raw|
 PRIME|The Bold and The Beautiful Raw|
@@ -507,3 +507,77 @@ PRIME|Rustic Retreats Raw|
 PRIME|Rugbypass Tv Raw|
 PRIME|Rovr Pets Raw|
 PRIME|Relative Justice|
+PRIME|Reelz Famous and Imfamous
+PRIME|Rebelde Raw|
+PRIME|Reality Tv-Shores Raw|
+PRIME|Reality TV-Competition Raw|
+PRIME|Reality Gone Wild Raw|
+PRIME|Racer Selcet Raw|
+PRIME|Primetime Soaps Raw|
+PRIME|Preschool Corner Raw|
+PRIME|Power Rangers Raw|
+PRIME|Places &amp; Spaces Raw|
+PRIME|Pink Panther Raw|
+PRIME|Personal  Injury Court Raw|
+PRIME|Perform Raw|
+PRIME|PBS Genealogy Raw|
+PRIME|PBS Drama Raw|
+PRIME|PBS Documentaries Raw|
+PRIME|Overtime Raw|
+PRIME|Noticias Univision 24/7 Raw|
+PRIME|Nostalgic Hits Raw|
+PRIME|NBC Lx Home Raw|
+PRIME|NBC Comedy Vault Raw|
+PRIME|NBC Colorado Springs News (KOAA) Raw|
+PRIME|NBC 7 San Diego News Raw|
+PRIME|NBC 6 South Florida News Raw|
+PRIME|NBC 5 Dallas-Fort Worth News Raw|
+PRIME|NBC 5 Chicago News Raw|
+PRIME|NBC 4 New York News Raw|
+PRIME|Nat Geo Sharks Raw|
+PRIME|Mythical 24/7 Raw|
+PRIME|Monsters Are Real Raw|
+PRIME|Modern Innovation By History Raw|
+PRIME|MGM Celebrates Black Cinema Raw|
+PRIME|Medical Incredible Raw|
+PRIME|Matched Married Meet Raw|
+PRIME|Love Pets Raw|
+PRIME|Love Kills Raw|
+PRIME|Love And Marriage Raw|
+PRIME|Long Lost Family Raw|
+PRIME|Locked Up Abroad Raw|
+PRIME|Live PD Presents Raw|
+PRIME|Life Below Zero Raw|
+PRIME|Life and Legend of Wyatt Earp Raw|
+PRIME|Lidia's Kitchen Raw|
+PRIME|Lawless Raw|
+PRIME|Latino Vibes Raw|
+PRIME|Las 3 Marias Raw|
+PRIME|Kim's Convenience Raw|
+PRIME|Karamo Presented By Nosey Raw|
+PRIME|Judge &amp; Jury Raw|
+PRIME|JaJaJa Raw|
+PRIME|I was Haunted Raw|
+PRIME|In Touch+ Raw|
+PRIME|Impact Gospel Raw|
+PRIME|Hunter X Hunter Raw|
+PRIME|Grandes Parejas Raw|
+PRIME|Get Comedy Raw|
+PRIME|General Hospital Raw|
+PRIME|Galanes Raw|
+PRIME|FV AMC En Espanol US Raw|
+PRIME|Fox 35 Orlando Raw|
+PRIME|Fox 32 Chicago Raw|
+PRIME|Fox 13 Tampa Bay Raw|
+PRIME|Fox 13 Seattle Raw|
+PRIME|Fox 11 Los Angeles Raw|
+PRIME|Fox 10 Phoenix Raw|
+PRIME|Fox 9 Minneapolis Raw|
+PRIME|Fox 7 Austin Raw|
+PRIME|Fox 6 Milwaukee Raw|
+PRIME|Fox 5 Atlanta Raw|
+PRIME|Fox 2 Detroit Raw|
+PRIME|Fgteev Raw|
+PRIME|Faithfull Funny Raw|
+PRIME|Extrem Makeover- Home Edition Raw|
+PRIME|ET Raw|
