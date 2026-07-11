@@ -132,15 +132,15 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         beschreibung = teile[2]
         logo = teile[3]
-           kanal = f"{land}|{sender}"
+        kanal = f"{land}|{sender}"
 
-           if kanal in logos:
+        if kanal in logos:
               logo = logos[kanal]
 
         if beschreibung == "":
             beschreibung = standard_beschreibung(land, sender)
 
-             kanal = f"{land}|{sender}"
+           
 
         sender_daten.append({
             "kanal": kanal,
