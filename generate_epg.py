@@ -103,7 +103,7 @@ KATEGORIEN = {
 
         "EN": "{sender} features documentaries about nature, science, history and fascinating discoveries."
     },
-}    "UNTERHALTUNG": {
+    "UNTERHALTUNG": {
         "keywords": [
             "RTL", "VOX", "PRO7", "PROSIEBEN", "SAT.1",
             "SAT1", "KABEL", "PINK", "PRVA", "B92",
