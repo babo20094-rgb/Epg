@@ -332,6 +332,7 @@ KATEGORIEN = {
 
         "EN": "{sender} broadcasts religious services, documentaries and inspirational programming."
     }
+}
 
 DE_STANDARD = [
     "Willkommen beim Programm von {sender}. Freuen Sie sich auf abwechslungsreiche Unterhaltung während des ganzen Tages."
