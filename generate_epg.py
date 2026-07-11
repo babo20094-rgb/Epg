@@ -5,22 +5,117 @@ import requests
 # Standardtexte
 # ==========================================================
 
-DE_TEXTE = [
-    "Willkommen beim Programm von {sender}. Freuen Sie sich auf ein abwechslungsreiches Programm mit Filmen, Serien, Dokumentationen, Nachrichten und Unterhaltung rund um die Uhr.",
-    "{sender} bietet Ihnen täglich ein vielfältiges Programm mit spannenden Filmen, beliebten Serien, informativen Dokumentationen und bester Unterhaltung.",
-    "Genießen Sie das Programm von {sender} mit abwechslungsreichen Sendungen, aktuellen Informationen, Filmen, Serien und vielen weiteren interessanten Inhalten."
+# ==========================================================
+# Automatische Beschreibungen nach Kategorie
+# ==========================================================
+
+KATEGORIEN = {
+
+    "SPORT": {
+        "keywords": [
+            "SPORT", "ARENA", "EUROSPORT", "ESPN",
+            "DAZN", "SPORTKLUB", "SPORT KLUB",
+            "SKY SPORT", "NBA", "FIGHT"
+        ],
+
+        "DE": "{sender} zeigt Live-Sport, Fußball, Basketball, Tennis, Motorsport und viele weitere Sportereignisse.",
+
+        "EXYU": "{sender} donosi prijenose sportskih događaja uživo, fudbal, košarku, tenis i mnoge druge sportove.",
+
+        "EN": "{sender} brings you live sports, football, basketball, tennis, motorsports and many other sporting events."
+    },
+
+
+    "MUSIK": {
+        "keywords": [
+            "MUSIC", "MTV", "VH1", "DM SAT",
+            "MELODY", "JUKEBOX", "HIT",
+            "MUSIC BOX", "CLUB"
+        ],
+
+        "DE": "{sender} bietet Musikvideos, Konzerte, Charts und Unterhaltung rund um die Uhr.",
+
+        "EXYU": "{sender} emituje muzičke spotove, koncerte, zabavne emisije i najveće hitove tokom cijelog dana.",
+
+        "EN": "{sender} features music videos, concerts, chart hits and entertainment throughout the day."
+    },
+
+
+    "FILM": {
+        "keywords": [
+            "FILM", "MOVIE", "ACTION",
+            "CINEMA", "FILMBOX", "HBO",
+            "CINEMAX", "HOLLYWOOD"
+        ],
+
+        "DE": "{sender} zeigt Spielfilme, Serien, Blockbuster und Unterhaltung für die ganze Familie.",
+
+        "EXYU": "{sender} prikazuje filmove, serije, akcione hitove i vrhunsku zabavu za cijelu porodicu.",
+
+        "EN": "{sender} offers blockbuster movies, TV series and entertainment for the whole family."
+    },
+
+
+    "NEWS": {
+        "keywords": [
+            "NEWS", "N1", "CNN", "BBC",
+            "INFO", "AL JAZEERA",
+            "EURONEWS"
+        ],
+
+        "DE": "{sender} berichtet über aktuelle Nachrichten, Politik, Wirtschaft und internationale Ereignisse.",
+
+        "EXYU": "{sender} donosi najnovije vijesti, informacije, političke i društvene događaje iz zemlje i svijeta.",
+
+        "EN": "{sender} delivers the latest news, politics, business and world events around the clock."
+    },
+
+
+    "KINDER": {
+        "keywords": [
+            "DISNEY", "NICK", "NICK JR",
+            "CARTOON", "BOOMERANG",
+            "MINI", "KIDS"
+        ],
+
+        "DE": "{sender} bietet Zeichentrickfilme, Serien und Unterhaltung für Kinder und die ganze Familie.",
+
+        "EXYU": "{sender} nudi crtane filmove, serije i zabavni sadržaj za djecu i cijelu porodicu.",
+
+        "EN": "{sender} offers cartoons, children's series and family entertainment throughout the day."
+    },
+
+
+    "DOKU": {
+        "keywords": [
+            "DISCOVERY",
+            "NAT GEO",
+            "NATIONAL",
+            "HISTORY",
+            "ANIMAL",
+            "PLANET",
+            "DOC"
+        ],
+
+        "DE": "{sender} zeigt Dokumentationen über Natur, Wissenschaft, Geschichte und spannende Entdeckungen.",
+
+        "EXYU": "{sender} prikazuje dokumentarne emisije, prirodu, nauku, istoriju i zanimljivosti iz cijelog svijeta.",
+
+        "EN": "{sender} features documentaries about nature, science, history and fascinating discoveries."
+    }
+}
+
+
+DE_STANDARD = [
+    "Willkommen beim Programm von {sender}. Freuen Sie sich auf abwechslungsreiche Unterhaltung während des ganzen Tages."
 ]
 
-EXYU_TEXTE = [
-    "Dobro došli u program {sender}. Očekuje vas raznovrstan sadržaj sa filmovima, serijama, dokumentarcima, zabavnim emisijama i drugim zanimljivim programima tokom cijelog dana.",
-    "{sender} donosi bogat izbor filmova, serija, sportskih događaja, dokumentaraca i zabavnih emisija za sve generacije.",
-    "Uživajte u programu {sender} uz kvalitetne filmove, serije, informativne emisije, dokumentarce i raznovrsnu zabavu."
+EXYU_STANDARD = [
+    "Dobro došli u program {sender}. Očekuje vas raznovrstan sadržaj tokom cijelog dana."
 ]
 
-EN_TEXTE = [
-    "Welcome to {sender}. Enjoy a wide selection of movies, series, documentaries, news and entertainment throughout the day.",
-    "{sender} brings you a diverse schedule featuring movies, TV shows, documentaries, live events and quality entertainment.",
-    "Enjoy the programming on {sender} with a great mix of entertainment, films, series, documentaries and much more."
+EN_STANDARD = [
+    "Welcome to {sender}. Enjoy a wide variety of entertainment throughout the day."
 ]
 
 
@@ -31,16 +126,31 @@ EN_TEXTE = [
 def standard_beschreibung(land, sender):
 
     if land == "DE":
-        texte = DE_TEXTE
+        sprache = "DE"
 
     elif land in ["BA", "RS", "HR", "ME", "CG", "MNE", "MNG", "MO", "MK", "SI"]:
-        texte = EXYU_TEXTE
-
-    elif land in ["UK", "US", "CA", "AU", "SO"]:
-        texte = EN_TEXTE
+        sprache = "EXYU"
 
     else:
-        texte = EN_TEXTE
+        sprache = "EN"
+
+    sender_upper = sender.upper()
+
+    for daten in KATEGORIEN.values():
+
+        for keyword in daten["keywords"]:
+
+            if keyword in sender_upper:
+                return daten[sprache].format(sender=sender)
+
+    if sprache == "DE":
+        texte = DE_STANDARD
+
+    elif sprache == "EXYU":
+        texte = EXYU_STANDARD
+
+    else:
+        texte = EN_STANDARD
 
     nummer = sum(ord(c) for c in sender) % len(texte)
 
