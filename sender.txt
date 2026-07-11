@@ -581,3 +581,36 @@ PRIME|Fgteev Raw|
 PRIME|Faithfull Funny Raw|
 PRIME|Extrem Makeover- Home Edition Raw|
 PRIME|ET Raw|
+PRIME|Earthday 365 Raw|
+PRIME|Dinos 24/7 Raw|
+PRIME|Death Valley Days Raw|
+PRIME|Couples Court Raw|
+PRIME|Cook's Country Raw|
+PRIME|Como Dice El Dicho Raw|
+PRIME|Come Dine with Me Raw|
+PRIME|Classic Car Auctions Raw|
+PRIME|Cine Retro Raw|
+PRIME|Cine De Oro Raw|
+PRIME|Chris Hansen's Trublu Crime Network Raw|
+PRIME|CBS News Detroit Raw|
+PRIME|CBS News Colorado Raw|
+PRIME|Caso Cebrado Raw|
+PRIME|Black Voices Raw|
+PRIME|BBC Comedy Raw|
+PRIME|Bargain Hunt Raw|
+PRIME|Are You Smarter than a 5th Grader? Raw|
+PRIME|Aqui Y Ahora Raw|
+PRIME|Antiques Road Trip Raw|
+PRIME|Anime X Hidive Raw|
+PRIME|Animation Favorites Raw|
+PRIME|American Ninja Warrior Raw|
+PRIME|All Day Drama Raw|
+PRIME|Action News Jax (CBS47 / FOX30) Raw|
+PRIME|Acorn Tv Mysteries Raw|
+PRIME|ABC7 New York Raw|
+PRIME|ABC7 Bay Area Raw|
+PRIME|90s Sitcom Raw|
+PRIME|80s Sitcom Raw|
+PRIME|60 Minutes Raw|
+PRIME|48 Hours Raw|
+PRIME|24/7 Laughs Raw|
