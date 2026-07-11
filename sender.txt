@@ -434,3 +434,75 @@ DE|Sky Cinema Special HEVC|
 DE|Hr HD Hessischer Rundfunk|
 DE|UHD1 by Astra|
 UK|R&amp;B Soul-Direkt HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
+UK|Rap 2K-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
+UK|Pop Latino-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
+UK|80'S-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
+UK|Dave&amp;Ana HD|
+UK|Rt FHD Russian (Temp off Air)|
+UK|RTE News Now|
+UK|RT uk HD|
+UK|W!-Watch FHD|
+UK|RTE 1 Hevc FHD|
+UK|Praise Tv Network|
+UK|N4 Iceland HD|
+US|THE CROWN Raw| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
+US|Cw 23 (KCWT)|
+US|Cw (WLMT) 30 Memphis|
+US|CW News 9 San Diego (KUSI) HD|
+US|Fox 39 Laredo TX (KXOF)|
+US|Fox 43 Topeka KS (KTMJ)|
+US|Fox 24 Santa Barbara CA (KKFX)|
+US|Abc 57 South Bend in (WBND)|
+LIVE| NFL Playoffs|
+US|Fanduel West Plus|
+US|Fanduel Great Lake|
+US|Fanduel Florida Plus|
+US|Fanduel Florida|
+TUBI|Gordon Ramsay Raw|
+TUBI|Gardening with Monty Don Raw|
+TUBI|Fox Sports on Tubi Raw|
+TUBI|Fox 5 New York Raw|
+TUBI|Britbox Mysteries Raw|
+CITY|Nbc KLAF LP Brooklyn Raw|
+GO|Up|
+GO|Tribeca Festival+|
+GO|The Price is Right-The Barker Era|
+GO|The Price is Right-Drew Carey
+GO|MSG Alt-1|
+GO|MSG Alt-2|
+GO|MSG Alt-3|
+GO|20/20|
+PRIME|Xite Rap Game Raw|
+PRIME|Xite R&amp;B Feels Raw|
+PRIME|Xite Hip-Hop Evolution Raw|
+PRIME|Xite 60s &amp; 70s Groove Raw|
+PRIME|Western Bound Wrangled by INSP Raw|
+PRIME|Wendy Williams Raw|
+PRIME|Vevo R&amp;B Raw|
+PRIME|Vevo Hip-Hop Raw|
+PRIME|Untold Stories of the Er Raw|
+PRIME|Ultimate Builds Raw|
+PRIME|Tribunal Justice Raw|
+PRIME|To Catch a Smuggler Raw|
+PRIME|TMNT Raw|
+PRIME|The Young Riders Raw|
+PRIME|The Repair Shop Raw|
+PRIME|The Real Mocoys Raw|
+PRIME|The Outpost Raw|
+PRIME|The Osbournes Raw|
+PRIME|The incredible Dr Pol Raw|
+PRIME|The Girla next Door Raw|
+PRIME|The Doctors Raw|
+PRIME|The Dead Files Raw|
+PRIME|The Bold and The Beautiful Raw|
+PRIME|T.D Jakes Raw|
+PRIME|Survive or Die Raw|
+PRIME|Supernany Raw|
+PRIME|Startalk Raw|
+PRIME|Spooks (MI-5)|
+PRIME|Speed Sport 1 Raw|
+PRIME|Space &amp; Beyond Raw|
+PRIME|Sheriffs EL Dorado County Raw|
+PRIME|Rustic Retreats Raw|
+PRIME|Rugbypass Tv Raw|
+PRIME|Rovr Pets Raw|
