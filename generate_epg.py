@@ -487,13 +487,10 @@ with open("sender.txt", "r", encoding="utf-8") as f:
             "logo": logo
         })
 
-        xml += f"""
-<channel id="{kanal}">
-    <display-name>{sender_anzeigename(sender)}</display-name>
-"""
+        xml += f""" <channel id="{kanal}"> <display-name>{sender_anzeigename(sender)}</display-name> """
 
         if logo:
-            xml += f'    <icon src="{logo}"/>\n'
+            xml += f' <icon src="{logo}"/>\n'
 
         xml += "</channel>\n"
         # ==========================================================
@@ -506,12 +503,7 @@ for i in range(1, 21):
 
     kanal = f"DE|DYN PPV {i} HD"
 
-    xml += f"""
-<channel id="{kanal}">
-    <display-name>DYN PPV {i} HD</display-name>
-    <icon src="{dyn_logo}"/>
-</channel>
-"""
+    xml += f""" <channel id="{kanal}"> <display-name>DYN PPV {i} HD</display-name> <icon src="{dyn_logo}"/> </channel> """
 
 
 # ==========================================================
@@ -535,20 +527,7 @@ for stunde in range(0, 24 * 7, 4):
 
     for daten in sender_daten:
 
-        xml += f"""
-<programme
-    start="{start_str}"
-    stop="{ende_str}"
-    channel="{daten['kanal']}">
-
-<title lang="de">{sender_anzeigename(daten['sender'])}</title>
-
-<sub-title lang="de">{daten['beschreibung']}</sub-title>
-
-<desc lang="de">{daten['beschreibung']}</desc>
-
-</programme>
-"""
+        xml += f""" <programme start="{start_str}" stop="{ende_str}" channel="{daten['kanal']}"> <title lang="de">{sender_anzeigename(daten['sender'])}</title> <sub-title lang="de">{daten['beschreibung']}</sub-title> <desc lang="de">{daten['beschreibung']}</desc> </programme> """
 # ==========================================================
 # DYN LIVE EVENTS
 # ==========================================================
@@ -588,18 +567,7 @@ try:
 
             kanal = f"DE|DYN PPV {kanal_nummer} HD"
 
-            xml += f"""
-<programme
-    start="{startzeit}"
-    stop="{endzeit}"
-    channel="{kanal}">
-
-<title>{titel}</title>
-
-<desc>{beschreibung}</desc>
-
-</programme>
-"""
+            xml += f""" <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}"> <title>{titel}</title> <desc>{beschreibung}</desc> </programme> """
 
             kanal_nummer += 1
 
@@ -634,18 +602,7 @@ for i in range(1, 21):
         start_str = start.strftime("%Y%m%d%H%M%S +0000")
         ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-        xml += f"""
-<programme
-    start="{start_str}"
-    stop="{ende_str}"
-    channel="{kanal}">
-
-<title>Im Moment keine Live Events, bleib dran</title>
-
-<desc>Im Moment keine Live Events, bleib dran.</desc>
-
-</programme>
-"""
+        xml += f""" <programme start="{start_str}" stop="{ende_str}" channel="{kanal}"> <title>Im Moment keine Live Events, bleib dran</title> <desc>Im Moment keine Live Events, bleib dran.</desc> </programme> """
 # ==========================================================
 # XML ABSCHLIESSEN
 # ==========================================================
@@ -655,4 +612,4 @@ xml += "\n</tv>"
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
 
-print(f"EPG e
+print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
