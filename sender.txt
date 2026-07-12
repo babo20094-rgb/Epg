@@ -626,3 +626,25 @@ US|Fox 29|
 US|CW Seattle HD|
 US|WNYC|
 US|US MyTv (KHII) Hanolulu|
+DE|Geo Tv HD|
+DE|Nat Geo Wild FHD|
+DE|Nat Geo Wild HD|
+DE|Sony Channel FHD|
+DE|Sony AXN HD|
+DE|Sky Cinema Premieren FHD|
+DE|Sky Cinema Premieren HD|
+JOYN|SR Raw|
+JOYN|Serienklassiker Raw|
+JOYN|Elf Raw|
+DE|DAZN Moto America Raw|
+DE|DAZN Lacrosse Tv Raw|
+DE|DAZN Moto America SD|
+DE|DAZN Lacrosse Tv SD|
+DE|DAZN Moto America HD|
+DE|DAZN Lacrosse Tv HD|
+DE|SILO FHD|
+DE|THE LAST OF US FHD|
+DE|MOBLAND FHD|
+DE|FILMS 4K|
+DE|FILMS 2020-23|
+DE|ZONE DISNEY+ FHD|
