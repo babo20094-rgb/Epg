@@ -22,3 +22,11 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 
 print("Starte EPG V2...")
+import json
+
+from xmltv_provider import XMLTVProvider
+from channel_matcher import ChannelMatcher
+from merger import XMLTVMerger
+provider = XMLTVProvider()
+matcher = ChannelMatcher()
+merger = XMLTVMerger()
