@@ -437,7 +437,27 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
 logos = {}
+# ==========================================================
+# XMLTV Quellen
+# ==========================================================
 
+XMLTV_QUELLEN = [
+    "xmltv/de.xml.gz",
+    "xmltv/uk.xml.gz",
+    "xmltv/us.xml.gz",
+    "xmltv/exyu.xml.gz"
+]
+
+xmltv_root = None
+
+for quelle in XMLTV_QUELLEN:
+
+    root = lade_xmltv(quelle)
+
+    if root is not None:
+        print(f"XMLTV geladen: {quelle}")
+        xmltv_root = root
+        break
 try:
     with open("logos.txt", "r", encoding="utf-8") as f:
         for zeile in f:
