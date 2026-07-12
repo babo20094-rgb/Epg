@@ -1,5 +1,8 @@
 from datetime import datetime, timedelta
 import requests
+import gzip
+import xml.etree.ElementTree as ET
+import os
 
 # ==========================================================
 # Standardtexte
