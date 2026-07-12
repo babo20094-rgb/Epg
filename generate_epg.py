@@ -1,8 +1,5 @@
 from datetime import datetime, timedelta
 import requests
-import gzip
-import xml.etree.ElementTree as ET
-import os
 
 # ==========================================================
 # Standardtexte
@@ -413,20 +410,6 @@ def sender_oder_titel(name):
         return sender_anzeigename(name)
 
     return sender_anzeigename(name)
-def lade_xmltv(dateiname):
-    if not os.path.exists(dateiname):
-        return None
-
-    try:
-        if dateiname.endswith(".gz"):
-            with gzip.open(dateiname, "rb") as f:
-                return ET.parse(f).getroot()
-        else:
-            return ET.parse(dateiname).getroot()
-
-    except Exception as e:
-        print("XMLTV Fehler:", e)
-        return None
 
 
 # ==========================================================
@@ -437,27 +420,7 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
 logos = {}
-# ==========================================================
-# XMLTV Quellen
-# ==========================================================
 
-XMLTV_QUELLEN = [
-    "xmltv/de.xml.gz",
-    "xmltv/uk.xml.gz",
-    "xmltv/us.xml.gz",
-    "xmltv/exyu.xml.gz"
-]
-
-xmltv_root = None
-
-for quelle in XMLTV_QUELLEN:
-
-    root = lade_xmltv(quelle)
-
-    if root is not None:
-        print(f"XMLTV geladen: {quelle}")
-        xmltv_root = root
-        break
 try:
     with open("logos.txt", "r", encoding="utf-8") as f:
         for zeile in f:
@@ -692,4 +655,4 @@ xml += "\n</tv>"
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml)
 
-print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
+print(f"EPG e
