@@ -413,6 +413,20 @@ def sender_oder_titel(name):
         return sender_anzeigename(name)
 
     return sender_anzeigename(name)
+def lade_xmltv(dateiname):
+    if not os.path.exists(dateiname):
+        return None
+
+    try:
+        if dateiname.endswith(".gz"):
+            with gzip.open(dateiname, "rb") as f:
+                return ET.parse(f).getroot()
+        else:
+            return ET.parse(dateiname).getroot()
+
+    except Exception as e:
+        print("XMLTV Fehler:", e)
+        return None
 
 
 # ==========================================================
