@@ -543,8 +543,7 @@ try:
 
         daten = response.json()
 
-        print("DYN HTTP:", response.status_code)
-        print("DYN Events:", len(daten))
+     
 
         if len(daten) == 0:
 
