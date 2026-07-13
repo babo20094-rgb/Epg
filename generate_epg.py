@@ -542,6 +542,9 @@ try:
     if response.status_code == 200:
 
         daten = response.json()
+        print("DYN HTTP:", response.status_code)
+        print("DYN Events:", 
+len(daten))
 
         kanal_nummer = 1
 
