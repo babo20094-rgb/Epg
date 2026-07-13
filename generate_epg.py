@@ -573,7 +573,7 @@ len(daten))
     kanal_nummer = 1
      
 
-    for event in daten:
+ for event in daten:
     titel = event.get("title", "Dyn Sport")
     beschreibung = event.get("description", titel)
     start = event.get("scheduledAt")
@@ -581,16 +581,17 @@ len(daten))
 
     if not start or not ende:
         continue
+    startzeit = 
+    datetime.fromisoformat(
+        start.replace("Z", "+00:00")
+    ).strftime("%Y%m%d%H%M%S +0000")
 
-            startzeit = datetime.fromisoformat(
-                start.replace("Z", "+00:00")
-            ).strftime("%Y%m%d%H%M%S +0000")
+            
+    endzeit =datetime.fromisoformat(
+       ende.replace("Z", "+00:00")
+    ).strftime("%Y%m%d%H%M%S +0000")
 
-            endzeit = datetime.fromisoformat(
-                ende.replace("Z", "+00:00")
-            ).strftime("%Y%m%d%H%M%S +0000")
-
-            kanal = f"DE|DYN PPV {kanal_nummer} HD"
+            kanal = f"DE| DYN PPV {kanal_nummer} HD"
 
             xml += f""" <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}"> <title>{titel}</title> <desc>{beschreibung}</desc> </programme> """
 
