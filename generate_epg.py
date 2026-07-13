@@ -501,7 +501,7 @@ dyn_logo = "https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-tease
 
 for i in range(1, 21):
 
-    kanal = f"DE|DYN PPV {i} HD"
+    kanal = f"DE| DYN PPV {i} HD"
 
     xml += f""" <channel id="{kanal}"> <display-name>DYN PPV {i} HD</display-name> <icon src="{dyn_logo}"/> </channel> """
 
@@ -573,7 +573,7 @@ try:
                     ende.replace("Z", "+00:00")
                 ).strftime("%Y%m%d%H%M%S +0000")
 
-                kanal = f"DE|DYN PPV {kanal_nummer} HD"
+                kanal = f"DE| DYN PPV {kanal_nummer} HD"
 
                 xml += f""" <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}"> <title>{titel}</title> <desc>{beschreibung}</desc> </programme> """
 
@@ -598,7 +598,7 @@ jetzt = datetime.utcnow().replace(
 
 for i in range(1, 21):
 
-    kanal = f"DE|DYN PPV {i} HD"
+    kanal = f"DE| DYN PPV {i} HD"
 
     for stunde in range(24 * 3):
 
