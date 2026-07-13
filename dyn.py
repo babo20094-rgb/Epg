@@ -17,7 +17,8 @@ def get_dyn_events():
     print(daten)
 
     print("DYN HTTP:", response.status_code)
-    print("DYN Events:", len(daten))
+    print("DYN Events:", 
+len(daten))
 
     kanal_nummer = 1
 
