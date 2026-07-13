@@ -546,8 +546,7 @@ try:
 len(daten))
 
     if len(daten) == 0:
-        print("Keine DYN 
-Live-Events - Standardtext wird erstellt")
+        print("Keine DYN Live-Events - Standardtext wird erstellt")
 
         jetzt = datetime.utcnow().replace(
             minute=0,
