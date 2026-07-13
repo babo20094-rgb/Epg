@@ -545,7 +545,29 @@ try:
         print("DYN HTTP:", response.status_code)
         print("DYN Events:", 
 len(daten))
+if len(daten) == 0:
+    print("Keine DYN Live-Events - Standardtext wird erstellt")
 
+    jetzt = datetime.utcnow().replace(minute=0, second=0, microsecond=0)
+
+    ende = jetzt + timedelta(days=7)
+
+    for kanal_nummer in range(1, 21):
+        programme = ET.SubElement(
+            tv,
+            "programme",
+            start=jetzt.strftime("%Y%m%d%H%M%S +0000"),
+            stop=ende.strftime("%Y%m%d%H%M%S +0000"),
+            channel=f"DE| DYN PPV {kanal_nummer} HD"
+        )
+
+        ET.SubElement(programme, "title").text = "Im Moment keine Live Events"
+
+        ET.SubElement(programme, "desc").text = (
+            "Im Moment keine Live Events – bleib dran."
+        )
+
+    return
         kanal_nummer = 1
 
         for event in daten:
