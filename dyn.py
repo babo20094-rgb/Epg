@@ -1,4 +1,6 @@
 import requests
+from bs4 import BeautifulSoup
+import re
 
 DYN_API = "https://streaming.contentdesk.sport/api/public/live-productions"
 
@@ -9,12 +11,15 @@ def get_dyn_events():
 
         print("DYN HTTP:", response.status_code)
 
-        if response.status_code != 200:
-            return []
+        if response.status_code == 200:
 
-        daten = response.json()
+    daten = response.json()
+    print(daten)
 
-        print("DYN Events:", len(daten))
+    print("DYN HTTP:", response.status_code)
+    print("DYN Events:", len(daten))
+
+    kanal_nummer = 1
 
         return daten
 
