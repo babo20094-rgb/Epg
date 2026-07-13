@@ -574,17 +574,13 @@ len(daten))
      
 
     for event in daten:
+    titel = event.get("title", "Dyn Sport")
+    beschreibung = event.get("description", titel)
+    start = event.get("scheduledAt")
+    ende = event.get("scheduledEnd")
 
-        titel = 
-event.get("title", "Dyn Sport")
-
-            beschreibung = event.get("description", titel)
-
-            start = event.get("scheduledAt")
-            ende = event.get("scheduledEnd")
-
-            if not start or not ende:
-                continue
+    if not start or not ende:
+        continue
 
             startzeit = datetime.fromisoformat(
                 start.replace("Z", "+00:00")
