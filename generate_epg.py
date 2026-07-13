@@ -573,9 +573,10 @@ len(daten))
     kanal_nummer = 1
      
 
-        for event in daten:
+    for event in daten:
 
-            titel = event.get("title", "Dyn Sport")
+        titel = 
+event.get("title", "Dyn Sport")
 
             beschreibung = event.get("description", titel)
 
