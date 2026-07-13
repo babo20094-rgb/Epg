@@ -540,12 +540,14 @@ try:
     )
 
     if response.status_code == 200:
-    daten = response.json()
-    print("DYN HTTP:", response.status_code)
-    print("DYN Events:", len(daten))
+        daten = response.json()
+        print("DYN HTTP:",         response.status_code)
+        print("DYN Events:", 
+len(daten))
 
     if len(daten) == 0:
-        print("Keine DYN Live-Events - Standardtext wird erstellt")
+        print("Keine DYN 
+Live-Events - Standardtext wird erstellt")
 
         jetzt = datetime.utcnow().replace(
             minute=0,
