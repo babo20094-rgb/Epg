@@ -545,8 +545,8 @@ try:
         print("DYN HTTP:", response.status_code)
         print("DYN Events:", 
 len(daten))
-if len(daten) == 0:
-    print("Keine DYN Live-Events - Standardtext wird erstellt")
+       if len(daten) == 0:
+       print("Keine DYN Live-Events - Standardtext wird erstellt")
 
     jetzt = datetime.utcnow().replace(minute=0, second=0, microsecond=0)
 
