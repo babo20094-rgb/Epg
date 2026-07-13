@@ -501,7 +501,7 @@ dyn_logo = "https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-tease
 
 for i in range(1, 21):
 
-    kanal = f"DE|DYN PPV {i} HD"
+    kanal = f"DE| DYN PPV {i} HD"
 
     xml += f""" <channel id="{kanal}"> <display-name>DYN PPV {i} HD</display-name> <icon src="{dyn_logo}"/> </channel> """
 
@@ -540,71 +540,51 @@ try:
     )
 
     if response.status_code == 200:
+
         daten = response.json()
-        print("DYN HTTP:",         response.status_code)
-        print("DYN Events:", 
-len(daten))
 
-    if len(daten) == 0:
-        print("Keine DYN Live-Events - Standardtext wird erstellt")
+        print("DYN HTTP:", response.status_code)
+        print("DYN Events:", len(daten))
 
-        jetzt = datetime.utcnow().replace(
-            minute=0,
-            second=0,
-            microsecond=0
-        )
+        if len(daten) == 0:
 
-        ende = jetzt + timedelta(days=7)
+            print("Keine DYN Live-Events - Standardtext wird erstellt")
 
-        for kanal_nummer in range(1, 21):
-            programme = ET.SubElement(
-                tv,
-                "programme",
-                start=jetzt.strftime("%Y%m%d%H%M%S +0000"),
-                stop=ende.strftime("%Y%m%d%H%M%S +0000"),
-                channel=f"DE| DYN PPV {kanal_nummer} HD"
-            )
+        else:
 
-            ET.SubElement(programme, "title").text = "Im Moment keine Live Events"
-            ET.SubElement(programme, "desc").text = "Im Moment keine Live Events – bleib dran."
+            kanal_nummer = 1
 
-        return
+            for event in daten:
 
-    kanal_nummer = 1
-     
+                titel = event.get("title", "Dyn Sport")
+                beschreibung = event.get("description", titel)
 
- for event in daten:
-    titel = event.get("title", "Dyn Sport")
-    beschreibung = event.get("description", titel)
-    start = event.get("scheduledAt")
-    ende = event.get("scheduledEnd")
+                start = event.get("scheduledAt")
+                ende = event.get("scheduledEnd")
 
-    if not start or not ende:
-        continue
-    startzeit = 
-    datetime.fromisoformat(
-        start.replace("Z", "+00:00")
-    ).strftime("%Y%m%d%H%M%S +0000")
+                if not start or not ende:
+                    continue
 
-            
-    endzeit =datetime.fromisoformat(
-       ende.replace("Z", "+00:00")
-    ).strftime("%Y%m%d%H%M%S +0000")
+                startzeit = datetime.fromisoformat(
+                    start.replace("Z", "+00:00")
+                ).strftime("%Y%m%d%H%M%S +0000")
 
-            kanal = f"DE| DYN PPV {kanal_nummer} HD"
+                endzeit = datetime.fromisoformat(
+                    ende.replace("Z", "+00:00")
+                ).strftime("%Y%m%d%H%M%S +0000")
 
-            xml += f""" <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}"> <title>{titel}</title> <desc>{beschreibung}</desc> </programme> """
+                kanal = f"DE| DYN PPV {kanal_nummer} HD"
 
-            kanal_nummer += 1
+                xml += f""" <programme start="{startzeit}" stop="{endzeit}" channel="{kanal}"> <title>{titel}</title> <desc>{beschreibung}</desc> </programme> """
 
-            if kanal_nummer > 20:
-                kanal_nummer = 1
+                kanal_nummer += 1
+
+                if kanal_nummer > 20:
+                    kanal_nummer = 1
 
 except Exception as e:
 
     print("DYN Fehler:", e)
-
-
 # ==========================================================
 # DYN LEERZEITEN
 # ==========================================================
