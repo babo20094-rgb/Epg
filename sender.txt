@@ -701,11 +701,11 @@ DE|VODAFONE GO FILME 47 FHD|
 DE|VODAFONE GO FILME 48 FHD|
 DE|VODAFONE GO FILME 49 FHD|
 DE|VODAFONE GO FILME 50 FHD|
-BS|AKCIJA|https://balkan-sky.com/img/logo.png
-BS|CRTANI|https://balkan-sky.com/img/logo.png
-BS|DRAMA|https://balkan-sky.com/img/logo.png
-BS|HOROR|https://balkan-sky.com/img/logo.png
-BS|KOMEDIJA|https://balkan-sky.com/img/logo.png
-BS|SCI-FI|https://balkan-sky.com/img/logo.png
-BS|TRILER|https://balkan-sky.com/img/logo.png
-BS|WESTERN|https://balkan-sky.com/img/logo.png
+BS| AKCIJA|https://balkan-sky.com/img/logo.png
+BS| CRTANI|https://balkan-sky.com/img/logo.png
+BS| DRAMA|https://balkan-sky.com/img/logo.png
+BS| HOROR|https://balkan-sky.com/img/logo.png
+BS| KOMEDIJA|https://balkan-sky.com/img/logo.png
+BS| SCI-FI|https://balkan-sky.com/img/logo.png
+BS| TRILER|https://balkan-sky.com/img/logo.png
+BS| WESTERN|https://balkan-sky.com/img/logo.png
