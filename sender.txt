@@ -709,3 +709,17 @@ BS| KOMEDIJA|https://balkan-sky.com/img/logo.png
 BS| SCI-FI|https://balkan-sky.com/img/logo.png
 BS| TRILER|https://balkan-sky.com/img/logo.png
 BS| WESTERN|https://balkan-sky.com/img/logo.png
+BS| ANGELINA JOLIE COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Angelina%20Jolie%202018.png
+BS| ARNOLD SCHWARZENEGGER COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Arnold%20Schwarzenegger%202024.jpg
+BS| BRUCE WILLIS COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Bruce%20Willis%20by%20Gage%20Skidmore%203.jpg
+BS| DWAYNE THE ROCK JOHNSON COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Dwayne%20Johnson%202013.jpg
+BS| J LO COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Jennifer%20Lopez%202012.jpg
+BS| JASON STATHAM COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Jason%20Statham%202018.jpg
+BS| MEL GIBSON COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Mel%20Gibson%20Cannes%202016.jpg
+BS| NICOLAS CAGE COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Nicolas%20Cage%202023.jpg
+BS| PAUL WALKER COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Paul%20Walker%20at%20the%20premiere%20for%20Fast%20%26%20Furious.jpg
+BS| STEVEN SEAGAL COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Steven%20Seagal.jpg
+BS| SYLVESTER STALLONE COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Sylvester%20Stallone%202019.jpg
+BS| TOM CRUISE COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Tom%20Cruise%20by%20Gage%20Skidmore%202019.jpg
+BS| TOM HANKS COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Tom%20Hanks%202019.jpg
+BS| WILL SMITH COLLECTION|https://commons.wikimedia.org/wiki/Special:FilePath/Will%20Smith%202023.jpg
