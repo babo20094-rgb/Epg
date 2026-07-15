@@ -710,13 +710,13 @@ BS| SCI-FI||https://balkan-sky.com/img/logo.png
 BS| TRILER||https://balkan-sky.com/img/logo.png
 BS| WESTERN||https://balkan-sky.com/img/logo.png
 
-BS| ANGELINA JOLIE COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/k3M5r7DVGgkL6Q6vG6T0G2wHn9K.jpg
+BS| ANGELINA JOLIE COLLECTION||https://pngimg.com/uploads/angelina_jolie/angelina_jolie_PNG8.png
 BS| ARNOLD SCHWARZENEGGER COLLECTION||https://thumbnail.imgbin.com/16/12/20/imgbin-arnold-schwarzenegger-arnold-sports-festival-professional-bodybuilding-international-federation-of-bodybuilding-fitness-arnold-strongman-classic-bodybuilding-QqrqchDRUmQFLNhcbVe77DuSq_t.jpg
 BS| BRUCE WILLIS COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/caX3KtMU42EP3VLRFFBwqIIrch5.jpg
 BS| DWAYNE THE ROCK JOHNSON COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/kuqFzlYMc2IrsOyPznMd1FroeGq.jpg
-BS| J LO COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/7j3d3D6V0L8M8QH3O8W8mYQ9Q4x.jpg
+BS| J LO COLLECTION||https://w7.pngwing.com/pngs/722/614/png-transparent-jennifer-lopez-jennifer-lopez-photography-fashion-model-digital-image-thumbnail.png
 BS| JASON STATHAM COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/lldeQ91GwIVff43JBrpdbAAeYWj.jpg
-BS| MEL GIBSON COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uAyk2oI6Kx8Vn7JQvUM0vNfJ4wP.jpg
+BS| MEL GIBSON COLLECTION||https://p7.hiclipart.com/preview/993/362/342/5bbc346910e60.jpg
 BS| NICOLAS CAGE COLLECTION||https://e7.pngegg.com/pngimages/7/456/png-clipart-nicholas-cage-nicolas-cage-close-up-at-the-movies-nicolas-cage.png
 BS| PAUL WALKER COLLECTION||https://static.wixstatic.com/media/e59907_585add2930b64ddb907923430e9f32db~mv2.png/v1/fill/w_560,h_574,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png
 BS| STEVEN SEAGAL COLLECTION||https://dandelts.com.au/wp-content/uploads/2019/07/steven-suit.png
