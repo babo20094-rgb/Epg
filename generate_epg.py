@@ -538,6 +538,11 @@ try:
 
 except FileNotFoundError:
     pass
+    print("=== LOGOS DEBUG ===")
+print("Anzahl Logos:", len(logos))
+
+for k, v in list(logos.items())[:10]:
+    print(k, "->", v)
         # ==========================================================
 # DYN PPV CHANNELS
 # ==========================================================
