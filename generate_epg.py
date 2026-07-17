@@ -482,7 +482,7 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
     for zeile in f:
 
-        zeile = zeile.strip()
+                zeile = zeile.strip()
 
         if not zeile:
             continue
@@ -492,7 +492,7 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         while len(teile) < 4:
             teile.append("")
 
-                land = teile[0]
+        land = teile[0]
         sender = teile[1]
 
         if sender.startswith("(") and ") |" in sender:
@@ -501,9 +501,6 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         beschreibung = teile[2]
         logo = teile[3]
         kanal = f"{land}|{sender}"
-        logo = teile[3]
-        kanal = f"{land}|{sender}"
-
         kanal_suche = " ".join(kanal.upper().split())
 
         kanal_ohne_land = " ".join(sender.upper().split())
