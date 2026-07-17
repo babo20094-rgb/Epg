@@ -492,14 +492,15 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         while len(teile) < 4:
             teile.append("")
 
-        land = teile[0]
-        sender = teile[1]
+                land = teile[0]
         sender = teile[1]
 
         if sender.startswith("(") and ") |" in sender:
-    sender = sender.split(") |", 1)[0].strip("()")
+            sender = sender.split(") |", 1)[0].strip("()")
 
         beschreibung = teile[2]
+        logo = teile[3]
+        kanal = f"{land}|{sender}"
         logo = teile[3]
         kanal = f"{land}|{sender}"
 
