@@ -520,24 +520,58 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 # ==========================================================
 
 try:
-    with open("logos.txt", "r", encoding="utf-8") as f:
+    bekannte = {d["kanal"].upper() for d in sender_daten}
+
+    with open("tv_channels_8ed24ae4a5_plus.m3u", "r", encoding="utf-8", errors="ignore") as f:
+
+        sender = None
+        logo = ""
+
         for zeile in f:
 
-            zeile = zeile.strip()
+            if zeile.startswith("#EXTINF"):
 
-            if not zeile or zeile.startswith("#"):
-                continue
+                name = re.search(r'tvg-name="([^"]*)"', zeile)
+                bild = re.search(r'tvg-logo="([^"]*)"', zeile)
 
-            teile = [x.strip() for x in zeile.split("|")]
+                if name:
+                    sender = name.group(1).strip()
 
-            if len(teile) == 3:
-                kanal = f"{teile[0]}|{teile[1]}"
-                kanal = " ".join(kanal.upper().split())
-                logos[kanal] = teile[2]
+                    if sender.startswith("(") and ") |" in sender:
+                        sender = sender.split(") |", 1)[0].strip("()")
+                else:
+                    sender = None
 
-            elif len(teile) == 2:
-                kanal = " ".join(teile[0].upper().split())
-                logos[kanal] = teile[1]
+                logo = bild.group(1).strip() if bild else ""
+
+            elif zeile.startswith("http") and sender:
+
+                kanal = f"IPTV|{sender}"
+
+                kanal_suche = " ".join(kanal.upper().split())
+                kanal_ohne_land = " ".join(sender.upper().split())
+
+                if kanal_suche in logos:
+                    logo = logos[kanal_suche]
+                elif kanal_ohne_land in logos:
+                    logo = logos[kanal_ohne_land]
+
+                if kanal.upper() not in bekannte:
+
+                    bekannte.add(kanal.upper())
+
+                    xml += f"""
+<channel id="{kanal}">
+    <display-name>{sender}</display-name>
+"""
+
+                    if logo:
+                        xml += f'    <icon src="{logo}"/>\n'
+
+                    xml += "</channel>\n"
+
+                sender = None
+                logo = ""
 
 except FileNotFoundError:
     pass
