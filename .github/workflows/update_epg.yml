@@ -16,9 +16,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: |
-          pip install -r requirements.txt
-          python generate_epg.py
+      - - run: |
+    pip install -r requirements.txt
+    python update_m3u.py
+    python generate_epg.py
 
       - name: Commit changes
         run: |
