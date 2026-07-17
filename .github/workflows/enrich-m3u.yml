@@ -1,0 +1,39 @@
+name: Enrich M3U (Variant A)
+
+on:
+  workflow_dispatch:
+    inputs:
+      use_committed_playlist:
+        description: 'Set to "true" to use playlist.m3u committed in the repository root. Set to "false" to abort (we do not fetch external playlists).'
+        required: false
+        default: 'true'
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && pip install requests
+
+      - name: Run enrich script (use committed playlist)
+        if: ${{ github.event.inputs.use_committed_playlist == 'true' }}
+        run: |
+          if [ ! -f playlist.m3u ]; then
+            echo "playlist.m3u not found in the repository root. Commit it before running the workflow." >&2
+            exit 1
+          fi
+          python3 scripts/enrich_m3u.py --m3u-file ./playlist.m3u --sender-file ./sender.txt --output ./enriched_playlist.m3u
+
+      - name: Upload enriched playlist as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: enriched-playlist
+          path: enriched_playlist.m3u
