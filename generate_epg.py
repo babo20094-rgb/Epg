@@ -431,8 +431,14 @@ try:
                 logo = re.search(r'tvg-logo="([^"]*)"', zeile)
 
                 if name and logo:
-                    kanal = " ".join(name.group(1).upper().split())
-                    playlist_logos[kanal] = logo.group(1)
+                    kanal = name.group(1).strip()
+
+if kanal.startswith("(") and ") |" in kanal:
+    kanal = kanal.split(") |", 1)[0].strip("()")
+
+kanal = " ".join(kanal.upper().split())
+
+playlist_logos[kanal] = logo.group(1)
 except FileNotFoundError:
     pass
 
@@ -547,7 +553,13 @@ try:
                 name = re.search(r'tvg-name="([^"]*)"', zeile)
                 bild = re.search(r'tvg-logo="([^"]*)"', zeile)
 
-                sender = name.group(1).strip() if name else None
+                if name:
+    sender = name.group(1).strip()
+
+    if sender.startswith("(") and ") |" in sender:
+        sender = sender.split(") |", 1)[0].strip("()")
+else:
+    sender = None
                 logo = bild.group(1).strip() if bild else ""
 
             elif zeile.startswith("http") and sender:
