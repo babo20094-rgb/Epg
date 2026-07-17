@@ -488,6 +488,8 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         land = teile[0]
         sender = teile[1]
+        if sender.startswith("(") and ") | (" in sender:
+    sender = sender.split(") | (", 1)[0].strip("()")
 
         beschreibung = teile[2]
         logo = teile[3]
