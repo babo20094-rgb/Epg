@@ -517,50 +517,24 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 # ==========================================================
 
 try:
-    bekannte = {d["kanal"].upper() for d in sender_daten}
-
-    with open("tv_channels_8ed24ae4a5_plus.m3u", "r", encoding="utf-8", errors="ignore") as f:
-
-        sender = None
-        logo = None
-
+    with open("logos.txt", "r", encoding="utf-8") as f:
         for zeile in f:
 
-            if zeile.startswith("#EXTINF"):
+            zeile = zeile.strip()
 
-                name = re.search(r'tvg-name="([^"]*)"', zeile)
-                bild = re.search(r'tvg-logo="([^"]*)"', zeile)
+            if not zeile or zeile.startswith("#"):
+                continue
 
-                if name:
-                    sender = name.group(1).strip()
+            teile = [x.strip() for x in zeile.split("|")]
 
-                    if sender.startswith("(") and ") |" in sender:
-                        sender = sender.split(") |", 1)[0].strip("()")
-                else:
-                    sender = None
+            if len(teile) == 3:
+                kanal = f"{teile[0]}|{teile[1]}"
+                kanal = " ".join(kanal.upper().split())
+                logos[kanal] = teile[2]
 
-                logo = bild.group(1).strip() if bild else ""
-
-            elif zeile.startswith("http") and sender:
-
-                kanal = f"IPTV|{sender}"
-
-                if kanal.upper() not in bekannte:
-
-                    bekannte.add(kanal.upper())
-
-                    xml += f"""
-<channel id="{kanal}">
-    <display-name>{sender}</display-name>
-"""
-
-                    if logo:
-                        xml += f'    <icon src="{logo}"/>\n'
-
-                    xml += "</channel>\n"
-
-                sender = None
-                logo = None
+            elif len(teile) == 2:
+                kanal = " ".join(teile[0].upper().split())
+                logos[kanal] = teile[1]
 
 except FileNotFoundError:
     pass
