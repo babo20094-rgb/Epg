@@ -481,7 +481,7 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         kanal_suche = " ".join(kanal.upper().split())
 
         if kanal_suche in logos:
-    logo = logos[kanal_suche]
+            logo = logos[kanal_suche]
 
         if beschreibung == "":
             beschreibung = standard_beschreibung(land, sender)
