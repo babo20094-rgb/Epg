@@ -423,26 +423,6 @@ sender_daten = []
 logos = {}
 playlist_logos = {}
 try:
-    with open("tv_channels_8ed24ae4a5_plus.m3u", "r", encoding="utf-8", errors="ignore") as f:
-        for zeile in f:
-            if zeile.startswith("#EXTINF"):
-                name = re.search(r'tvg-name="([^"]*)"', zeile)
-                logo = re.search(r'tvg-logo="([^"]*)"', zeile)
-
-                if name and logo:
-                    kanal = name.group(1).strip()
-
-                    if kanal.startswith("(") and ") |" in kanal:
-                        kanal = kanal.split(") |", 1)[0].strip("()")
-
-                    kanal = " ".join(kanal.upper().split())
-
-                    playlist_logos[kanal] = logo.group(1)
-
-except FileNotFoundError:
-    pass
-
-try:
     with open("logos.txt", "r", encoding="utf-8") as f:
         for zeile in f:
 
@@ -451,16 +431,16 @@ try:
             if not zeile or zeile.startswith("#"):
                 continue
 
-            teile = [x.strip() for x in zeile.split("|", 2)]
+            teile = [x.strip() for x in zeile.split("|")]
 
-            if len(teile) != 3:
-                continue
+            if len(teile) == 3:
+                kanal = f"{teile[0]}|{teile[1]}"
+                kanal = " ".join(kanal.upper().split())
+                logos[kanal] = teile[2]
 
-            kanal = f"{teile[0]}|{teile[1]}"
-
-            kanal = " ".join(kanal.upper().split())
-
-            logos[kanal] = teile[2]
+            elif len(teile) == 2:
+                kanal = " ".join(teile[0].upper().split())
+                logos[kanal] = teile[1]
 
 except FileNotFoundError:
     pass
