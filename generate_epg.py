@@ -422,7 +422,6 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 sender_daten = []
 logos = {}
 playlist_logos = {}
-
 try:
     with open("tv_channels_8ed24ae4a5_plus.m3u", "r", encoding="utf-8", errors="ignore") as f:
         for zeile in f:
@@ -434,11 +433,12 @@ try:
                     kanal = name.group(1).strip()
 
                     if kanal.startswith("(") and ") |" in kanal:
-                    kanal = kanal.split(") |", 1)[0].strip("()")
+                        kanal = kanal.split(") |", 1)[0].strip("()")
 
                     kanal = " ".join(kanal.upper().split())
 
                     playlist_logos[kanal] = logo.group(1)
+
 except FileNotFoundError:
     pass
 
