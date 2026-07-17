@@ -424,6 +424,7 @@ logos = {}
 try:
     with open("logos.txt", "r", encoding="utf-8") as f:
         for zeile in f:
+
             zeile = zeile.strip()
 
             if not zeile or zeile.startswith("#"):
@@ -431,9 +432,14 @@ try:
 
             teile = [x.strip() for x in zeile.split("|", 2)]
 
-            if len(teile) == 3:
-                kanal = f"{teile[0]}|{teile[1]}"
-                logos[kanal] = teile[2]
+            if len(teile) != 3:
+                continue
+
+            kanal = f"{teile[0]}|{teile[1]}"
+
+            kanal = " ".join(kanal.upper().split())
+
+            logos[kanal] = teile[2]
 
 except FileNotFoundError:
     pass
@@ -472,8 +478,10 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         logo = teile[3]
         kanal = f"{land}|{sender}"
 
-        if kanal in logos:
-              logo = logos[kanal]
+        kanal_suche = " ".join(kanal.upper().split())
+
+if kanal_suche in logos:
+    logo = logos[kanal_suche]
 
         if beschreibung == "":
             beschreibung = standard_beschreibung(land, sender)
