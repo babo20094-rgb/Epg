@@ -433,12 +433,12 @@ try:
                 if name and logo:
                     kanal = name.group(1).strip()
 
-if kanal.startswith("(") and ") |" in kanal:
-    kanal = kanal.split(") |", 1)[0].strip("()")
+                    if kanal.startswith("(") and ") |" in kanal:
+                    kanal = kanal.split(") |", 1)[0].strip("()")
 
-kanal = " ".join(kanal.upper().split())
+                    kanal = " ".join(kanal.upper().split())
 
-playlist_logos[kanal] = logo.group(1)
+                    playlist_logos[kanal] = logo.group(1)
 except FileNotFoundError:
     pass
 
@@ -496,8 +496,8 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         sender = teile[1]
         sender = teile[1]
 
-        if sender.startswith("(") and ") | (" in sender:
-            sender = sender.split(") | (", 1)[0].strip("()")
+        if sender.startswith("(") and ") |" in sender:
+    sender = sender.split(") |", 1)[0].strip("()")
 
         beschreibung = teile[2]
         logo = teile[3]
