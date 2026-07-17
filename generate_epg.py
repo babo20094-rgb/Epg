@@ -546,7 +546,7 @@ try:
 
         for zeile in f:
 
-                        if zeile.startswith("#EXTINF"):
+            if zeile.startswith("#EXTINF"):
 
                 name = re.search(r'tvg-name="([^"]*)"', zeile)
                 bild = re.search(r'tvg-logo="([^"]*)"', zeile)
@@ -561,26 +561,6 @@ try:
 
                 logo = bild.group(1).strip() if bild else ""
 
-            elif zeile.startswith("http") and sender:
-
-                kanal = f"IPTV|{sender}"
-
-                if kanal.upper() not in bekannte:
-
-                    bekannte.add(kanal.upper())
-
-                    xml += f"""
-<channel id="{kanal}">
-    <display-name>{sender}</display-name>
-"""
-
-                    if logo:
-                        xml += f'    <icon src="{logo}"/>\n'
-
-                    xml += "</channel>\n"
-
-                sender = None
-                logo = None
             elif zeile.startswith("http") and sender:
 
                 kanal = f"IPTV|{sender}"
