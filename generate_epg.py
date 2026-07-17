@@ -551,13 +551,14 @@ try:
                 name = re.search(r'tvg-name="([^"]*)"', zeile)
                 bild = re.search(r'tvg-logo="([^"]*)"', zeile)
 
-                if name:
-    sender = name.group(1).strip()
+                                if name:
+                    sender = name.group(1).strip()
 
-    if sender.startswith("(") and ") |" in sender:
-        sender = sender.split(") |", 1)[0].strip("()")
-else:
-    sender = None
+                    if sender.startswith("(") and ") |" in sender:
+                        sender = sender.split(") |", 1)[0].strip("()")
+                else:
+                    sender = None
+
                 logo = bild.group(1).strip() if bild else ""
 
             elif zeile.startswith("http") and sender:
