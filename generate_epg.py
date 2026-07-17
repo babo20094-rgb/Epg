@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import requests
+import re
 
 # ==========================================================
 # Standardtexte
@@ -420,6 +421,20 @@ xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
 
 sender_daten = []
 logos = {}
+playlist_logos = {}
+
+try:
+    with open("tv_channels_8ed24ae4a5_plus.m3u", "r", encoding="utf-8", errors="ignore") as f:
+        for zeile in f:
+            if zeile.startswith("#EXTINF"):
+                name = re.search(r'tvg-name="([^"]*)"', zeile)
+                logo = re.search(r'tvg-logo="([^"]*)"', zeile)
+
+                if name and logo:
+                    kanal = " ".join(name.group(1).upper().split())
+                    playlist_logos[kanal] = logo.group(1)
+except FileNotFoundError:
+    pass
 
 try:
     with open("logos.txt", "r", encoding="utf-8") as f:
@@ -480,8 +495,10 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         kanal_suche = " ".join(kanal.upper().split())
 
-        if kanal_suche in logos:
-            logo = logos[kanal_suche]
+       if kanal_suche in logos:
+    logo = logos[kanal_suche]
+elif kanal_suche in playlist_logos:
+    logo = playlist_logos[kanal_suche]
 
         if beschreibung == "":
             beschreibung = standard_beschreibung(land, sender)
