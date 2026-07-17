@@ -488,8 +488,10 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         land = teile[0]
         sender = teile[1]
+                sender = teile[1]
+
         if sender.startswith("(") and ") | (" in sender:
-    sender = sender.split(") | (", 1)[0].strip("()")
+            sender = sender.split(") | (", 1)[0].strip("()")
 
         beschreibung = teile[2]
         logo = teile[3]
@@ -498,6 +500,7 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         kanal_suche = " ".join(kanal.upper().split())
 
         kanal_ohne_land = " ".join(sender.upper().split())
+
         if kanal_suche in logos:
             logo = logos[kanal_suche]
         elif kanal_ohne_land in logos:
