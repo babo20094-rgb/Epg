@@ -293,49 +293,7 @@ while i < len(m3u_zeilen):
     i += 2
         continue
 
-    if neue_tvgid:
-
-        # tvg-id Attribut existiert aber ist leer
-        if 'tvg-id=""' in extinf:
-
-            extinf = extinf.replace(
-                'tvg-id=""',
-                f'tvg-id="{neue_tvgid}"'
-            )
-
-        # tvg-id Attribut fehlt komplett
-        elif 'tvg-id=' not in extinf:
-
-            if "#EXTINF:-1 " in extinf:
-
-                extinf = extinf.replace(
-                    "#EXTINF:-1 ",
-                    f'#EXTINF:-1 tvg-id="{neue_tvgid}" ',
-                    1
-                )
-
-            else:
-
-                extinf = extinf.replace(
-                    "#EXTINF:-1",
-                    f'#EXTINF:-1 tvg-id="{neue_tvgid}"',
-                    1
-                )
-
-        neue_playlist.append(extinf + "\n")
-        neue_playlist.append(stream_url)
-
-        geaendert += 1
-
-    else:
-
-        # Kein Eintrag in sender.txt gefunden
-        neue_playlist.append(extinf + "\n")
-        neue_playlist.append(stream_url)
-
-        nicht_gefunden += 1
-
-    i += 2
+    
     # ==========================================================
 # NEUE PLAYLIST SPEICHERN
 # ==========================================================
