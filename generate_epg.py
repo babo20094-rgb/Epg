@@ -495,10 +495,16 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         kanal_suche = " ".join(kanal.upper().split())
 
-        if kanal_suche in logos:
-            logo = logos[kanal_suche]
-        elif kanal_suche in playlist_logos:
-            logo = playlist_logos[kanal_suche]
+        kanal_ohne_land = " ".join(sender.upper().split())
+
+if kanal_suche in logos:
+    logo = logos[kanal_suche]
+elif kanal_ohne_land in logos:
+    logo = logos[kanal_ohne_land]
+elif kanal_suche in playlist_logos:
+    logo = playlist_logos[kanal_suche]
+elif kanal_ohne_land in playlist_logos:
+    logo = playlist_logos[kanal_ohne_land]
 
         if beschreibung == "":
             beschreibung = standard_beschreibung(land, sender)
