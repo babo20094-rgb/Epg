@@ -484,7 +484,10 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         kanal = f"{land}|{sender}"
         kanal_suche = " ".join(kanal.upper().split())
         kanal_ohne_land = " ".join(sender.upper().split())
-
+        print("KANAL:", kanal)
+        print("KANAL_SUCHE:", kanal_suche)
+        print("KANAL_OHNE_LAND:", kanal_ohne_land)
+        print("LOGO GEFUNDEN:", kanal_suche in logos, kanal_ohne_land in logos)
         if kanal_suche in logos:
             logo = logos[kanal_suche]
         elif kanal_ohne_land in logos:
