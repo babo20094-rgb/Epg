@@ -98,3 +98,273 @@ if anzahl_sender == 0:
     sys.exit("FEHLER: Keine Sender in der Playlist gefunden.")
 
 print("=" * 60)
+# ==========================================================
+# sender.txt EINLESEN
+# ==========================================================
+
+print("Lese sender.txt...")
+
+if not SENDER_DATEI.exists():
+    sys.exit(f"FEHLER: {SENDER_DATEI} wurde nicht gefunden.")
+
+sender_mapping = {}
+
+anzahl_eintraege = 0
+
+with SENDER_DATEI.open("r", encoding="utf-8") as f:
+
+    for zeile_nr, zeile in enumerate(f, start=1):
+
+        zeile = zeile.strip()
+
+        # Leere Zeilen überspringen
+        if not zeile:
+            continue
+
+        # Kommentare überspringen
+        if zeile.startswith("#"):
+            continue
+
+        teile = [t.strip() for t in zeile.split("|")]
+
+        # Mindestens Land + Sendername erforderlich
+        if len(teile) < 2:
+            continue
+
+        land = teile[0]
+        sender = teile[1]
+
+        if not land or not sender:
+            continue
+
+        # tvg-id erzeugen
+        tvg_id = f"{land}|{sender}"
+
+        #
+        # ==========================================================
+# M3U EINLESEN
+# ==========================================================
+
+print("Analysiere IPTV-Playlist...")
+
+try:
+    with ORIGINAL_M3U.open("r", encoding="utf-8", errors="ignore") as f:
+        m3u_zeilen = f.readlines()
+
+except Exception as e:
+    sys.exit(f"FEHLER beim Lesen der Playlist: {e}")
+
+print(f"✓ {len(m3u_zeilen)} Zeilen gelesen.")
+
+# ==========================================================
+# REGEX
+# ==========================================================
+
+regex_tvg_id = re.compile(r'tvg-id="([^"]*)"')
+regex_tvg_name = re.compile(r'tvg-name="([^"]*)"')
+
+# ==========================================================
+# AUSGABE
+# ==========================================================
+
+neue_playlist = []
+
+geaendert = 0
+unveraendert = 0
+nicht_gefunden = 0
+
+print("=" * 60)
+print("Prüfe tvg-id Einträge...")
+print("=" * 60)
+
+i = 0
+
+while i < len(m3u_zeilen):
+
+    zeile = m3u_zeilen[i]
+
+    if not zeile.startswith("#EXTINF"):
+        neue_playlist.append(zeile)
+        i += 1
+        continue
+
+    extinf = zeile.rstrip("\n")
+
+    stream_url = ""
+    if i + 1 < len(m3u_zeilen):
+        stream_url = m3u_zeilen[i + 1]
+
+    # Anzeigename hinter dem Komma
+    sendername = ""
+    if "," in extinf:
+        sendername = extinf.rsplit(",", 1)[1].strip()
+
+    # tvg-id lesen
+    vorhandene_tvgid = ""
+    match = regex_tvg_id.search(extinf)
+    if match:
+        vorhandene_tvgid = match.group(1).strip()
+
+    # tvg-name lesen
+    tvg_name = ""
+    match = regex_tvg_name.search(extinf)
+    if match:
+        tvg_name = match.group(1).strip()
+            # Suchname bestimmen
+    if tvg_name:
+        suchname = tvg_name.casefold()
+    else:
+        suchname = sendername.casefold()
+
+    # Suchname bestimmen
+    if tvg_name:
+        suchname = tvg_name.casefold()
+    else:
+        suchname = sendername.casefold()
+
+        # ==========================================================
+    # tvg-id ERMITTELN
+    # ==========================================================
+
+    neue_tvgid = sender_mapping.get(suchname)
+
+    # Fallback: Anzeigename verwenden
+    if not neue_tvgid and sendername:
+
+        neue_tvgid = sender_mapping.get(
+            sendername.casefold()
+        )
+
+    # Bereits vorhandene tvg-id -> nichts ändern
+    if vorhandene_tvgid:
+
+        neue_playlist.append(extinf + "\n")
+        neue_playlist.append(stream_url)
+
+        unveraendert += 1
+        i += 2
+        continue
+
+    # Sender gefunden
+    if neue_tvgid:
+
+        # tvg-id existiert aber ist leer
+        if 'tvg-id=""' in extinf:
+
+            extinf = extinf.replace(
+                'tvg-id=""',
+                f'tvg-id="{neue_tvgid}"'
+            )
+
+        # tvg-id fehlt komplett
+        elif 'tvg-id=' not in extinf:
+
+            if "#EXTINF:-1 " in extinf:
+
+                extinf = extinf.replace(
+                    "#EXTINF:-1 ",
+                    f'#EXTINF:-1 tvg-id="{neue_tvgid}" ',
+                    1
+                )
+
+            else:
+
+                extinf = extinf.replace(
+                    "#EXTINF:-1",
+                    f'#EXTINF:-1 tvg-id="{neue_tvgid}"',
+                    1
+                )
+
+        neue_playlist.append(extinf + "\n")
+        neue_playlist.append(stream_url)
+
+        geaendert += 1
+
+    # Sender nicht gefunden
+    else:
+
+        neue_playlist.append(extinf + "\n")
+        neue_playlist.append(stream_url)
+
+        nicht_gefunden += 1
+
+        print(f"[NICHT GEFUNDEN] {sendername}")
+
+    i += 2
+        continue
+
+    if neue_tvgid:
+
+        # tvg-id Attribut existiert aber ist leer
+        if 'tvg-id=""' in extinf:
+
+            extinf = extinf.replace(
+                'tvg-id=""',
+                f'tvg-id="{neue_tvgid}"'
+            )
+
+        # tvg-id Attribut fehlt komplett
+        elif 'tvg-id=' not in extinf:
+
+            if "#EXTINF:-1 " in extinf:
+
+                extinf = extinf.replace(
+                    "#EXTINF:-1 ",
+                    f'#EXTINF:-1 tvg-id="{neue_tvgid}" ',
+                    1
+                )
+
+            else:
+
+                extinf = extinf.replace(
+                    "#EXTINF:-1",
+                    f'#EXTINF:-1 tvg-id="{neue_tvgid}"',
+                    1
+                )
+
+        neue_playlist.append(extinf + "\n")
+        neue_playlist.append(stream_url)
+
+        geaendert += 1
+
+    else:
+
+        # Kein Eintrag in sender.txt gefunden
+        neue_playlist.append(extinf + "\n")
+        neue_playlist.append(stream_url)
+
+        nicht_gefunden += 1
+
+    i += 2
+    # ==========================================================
+# NEUE PLAYLIST SPEICHERN
+# ==========================================================
+
+print("=" * 60)
+print("Speichere neue Playlist...")
+
+try:
+    with AUSGABE_M3U.open(
+        "w",
+        encoding="utf-8",
+        newline="\n"
+    ) as f:
+        f.writelines(neue_playlist)
+
+except Exception as e:
+    sys.exit(f"FEHLER beim Schreiben der Playlist: {e}")
+
+print(f"✓ Neue Playlist gespeichert: {AUSGABE_M3U}")
+
+print("=" * 60)
+print("STATISTIK")
+print("=" * 60)
+
+print(f"Sender aus sender.txt : {anzahl_eintraege}")
+print(f"Sender in Playlist    : {anzahl_sender}")
+print(f"tvg-id ergänzt        : {geaendert}")
+print(f"Bereits vorhanden     : {unveraendert}")
+print(f"Nicht gefunden        : {nicht_gefunden}")
+
+print("=" * 60)
+print("update_m3u.py erfolgreich beendet.")
