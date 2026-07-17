@@ -482,7 +482,7 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
     for zeile in f:
 
-                zeile = zeile.strip()
+        zeile = zeile.strip()
 
         if not zeile:
             continue
@@ -500,9 +500,9 @@ with open("sender.txt", "r", encoding="utf-8") as f:
 
         beschreibung = teile[2]
         logo = teile[3]
+
         kanal = f"{land}|{sender}"
         kanal_suche = " ".join(kanal.upper().split())
-
         kanal_ohne_land = " ".join(sender.upper().split())
 
         if kanal_suche in logos:
@@ -517,8 +517,6 @@ with open("sender.txt", "r", encoding="utf-8") as f:
         if beschreibung == "":
             beschreibung = standard_beschreibung(land, sender)
 
-           
-
         sender_daten.append({
             "kanal": kanal,
             "sender": sender,
@@ -526,7 +524,9 @@ with open("sender.txt", "r", encoding="utf-8") as f:
             "logo": logo
         })
 
-        xml += f""" <channel id="{kanal}"> <display-name>{sender_anzeigename(sender)}</display-name> """
+        xml += f""" <channel id="{kanal}">
+ <display-name>{sender_anzeigename(sender)}</display-name>
+"""
 
         if logo:
             xml += f' <icon src="{logo}"/>\n'
