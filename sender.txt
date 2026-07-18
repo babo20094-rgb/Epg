@@ -796,9 +796,9 @@ EXYU| POLICE ACADEMY|
 EXYU| RAMBO|
 EXYU| ROCKY||https://images.seeklogo.com/logo-png/42/1/rocky-balboa-logo-png_seeklogo-428261.png
 EXYU| SAW||https://images.seeklogo.com/logo-png/12/1/saw-logo-png_seeklogo-123050.png
-EXYU| TESNA KOŽA||https://m.media-amazon.com/images/M/MV5BYzA2YWMwZDUtNTZlOC00OGQ4LTkxMWUtMWI4MWRlY2Y4NDBkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg
+EXYU| TESNA KOZA||https://m.media-amazon.com/images/M/MV5BYzA2YWMwZDUtNTZlOC00OGQ4LTkxMWUtMWI4MWRlY2Y4NDBkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg
 EXYU| THE FAST AND FURIOUS||https://p1.hiclipart.com/preview/699/606/491/fast-and-furious-logo-fast-furious-logo-png-clipart.jpg
-EXYU| DER GODFATHER|
+EXYU| THE GODFATHER|
 EXYU| UNDISPUTED|
 EXYU| STAR WARS|
 EXYU| STAR TREK|
@@ -811,7 +811,7 @@ EXYU| SRECNI LJUDI|
 EXYU| SELO GORI A BABA SE CESLJA|
 EXYU| LUD ZBUNJEN NORMALAN|
 EXYU| GAME OF THRONES|
-EXYU| JUZNI VETAR|
+EXYU| JUZIN VETAR|
 EXYU| FRIENDS|
 EXYU| DOBRO JUTRO KOMSIJA|
 EXYU| BOLJI ZIVOT|
@@ -819,4 +819,5 @@ EXYU| BELA LADA|
 EXYU| UZIVOTEKA|
 EXYU| KAFANSKO VECE|
 EXYU| KAFANSKO VECE 2|
+EXYU| TERMINATOR|
 
