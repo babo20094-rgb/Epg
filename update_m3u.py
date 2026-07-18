@@ -72,11 +72,7 @@ anzahl_sender = playlist.count("#EXTINF")
 if "#EXTM3U" not in playlist:
     sys.exit("FEHLER: Ungültige M3U erhalten.")
 
-ORIGINAL_M3U.write_text(
-    playlist,
-    encoding="utf-8",
-    newline="\n"
-)
+m3u_zeilen = playlist.splitlines(keepends=True)
 
 print("✓ Download erfolgreich")
 # ==========================================================
@@ -135,8 +131,7 @@ print("=" * 60)
 print("Lese heruntergeladene Playlist...")
 
 try:
-    with ORIGINAL_M3U.open("r", encoding="utf-8", errors="ignore") as f:
-        m3u_zeilen = f.readlines()
+   
 
 except Exception as e:
     sys.exit(f"FEHLER beim Lesen der Playlist:\n{e}")
