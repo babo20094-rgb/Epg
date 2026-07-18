@@ -48,3 +48,5 @@ DE: DYN PPV 47|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-te
 DE: DYN PPV 48|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
 DE: DYN PPV 49|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
 DE: DYN PPV 50|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
+(Victory+ 001)|https://cdn.brandfetch.io/idZjejRJuJ/w/180/h/180/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B
+(Victory+ 002)|https://cdn.brandfetch.io/idZjejRJuJ/w/180/h/180/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B
