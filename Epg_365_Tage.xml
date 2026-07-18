@@ -1065,12 +1065,7 @@
  <channel id="EXYU|KAFANSKO VECE"> <display-name>EXYU| KAFANSKO VECE</display-name> </channel>
  <channel id="EXYU|KAFANSKO VECE 2"> <display-name>EXYU| KAFANSKO VECE 2</display-name> </channel>
  <channel id="EXYU|TERMINATOR"> <display-name>EXYU| TERMINATOR</display-name> </channel>
- <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 1"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 1</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
- <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 2"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 2</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
- <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 3"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 3</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
- <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 4"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 4</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
- <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 5"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 5</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
- <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 6"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 6</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
+ <channel id="NO EVENT STREAMING -|8K EXCLUSIVE"> <display-name>NO EVENT STREAMING -| 8K EXCLUSIVE</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
  <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 7"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 7</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
  <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 8"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 8</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
  <channel id="- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 9"> <display-name>- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 9</display-name> <icon src="https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"/> </channel>
