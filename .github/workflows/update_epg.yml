@@ -16,29 +16,18 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Update M3U
-        env:
-          IPTV_M3U_URL: ${{ secrets.IPTV_M3U_URL }}
-        run: |
-          python update_m3u.py
-
       - name: Generate EPG
         run: |
           python generate_epg.py
 
-      - name: Remove temporary files
-        run: |
-          rm -f original_playlist.m3u
-          rm -f playlist_mit_tvgid.m3u
-
-      - name: Commit changes
+      - name: Commit EPG
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
