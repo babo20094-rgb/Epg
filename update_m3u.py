@@ -128,13 +128,13 @@ print("=" * 60)
 # M3U EINLESEN
 # ==========================================================
 
-print("Lese heruntergeladene Playlist...")
+# ==========================================================
+# M3U EINLESEN
+# ==========================================================
 
-try:
-   
+print("Verarbeite heruntergeladene Playlist...")
 
-except Exception as e:
-    sys.exit(f"FEHLER beim Lesen der Playlist:\n{e}")
+m3u_zeilen = playlist.splitlines(keepends=True)
 
 print(f"✓ {len(m3u_zeilen)} Zeilen gelesen.")
 
