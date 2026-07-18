@@ -16,15 +16,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: |
+      - name: Install dependencies
+        run: |
           pip install -r requirements.txt
+
+      - name: Update M3U
+        env:
+          IPTV_M3U_URL: ${{ secrets.IPTV_M3U_URL }}
+        run: |
           python update_m3u.py
+
+      - name: Generate EPG
+        run: |
           python generate_epg.py
 
       - name: Commit changes
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
           git add .
-          git commit -m "Daily EPG update" || echo "No changes"
+          git diff --cached --quiet || git commit -m "Daily EPG update"
           git push
