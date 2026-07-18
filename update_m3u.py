@@ -67,6 +67,7 @@ except requests.exceptions.RequestException as e:
     sys.exit(f"FEHLER beim Download:\n{e}")
 
 playlist = response.text
+anzahl_sender = playlist.count("#EXTINF")
 
 if "#EXTM3U" not in playlist:
     sys.exit("FEHLER: Ungültige M3U erhalten.")
@@ -254,7 +255,7 @@ while i < len(m3u_zeilen):
 
         nicht_gefunden += 1
 
-        print(f"[NICHT GEFUNDEN] {sendername}")
+        
 
     i += 2
     # ==========================================================
