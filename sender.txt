@@ -1,5 +1,5 @@
-PRIME| NBC 4 Washington Dc (Y)|
-PRIME| NBC 7 washington nc (WITN)|
+PRIME| NBC 4 Washington News Raw|
+PRIME| NBC 7 washington nc (WITN) Raw|
 PRIME| The Dog Whisperer with Cesar Millan Raw|
 PRIME| Uefa Champions League Raw|
 PRIME| Chasing Criminals Raw|
