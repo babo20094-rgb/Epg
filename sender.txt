@@ -1,10 +1,10 @@
-PRIME| The Dog Whisperer with Cesar Milan Raw|
+PRIME| The Dog Whisperer with Cesar Millan Raw|
 PRIME| Uefa Champions League Raw|
 PRIME| Chasing Criminals Raw|
 PRIME| Celebrity Name Game Raw|
 PRIME| CBS News Minnesota Raw|
 PRIME| CBS News Chicago Raw|
-PRIME| CBS Harrisburg (WHP) Raw
+PRIME| CBS Harrisburg (WHP) Raw|
 PRIME| CBS Grand Rapids (WWMT) Raw|
 PRIME| CBS Cincinnati News (WKRC) Raw|
 PRIME| Buzzfeed Unsolved Raw|
