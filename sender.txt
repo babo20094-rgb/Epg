@@ -1,3 +1,7 @@
+DE|SHOGUN S01 4K|
+DE| 4 BLOCKS S01 4k||https://upload.wikimedia.org/wikipedia/commons/3/39/4_Blocks_Logo.png
+DE| 4 BLOCKS S02 4k||https://upload.wikimedia.org/wikipedia/commons/3/39/4_Blocks_Logo.png
+DE| 4 BLOCKS S03 4k||https://upload.wikimedia.org/wikipedia/commons/3/39/4_Blocks_Logo.png
 DE| OZARK 2017|
 DE| AFTER LIFE 2019|
 DE| PEAKY BLINDERS|
@@ -38,12 +42,12 @@ DE| EB PEPPA WUTZ FHD||https://images.seeklogo.com/logo-png/32/2/peppa-pig-witho
 DE| EB MASCHA UND DER BÄR FHD||https://upload.wikimedia.org/wikipedia/commons/9/9c/Mascha_und_der_B%C3%A4r_logo.png
 DE| TOP 100 4K|
 DE| ASBEST S01 4K|
-DE| DAZN ACL CORNHOLE TV HD|
-DE| DAZN BILLIARD TV HD|
-DE| DAZN ACL CORNHOLE TV SD|
-DE| DAZN BILLIARD TV SD|
-DE| DAZN ACL CORNHOLE TV RAW|
-DE| DAZN BILLIARD TV RAW|
+DE| DAZN ACL CORNHOLE TV HD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE| DAZN BILLIARD TV HD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE| DAZN ACL CORNHOLE TV SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE| DAZN BILLIARD TV SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE| DAZN ACL CORNHOLE TV RAW||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE| DAZN BILLIARD TV RAW||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE| DAZN BAR 1 HD||https://epg.pw/media/images/epg/2024/06/08/20240608034440935332_61.png
 DE| DAZN BAR 1 FHD||https://epg.pw/media/images/epg/2024/06/08/20240608034440935332_61.png
 DE| DAZN BAR 1 FHD*||https://epg.pw/media/images/epg/2024/06/08/20240608034440935332_61.png
