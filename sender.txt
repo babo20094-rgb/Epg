@@ -1,3 +1,6 @@
+PRIME| GHOST HUNTERS ᴿᴬᵂ|
+PRIME| MONSTER JAM ᴿᴬᵂ|
+PRIME| NASH BRIDGES ᴿᴬᵂ|
 PRIME| NBC 4 Washington News ᴿᴬᵂ|
 PRIME| NBC 7 washington nc (WITN) ᴿᴬᵂ|
 PRIME| The Dog Whisperer with Cesar Millan ᴿᴬᵂ|
@@ -618,148 +621,148 @@ GO|MSG Alt-1|
 GO|MSG Alt-2|
 GO|MSG Alt-3|
 GO|20/20|
-PRIME|Xite Rap Game Raw|
-PRIME|Xite R&B Feels Raw|
-PRIME|Xite Hip-Hop Evolution Raw|
-PRIME|Xite 60s & 70s Groove Raw|
-PRIME|Western Bound Wrangled by INSP Raw|
-PRIME|Wendy Williams Raw|
-PRIME|Vevo R&B Raw|
-PRIME|Vevo Hip-Hop Raw|
-PRIME|Untold Stories of the Er Raw|
-PRIME|Ultimate Builds Raw|
-PRIME|Tribunal Justice Raw|
-PRIME|To Catch a Smuggler Raw|
-PRIME|TMNT Raw|
-PRIME|The Young Riders Raw|
-PRIME|The Repair Shop Raw|
-PRIME|The Real Mocoys Raw|
-PRIME|The Outpost Raw|
-PRIME|The Osbournes Raw|
-PRIME|The incredible Dr Pol Raw|
-PRIME|The Girls next Door Raw|
-PRIME|The Doctors Raw|
-PRIME|The Dead Files Raw|
-PRIME|The Bold and The Beautiful Raw|
-PRIME|T.D Jakes Raw|
-PRIME|Survive or Die Raw|
-PRIME|Supernany Raw|
-PRIME|Startalk Raw|
+PRIME|Xite Rap Game ᴿᴬᵂ|
+PRIME|Xite R&B Feels ᴿᴬᵂ|
+PRIME|Xite Hip-Hop Evolution ᴿᴬᵂ|
+PRIME|Xite 60s & 70s Groove ᴿᴬᵂ|
+PRIME|Western Bound Wrangled by INSP ᴿᴬᵂ|
+PRIME|Wendy Williams ᴿᴬᵂ|
+PRIME|Vevo R&B ᴿᴬᵂ|
+PRIME|Vevo Hip-Hop ᴿᴬᵂ|
+PRIME|Untold Stories of the Er ᴿᴬᵂ|
+PRIME|Ultimate Builds ᴿᴬᵂ|
+PRIME|Tribunal Justice ᴿᴬᵂ|
+PRIME|To Catch a Smuggler ᴿᴬᵂ|
+PRIME|TMNT ᴿᴬᵂ|
+PRIME|The Young Riders ᴿᴬᵂ|
+PRIME|The Repair Shop ᴿᴬᵂ|
+PRIME|The Real Mocoys ᴿᴬᵂ|
+PRIME|The Outpost ᴿᴬᵂ|
+PRIME|The Osbournes ᴿᴬᵂ|
+PRIME|The incredible Dr Pol ᴿᴬᵂ|
+PRIME|The Girls next Door ᴿᴬᵂ|
+PRIME|The Doctors ᴿᴬᵂ|
+PRIME|The Dead Files ᴿᴬᵂ|
+PRIME|The Bold and The Beautiful ᴿᴬᵂ|
+PRIME|T.D Jakes ᴿᴬᵂ|
+PRIME|Survive or Die ᴿᴬᵂ|
+PRIME|Supernany ᴿᴬᵂ|
+PRIME|Startalk ᴿᴬᵂ|
 PRIME|Spooks (MI-5)|
-PRIME|Speed Sport 1 Raw|
-PRIME|Space & Beyond Raw|
-PRIME|Sheriffs EL Dorado County Raw|
-PRIME|Rustic Retreats Raw|
-PRIME|Rugbypass Tv Raw|
-PRIME|Rovr Pets Raw|
+PRIME|Speed Sport 1 ᴿᴬᵂ|
+PRIME|Space & Beyond ᴿᴬᵂ|
+PRIME|Sheriffs EL Dorado County ᴿᴬᵂ|
+PRIME|Rustic Retreats ᴿᴬᵂ|
+PRIME|Rugbypass Tv ᴿᴬᵂ|
+PRIME|Rovr Pets ᴿᴬᵂ|
 PRIME|Relative Justice|
 PRIME|Reelz Famous and Imfamous
-PRIME|Rebelde Raw|
-PRIME|Reality Tv-Shores Raw|
-PRIME|Reality TV-Competition Raw|
-PRIME|Reality Gone Wild Raw|
-PRIME|Racer Selcet Raw|
-PRIME|Primetime Soaps Raw|
-PRIME|Preschool Corner Raw|
-PRIME|Power Rangers Raw|
-PRIME|Places & Spaces Raw|
-PRIME|Pink Panther Raw|
-PRIME|Personal  Injury Court Raw|
-PRIME|Perform Raw|
-PRIME|PBS Genealogy Raw|
-PRIME|PBS Drama Raw|
-PRIME|PBS Documentaries Raw|
-PRIME|Overtime Raw|
-PRIME|Noticias Univision 24/7 Raw|
-PRIME|Nostalgic Hits Raw|
-PRIME|NBC Lx Home Raw|
-PRIME|NBC Comedy Vault Raw|
-PRIME|NBC Colorado Springs News (KOAA) Raw|
-PRIME|NBC 7 San Diego News Raw|
-PRIME|NBC 6 South Florida News Raw|
-PRIME|NBC 5 Dallas-Fort Worth News Raw|
-PRIME|NBC 5 Chicago News Raw|
-PRIME|NBC 4 New York News Raw|
-PRIME|Nat Geo Sharks Raw|
-PRIME|Mythical 24/7 Raw|
-PRIME|Monsters Are Real Raw|
-PRIME|Modern Innovation By History Raw|
-PRIME|MGM Celebrates Black Cinema Raw|
-PRIME|Medical Incredible Raw|
-PRIME|Matched Married Meet Raw|
-PRIME|Love Pets Raw|
-PRIME|Love Kills Raw|
-PRIME|Love And Marriage Raw|
-PRIME|Long Lost Family Raw|
-PRIME|Locked Up Abroad Raw|
-PRIME|Live PD Presents Raw|
-PRIME|Life Below Zero Raw|
-PRIME|Life and Legend of Wyatt Earp Raw|
-PRIME|Lidia's Kitchen Raw|
-PRIME|Lawless Raw|
-PRIME|Latino Vibes Raw|
-PRIME|Las 3 Marias Raw|
-PRIME|Kim's Convenience Raw|
-PRIME|Karamo Presented By Nosey Raw|
-PRIME|Judge & Jury Raw|
-PRIME|JaJaJa Raw|
-PRIME|I was Haunted Raw|
-PRIME|In Touch+ Raw|
-PRIME|Impact Gospel Raw|
-PRIME|Hunter X Hunter Raw|
-PRIME|Grandes Parejas Raw|
-PRIME|Get Comedy Raw|
-PRIME|General Hospital Raw|
-PRIME|Galanes Raw|
-PRIME|FV AMC En Espanol US Raw|
-PRIME|Fox 35 Orlando Raw|
-PRIME|Fox 32 Chicago Raw|
-PRIME|Fox 13 Tampa Bay Raw|
-PRIME|Fox 13 Seattle Raw|
-PRIME|Fox 11 Los Angeles Raw|
-PRIME|Fox 10 Phoenix Raw|
-PRIME|Fox 9 Minneapolis Raw|
-PRIME|Fox 7 Austin Raw|
-PRIME|Fox 6 Milwaukee Raw|
-PRIME|Fox 5 Atlanta Raw|
-PRIME|Fox 2 Detroit Raw|
-PRIME|Fgteev Raw|
-PRIME|Faithfull Funny Raw|
-PRIME|Extrem Makeover- Home Edition Raw|
-PRIME|ET Raw|
-PRIME|Earthday 365 Raw|
-PRIME|Dinos 24/7 Raw|
-PRIME|Death Valley Days Raw|
-PRIME|Couples Court Raw|
-PRIME|Cook's Country Raw|
-PRIME|Como Dice El Dicho Raw|
-PRIME|Come Dine with Me Raw|
-PRIME|Classic Car Auctions Raw|
-PRIME|Cine Retro Raw|
-PRIME|Cine De Oro Raw|
-PRIME|Chris Hansen's Trublu Crime Network Raw|
-PRIME|CBS News Detroit Raw|
-PRIME|CBS News Colorado Raw|
-PRIME|Caso Cebrado Raw|
-PRIME|Black Voices Raw|
-PRIME|BBC Comedy Raw|
-PRIME|Bargain Hunt Raw|
-PRIME|Are You Smarter than a 5th Grader? Raw|
-PRIME|Aqui Y Ahora Raw|
-PRIME|Antiques Road Trip Raw|
-PRIME|Anime X Hidive Raw|
-PRIME|Animation Favorites Raw|
-PRIME|American Ninja Warrior Raw|
-PRIME|All Day Drama Raw|
-PRIME|Action News Jax (CBS47 / FOX30) Raw|
-PRIME|Acorn Tv Mysteries Raw|
-PRIME|ABC7 New York Raw|
-PRIME|ABC7 Bay Area Raw|
-PRIME|90s Sitcom Raw|
-PRIME|80s Sitcom Raw|
-PRIME|60 Minutes Raw|
-PRIME|48 Hours Raw|
-PRIME|24/7 Laughs Raw|
+PRIME|Rebelde ᴿᴬᵂ|
+PRIME|Reality Tv-Shores ᴿᴬᵂ|
+PRIME|Reality TV-Competition ᴿᴬᵂ|
+PRIME|Reality Gone Wild ᴿᴬᵂ|
+PRIME|Racer Selcet ᴿᴬᵂ|
+PRIME|Primetime Soaps ᴿᴬᵂ|
+PRIME|Preschool Corner ᴿᴬᵂ|
+PRIME|Power Rangers ᴿᴬᵂ|
+PRIME|Places & Spaces ᴿᴬᵂ|
+PRIME|Pink Panther ᴿᴬᵂ|
+PRIME|Personal  Injury Court ᴿᴬᵂ|
+PRIME|Perform ᴿᴬᵂ|
+PRIME|PBS Genealogy ᴿᴬᵂ|
+PRIME|PBS Drama ᴿᴬᵂ|
+PRIME|PBS Documentaries ᴿᴬᵂ|
+PRIME|Overtime ᴿᴬᵂ|
+PRIME|Noticias Univision 24/7 ᴿᴬᵂ|
+PRIME|Nostalgic Hits ᴿᴬᵂ|
+PRIME|NBC Lx Home ᴿᴬᵂ|
+PRIME|NBC Comedy Vault ᴿᴬᵂ|
+PRIME|NBC Colorado Springs News (KOAA) ᴿᴬᵂ|
+PRIME|NBC 7 San Diego News ᴿᴬᵂ|
+PRIME|NBC 6 South Florida News ᴿᴬᵂ|
+PRIME|NBC 5 Dallas-Fort Worth News ᴿᴬᵂ|
+PRIME|NBC 5 Chicago News ᴿᴬᵂ|
+PRIME|NBC 4 New York News ᴿᴬᵂ|
+PRIME|Nat Geo Sharks ᴿᴬᵂ|
+PRIME|Mythical 24/7 ᴿᴬᵂ|
+PRIME|Monsters Are Real ᴿᴬᵂ|
+PRIME|Modern Innovation By History ᴿᴬᵂ|
+PRIME|MGM Celebrates Black Cinema ᴿᴬᵂ|
+PRIME|Medical Incredible ᴿᴬᵂ|
+PRIME|Matched Married Meet ᴿᴬᵂ|
+PRIME|Love Pets ᴿᴬᵂ|
+PRIME|Love Kills ᴿᴬᵂ|
+PRIME|Love And Marriage ᴿᴬᵂ|
+PRIME|Long Lost Family ᴿᴬᵂ|
+PRIME|Locked Up Abroad ᴿᴬᵂ|
+PRIME|Live PD Presents ᴿᴬᵂ|
+PRIME|Life Below Zero ᴿᴬᵂ|
+PRIME|Life and Legend of Wyatt Earp ᴿᴬᵂ|
+PRIME|Lidia's Kitchen ᴿᴬᵂ|
+PRIME|Lawless ᴿᴬᵂ|
+PRIME|Latino Vibes ᴿᴬᵂ|
+PRIME|Las 3 Marias ᴿᴬᵂ|
+PRIME|Kim's Convenience ᴿᴬᵂ|
+PRIME|Karamo Presented By Nosey ᴿᴬᵂ|
+PRIME|Judge & Jury ᴿᴬᵂ|
+PRIME|JaJaJa ᴿᴬᵂ|
+PRIME|I was Haunted ᴿᴬᵂ|
+PRIME|In Touch+ ᴿᴬᵂ|
+PRIME|Impact Gospel ᴿᴬᵂ|
+PRIME|Hunter X Hunter ᴿᴬᵂ|
+PRIME|Grandes Parejas ᴿᴬᵂ|
+PRIME|Get Comedy ᴿᴬᵂ|
+PRIME|General Hospital ᴿᴬᵂ|
+PRIME|Galanes ᴿᴬᵂ|
+PRIME|FV AMC En Espanol US ᴿᴬᵂ|
+PRIME|Fox 35 Orlando ᴿᴬᵂ|
+PRIME|Fox 32 Chicago ᴿᴬᵂ|
+PRIME|Fox 13 Tampa Bay ᴿᴬᵂ|
+PRIME|Fox 13 Seattle ᴿᴬᵂ|
+PRIME|Fox 11 Los Angeles ᴿᴬᵂ|
+PRIME|Fox 10 Phoenix ᴿᴬᵂ|
+PRIME|Fox 9 Minneapolis ᴿᴬᵂ|
+PRIME|Fox 7 Austin ᴿᴬᵂ|
+PRIME|Fox 6 Milwaukee ᴿᴬᵂ|
+PRIME|Fox 5 Atlanta ᴿᴬᵂ|
+PRIME|Fox 2 Detroit ᴿᴬᵂ|
+PRIME|Fgteev ᴿᴬᵂ|
+PRIME|Faithfull Funny ᴿᴬᵂ|
+PRIME|Extrem Makeover- Home Edition ᴿᴬᵂ|
+PRIME|ET ᴿᴬᵂ|
+PRIME|Earthday 365 ᴿᴬᵂ|
+PRIME|Dinos 24/7 ᴿᴬᵂ|
+PRIME|Death Valley Days ᴿᴬᵂ|
+PRIME|Couples Court ᴿᴬᵂ|
+PRIME|Cook's Country ᴿᴬᵂ|
+PRIME|Como Dice El Dicho ᴿᴬᵂ|
+PRIME|Come Dine with Me ᴿᴬᵂ|
+PRIME|Classic Car Auctions ᴿᴬᵂ|
+PRIME|Cine Retro ᴿᴬᵂ|
+PRIME|Cine De Oro ᴿᴬᵂ|
+PRIME|Chris Hansen's Trublu Crime Network ᴿᴬᵂ|
+PRIME|CBS News Detroit ᴿᴬᵂ|
+PRIME|CBS News Colorado ᴿᴬᵂ|
+PRIME|Caso Cebrado ᴿᴬᵂ|
+PRIME|Black Voices ᴿᴬᵂ|
+PRIME|BBC Comedy ᴿᴬᵂ|
+PRIME|Bargain Hunt ᴿᴬᵂ|
+PRIME|Are You Smarter than a 5th Grader? ᴿᴬᵂ|
+PRIME|Aqui Y Ahora ᴿᴬᵂ|
+PRIME|Antiques Road Trip ᴿᴬᵂ|
+PRIME|Anime X Hidive ᴿᴬᵂ|
+PRIME|Animation Favorites ᴿᴬᵂ|
+PRIME|American Ninja Warrior ᴿᴬᵂ|
+PRIME|All Day Drama ᴿᴬᵂ|
+PRIME|Action News Jax (CBS47 / FOX30) ᴿᴬᵂ|
+PRIME|Acorn Tv Mysteries ᴿᴬᵂ|
+PRIME|ABC7 New York ᴿᴬᵂ|
+PRIME|ABC7 Bay Area ᴿᴬᵂ|
+PRIME|90s Sitcom ᴿᴬᵂ|
+PRIME|80s Sitcom ᴿᴬᵂ|
+PRIME|60 Minutes ᴿᴬᵂ|
+PRIME|48 Hours ᴿᴬᵂ|
+PRIME|24/7 Laughs ᴿᴬᵂ|
 US|Outermax HD|
 US|VSIN|
 US|NBC Golf|
@@ -780,10 +783,10 @@ DE|Sony AXN HD|
 DE|Sky Cinema Premieren FHD|
 DE|Sky Cinema Premieren HD|
 JOYN|SR Raw|
-JOYN|Serienklassiker Raw|
+JOYN|Serienklassiker ᴿᴬᵂ|
 JOYN|Elf Raw|
-DE|DAZN Moto America Raw|
-DE|DAZN Lacrosse Tv Raw|
+DE|DAZN Moto America ᴿᴬᵂ|
+DE|DAZN Lacrosse Tv ᴿᴬᵂ|
 DE|DAZN Moto America SD|
 DE|DAZN Lacrosse Tv SD|
 DE|DAZN Moto America HD|
