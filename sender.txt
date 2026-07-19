@@ -1,3 +1,4 @@
+HR| DISCOVERY ⱽᴵᴾ ᴿᴬᵂ|
 BA| HAYAT FOLK ⱽᴵᴾ ᴿᴬᵂ|
 BA| HAYAT MUSIC ⱽᴵᴾ ᴿᴬᵂ|
 BA| BN MUSIC ⱽᴵᴾ ᴿᴬᵂ|
@@ -551,8 +552,8 @@ SO|SOLO SPORT 5 HEVC|
 SO|SOLO SPORT 5 FHD|
 SO|SOLO SPORT 5 HD|
 SO|SOLO SPORT 5 SD|
-MNG|TV POBEDA VIP RAW|
-MNG|RTV HN VIP RAW|
+MNG|TV POBEDA VIP ᴿᴬᵂ|
+MNG|RTV HN VIP ᴿᴬᵂ|
 MO|WOW MONTENEGRO|
 MO|TV PARTIZAN|
 MO|TEUTA TV|
@@ -574,13 +575,13 @@ UK|PL Replay 6 HD|
 UK|PL Replay 7 HD|
 UK|PL Replay 8 HD|
 UK|PL Replay 9 HD|
-PRIME|World's Wildest Police Videos Raw|
-PRIME|Turk on Video Raw|
-PRIME|Nature Raw|
-PRIME|H&C Tv Raw|
-PRIME|Grjngo-Westernfilme Raw|
-PRIME|Ein Engel auf Erden Raw|
-PRIME|CC Raw|
+PRIME|World's Wildest Police Videos ᴿᴬᵂ|
+PRIME|Turk on Video ᴿᴬᵂ|
+PRIME|Nature ᴿᴬᵂ|
+PRIME|H&C Tv ᴿᴬᵂ|
+PRIME|Grjngo-Westernfilme ᴿᴬᵂ|
+PRIME|Ein Engel auf Erden ᴿᴬᵂ|
+PRIME|CC ᴿᴬᵂ|
 DE|Sky Cinema Special FHD|
 DE|Sky Cinema Special HD|
 DE|Sky Highlights FHD|
@@ -600,7 +601,7 @@ UK|W!-Watch FHD|
 UK|RTE 1 Hevc FHD|
 UK|Praise Tv Network|
 UK|N4 Iceland HD|
-US|THE CROWN Raw| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
+US|THE CROWN ᴿᴬᵂ| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
 US|Cw 23 (KCWT)|
 US|Cw (WLMT) 30 Memphis|
 US|CW News 9 San Diego (KUSI) HD|
@@ -613,12 +614,12 @@ US|Fanduel West Plus|
 US|Fanduel Great Lake|
 US|Fanduel Florida Plus|
 US|Fanduel Florida|
-TUBI|Gordon Ramsay Raw|
-TUBI|Gardening with Monty Don Raw|
-TUBI|Fox Sports on Tubi Raw|
-TUBI|Fox 5 New York Raw|
-TUBI|Britbox Mysteries Raw|
-CITY|Nbc KLAF LP Brooklyn Raw|
+TUBI|Gordon Ramsay ᴿᴬᵂ|
+TUBI|Gardening with Monty Don ᴿᴬᵂ|
+TUBI|Fox Sports on Tubi ᴿᴬᵂ|
+TUBI|Fox 5 New York ᴿᴬᵂ|
+TUBI|Britbox Mysteries ᴿᴬᵂ|
+CITY|Nbc KLAF LP Brooklyn ᴿᴬᵂ|
 GO|Up|
 GO|Tribeca Festival+|
 GO|The Price is Right-The Barker Era|
@@ -795,8 +796,8 @@ DE|DAZN Moto America ᴿᴬᵂ|
 DE|DAZN Lacrosse Tv ᴿᴬᵂ|
 DE|DAZN Moto America SD|
 DE|DAZN Lacrosse Tv SD|
-DE|DAZN Moto America HD|
-DE|DAZN Lacrosse Tv HD|
+DE|DAZN Moto America ᴴᴰ|
+DE|DAZN Lacrosse Tv ᴴᴰ|
 DE|SILO FHD|
 DE|THE LAST OF US FHD|
 DE|MOBLAND FHD|
