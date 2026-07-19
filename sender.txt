@@ -1,9 +1,9 @@
 RS| MASA I MEDVJED|
 RS| DM SAT|Muzički program i sms poruke|
 DE|SHOGUN S01 4K|
-DE| 4 BLOCKS S01 4k||https://upload.wikimedia.org/wikipedia/commons/3/39/4_Blocks_Logo.png
-DE| 4 BLOCKS S02 4k||https://upload.wikimedia.org/wikipedia/commons/3/39/4_Blocks_Logo.png
-DE| 4 BLOCKS S03 4k||https://upload.wikimedia.org/wikipedia/commons/3/39/4_Blocks_Logo.png
+DE| 4 BLOCKS S01 4k||https://simg.nicepng.com/png/small/117-1174447_4-blocks-logo-4-blocks-logo-png.png
+DE| 4 BLOCKS S02 4k||https://simg.nicepng.com/png/small/117-1174447_4-blocks-logo-4-blocks-logo-png.png
+DE| 4 BLOCKS S03 4k||https://simg.nicepng.com/png/small/117-1174447_4-blocks-logo-4-blocks-logo-png.png
 DE| OZARK 2017|
 DE| AFTER LIFE 2019|
 DE| PEAKY BLINDERS|
