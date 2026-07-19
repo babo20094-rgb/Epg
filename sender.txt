@@ -1,3 +1,4 @@
+PRIME| UEFA CHAMPIONS LEAGUE RAW|
 PRIME| CHASING CRIMINALS RAW|
 PRIME| CELEBRITY NAME GAME RAW|
 PRIME| CBS NEWS MINNESOTA RAW|
@@ -564,7 +565,7 @@ UK|PL Replay 9 HD|
 PRIME|World's Wildest Police Videos Raw|
 PRIME|Turk on Video Raw|
 PRIME|Nature Raw|
-PRIME|H&amp;C Tv Raw|
+PRIME|H&C Tv Raw|
 PRIME|Grjngo-Westernfilme Raw|
 PRIME|Ein Engel auf Erden Raw|
 PRIME|CC Raw|
@@ -575,7 +576,7 @@ DE|Sky Highlights HD|
 DE|Sky Cinema Special HEVC|
 DE|Hr HD Hessischer Rundfunk|
 DE|UHD1 by Astra|
-UK|R&amp;B Soul-Direkt HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
+UK|R&B Soul-Direkt HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 UK|Rap 2K-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 UK|Pop Latino-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 UK|80'S-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
@@ -615,12 +616,12 @@ GO|MSG Alt-2|
 GO|MSG Alt-3|
 GO|20/20|
 PRIME|Xite Rap Game Raw|
-PRIME|Xite R&amp;B Feels Raw|
+PRIME|Xite R&B Feels Raw|
 PRIME|Xite Hip-Hop Evolution Raw|
-PRIME|Xite 60s &amp; 70s Groove Raw|
+PRIME|Xite 60s & 70s Groove Raw|
 PRIME|Western Bound Wrangled by INSP Raw|
 PRIME|Wendy Williams Raw|
-PRIME|Vevo R&amp;B Raw|
+PRIME|Vevo R&B Raw|
 PRIME|Vevo Hip-Hop Raw|
 PRIME|Untold Stories of the Er Raw|
 PRIME|Ultimate Builds Raw|
@@ -643,7 +644,7 @@ PRIME|Supernany Raw|
 PRIME|Startalk Raw|
 PRIME|Spooks (MI-5)|
 PRIME|Speed Sport 1 Raw|
-PRIME|Space &amp; Beyond Raw|
+PRIME|Space & Beyond Raw|
 PRIME|Sheriffs EL Dorado County Raw|
 PRIME|Rustic Retreats Raw|
 PRIME|Rugbypass Tv Raw|
@@ -658,7 +659,7 @@ PRIME|Racer Selcet Raw|
 PRIME|Primetime Soaps Raw|
 PRIME|Preschool Corner Raw|
 PRIME|Power Rangers Raw|
-PRIME|Places &amp; Spaces Raw|
+PRIME|Places & Spaces Raw|
 PRIME|Pink Panther Raw|
 PRIME|Personal  Injury Court Raw|
 PRIME|Perform Raw|
@@ -697,7 +698,7 @@ PRIME|Latino Vibes Raw|
 PRIME|Las 3 Marias Raw|
 PRIME|Kim's Convenience Raw|
 PRIME|Karamo Presented By Nosey Raw|
-PRIME|Judge &amp; Jury Raw|
+PRIME|Judge & Jury Raw|
 PRIME|JaJaJa Raw|
 PRIME|I was Haunted Raw|
 PRIME|In Touch+ Raw|
