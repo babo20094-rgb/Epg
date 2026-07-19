@@ -1,3 +1,22 @@
+DE| OZARK 2017|
+DE| AFTER LIFE 2019|
+DE| PEAKY BLINDERS|
+DE| THE WITCHER 2019|
+DE| VIKINGS: VALHALLA|
+DE| THE LAST KINGDOM|
+DE| VIKINGS S01-S04|
+DE| KINGDOM 2014 FHD|
+DE| MARVEL'S AGENT CARTER FHD|
+DE| MARVEL'S THE PUNISHER FHD|
+DE| LIMITLESS 2015 FHD|
+DE| EINSTEIN FHD|
+DE| HELL ON WHEELS FHD|
+DE| HAUS DES GELDES|
+DE| HOUSE OF THE DRAGON FHD|
+DE| GOTHAM KNIGHTS FHD|
+DE| GENIUS 2017 FHD|
+DE| DOGS OF BERLIN 2018 FHD|
+DE| BABYLON BERLIN 2017 FHD|
 DE| DAZN BAR 1 HEVC|
 DE| DAZN BAR 2 HEVC|
 DE| BUNDESLIGA (DAZN STREAM)|
@@ -15,8 +34,8 @@ UK| KIDZ ONLY!-DIRECT HD|
 UK| CINEMANIA HOLLYWOOD 4K|
 UK| UFC HD|
 UK| EDGE SPORT FHD|
-DE| EB PEPPA WUTZ FHD|
-DE| EB MASCHA UND DER BÄR FHD|
+DE| EB PEPPA WUTZ FHD||https://images.seeklogo.com/logo-png/32/2/peppa-pig-without-peppa-logo-png_seeklogo-327074.png
+DE| EB MASCHA UND DER BÄR FHD||https://upload.wikimedia.org/wikipedia/commons/9/9c/Mascha_und_der_B%C3%A4r_logo.png
 DE| TOP 100 4K|
 DE| ASBEST S01 4K|
 DE| DAZN ACL CORNHOLE TV HD|
@@ -810,18 +829,18 @@ BS| WILL SMITH COLLECTION||https://p7.hiclipart.com/preview/737/858/501/5bbc3964
 RS| Radio Lola|
 RS| MTV Club|
 DE| CNN|
-DE| SKY SELECT 1 FHD|
-DE| SKY SELECT 3 FHD|
-DE| SKY SELECT 4 FHD|
-DE| SKY SELECT 5 FHD|
-DE| SKY SELECT 6 FHD|
-DE| SKY SELECT 7 FHD|
-DE| SKY SELECT 8 FHD|
-DE| MAX SELECT FHD|
-DE| MAX SELECT 2 FHD|
-DE| MAX SELECT 4 FHD|
-DE| MAX SELECT 5 FHD|
-DE| MAX SELECT 7 FHD|
+DE| SKY SELECT 1 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| SKY SELECT 3 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| SKY SELECT 4 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| SKY SELECT 5 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| SKY SELECT 6 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| SKY SELECT 7 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| SKY SELECT 8 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| MAX SELECT FHD||https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
+DE| MAX SELECT 2 FHD||https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
+DE| MAX SELECT 4 FHD||https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
+DE| MAX SELECT 5 FHD||https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
+DE| MAX SELECT 7 FHD||https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
 EXYU| BAKUGAN|
 EXYU| BE COOL SCOOBY-DOO|
 EXYU| AND THE MONSTER MACHINES|
