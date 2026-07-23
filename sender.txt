@@ -1061,12 +1061,12 @@ DE|Sky Cinema Premieren HD|
 JOYN|SR Raw|
 JOYN|Serienklassiker ᴿᴬᵂ|
 JOYN|Elf Raw|
-DE|DAZN Moto America ᴿᴬᵂ|
-DE|DAZN Lacrosse Tv ᴿᴬᵂ|
-DE|DAZN Moto America SD|
-DE|DAZN Lacrosse Tv SD|
-DE|DAZN Moto America ᴴᴰ|
-DE|DAZN Lacrosse Tv ᴴᴰ|
+DE|DAZN Moto America ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE|DAZN Lacrosse Tv ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE|DAZN Moto America SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE|DAZN Lacrosse Tv SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE|DAZN Moto America ᴴᴰ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DE|DAZN Lacrosse Tv ᴴᴰ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE|SILO FHD|
 DE|THE LAST OF US FHD|
 DE|MOBLAND FHD|
