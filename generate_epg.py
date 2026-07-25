@@ -1012,7 +1012,7 @@ for daten in logo_only_channels:
 
 FLO_RACING_ANZAHL = 20
 flo_racing_logo_overrides = {}
-flo_racing_logo_default = "https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/FloRacing_logo.svg/512px-FloRacing_logo.svg.png"
+flo_racing_logo_default = "https://cdn.prod.website-files.com/62b4844bdbb5f580ecc9e019/6601d8d14c74bdd3d393b236_FloRacing-ignite%2Bwhite.png"
 
 for i in range(1, FLO_RACING_ANZAHL + 1):
     nummer = f"{i:02d}"
