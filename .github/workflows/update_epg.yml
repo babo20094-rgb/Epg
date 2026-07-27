@@ -26,6 +26,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Run unit tests
+        run: |
+          python -m pytest test_generate_epg.py -v
+
       - name: Generate EPG
         run: |
           python generate_epg.py
@@ -43,4 +47,14 @@ jobs:
           fi
 
           git commit -m "Daily EPG update"
+
+          # Vor dem Push den aktuellen Stand von main einholen und die
+          # eigenen Commits obendrauf setzen (Rebase). Verhindert den
+          # "rejected - fetch first"-Fehler, falls zwischen Checkout
+          # und Push bereits ein anderer Commit (z.B. manueller Upload)
+          # auf main gelandet ist. Bei echtem Merge-Konflikt (sehr
+          # unwahrscheinlich, da nur Epg_365_Tage.xml committet wird)
+          # bricht der Rebase ab und der Job schlägt sichtbar fehl,
+          # statt fehlerhaft zu pushen.
+          git pull --rebase origin main
           git push
