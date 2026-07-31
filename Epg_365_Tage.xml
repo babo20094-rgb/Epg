@@ -1,43 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv>
  <channel id="US|BIG BROTHER QUAD VIEW FEED"> <display-name>US| BIG BROTHER QUAD VIEW FEED</display-name> </channel>
- <channel id="UK|SUPERSPORTS EVENTS HD"> <display-name>UK| SUPERSPORTS EVENTS HD</display-name>  <icon src="https://i.imgur.com/ozI8TBR.png"/>
-</channel>
+ <channel id="UK|SUPERSPORTS EVENTS HD"> <display-name>UK| SUPERSPORTS EVENTS HD</display-name> </channel>
  <channel id="US|ABC 47 (WMDT) SALISBURY"> <display-name>US| ABC 47 (WMDT) SALISBURY</display-name> </channel>
- <channel id="PRIME|BRITBOX MYSTERIES ᴿᴬᵂ"> <display-name>PRIME| BRITBOX MYSTERIES ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/PJdzoLN.png"/>
-</channel>
- <channel id="PRIME|FOX 5 NEW YORK ᴿᴬᵂ"> <display-name>PRIME| FOX 5 NEW YORK ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/zZd9Tkt.png"/>
-</channel>
+ <channel id="PRIME|BRITBOX MYSTERIES ᴿᴬᵂ"> <display-name>PRIME| BRITBOX MYSTERIES ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|FOX 5 NEW YORK ᴿᴬᵂ"> <display-name>PRIME| FOX 5 NEW YORK ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|GARDENING WITH MONTY DON ᴿᴬᵂ"> <display-name>PRIME| GARDENING WITH MONTY DON ᴿᴬᵂ</display-name> </channel>
- <channel id="DE|PLUTO TV SERIE"> <display-name>DE| PLUTO TV SERIE</display-name>  <icon src="https://i.imgur.com/u3c80e8.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 1 4K"> <display-name>EN| CHRISTMAS 1 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 2 4K"> <display-name>EN| CHRISTMAS 2 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 3 4K"> <display-name>EN| CHRISTMAS 3 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 4 4K"> <display-name>EN| CHRISTMAS 4 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 5 4K"> <display-name>EN| CHRISTMAS 5 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 6 4K"> <display-name>EN| CHRISTMAS 6 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 7 4K"> <display-name>EN| CHRISTMAS 7 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 8 4K"> <display-name>EN| CHRISTMAS 8 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 9 4K"> <display-name>EN| CHRISTMAS 9 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
- <channel id="EN|CHRISTMAS 10 4K"> <display-name>EN| CHRISTMAS 10 4K</display-name>  <icon src="https://i.imgur.com/ndf8v1j.png"/>
-</channel>
+ <channel id="DE|PLUTO TV SERIE"> <display-name>DE| PLUTO TV SERIE</display-name> </channel>
+ <channel id="EN|CHRISTMAS 1 4K"> <display-name>EN| CHRISTMAS 1 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 2 4K"> <display-name>EN| CHRISTMAS 2 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 3 4K"> <display-name>EN| CHRISTMAS 3 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 4 4K"> <display-name>EN| CHRISTMAS 4 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 5 4K"> <display-name>EN| CHRISTMAS 5 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 6 4K"> <display-name>EN| CHRISTMAS 6 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 7 4K"> <display-name>EN| CHRISTMAS 7 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 8 4K"> <display-name>EN| CHRISTMAS 8 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 9 4K"> <display-name>EN| CHRISTMAS 9 4K</display-name> </channel>
+ <channel id="EN|CHRISTMAS 10 4K"> <display-name>EN| CHRISTMAS 10 4K</display-name> </channel>
  <channel id="EN|CHRISTMAS CARTOONS"> <display-name>EN| CHRISTMAS CARTOONS</display-name> </channel>
  <channel id="EN|CHRISTMAS COOKIE CHALLENGE"> <display-name>EN| CHRISTMAS COOKIE CHALLENGE</display-name> </channel>
  <channel id="EN|CHRISTMAS GREAT LIGHT FIGHT"> <display-name>EN| CHRISTMAS GREAT LIGHT FIGHT</display-name> </channel>
  <channel id="EN|CHRISTMAS HOLIDAY WARS"> <display-name>EN| CHRISTMAS HOLIDAY WARS</display-name> </channel>
  <channel id="EN|CHRISTMAS HOLIDAY YULE LOG"> <display-name>EN| CHRISTMAS HOLIDAY YULE LOG</display-name> </channel>
- <channel id="EN|CHRISTMAS MOVIES"> <display-name>EN| CHRISTMAS MOVIES</display-name>  <icon src="https://i.imgur.com/kyE3vXf.png"/>
-</channel>
+ <channel id="EN|CHRISTMAS MOVIES"> <display-name>EN| CHRISTMAS MOVIES</display-name> </channel>
  <channel id="EN|CHRISTMAS MOVIES 1 FHD"> <display-name>EN| CHRISTMAS MOVIES 1 FHD</display-name> </channel>
  <channel id="EN|CHRISTMAS MOVIES 2 FHD"> <display-name>EN| CHRISTMAS MOVIES 2 FHD</display-name> </channel>
  <channel id="EN|CHRISTMAS MOVIES 3 FHD"> <display-name>EN| CHRISTMAS MOVIES 3 FHD</display-name> </channel>
@@ -47,44 +32,30 @@
  <channel id="EN|CHRISTMAS NAILED IT! HOLIDAY"> <display-name>EN| CHRISTMAS NAILED IT! HOLIDAY</display-name> </channel>
  <channel id="EN|CHRISTMAS THE CAROLER CHALLENGE"> <display-name>EN| CHRISTMAS THE CAROLER CHALLENGE</display-name> </channel>
  <channel id="EN|CHRISTMAS VEVO BEST HITS"> <display-name>EN| CHRISTMAS VEVO BEST HITS</display-name> </channel>
- <channel id="EN|FUBO XMAS MOVIES"> <display-name>EN| FUBO XMAS MOVIES</display-name>  <icon src="https://i.imgur.com/Il5QCBh.png"/>
-</channel>
+ <channel id="EN|FUBO XMAS MOVIES"> <display-name>EN| FUBO XMAS MOVIES</display-name> </channel>
  <channel id="EN|SUGAR RUSH"> <display-name>EN| SUGAR RUSH</display-name> </channel>
- <channel id="EN|XMAS CARTOONS"> <display-name>EN| XMAS CARTOONS</display-name>  <icon src="https://i.imgur.com/X2d8y4e.png"/>
-</channel>
+ <channel id="EN|XMAS CARTOONS"> <display-name>EN| XMAS CARTOONS</display-name> </channel>
  <channel id="EN|XMAS CHRISTMAS PLUS"> <display-name>EN| XMAS CHRISTMAS PLUS</display-name> </channel>
  <channel id="EN|XMAS COOKIE CHALLENGE"> <display-name>EN| XMAS COOKIE CHALLENGE</display-name> </channel>
  <channel id="EN|XMAS GREAT LIGHT FIGHT"> <display-name>EN| XMAS GREAT LIGHT FIGHT</display-name> </channel>
  <channel id="EN|XMAS HOLIDAY WARS"> <display-name>EN| XMAS HOLIDAY WARS</display-name> </channel>
  <channel id="EN|XMAS HOLIDAY YULE LOG"> <display-name>EN| XMAS HOLIDAY YULE LOG</display-name> </channel>
- <channel id="EN|XMAS MOVIES"> <display-name>EN| XMAS MOVIES</display-name>  <icon src="https://livetv.ashokadigital.net/upload/logo/1732168422_WhatsApp%20Image%202024-11-21%20at%2010.18.47%20AM.jpeg"/>
-</channel>
+ <channel id="EN|XMAS MOVIES"> <display-name>EN| XMAS MOVIES</display-name> </channel>
  <channel id="EN|XMAS NAILED IT! HOLIDAY"> <display-name>EN| XMAS NAILED IT! HOLIDAY</display-name> </channel>
  <channel id="EN|XMAS SUGAR RUSH"> <display-name>EN| XMAS SUGAR RUSH</display-name> </channel>
  <channel id="EN|XMAS THE CAROLER CHALLENGE"> <display-name>EN| XMAS THE CAROLER CHALLENGE</display-name> </channel>
  <channel id="EN|XMAS VEVO BEST HITS"> <display-name>EN| XMAS VEVO BEST HITS</display-name> </channel>
- <channel id="EN|XMAS VEVO HIP HOP"> <display-name>EN| XMAS VEVO HIP HOP</display-name>  <icon src="https://i.imgur.com/Lbc9cYw.png"/>
-</channel>
- <channel id="EN|XMAS VEVO MUSIC"> <display-name>EN| XMAS VEVO MUSIC</display-name>  <icon src="https://i.ibb.co/pxBYNNS/channels4-profile-1.jpg"/>
-</channel>
- <channel id="Cymru Football 1"> <display-name>Cymru Football 1</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 2"> <display-name>Cymru Football 2</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 3"> <display-name>Cymru Football 3</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 4"> <display-name>Cymru Football 4</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 5"> <display-name>Cymru Football 5</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 6"> <display-name>Cymru Football 6</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 7"> <display-name>Cymru Football 7</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 8"> <display-name>Cymru Football 8</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
- <channel id="Cymru Football 9"> <display-name>Cymru Football 9</display-name>  <icon src="https://i.imgur.com/pEuaZVx.png"/>
-</channel>
+ <channel id="EN|XMAS VEVO HIP HOP"> <display-name>EN| XMAS VEVO HIP HOP</display-name> </channel>
+ <channel id="EN|XMAS VEVO MUSIC"> <display-name>EN| XMAS VEVO MUSIC</display-name> </channel>
+ <channel id="Cymru Football 1"> <display-name>Cymru Football 1</display-name> </channel>
+ <channel id="Cymru Football 2"> <display-name>Cymru Football 2</display-name> </channel>
+ <channel id="Cymru Football 3"> <display-name>Cymru Football 3</display-name> </channel>
+ <channel id="Cymru Football 4"> <display-name>Cymru Football 4</display-name> </channel>
+ <channel id="Cymru Football 5"> <display-name>Cymru Football 5</display-name> </channel>
+ <channel id="Cymru Football 6"> <display-name>Cymru Football 6</display-name> </channel>
+ <channel id="Cymru Football 7"> <display-name>Cymru Football 7</display-name> </channel>
+ <channel id="Cymru Football 8"> <display-name>Cymru Football 8</display-name> </channel>
+ <channel id="Cymru Football 9"> <display-name>Cymru Football 9</display-name> </channel>
  <channel id="Cymru Football 10"> <display-name>Cymru Football 10</display-name> </channel>
  <channel id="Cymru Football 11"> <display-name>Cymru Football 11</display-name> </channel>
  <channel id="Cymru Football 12"> <display-name>Cymru Football 12</display-name> </channel>
@@ -95,65 +66,41 @@
  <channel id="RS|KCN 2 ⱽᴵᴾ ᴿᴬᵂ"> <display-name>RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
  <channel id="RS|KCN 3 ⱽᴵᴾ ᴿᴬᵂ"> <display-name>RS| KCN 3 ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
  <channel id="NHL TEAM|UTAH HOCKEY CLUB"> <display-name>NHL TEAM| UTAH HOCKEY CLUB</display-name> </channel>
- <channel id="US|FOX SPORTS WISCONSIN HD"> <display-name>US| FOX SPORTS WISCONSIN HD</display-name>  <icon src="https://i.imgur.com/w7pVHNW.png"/>
-</channel>
+ <channel id="US|FOX SPORTS WISCONSIN HD"> <display-name>US| FOX SPORTS WISCONSIN HD</display-name> </channel>
  <channel id="DE|NOW ᴿᴬᵂ"> <display-name>DE| NOW ᴿᴬᵂ</display-name> </channel>
  <channel id="DE|NTRO ᴿᴬᵂ"> <display-name>DE| NTRO ᴿᴬᵂ</display-name> </channel>
- <channel id="4k|NESN UHD/4K+"> <display-name>4k| NESN UHD/4K+</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/960px-ESPN_wordmark.svg.png"/>
-</channel>
+ <channel id="4k|NESN UHD/4K+"> <display-name>4k| NESN UHD/4K+</display-name> </channel>
  <channel id="DE|PRO7SAT.1 FHD"> <display-name>DE| PRO7SAT.1 FHD</display-name> </channel>
  <channel id="UK|EPL SOUTHAMPTON"> <display-name>UK| EPL SOUTHAMPTON</display-name> </channel>
- <channel id="US|3ABN PRAISE HIM MUSIC NETWORK"> <display-name>US| 3ABN PRAISE HIM MUSIC NETWORK</display-name>  <icon src="https://i.imgur.com/iBcqT8L.png"/>
-</channel>
- <channel id="US|PTVN"> <display-name>US| PTVN</display-name>  <icon src="https://i.imgur.com/NefqONB.png"/>
-</channel>
- <channel id="US|TRINITY TV"> <display-name>US| TRINITY TV</display-name>  <icon src="https://i.imgur.com/69igLlk.png"/>
-</channel>
- <channel id="PRIME|TRAILERS ᴿᴬᵂ"> <display-name>PRIME| TRAILERS ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/RwZ1hCN.png"/>
-</channel>
- <channel id="US|NBC SPORTS WASHINGTON"> <display-name>US| NBC SPORTS WASHINGTON</display-name>  <icon src="https://i.imgur.com/j9mVaf3.png"/>
-</channel>
- <channel id="US|FOX SPORTS SAD DIEGO HD"> <display-name>US| FOX SPORTS SAD DIEGO HD</display-name>  <icon src="https://i.imgur.com/XOC7W9E.png"/>
-</channel>
- <channel id="US|CSN WASHINGTON HD"> <display-name>US| CSN WASHINGTON HD</display-name>  <icon src="https://i.imgur.com/1RZa8ok.png"/>
-</channel>
- <channel id="US|AT&amp;T SPORTSNET SOUTHWEST HD"> <display-name>US| AT&amp;T SPORTSNET SOUTHWEST HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Logo_for_AT%26T_SportsNet.svg/960px-Logo_for_AT%26T_SportsNet.svg.png"/>
-</channel>
- <channel id="US|MY24 MILWAUKEE"> <display-name>US| MY24 MILWAUKEE</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/en/thumb/5/55/MeTV_Logo.svg/960px-MeTV_Logo.svg.png"/>
-</channel>
- <channel id="US|NBT HD"> <display-name>US| NBT HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NBC_logo_2022_%28vertical%29.svg/960px-NBC_logo_2022_%28vertical%29.svg.png"/>
-</channel>
- <channel id="US|BIG BROTHER FEED 1"> <display-name>US| BIG BROTHER FEED 1</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
- <channel id="US|BIG BROTHER FEED 2"> <display-name>US| BIG BROTHER FEED 2</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
- <channel id="US|BIG BROTHER FEED 3"> <display-name>US| BIG BROTHER FEED 3</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
- <channel id="US|BIG BROTHER FEED 4"> <display-name>US| BIG BROTHER FEED 4</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
- <channel id="US|BIG BROTHER CAMERA 1"> <display-name>US| BIG BROTHER CAMERA 1</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
- <channel id="US|BIG BROTHER CAMERA 2"> <display-name>US| BIG BROTHER CAMERA 2</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
- <channel id="US|BIG BROTHER CAMERA 3"> <display-name>US| BIG BROTHER CAMERA 3</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
- <channel id="US|BIG BROTHER CAMERA 4"> <display-name>US| BIG BROTHER CAMERA 4</display-name>  <icon src="https://images.pluto.tv/channels/6661f11a41af6400080e90d8/colorLogoPNG.png"/>
-</channel>
+ <channel id="US|3ABN PRAISE HIM MUSIC NETWORK"> <display-name>US| 3ABN PRAISE HIM MUSIC NETWORK</display-name> </channel>
+ <channel id="US|PTVN"> <display-name>US| PTVN</display-name> </channel>
+ <channel id="US|TRINITY TV"> <display-name>US| TRINITY TV</display-name> </channel>
+ <channel id="PRIME|TRAILERS ᴿᴬᵂ"> <display-name>PRIME| TRAILERS ᴿᴬᵂ</display-name> </channel>
+ <channel id="US|NBC SPORTS WASHINGTON"> <display-name>US| NBC SPORTS WASHINGTON</display-name> </channel>
+ <channel id="US|FOX SPORTS SAD DIEGO HD"> <display-name>US| FOX SPORTS SAD DIEGO HD</display-name> </channel>
+ <channel id="US|CSN WASHINGTON HD"> <display-name>US| CSN WASHINGTON HD</display-name> </channel>
+ <channel id="US|AT&amp;T SPORTSNET SOUTHWEST HD"> <display-name>US| AT&amp;T SPORTSNET SOUTHWEST HD</display-name> </channel>
+ <channel id="US|MY24 MILWAUKEE"> <display-name>US| MY24 MILWAUKEE</display-name> </channel>
+ <channel id="US|NBT HD"> <display-name>US| NBT HD</display-name> </channel>
+ <channel id="US|BIG BROTHER FEED 1"> <display-name>US| BIG BROTHER FEED 1</display-name> </channel>
+ <channel id="US|BIG BROTHER FEED 2"> <display-name>US| BIG BROTHER FEED 2</display-name> </channel>
+ <channel id="US|BIG BROTHER FEED 3"> <display-name>US| BIG BROTHER FEED 3</display-name> </channel>
+ <channel id="US|BIG BROTHER FEED 4"> <display-name>US| BIG BROTHER FEED 4</display-name> </channel>
+ <channel id="US|BIG BROTHER CAMERA 1"> <display-name>US| BIG BROTHER CAMERA 1</display-name> </channel>
+ <channel id="US|BIG BROTHER CAMERA 2"> <display-name>US| BIG BROTHER CAMERA 2</display-name> </channel>
+ <channel id="US|BIG BROTHER CAMERA 3"> <display-name>US| BIG BROTHER CAMERA 3</display-name> </channel>
+ <channel id="US|BIG BROTHER CAMERA 4"> <display-name>US| BIG BROTHER CAMERA 4</display-name> </channel>
  <channel id="PRIME|ABC CHARLESTON NEWS (WCIV.2) ᴿᴬᵂ"> <display-name>PRIME| ABC CHARLESTON NEWS (WCIV.2) ᴿᴬᵂ</display-name> </channel>
  <channel id="GO|JAMIE OLIVER"> <display-name>GO| JAMIE OLIVER</display-name> </channel>
- <channel id="GO|GREAT AMERICAN ADVENTURES"> <display-name>GO| GREAT AMERICAN ADVENTURES</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Great_American_Family_logo.svg/1920px-Great_American_Family_logo.svg.png"/>
-</channel>
+ <channel id="GO|GREAT AMERICAN ADVENTURES"> <display-name>GO| GREAT AMERICAN ADVENTURES</display-name> </channel>
  <channel id="GO|FAMILY FEUD (STEVE HARVEY)"> <display-name>GO| FAMILY FEUD (STEVE HARVEY)</display-name> </channel>
- <channel id="GO|DOVE TV"> <display-name>GO| DOVE TV</display-name>  <icon src="https://i.imgur.com/wOlMfCR.png"/>
-</channel>
+ <channel id="GO|DOVE TV"> <display-name>GO| DOVE TV</display-name> </channel>
  <channel id="TUBI|IN THE GARAGE ᴿᴬᵂ"> <display-name>TUBI| IN THE GARAGE ᴿᴬᵂ</display-name> </channel>
  <channel id="TUBI|GENERATION DRAMA ᴿᴬᵂ"> <display-name>TUBI| GENERATION DRAMA ᴿᴬᵂ</display-name> </channel>
- <channel id="TUBI|FORENSIC FILES ᴿᴬᵂ"> <display-name>TUBI| FORENSIC FILES ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/V5vvuLK.png"/>
-</channel>
+ <channel id="TUBI|FORENSIC FILES ᴿᴬᵂ"> <display-name>TUBI| FORENSIC FILES ᴿᴬᵂ</display-name> </channel>
  <channel id="TUBI|FAMILY UNSCRIPTED ᴿᴬᵂ"> <display-name>TUBI| FAMILY UNSCRIPTED ᴿᴬᵂ</display-name> </channel>
  <channel id="TUBI|DANCE MOMS ᴿᴬᵂ"> <display-name>TUBI| DANCE MOMS ᴿᴬᵂ</display-name> </channel>
- <channel id="TUBI|CRIME THRILLHER ᴿᴬᵂ"> <display-name>TUBI| CRIME THRILLHER ᴿᴬᵂ</display-name>  <icon src="https://img3.static-ottera.com/prod/run/linear_channel/thumbnails/widescreen/360x180/runtime_thriller.jpg"/>
-</channel>
+ <channel id="TUBI|CRIME THRILLHER ᴿᴬᵂ"> <display-name>TUBI| CRIME THRILLHER ᴿᴬᵂ</display-name> </channel>
  <channel id="TUBI|CINEVAULT: CLASSICS ᴿᴬᵂ"> <display-name>TUBI| CINEVAULT: CLASSICS ᴿᴬᵂ</display-name> </channel>
  <channel id="TUBI|CHASING CRIMINALS ᴿᴬᵂ"> <display-name>TUBI| CHASING CRIMINALS ᴿᴬᵂ</display-name> </channel>
  <channel id="CITY|NBC WRCB WASHINGTON ᴿᴬᵂ"> <display-name>CITY| NBC WRCB WASHINGTON ᴿᴬᵂ</display-name> </channel>
@@ -162,34 +109,21 @@
  <channel id="US|CW 19 JEANNETTE PA (WPCW)"> <display-name>US| CW 19 JEANNETTE PA (WPCW)</display-name> </channel>
  <channel id="US|CW (WNOL) 38 NEW ORLEANS"> <display-name>US| CW (WNOL) 38 NEW ORLEANS</display-name> </channel>
  <channel id="US|PBS PORTLAND (KOPB) OR"> <display-name>US| PBS PORTLAND (KOPB) OR</display-name> </channel>
- <channel id="UK|NOW HK PREMIER SPORTS 8"> <display-name>UK| NOW HK PREMIER SPORTS 8</display-name>  <icon src="https://i.imgur.com/BURPHzI.png"/>
-</channel>
+ <channel id="UK|NOW HK PREMIER SPORTS 8"> <display-name>UK| NOW HK PREMIER SPORTS 8</display-name> </channel>
  <channel id="UK|SKY CINEMA OSCARS HD"> <display-name>UK| SKY CINEMA OSCARS HD</display-name> </channel>
- <channel id="UK|MTV MUSIC"> <display-name>UK| MTV MUSIC</display-name>  <icon src="https://i.imgur.com/Vyu5Mx4.png"/>
-</channel>
- <channel id="IR|RTE TWO HD"> <display-name>IR| RTE TWO HD</display-name>  <icon src="https://i.imgur.com/1RV97tP.png"/>
-</channel>
- <channel id="IT|RAI 1 HD"> <display-name>IT| RAI 1 HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Rai_1_-_Logo_2016.svg/960px-Rai_1_-_Logo_2016.svg.png"/>
-</channel>
- <channel id="LAT|TIGO SPORTS 1 BO HD"> <display-name>LAT| TIGO SPORTS 1 BO HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Tigo_Sports_2025.png/960px-Tigo_Sports_2025.png"/>
-</channel>
- <channel id="MNG|RTCG"> <display-name>MNG| RTCG</display-name>  <icon src="https://i.imgur.com/k9M2MOT.png"/>
-</channel>
- <channel id="MXC|AZTECA DEPORTES"> <display-name>MXC| AZTECA DEPORTES</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/e/e8/TVCDeportes.png"/>
-</channel>
- <channel id="CR|TELETICA 7"> <display-name>CR| TELETICA 7</display-name>  <icon src="https://i.imgur.com/ctnvE3c.png"/>
-</channel>
- <channel id="DE|ARD HD"> <display-name>DE| ARD HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/ARD_Dachmarke_2014.svg/960px-ARD_Dachmarke_2014.svg.png"/>
-</channel>
+ <channel id="UK|MTV MUSIC"> <display-name>UK| MTV MUSIC</display-name> </channel>
+ <channel id="IR|RTE TWO HD"> <display-name>IR| RTE TWO HD</display-name> </channel>
+ <channel id="IT|RAI 1 HD"> <display-name>IT| RAI 1 HD</display-name> </channel>
+ <channel id="LAT|TIGO SPORTS 1 BO HD"> <display-name>LAT| TIGO SPORTS 1 BO HD</display-name> </channel>
+ <channel id="MNG|RTCG"> <display-name>MNG| RTCG</display-name> </channel>
+ <channel id="MXC|AZTECA DEPORTES"> <display-name>MXC| AZTECA DEPORTES</display-name> </channel>
+ <channel id="CR|TELETICA 7"> <display-name>CR| TELETICA 7</display-name> </channel>
+ <channel id="DE|ARD HD"> <display-name>DE| ARD HD</display-name> </channel>
  <channel id="FR|M6 HD"> <display-name>FR| M6 HD</display-name> </channel>
- <channel id="BY|BELARUS 1"> <display-name>BY| BELARUS 1</display-name>  <icon src="https://i.imgur.com/sUD9t5j.png"/>
-</channel>
- <channel id="CHL|CHILEVISION"> <display-name>CHL| CHILEVISION</display-name>  <icon src="https://i.imgur.com/PRijvR0.png"/>
-</channel>
- <channel id="AFG|ATN"> <display-name>AFG| ATN</display-name>  <icon src="https://i.ibb.co/9nHgK9t/logo-light.jpg"/>
-</channel>
- <channel id="AR|EN TV ALGERIA"> <display-name>AR| EN TV ALGERIA</display-name>  <icon src="https://i.imgur.com/X3eIdVf.png"/>
-</channel>
+ <channel id="BY|BELARUS 1"> <display-name>BY| BELARUS 1</display-name> </channel>
+ <channel id="CHL|CHILEVISION"> <display-name>CHL| CHILEVISION</display-name> </channel>
+ <channel id="AFG|ATN"> <display-name>AFG| ATN</display-name> </channel>
+ <channel id="AR|EN TV ALGERIA"> <display-name>AR| EN TV ALGERIA</display-name> </channel>
  <channel id="BEIN SPORTS MAX 3 4K|"> <display-name>BEIN SPORTS MAX 3 4K| </display-name> </channel>
  <channel id="BEIN SPORTS MAX 3 FHD|"> <display-name>BEIN SPORTS MAX 3 FHD| </display-name> </channel>
  <channel id="BEIN SPORTS MAX 3 HD|"> <display-name>BEIN SPORTS MAX 3 HD| </display-name> </channel>
@@ -200,55 +134,42 @@
  <channel id="BEIN SPORTS MAX 3 EN hevc|"> <display-name>BEIN SPORTS MAX 3 EN hevc| </display-name> </channel>
  <channel id="BEIN SPORTS MAX 3 EN ᴴᴰ|"> <display-name>BEIN SPORTS MAX 3 EN ᴴᴰ| </display-name> </channel>
  <channel id="BEIN SPORTS MAX 3 EN RAW|"> <display-name>BEIN SPORTS MAX 3 EN RAW| </display-name> </channel>
- <channel id="WC|(LAT) DSPORTS"> <display-name>WC| (LAT) DSPORTS</display-name>  <icon src="https://i.imgur.com/OTgENko.png"/>
-</channel>
+ <channel id="WC|(LAT) DSPORTS"> <display-name>WC| (LAT) DSPORTS</display-name> </channel>
  <channel id="WC|(FR) COUPE DU MONDE DE LA FIFA 2026"> <display-name>WC| (FR) COUPE DU MONDE DE LA FIFA 2026</display-name> </channel>
  <channel id="WC|(FR) M6 (UHD/4K)"> <display-name>WC| (FR) M6 (UHD/4K)</display-name> </channel>
  <channel id="UK|EPL LEICESTER"> <display-name>UK| EPL LEICESTER</display-name> </channel>
  <channel id="UK|EPL LUTON"> <display-name>UK| EPL LUTON</display-name> </channel>
  <channel id="UK|EPL BRIGHTON"> <display-name>UK| EPL BRIGHTON</display-name> </channel>
- <channel id="UK|FALKIRK TV"> <display-name>UK| FALKIRK TV</display-name>  <icon src="https://i.imgur.com/6XvSeAK.jpg"/>
-</channel>
+ <channel id="UK|FALKIRK TV"> <display-name>UK| FALKIRK TV</display-name> </channel>
  <channel id="UK|FORMULA 1 TV FHD"> <display-name>UK| FORMULA 1 TV FHD</display-name> </channel>
- <channel id="UK|NFL HD"> <display-name>UK| NFL HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/8/89/PBS_logo_2019.svg"/>
-</channel>
+ <channel id="UK|NFL HD"> <display-name>UK| NFL HD</display-name> </channel>
  <channel id="UK|PREMIER LEAGUE TOP EVENT HD"> <display-name>UK| PREMIER LEAGUE TOP EVENT HD</display-name> </channel>
  <channel id="PRIME|THE SIX MILLION DOLLAR MAN ᴿᴬᵂ"> <display-name>PRIME| THE SIX MILLION DOLLAR MAN ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NINJA WARRIOR ᴿᴬᵂ"> <display-name>PRIME| NINJA WARRIOR ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|PATERNITY COURT ᴿᴬᵂ"> <display-name>PRIME| PATERNITY COURT ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|PGA TOUR ᴿᴬᵂ"> <display-name>PRIME| PGA TOUR ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/J0TY9dG.png"/>
-</channel>
+ <channel id="PRIME|PGA TOUR ᴿᴬᵂ"> <display-name>PRIME| PGA TOUR ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|ID ᴿᴬᵂ"> <display-name>PRIME| ID ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|EURO CRIME ᴿᴬᵂ"> <display-name>PRIME| EURO CRIME ᴿᴬᵂ</display-name>  <icon src="https://s3.amazonaws.com/mtdb.galxy.prod/storage/media-images/channel_thumbnails/cs2tHtt5FV617MaIsWHO7jzMgAGNlwrTj5kaZD2F.png"/>
-</channel>
+ <channel id="PRIME|EURO CRIME ᴿᴬᵂ"> <display-name>PRIME| EURO CRIME ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|CRIME SCENE TV ᴿᴬᵂ"> <display-name>PRIME| CRIME SCENE TV ᴿᴬᵂ</display-name> </channel>
  <channel id="UK-BBCI|BBC RADIO COVENTRY &amp; WARWICKSHIRE"> <display-name>UK-BBCI| BBC RADIO COVENTRY &amp; WARWICKSHIRE</display-name> </channel>
  <channel id="UK-BBCI|BBC RADIO 1 ANTHEMS"> <display-name>UK-BBCI| BBC RADIO 1 ANTHEMS</display-name> </channel>
- <channel id="UK-BBCI|BBC EVENTS 1"> <display-name>UK-BBCI| BBC EVENTS 1</display-name>  <icon src="https://i.imgur.com/bVUEmx9.png"/>
-</channel>
+ <channel id="UK-BBCI|BBC EVENTS 1"> <display-name>UK-BBCI| BBC EVENTS 1</display-name> </channel>
  <channel id="UK-BBCI|BBC EVENTS 1 (UHD/4K)"> <display-name>UK-BBCI| BBC EVENTS 1 (UHD/4K)</display-name> </channel>
  <channel id="UK-NOWTV|SKY BOURNE FHD"> <display-name>UK-NOWTV| SKY BOURNE FHD</display-name> </channel>
- <channel id="UK-NOWTV|SKY BOURNE HD"> <display-name>UK-NOWTV| SKY BOURNE HD</display-name>  <icon src="https://i.imgur.com/NWKIfXy.png"/>
-</channel>
- <channel id="UK-NOWTV|SKY BOURNE HD"> <display-name>UK-NOWTV| SKY BOURNE HD</display-name>  <icon src="https://i.imgur.com/NWKIfXy.png"/>
-</channel>
+ <channel id="UK-NOWTV|SKY BOURNE HD"> <display-name>UK-NOWTV| SKY BOURNE HD</display-name> </channel>
+ <channel id="UK-NOWTV|SKY BOURNE HD"> <display-name>UK-NOWTV| SKY BOURNE HD</display-name> </channel>
  <channel id="IR|LOI 1 HD [LIVE-EVENT]"> <display-name>IR| LOI 1 HD [LIVE-EVENT]</display-name> </channel>
  <channel id="IR|LOI 2 HD [LIVE-EVENT]"> <display-name>IR| LOI 2 HD [LIVE-EVENT]</display-name> </channel>
- <channel id="IR|RTE NEWS"> <display-name>IR| RTE NEWS</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/Updated_RT%C3%89_News_and_Current_Affairs_Logo.png/960px-Updated_RT%C3%89_News_and_Current_Affairs_Logo.png"/>
-</channel>
+ <channel id="IR|RTE NEWS"> <display-name>IR| RTE NEWS</display-name> </channel>
  <channel id="24/7 DIABLO GUARDIÓN|"> <display-name>24/7 DIABLO GUARDIÓN| </display-name> </channel>
  <channel id="EN|THE CROCODILE DUNDEE"> <display-name>EN| THE CROCODILE DUNDEE</display-name> </channel>
- <channel id="EN|PARANORMAL ACTIVITY"> <display-name>EN| PARANORMAL ACTIVITY</display-name>  <icon src="https://i.imgur.com/XEsRjF3.png"/>
-</channel>
- <channel id="EN|LIFE TIME"> <display-name>EN| LIFE TIME</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_Lifetime_2020.svg/960px-Logo_Lifetime_2020.svg.png"/>
-</channel>
+ <channel id="EN|PARANORMAL ACTIVITY"> <display-name>EN| PARANORMAL ACTIVITY</display-name> </channel>
+ <channel id="EN|LIFE TIME"> <display-name>EN| LIFE TIME</display-name> </channel>
  <channel id="WC-4K|UNIVERSO UHD 3840P"> <display-name>WC-4K| UNIVERSO UHD 3840P</display-name> </channel>
  <channel id="WC-4K|M6 UHD 3840P"> <display-name>WC-4K| M6 UHD 3840P</display-name> </channel>
- <channel id="WC|NW SPORT 4 FHD"> <display-name>WC| NW SPORT 4 FHD</display-name>  <icon src="https://i.imgur.com/VzQp0ek.png"/>
-</channel>
+ <channel id="WC|NW SPORT 4 FHD"> <display-name>WC| NW SPORT 4 FHD</display-name> </channel>
  <channel id="WC|MATH GR FHD"> <display-name>WC| MATH GR FHD</display-name> </channel>
- <channel id="WC|SPORT TV + PT HD"> <display-name>WC| SPORT TV + PT HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/8/88/Action24-logo-small.png"/>
-</channel>
+ <channel id="WC|SPORT TV + PT HD"> <display-name>WC| SPORT TV + PT HD</display-name> </channel>
  <channel id="WC|(FR) M6 (UHD/4K)"> <display-name>WC| (FR) M6 (UHD/4K)</display-name> </channel>
  <channel id="WC|(US) FUBO SPORTS XTRA (FHD)"> <display-name>WC| (US) FUBO SPORTS XTRA (FHD)</display-name> </channel>
  <channel id="UK|COMEDY 24/7 HD"> <display-name>UK| COMEDY 24/7 HD</display-name> </channel>
@@ -257,23 +178,19 @@
  <channel id="EN|WAR MOVIES 5 FHD"> <display-name>EN| WAR MOVIES 5 FHD</display-name> </channel>
  <channel id="EN|WAYANS BROS"> <display-name>EN| WAYANS BROS</display-name> </channel>
  <channel id="EN|WRONG TURN"> <display-name>EN| WRONG TURN</display-name> </channel>
- <channel id="EN|UNDERWORLD"> <display-name>EN| UNDERWORLD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/ChannelLogo-ERTWORLD1.png/960px-ChannelLogo-ERTWORLD1.png"/>
-</channel>
+ <channel id="EN|UNDERWORLD"> <display-name>EN| UNDERWORLD</display-name> </channel>
  <channel id="EN|VAN DAMME"> <display-name>EN| VAN DAMME</display-name> </channel>
  <channel id="EN|VAN DAMME"> <display-name>EN| VAN DAMME</display-name> </channel>
  <channel id="EN|WAR MOVIES 1 FHD"> <display-name>EN| WAR MOVIES 1 FHD</display-name> </channel>
  <channel id="EN|THE STEVE HARVEY SHOW"> <display-name>EN| THE STEVE HARVEY SHOW</display-name> </channel>
  <channel id="EN|THE WOLVERINE"> <display-name>EN| THE WOLVERINE</display-name> </channel>
  <channel id="EN|TOMB RAIDER"> <display-name>EN| TOMB RAIDER</display-name> </channel>
- <channel id="EN|TOM HARDY COLLECTION"> <display-name>EN| TOM HARDY COLLECTION</display-name>  <icon src="https://images.pluto.tv/channels/646b14d0e1979c0008915a09/colorLogoPNG.png"/>
-</channel>
- <channel id="EN|TOP MOVIES"> <display-name>EN| TOP MOVIES</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/0/06/TapMovies-ph.png"/>
-</channel>
+ <channel id="EN|TOM HARDY COLLECTION"> <display-name>EN| TOM HARDY COLLECTION</display-name> </channel>
+ <channel id="EN|TOP MOVIES"> <display-name>EN| TOP MOVIES</display-name> </channel>
  <channel id="EN|THE PARKERS"> <display-name>EN| THE PARKERS</display-name> </channel>
  <channel id="EN|THE PURGE"> <display-name>EN| THE PURGE</display-name> </channel>
  <channel id="EN|THE SMURFS"> <display-name>EN| THE SMURFS</display-name> </channel>
- <channel id="EN|THE HORROR CHANNEL 4K"> <display-name>EN| THE HORROR CHANNEL 4K</display-name>  <icon src="https://i.imgur.com/dN2OsIT.png"/>
-</channel>
+ <channel id="EN|THE HORROR CHANNEL 4K"> <display-name>EN| THE HORROR CHANNEL 4K</display-name> </channel>
  <channel id="EN|THE HUNGER GAMES"> <display-name>EN| THE HUNGER GAMES</display-name> </channel>
  <channel id="EN|THE JEFFERSONS"> <display-name>EN| THE JEFFERSONS</display-name> </channel>
  <channel id="EN|THE MATRIX"> <display-name>EN| THE MATRIX</display-name> </channel>
@@ -286,95 +203,65 @@
  <channel id="EN|THE A-TEAM"> <display-name>EN| THE A-TEAM</display-name> </channel>
  <channel id="EN|THE AVENGERS"> <display-name>EN| THE AVENGERS</display-name> </channel>
  <channel id="EN|THE CROCODILE"> <display-name>EN| THE CROCODILE</display-name> </channel>
- <channel id="EN|SPY KIDS"> <display-name>EN| SPY KIDS</display-name>  <icon src="https://d2n0069hmnqmmx.cloudfront.net/epgdata/1.0/newchanlogos/512/512/skychb1147.png"/>
-</channel>
+ <channel id="EN|SPY KIDS"> <display-name>EN| SPY KIDS</display-name> </channel>
  <channel id="EN|STAND UP COMEDY FHD"> <display-name>EN| STAND UP COMEDY FHD</display-name> </channel>
- <channel id="EN|STAR TREK"> <display-name>EN| STAR TREK</display-name>  <icon src="https://i.imgur.com/8cvXYiT.png"/>
-</channel>
- <channel id="EN|STAR WARS"> <display-name>EN| STAR WARS</display-name>  <icon src="https://i.imgur.com/Sn7QnZa.png"/>
-</channel>
+ <channel id="EN|STAR TREK"> <display-name>EN| STAR TREK</display-name> </channel>
+ <channel id="EN|STAR WARS"> <display-name>EN| STAR WARS</display-name> </channel>
  <channel id="EN|STEVEN SEGAL 4K"> <display-name>EN| STEVEN SEGAL 4K</display-name> </channel>
  <channel id="EN|RUSH HOUR"> <display-name>EN| RUSH HOUR</display-name> </channel>
- <channel id="EN|SCARY MOVIE"> <display-name>EN| SCARY MOVIE</display-name>  <icon src="https://dtil.tmsimg.com/assets/s143829_ld_h15_aa.png?lock=720x540"/>
-</channel>
- <channel id="EN|PAW PATROL"> <display-name>EN| PAW PATROL</display-name>  <icon src="https://i.imgur.com/VduMjj6.png"/>
-</channel>
- <channel id="EN|PIXAR CHANNEL"> <display-name>EN| PIXAR CHANNEL</display-name>  <icon src="https://i.imgur.com/FXn4hko.png"/>
-</channel>
- <channel id="EN|PLANET OF THE APES"> <display-name>EN| PLANET OF THE APES</display-name>  <icon src="https://i.imgur.com/h09sbN0.png"/>
-</channel>
+ <channel id="EN|SCARY MOVIE"> <display-name>EN| SCARY MOVIE</display-name> </channel>
+ <channel id="EN|PAW PATROL"> <display-name>EN| PAW PATROL</display-name> </channel>
+ <channel id="EN|PIXAR CHANNEL"> <display-name>EN| PIXAR CHANNEL</display-name> </channel>
+ <channel id="EN|PLANET OF THE APES"> <display-name>EN| PLANET OF THE APES</display-name> </channel>
  <channel id="EN|RESIDENT EVIL"> <display-name>EN| RESIDENT EVIL</display-name> </channel>
  <channel id="EN|NIGHT AT THE MUSEUM"> <display-name>EN| NIGHT AT THE MUSEUM</display-name> </channel>
- <channel id="EN|PARANORMAL"> <display-name>EN| PARANORMAL</display-name>  <icon src="https://i.imgur.com/XEsRjF3.png"/>
-</channel>
+ <channel id="EN|PARANORMAL"> <display-name>EN| PARANORMAL</display-name> </channel>
  <channel id="EN|MEN IN BLACK"> <display-name>EN| MEN IN BLACK</display-name> </channel>
  <channel id="EN|MORTAL KOMBAT"> <display-name>EN| MORTAL KOMBAT</display-name> </channel>
  <channel id="EN|LETHAL WEAPON"> <display-name>EN| LETHAL WEAPON</display-name> </channel>
- <channel id="EN|LIFE TIME"> <display-name>EN| LIFE TIME</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_Lifetime_2020.svg/960px-Logo_Lifetime_2020.svg.png"/>
-</channel>
+ <channel id="EN|LIFE TIME"> <display-name>EN| LIFE TIME</display-name> </channel>
  <channel id="EN|JAMES BOND 007"> <display-name>EN| JAMES BOND 007</display-name> </channel>
  <channel id="EN|JEEPERS CREEPERS"> <display-name>EN| JEEPERS CREEPERS</display-name> </channel>
  <channel id="EN|JOHN WICK"> <display-name>EN| JOHN WICK</display-name> </channel>
  <channel id="EN|JURASSIC WORLD/PARK"> <display-name>EN| JURASSIC WORLD/PARK</display-name> </channel>
- <channel id="EN|INDIANA JONES"> <display-name>EN| INDIANA JONES</display-name>  <icon src="https://dtil.tmsimg.com/assets/s143190_ld_h15_aa.png?lock=720x540"/>
-</channel>
+ <channel id="EN|INDIANA JONES"> <display-name>EN| INDIANA JONES</display-name> </channel>
  <channel id="EN|INSIDIOUS"> <display-name>EN| INSIDIOUS</display-name> </channel>
  <channel id="EN|IN THE HEAT OF THE NIGHT"> <display-name>EN| IN THE HEAT OF THE NIGHT</display-name> </channel>
- <channel id="EN|IRON MAN"> <display-name>EN| IRON MAN</display-name>  <icon src="https://i.imgur.com/KFISeeJ.jpeg"/>
-</channel>
- <channel id="EN|GUNSMOKE"> <display-name>EN| GUNSMOKE</display-name>  <icon src="https://images.pluto.tv/channels/68503d1736c9361b191e7d89/colorLogoPNG_1750164496728.png"/>
-</channel>
- <channel id="EN|HALLMARK CHANNEL"> <display-name>EN| HALLMARK CHANNEL</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Hallmark_Channel.svg/960px-Hallmark_Channel.svg.png"/>
-</channel>
+ <channel id="EN|IRON MAN"> <display-name>EN| IRON MAN</display-name> </channel>
+ <channel id="EN|GUNSMOKE"> <display-name>EN| GUNSMOKE</display-name> </channel>
+ <channel id="EN|HALLMARK CHANNEL"> <display-name>EN| HALLMARK CHANNEL</display-name> </channel>
  <channel id="EN|HALLOWEEN 4K"> <display-name>EN| HALLOWEEN 4K</display-name> </channel>
  <channel id="EN|HONEYMOONERS"> <display-name>EN| HONEYMOONERS</display-name> </channel>
- <channel id="EN|HORROR CHANNEL"> <display-name>EN| HORROR CHANNEL</display-name>  <icon src="https://i.imgur.com/VvNflYm.png"/>
-</channel>
+ <channel id="EN|HORROR CHANNEL"> <display-name>EN| HORROR CHANNEL</display-name> </channel>
  <channel id="EN|GARDIANS OF THE GALAXY"> <display-name>EN| GARDIANS OF THE GALAXY</display-name> </channel>
- <channel id="EN|GHOSTBUSTERS"> <display-name>EN| GHOSTBUSTERS</display-name>  <icon src="https://i.imgur.com/KdBr6rG.png"/>
-</channel>
- <channel id="EN|GIRLFRIENDS"> <display-name>EN| GIRLFRIENDS</display-name>  <icon src="https://i.imgur.com/hCcdrOv.png"/>
-</channel>
- <channel id="EN|GOOD TIMES"> <display-name>EN| GOOD TIMES</display-name>  <icon src="https://i.imgur.com/gxCYAwH.png"/>
-</channel>
+ <channel id="EN|GHOSTBUSTERS"> <display-name>EN| GHOSTBUSTERS</display-name> </channel>
+ <channel id="EN|GIRLFRIENDS"> <display-name>EN| GIRLFRIENDS</display-name> </channel>
+ <channel id="EN|GOOD TIMES"> <display-name>EN| GOOD TIMES</display-name> </channel>
  <channel id="EN|GUARDIANS OF THE GALAXY"> <display-name>EN| GUARDIANS OF THE GALAXY</display-name> </channel>
  <channel id="EN|DR STRANGE"> <display-name>EN| DR STRANGE</display-name> </channel>
- <channel id="EN|FAMILY MATTERS"> <display-name>EN| FAMILY MATTERS</display-name>  <icon src="https://images.pluto.tv/channels/654a4a3ef91d250008ac089b/colorLogoPNG.png"/>
-</channel>
+ <channel id="EN|FAMILY MATTERS"> <display-name>EN| FAMILY MATTERS</display-name> </channel>
  <channel id="EN|FAST &amp; FURIOUS"> <display-name>EN| FAST &amp; FURIOUS</display-name> </channel>
- <channel id="EN|DISNEY+ CLASSIC"> <display-name>EN| DISNEY+ CLASSIC</display-name>  <icon src="https://i.imgur.com/c71R04L.png"/>
-</channel>
- <channel id="EN|DISNEY+ COMEDY"> <display-name>EN| DISNEY+ COMEDY</display-name>  <icon src="https://jiotvimages.cdn.jio.com/dare_images/images/Gemini_Comedy.png"/>
-</channel>
- <channel id="EN|DISNEY+ KIDS"> <display-name>EN| DISNEY+ KIDS</display-name>  <icon src="https://i.imgur.com/2JPtmZR.png"/>
-</channel>
- <channel id="EN|DISNEY+ MARVEL"> <display-name>EN| DISNEY+ MARVEL</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/3/3d/2022_Disney_Channel_logo.svg"/>
-</channel>
+ <channel id="EN|DISNEY+ CLASSIC"> <display-name>EN| DISNEY+ CLASSIC</display-name> </channel>
+ <channel id="EN|DISNEY+ COMEDY"> <display-name>EN| DISNEY+ COMEDY</display-name> </channel>
+ <channel id="EN|DISNEY+ KIDS"> <display-name>EN| DISNEY+ KIDS</display-name> </channel>
+ <channel id="EN|DISNEY+ MARVEL"> <display-name>EN| DISNEY+ MARVEL</display-name> </channel>
  <channel id="EN|DISNEY+ NAT GEO"> <display-name>EN| DISNEY+ NAT GEO</display-name> </channel>
- <channel id="EN|DISNEY+PIXAR"> <display-name>EN| DISNEY+PIXAR</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/a/a8/2015_Disney_XD_logo.svg"/>
-</channel>
- <channel id="EN|DISNEY+ ROMANCE"> <display-name>EN| DISNEY+ ROMANCE</display-name>  <icon src="https://i.imgur.com/eu5Wffg.png"/>
-</channel>
+ <channel id="EN|DISNEY+PIXAR"> <display-name>EN| DISNEY+PIXAR</display-name> </channel>
+ <channel id="EN|DISNEY+ ROMANCE"> <display-name>EN| DISNEY+ ROMANCE</display-name> </channel>
  <channel id="EN|DOCTOR STRANGE"> <display-name>EN| DOCTOR STRANGE</display-name> </channel>
- <channel id="EN|CLASSIC WAR MOVIES 2 FHD"> <display-name>EN| CLASSIC WAR MOVIES 2 FHD</display-name>  <icon src="https://i.imgur.com/PwgiHUQ.png"/>
-</channel>
+ <channel id="EN|CLASSIC WAR MOVIES 2 FHD"> <display-name>EN| CLASSIC WAR MOVIES 2 FHD</display-name> </channel>
  <channel id="EN|DICK VAN DYKE"> <display-name>EN| DICK VAN DYKE</display-name> </channel>
  <channel id="EN|DIE HARD"> <display-name>EN| DIE HARD</display-name> </channel>
- <channel id="EN|CAPTAIN AMERICA"> <display-name>EN| CAPTAIN AMERICA</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/E%21_Logo_2012.svg/500px-E%21_Logo_2012.svg.png"/>
-</channel>
+ <channel id="EN|CAPTAIN AMERICA"> <display-name>EN| CAPTAIN AMERICA</display-name> </channel>
  <channel id="EN|CHARLIES ANGELS"> <display-name>EN| CHARLIES ANGELS</display-name> </channel>
- <channel id="EN|CLASSIC WAR MOVIES 1 FHD"> <display-name>EN| CLASSIC WAR MOVIES 1 FHD</display-name>  <icon src="https://i.imgur.com/PwgiHUQ.png"/>
-</channel>
+ <channel id="EN|CLASSIC WAR MOVIES 1 FHD"> <display-name>EN| CLASSIC WAR MOVIES 1 FHD</display-name> </channel>
  <channel id="EN|BRAD PITT 4K"> <display-name>EN| BRAD PITT 4K</display-name> </channel>
  <channel id="EN|BRIDGET JONES DIARY"> <display-name>EN| BRIDGET JONES DIARY</display-name> </channel>
  <channel id="EN|A DIFFERENT WORLD"> <display-name>EN| A DIFFERENT WORLD</display-name> </channel>
- <channel id="EN|AMERICAN DAD"> <display-name>EN| AMERICAN DAD</display-name>  <icon src="https://i.imgur.com/JmXBvzn.png"/>
-</channel>
- <channel id="EN|ANIME TV"> <display-name>EN| ANIME TV</display-name>  <icon src="https://i.imgur.com/CFSSTID.png"/>
-</channel>
+ <channel id="EN|AMERICAN DAD"> <display-name>EN| AMERICAN DAD</display-name> </channel>
+ <channel id="EN|ANIME TV"> <display-name>EN| ANIME TV</display-name> </channel>
  <channel id="EN|ANNABELLE"> <display-name>EN| ANNABELLE</display-name> </channel>
- <channel id="EN|80s MOVIES 4K"> <display-name>EN| 80s MOVIES 4K</display-name>  <icon src="https://i.imgur.com/bQktnAn.png"/>
-</channel>
+ <channel id="EN|80s MOVIES 4K"> <display-name>EN| 80s MOVIES 4K</display-name> </channel>
  <channel id="BEIN SPORTS MAX 4 EN SD|"> <display-name>BEIN SPORTS MAX 4 EN SD| </display-name> </channel>
  <channel id="BEIN SPORTS MAX 4 EN HEVC|"> <display-name>BEIN SPORTS MAX 4 EN HEVC| </display-name> </channel>
  <channel id="BEIN SPORTS MAX 4 EN ᴴᴰ|"> <display-name>BEIN SPORTS MAX 4 EN ᴴᴰ| </display-name> </channel>
@@ -423,129 +310,84 @@
  <channel id="DE|GRUPPE B"> <display-name>DE| GRUPPE B</display-name> </channel>
  <channel id="DE|GRUPPE A"> <display-name>DE| GRUPPE A</display-name> </channel>
  <channel id="WC|ORTM FHD"> <display-name>WC| ORTM FHD</display-name> </channel>
- <channel id="WC|AZAM SPORTS 1 FHD"> <display-name>WC| AZAM SPORTS 1 FHD</display-name>  <icon src="https://i.imgur.com/IfiS9MK.png"/>
-</channel>
- <channel id="WC|AZAM SPORTS 2 FHD"> <display-name>WC| AZAM SPORTS 2 FHD</display-name>  <icon src="https://i.imgur.com/aJb0GWK.png"/>
-</channel>
- <channel id="WC|AZAM SPORTS 3 FHD"> <display-name>WC| AZAM SPORTS 3 FHD</display-name>  <icon src="https://i.imgur.com/E1h70Ev.png"/>
-</channel>
- <channel id="WC|AZAM SPORTS 4 FHD"> <display-name>WC| AZAM SPORTS 4 FHD</display-name>  <icon src="https://i.imgur.com/E1h70Ev.png"/>
-</channel>
- <channel id="WC|NW SPORT 1 FHD"> <display-name>WC| NW SPORT 1 FHD</display-name>  <icon src="https://i.imgur.com/gIR8iap.png"/>
-</channel>
- <channel id="WC|NW SPORT 2 FHD"> <display-name>WC| NW SPORT 2 FHD</display-name>  <icon src="https://i.imgur.com/Fti47P7.png"/>
-</channel>
- <channel id="WC|NW SPORT 3 FHD"> <display-name>WC| NW SPORT 3 FHD</display-name>  <icon src="https://i.imgur.com/kgo9uwH.png"/>
-</channel>
- <channel id="WC|TVP SPORT FHD"> <display-name>WC| TVP SPORT FHD</display-name>  <icon src="https://i.imgur.com/JUZDOCO.png"/>
-</channel>
+ <channel id="WC|AZAM SPORTS 1 FHD"> <display-name>WC| AZAM SPORTS 1 FHD</display-name> </channel>
+ <channel id="WC|AZAM SPORTS 2 FHD"> <display-name>WC| AZAM SPORTS 2 FHD</display-name> </channel>
+ <channel id="WC|AZAM SPORTS 3 FHD"> <display-name>WC| AZAM SPORTS 3 FHD</display-name> </channel>
+ <channel id="WC|AZAM SPORTS 4 FHD"> <display-name>WC| AZAM SPORTS 4 FHD</display-name> </channel>
+ <channel id="WC|NW SPORT 1 FHD"> <display-name>WC| NW SPORT 1 FHD</display-name> </channel>
+ <channel id="WC|NW SPORT 2 FHD"> <display-name>WC| NW SPORT 2 FHD</display-name> </channel>
+ <channel id="WC|NW SPORT 3 FHD"> <display-name>WC| NW SPORT 3 FHD</display-name> </channel>
+ <channel id="WC|TVP SPORT FHD"> <display-name>WC| TVP SPORT FHD</display-name> </channel>
  <channel id="WC|ENTV ALGERIA FHD"> <display-name>WC| ENTV ALGERIA FHD</display-name> </channel>
- <channel id="WC|ARRYADIA TNT"> <display-name>WC| ARRYADIA TNT</display-name>  <icon src="https://i.imgur.com/XjzK3gZ.png"/>
-</channel>
- <channel id="WC|CT SPORT FHD"> <display-name>WC| CT SPORT FHD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%C4%8CT_sport_logo.png/960px-%C4%8CT_sport_logo.png"/>
-</channel>
- <channel id="WC|BHT 1 FHD"> <display-name>WC| BHT 1 FHD</display-name>  <icon src="https://i.imgur.com/iPPA4Km.png"/>
-</channel>
- <channel id="WC|HRT 2 FHD"> <display-name>WC| HRT 2 FHD</display-name>  <icon src="https://i.imgur.com/Gu9s5TB.png"/>
-</channel>
- <channel id="WC|LA 1 FHD"> <display-name>WC| LA 1 FHD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NBC_logo_2022_%28vertical%29.svg/960px-NBC_logo_2022_%28vertical%29.svg.png"/>
-</channel>
+ <channel id="WC|ARRYADIA TNT"> <display-name>WC| ARRYADIA TNT</display-name> </channel>
+ <channel id="WC|CT SPORT FHD"> <display-name>WC| CT SPORT FHD</display-name> </channel>
+ <channel id="WC|BHT 1 FHD"> <display-name>WC| BHT 1 FHD</display-name> </channel>
+ <channel id="WC|HRT 2 FHD"> <display-name>WC| HRT 2 FHD</display-name> </channel>
+ <channel id="WC|LA 1 FHD"> <display-name>WC| LA 1 FHD</display-name> </channel>
  <channel id="UK|ITV SIGNED ᴴᴰ"> <display-name>UK| ITV SIGNED ᴴᴰ</display-name> </channel>
  <channel id="UK|LOVE ISLAND 24/7 ᴴᴰ"> <display-name>UK| LOVE ISLAND 24/7 ᴴᴰ</display-name> </channel>
- <channel id="UK|MIDSOMER MURDERS ᴴᴰ"> <display-name>UK| MIDSOMER MURDERS ᴴᴰ</display-name>  <icon src="https://i.imgur.com/VFqfyfY.png"/>
-</channel>
+ <channel id="UK|MIDSOMER MURDERS ᴴᴰ"> <display-name>UK| MIDSOMER MURDERS ᴴᴰ</display-name> </channel>
  <channel id="UK|REALITY 24/7 ᴴᴰ"> <display-name>UK| REALITY 24/7 ᴴᴰ</display-name> </channel>
  <channel id="UK|SATURDAY NIGHT EVERY NIGHT! ᴴᴰ"> <display-name>UK| SATURDAY NIGHT EVERY NIGHT! ᴴᴰ</display-name> </channel>
- <channel id="UK|TOWIE TV ᴴᴰ"> <display-name>UK| TOWIE TV ᴴᴰ</display-name>  <icon src="https://i.imgur.com/eQSdHbp.png"/>
-</channel>
- <channel id="UK|VERA ᴴᴰ"> <display-name>UK| VERA ᴴᴰ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Telemundo_logo_2018.svg/960px-Telemundo_logo_2018.svg.png"/>
-</channel>
- <channel id="UK|NFL ᴴᴰ"> <display-name>UK| NFL ᴴᴰ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/8/89/PBS_logo_2019.svg"/>
-</channel>
+ <channel id="UK|TOWIE TV ᴴᴰ"> <display-name>UK| TOWIE TV ᴴᴰ</display-name> </channel>
+ <channel id="UK|VERA ᴴᴰ"> <display-name>UK| VERA ᴴᴰ</display-name> </channel>
+ <channel id="UK|NFL ᴴᴰ"> <display-name>UK| NFL ᴴᴰ</display-name> </channel>
  <channel id="UK|PREMIER LEAGUE TOP EVENT FHD"> <display-name>UK| PREMIER LEAGUE TOP EVENT FHD</display-name> </channel>
  <channel id="UK|PREMIER LEAGUE TOP EVENT ᴴᴰ"> <display-name>UK| PREMIER LEAGUE TOP EVENT ᴴᴰ</display-name> </channel>
- <channel id="UK|ASTRO Premier League 2 HD"> <display-name>UK| ASTRO Premier League 2 HD</display-name>  <icon src="https://i.imgur.com/QtsG3ra.png"/>
-</channel>
- <channel id="UK|ASTRO Grandstand"> <display-name>UK| ASTRO Grandstand</display-name>  <icon src="https://i.imgur.com/d1UQXPt.png"/>
-</channel>
- <channel id="UK|SUPERSPORTS PLAY 2 HD"> <display-name>UK| SUPERSPORTS PLAY 2 HD</display-name>  <icon src="https://i.imgur.com/EJoOr1g.png"/>
-</channel>
- <channel id="UK|SUPERSPORTS MAXIMO HD"> <display-name>UK| SUPERSPORTS MAXIMO HD</display-name>  <icon src="https://i.imgur.com/1aKRrzH.png"/>
-</channel>
- <channel id="HR|DISCOVERY ⱽᴵᴾ ᴿᴬᵂ"> <display-name>HR| DISCOVERY ⱽᴵᴾ ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/D17gyh2.png"/>
-</channel>
- <channel id="BA|HAYAT FOLK ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| HAYAT FOLK ⱽᴵᴾ ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/LteJva4.png"/>
-</channel>
- <channel id="BA|HAYAT MUSIC ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| HAYAT MUSIC ⱽᴵᴾ ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/9p8q1yX.png"/>
-</channel>
+ <channel id="UK|ASTRO Premier League 2 HD"> <display-name>UK| ASTRO Premier League 2 HD</display-name> </channel>
+ <channel id="UK|ASTRO Grandstand"> <display-name>UK| ASTRO Grandstand</display-name> </channel>
+ <channel id="UK|SUPERSPORTS PLAY 2 HD"> <display-name>UK| SUPERSPORTS PLAY 2 HD</display-name> </channel>
+ <channel id="UK|SUPERSPORTS MAXIMO HD"> <display-name>UK| SUPERSPORTS MAXIMO HD</display-name> </channel>
+ <channel id="HR|DISCOVERY ⱽᴵᴾ ᴿᴬᵂ"> <display-name>HR| DISCOVERY ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
+ <channel id="BA|HAYAT FOLK ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| HAYAT FOLK ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
+ <channel id="BA|HAYAT MUSIC ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| HAYAT MUSIC ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
  <channel id="BA|BN MUSIC ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| BN MUSIC ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
- <channel id="BA|HAYATOVCI ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| HAYATOVCI ⱽᴵᴾ ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/eqd3kvW.png"/>
-</channel>
- <channel id="BA|RTRS PLUS ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| RTRS PLUS ⱽᴵᴾ ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/k06WvYl.png"/>
-</channel>
+ <channel id="BA|HAYATOVCI ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| HAYATOVCI ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
+ <channel id="BA|RTRS PLUS ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| RTRS PLUS ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
  <channel id="BA|ATV ⱽᴵᴾ ᴿᴬᵂ"> <display-name>BA| ATV ⱽᴵᴾ ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|GHOST HUNTERS ᴿᴬᵂ"> <display-name>PRIME| GHOST HUNTERS ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/KdBr6rG.png"/>
-</channel>
- <channel id="PRIME|MONSTER JAM ᴿᴬᵂ"> <display-name>PRIME| MONSTER JAM ᴿᴬᵂ</display-name>  <icon src="https://images-1.rakuten.tv/storage/global-live-channel/translation/artwork/0734ee9d-7417-4f53-a092-e29d6e8146ee-width200-quality90.jpeg"/>
-</channel>
- <channel id="PRIME|NASH BRIDGES ᴿᴬᵂ"> <display-name>PRIME| NASH BRIDGES ᴿᴬᵂ</display-name>  <icon src="https://images.pluto.tv/channels/666021cccb3ea10008406866/colorLogoPNG.png"/>
-</channel>
+ <channel id="PRIME|GHOST HUNTERS ᴿᴬᵂ"> <display-name>PRIME| GHOST HUNTERS ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|MONSTER JAM ᴿᴬᵂ"> <display-name>PRIME| MONSTER JAM ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|NASH BRIDGES ᴿᴬᵂ"> <display-name>PRIME| NASH BRIDGES ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NBC 4 Washington News ᴿᴬᵂ"> <display-name>PRIME| NBC 4 Washington News ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NBC 7 washington nc (WITN) ᴿᴬᵂ"> <display-name>PRIME| NBC 7 washington nc (WITN) ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|The Dog Whisperer with Cesar Millan ᴿᴬᵂ"> <display-name>PRIME| The Dog Whisperer with Cesar Millan ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Uefa Champions League ᴿᴬᵂ"> <display-name>PRIME| Uefa Champions League ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/GdhcGgu.png"/>
-</channel>
+ <channel id="PRIME|Uefa Champions League ᴿᴬᵂ"> <display-name>PRIME| Uefa Champions League ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Chasing Criminals ᴿᴬᵂ"> <display-name>PRIME| Chasing Criminals ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Celebrity Name Game ᴿᴬᵂ"> <display-name>PRIME| Celebrity Name Game ᴿᴬᵂ</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/773232e1-5c36-490b-922e-e5be8ec12eb2/celebrityd5796a3e14bf45513f7b3071b90d030.png"/>
-</channel>
- <channel id="PRIME|CBS News Minnesota ᴿᴬᵂ"> <display-name>PRIME| CBS News Minnesota ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/ubxwfMY.png"/>
-</channel>
- <channel id="PRIME|CBS News Chicago ᴿᴬᵂ"> <display-name>PRIME| CBS News Chicago ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/qGbVQir.png"/>
-</channel>
+ <channel id="PRIME|Celebrity Name Game ᴿᴬᵂ"> <display-name>PRIME| Celebrity Name Game ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|CBS News Minnesota ᴿᴬᵂ"> <display-name>PRIME| CBS News Minnesota ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|CBS News Chicago ᴿᴬᵂ"> <display-name>PRIME| CBS News Chicago ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|CBS Harrisburg (WHP) ᴿᴬᵂ"> <display-name>PRIME| CBS Harrisburg (WHP) ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|CBS Grand Rapids (WWMT) ᴿᴬᵂ"> <display-name>PRIME| CBS Grand Rapids (WWMT) ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|CBS Cincinnati News (WKRC) ᴿᴬᵂ"> <display-name>PRIME| CBS Cincinnati News (WKRC) ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Buzzfeed Unsolved ᴿᴬᵂ"> <display-name>PRIME| Buzzfeed Unsolved ᴿᴬᵂ</display-name>  <icon src="https://images-0.rakuten.tv/storage/global-live-channel/translation/artwork/e16cfcc7-2040-4bd5-8339-16d499f8799e-width200-quality90.png"/>
-</channel>
+ <channel id="PRIME|Buzzfeed Unsolved ᴿᴬᵂ"> <display-name>PRIME| Buzzfeed Unsolved ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Bosch ᴿᴬᵂ"> <display-name>PRIME| Bosch ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Beyond Belief ᴿᴬᵂ"> <display-name>PRIME| Beyond Belief ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|America's Dumbest Criminals ᴿᴬᵂ"> <display-name>PRIME| America's Dumbest Criminals ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|ABC13 Houston ᴿᴬᵂ"> <display-name>PRIME| ABC13 Houston ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|ABC11 North Carolina ᴿᴬᵂ"> <display-name>PRIME| ABC11 North Carolina ᴿᴬᵂ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/8/89/PBS_logo_2019.svg"/>
-</channel>
- <channel id="PRIME|ABC7 Chicago ᴿᴬᵂ"> <display-name>PRIME| ABC7 Chicago ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/2lA3ugS.png"/>
-</channel>
+ <channel id="PRIME|ABC11 North Carolina ᴿᴬᵂ"> <display-name>PRIME| ABC11 North Carolina ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|ABC7 Chicago ᴿᴬᵂ"> <display-name>PRIME| ABC7 Chicago ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Jamie Oliver ᴿᴬᵂ"> <display-name>PRIME| Jamie Oliver ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Isn't It Romantic ᴿᴬᵂ"> <display-name>PRIME| Isn't It Romantic ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Iron Chef ᴿᴬᵂ"> <display-name>PRIME| Iron Chef ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/rk7fMNe.png"/>
-</channel>
+ <channel id="PRIME|Iron Chef ᴿᴬᵂ"> <display-name>PRIME| Iron Chef ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|In The Garage ᴿᴬᵂ"> <display-name>PRIME| In The Garage ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Inside Edition ᴿᴬᵂ"> <display-name>PRIME| Inside Edition ᴿᴬᵂ</display-name>  <icon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfRv4frIAWJ3secOE97Z36L8mLdpVZ19S79yXdqFgjld2-SUNi4okYeqmzptCPK3IK2_Q&amp;usqp=CAU"/>
-</channel>
+ <channel id="PRIME|Inside Edition ᴿᴬᵂ"> <display-name>PRIME| Inside Edition ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Harlem ᴿᴬᵂ"> <display-name>PRIME| Harlem ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Great American Adventures ᴿᴬᵂ"> <display-name>PRIME| Great American Adventures ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Gameplay Roblox ᴿᴬᵂ"> <display-name>PRIME| Gameplay Roblox ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/M8klJdV.png"/>
-</channel>
+ <channel id="PRIME|Gameplay Roblox ᴿᴬᵂ"> <display-name>PRIME| Gameplay Roblox ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Gameplay Minecraft ᴿᴬᵂ"> <display-name>PRIME| Gameplay Minecraft ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fox Grand Rapids News (WXMI) ᴿᴬᵂ"> <display-name>PRIME| Fox Grand Rapids News (WXMI) ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fox 26 Houston ᴿᴬᵂ"> <display-name>PRIME| Fox 26 Houston ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Forensic Files ᴿᴬᵂ"> <display-name>PRIME| Forensic Files ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/V5vvuLK.png"/>
-</channel>
+ <channel id="PRIME|Forensic Files ᴿᴬᵂ"> <display-name>PRIME| Forensic Files ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Family Unscripted ᴿᴬᵂ"> <display-name>PRIME| Family Unscripted ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Don't Tell The Bride ᴿᴬᵂ"> <display-name>PRIME| Don't Tell The Bride ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/h0bc3Fa.png"/>
-</channel>
- <channel id="PRIME|Degrassi ᴿᴬᵂ"> <display-name>PRIME| Degrassi ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/vhSzfDC.png"/>
-</channel>
+ <channel id="PRIME|Don't Tell The Bride ᴿᴬᵂ"> <display-name>PRIME| Don't Tell The Bride ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Degrassi ᴿᴬᵂ"> <display-name>PRIME| Degrassi ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Dance Moms ᴿᴬᵂ"> <display-name>PRIME| Dance Moms ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Crime Thrillher ᴿᴬᵂ"> <display-name>PRIME| Crime Thrillher ᴿᴬᵂ</display-name>  <icon src="https://img3.static-ottera.com/prod/run/linear_channel/thumbnails/widescreen/360x180/runtime_thriller.jpg"/>
-</channel>
+ <channel id="PRIME|Crime Thrillher ᴿᴬᵂ"> <display-name>PRIME| Crime Thrillher ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Corner Gas ᴿᴬᵂ"> <display-name>PRIME| Corner Gas ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NBC 10 Philadelphia News ᴿᴬᵂ"> <display-name>PRIME| NBC 10 Philadelphia News ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|The FBI Files ᴿᴬᵂ"> <display-name>PRIME| The FBI Files ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/vzYDSLo.png"/>
-</channel>
+ <channel id="PRIME|The FBI Files ᴿᴬᵂ"> <display-name>PRIME| The FBI Files ᴿᴬᵂ</display-name> </channel>
  <channel id="RS|MASA I MEDVJED"> <display-name>RS| MASA I MEDVJED</display-name> </channel>
- <channel id="RS|DM SAT"> <display-name>RS| DM SAT</display-name>  <icon src="https://i.imgur.com/LdeA1Cn.png"/>
-</channel>
+ <channel id="RS|DM SAT"> <display-name>RS| DM SAT</display-name> </channel>
  <channel id="DE|SHOGUN S01 4K"> <display-name>DE| SHOGUN S01 4K</display-name> </channel>
  <channel id="DE|4 BLOCKS S01 4k"> <display-name>DE| 4 BLOCKS S01 4k</display-name>  <icon src="https://simg.nicepng.com/png/small/117-1174447_4-blocks-logo-4-blocks-logo-png.png"/>
 </channel>
@@ -558,8 +400,7 @@
  <channel id="DE|PEAKY BLINDERS"> <display-name>DE| PEAKY BLINDERS</display-name> </channel>
  <channel id="DE|THE WITCHER 2019"> <display-name>DE| THE WITCHER 2019</display-name> </channel>
  <channel id="DE|VIKINGS: VALHALLA"> <display-name>DE| VIKINGS: VALHALLA</display-name> </channel>
- <channel id="DE|THE LAST KINGDOM"> <display-name>DE| THE LAST KINGDOM</display-name>  <icon src="https://i.imgur.com/q0Lmqy1.png"/>
-</channel>
+ <channel id="DE|THE LAST KINGDOM"> <display-name>DE| THE LAST KINGDOM</display-name> </channel>
  <channel id="DE|VIKINGS S01-S04"> <display-name>DE| VIKINGS S01-S04</display-name> </channel>
  <channel id="DE|KINGDOM 2014 FHD"> <display-name>DE| KINGDOM 2014 FHD</display-name> </channel>
  <channel id="DE|MARVEL'S AGENT CARTER FHD"> <display-name>DE| MARVEL'S AGENT CARTER FHD</display-name> </channel>
@@ -577,29 +418,19 @@
  <channel id="DE|DAZN BAR 2 HEVC"> <display-name>DE| DAZN BAR 2 HEVC</display-name> </channel>
  <channel id="DE|BUNDESLIGA (DAZN STREAM)"> <display-name>DE| BUNDESLIGA (DAZN STREAM)</display-name> </channel>
  <channel id="PRIME|TOP CHEF RAW"> <display-name>PRIME| TOP CHEF RAW</display-name> </channel>
- <channel id="PRIME|NOW ROCK RAW"> <display-name>PRIME| NOW ROCK RAW</display-name>  <icon src="https://i.imgur.com/GuM4GnX.png"/>
-</channel>
- <channel id="US|NBC 4 WASHINGTON DC (Y)"> <display-name>US| NBC 4 WASHINGTON DC (Y)</display-name>  <icon src="https://i.imgur.com/j9mVaf3.png"/>
-</channel>
+ <channel id="PRIME|NOW ROCK RAW"> <display-name>PRIME| NOW ROCK RAW</display-name> </channel>
+ <channel id="US|NBC 4 WASHINGTON DC (Y)"> <display-name>US| NBC 4 WASHINGTON DC (Y)</display-name> </channel>
  <channel id="US|NBC 7 WASHINGTON NC (WITN)"> <display-name>US| NBC 7 WASHINGTON NC (WITN)</display-name> </channel>
- <channel id="MO|NEWSMAX BALKANS"> <display-name>MO| NEWSMAX BALKANS</display-name>  <icon src="https://i.imgur.com/BXFPz8c.png"/>
-</channel>
- <channel id="MO|EURONEWS MONTENEGRO"> <display-name>MO| EURONEWS MONTENEGRO</display-name>  <icon src="https://i.imgur.com/8t9mdg9.png"/>
-</channel>
- <channel id="HR|DISCOVERY VIP RAW"> <display-name>HR| DISCOVERY VIP RAW</display-name>  <icon src="https://i.imgur.com/D17gyh2.png"/>
-</channel>
- <channel id="RS|SYFY"> <display-name>RS| SYFY</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/d/d1/SciFi_2026.svg"/>
-</channel>
- <channel id="HR|NICK JUNIOR"> <display-name>HR| NICK JUNIOR</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nick_Jr._logo_2023_(outline).svg/960px-Nick_Jr._logo_2023_(outline).svg.png"/>
-</channel>
+ <channel id="MO|NEWSMAX BALKANS"> <display-name>MO| NEWSMAX BALKANS</display-name> </channel>
+ <channel id="MO|EURONEWS MONTENEGRO"> <display-name>MO| EURONEWS MONTENEGRO</display-name> </channel>
+ <channel id="HR|DISCOVERY VIP RAW"> <display-name>HR| DISCOVERY VIP RAW</display-name> </channel>
+ <channel id="RS|SYFY"> <display-name>RS| SYFY</display-name> </channel>
+ <channel id="HR|NICK JUNIOR"> <display-name>HR| NICK JUNIOR</display-name> </channel>
  <channel id="UK|KIDZ BOP-DIRECT HD"> <display-name>UK| KIDZ BOP-DIRECT HD</display-name> </channel>
  <channel id="UK|KIDZ ONLY!-DIRECT HD"> <display-name>UK| KIDZ ONLY!-DIRECT HD</display-name> </channel>
- <channel id="UK|CINEMANIA HOLLYWOOD 4K"> <display-name>UK| CINEMANIA HOLLYWOOD 4K</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/HWD_logo.svg/960px-HWD_logo.svg.png"/>
-</channel>
- <channel id="UK|UFC HD"> <display-name>UK| UFC HD</display-name>  <icon src="https://i.imgur.com/kC4HixZ.png"/>
-</channel>
- <channel id="UK|EDGE SPORT FHD"> <display-name>UK| EDGE SPORT FHD</display-name>  <icon src="https://i.imgur.com/bgQ6kz7.png"/>
-</channel>
+ <channel id="UK|CINEMANIA HOLLYWOOD 4K"> <display-name>UK| CINEMANIA HOLLYWOOD 4K</display-name> </channel>
+ <channel id="UK|UFC HD"> <display-name>UK| UFC HD</display-name> </channel>
+ <channel id="UK|EDGE SPORT FHD"> <display-name>UK| EDGE SPORT FHD</display-name> </channel>
  <channel id="DE|EB PEPPA WUTZ FHD"> <display-name>DE| EB PEPPA WUTZ FHD</display-name>  <icon src="https://images.seeklogo.com/logo-png/32/2/peppa-pig-without-peppa-logo-png_seeklogo-327074.png"/>
 </channel>
  <channel id="DE|EB MASCHA UND DER BÄR FHD"> <display-name>DE| EB MASCHA UND DER BÄR FHD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mascha_und_der_B%C3%A4r_logo.png"/>
@@ -1024,16 +855,11 @@
 </channel>
  <channel id="BA|HAYAT LOVE BOX VIP RAW"> <display-name>BA| HAYAT LOVE BOX VIP RAW</display-name>  <icon src="https://static.wikia.nocookie.net/logopedia/images/0/0c/Hayat_Love_Box_-_Logo.png/revision/latest?cb=20240223105808"/>
 </channel>
- <channel id="BA|HAYAT PLUS VIP RAW"> <display-name>BA| HAYAT PLUS VIP RAW</display-name>  <icon src="https://i.imgur.com/NThsVzJ.png"/>
-</channel>
- <channel id="BA|HAYAT PLUS"> <display-name>BA| HAYAT PLUS</display-name>  <icon src="https://i.imgur.com/NThsVzJ.png"/>
-</channel>
- <channel id="BA|HIT TELEVIZIJA BRCKO"> <display-name>BA| HIT TELEVIZIJA BRCKO</display-name>  <icon src="https://i.imgur.com/74Thd5M.png"/>
-</channel>
- <channel id="BA|RTV VOGOSCA"> <display-name>BA| RTV VOGOSCA</display-name>  <icon src="https://i.imgur.com/VCvbybO.png"/>
-</channel>
- <channel id="BA|HIT TELEVIZIJA"> <display-name>BA| HIT TELEVIZIJA</display-name>  <icon src="https://i.imgur.com/74Thd5M.png"/>
-</channel>
+ <channel id="BA|HAYAT PLUS VIP RAW"> <display-name>BA| HAYAT PLUS VIP RAW</display-name> </channel>
+ <channel id="BA|HAYAT PLUS"> <display-name>BA| HAYAT PLUS</display-name> </channel>
+ <channel id="BA|HIT TELEVIZIJA BRCKO"> <display-name>BA| HIT TELEVIZIJA BRCKO</display-name> </channel>
+ <channel id="BA|RTV VOGOSCA"> <display-name>BA| RTV VOGOSCA</display-name> </channel>
+ <channel id="BA|HIT TELEVIZIJA"> <display-name>BA| HIT TELEVIZIJA</display-name> </channel>
  <channel id="RS|BALKANIKA"> <display-name>RS| BALKANIKA</display-name>  <icon src="https://e7.pngegg.com/pngimages/862/556/png-clipart-bulgaria-balkanika-tv-logo-television-music-national-geographic-animal-jam-television-logo.png"/>
 </channel>
  <channel id="DE|DDR"> <display-name>DE| DDR</display-name>  <icon src="https://e7.pngegg.com/pngimages/220/902/png-clipart-national-emblem-of-east-germany-land-forces-of-the-national-people-s-army-military-indian-army-miscellaneous-emblem-thumbnail.png"/>
@@ -1093,10 +919,8 @@
  <channel id="TUBI|LIVING WITH EVIL RAW"> <display-name>TUBI| LIVING WITH EVIL RAW</display-name> </channel>
  <channel id="TUBI|LOVE MARRIAGE RAW"> <display-name>TUBI| LOVE MARRIAGE RAW</display-name> </channel>
  <channel id="TUBI|HAGERRY RAW"> <display-name>TUBI| HAGERRY RAW</display-name> </channel>
- <channel id="TUBI|FBI FILES RAW"> <display-name>TUBI| FBI FILES RAW</display-name>  <icon src="https://i.imgur.com/vzYDSLo.png"/>
-</channel>
- <channel id="TUBI|MRBEAST RAW"> <display-name>TUBI| MRBEAST RAW</display-name>  <icon src="https://i.imgur.com/4NHO9BM.png"/>
-</channel>
+ <channel id="TUBI|FBI FILES RAW"> <display-name>TUBI| FBI FILES RAW</display-name> </channel>
+ <channel id="TUBI|MRBEAST RAW"> <display-name>TUBI| MRBEAST RAW</display-name> </channel>
  <channel id="TUBI|NASCAR RAW"> <display-name>TUBI| NASCAR RAW</display-name> </channel>
  <channel id="TUBU|NBA FAST CHANNEL RAW"> <display-name>TUBU| NBA FAST CHANNEL RAW</display-name> </channel>
  <channel id="TUBI|PAWS CLAWS RAW"> <display-name>TUBI| PAWS CLAWS RAW</display-name> </channel>
@@ -1122,80 +946,55 @@
  <channel id="US|PBS 36 ODESSA MIDLAND"> <display-name>US| PBS 36 ODESSA MIDLAND</display-name> </channel>
  <channel id="US|PBS ALBUQUERQUE SANTA FE"> <display-name>US| PBS ALBUQUERQUE SANTA FE</display-name> </channel>
  <channel id="US|PBS 19 KCPT KANSAS CITY"> <display-name>US| PBS 19 KCPT KANSAS CITY</display-name> </channel>
- <channel id="US|PBS PHOENIX"> <display-name>US| PBS PHOENIX</display-name>  <icon src="https://i.imgur.com/T1532t9.png"/>
-</channel>
- <channel id="RS|HRAM TV HD"> <display-name>RS| HRAM TV HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Logo_Real_America%27s_Voice.svg/960px-Logo_Real_America%27s_Voice.svg.png"/>
-</channel>
+ <channel id="US|PBS PHOENIX"> <display-name>US| PBS PHOENIX</display-name> </channel>
+ <channel id="RS|HRAM TV HD"> <display-name>RS| HRAM TV HD</display-name> </channel>
  <channel id="RS|ROMA TV"> <display-name>RS| ROMA TV</display-name>  <icon src="https://static.wixstatic.com/media/c8f2ae_3950d73fc62044e69718d84e5c724626~mv2.png/v1/crop/x_10,y_1162,w_6229,h_1753/fill/w_280,h_79,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c8f2ae_3950d73fc62044e69718d84e5c724626~mv2.png"/>
 </channel>
  <channel id="RS|KTV"> <display-name>RS| KTV</display-name>  <icon src="https://www.ktv.rs/wp-content/uploads/2025/03/500X-500.png"/>
 </channel>
  <channel id="RS|PESTER TV"> <display-name>RS| PESTER TV</display-name>  <icon src="https://mojasupernova.mts.rs/Picture/1215/png/pester-tv-480x270.png"/>
 </channel>
- <channel id="RS|VIBE TV"> <display-name>RS| VIBE TV</display-name>  <icon src="https://i.imgur.com/ndOGVXI.png"/>
-</channel>
+ <channel id="RS|VIBE TV"> <display-name>RS| VIBE TV</display-name> </channel>
  <channel id="RS|MLAVA TV"> <display-name>RS| MLAVA TV</display-name>  <icon src="https://rtvmlava.com/wp-content/uploads/2018/11/default-990x601.jpg"/>
 </channel>
- <channel id="RS|UNA HD"> <display-name>RS| UNA HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Logo_Univision_2019.svg/960px-Logo_Univision_2019.svg.png"/>
-</channel>
+ <channel id="RS|UNA HD"> <display-name>RS| UNA HD</display-name> </channel>
  <channel id="RS|TV HRAM VIP RAW"> <display-name>RS| TV HRAM VIP RAW</display-name> </channel>
  <channel id="RS|TV DR VIP RAW"> <display-name>RS| TV DR VIP RAW</display-name> </channel>
- <channel id="RS|MOJ HAPPY ZIVOT VIP RAW"> <display-name>RS| MOJ HAPPY ZIVOT VIP RAW</display-name>  <icon src="https://i.imgur.com/gS5JizB.png"/>
-</channel>
- <channel id="RS|MOJ HAPPY ZEMLJA VIP RAW"> <display-name>RS| MOJ HAPPY ZEMLJA VIP RAW</display-name>  <icon src="https://i.imgur.com/Jkb6O9V.png"/>
-</channel>
- <channel id="RS|MOJ HAPPY MUZIKA VIP RAW"> <display-name>RS| MOJ HAPPY MUZIKA VIP RAW</display-name>  <icon src="https://i.imgur.com/SBv2e3B.png"/>
-</channel>
- <channel id="RS|MOJ HAPPY DRUSTVO VIP RAW"> <display-name>RS| MOJ HAPPY DRUSTVO VIP RAW</display-name>  <icon src="https://i.imgur.com/Oiik4UC.png"/>
-</channel>
+ <channel id="RS|MOJ HAPPY ZIVOT VIP RAW"> <display-name>RS| MOJ HAPPY ZIVOT VIP RAW</display-name> </channel>
+ <channel id="RS|MOJ HAPPY ZEMLJA VIP RAW"> <display-name>RS| MOJ HAPPY ZEMLJA VIP RAW</display-name> </channel>
+ <channel id="RS|MOJ HAPPY MUZIKA VIP RAW"> <display-name>RS| MOJ HAPPY MUZIKA VIP RAW</display-name> </channel>
+ <channel id="RS|MOJ HAPPY DRUSTVO VIP RAW"> <display-name>RS| MOJ HAPPY DRUSTVO VIP RAW</display-name> </channel>
  <channel id="RS|TV K23 VIP RAW"> <display-name>RS| TV K23 VIP RAW</display-name> </channel>
- <channel id="RS|ZELENA TV ZDRAVLJE VIP RAW"> <display-name>RS| ZELENA TV ZDRAVLJE VIP RAW</display-name>  <icon src="https://i.imgur.com/QKpZdFK.png"/>
-</channel>
+ <channel id="RS|ZELENA TV ZDRAVLJE VIP RAW"> <display-name>RS| ZELENA TV ZDRAVLJE VIP RAW</display-name> </channel>
  <channel id="RS|DM SAT VIP RAW"> <display-name>RS| DM SAT VIP RAW</display-name> </channel>
- <channel id="RS|TV RAS VIP RAW"> <display-name>RS| TV RAS VIP RAW</display-name>  <icon src="https://i.imgur.com/fjujblY.png"/>
-</channel>
- <channel id="RS|TV SUMADIJA VIP RAW"> <display-name>RS| TV SUMADIJA VIP RAW</display-name>  <icon src="https://i.imgur.com/Avr3zjV.png"/>
-</channel>
+ <channel id="RS|TV RAS VIP RAW"> <display-name>RS| TV RAS VIP RAW</display-name> </channel>
+ <channel id="RS|TV SUMADIJA VIP RAW"> <display-name>RS| TV SUMADIJA VIP RAW</display-name> </channel>
  <channel id="RS|TV POZEGA VIP RAW"> <display-name>RS| TV POZEGA VIP RAW</display-name>  <icon src="https://radiopozega.rs/wp-content/uploads/2024/05/logo-tv-pozega.png"/>
 </channel>
  <channel id="RS|KORENI VIP RAW"> <display-name>RS| KORENI VIP RAW</display-name> </channel>
  <channel id="RS|TV BAP VIP RAW"> <display-name>RS| TV BAP VIP RAW</display-name> </channel>
- <channel id="RS|RTV TESLA VIP RAW"> <display-name>RS| RTV TESLA VIP RAW</display-name>  <icon src="https://i.imgur.com/bvwC798.png"/>
-</channel>
- <channel id="RS|INVESTIGATION DISCOVERY ID VIP RAW"> <display-name>RS| INVESTIGATION DISCOVERY ID VIP RAW</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/InvestigationDiscoveryLogo2020.svg/960px-InvestigationDiscoveryLogo2020.svg.png"/>
-</channel>
- <channel id="RS|GAMETOON VIP RAW"> <display-name>RS| GAMETOON VIP RAW</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/tr/b/b6/Gametoon_HD_logo.png"/>
-</channel>
+ <channel id="RS|RTV TESLA VIP RAW"> <display-name>RS| RTV TESLA VIP RAW</display-name> </channel>
+ <channel id="RS|INVESTIGATION DISCOVERY ID VIP RAW"> <display-name>RS| INVESTIGATION DISCOVERY ID VIP RAW</display-name> </channel>
+ <channel id="RS|GAMETOON VIP RAW"> <display-name>RS| GAMETOON VIP RAW</display-name> </channel>
  <channel id="RS|DOX VIP RAW"> <display-name>RS| DOX VIP RAW</display-name> </channel>
- <channel id="RS|TV PARTIZAN VIP RAW"> <display-name>RS| TV PARTIZAN VIP RAW</display-name>  <icon src="https://i.imgur.com/1UrDOFo.png"/>
-</channel>
+ <channel id="RS|TV PARTIZAN VIP RAW"> <display-name>RS| TV PARTIZAN VIP RAW</display-name> </channel>
  <channel id="RS|TV ZVEZDA VIP RAW"> <display-name>RS| TV ZVEZDA VIP RAW</display-name> </channel>
  <channel id="RS|LFCTV VIP RAW"> <display-name>RS| LFCTV VIP RAW</display-name> </channel>
- <channel id="RS|EURO CINEMA 1 VIP RAW"> <display-name>RS| EURO CINEMA 1 VIP RAW</display-name>  <icon src="https://i.imgur.com/vtRScnH.png"/>
-</channel>
- <channel id="RS|EURO CINEMA 2 VIP RAW"> <display-name>RS| EURO CINEMA 2 VIP RAW</display-name>  <icon src="https://i.imgur.com/P9Tqkg1.png"/>
-</channel>
- <channel id="RS|EURO CINEMA 3 VIP RAW"> <display-name>RS| EURO CINEMA 3 VIP RAW</display-name>  <icon src="https://i.imgur.com/dbeBek7.png"/>
-</channel>
- <channel id="RS|EURO CINEMA 4 VIP RAW"> <display-name>RS| EURO CINEMA 4 VIP RAW</display-name>  <icon src="https://i.imgur.com/AUKO5eJ.png"/>
-</channel>
- <channel id="RS|TIMELESS DIZI CHANNEL VIP RAW"> <display-name>RS| TIMELESS DIZI CHANNEL VIP RAW</display-name>  <icon src="https://i.imgur.com/s3Sqd4L.png"/>
-</channel>
+ <channel id="RS|EURO CINEMA 1 VIP RAW"> <display-name>RS| EURO CINEMA 1 VIP RAW</display-name> </channel>
+ <channel id="RS|EURO CINEMA 2 VIP RAW"> <display-name>RS| EURO CINEMA 2 VIP RAW</display-name> </channel>
+ <channel id="RS|EURO CINEMA 3 VIP RAW"> <display-name>RS| EURO CINEMA 3 VIP RAW</display-name> </channel>
+ <channel id="RS|EURO CINEMA 4 VIP RAW"> <display-name>RS| EURO CINEMA 4 VIP RAW</display-name> </channel>
+ <channel id="RS|TIMELESS DIZI CHANNEL VIP RAW"> <display-name>RS| TIMELESS DIZI CHANNEL VIP RAW</display-name> </channel>
  <channel id="RS|SLOBODNA TV VIP RAW"> <display-name>RS| SLOBODNA TV VIP RAW</display-name> </channel>
  <channel id="RS|KUVO TV VIP RAW"> <display-name>RS| KUVO TV VIP RAW</display-name> </channel>
- <channel id="RS|EKO VIZIJA VIP RAW"> <display-name>RS| EKO VIZIJA VIP RAW</display-name>  <icon src="https://i.imgur.com/oEkWlfx.png"/>
-</channel>
- <channel id="HR|KREATOR HD"> <display-name>HR| KREATOR HD</display-name>  <icon src="https://i.imgur.com/q8ZjwW2.png"/>
-</channel>
- <channel id="HR|GINIX"> <display-name>HR| GINIX</display-name>  <icon src="https://i.imgur.com/diw20TN.png"/>
-</channel>
- <channel id="HR|HAJDUK TV"> <display-name>HR| HAJDUK TV</display-name>  <icon src="https://i.imgur.com/JM4rxGU.png"/>
-</channel>
+ <channel id="RS|EKO VIZIJA VIP RAW"> <display-name>RS| EKO VIZIJA VIP RAW</display-name> </channel>
+ <channel id="HR|KREATOR HD"> <display-name>HR| KREATOR HD</display-name> </channel>
+ <channel id="HR|GINIX"> <display-name>HR| GINIX</display-name> </channel>
+ <channel id="HR|HAJDUK TV"> <display-name>HR| HAJDUK TV</display-name> </channel>
  <channel id="HR|TREND AND KARLOVAC"> <display-name>HR| TREND AND KARLOVAC</display-name> </channel>
  <channel id="HR|TREND TV HD"> <display-name>HR| TREND TV HD</display-name>  <icon src="https://trend.com.hr/wp-content/uploads/2020/03/trend_tv.png"/>
 </channel>
- <channel id="HR|HRT INT"> <display-name>HR| HRT INT</display-name>  <icon src="https://i.imgur.com/useLwHV.png"/>
-</channel>
+ <channel id="HR|HRT INT"> <display-name>HR| HRT INT</display-name> </channel>
  <channel id="HR|TREND TV VIP RAW"> <display-name>HR| TREND TV VIP RAW</display-name> </channel>
  <channel id="HR|SCI-FI VIP RAW"> <display-name>HR| SCI-FI VIP RAW</display-name> </channel>
  <channel id="HR|AMC BALKAN VIP RAW"> <display-name>HR| AMC BALKAN VIP RAW</display-name> </channel>
@@ -1205,52 +1004,31 @@
  <channel id="MK|FFM MK FOOTBALL 4 LIVE EVENT"> <display-name>MK| FFM MK FOOTBALL 4 LIVE EVENT</display-name> </channel>
  <channel id="MK|FFM MK FOOTBALL 5 LIVE EVENT"> <display-name>MK| FFM MK FOOTBALL 5 LIVE EVENT</display-name> </channel>
  <channel id="MK|FFM MK FOOTBALL 6 LIVE EVENT"> <display-name>MK| FFM MK FOOTBALL 6 LIVE EVENT</display-name> </channel>
- <channel id="MK|FOLK KLUB TV HD"> <display-name>MK| FOLK KLUB TV HD</display-name>  <icon src="https://i.imgur.com/Seq7Od7.png"/>
-</channel>
- <channel id="MK|TV PLUS"> <display-name>MK| TV PLUS</display-name>  <icon src="https://i.imgur.com/TdEHGcZ.png"/>
-</channel>
- <channel id="MK|FOLK HD"> <display-name>MK| FOLK HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fox_Networks_Group_US_logo.svg/960px-Fox_Networks_Group_US_logo.svg.png"/>
-</channel>
- <channel id="MK|INTV AVSRALIJA"> <display-name>MK| INTV AVSRALIJA</display-name>  <icon src="https://i.imgur.com/1nJl0Pv.png"/>
-</channel>
- <channel id="MK|ROMA TV"> <display-name>MK| ROMA TV</display-name>  <icon src="https://i.imgur.com/Bdf6nA5.png"/>
-</channel>
- <channel id="MK|INTV AVSTRALIJA HD"> <display-name>MK| INTV AVSTRALIJA HD</display-name>  <icon src="https://i.imgur.com/1nJl0Pv.png"/>
-</channel>
- <channel id="MK|FOX LIVE"> <display-name>MK| FOX LIVE</display-name>  <icon src="https://i.imgur.com/O2miSLA.png"/>
-</channel>
- <channel id="MK|FOX HD"> <display-name>MK| FOX HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fox_Networks_Group_US_logo.svg/960px-Fox_Networks_Group_US_logo.svg.png"/>
-</channel>
- <channel id="MK|DISCOVERY CHANNEL MULTI SUB"> <display-name>MK| DISCOVERY CHANNEL MULTI SUB</display-name>  <icon src="https://dtil.tmsimg.com/assets/s143012_ld_h15_aa.png?lock=720x540"/>
-</channel>
- <channel id="MK|FILM BOX PLUS"> <display-name>MK| FILM BOX PLUS</display-name>  <icon src="https://i.imgur.com/VyaslIY.png"/>
-</channel>
- <channel id="MK|HUGO 2 TV"> <display-name>MK| HUGO 2 TV</display-name>  <icon src="https://i.imgur.com/iEKDH26.png"/>
-</channel>
+ <channel id="MK|FOLK KLUB TV HD"> <display-name>MK| FOLK KLUB TV HD</display-name> </channel>
+ <channel id="MK|TV PLUS"> <display-name>MK| TV PLUS</display-name> </channel>
+ <channel id="MK|FOLK HD"> <display-name>MK| FOLK HD</display-name> </channel>
+ <channel id="MK|INTV AVSRALIJA"> <display-name>MK| INTV AVSRALIJA</display-name> </channel>
+ <channel id="MK|ROMA TV"> <display-name>MK| ROMA TV</display-name> </channel>
+ <channel id="MK|INTV AVSTRALIJA HD"> <display-name>MK| INTV AVSTRALIJA HD</display-name> </channel>
+ <channel id="MK|FOX LIVE"> <display-name>MK| FOX LIVE</display-name> </channel>
+ <channel id="MK|FOX HD"> <display-name>MK| FOX HD</display-name> </channel>
+ <channel id="MK|DISCOVERY CHANNEL MULTI SUB"> <display-name>MK| DISCOVERY CHANNEL MULTI SUB</display-name> </channel>
+ <channel id="MK|FILM BOX PLUS"> <display-name>MK| FILM BOX PLUS</display-name> </channel>
+ <channel id="MK|HUGO 2 TV"> <display-name>MK| HUGO 2 TV</display-name> </channel>
  <channel id="MK|HUGO TV HD"> <display-name>MK| HUGO TV HD</display-name> </channel>
- <channel id="MK|MTM TV"> <display-name>MK| MTM TV</display-name>  <icon src="https://i.imgur.com/krcVhrx.png"/>
-</channel>
- <channel id="MK|MPT SOBRANISKI HD"> <display-name>MK| MPT SOBRANISKI HD</display-name>  <icon src="https://i.imgur.com/fyNQ8Nf.png"/>
-</channel>
- <channel id="MK|K3"> <display-name>MK| K3</display-name>  <icon src="https://i.imgur.com/nIIZ14i.png"/>
-</channel>
+ <channel id="MK|MTM TV"> <display-name>MK| MTM TV</display-name> </channel>
+ <channel id="MK|MPT SOBRANISKI HD"> <display-name>MK| MPT SOBRANISKI HD</display-name> </channel>
+ <channel id="MK|K3"> <display-name>MK| K3</display-name> </channel>
  <channel id="MK|O2 OHRID HD"> <display-name>MK| O2 OHRID HD</display-name> </channel>
  <channel id="MK|KTV KAVADARCI"> <display-name>MK| KTV KAVADARCI</display-name> </channel>
  <channel id="MK|MEGA BITOLA HD"> <display-name>MK| MEGA BITOLA HD</display-name> </channel>
- <channel id="MK|TV2 GOSTIVAR"> <display-name>MK| TV2 GOSTIVAR</display-name>  <icon src="https://i.imgur.com/VIJ4WpT.png"/>
-</channel>
- <channel id="MK|TV KUMANOVO"> <display-name>MK| TV KUMANOVO</display-name>  <icon src="https://i.imgur.com/F9vpk7O.png"/>
-</channel>
- <channel id="MK|KLAN MACEDONIA"> <display-name>MK| KLAN MACEDONIA</display-name>  <icon src="https://i.imgur.com/tel58lt.png"/>
-</channel>
- <channel id="MK|KANAL 21 TV"> <display-name>MK| KANAL 21 TV</display-name>  <icon src="https://i.imgur.com/Am7yMXg.png"/>
-</channel>
- <channel id="MK|SUTEL TV"> <display-name>MK| SUTEL TV</display-name>  <icon src="https://i.imgur.com/hk3lhuF.png"/>
-</channel>
- <channel id="MK|TV SONCE"> <display-name>MK| TV SONCE</display-name>  <icon src="https://i.imgur.com/eNQaxy1.png"/>
-</channel>
- <channel id="MK|NASA TV"> <display-name>MK| NASA TV</display-name>  <icon src="https://i.imgur.com/9rB4VZy.png"/>
-</channel>
+ <channel id="MK|TV2 GOSTIVAR"> <display-name>MK| TV2 GOSTIVAR</display-name> </channel>
+ <channel id="MK|TV KUMANOVO"> <display-name>MK| TV KUMANOVO</display-name> </channel>
+ <channel id="MK|KLAN MACEDONIA"> <display-name>MK| KLAN MACEDONIA</display-name> </channel>
+ <channel id="MK|KANAL 21 TV"> <display-name>MK| KANAL 21 TV</display-name> </channel>
+ <channel id="MK|SUTEL TV"> <display-name>MK| SUTEL TV</display-name> </channel>
+ <channel id="MK|TV SONCE"> <display-name>MK| TV SONCE</display-name> </channel>
+ <channel id="MK|NASA TV"> <display-name>MK| NASA TV</display-name> </channel>
  <channel id="MK|TV PLUS VIP RAW"> <display-name>MK| TV PLUS VIP RAW</display-name> </channel>
  <channel id="MK|TV HUGO 1 VIP RAW"> <display-name>MK| TV HUGO 1 VIP RAW</display-name> </channel>
  <channel id="MK|TV HUGO 2 VIP RAW"> <display-name>MK| TV HUGO 2 VIP RAW</display-name> </channel>
@@ -1263,40 +1041,27 @@
  <channel id="MK|TV HUGO 9 VIP RAW"> <display-name>MK| TV HUGO 9 VIP RAW</display-name> </channel>
  <channel id="MK|TV HUGO 10 VIP RAW"> <display-name>MK| TV HUGO 10 VIP RAW</display-name> </channel>
  <channel id="MK|TV 24 VIP RAW"> <display-name>MK| TV 24 VIP RAW</display-name> </channel>
- <channel id="MK|SOBRANISKI KANAL VIP RAW"> <display-name>MK| SOBRANISKI KANAL VIP RAW</display-name>  <icon src="https://i.imgur.com/fyNQ8Nf.png"/>
-</channel>
+ <channel id="MK|SOBRANISKI KANAL VIP RAW"> <display-name>MK| SOBRANISKI KANAL VIP RAW</display-name> </channel>
  <channel id="MK|SITEL VIP RAW"> <display-name>MK| SITEL VIP RAW</display-name> </channel>
- <channel id="MK|NATIONAL GEOGRAPHIC VIP RAW"> <display-name>MK| NATIONAL GEOGRAPHIC VIP RAW</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Natgeologo.svg/960px-Natgeologo.svg.png"/>
-</channel>
+ <channel id="MK|NATIONAL GEOGRAPHIC VIP RAW"> <display-name>MK| NATIONAL GEOGRAPHIC VIP RAW</display-name> </channel>
  <channel id="MK|NASHA TV VIP RAW"> <display-name>MK| NASHA TV VIP RAW</display-name> </channel>
  <channel id="MK|INTV 1 VIP RAW"> <display-name>MK| INTV 1 VIP RAW</display-name> </channel>
  <channel id="MK|INTV 2 VIP RAW"> <display-name>MK| INTV 2 VIP RAW</display-name> </channel>
  <channel id="EXYU|WISSPER"> <display-name>EXYU| WISSPER</display-name> </channel>
- <channel id="HR|TOON KIDS"> <display-name>HR| TOON KIDS</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tvokids-logo.svg/960px-Tvokids-logo.svg.png"/>
-</channel>
- <channel id="RS|COMEDY CENTRAL"> <display-name>RS| COMEDY CENTRAL</display-name>  <icon src="https://static.wikia.nocookie.net/logopedia/images/3/33/Comedy_Central_Austria_2018.svg"/>
-</channel>
- <channel id="RS|DISNEY CHANNEL"> <display-name>RS| DISNEY CHANNEL</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/3/3d/2022_Disney_Channel_logo.svg"/>
-</channel>
+ <channel id="HR|TOON KIDS"> <display-name>HR| TOON KIDS</display-name> </channel>
+ <channel id="RS|COMEDY CENTRAL"> <display-name>RS| COMEDY CENTRAL</display-name> </channel>
+ <channel id="RS|DISNEY CHANNEL"> <display-name>RS| DISNEY CHANNEL</display-name> </channel>
  <channel id="HR|MASA I MEDVJED"> <display-name>HR| MASA I MEDVJED</display-name> </channel>
- <channel id="SK|TV MARKIZA FHD"> <display-name>SK| TV MARKIZA FHD</display-name>  <icon src="https://i.imgur.com/W56rOi2.png"/>
-</channel>
+ <channel id="SK|TV MARKIZA FHD"> <display-name>SK| TV MARKIZA FHD</display-name> </channel>
  <channel id="RS|PAROVI LIVE"> <display-name>RS| PAROVI LIVE</display-name> </channel>
- <channel id="RS|NGC HD"> <display-name>RS| NGC HD</display-name>  <icon src="https://i.imgur.com/wZm1mqa.png"/>
-</channel>
- <channel id="RS|DOCU BOX"> <display-name>RS| DOCU BOX</display-name>  <icon src="https://i.imgur.com/pX4U9OG.png"/>
-</channel>
- <channel id="BA|HAYAT MUSIC"> <display-name>BA| HAYAT MUSIC</display-name>  <icon src="https://i.imgur.com/9p8q1yX.png"/>
-</channel>
- <channel id="BA|HAYAT FOLK"> <display-name>BA| HAYAT FOLK</display-name>  <icon src="https://i.imgur.com/LteJva4.png"/>
-</channel>
- <channel id="BA|YU PLANET"> <display-name>BA| YU PLANET</display-name>  <icon src="https://i.imgur.com/YV7klGj.png"/>
-</channel>
- <channel id="BA|TV DUGAPLUS"> <display-name>BA| TV DUGAPLUS</display-name>  <icon src="https://i.imgur.com/yMEvel5.png"/>
-</channel>
+ <channel id="RS|NGC HD"> <display-name>RS| NGC HD</display-name> </channel>
+ <channel id="RS|DOCU BOX"> <display-name>RS| DOCU BOX</display-name> </channel>
+ <channel id="BA|HAYAT MUSIC"> <display-name>BA| HAYAT MUSIC</display-name> </channel>
+ <channel id="BA|HAYAT FOLK"> <display-name>BA| HAYAT FOLK</display-name> </channel>
+ <channel id="BA|YU PLANET"> <display-name>BA| YU PLANET</display-name> </channel>
+ <channel id="BA|TV DUGAPLUS"> <display-name>BA| TV DUGAPLUS</display-name> </channel>
  <channel id="RS|TOP SOUND"> <display-name>RS| TOP SOUND</display-name> </channel>
- <channel id="BA|BN MUSIC"> <display-name>BA| BN MUSIC</display-name>  <icon src="https://i.imgur.com/PoRZZFb.png"/>
-</channel>
+ <channel id="BA|BN MUSIC"> <display-name>BA| BN MUSIC</display-name> </channel>
  <channel id="HR|MAXCRO SELECT KIDS 2 HD"> <display-name>HR| MAXCRO SELECT KIDS 2 HD</display-name> </channel>
  <channel id="HR|MAXCRO SELECT 1 HD"> <display-name>HR| MAXCRO SELECT 1 HD</display-name> </channel>
  <channel id="HR|MAXCRO SELECT 2 HD"> <display-name>HR| MAXCRO SELECT 2 HD</display-name> </channel>
@@ -1309,55 +1074,43 @@
  <channel id="RS|NETIP FILM 3 HD"> <display-name>RS| NETIP FILM 3 HD</display-name> </channel>
  <channel id="RS|NETIP FILM 4 HD"> <display-name>RS| NETIP FILM 4 HD</display-name> </channel>
  <channel id="RS|NETIP CINEMA 3 HD"> <display-name>RS| NETIP CINEMA 3 HD</display-name> </channel>
- <channel id="RS|NETIP CINEMA 4 HD"> <display-name>RS| NETIP CINEMA 4 HD</display-name>  <icon src="https://i.imgur.com/iwtVK5W.png"/>
-</channel>
- <channel id="RS|NETIP MOVIES 3 HD"> <display-name>RS| NETIP MOVIES 3 HD</display-name>  <icon src="https://i.imgur.com/uCD89TX.png"/>
-</channel>
- <channel id="RS|FILM KLUB EXTRA"> <display-name>RS| FILM KLUB EXTRA</display-name>  <icon src="https://i.imgur.com/oYjNB2Z.png"/>
-</channel>
+ <channel id="RS|NETIP CINEMA 4 HD"> <display-name>RS| NETIP CINEMA 4 HD</display-name> </channel>
+ <channel id="RS|NETIP MOVIES 3 HD"> <display-name>RS| NETIP MOVIES 3 HD</display-name> </channel>
+ <channel id="RS|FILM KLUB EXTRA"> <display-name>RS| FILM KLUB EXTRA</display-name> </channel>
  <channel id="US|ACCN HD 60FPS"> <display-name>US| ACCN HD 60FPS</display-name> </channel>
  <channel id="US|A-Z CLASSIC FLIX"> <display-name>US| A-Z CLASSIC FLIX</display-name> </channel>
  <channel id="PRIME|20 20 RAW"> <display-name>PRIME| 20 20 RAW</display-name> </channel>
  <channel id="PRIME|ABC LAS VEGAS KTNV RAW"> <display-name>PRIME| ABC LAS VEGAS KTNV RAW</display-name> </channel>
- <channel id="PRIME|ADULT ANIMATION RAW"> <display-name>PRIME| ADULT ANIMATION RAW</display-name>  <icon src="https://images.pluto.tv/channels/67f68bd2135aeda9ddf0ef54/colorLogoPNG_1746816413112.png"/>
-</channel>
+ <channel id="PRIME|ADULT ANIMATION RAW"> <display-name>PRIME| ADULT ANIMATION RAW</display-name> </channel>
  <channel id="PRIME|ALL OUT ALASKA RAW"> <display-name>PRIME| ALL OUT ALASKA RAW</display-name> </channel>
  <channel id="PRIME|AMAZON LIVE RAW"> <display-name>PRIME| AMAZON LIVE RAW</display-name> </channel>
- <channel id="PRIME|AMERICAN GLADIATORS RAW"> <display-name>PRIME| AMERICAN GLADIATORS RAW</display-name>  <icon src="https://i.imgur.com/3Vf9Mka.png"/>
-</channel>
+ <channel id="PRIME|AMERICAN GLADIATORS RAW"> <display-name>PRIME| AMERICAN GLADIATORS RAW</display-name> </channel>
  <channel id="PRIME|BACHELOR NATION RAW"> <display-name>PRIME| BACHELOR NATION RAW</display-name> </channel>
- <channel id="PRIME|BBC FOOD RAW"> <display-name>PRIME| BBC FOOD RAW</display-name>  <icon src="https://i.imgur.com/kcmHcSx.png"/>
-</channel>
+ <channel id="PRIME|BBC FOOD RAW"> <display-name>PRIME| BBC FOOD RAW</display-name> </channel>
  <channel id="PRIME|BLACK LOVE RAW"> <display-name>PRIME| BLACK LOVE RAW</display-name> </channel>
  <channel id="PRIME|CARTOON REWIND RAW"> <display-name>PRIME| CARTOON REWIND RAW</display-name> </channel>
  <channel id="PRIME|CHAOS ON CAM BY A E RAW"> <display-name>PRIME| CHAOS ON CAM BY A E RAW</display-name> </channel>
- <channel id="PRIME|CNN EXPRESS RAW"> <display-name>PRIME| CNN EXPRESS RAW</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/dd3dbe87-d4f5-418c-a6c9-3d3af5b3c565/CNN_XPRESS_PLEX_LOGO_-_REDlettersGrace_HartwigRDX.png"/>
-</channel>
+ <channel id="PRIME|CNN EXPRESS RAW"> <display-name>PRIME| CNN EXPRESS RAW</display-name> </channel>
  <channel id="PRIME|CRIME JUSTICE RAW"> <display-name>PRIME| CRIME JUSTICE RAW</display-name> </channel>
  <channel id="PRIME|CRIMEN RAW"> <display-name>PRIME| CRIMEN RAW</display-name> </channel>
  <channel id="PRIME|CURB APPEAL RAW"> <display-name>PRIME| CURB APPEAL RAW</display-name> </channel>
  <channel id="PRIME|DR PHIL PRIMETIME ON MERIT STREET RAW"> <display-name>PRIME| DR PHIL PRIMETIME ON MERIT STREET RAW</display-name> </channel>
  <channel id="PRIME|DR PHIL RAW"> <display-name>PRIME| DR PHIL RAW</display-name> </channel>
- <channel id="PRIME|DUNGEONS DRAGONS RAW"> <display-name>PRIME| DUNGEONS DRAGONS RAW</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/628a1ec4-3547-46b1-ac1b-5efe28d38088/DungeonsAndDragonsAdventures_Logo_1500x1000_-_RSD.png"/>
-</channel>
+ <channel id="PRIME|DUNGEONS DRAGONS RAW"> <display-name>PRIME| DUNGEONS DRAGONS RAW</display-name> </channel>
  <channel id="PRIME|ELLEN DEGENERES RAW"> <display-name>PRIME| ELLEN DEGENERES RAW</display-name> </channel>
  <channel id="PRIME|ESPN OCHO RAW"> <display-name>PRIME| ESPN OCHO RAW</display-name> </channel>
  <channel id="PRIME|EXTREME EXPEDITIONS RAW"> <display-name>PRIME| EXTREME EXPEDITIONS RAW</display-name> </channel>
- <channel id="PRIME|EXTREME JOBS BY LIONSGATE RAW"> <display-name>PRIME| EXTREME JOBS BY LIONSGATE RAW</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/7e6d1c65-984f-4293-8a4c-9ddd8a425202/Logo_ExtremeJobs_White_1500x1000_-_Kyle_Van_VonderenRDX.png"/>
-</channel>
+ <channel id="PRIME|EXTREME JOBS BY LIONSGATE RAW"> <display-name>PRIME| EXTREME JOBS BY LIONSGATE RAW</display-name> </channel>
  <channel id="PRIME|EXTREM LIVNG RAW"> <display-name>PRIME| EXTREM LIVNG RAW</display-name> </channel>
- <channel id="PRIME|FILMRISE BLACK TV RAW"> <display-name>PRIME| FILMRISE BLACK TV RAW</display-name>  <icon src="https://i.imgur.com/8j2npVc.png"/>
-</channel>
+ <channel id="PRIME|FILMRISE BLACK TV RAW"> <display-name>PRIME| FILMRISE BLACK TV RAW</display-name> </channel>
  <channel id="PRIME|FUNNY FAVORITES RAW"> <display-name>PRIME| FUNNY FAVORITES RAW</display-name> </channel>
- <channel id="PRIME|HI YAH RAW"> <display-name>PRIME| HI YAH RAW</display-name>  <icon src="https://i.imgur.com/sOYAnTB.png"/>
-</channel>
+ <channel id="PRIME|HI YAH RAW"> <display-name>PRIME| HI YAH RAW</display-name> </channel>
  <channel id="PRIME|HISTORY UNDISCOVERED RAW"> <display-name>PRIME| HISTORY UNDISCOVERED RAW</display-name> </channel>
  <channel id="PRIME|HISTORY UNTOLD RAW"> <display-name>PRIME| HISTORY UNTOLD RAW</display-name> </channel>
  <channel id="PRIME|HOME CHRASHERS RAW"> <display-name>PRIME| HOME CHRASHERS RAW</display-name> </channel>
  <channel id="PRIME|HORROR STORIES RAW"> <display-name>PRIME| HORROR STORIES RAW</display-name> </channel>
  <channel id="PRIME|HOT ONES RAW"> <display-name>PRIME| HOT ONES RAW</display-name> </channel>
- <channel id="PRIME|HUNTER RAW"> <display-name>PRIME| HUNTER RAW</display-name>  <icon src="https://i.imgur.com/ztksnJB.png"/>
-</channel>
+ <channel id="PRIME|HUNTER RAW"> <display-name>PRIME| HUNTER RAW</display-name> </channel>
  <channel id="DE|PLUTO TV SITCOMS"> <display-name>DE| PLUTO TV SITCOMS</display-name>  <icon src="https://img.netzwelt.de/dw1600_dh900_sw240_sh135_sx5_sy57_sr16x9_nu2/picture/original/2024/07/pluto-tv-sitcoms-sender-logo-409409.jpeg"/>
 </channel>
  <channel id="DE|COMEDY CENTRAL MADE IN GERMANY"> <display-name>DE| COMEDY CENTRAL MADE IN GERMANY</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Comedy_Central_2018.svg/500px-Comedy_Central_2018.svg.png"/>
@@ -1384,64 +1137,39 @@
 </channel>
  <channel id="SO|SOLO SPORT HDR 4K"> <display-name>SO| SOLO SPORT HDR 4K</display-name> </channel>
  <channel id="SO|SOLO SPORT 1 HEVC"> <display-name>SO| SOLO SPORT 1 HEVC</display-name> </channel>
- <channel id="SO|SOLO SPORT 1 FHD"> <display-name>SO| SOLO SPORT 1 FHD</display-name>  <icon src="https://i.imgur.com/ZZw6nwl.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 1 HD"> <display-name>SO| SOLO SPORT 1 HD</display-name>  <icon src="https://i.imgur.com/ZZw6nwl.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 1 SD"> <display-name>SO| SOLO SPORT 1 SD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/0/01/Solar_Sports_2016_logo.png"/>
-</channel>
+ <channel id="SO|SOLO SPORT 1 FHD"> <display-name>SO| SOLO SPORT 1 FHD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 1 HD"> <display-name>SO| SOLO SPORT 1 HD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 1 SD"> <display-name>SO| SOLO SPORT 1 SD</display-name> </channel>
  <channel id="SO|SOLO SPORT 2 HEVC"> <display-name>SO| SOLO SPORT 2 HEVC</display-name> </channel>
- <channel id="SO|SOLO SPORT 2 FHD"> <display-name>SO| SOLO SPORT 2 FHD</display-name>  <icon src="https://i.imgur.com/O1DkKg3.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 2 HD"> <display-name>SO| SOLO SPORT 2 HD</display-name>  <icon src="https://i.imgur.com/O1DkKg3.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 2 SD"> <display-name>SO| SOLO SPORT 2 SD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/0/01/Solar_Sports_2016_logo.png"/>
-</channel>
+ <channel id="SO|SOLO SPORT 2 FHD"> <display-name>SO| SOLO SPORT 2 FHD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 2 HD"> <display-name>SO| SOLO SPORT 2 HD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 2 SD"> <display-name>SO| SOLO SPORT 2 SD</display-name> </channel>
  <channel id="SO|SOLO SPORT 3 HEVC"> <display-name>SO| SOLO SPORT 3 HEVC</display-name> </channel>
- <channel id="SO|SOLO SPORT 3 FHD"> <display-name>SO| SOLO SPORT 3 FHD</display-name>  <icon src="https://i.imgur.com/4H7cI2X.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 3 HD"> <display-name>SO| SOLO SPORT 3 HD</display-name>  <icon src="https://i.imgur.com/4H7cI2X.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 3 SD"> <display-name>SO| SOLO SPORT 3 SD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/0/01/Solar_Sports_2016_logo.png"/>
-</channel>
+ <channel id="SO|SOLO SPORT 3 FHD"> <display-name>SO| SOLO SPORT 3 FHD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 3 HD"> <display-name>SO| SOLO SPORT 3 HD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 3 SD"> <display-name>SO| SOLO SPORT 3 SD</display-name> </channel>
  <channel id="SO|SOLO SPORT 4 HEVC"> <display-name>SO| SOLO SPORT 4 HEVC</display-name> </channel>
  <channel id="SO|SOLO SPORT 4 FHD"> <display-name>SO| SOLO SPORT 4 FHD</display-name> </channel>
- <channel id="SO|SOLO SPORT 4 HD"> <display-name>SO| SOLO SPORT 4 HD</display-name>  <icon src="https://i.imgur.com/2tJ4SRT.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 4 SD"> <display-name>SO| SOLO SPORT 4 SD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/0/01/Solar_Sports_2016_logo.png"/>
-</channel>
+ <channel id="SO|SOLO SPORT 4 HD"> <display-name>SO| SOLO SPORT 4 HD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 4 SD"> <display-name>SO| SOLO SPORT 4 SD</display-name> </channel>
  <channel id="SO|SOLO SPORT 5 HEVC"> <display-name>SO| SOLO SPORT 5 HEVC</display-name> </channel>
  <channel id="SO|SOLO SPORT 5 FHD"> <display-name>SO| SOLO SPORT 5 FHD</display-name> </channel>
- <channel id="SO|SOLO SPORT 5 HD"> <display-name>SO| SOLO SPORT 5 HD</display-name>  <icon src="https://i.imgur.com/wYKlDhk.png"/>
-</channel>
- <channel id="SO|SOLO SPORT 5 SD"> <display-name>SO| SOLO SPORT 5 SD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/0/01/Solar_Sports_2016_logo.png"/>
-</channel>
+ <channel id="SO|SOLO SPORT 5 HD"> <display-name>SO| SOLO SPORT 5 HD</display-name> </channel>
+ <channel id="SO|SOLO SPORT 5 SD"> <display-name>SO| SOLO SPORT 5 SD</display-name> </channel>
  <channel id="MNG|TV POBEDA VIP ᴿᴬᵂ"> <display-name>MNG| TV POBEDA VIP ᴿᴬᵂ</display-name> </channel>
  <channel id="MNG|RTV HN VIP ᴿᴬᵂ"> <display-name>MNG| RTV HN VIP ᴿᴬᵂ</display-name> </channel>
- <channel id="MO|WOW MONTENEGRO"> <display-name>MO| WOW MONTENEGRO</display-name>  <icon src="https://i.imgur.com/IyeutgW.png"/>
-</channel>
- <channel id="MO|TV PARTIZAN"> <display-name>MO| TV PARTIZAN</display-name>  <icon src="https://i.imgur.com/1UrDOFo.png"/>
-</channel>
- <channel id="MO|TEUTA TV"> <display-name>MO| TEUTA TV</display-name>  <icon src="https://i.imgur.com/LEAkZjN.png"/>
-</channel>
- <channel id="MO|TB1"> <display-name>MO| TB1</display-name>  <icon src="https://i.imgur.com/ZwRnB5z.png"/>
-</channel>
- <channel id="MO|SARAJEVO TV"> <display-name>MO| SARAJEVO TV</display-name>  <icon src="https://i.imgur.com/Y5ea53g.jpeg"/>
-</channel>
- <channel id="MO|RTV HN"> <display-name>MO| RTV HN</display-name>  <icon src="https://i.imgur.com/DpyLbTU.jpeg"/>
-</channel>
- <channel id="MO|NICK MUSIC"> <display-name>MO| NICK MUSIC</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/NickMusic.svg/960px-NickMusic.svg.png"/>
-</channel>
- <channel id="MO|NBA TV"> <display-name>MO| NBA TV</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/NBA_TV.svg/960px-NBA_TV.svg.png"/>
-</channel>
- <channel id="MO|K CN 1"> <display-name>MO| K CN 1</display-name>  <icon src="https://i.imgur.com/dUhhBxo.png"/>
-</channel>
- <channel id="MO|DM SAT"> <display-name>MO| DM SAT</display-name>  <icon src="https://i.imgur.com/LdeA1Cn.png"/>
-</channel>
- <channel id="MO|DIM TV"> <display-name>MO| DIM TV</display-name>  <icon src="https://i.imgur.com/X4QFDhk.png"/>
-</channel>
- <channel id="SI|Brio Tv Slo"> <display-name>SI| Brio Tv Slo</display-name>  <icon src="https://jiotvimages.cdn.jio.com/dare_images/images/Brio_TV.png"/>
-</channel>
+ <channel id="MO|WOW MONTENEGRO"> <display-name>MO| WOW MONTENEGRO</display-name> </channel>
+ <channel id="MO|TV PARTIZAN"> <display-name>MO| TV PARTIZAN</display-name> </channel>
+ <channel id="MO|TEUTA TV"> <display-name>MO| TEUTA TV</display-name> </channel>
+ <channel id="MO|TB1"> <display-name>MO| TB1</display-name> </channel>
+ <channel id="MO|SARAJEVO TV"> <display-name>MO| SARAJEVO TV</display-name> </channel>
+ <channel id="MO|RTV HN"> <display-name>MO| RTV HN</display-name> </channel>
+ <channel id="MO|NICK MUSIC"> <display-name>MO| NICK MUSIC</display-name> </channel>
+ <channel id="MO|NBA TV"> <display-name>MO| NBA TV</display-name> </channel>
+ <channel id="MO|K CN 1"> <display-name>MO| K CN 1</display-name> </channel>
+ <channel id="MO|DM SAT"> <display-name>MO| DM SAT</display-name> </channel>
+ <channel id="MO|DIM TV"> <display-name>MO| DIM TV</display-name> </channel>
+ <channel id="SI|Brio Tv Slo"> <display-name>SI| Brio Tv Slo</display-name> </channel>
  <channel id="UK|PL Replay 1 HD"> <display-name>UK| PL Replay 1 HD</display-name> </channel>
  <channel id="UK|PL Replay 2 HD"> <display-name>UK| PL Replay 2 HD</display-name> </channel>
  <channel id="UK|PL Replay 3 HD"> <display-name>UK| PL Replay 3 HD</display-name> </channel>
@@ -1454,21 +1182,16 @@
  <channel id="PRIME|World's Wildest Police Videos ᴿᴬᵂ"> <display-name>PRIME| World's Wildest Police Videos ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Turk on Video ᴿᴬᵂ"> <display-name>PRIME| Turk on Video ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Nature ᴿᴬᵂ"> <display-name>PRIME| Nature ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|H&amp;C Tv ᴿᴬᵂ"> <display-name>PRIME| H&amp;C Tv ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/ExZFTXs.png"/>
-</channel>
- <channel id="PRIME|Grjngo-Westernfilme ᴿᴬᵂ"> <display-name>PRIME| Grjngo-Westernfilme ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/wFqhK3p.png"/>
-</channel>
+ <channel id="PRIME|H&amp;C Tv ᴿᴬᵂ"> <display-name>PRIME| H&amp;C Tv ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Grjngo-Westernfilme ᴿᴬᵂ"> <display-name>PRIME| Grjngo-Westernfilme ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Ein Engel auf Erden ᴿᴬᵂ"> <display-name>PRIME| Ein Engel auf Erden ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|CC ᴿᴬᵂ"> <display-name>PRIME| CC ᴿᴬᵂ</display-name> </channel>
  <channel id="DE|Sky Cinema Special FHD"> <display-name>DE| Sky Cinema Special FHD</display-name> </channel>
  <channel id="DE|Sky Cinema Special HD"> <display-name>DE| Sky Cinema Special HD</display-name> </channel>
- <channel id="DE|Sky Highlights FHD"> <display-name>DE| Sky Highlights FHD</display-name>  <icon src="https://i.imgur.com/tBfpvoi.png"/>
-</channel>
- <channel id="DE|Sky Highlights HD"> <display-name>DE| Sky Highlights HD</display-name>  <icon src="https://i.imgur.com/tBfpvoi.png"/>
-</channel>
+ <channel id="DE|Sky Highlights FHD"> <display-name>DE| Sky Highlights FHD</display-name> </channel>
+ <channel id="DE|Sky Highlights HD"> <display-name>DE| Sky Highlights HD</display-name> </channel>
  <channel id="DE|Sky Cinema Special HEVC"> <display-name>DE| Sky Cinema Special HEVC</display-name> </channel>
- <channel id="DE|Hr HD Hessischer Rundfunk"> <display-name>DE| Hr HD Hessischer Rundfunk</display-name>  <icon src="https://i.imgur.com/dGNscPB.png"/>
-</channel>
+ <channel id="DE|Hr HD Hessischer Rundfunk"> <display-name>DE| Hr HD Hessischer Rundfunk</display-name> </channel>
  <channel id="DE|UHD1 by Astra"> <display-name>DE| UHD1 by Astra</display-name> </channel>
  <channel id="UK|R&amp;B Soul-Direkt HD"> <display-name>UK| R&amp;B Soul-Direkt HD</display-name>  <icon src="https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg"/>
 </channel>
@@ -1480,16 +1203,12 @@
 </channel>
  <channel id="UK|Dave&amp;amp;Ana HD"> <display-name>UK| Dave&amp;amp;Ana HD</display-name> </channel>
  <channel id="UK|Rt FHD Russian (Temp off Air)"> <display-name>UK| Rt FHD Russian (Temp off Air)</display-name> </channel>
- <channel id="UK|RTE News Now"> <display-name>UK| RTE News Now</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/Updated_RT%C3%89_News_and_Current_Affairs_Logo.png/960px-Updated_RT%C3%89_News_and_Current_Affairs_Logo.png"/>
-</channel>
- <channel id="UK|RT uk HD"> <display-name>UK| RT uk HD</display-name>  <icon src="https://i.imgur.com/Fbli6Ml.png"/>
-</channel>
+ <channel id="UK|RTE News Now"> <display-name>UK| RTE News Now</display-name> </channel>
+ <channel id="UK|RT uk HD"> <display-name>UK| RT uk HD</display-name> </channel>
  <channel id="UK|W!-Watch FHD"> <display-name>UK| W!-Watch FHD</display-name> </channel>
  <channel id="UK|RTE 1 Hevc FHD"> <display-name>UK| RTE 1 Hevc FHD</display-name> </channel>
- <channel id="UK|Praise Tv Network"> <display-name>UK| Praise Tv Network</display-name>  <icon src="https://i.imgur.com/OtAPOGR.png"/>
-</channel>
- <channel id="UK|N4 Iceland HD"> <display-name>UK| N4 Iceland HD</display-name>  <icon src="https://i.imgur.com/9ql4jXv.png"/>
-</channel>
+ <channel id="UK|Praise Tv Network"> <display-name>UK| Praise Tv Network</display-name> </channel>
+ <channel id="UK|N4 Iceland HD"> <display-name>UK| N4 Iceland HD</display-name> </channel>
  <channel id="US|THE CROWN ᴿᴬᵂ"> <display-name>US| THE CROWN ᴿᴬᵂ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png"/>
 </channel>
  <channel id="US|Cw 23 (KCWT)"> <display-name>US| Cw 23 (KCWT)</display-name> </channel>
@@ -1502,47 +1221,30 @@
  <channel id="LIVE|NFL Playoffs"> <display-name>LIVE| NFL Playoffs</display-name> </channel>
  <channel id="US|Fanduel West Plus"> <display-name>US| Fanduel West Plus</display-name> </channel>
  <channel id="US|Fanduel Great Lake"> <display-name>US| Fanduel Great Lake</display-name> </channel>
- <channel id="US|Fanduel Florida Plus"> <display-name>US| Fanduel Florida Plus</display-name>  <icon src="https://i.imgur.com/jNfU9hF.png"/>
-</channel>
- <channel id="US|Fanduel Florida"> <display-name>US| Fanduel Florida</display-name>  <icon src="https://i.imgur.com/ORjoLdw.png"/>
-</channel>
+ <channel id="US|Fanduel Florida Plus"> <display-name>US| Fanduel Florida Plus</display-name> </channel>
+ <channel id="US|Fanduel Florida"> <display-name>US| Fanduel Florida</display-name> </channel>
  <channel id="TUBI|Gordon Ramsay ᴿᴬᵂ"> <display-name>TUBI| Gordon Ramsay ᴿᴬᵂ</display-name> </channel>
  <channel id="TUBI|Gardening with Monty Don ᴿᴬᵂ"> <display-name>TUBI| Gardening with Monty Don ᴿᴬᵂ</display-name> </channel>
- <channel id="TUBI|Fox Sports on Tubi ᴿᴬᵂ"> <display-name>TUBI| Fox Sports on Tubi ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/xO5JwDQ.png"/>
-</channel>
- <channel id="TUBI|Fox 5 New York ᴿᴬᵂ"> <display-name>TUBI| Fox 5 New York ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/zZd9Tkt.png"/>
-</channel>
- <channel id="TUBI|Britbox Mysteries ᴿᴬᵂ"> <display-name>TUBI| Britbox Mysteries ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/PJdzoLN.png"/>
-</channel>
+ <channel id="TUBI|Fox Sports on Tubi ᴿᴬᵂ"> <display-name>TUBI| Fox Sports on Tubi ᴿᴬᵂ</display-name> </channel>
+ <channel id="TUBI|Fox 5 New York ᴿᴬᵂ"> <display-name>TUBI| Fox 5 New York ᴿᴬᵂ</display-name> </channel>
+ <channel id="TUBI|Britbox Mysteries ᴿᴬᵂ"> <display-name>TUBI| Britbox Mysteries ᴿᴬᵂ</display-name> </channel>
  <channel id="CITY|Nbc KLAF LP Brooklyn ᴿᴬᵂ"> <display-name>CITY| Nbc KLAF LP Brooklyn ᴿᴬᵂ</display-name> </channel>
  <channel id="GO|Up"> <display-name>GO| Up</display-name> </channel>
  <channel id="GO|Tribeca Festival+"> <display-name>GO| Tribeca Festival+</display-name> </channel>
- <channel id="GO|The Price is Right-The Barker Era"> <display-name>GO| The Price is Right-The Barker Era</display-name>  <icon src="https://i.imgur.com/LuE8Wl4.png"/>
-</channel>
- <channel id="GO|The Price is Right-Drew Carey"> <display-name>GO| The Price is Right-Drew Carey</display-name>  <icon src="https://images.pluto.tv/channels/64c2214c2a7f2200089a0c4b/colorLogoPNG.png"/>
-</channel>
- <channel id="GO|MSG Alt-1"> <display-name>GO| MSG Alt-1</display-name>  <icon src="https://i.imgur.com/hyubvS5.png"/>
-</channel>
- <channel id="GO|MSG Alt-2"> <display-name>GO| MSG Alt-2</display-name>  <icon src="https://i.imgur.com/6H3ycdL.png"/>
-</channel>
+ <channel id="GO|The Price is Right-The Barker Era"> <display-name>GO| The Price is Right-The Barker Era</display-name> </channel>
+ <channel id="GO|The Price is Right-Drew Carey"> <display-name>GO| The Price is Right-Drew Carey</display-name> </channel>
+ <channel id="GO|MSG Alt-1"> <display-name>GO| MSG Alt-1</display-name> </channel>
+ <channel id="GO|MSG Alt-2"> <display-name>GO| MSG Alt-2</display-name> </channel>
  <channel id="GO|MSG Alt-3"> <display-name>GO| MSG Alt-3</display-name> </channel>
- <channel id="GO|20/20"> <display-name>GO| 20/20</display-name>  <icon src="https://i.imgur.com/rtfsNdd.png"/>
-</channel>
- <channel id="PRIME|Xite Rap Game ᴿᴬᵂ"> <display-name>PRIME| Xite Rap Game ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/UaRyaoW.png"/>
-</channel>
- <channel id="PRIME|Xite R&amp;B Feels ᴿᴬᵂ"> <display-name>PRIME| Xite R&amp;B Feels ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/lEu4NGV.png"/>
-</channel>
- <channel id="PRIME|Xite Hip-Hop Evolution ᴿᴬᵂ"> <display-name>PRIME| Xite Hip-Hop Evolution ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/KtJgZjj.png"/>
-</channel>
- <channel id="PRIME|Xite 60s &amp; 70s Groove ᴿᴬᵂ"> <display-name>PRIME| Xite 60s &amp; 70s Groove ᴿᴬᵂ</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/8889551a-8796-41d0-b6b5-c7fad08fb62e/xite60s70sgroove_logo_WHT-_Arlette_FiranRDX.png"/>
-</channel>
+ <channel id="GO|20/20"> <display-name>GO| 20/20</display-name> </channel>
+ <channel id="PRIME|Xite Rap Game ᴿᴬᵂ"> <display-name>PRIME| Xite Rap Game ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Xite R&amp;B Feels ᴿᴬᵂ"> <display-name>PRIME| Xite R&amp;B Feels ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Xite Hip-Hop Evolution ᴿᴬᵂ"> <display-name>PRIME| Xite Hip-Hop Evolution ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Xite 60s &amp; 70s Groove ᴿᴬᵂ"> <display-name>PRIME| Xite 60s &amp; 70s Groove ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Western Bound Wrangled by INSP ᴿᴬᵂ"> <display-name>PRIME| Western Bound Wrangled by INSP ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Wendy Williams ᴿᴬᵂ"> <display-name>PRIME| Wendy Williams ᴿᴬᵂ</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/37b9e1ab-3a6e-4e0e-9979-7eea3a17ace4/WendyWilliams_Logo_1500x1000_DarkBG_-_Chris_Connors.png"/>
-</channel>
- <channel id="PRIME|Vevo R&amp;B ᴿᴬᵂ"> <display-name>PRIME| Vevo R&amp;B ᴿᴬᵂ</display-name>  <icon src="https://images.pluto.tv/channels/5da0d83f66c9700009b96d0e/featuredImage.jpg"/>
-</channel>
- <channel id="PRIME|Vevo Hip-Hop ᴿᴬᵂ"> <display-name>PRIME| Vevo Hip-Hop ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/Lbc9cYw.png"/>
-</channel>
+ <channel id="PRIME|Wendy Williams ᴿᴬᵂ"> <display-name>PRIME| Wendy Williams ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Vevo R&amp;B ᴿᴬᵂ"> <display-name>PRIME| Vevo R&amp;B ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Vevo Hip-Hop ᴿᴬᵂ"> <display-name>PRIME| Vevo Hip-Hop ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Untold Stories of the Er ᴿᴬᵂ"> <display-name>PRIME| Untold Stories of the Er ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Ultimate Builds ᴿᴬᵂ"> <display-name>PRIME| Ultimate Builds ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Tribunal Justice ᴿᴬᵂ"> <display-name>PRIME| Tribunal Justice ᴿᴬᵂ</display-name> </channel>
@@ -1557,63 +1259,45 @@
  <channel id="PRIME|The Girls next Door ᴿᴬᵂ"> <display-name>PRIME| The Girls next Door ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|The Doctors ᴿᴬᵂ"> <display-name>PRIME| The Doctors ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|The Dead Files ᴿᴬᵂ"> <display-name>PRIME| The Dead Files ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|The Bold and The Beautiful ᴿᴬᵂ"> <display-name>PRIME| The Bold and The Beautiful ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/AeGelOS.png"/>
-</channel>
+ <channel id="PRIME|The Bold and The Beautiful ᴿᴬᵂ"> <display-name>PRIME| The Bold and The Beautiful ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|T.D Jakes ᴿᴬᵂ"> <display-name>PRIME| T.D Jakes ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Survive or Die ᴿᴬᵂ"> <display-name>PRIME| Survive or Die ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Supernany ᴿᴬᵂ"> <display-name>PRIME| Supernany ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/AZBamNi.png"/>
-</channel>
- <channel id="PRIME|Startalk ᴿᴬᵂ"> <display-name>PRIME| Startalk ᴿᴬᵂ</display-name>  <icon src="https://images.iptv.rt.ru/images/d60qp8omife4gis72tk0.png"/>
-</channel>
+ <channel id="PRIME|Supernany ᴿᴬᵂ"> <display-name>PRIME| Supernany ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Startalk ᴿᴬᵂ"> <display-name>PRIME| Startalk ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Spooks (MI-5)"> <display-name>PRIME| Spooks (MI-5)</display-name> </channel>
- <channel id="PRIME|Speed Sport 1 ᴿᴬᵂ"> <display-name>PRIME| Speed Sport 1 ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/KXdVDis.png"/>
-</channel>
+ <channel id="PRIME|Speed Sport 1 ᴿᴬᵂ"> <display-name>PRIME| Speed Sport 1 ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Space &amp; Beyond ᴿᴬᵂ"> <display-name>PRIME| Space &amp; Beyond ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Sheriffs EL Dorado County ᴿᴬᵂ"> <display-name>PRIME| Sheriffs EL Dorado County ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Rustic Retreats ᴿᴬᵂ"> <display-name>PRIME| Rustic Retreats ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Rugbypass Tv ᴿᴬᵂ"> <display-name>PRIME| Rugbypass Tv ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Rovr Pets ᴿᴬᵂ"> <display-name>PRIME| Rovr Pets ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Relative Justice"> <display-name>PRIME| Relative Justice</display-name>  <icon src="https://i.imgur.com/xGGBbun.png"/>
-</channel>
+ <channel id="PRIME|Relative Justice"> <display-name>PRIME| Relative Justice</display-name> </channel>
  <channel id="PRIME|Reelz Famous and Imfamous"> <display-name>PRIME| Reelz Famous and Imfamous</display-name> </channel>
  <channel id="PRIME|Rebelde ᴿᴬᵂ"> <display-name>PRIME| Rebelde ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Reality Tv-Shores ᴿᴬᵂ"> <display-name>PRIME| Reality Tv-Shores ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Reality TV-Competition ᴿᴬᵂ"> <display-name>PRIME| Reality TV-Competition ᴿᴬᵂ</display-name>  <icon src="https://images.pluto.tv/channels/603fde9026ecbf0007752c2c/colorLogoPNG.png"/>
-</channel>
+ <channel id="PRIME|Reality TV-Competition ᴿᴬᵂ"> <display-name>PRIME| Reality TV-Competition ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Reality Gone Wild ᴿᴬᵂ"> <display-name>PRIME| Reality Gone Wild ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Racer Selcet ᴿᴬᵂ"> <display-name>PRIME| Racer Selcet ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/CurtYvn.png"/>
-</channel>
- <channel id="PRIME|Primetime Soaps ᴿᴬᵂ"> <display-name>PRIME| Primetime Soaps ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/Y2wW70P.png"/>
-</channel>
+ <channel id="PRIME|Racer Selcet ᴿᴬᵂ"> <display-name>PRIME| Racer Selcet ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Primetime Soaps ᴿᴬᵂ"> <display-name>PRIME| Primetime Soaps ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Preschool Corner ᴿᴬᵂ"> <display-name>PRIME| Preschool Corner ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Power Rangers ᴿᴬᵂ"> <display-name>PRIME| Power Rangers ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Places &amp; Spaces ᴿᴬᵂ"> <display-name>PRIME| Places &amp; Spaces ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Pink Panther ᴿᴬᵂ"> <display-name>PRIME| Pink Panther ᴿᴬᵂ</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/3c31975b-e818-4f3b-bbe2-7e433a07d5f0/PinkPanther_logo_dark_-_Carl_HoffeldercolorwhittexteREX.png"/>
-</channel>
+ <channel id="PRIME|Pink Panther ᴿᴬᵂ"> <display-name>PRIME| Pink Panther ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Personal  Injury Court ᴿᴬᵂ"> <display-name>PRIME| Personal  Injury Court ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Perform ᴿᴬᵂ"> <display-name>PRIME| Perform ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/gCjaY0F.png"/>
-</channel>
+ <channel id="PRIME|Perform ᴿᴬᵂ"> <display-name>PRIME| Perform ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|PBS Genealogy ᴿᴬᵂ"> <display-name>PRIME| PBS Genealogy ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|PBS Drama ᴿᴬᵂ"> <display-name>PRIME| PBS Drama ᴿᴬᵂ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/KBS_DRAMA.svg/960px-KBS_DRAMA.svg.png"/>
-</channel>
- <channel id="PRIME|PBS Documentaries ᴿᴬᵂ"> <display-name>PRIME| PBS Documentaries ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/WZVLRoz.png"/>
-</channel>
- <channel id="PRIME|Overtime ᴿᴬᵂ"> <display-name>PRIME| Overtime ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/9S9k4IK.png"/>
-</channel>
+ <channel id="PRIME|PBS Drama ᴿᴬᵂ"> <display-name>PRIME| PBS Drama ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|PBS Documentaries ᴿᴬᵂ"> <display-name>PRIME| PBS Documentaries ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Overtime ᴿᴬᵂ"> <display-name>PRIME| Overtime ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Noticias Univision 24/7 ᴿᴬᵂ"> <display-name>PRIME| Noticias Univision 24/7 ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Nostalgic Hits ᴿᴬᵂ"> <display-name>PRIME| Nostalgic Hits ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/JU1dFfK.png"/>
-</channel>
- <channel id="PRIME|NBC Lx Home ᴿᴬᵂ"> <display-name>PRIME| NBC Lx Home ᴿᴬᵂ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/7/70/NBC_LX_Home_2023.svg"/>
-</channel>
- <channel id="PRIME|NBC Comedy Vault ᴿᴬᵂ"> <display-name>PRIME| NBC Comedy Vault ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/nydZWwg.png"/>
-</channel>
+ <channel id="PRIME|Nostalgic Hits ᴿᴬᵂ"> <display-name>PRIME| Nostalgic Hits ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|NBC Lx Home ᴿᴬᵂ"> <display-name>PRIME| NBC Lx Home ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|NBC Comedy Vault ᴿᴬᵂ"> <display-name>PRIME| NBC Comedy Vault ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NBC Colorado Springs News (KOAA) ᴿᴬᵂ"> <display-name>PRIME| NBC Colorado Springs News (KOAA) ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NBC 7 San Diego News ᴿᴬᵂ"> <display-name>PRIME| NBC 7 San Diego News ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NBC 6 South Florida News ᴿᴬᵂ"> <display-name>PRIME| NBC 6 South Florida News ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|NBC 5 Dallas-Fort Worth News ᴿᴬᵂ"> <display-name>PRIME| NBC 5 Dallas-Fort Worth News ᴿᴬᵂ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/e/e0/KXAS_2023.svg"/>
-</channel>
- <channel id="PRIME|NBC 5 Chicago News ᴿᴬᵂ"> <display-name>PRIME| NBC 5 Chicago News ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/wblxisu.png"/>
-</channel>
+ <channel id="PRIME|NBC 5 Dallas-Fort Worth News ᴿᴬᵂ"> <display-name>PRIME| NBC 5 Dallas-Fort Worth News ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|NBC 5 Chicago News ᴿᴬᵂ"> <display-name>PRIME| NBC 5 Chicago News ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|NBC 4 New York News ᴿᴬᵂ"> <display-name>PRIME| NBC 4 New York News ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Nat Geo Sharks ᴿᴬᵂ"> <display-name>PRIME| Nat Geo Sharks ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Mythical 24/7 ᴿᴬᵂ"> <display-name>PRIME| Mythical 24/7 ᴿᴬᵂ</display-name> </channel>
@@ -1622,8 +1306,7 @@
  <channel id="PRIME|MGM Celebrates Black Cinema ᴿᴬᵂ"> <display-name>PRIME| MGM Celebrates Black Cinema ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Medical Incredible ᴿᴬᵂ"> <display-name>PRIME| Medical Incredible ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Matched Married Meet ᴿᴬᵂ"> <display-name>PRIME| Matched Married Meet ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Love Pets ᴿᴬᵂ"> <display-name>PRIME| Love Pets ᴿᴬᵂ</display-name>  <icon src="https://lovepetstv.com/wp-content/uploads/2022/12/LovePets_Logo_SecondaryColor.png"/>
-</channel>
+ <channel id="PRIME|Love Pets ᴿᴬᵂ"> <display-name>PRIME| Love Pets ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Love Kills ᴿᴬᵂ"> <display-name>PRIME| Love Kills ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Love And Marriage ᴿᴬᵂ"> <display-name>PRIME| Love And Marriage ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Long Lost Family ᴿᴬᵂ"> <display-name>PRIME| Long Lost Family ᴿᴬᵂ</display-name> </channel>
@@ -1632,28 +1315,22 @@
  <channel id="PRIME|Life Below Zero ᴿᴬᵂ"> <display-name>PRIME| Life Below Zero ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Life and Legend of Wyatt Earp ᴿᴬᵂ"> <display-name>PRIME| Life and Legend of Wyatt Earp ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Lidia's Kitchen ᴿᴬᵂ"> <display-name>PRIME| Lidia's Kitchen ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Lawless ᴿᴬᵂ"> <display-name>PRIME| Lawless ᴿᴬᵂ</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/d175e798-302f-41f4-bde4-9ca04015f085/Lawless_Plex_Logo_Light_1500x1000.png"/>
-</channel>
+ <channel id="PRIME|Lawless ᴿᴬᵂ"> <display-name>PRIME| Lawless ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Latino Vibes ᴿᴬᵂ"> <display-name>PRIME| Latino Vibes ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Las 3 Marias ᴿᴬᵂ"> <display-name>PRIME| Las 3 Marias ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Kim's Convenience ᴿᴬᵂ"> <display-name>PRIME| Kim's Convenience ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Karamo Presented By Nosey ᴿᴬᵂ"> <display-name>PRIME| Karamo Presented By Nosey ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Judge &amp; Jury ᴿᴬᵂ"> <display-name>PRIME| Judge &amp; Jury ᴿᴬᵂ</display-name>  <icon src="https://images.pluto.tv/channels/622f498d119b4c000719c0b7/colorLogoPNG.png"/>
-</channel>
+ <channel id="PRIME|Judge &amp; Jury ᴿᴬᵂ"> <display-name>PRIME| Judge &amp; Jury ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|JaJaJa ᴿᴬᵂ"> <display-name>PRIME| JaJaJa ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|I was Haunted ᴿᴬᵂ"> <display-name>PRIME| I was Haunted ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|In Touch+ ᴿᴬᵂ"> <display-name>PRIME| In Touch+ ᴿᴬᵂ</display-name>  <icon src="https://d2cc5gnf1jy2pj.cloudfront.net/custom_landing_pages/intouchplus/intouchplus_logo.svg"/>
-</channel>
+ <channel id="PRIME|In Touch+ ᴿᴬᵂ"> <display-name>PRIME| In Touch+ ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Impact Gospel ᴿᴬᵂ"> <display-name>PRIME| Impact Gospel ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Hunter X Hunter ᴿᴬᵂ"> <display-name>PRIME| Hunter X Hunter ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Grandes Parejas ᴿᴬᵂ"> <display-name>PRIME| Grandes Parejas ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Get Comedy ᴿᴬᵂ"> <display-name>PRIME| Get Comedy ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/FuscfJW.png"/>
-</channel>
+ <channel id="PRIME|Get Comedy ᴿᴬᵂ"> <display-name>PRIME| Get Comedy ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|General Hospital ᴿᴬᵂ"> <display-name>PRIME| General Hospital ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Galanes ᴿᴬᵂ"> <display-name>PRIME| Galanes ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/WExojSG.png"/>
-</channel>
- <channel id="PRIME|FV AMC En Espanol US ᴿᴬᵂ"> <display-name>PRIME| FV AMC En Espanol US ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/L1h6W5Q.png"/>
-</channel>
+ <channel id="PRIME|Galanes ᴿᴬᵂ"> <display-name>PRIME| Galanes ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|FV AMC En Espanol US ᴿᴬᵂ"> <display-name>PRIME| FV AMC En Espanol US ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fox 35 Orlando ᴿᴬᵂ"> <display-name>PRIME| Fox 35 Orlando ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fox 32 Chicago ᴿᴬᵂ"> <display-name>PRIME| Fox 32 Chicago ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fox 13 Tampa Bay ᴿᴬᵂ"> <display-name>PRIME| Fox 13 Tampa Bay ᴿᴬᵂ</display-name> </channel>
@@ -1662,19 +1339,14 @@
  <channel id="PRIME|Fox 10 Phoenix ᴿᴬᵂ"> <display-name>PRIME| Fox 10 Phoenix ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fox 9 Minneapolis ᴿᴬᵂ"> <display-name>PRIME| Fox 9 Minneapolis ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fox 7 Austin ᴿᴬᵂ"> <display-name>PRIME| Fox 7 Austin ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Fox 6 Milwaukee ᴿᴬᵂ"> <display-name>PRIME| Fox 6 Milwaukee ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/hdpYF9I.png"/>
-</channel>
- <channel id="PRIME|Fox 5 Atlanta ᴿᴬᵂ"> <display-name>PRIME| Fox 5 Atlanta ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/DcZoeGw.jpg"/>
-</channel>
- <channel id="PRIME|Fox 2 Detroit ᴿᴬᵂ"> <display-name>PRIME| Fox 2 Detroit ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/EL9Bwtf.png"/>
-</channel>
+ <channel id="PRIME|Fox 6 Milwaukee ᴿᴬᵂ"> <display-name>PRIME| Fox 6 Milwaukee ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Fox 5 Atlanta ᴿᴬᵂ"> <display-name>PRIME| Fox 5 Atlanta ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Fox 2 Detroit ᴿᴬᵂ"> <display-name>PRIME| Fox 2 Detroit ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Fgteev ᴿᴬᵂ"> <display-name>PRIME| Fgteev ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Faithfull Funny ᴿᴬᵂ"> <display-name>PRIME| Faithfull Funny ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Extrem Makeover- Home Edition ᴿᴬᵂ"> <display-name>PRIME| Extrem Makeover- Home Edition ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|ET ᴿᴬᵂ"> <display-name>PRIME| ET ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/2IWZexT.png"/>
-</channel>
- <channel id="PRIME|Earthday 365 ᴿᴬᵂ"> <display-name>PRIME| Earthday 365 ᴿᴬᵂ</display-name>  <icon src="https://epg.sam.stingray.com/IMAGE/EARTH-001/lg-direct/Channel_Logo_522x200.png"/>
-</channel>
+ <channel id="PRIME|ET ᴿᴬᵂ"> <display-name>PRIME| ET ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Earthday 365 ᴿᴬᵂ"> <display-name>PRIME| Earthday 365 ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Dinos 24/7 ᴿᴬᵂ"> <display-name>PRIME| Dinos 24/7 ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Death Valley Days ᴿᴬᵂ"> <display-name>PRIME| Death Valley Days ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Couples Court ᴿᴬᵂ"> <display-name>PRIME| Couples Court ᴿᴬᵂ</display-name> </channel>
@@ -1682,76 +1354,50 @@
  <channel id="PRIME|Como Dice El Dicho ᴿᴬᵂ"> <display-name>PRIME| Como Dice El Dicho ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Come Dine with Me ᴿᴬᵂ"> <display-name>PRIME| Come Dine with Me ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Classic Car Auctions ᴿᴬᵂ"> <display-name>PRIME| Classic Car Auctions ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Cine Retro ᴿᴬᵂ"> <display-name>PRIME| Cine Retro ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/I5XxyLI.png"/>
-</channel>
- <channel id="PRIME|Cine De Oro ᴿᴬᵂ"> <display-name>PRIME| Cine De Oro ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/I5XxyLI.png"/>
-</channel>
+ <channel id="PRIME|Cine Retro ᴿᴬᵂ"> <display-name>PRIME| Cine Retro ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Cine De Oro ᴿᴬᵂ"> <display-name>PRIME| Cine De Oro ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Chris Hansen's Trublu Crime Network ᴿᴬᵂ"> <display-name>PRIME| Chris Hansen's Trublu Crime Network ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|CBS News Detroit ᴿᴬᵂ"> <display-name>PRIME| CBS News Detroit ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/cMels2Y.png"/>
-</channel>
- <channel id="PRIME|CBS News Colorado ᴿᴬᵂ"> <display-name>PRIME| CBS News Colorado ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/2oyYwBw.png"/>
-</channel>
+ <channel id="PRIME|CBS News Detroit ᴿᴬᵂ"> <display-name>PRIME| CBS News Detroit ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|CBS News Colorado ᴿᴬᵂ"> <display-name>PRIME| CBS News Colorado ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Caso Cebrado ᴿᴬᵂ"> <display-name>PRIME| Caso Cebrado ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Black Voices ᴿᴬᵂ"> <display-name>PRIME| Black Voices ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|BBC Comedy ᴿᴬᵂ"> <display-name>PRIME| BBC Comedy ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/yWq9uRV.png"/>
-</channel>
+ <channel id="PRIME|BBC Comedy ᴿᴬᵂ"> <display-name>PRIME| BBC Comedy ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Bargain Hunt ᴿᴬᵂ"> <display-name>PRIME| Bargain Hunt ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Are You Smarter than a 5th Grader? ᴿᴬᵂ"> <display-name>PRIME| Are You Smarter than a 5th Grader? ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Aqui Y Ahora ᴿᴬᵂ"> <display-name>PRIME| Aqui Y Ahora ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|Antiques Road Trip ᴿᴬᵂ"> <display-name>PRIME| Antiques Road Trip ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/kkm7VqV.png"/>
-</channel>
- <channel id="PRIME|Anime X Hidive ᴿᴬᵂ"> <display-name>PRIME| Anime X Hidive ᴿᴬᵂ</display-name>  <icon src="https://i.imgur.com/v0BlxCa.png"/>
-</channel>
+ <channel id="PRIME|Antiques Road Trip ᴿᴬᵂ"> <display-name>PRIME| Antiques Road Trip ᴿᴬᵂ</display-name> </channel>
+ <channel id="PRIME|Anime X Hidive ᴿᴬᵂ"> <display-name>PRIME| Anime X Hidive ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Animation Favorites ᴿᴬᵂ"> <display-name>PRIME| Animation Favorites ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|American Ninja Warrior ᴿᴬᵂ"> <display-name>PRIME| American Ninja Warrior ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|All Day Drama ᴿᴬᵂ"> <display-name>PRIME| All Day Drama ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Action News Jax (CBS47 / FOX30) ᴿᴬᵂ"> <display-name>PRIME| Action News Jax (CBS47 / FOX30) ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|Acorn Tv Mysteries ᴿᴬᵂ"> <display-name>PRIME| Acorn Tv Mysteries ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|ABC7 New York ᴿᴬᵂ"> <display-name>PRIME| ABC7 New York ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|ABC7 Bay Area ᴿᴬᵂ"> <display-name>PRIME| ABC7 Bay Area ᴿᴬᵂ</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NBC_logo_2022_%28vertical%29.svg/960px-NBC_logo_2022_%28vertical%29.svg.png"/>
-</channel>
+ <channel id="PRIME|ABC7 Bay Area ᴿᴬᵂ"> <display-name>PRIME| ABC7 Bay Area ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|90s Sitcom ᴿᴬᵂ"> <display-name>PRIME| 90s Sitcom ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|80s Sitcom ᴿᴬᵂ"> <display-name>PRIME| 80s Sitcom ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|60 Minutes ᴿᴬᵂ"> <display-name>PRIME| 60 Minutes ᴿᴬᵂ</display-name> </channel>
- <channel id="PRIME|48 Hours ᴿᴬᵂ"> <display-name>PRIME| 48 Hours ᴿᴬᵂ</display-name>  <icon src="https://images.pluto.tv/channels/6299e5afdd5833000727e795/colorLogoPNG.png"/>
-</channel>
+ <channel id="PRIME|48 Hours ᴿᴬᵂ"> <display-name>PRIME| 48 Hours ᴿᴬᵂ</display-name> </channel>
  <channel id="PRIME|24/7 Laughs ᴿᴬᵂ"> <display-name>PRIME| 24/7 Laughs ᴿᴬᵂ</display-name> </channel>
- <channel id="US|Outermax HD"> <display-name>US| Outermax HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/OuterMax_Logo.svg/960px-OuterMax_Logo.svg.png"/>
-</channel>
- <channel id="US|VSIN"> <display-name>US| VSIN</display-name>  <icon src="https://i.imgur.com/C4wIRxg.png"/>
-</channel>
- <channel id="US|NBC Golf"> <display-name>US| NBC Golf</display-name>  <icon src="https://i.imgur.com/wa4KC7z.png"/>
-</channel>
+ <channel id="US|Outermax HD"> <display-name>US| Outermax HD</display-name> </channel>
+ <channel id="US|VSIN"> <display-name>US| VSIN</display-name> </channel>
+ <channel id="US|NBC Golf"> <display-name>US| NBC Golf</display-name> </channel>
  <channel id="US|CSN California HD"> <display-name>US| CSN California HD</display-name> </channel>
- <channel id="US|CSN Boston HD"> <display-name>US| CSN Boston HD</display-name>  <icon src="https://i.imgur.com/9un7R3N.png"/>
-</channel>
- <channel id="US|NBC Bay Area HD"> <display-name>US| NBC Bay Area HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NBC_logo_2022_%28vertical%29.svg/960px-NBC_logo_2022_%28vertical%29.svg.png"/>
-</channel>
- <channel id="US|AT&amp;amp;T Sportsnet Southwest HD"> <display-name>US| AT&amp;amp;T Sportsnet Southwest HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Logo_for_AT%26T_SportsNet.svg/960px-Logo_for_AT%26T_SportsNet.svg.png"/>
-</channel>
- <channel id="US|Fox Kansas HD"> <display-name>US| Fox Kansas HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fox_Networks_Group_US_logo.svg/960px-Fox_Networks_Group_US_logo.svg.png"/>
-</channel>
- <channel id="US|Fox 29"> <display-name>US| Fox 29</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fox_Networks_Group_US_logo.svg/960px-Fox_Networks_Group_US_logo.svg.png"/>
-</channel>
- <channel id="US|CW Seattle HD"> <display-name>US| CW Seattle HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/b/b7/KOMO-TV_%282021%29.svg"/>
-</channel>
- <channel id="US|WNYC"> <display-name>US| WNYC</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/The_CW_2024.svg/960px-The_CW_2024.svg.png"/>
-</channel>
+ <channel id="US|CSN Boston HD"> <display-name>US| CSN Boston HD</display-name> </channel>
+ <channel id="US|NBC Bay Area HD"> <display-name>US| NBC Bay Area HD</display-name> </channel>
+ <channel id="US|AT&amp;amp;T Sportsnet Southwest HD"> <display-name>US| AT&amp;amp;T Sportsnet Southwest HD</display-name> </channel>
+ <channel id="US|Fox Kansas HD"> <display-name>US| Fox Kansas HD</display-name> </channel>
+ <channel id="US|Fox 29"> <display-name>US| Fox 29</display-name> </channel>
+ <channel id="US|CW Seattle HD"> <display-name>US| CW Seattle HD</display-name> </channel>
+ <channel id="US|WNYC"> <display-name>US| WNYC</display-name> </channel>
  <channel id="US|US MyTv (KHII) Hanolulu"> <display-name>US| US MyTv (KHII) Hanolulu</display-name> </channel>
- <channel id="DE|Geo Tv HD"> <display-name>DE| Geo Tv HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/8/89/PBS_logo_2019.svg"/>
-</channel>
- <channel id="DE|Nat Geo Wild FHD"> <display-name>DE| Nat Geo Wild FHD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/National_Geographic_Wild_logo.svg/960px-National_Geographic_Wild_logo.svg.png"/>
-</channel>
- <channel id="DE|Nat Geo Wild HD"> <display-name>DE| Nat Geo Wild HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/National_Geographic_Wild_logo.svg/960px-National_Geographic_Wild_logo.svg.png"/>
-</channel>
- <channel id="DE|Sony Channel FHD"> <display-name>DE| Sony Channel FHD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sony_Channel_Logo.png/960px-Sony_Channel_Logo.png"/>
-</channel>
- <channel id="DE|Sony AXN HD"> <display-name>DE| Sony AXN HD</display-name>  <icon src="https://dtil.tmsimg.com/assets/s157593_ld_h15_aa.png?lock=720x540"/>
-</channel>
- <channel id="DE|Sky Cinema Premieren FHD"> <display-name>DE| Sky Cinema Premieren FHD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sky_Cinema_Premieren_DE_Logo_2020.svg/960px-Sky_Cinema_Premieren_DE_Logo_2020.svg.png"/>
-</channel>
- <channel id="DE|Sky Cinema Premieren HD"> <display-name>DE| Sky Cinema Premieren HD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sky_Cinema_Premieren_DE_Logo_2020.svg/960px-Sky_Cinema_Premieren_DE_Logo_2020.svg.png"/>
-</channel>
+ <channel id="DE|Geo Tv HD"> <display-name>DE| Geo Tv HD</display-name> </channel>
+ <channel id="DE|Nat Geo Wild FHD"> <display-name>DE| Nat Geo Wild FHD</display-name> </channel>
+ <channel id="DE|Nat Geo Wild HD"> <display-name>DE| Nat Geo Wild HD</display-name> </channel>
+ <channel id="DE|Sony Channel FHD"> <display-name>DE| Sony Channel FHD</display-name> </channel>
+ <channel id="DE|Sony AXN HD"> <display-name>DE| Sony AXN HD</display-name> </channel>
+ <channel id="DE|Sky Cinema Premieren FHD"> <display-name>DE| Sky Cinema Premieren FHD</display-name> </channel>
+ <channel id="DE|Sky Cinema Premieren HD"> <display-name>DE| Sky Cinema Premieren HD</display-name> </channel>
  <channel id="JOYN|SR Raw"> <display-name>JOYN| SR Raw</display-name> </channel>
  <channel id="JOYN|Serienklassiker ᴿᴬᵂ"> <display-name>JOYN| Serienklassiker ᴿᴬᵂ</display-name> </channel>
  <channel id="JOYN|Elf Raw"> <display-name>JOYN| Elf Raw</display-name> </channel>
@@ -1770,8 +1416,7 @@
  <channel id="DE|SILO FHD"> <display-name>DE| SILO FHD</display-name> </channel>
  <channel id="DE|THE LAST OF US FHD"> <display-name>DE| THE LAST OF US FHD</display-name> </channel>
  <channel id="DE|MOBLAND FHD"> <display-name>DE| MOBLAND FHD</display-name> </channel>
- <channel id="DE|FILMS 4K"> <display-name>DE| FILMS 4K</display-name>  <icon src="https://i.imgur.com/X5N8CHf.png"/>
-</channel>
+ <channel id="DE|FILMS 4K"> <display-name>DE| FILMS 4K</display-name> </channel>
  <channel id="DE|FILMS 2020-23"> <display-name>DE| FILMS 2020-23</display-name> </channel>
  <channel id="DE|ZONE DISNEY+ FHD"> <display-name>DE| ZONE DISNEY+ FHD</display-name> </channel>
  <channel id="DE|VODAFONE GO KINDER 1 FHD"> <display-name>DE| VODAFONE GO KINDER 1 FHD</display-name> </channel>
@@ -1871,10 +1516,8 @@
 </channel>
  <channel id="BS|WILL SMITH COLLECTION"> <display-name>BS| WILL SMITH COLLECTION</display-name>  <icon src="https://p7.hiclipart.com/preview/737/858/501/5bbc39646174e.jpg"/>
 </channel>
- <channel id="RS|Radio Lola"> <display-name>RS| Radio Lola</display-name>  <icon src="https://i.imgur.com/41eE8fl.png"/>
-</channel>
- <channel id="RS|MTV Club"> <display-name>RS| MTV Club</display-name>  <icon src="https://i.imgur.com/ZxZ61Px.png"/>
-</channel>
+ <channel id="RS|Radio Lola"> <display-name>RS| Radio Lola</display-name> </channel>
+ <channel id="RS|MTV Club"> <display-name>RS| MTV Club</display-name> </channel>
  <channel id="DE|CNN"> <display-name>DE| CNN</display-name>  <icon src="https://e7.pngegg.com/pngimages/782/988/png-clipart-logo-cnn-brand-trademark-logo-cnn.png"/>
 </channel>
  <channel id="DE|SKY SELECT 1 FHD"> <display-name>DE| SKY SELECT 1 FHD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png"/>
@@ -1904,8 +1547,7 @@
  <channel id="EXYU|BAKUGAN"> <display-name>EXYU| BAKUGAN</display-name> </channel>
  <channel id="EXYU|BE COOL SCOOBY-DOO"> <display-name>EXYU| BE COOL SCOOBY-DOO</display-name> </channel>
  <channel id="EXYU|AND THE MONSTER MACHINES"> <display-name>EXYU| AND THE MONSTER MACHINES</display-name> </channel>
- <channel id="EXYU|GARFIELD AND FRIENDS"> <display-name>EXYU| GARFIELD AND FRIENDS</display-name>  <icon src="https://i.imgur.com/evzfe9C.png"/>
-</channel>
+ <channel id="EXYU|GARFIELD AND FRIENDS"> <display-name>EXYU| GARFIELD AND FRIENDS</display-name> </channel>
  <channel id="EXYU|KUNG FU PANDA LEGENDS OF AWESOMENESS"> <display-name>EXYU| KUNG FU PANDA LEGENDS OF AWESOMENESS</display-name> </channel>
  <channel id="EXYU|LEGO FRIENDS GIRLS ON A MISSION"> <display-name>EXYU| LEGO FRIENDS GIRLS ON A MISSION</display-name> </channel>
  <channel id="EXYU|LEGO NINJAGO MASTERS OF SPINJITZU"> <display-name>EXYU| LEGO NINJAGO MASTERS OF SPINJITZU</display-name> </channel>
@@ -1914,40 +1556,31 @@
  <channel id="EXYU|METAJETS"> <display-name>EXYU| METAJETS</display-name> </channel>
  <channel id="EXYU|MUMIJEVI"> <display-name>EXYU| MUMIJEVI</display-name> </channel>
  <channel id="EXYU|MY LITTLE PONY"> <display-name>EXYU| MY LITTLE PONY</display-name> </channel>
- <channel id="EXYU|PENGUINS OF MADAGASCAR"> <display-name>EXYU| PENGUINS OF MADAGASCAR</display-name>  <icon src="https://i.imgur.com/srIYRQv.png"/>
-</channel>
+ <channel id="EXYU|PENGUINS OF MADAGASCAR"> <display-name>EXYU| PENGUINS OF MADAGASCAR</display-name> </channel>
  <channel id="EXYU|PHINEAS AND FERB"> <display-name>EXYU| PHINEAS AND FERB</display-name> </channel>
  <channel id="EXYU|SCOOBY-DOO AND GUESS WHO"> <display-name>EXYU| SCOOBY-DOO AND GUESS WHO</display-name> </channel>
- <channel id="EXYU|SHAUN THE SHEEP"> <display-name>EXYU| SHAUN THE SHEEP</display-name>  <icon src="https://ichef.bbci.co.uk/ace/standard/600/childrens/childrens-binarystore/cbeebies/ShaunTheSheep_TH_Logo.png"/>
-</channel>
+ <channel id="EXYU|SHAUN THE SHEEP"> <display-name>EXYU| SHAUN THE SHEEP</display-name> </channel>
  <channel id="EXYU|SOFIA THE FIRST"> <display-name>EXYU| SOFIA THE FIRST</display-name> </channel>
  <channel id="EXYU|SPEEDY GONZALEZ"> <display-name>EXYU| SPEEDY GONZALEZ</display-name> </channel>
- <channel id="EXYU|SPONJE BOB"> <display-name>EXYU| SPONJE BOB</display-name>  <icon src="https://i.imgur.com/FxX8U5N.png"/>
-</channel>
+ <channel id="EXYU|SPONJE BOB"> <display-name>EXYU| SPONJE BOB</display-name> </channel>
  <channel id="EXYU|TANGLED THE SERIE"> <display-name>EXYU| TANGLED THE SERIE</display-name> </channel>
  <channel id="EXYU|THE BATMAN"> <display-name>EXYU| THE BATMAN</display-name> </channel>
  <channel id="EXYU|THE FLINTSTONES"> <display-name>EXYU| THE FLINTSTONES</display-name> </channel>
- <channel id="EXYU|THE PINK PANTHER"> <display-name>EXYU| THE PINK PANTHER</display-name>  <icon src="https://provider-static.plex.tv/epg/cms/production/3c31975b-e818-4f3b-bbe2-7e433a07d5f0/PinkPanther_logo_dark_-_Carl_HoffeldercolorwhittexteREX.png"/>
-</channel>
+ <channel id="EXYU|THE PINK PANTHER"> <display-name>EXYU| THE PINK PANTHER</display-name> </channel>
  <channel id="EXYU|THOMAS &amp; FRIENDS"> <display-name>EXYU| THOMAS &amp; FRIENDS</display-name> </channel>
  <channel id="EXYU|LOONEY TUNES"> <display-name>EXYU| LOONEY TUNES</display-name>  <icon src="https://toppng.com/uploads/preview/looney-tunes-image-looney-tunes-logo-11562925456xfff6wikqf.png"/>
 </channel>
  <channel id="EXYU|PAW PATROL"> <display-name>EXYU| PAW PATROL</display-name>  <icon src="https://www.clipartmax.com/png/middle/436-4366822_free-printable-paw-patrol-logo.png"/>
 </channel>
- <channel id="EXYU|PEPPA PIG"> <display-name>EXYU| PEPPA PIG</display-name>  <icon src="https://images.pluto.tv/channels/5d14fb6c84dd37df3b4290c5/colorLogoPNG_1730733871298.png"/>
-</channel>
+ <channel id="EXYU|PEPPA PIG"> <display-name>EXYU| PEPPA PIG</display-name> </channel>
  <channel id="EXYU|TURTLES"> <display-name>EXYU| TURTLES</display-name>  <icon src="https://toppng.com/uploads/preview/turtle-clipart-logo-png-ninja-turtles-logo-11563607466lfdxtxap6h.png"/>
 </channel>
- <channel id="EXYU|HEY KIDS"> <display-name>EXYU| HEY KIDS</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/e/e3/PBS_Kids_logo_%282022%29.svg"/>
-</channel>
- <channel id="EXYU|MR. BEAN"> <display-name>EXYU| MR. BEAN</display-name>  <icon src="https://static.wikia.nocookie.net/logopedia/images/2/25/Mr._Bean_Animated_Series_stacked_logo.png"/>
-</channel>
+ <channel id="EXYU|HEY KIDS"> <display-name>EXYU| HEY KIDS</display-name> </channel>
+ <channel id="EXYU|MR. BEAN"> <display-name>EXYU| MR. BEAN</display-name> </channel>
  <channel id="EXYU|STRUMFOV"> <display-name>EXYU| STRUMFOV</display-name>  <icon src="https://images.seeklogo.com/logo-png/52/2/smurf-croatian-strumpfovi-logo-png_seeklogo-520025.png"/>
 </channel>
- <channel id="EXYU|TOM AND JERRY"> <display-name>EXYU| TOM AND JERRY</display-name>  <icon src="https://gia.tv/streams/pptv/208314.jpg?1750373428"/>
-</channel>
- <channel id="EXYU|TOM AND JERRY SHOW"> <display-name>EXYU| TOM AND JERRY SHOW</display-name>  <icon src="https://gia.tv/streams/pptv/208314.jpg?1750373428"/>
-</channel>
+ <channel id="EXYU|TOM AND JERRY"> <display-name>EXYU| TOM AND JERRY</display-name> </channel>
+ <channel id="EXYU|TOM AND JERRY SHOW"> <display-name>EXYU| TOM AND JERRY SHOW</display-name> </channel>
  <channel id="EXYU|PCELICA MAJA"> <display-name>EXYU| PCELICA MAJA</display-name>  <icon src="https://pcelicamaja.com/wp-content/uploads/2022/06/frame_2_delay-0.9s-removebg-preview-1-1.png"/>
 </channel>
  <channel id="EXYU|MICKEY MOUSE CLUBHOUSE"> <display-name>EXYU| MICKEY MOUSE CLUBHOUSE</display-name> </channel>
@@ -1958,14 +1591,12 @@
  <channel id="EXYU|A NIGHTMARE ON ELM STREET"> <display-name>EXYU| A NIGHTMARE ON ELM STREET</display-name> </channel>
  <channel id="EXYU|BAD BOYS"> <display-name>EXYU| BAD BOYS</display-name>  <icon src="https://brandeps.com/logo-download/b/bad-boys-logo-01.png"/>
 </channel>
- <channel id="EXYU|BEVERLY HILLS COP"> <display-name>EXYU| BEVERLY HILLS COP</display-name>  <icon src="https://images.pluto.tv/channels/60afb576053df900076fa2f0/colorLogoPNG.png"/>
-</channel>
+ <channel id="EXYU|BEVERLY HILLS COP"> <display-name>EXYU| BEVERLY HILLS COP</display-name> </channel>
  <channel id="EXYU|DC COLLECTION"> <display-name>EXYU| DC COLLECTION</display-name>  <icon src="https://forums.cdn.launchbox.gg/monthly_2025_04/5bbffb9f4553a_DCCollectionposter.png.3d9ccd00b2bf53486c1c3e1e5bfe3d04.png"/>
 </channel>
  <channel id="EXYU|DIE HARD"> <display-name>EXYU| DIE HARD</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Die_Hard_film_logo.png"/>
 </channel>
- <channel id="EXYU|FINAL DESTINATION"> <display-name>EXYU| FINAL DESTINATION</display-name>  <icon src="https://i.imgur.com/bdLQu60.png"/>
-</channel>
+ <channel id="EXYU|FINAL DESTINATION"> <display-name>EXYU| FINAL DESTINATION</display-name> </channel>
  <channel id="EXYU|HAJDE DA SE VOLIMO"> <display-name>EXYU| HAJDE DA SE VOLIMO</display-name>  <icon src="https://images.plex.tv/photo?size=large-1280&amp;url=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfmcLzOAeVNcSf2cLF9MAiUrwUjZ.jpg"/>
 </channel>
  <channel id="EXYU|HARRY POTTER"> <display-name>EXYU| HARRY POTTER</display-name> </channel>
@@ -1980,12 +1611,10 @@
 </channel>
  <channel id="EXYU|MATRIX"> <display-name>EXYU| MATRIX</display-name>  <icon src="https://www.vhv.rs/dpng/d/210-2105390_the-matrix-matrix-movie-logo-png-transparent-png.png"/>
 </channel>
- <channel id="EXYU|MISSION IMPOSSIBLE"> <display-name>EXYU| MISSION IMPOSSIBLE</display-name>  <icon src="https://images.pluto.tv/channels/634fe5afece2e60007c9d8b8/colorLogoPNG.png"/>
-</channel>
+ <channel id="EXYU|MISSION IMPOSSIBLE"> <display-name>EXYU| MISSION IMPOSSIBLE</display-name> </channel>
  <channel id="EXYU|PIRATES OF THE CARIBBEAN"> <display-name>EXYU| PIRATES OF THE CARIBBEAN</display-name> </channel>
  <channel id="EXYU|POLICE ACADEMY"> <display-name>EXYU| POLICE ACADEMY</display-name> </channel>
- <channel id="EXYU|RAMBO"> <display-name>EXYU| RAMBO</display-name>  <icon src="https://images.maxstream.tv/sites/default/files/entry/0_e59etfmm/landscape_carousel_xxhdpi.webp"/>
-</channel>
+ <channel id="EXYU|RAMBO"> <display-name>EXYU| RAMBO</display-name> </channel>
  <channel id="EXYU|ROCKY"> <display-name>EXYU| ROCKY</display-name>  <icon src="https://images.seeklogo.com/logo-png/42/1/rocky-balboa-logo-png_seeklogo-428261.png"/>
 </channel>
  <channel id="EXYU|SAW"> <display-name>EXYU| SAW</display-name>  <icon src="https://images.seeklogo.com/logo-png/12/1/saw-logo-png_seeklogo-123050.png"/>
@@ -1996,16 +1625,12 @@
 </channel>
  <channel id="EXYU|THE GODFATHER"> <display-name>EXYU| THE GODFATHER</display-name> </channel>
  <channel id="EXYU|UNDISPUTED"> <display-name>EXYU| UNDISPUTED</display-name> </channel>
- <channel id="EXYU|STAR WARS"> <display-name>EXYU| STAR WARS</display-name>  <icon src="https://i.imgur.com/Sn7QnZa.png"/>
-</channel>
- <channel id="EXYU|STAR TREK"> <display-name>EXYU| STAR TREK</display-name>  <icon src="https://i.imgur.com/8cvXYiT.png"/>
-</channel>
+ <channel id="EXYU|STAR WARS"> <display-name>EXYU| STAR WARS</display-name> </channel>
+ <channel id="EXYU|STAR TREK"> <display-name>EXYU| STAR TREK</display-name> </channel>
  <channel id="EXYU|RISE OF THE FOOTSOLDIER"> <display-name>EXYU| RISE OF THE FOOTSOLDIER</display-name> </channel>
- <channel id="EXYU|AFTER"> <display-name>EXYU| AFTER</display-name>  <icon src="https://i.imgur.com/lRJAXC7.png"/>
-</channel>
+ <channel id="EXYU|AFTER"> <display-name>EXYU| AFTER</display-name> </channel>
  <channel id="EXYU|VIKINGS VALHALLA"> <display-name>EXYU| VIKINGS VALHALLA</display-name> </channel>
- <channel id="EXYU|VIKINGS"> <display-name>EXYU| VIKINGS</display-name>  <icon src="https://i.imgur.com/LT3YROU.png"/>
-</channel>
+ <channel id="EXYU|VIKINGS"> <display-name>EXYU| VIKINGS</display-name> </channel>
  <channel id="EXYU|THE BLACKLIST"> <display-name>EXYU| THE BLACKLIST</display-name> </channel>
  <channel id="EXYU|SRECNI LJUDI"> <display-name>EXYU| SRECNI LJUDI</display-name> </channel>
  <channel id="EXYU|SELO GORI A BABA SE CESLJA"> <display-name>EXYU| SELO GORI A BABA SE CESLJA</display-name> </channel>
@@ -2015,8 +1640,7 @@
  <channel id="EXYU|FRIENDS"> <display-name>EXYU| FRIENDS</display-name> </channel>
  <channel id="EXYU|DOBRO JUTRO KOMSIJA"> <display-name>EXYU| DOBRO JUTRO KOMSIJA</display-name> </channel>
  <channel id="EXYU|BOLJI ZIVOT"> <display-name>EXYU| BOLJI ZIVOT</display-name> </channel>
- <channel id="EXYU|BELA LADA"> <display-name>EXYU| BELA LADA</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/7/71/Nothing_whitespace_blank.png"/>
-</channel>
+ <channel id="EXYU|BELA LADA"> <display-name>EXYU| BELA LADA</display-name> </channel>
  <channel id="EXYU|UZIVOTEKA"> <display-name>EXYU| UZIVOTEKA</display-name> </channel>
  <channel id="EXYU|KAFANSKO VECE"> <display-name>EXYU| KAFANSKO VECE</display-name> </channel>
  <channel id="EXYU|KAFANSKO VECE 2"> <display-name>EXYU| KAFANSKO VECE 2</display-name> </channel>
