@@ -1263,7 +1263,7 @@ EXYU| PEPPA PIG|
 EXYU| TURTLES||https://toppng.com/uploads/preview/turtle-clipart-logo-png-ninja-turtles-logo-11563607466lfdxtxap6h.png
 EXYU| HEY KIDS|
 EXYU| MR. BEAN|
-EXYU| STRUMFOV||https://images.seeklogo.com/logo-png/52/2/smurf-croatian-strumpfovi-logo-png_seeklogo-520025.png
+EXYU| STRUMFOV||Auto
 EXYU| TOM AND JERRY|
 EXYU| TOM AND JERRY SHOW|
 EXYU| PCELICA MAJA||https://pcelicamaja.com/wp-content/uploads/2022/06/frame_2_delay-0.9s-removebg-preview-1-1.png
