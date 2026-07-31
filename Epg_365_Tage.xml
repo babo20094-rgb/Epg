@@ -1577,7 +1577,8 @@
 </channel>
  <channel id="EXYU|HEY KIDS"> <display-name>EXYU| HEY KIDS</display-name> </channel>
  <channel id="EXYU|MR. BEAN"> <display-name>EXYU| MR. BEAN</display-name> </channel>
- <channel id="EXYU|STRUMFOV"> <display-name>EXYU| STRUMFOV</display-name> </channel>
+ <channel id="EXYU|STRUMFOV"> <display-name>EXYU| STRUMFOV</display-name>  <icon src="https://images.seeklogo.com/logo-png/52/2/smurf-croatian-strumpfovi-logo-png_seeklogo-520025.png"/>
+</channel>
  <channel id="EXYU|TOM AND JERRY"> <display-name>EXYU| TOM AND JERRY</display-name> </channel>
  <channel id="EXYU|TOM AND JERRY SHOW"> <display-name>EXYU| TOM AND JERRY SHOW</display-name> </channel>
  <channel id="EXYU|PCELICA MAJA"> <display-name>EXYU| PCELICA MAJA</display-name>  <icon src="https://pcelicamaja.com/wp-content/uploads/2022/06/frame_2_delay-0.9s-removebg-preview-1-1.png"/>
