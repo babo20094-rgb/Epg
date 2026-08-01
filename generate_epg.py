@@ -620,6 +620,23 @@ try:
 
             for event in daten:
                 titel = event.get("title", "Dyn Sport")
+
+                # Die API liefert kein eigenes Wettbewerb/Runde-Feld,
+                # aber "streamingUrl" enthaelt den vollen Eventnamen als
+                # Slug (z.B. ".../Spanien_Deutschland_IHF_U18_Womens_
+                # Junior_WM_Vorrunde_102341") - das entspricht (bis auf
+                # Satzzeichen) dem, was auch im echten Playlist-
+                # Kanalnamen steht. Falls vorhanden, wird daraus ein
+                # reichhaltigerer Titel gebaut statt des kurzen
+                # "title"-Felds.
+                streaming_url = event.get("streamingUrl")
+                if streaming_url:
+                    slug = streaming_url.rstrip("/").rsplit("/", 1)[-1]
+                    slug = re.sub(r"_\d+$", "", slug)
+                    voller_titel = slug.replace("_", " ").strip()
+                    if voller_titel:
+                        titel = voller_titel
+
                 beschreibung = event.get("description", titel)
 
                 start = event.get("scheduledAt")
@@ -628,13 +645,11 @@ try:
                 if not start or not ende:
                     continue
 
-                startzeit = datetime.fromisoformat(
-                    start.replace("Z", "+00:00")
-                ).strftime("%Y%m%d%H%M%S +0000")
+                start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
+                ende_dt = datetime.fromisoformat(ende.replace("Z", "+00:00"))
 
-                endzeit = datetime.fromisoformat(
-                    ende.replace("Z", "+00:00")
-                ).strftime("%Y%m%d%H%M%S +0000")
+                startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
+                endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
 
                 kanal = f"DE| DYN PPV {kanal_nummer} HD"
 
@@ -653,9 +668,12 @@ try:
                 # Zuordnung wie bei den 1-20 rein reihenfolgebasiert.
                 # API hat Vorrang: ein playlist-namensbasierter
                 # Event-Titel (Pipe-Konvention) wird fuer diesen Lauf
-                # unterdrueckt, sobald der Kanal ein API-Event bekommt,
-                # damit das Standard-EPG unten nicht zusaetzlich den
-                # (dann veralteten) Playlist-Titel eintraegt.
+                # unterdrueckt, sobald der Kanal ein API-Event bekommt.
+                # Zusaetzlich wird das Zeitfenster gemerkt, damit das
+                # Standard-EPG unten fuer denselben Zeitraum KEINEN
+                # ueberlappenden generischen Platzhalter-Block mehr
+                # eintraegt (sonst haetten zwei <programme>-Eintraege
+                # denselben Kanal zur selben Zeit belegt).
                 if dyn_ppv_real_kanal_anzahl:
                     real_daten = dyn_ppv_real_kanal_index.get(real_kanal_nummer)
                     if real_daten is not None:
@@ -664,6 +682,8 @@ try:
                             f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
                         )
                         real_daten["event_titel"] = None
+                        real_daten["api_event_start"] = start_dt
+                        real_daten["api_event_ende"] = ende_dt
 
                     real_kanal_nummer += 1
                     if real_kanal_nummer > dyn_ppv_real_kanal_anzahl:
@@ -699,6 +719,23 @@ for tag_index in range(ANZAHL_TAGE):
         ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
         for daten in sender_daten:
+            # DYN-API-Event fuer diesen Kanal in genau diesem Zeitfenster
+            # vorhanden (siehe DYN LIVE EVENTS weiter oben)? Dann wurde
+            # dafuer bereits ein eigener, praeziser <programme>-Eintrag
+            # geschrieben - diesen Tagesraster-Block fuer den Kanal
+            # ueberspringen, statt einen ueberlappenden Platzhalter
+            # draufzuschreiben (zwei <programme> fuer denselben Kanal zur
+            # selben Zeit wuerden Player wie TiviMate verwirren).
+            api_event_start = daten.get("api_event_start")
+            api_event_ende = daten.get("api_event_ende")
+            if (
+                api_event_start is not None
+                and api_event_ende is not None
+                and start < api_event_ende
+                and api_event_start < ende
+            ):
+                continue
+
             # DYN PPV 1-50 (NAME:-Einträge): hat sich der Kanalname wegen
             # eines laufenden Events geändert (siehe Erkennung weiter
             # oben beim Einlesen), wird dieser Event-Name hier als
