@@ -573,6 +573,106 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
     )
 
 # ==========================================================
+# DYN LIVE EVENTS
+# ==========================================================
+
+# Echte DYN-PPV-1-50-Sender (aus sender.txt, NAME:-Eintraege,
+# eigenstaendige Kategorie neben den 1-20 synthetischen "DE| DYN PPV
+# N HD"-Kanaelen weiter unten) per Kernname "DYN PPV N" indizieren,
+# damit API-Events zusaetzlich per eigenem Round-Robin auch auf diese
+# echten Kanaele verteilt werden koennen.
+dyn_ppv_real_kanal_index = {}
+for daten in sender_daten:
+    if daten.get("exakter_name"):
+        treffer = re.match(r"^DYN\s*PPV\s*(\d+)$", daten["sender"], re.IGNORECASE)
+        if treffer:
+            dyn_ppv_real_kanal_index[int(treffer.group(1))] = daten
+dyn_ppv_real_kanal_anzahl = max(dyn_ppv_real_kanal_index.keys(), default=0)
+
+try:
+    response = None
+    letzter_fehler = None
+
+    for endpunkt in DYN_API_ENDPUNKTE:
+        try:
+            versuch = requests.get(endpunkt, timeout=DYN_API_TIMEOUT_SEKUNDEN)
+            if versuch.status_code == 200:
+                response = versuch
+                break
+            else:
+                letzter_fehler = f"{endpunkt} -> HTTP {versuch.status_code}"
+        except requests.RequestException as e:
+            letzter_fehler = f"{endpunkt} -> {e}"
+
+    if response is None:
+        raise RuntimeError(
+            f"Alle DYN-API-Endpunkte nicht erreichbar. Letzter Fehler: {letzter_fehler}"
+        )
+
+    if response.status_code == 200:
+        daten = response.json()
+
+        if len(daten) == 0:
+            print("Keine DYN Live-Events - Standardtext wird erstellt")
+        else:
+            kanal_nummer = 1
+            real_kanal_nummer = 1
+
+            for event in daten:
+                titel = event.get("title", "Dyn Sport")
+                beschreibung = event.get("description", titel)
+
+                start = event.get("scheduledAt")
+                ende = event.get("scheduledEnd")
+
+                if not start or not ende:
+                    continue
+
+                startzeit = datetime.fromisoformat(
+                    start.replace("Z", "+00:00")
+                ).strftime("%Y%m%d%H%M%S +0000")
+
+                endzeit = datetime.fromisoformat(
+                    ende.replace("Z", "+00:00")
+                ).strftime("%Y%m%d%H%M%S +0000")
+
+                kanal = f"DE| DYN PPV {kanal_nummer} HD"
+
+                xml_teile.append(
+                    f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal)}">'
+                    f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
+                )
+
+                kanal_nummer += 1
+                if kanal_nummer > DYN_PPV_ANZAHL:
+                    kanal_nummer = 1
+
+                # Dasselbe Event zusaetzlich per eigenem Round-Robin auf
+                # die echten DYN-PPV-1-50-Sender verteilen. Die API
+                # kennt keinen festen Kanal pro Event, daher bleibt die
+                # Zuordnung wie bei den 1-20 rein reihenfolgebasiert.
+                # API hat Vorrang: ein playlist-namensbasierter
+                # Event-Titel (Pipe-Konvention) wird fuer diesen Lauf
+                # unterdrueckt, sobald der Kanal ein API-Event bekommt,
+                # damit das Standard-EPG unten nicht zusaetzlich den
+                # (dann veralteten) Playlist-Titel eintraegt.
+                if dyn_ppv_real_kanal_anzahl:
+                    real_daten = dyn_ppv_real_kanal_index.get(real_kanal_nummer)
+                    if real_daten is not None:
+                        xml_teile.append(
+                            f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(real_daten["kanal"])}">'
+                            f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
+                        )
+                        real_daten["event_titel"] = None
+
+                    real_kanal_nummer += 1
+                    if real_kanal_nummer > dyn_ppv_real_kanal_anzahl:
+                        real_kanal_nummer = 1
+
+except Exception as e:
+    print("DYN Fehler:", e)
+
+# ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
 # Statt starrer 2h-Slots orientieren sich die Blocklaengen an
 # einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
@@ -731,70 +831,6 @@ for tag_index in range(ANZAHL_TAGE):
                 f'{sub_title_tag}'
                 f'{desc_tag}{category_tags}{rating_tag} </programme> '
             )
-
-# ==========================================================
-# DYN LIVE EVENTS
-# ==========================================================
-
-try:
-    response = None
-    letzter_fehler = None
-
-    for endpunkt in DYN_API_ENDPUNKTE:
-        try:
-            versuch = requests.get(endpunkt, timeout=DYN_API_TIMEOUT_SEKUNDEN)
-            if versuch.status_code == 200:
-                response = versuch
-                break
-            else:
-                letzter_fehler = f"{endpunkt} -> HTTP {versuch.status_code}"
-        except requests.RequestException as e:
-            letzter_fehler = f"{endpunkt} -> {e}"
-
-    if response is None:
-        raise RuntimeError(
-            f"Alle DYN-API-Endpunkte nicht erreichbar. Letzter Fehler: {letzter_fehler}"
-        )
-
-    if response.status_code == 200:
-        daten = response.json()
-
-        if len(daten) == 0:
-            print("Keine DYN Live-Events - Standardtext wird erstellt")
-        else:
-            kanal_nummer = 1
-
-            for event in daten:
-                titel = event.get("title", "Dyn Sport")
-                beschreibung = event.get("description", titel)
-
-                start = event.get("scheduledAt")
-                ende = event.get("scheduledEnd")
-
-                if not start or not ende:
-                    continue
-
-                startzeit = datetime.fromisoformat(
-                    start.replace("Z", "+00:00")
-                ).strftime("%Y%m%d%H%M%S +0000")
-
-                endzeit = datetime.fromisoformat(
-                    ende.replace("Z", "+00:00")
-                ).strftime("%Y%m%d%H%M%S +0000")
-
-                kanal = f"DE| DYN PPV {kanal_nummer} HD"
-
-                xml_teile.append(
-                    f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal)}">'
-                    f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
-                )
-
-                kanal_nummer += 1
-                if kanal_nummer > DYN_PPV_ANZAHL:
-                    kanal_nummer = 1
-
-except Exception as e:
-    print("DYN Fehler:", e)
 
 # ==========================================================
 # DYN LEERZEITEN
