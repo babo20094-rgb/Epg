@@ -13,5 +13,3 @@ Fehlt ein Logo in sender.txt, wird kein icon-Tag erzeugt
 
 logos.txt-Fallback wird nicht mehr genutzt
 
-ca. 50 Sender ohne eigenes Logo nutzen einheitlich das DYN-Logo
-
