@@ -609,6 +609,12 @@ for daten in sender_daten:
             dyn_ppv_real_kanal_index[int(treffer.group(1))] = daten
 dyn_ppv_real_kanal_anzahl = max(dyn_ppv_real_kanal_index.keys(), default=0)
 
+# Zeitfenster der API-Events je synthetischem "DE| DYN PPV N HD"-Kanal
+# (1-20), analog zu dyn_ppv_real_kanal_index/api_event_fenster fuer die
+# echten 1-50-Sender - wird unten bei den DYN LEERZEITEN gebraucht, um
+# den ueberlappenden Teil der stuendlichen Platzhalter auszuschneiden.
+dyn_synth_api_fenster = {}
+
 try:
     response = None
     letzter_fehler = None
@@ -676,6 +682,10 @@ try:
                 xml_teile.append(
                     f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal)}">'
                     f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
+                )
+
+                dyn_synth_api_fenster.setdefault(kanal_nummer, []).append(
+                    (start_dt, ende_dt)
                 )
 
                 kanal_nummer += 1
@@ -901,19 +911,25 @@ jetzt = datetime.now(timezone.utc).replace(
 
 for i in range(1, DYN_PPV_ANZAHL + 1):
     kanal = f"DE| DYN PPV {i} HD"
+    api_fenster = dyn_synth_api_fenster.get(i, [])
 
     for stunde in range(24 * DYN_LEERZEIT_TAGE):
-        start = jetzt + timedelta(hours=stunde)
-        ende = start + timedelta(hours=1)
+        block_start = jetzt + timedelta(hours=stunde)
+        block_ende = block_start + timedelta(hours=1)
 
-        start_str = start.strftime("%Y%m%d%H%M%S +0000")
-        ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
+        # Nur den mit einem API-Event ueberlappenden Teil dieser Stunde
+        # ausschneiden (siehe segmente_ohne_ueberlappung weiter oben) -
+        # der Rest bekommt weiterhin den Leerzeit-Platzhalter, statt
+        # eine ganze Stunde vor/nach dem Event wegzulassen.
+        for start, ende in segmente_ohne_ueberlappung(block_start, block_ende, api_fenster):
+            start_str = start.strftime("%Y%m%d%H%M%S +0000")
+            ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-        xml_teile.append(
-            f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal)}">'
-            f' <title>Im Moment keine Live Events, bleib dran</title>'
-            f' <desc>Im Moment keine Live Events, bleib dran.</desc> </programme> '
-        )
+            xml_teile.append(
+                f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal)}">'
+                f' <title>Im Moment keine Live Events, bleib dran</title>'
+                f' <desc>Im Moment keine Live Events, bleib dran.</desc> </programme> '
+            )
 
 # ==========================================================
 # XML ABSCHLIESSEN
