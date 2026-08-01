@@ -17,6 +17,26 @@ from epg_lib import (
     normalisiere_sendername, baue_logo_index, finde_logo,
 )
 
+
+def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
+    """Schneidet aus [seg_start, seg_ende) alle ueberlappenden Fenster
+    heraus und liefert die verbleibenden (ggf. mehreren) Teilstuecke
+    zurueck. Ohne Ueberlappung kommt genau [(seg_start, seg_ende)] zurueck,
+    bei voller Ueberdeckung eine leere Liste."""
+    segmente = [(seg_start, seg_ende)]
+    for fenster_start, fenster_ende in ueberlappungs_fenster:
+        neue_segmente = []
+        for s, e in segmente:
+            if fenster_ende <= s or fenster_start >= e:
+                neue_segmente.append((s, e))
+                continue
+            if fenster_start > s:
+                neue_segmente.append((s, fenster_start))
+            if fenster_ende < e:
+                neue_segmente.append((fenster_ende, e))
+        segmente = neue_segmente
+    return segmente
+
 # ==========================================================
 # ZENTRALE KONFIGURATION
 #
@@ -723,23 +743,7 @@ for tag_index in range(ANZAHL_TAGE):
         ende = start + timedelta(hours=dauer)
         stunden_cursor += dauer
 
-        start_str = start.strftime("%Y%m%d%H%M%S +0000")
-        ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
-
         for daten in sender_daten:
-            # DYN-API-Event fuer diesen Kanal in genau diesem Zeitfenster
-            # vorhanden (siehe DYN LIVE EVENTS weiter oben)? Dann wurde
-            # dafuer bereits ein eigener, praeziser <programme>-Eintrag
-            # geschrieben - diesen Tagesraster-Block fuer den Kanal
-            # ueberspringen, statt einen ueberlappenden Platzhalter
-            # draufzuschreiben (zwei <programme> fuer denselben Kanal zur
-            # selben Zeit wuerden Player wie TiviMate verwirren).
-            if any(
-                start < api_event_ende and api_event_start < ende
-                for api_event_start, api_event_ende in daten.get("api_event_fenster", [])
-            ):
-                continue
-
             # DYN PPV 1-50 (NAME:-Einträge): hat sich der Kanalname wegen
             # eines laufenden Events geändert (siehe Erkennung weiter
             # oben beim Einlesen), wird dieser Event-Name hier als
@@ -833,11 +837,22 @@ for tag_index in range(ANZAHL_TAGE):
             # Block, bei praezise erkanntem DYN/Flo-Racing-Event aber das
             # engere, tatsaechliche Event-Zeitfenster.
             if event_start_dt is not None:
-                prog_start_str = event_start_dt.strftime("%Y%m%d%H%M%S +0000")
-                prog_ende_str = event_ende_dt.strftime("%Y%m%d%H%M%S +0000")
+                prog_start_dt = event_start_dt
+                prog_ende_dt = event_ende_dt
             else:
-                prog_start_str = start_str
-                prog_ende_str = ende_str
+                prog_start_dt = start
+                prog_ende_dt = ende
+
+            # Ueberschneidet sich dieser Zeitraum mit einem bereits per
+            # DYN-API geschriebenen, praezisen Event-Programme (siehe
+            # DYN LIVE EVENTS weiter oben), wird NUR der ueberlappende
+            # Teil herausgeschnitten - der Rest (vor/nach dem Event)
+            # bekommt weiterhin den generischen Platzhaltertext, statt
+            # den kompletten Block wegzulassen (das wuerde zu einer
+            # Luecke mit "Keine Information" vor/nach dem Event fuehren).
+            segmente = segmente_ohne_ueberlappung(
+                prog_start_dt, prog_ende_dt, daten.get("api_event_fenster", [])
+            )
 
             # Genre-Tags: die normale Kategorie, UND zusaetzlich ein
             # "Live"-Tag, sobald es sich um ein praezise erkanntes
@@ -866,12 +881,15 @@ for tag_index in range(ANZAHL_TAGE):
             desc_tag = f' <desc lang="{lang_code}">{beschr_escaped}</desc>'
             sub_title_tag = f' <sub-title lang="{lang_code}">{beschr_escaped}</sub-title>'
 
-            xml_teile.append(
-                f' <programme start="{prog_start_str}" stop="{prog_ende_str}" channel="{escape(daten["kanal"])}">'
-                f' <title lang="{lang_code}">{titel_text}</title>'
-                f'{sub_title_tag}'
-                f'{desc_tag}{category_tags}{rating_tag} </programme> '
-            )
+            for seg_start, seg_ende in segmente:
+                seg_start_str = seg_start.strftime("%Y%m%d%H%M%S +0000")
+                seg_ende_str = seg_ende.strftime("%Y%m%d%H%M%S +0000")
+                xml_teile.append(
+                    f' <programme start="{seg_start_str}" stop="{seg_ende_str}" channel="{escape(daten["kanal"])}">'
+                    f' <title lang="{lang_code}">{titel_text}</title>'
+                    f'{sub_title_tag}'
+                    f'{desc_tag}{category_tags}{rating_tag} </programme> '
+                )
 
 # ==========================================================
 # DYN LEERZEITEN
