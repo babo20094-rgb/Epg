@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 from xml.sax.saxutils import escape
+from zoneinfo import ZoneInfo
 import re
 import requests
 import xml.etree.ElementTree as ET
@@ -75,6 +76,23 @@ DYN_API_ENDPUNKTE = [
     "https://streaming.contentdesk.sport/api/public/live-productions",
 ]
 DYN_API_TIMEOUT_SEKUNDEN = 15
+
+# Clubber-PPV (Irland, GAA-Club-Spiele): analog zur DYN-API, aber die
+# Kernnamen der 50 echten Kanaele stehen VORNE im Kanalnamen (z.B.
+# "(IE) (Clubber 01)"), nicht hinten wie bei DYN - deshalb kommt hier
+# KEINE Playlist-Namen-Extraktion zum Einsatz, sondern ausschliesslich
+# die API, per Kernname-Regex den 50 echten Sendern zugeordnet.
+CLUBBER_API_ENDPUNKTE = [
+    "https://prodgameservicecontainer.azurewebsites.net/api/Game/GetUpcomingGames",
+]
+CLUBBER_API_TIMEOUT_SEKUNDEN = 15
+
+# Clubber liefert keine Endzeit, nur Datum+Uhrzeit (irische Lokalzeit) -
+# angenommene feste Spieldauer.
+CLUBBER_EVENT_DAUER_STUNDEN = 2.5
+
+# Zeitzone der Clubber-API-Zeitangaben (Irland).
+CLUBBER_ZEITZONE = ZoneInfo("Europe/Dublin")
 
 # Bekannte Leerlauf-Platzhalter-Texte fuer NAME:-Sender (Pipe-
 # Konvention, siehe Einlese-Logik weiter unten). Enthaelt der
@@ -218,6 +236,23 @@ for zeile in zeilen:
                 event_teil = ""
 
         beschreibung, kategorie_key = standard_beschreibung("DE", kurzname)
+
+        # Clubber-PPV-Kanaele explizit als SPORT einordnen: das
+        # Kurzwort "CLUB" (Teil von "CLUBBER") ist bereits als
+        # MUSIK-Keyword belegt (z.B. "NRJ Club") und steht in der
+        # Kategorie-Prioritaet vor SPORT - eine globale Erweiterung der
+        # Keyword-Liste wuerde diese Kollision fuer alle Sender
+        # riskieren, daher wird hier gezielt nur fuer Clubber die
+        # SPORT-Kategorie mit dem echten Kurznamen nachgebaut (gleiche
+        # Logik wie in standard_beschreibung(), nur fest auf SPORT).
+        if re.search(r"CLUBBER\s*\d+", kurzname, re.IGNORECASE):
+            kategorie_key = "SPORT"
+            sport_daten = KATEGORIEN["SPORT"]
+            hash_wert_sport = sum(ord(c) for c in kurzname)
+            varianten_sport = sport_daten["DE"]
+            beschreibung = varianten_sport[hash_wert_sport % len(varianten_sport)].format(
+                sender=kurzname, label=sport_daten["label"]["DE"]
+            )
 
         # Steht vor dem Kern zusaetzlicher, nicht-generischer Text ->
         # Event laeuft, dieser Text wird als Sendungstitel/-
@@ -729,6 +764,94 @@ try:
 
 except Exception as e:
     print("DYN Fehler:", e)
+
+# ==========================================================
+# CLUBBER LIVE EVENTS
+# ==========================================================
+
+# Echte Clubber-PPV-1-50-Sender (aus sender.txt, NAME:-Eintraege) per
+# Kernname "Clubber N" indizieren - der Kernname steht bei Clubber
+# VORNE im Kanalnamen (z.B. "(IE) (Clubber 01)"), daher genuegt eine
+# einfache Regex-Suche statt der DYN-Pipe-Konvention.
+clubber_real_kanal_index = {}
+for daten in sender_daten:
+    if daten.get("exakter_name"):
+        treffer = re.search(r"CLUBBER\s*(\d+)", daten["sender"], re.IGNORECASE)
+        if treffer:
+            clubber_real_kanal_index[int(treffer.group(1))] = daten
+clubber_real_kanal_anzahl = max(clubber_real_kanal_index.keys(), default=0)
+
+if clubber_real_kanal_anzahl:
+    try:
+        response = None
+        letzter_fehler = None
+
+        for endpunkt in CLUBBER_API_ENDPUNKTE:
+            try:
+                versuch = requests.get(endpunkt, timeout=CLUBBER_API_TIMEOUT_SEKUNDEN)
+                if versuch.status_code == 200:
+                    response = versuch
+                    break
+                else:
+                    letzter_fehler = f"{endpunkt} -> HTTP {versuch.status_code}"
+            except requests.RequestException as e:
+                letzter_fehler = f"{endpunkt} -> {e}"
+
+        if response is None:
+            raise RuntimeError(
+                f"Alle Clubber-API-Endpunkte nicht erreichbar. Letzter Fehler: {letzter_fehler}"
+            )
+
+        antwort = response.json()
+        spiele = antwort.get("result") or []
+
+        if len(spiele) == 0:
+            print("Keine Clubber-Spiele - Standardtext wird erstellt")
+        else:
+            clubber_kanal_nummer = 1
+
+            for spiel in spiele:
+                club = spiel.get("club") or ""
+                gegner = spiel.get("teams", {}).get("competitorClubName") or ""
+                county = spiel.get("county") or ""
+
+                if club and gegner:
+                    titel = f"{county}: {club} vs {gegner}" if county else f"{club} vs {gegner}"
+                else:
+                    titel = club or gegner or "Clubber Sport"
+
+                datum = spiel.get("date")
+                uhrzeit = spiel.get("time")
+
+                if not datum or not uhrzeit:
+                    continue
+
+                start_lokal = datetime.strptime(
+                    f"{datum} {uhrzeit}", "%Y-%m-%d %H:%M"
+                ).replace(tzinfo=CLUBBER_ZEITZONE)
+                start_dt = start_lokal.astimezone(timezone.utc)
+                ende_dt = start_dt + timedelta(hours=CLUBBER_EVENT_DAUER_STUNDEN)
+
+                startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
+                endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
+
+                real_daten = clubber_real_kanal_index.get(clubber_kanal_nummer)
+                if real_daten is not None:
+                    xml_teile.append(
+                        f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(real_daten["kanal"])}">'
+                        f' <title>{escape(titel)}</title> <desc>{escape(titel)}</desc> </programme> '
+                    )
+                    real_daten["event_titel"] = None
+                    real_daten.setdefault("api_event_fenster", []).append(
+                        (start_dt, ende_dt)
+                    )
+
+                clubber_kanal_nummer += 1
+                if clubber_kanal_nummer > clubber_real_kanal_anzahl:
+                    clubber_kanal_nummer = 1
+
+    except Exception as e:
+        print("Clubber Fehler:", e)
 
 # ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
