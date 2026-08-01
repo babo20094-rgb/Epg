@@ -682,8 +682,16 @@ try:
                             f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
                         )
                         real_daten["event_titel"] = None
-                        real_daten["api_event_start"] = start_dt
-                        real_daten["api_event_ende"] = ende_dt
+                        # Ein Kanal kann ueber den Lauf hinweg mehrere
+                        # API-Events zugewiesen bekommen (es gibt idR
+                        # mehr als 50 Events, der Round-Robin durchlaeuft
+                        # die 50 Kanaele also mehrfach) - ALLE Zeitfenster
+                        # sammeln statt nur das letzte zu merken, sonst
+                        # greift der Ueberlapp-Schutz unten nur fuer das
+                        # zuletzt zugewiesene (ggf. viel spaetere) Event.
+                        real_daten.setdefault("api_event_fenster", []).append(
+                            (start_dt, ende_dt)
+                        )
 
                     real_kanal_nummer += 1
                     if real_kanal_nummer > dyn_ppv_real_kanal_anzahl:
@@ -726,13 +734,9 @@ for tag_index in range(ANZAHL_TAGE):
             # ueberspringen, statt einen ueberlappenden Platzhalter
             # draufzuschreiben (zwei <programme> fuer denselben Kanal zur
             # selben Zeit wuerden Player wie TiviMate verwirren).
-            api_event_start = daten.get("api_event_start")
-            api_event_ende = daten.get("api_event_ende")
-            if (
-                api_event_start is not None
-                and api_event_ende is not None
-                and start < api_event_ende
-                and api_event_start < ende
+            if any(
+                start < api_event_ende and api_event_start < ende
+                for api_event_start, api_event_ende in daten.get("api_event_fenster", [])
             ):
                 continue
 
