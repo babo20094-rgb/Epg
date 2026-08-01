@@ -13,3 +13,12 @@
   ausgeführt wird — auch bei wiederholten Anweisungen in derselben Session.
 
 Diese Bestätigungspflicht gilt dauerhaft und darf nicht übersprungen werden.
+
+## Workflow manuell starten
+
+Der GitHub-Actions-Workflow "Update EPG"
+(`.github/workflows/update_epg.yml`, `workflow_dispatch`) wird **nur** nach
+direkter, expliziter Anweisung des Nutzers ausgelöst (z. B. "starte den
+Workflow") — niemals automatisch oder proaktiv, auch nicht direkt nachdem
+gemeinsam etwas am Skript geändert wurde, solange der Nutzer nicht
+ausdrücklich danach fragt.
