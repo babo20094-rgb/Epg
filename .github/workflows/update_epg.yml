@@ -36,6 +36,12 @@ jobs:
         run: |
           python generate_epg.py
 
+      - name: Debug - EU-Datei auf Flo Racing/DirtVision pruefen
+        env:
+          DYN_EPG_PROVIDER_URL_EU: ${{ secrets.DYN_EPG_PROVIDER_URL_EU }}
+        run: |
+          python debug_eu_check.py
+
       - name: Commit EPG
         run: |
           git config user.name "github-actions[bot]"
