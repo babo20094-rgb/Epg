@@ -902,16 +902,30 @@ def epg_anbieter_datei_abgleichen(url, quelle_name):
             if real_daten is None:
                 continue
 
-            if event_teil and not any(
-                marker in event_teil.lower() for marker in LEERLAUF_MARKER
+            # TEST: Bei DYN PPV wird der Leerlauf-Text ("- NO EVENT
+            # STREAMING - | 8K EXCLUSIVE") NICHT herausgefiltert,
+            # sondern ebenfalls direkt uebernommen - so laesst sich
+            # sichtbar bestaetigen, dass der aktuelle Live-Kanalname
+            # wirklich aus der Anbieter-Datei gelesen wird (auch ohne
+            # laufendes Event), statt nur beim generischen Platzhalter
+            # zu bleiben.
+            ist_dyn_ppv = bool(re.match(r"^DYN\s*PPV\s*\d+$", kurzname, re.IGNORECASE))
+
+            if event_teil and (
+                ist_dyn_ppv
+                or not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER)
             ):
                 real_daten["event_titel"] = formatiere_event_text(event_teil)
                 aktualisiert += 1
-                aktualisierte_sender.append(real_daten["sender"])
+                aktualisierte_sender.append(
+                    f'{real_daten["sender"]} (roher Live-Kanalname: {voller_name!r})'
+                )
             break
 
     if aktualisierte_sender:
-        print(f"EPG-Anbieter ({quelle_name}) Treffer:", ", ".join(aktualisierte_sender))
+        print(f"EPG-Anbieter ({quelle_name}) Treffer:")
+        for eintrag in aktualisierte_sender:
+            print(" -", eintrag)
 
     return aktualisiert
 
