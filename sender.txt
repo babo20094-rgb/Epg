@@ -1378,3 +1378,23 @@ NAME:DIRTVISION 06:|Auto
 NAME:DIRTVISION 07:|Auto
 NAME:DIRTVISION 08:|Auto
 NAME:Dirtvision Now | 24/7|Auto
+NAME:Flo Racing 01 :|Auto
+NAME:Flo Racing 02 :|Auto
+NAME:Flo Racing 03 :|Auto
+NAME:Flo Racing 04 :|Auto
+NAME:Flo Racing 05 :|Auto
+NAME:Flo Racing 06 :|Auto
+NAME:Flo Racing 07 :|Auto
+NAME:Flo Racing 08 :|Auto
+NAME:Flo Racing 09 :|Auto
+NAME:Flo Racing 10 :|Auto
+NAME:Flo Racing 11 :|Auto
+NAME:Flo Racing 12 :|Auto
+NAME:Flo Racing 13 :|Auto
+NAME:Flo Racing 14 :|Auto
+NAME:Flo Racing 15 :|Auto
+NAME:Flo Racing 16 :|Auto
+NAME:Flo Racing 17 :|Auto
+NAME:Flo Racing 18 :|Auto
+NAME:Flo Racing 19 :|Auto
+NAME:Flo Racing 20 :|Auto
