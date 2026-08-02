@@ -2,7 +2,7 @@ NAME:##### AMERICAN HOCKEY LEAGUE #####|AMERICAN HOCKEY LEAGUE| AUTO
 UK| KARAOKE 1|Karaoke 1|Auto
 UK| KARAOKE 2|Karaoke 2|Auto
 UK| KARAOKE 3|Karaoke 3|Auto
-UK| KARAOKE 4|Karaoke 4|Auto
+UK| KARAOKE 4|Karaoke 4|
 UK| KARAOKE 5|Karaoke 5|Auto
 UK| KARAOKE 6|Karaoke 6|Auto
 UK| KARAOKE 7|Karaoke 7|Auto
