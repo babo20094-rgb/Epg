@@ -1369,3 +1369,12 @@ NAME:(IE) (Clubber 47)|https://cdn.broadbandtvnews.com/wp-content/uploads/2024/0
 NAME:(IE) (Clubber 48)|https://cdn.broadbandtvnews.com/wp-content/uploads/2024/09/13090148/Clubber-TV-logo-768x271.png
 NAME:(IE) (Clubber 49)|https://cdn.broadbandtvnews.com/wp-content/uploads/2024/09/13090148/Clubber-TV-logo-768x271.png
 NAME:(IE) (Clubber 50)|https://cdn.broadbandtvnews.com/wp-content/uploads/2024/09/13090148/Clubber-TV-logo-768x271.png
+NAME:DIRTVISION 01 :|Auto
+NAME:DIRTVISION 02 :|Auto
+NAME:DIRTVISION 03 :|Auto
+NAME:DIRTVISION 04 :|Auto
+NAME:DIRTVISION 05 :|Auto
+NAME:DIRTVISION 06:|Auto
+NAME:DIRTVISION 07:|Auto
+NAME:DIRTVISION 08:|Auto
+NAME:Dirtvision Now | 24/7|Auto
