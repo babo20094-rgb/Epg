@@ -88,6 +88,12 @@ def kern_und_event_extrahieren(voller_name):
         segmente = voller_name.split("|")
         kern_roh = segmente[-1].strip()
         event_teil = "|".join(segmente[:-1]).strip()
+        # Ein reiner 2-4-Buchstaben-Code vor dem Pipe (z.B. "NA| Bakersfield
+        # Condors") ist ein Land-/Regionskuerzel wie anderswo in sender.txt
+        # ("US|", "DE|", ...), kein echter Event-Text - echte Event-Texte
+        # sind immer deutlich laenger (Teamnamen, Uhrzeiten usw.).
+        if re.fullmatch(r"[A-Za-z]{2,4}", event_teil):
+            event_teil = ""
         kurzname = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", kern_roh).strip()
         if not kurzname:
             kurzname = kern_roh
@@ -309,7 +315,22 @@ for zeile in zeilen:
         # DYN-PPV/FLO-RACING-Muster (siehe kern_und_event_extrahieren()).
         kurzname, event_teil = kern_und_event_extrahieren(voller_name)
 
-        beschreibung, kategorie_key = standard_beschreibung("DE", kurzname)
+        # Land-Praefix wie "NA|", "US|" am ANFANG des Namens (nicht zu
+        # verwechseln mit echtem Event-Text vor dem Pipe) wird als Land
+        # fuer Sprache/Kategorie-Erkennung genutzt - z.B. bekommen
+        # NA-Sender dadurch englische statt deutsche Beschreibungen.
+        # Der Kanalname/die ID selbst bleibt trotzdem exakt der rohe
+        # Originaltext (wichtig fuers Playlist-Matching, falls dort ein
+        # Leerzeichen nach dem Pipe steht). Nur wenn kein echtes Event
+        # erkannt wurde (event_teil leer) greift das, sonst waere ein
+        # Land-Kuerzel vor einem echten Event faelschlich als Land
+        # missverstanden.
+        land = "DE"
+        land_praefix_match = re.match(r"^([A-Za-z]{2,4})\|", voller_name)
+        if land_praefix_match and not event_teil:
+            land = land_praefix_match.group(1).upper()
+
+        beschreibung, kategorie_key = standard_beschreibung(land, kurzname)
 
         # Clubber-PPV-Kanaele explizit als SPORT einordnen: das
         # Kurzwort "CLUB" (Teil von "CLUBBER") ist bereits als
@@ -340,7 +361,7 @@ for zeile in zeilen:
 
         sender_daten.append({
             "kanal": voller_name,
-            "land": "DE",
+            "land": land,
             "sender": kurzname,
             "beschreibung": beschreibung,
             "logo": logo,

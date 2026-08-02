@@ -7,6 +7,51 @@ UK| KARAOKE 5|Karaoke 5|Auto
 UK| KARAOKE 6|Karaoke 6|Auto
 UK| KARAOKE 7|Karaoke 7|Auto
 UK| KARAOKE 8|Karaoke 8|Auto
+NA| Bakersfield Condors||Auto
+NA| Belleville Senators||Auto
+NA| Bridgeport Islanders||Auto
+NA| Chicago Wolves||Auto
+NA| Cleveland Monsters||Auto
+NA| Colorado Eagles||Auto
+NA| Grand Rapids Griffins||Auto
+NA| Hartford Wolf Pack||Auto
+NA| Henderson Silver Knights||Auto
+NA| Hershey Bears||Auto
+NA| Iowa Wild||Auto
+NA| Laval Rocket||Auto
+NA| Lehigh Valley Phantoms||Auto
+NA| Manitoba Moose||Auto
+NA| Ontario Reign||Auto
+NA| Providence Bruins||Auto
+NA| Rochester Americans||Auto
+NA| Rockford IceHogs||Auto
+NA| San Diego Gulls||Auto
+NA| San Jose Barracuda||Auto
+NA| Syracuse Crunch||Auto
+NA| Texas Stars||Auto
+NA| Toronto Marlies||Auto
+NA| Tucson Roadrunners||Auto
+NA| Utica Comets||Auto
+NA| W-B/Scranton Penguins||Auto
+NA| Victoriaville Tigres||Auto
+NA| Sherbrooke Phoenix||Auto
+NA| Val-d'Or Foreurs||Auto
+NA| Shawinigan Cataractes||Auto
+NA| Saint John Sea Dogs||Auto
+NA| Rouyn-Noranda Huskies||Auto
+NA| Rimouski Océanic||Auto
+NA| Québec Remparts||Auto
+NA| Moncton Wildcats||Auto
+NA| Halifax Mooseheads||Auto
+NA| Gatineau Olympiques||Auto
+NA| Drummondville Voltigeurs||Auto
+NA| Chicoutimi Saguenéens||Auto
+NA| Charlottetown Islanders||Auto
+NA| Blainville-Boisbriand Armada||Auto
+NA| Cape Breton Eagles||Auto
+NA| Baie-Comeau Drakkar||Auto
+NA| Acadie-Bathurst Titan||Auto
+NA| Calgary Wranglers||Auto
 US| REALITY||AUTO
 US| YOGA EXERCISE||Auto
 DE| BILD+ EVENT FAME FIGHTING|
