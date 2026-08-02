@@ -184,12 +184,41 @@ EVENT_ENDE_TEXT = (
 )
 
 
+def normalisiere_grossschreibung(text):
+    """Wandelt grossgeschriebene WOERTER (nicht den ganzen Text auf
+    einmal - viele Anbieter-Kanalnamen mischen bereits normal
+    geschriebene Teamnamen mit durchgaengig grossgeschriebenen
+    Zusaetzen wie "8K EXCLUSIVE") in normale Gross-/Kleinschreibung um,
+    statt sie "schreiend" im EPG-Raster anzuzeigen. Kurze Kuerzel
+    (Laendercodes, Formatangaben wie "HD") und Woerter mit Ziffern
+    (z.B. "8K", "4K") bleiben unveraendert. Bereits gemischt oder klein
+    geschriebene Woerter (z.B. echte Eigennamen) werden nicht
+    angefasst."""
+    if not text:
+        return text
+
+    def wandel_wort(wort):
+        kern = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", wort)
+        if (
+            not kern
+            or kern != kern.upper()
+            or any(zeichen.isdigit() for zeichen in wort)
+            or len(kern) <= 3
+        ):
+            return wort
+        return wort.capitalize()
+
+    return " ".join(wandel_wort(w) for w in text.split(" "))
+
+
 def formatiere_event_text(event_teil):
     """Erkennt einen bekannten Status-Marker (NEXT/END) im ersten Pipe-
     Segment eines rohen Event-Texts und baut daraus verstaendlichen
     deutschen EPG-Text: "NEXT | X" -> "Es folgt: X", "End | X" -> festen
     Abmoderationstext. Ohne erkannten Marker (z.B. bei "Live | ...")
-    bleibt der Text unveraendert."""
+    bleibt der Text unveraendert. Komplett grossgeschriebener Text wird
+    dabei normalisiert (siehe normalisiere_grossschreibung())."""
+    event_teil = normalisiere_grossschreibung(event_teil)
     segmente = [s.strip() for s in event_teil.split("|")]
     marker = segmente[0].lower() if segmente else ""
 
@@ -915,15 +944,11 @@ def epg_anbieter_datei_abgleichen(url, quelle_name):
             ):
                 real_daten["event_titel"] = formatiere_event_text(event_teil)
                 aktualisiert += 1
-                aktualisierte_sender.append(
-                    f'{real_daten["sender"]} (roher Live-Kanalname: {voller_name!r})'
-                )
+                aktualisierte_sender.append(real_daten["sender"])
             break
 
     if aktualisierte_sender:
-        print(f"EPG-Anbieter ({quelle_name}) Treffer:")
-        for eintrag in aktualisierte_sender:
-            print(" -", eintrag)
+        print(f"EPG-Anbieter ({quelle_name}) Treffer:", ", ".join(aktualisierte_sender))
 
     return aktualisiert
 
