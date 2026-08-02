@@ -33,14 +33,9 @@ jobs:
       - name: Generate EPG
         env:
           DYN_EPG_PROVIDER_URL: ${{ secrets.DYN_EPG_PROVIDER_URL }}
-        run: |
-          python generate_epg.py
-
-      - name: Debug - EU-Datei auf Flo Racing/DirtVision pruefen
-        env:
           DYN_EPG_PROVIDER_URL_EU: ${{ secrets.DYN_EPG_PROVIDER_URL_EU }}
         run: |
-          python debug_eu_check.py
+          python generate_epg.py
 
       - name: Commit EPG
         run: |

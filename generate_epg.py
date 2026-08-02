@@ -823,74 +823,95 @@ except Exception as e:
 # neuer NAME:-Eintrag in sender.txt, ohne dass hier Code geaendert
 # werden muss.
 #
-# Sicherheit: Die URL enthaelt persoenliche Zugangsdaten (uid/key) des
-# Nutzers und wird NIEMALS im Code/Repo hinterlegt, sondern kommt
-# ausschliesslich ueber die Umgebungsvariable DYN_EPG_PROVIDER_URL
-# (als GitHub Actions Secret gesetzt). Fehlt die Variable (z.B. beim
-# lokalen Testen), wird dieser Abschnitt einfach uebersprungen.
+# Sicherheit: Die URLs enthalten persoenliche Zugangsdaten (uid/key) des
+# Nutzers und werden NIEMALS im Code/Repo hinterlegt, sondern kommen
+# ausschliesslich ueber Umgebungsvariablen (als GitHub Actions Secrets
+# gesetzt). Fehlt eine Variable (z.B. beim lokalen Testen), wird sie
+# einfach uebersprungen.
 #
-# Die Datei ist riesig (>150 MB entpackt), enthaelt aber ALLE
+# Der Anbieter (myepg.top) liefert zwei getrennte Dateien - "World" und
+# "EU" - die unterschiedliche Kategorien abdecken (z.B. DYN PPV nur in
+# der EU-Datei, "US: SOCCER PPV" nur in der World-Datei). Damit der
+# Abgleich unabhaengig davon funktioniert, welche Kategorie in welcher
+# Datei steckt, werden beide abgefragt und die Treffer zusammengefuehrt.
+#
+# Jede Datei ist riesig (>150 MB entpackt), enthaelt aber ALLE
 # <channel>-Definitionen VOR dem allerersten <programme>-Tag - daher
 # wird nur gestreamt entpackt, bis das erste <programme> auftaucht,
 # und die Verbindung dann abgebrochen, statt die komplette Datei
 # herunterzuladen.
 
-DYN_EPG_PROVIDER_URL = os.environ.get("DYN_EPG_PROVIDER_URL")
 DYN_EPG_PROVIDER_TIMEOUT_SEKUNDEN = 30
 # Grosszuegige Obergrenze fuer den gestreamten Bereich, falls das erste
 # <programme>-Tag aus irgendeinem Grund fehlt/sich stark verschiebt -
 # verhindert, dass versehentlich die komplette 150+MB-Datei geladen wird.
 DYN_EPG_PROVIDER_MAX_ZEICHEN = 20_000_000
 
-if DYN_EPG_PROVIDER_URL and name_pipe_kanal_index:
-    try:
-        response = requests.get(
-            DYN_EPG_PROVIDER_URL, timeout=DYN_EPG_PROVIDER_TIMEOUT_SEKUNDEN, stream=True
-        )
-        response.raise_for_status()
 
-        dekomprimierer = zlib.decompressobj(16 + zlib.MAX_WBITS)
-        gepuffert = ""
-        for chunk in response.iter_content(chunk_size=65536):
-            gepuffert += dekomprimierer.decompress(chunk).decode("utf-8", errors="ignore")
-            if "<programme" in gepuffert or len(gepuffert) > DYN_EPG_PROVIDER_MAX_ZEICHEN:
-                break
-        response.close()
+def epg_anbieter_datei_abgleichen(url, quelle_name):
+    """Laedt die <channel>-Definitionen einer EPG-Anbieter-Datei und
+    uebertraegt fuer jeden per Kernname matchenden NAME:-Sender (siehe
+    name_pipe_kanal_index) den aktuellen Live-Kanalnamen als
+    Sendungstitel. Gibt (Anzahl Treffer, Gesamtanzahl NAME:-Sender)
+    zurueck."""
+    response = requests.get(url, timeout=DYN_EPG_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
+    response.raise_for_status()
 
-        kanal_bereich = gepuffert.split("<programme", 1)[0]
+    dekomprimierer = zlib.decompressobj(16 + zlib.MAX_WBITS)
+    gepuffert = ""
+    for chunk in response.iter_content(chunk_size=65536):
+        gepuffert += dekomprimierer.decompress(chunk).decode("utf-8", errors="ignore")
+        if "<programme" in gepuffert or len(gepuffert) > DYN_EPG_PROVIDER_MAX_ZEICHEN:
+            break
+    response.close()
 
-        aktualisiert = 0
-        aktualisierte_sender = []
-        for channel_match in re.finditer(r"<channel[^>]*>(.*?)</channel>", kanal_bereich, re.DOTALL):
-            for name_match in re.finditer(
-                r"<display-name>([^<]*)</display-name>", channel_match.group(1)
+    kanal_bereich = gepuffert.split("<programme", 1)[0]
+
+    aktualisiert = 0
+    aktualisierte_sender = []
+    for channel_match in re.finditer(r"<channel[^>]*>(.*?)</channel>", kanal_bereich, re.DOTALL):
+        for name_match in re.finditer(
+            r"<display-name>([^<]*)</display-name>", channel_match.group(1)
+        ):
+            voller_name = name_match.group(1).strip()
+            kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+            normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+
+            real_daten = name_pipe_kanal_index.get(normalisierter_kern)
+            if real_daten is None:
+                continue
+
+            if event_teil and not any(
+                marker in event_teil.lower() for marker in LEERLAUF_MARKER
             ):
-                voller_name = name_match.group(1).strip()
-                kurzname, event_teil = kern_und_event_extrahieren(voller_name)
-                normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+                real_daten["event_titel"] = formatiere_event_text(event_teil)
+                aktualisiert += 1
+                aktualisierte_sender.append(real_daten["sender"])
+            break
 
-                real_daten = name_pipe_kanal_index.get(normalisierter_kern)
-                if real_daten is None:
-                    continue
+    if aktualisierte_sender:
+        print(f"EPG-Anbieter ({quelle_name}) Treffer:", ", ".join(aktualisierte_sender))
 
-                if event_teil and not any(
-                    marker in event_teil.lower() for marker in LEERLAUF_MARKER
-                ):
-                    real_daten["event_titel"] = formatiere_event_text(event_teil)
-                    aktualisiert += 1
-                    aktualisierte_sender.append(real_daten["sender"])
-                break
+    return aktualisiert
 
-        if aktualisierte_sender:
-            print("EPG-Anbieter Treffer:", ", ".join(aktualisierte_sender))
 
-        print(
-            f"EPG-Anbieter: {aktualisiert} von {len(name_pipe_kanal_index)} "
-            f"NAME:-Kanaelen mit Live-Kanalnamen aktualisiert"
-        )
-
-    except Exception as e:
-        print("EPG-Anbieter Fehler:", e)
+if name_pipe_kanal_index:
+    for env_name, quelle_name in (
+        ("DYN_EPG_PROVIDER_URL", "World"),
+        ("DYN_EPG_PROVIDER_URL_EU", "EU"),
+    ):
+        url = os.environ.get(env_name)
+        if not url:
+            continue
+        try:
+            treffer = epg_anbieter_datei_abgleichen(url, quelle_name)
+            print(
+                f"EPG-Anbieter ({quelle_name}): {treffer} von "
+                f"{len(name_pipe_kanal_index)} NAME:-Kanaelen mit "
+                f"Live-Kanalnamen aktualisiert"
+            )
+        except Exception as e:
+            print(f"EPG-Anbieter ({quelle_name}) Fehler:", e)
 
 # ==========================================================
 # CLUBBER LIVE EVENTS
