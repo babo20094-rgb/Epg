@@ -860,6 +860,7 @@ if DYN_EPG_PROVIDER_URL and name_pipe_kanal_index:
         kanal_bereich = gepuffert.split("<programme", 1)[0]
 
         aktualisiert = 0
+        aktualisierte_sender = []
         for channel_match in re.finditer(r"<channel[^>]*>(.*?)</channel>", kanal_bereich, re.DOTALL):
             for name_match in re.finditer(
                 r"<display-name>([^<]*)</display-name>", channel_match.group(1)
@@ -877,7 +878,11 @@ if DYN_EPG_PROVIDER_URL and name_pipe_kanal_index:
                 ):
                     real_daten["event_titel"] = formatiere_event_text(event_teil)
                     aktualisiert += 1
+                    aktualisierte_sender.append(real_daten["sender"])
                 break
+
+        if aktualisierte_sender:
+            print("EPG-Anbieter Treffer:", ", ".join(aktualisierte_sender))
 
         print(
             f"EPG-Anbieter: {aktualisiert} von {len(name_pipe_kanal_index)} "
