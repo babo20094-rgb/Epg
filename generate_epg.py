@@ -902,13 +902,11 @@ def epg_anbieter_datei_abgleichen(url, quelle_name):
             if real_daten is None:
                 continue
 
-            # TEST: Bei DYN PPV wird der Leerlauf-Text ("- NO EVENT
-            # STREAMING - | 8K EXCLUSIVE") NICHT herausgefiltert,
-            # sondern ebenfalls direkt uebernommen - so laesst sich
-            # sichtbar bestaetigen, dass der aktuelle Live-Kanalname
-            # wirklich aus der Anbieter-Datei gelesen wird (auch ohne
-            # laufendes Event), statt nur beim generischen Platzhalter
-            # zu bleiben.
+            # Bei DYN PPV wird der Leerlauf-Text ("- NO EVENT STREAMING -
+            # | 8K EXCLUSIVE") bewusst NICHT herausgefiltert, sondern
+            # immer 1:1 uebernommen - der Nutzer will im EPG-Raster
+            # exakt das sehen, was gerade im echten Live-Kanalnamen
+            # steht, statt eines generischen Platzhaltertexts.
             ist_dyn_ppv = bool(re.match(r"^DYN\s*PPV\s*\d+$", kurzname, re.IGNORECASE))
 
             if event_teil and (
