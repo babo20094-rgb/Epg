@@ -1,9 +1,11 @@
 from datetime import datetime, timedelta, timezone
 from xml.sax.saxutils import escape
 from zoneinfo import ZoneInfo
+import os
 import re
 import requests
 import xml.etree.ElementTree as ET
+import zlib
 
 from epg_lib import (
     KATEGORIEN, KATEGORIE_PRIORITAET,
@@ -37,6 +39,67 @@ def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
                 neue_segmente.append((fenster_ende, e))
         segmente = neue_segmente
     return segmente
+
+
+def schreibe_programme_segmente(
+    xml_teile, segmente, kanal, titel_text, beschr_text, lang_code,
+    kategorie_key, land, ist_live,
+):
+    """Schreibt <programme>-Eintraege fuer die gegebenen Zeit-Segmente mit
+    identischem Titel/Beschreibung/Kategorie - genutzt sowohl fuer den
+    generischen Tagesraster-Block als auch fuer praezise erkannte Events,
+    damit die Segmentierung (Luecken-/Ueberlappungsvermeidung) an einer
+    Stelle gebuendelt ist."""
+    label = kategorie_label(kategorie_key, land)
+    category_tags = ""
+    if label:
+        category_tags += f' <category lang="{lang_code}">{escape(label)}</category>'
+    if ist_live:
+        live_label = {"de": "Live", "hr": "Uživo", "sl": "V živo", "mk": "Vo živo"}.get(lang_code, "Live")
+        category_tags += f' <category lang="{lang_code}">{escape(live_label)}</category>'
+
+    altersfreigabe = ALTERSFREIGABE.get(kategorie_key, DEFAULT_ALTERSFREIGABE)
+    rating_tag = f' <rating system="FSK"><value>{altersfreigabe}</value></rating>'
+
+    beschr_escaped = escape(beschr_text)
+    desc_tag = f' <desc lang="{lang_code}">{beschr_escaped}</desc>'
+    sub_title_tag = f' <sub-title lang="{lang_code}">{beschr_escaped}</sub-title>'
+
+    for seg_start, seg_ende in segmente:
+        seg_start_str = seg_start.strftime("%Y%m%d%H%M%S +0000")
+        seg_ende_str = seg_ende.strftime("%Y%m%d%H%M%S +0000")
+        xml_teile.append(
+            f' <programme start="{seg_start_str}" stop="{seg_ende_str}" channel="{escape(kanal)}">'
+            f' <title lang="{lang_code}">{titel_text}</title>'
+            f'{sub_title_tag}'
+            f'{desc_tag}{category_tags}{rating_tag} </programme> '
+        )
+
+
+def kern_und_event_extrahieren(voller_name):
+    """Trennt einen rohen Kanalnamen in (Kurzname/Kern, Event-Text) nach
+    der Pipe-Konvention: der Abschnitt NACH dem letzten Pipe-Zeichen gilt
+    als stabiler Kern (z.B. "DE: DYN PPV 1" -> "DYN PPV 1"), alles davor
+    als potenzieller Event-Text. Ohne Pipe wird auf das bekannte
+    DYN-PPV/FLO-RACING-Doppelpunkt-Muster zurueckgefallen. Wird sowohl
+    beim Einlesen von sender.txt als auch beim Auslesen der Live-
+    Kanalnamen aus der EPG-Anbieter-Datei verwendet."""
+    if "|" in voller_name:
+        segmente = voller_name.split("|")
+        kern_roh = segmente[-1].strip()
+        event_teil = "|".join(segmente[:-1]).strip()
+        kurzname = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", kern_roh).strip()
+        if not kurzname:
+            kurzname = kern_roh
+    else:
+        kurzname_match = re.search(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", voller_name, re.IGNORECASE)
+        if kurzname_match and kurzname_match.start() > 0:
+            kurzname = kurzname_match.group(0)
+            event_teil = voller_name[:kurzname_match.start()].strip(" :").strip()
+        else:
+            kurzname = voller_name
+            event_teil = ""
+    return kurzname, event_teil
 
 # ==========================================================
 # ZENTRALE KONFIGURATION
@@ -103,6 +166,37 @@ CLUBBER_ZEITZONE = ZoneInfo("Europe/Dublin")
 # einer anderen Sprache) koennen hier einfach ergaenzt werden, ohne
 # die Einlese-Logik selbst anfassen zu muessen.
 LEERLAUF_MARKER = ["no event", "kein event", "nema eventa", "ni dogodka"]
+
+# Status-Marker, die manche Anbieter (z.B. myepg.top) als erstes
+# Pipe-Segment vor den eigentlichen Event-Namen setzen ("NEXT | ...",
+# "End | ..."). Werden erkannt und in verstaendlichen deutschen
+# EPG-Text uebersetzt statt den rohen englischen Marker anzuzeigen.
+EVENT_MARKER_NEXT = ["next"]
+EVENT_MARKER_ENDE = ["end", "ended", "endet"]
+EVENT_ENDE_TEXT = (
+    "Spiel ist beendet, danke, dass Sie zugeschaut haben. Ihr DYN Sport Team"
+)
+
+
+def formatiere_event_text(event_teil):
+    """Erkennt einen bekannten Status-Marker (NEXT/END) im ersten Pipe-
+    Segment eines rohen Event-Texts und baut daraus verstaendlichen
+    deutschen EPG-Text: "NEXT | X" -> "Es folgt: X", "End | X" -> festen
+    Abmoderationstext. Ohne erkannten Marker (z.B. bei "Live | ...")
+    bleibt der Text unveraendert."""
+    segmente = [s.strip() for s in event_teil.split("|")]
+    marker = segmente[0].lower() if segmente else ""
+
+    if marker in EVENT_MARKER_ENDE:
+        return EVENT_ENDE_TEXT
+
+    if marker in EVENT_MARKER_NEXT:
+        rest = " | ".join(s for s in segmente[1:] if s).strip()
+        if rest:
+            return f"Es folgt: {rest}"
+        return "Es folgt in Kürze ein neues Event"
+
+    return event_teil
 
 # Automatische Logo-Suche: fehlt einem Sender in sender.txt/
 # logo_only.txt ein Logo, wird versucht, es automatisch ueber die
@@ -212,28 +306,8 @@ for zeile in zeilen:
         # im Doppelpunkt-Format "Sa 14:00 : Flo Racing 05" oder im
         # Leerlauf nur "Flo Racing 03") - hier greift die Pipe-
         # Konvention nicht, daher Fallback auf das bekannte
-        # DYN-PPV/FLO-RACING-Muster.
-        if "|" in voller_name:
-            segmente = voller_name.split("|")
-            kern_roh = segmente[-1].strip()
-            event_teil = "|".join(segmente[:-1]).strip()
-            # Sprach-/Land-Praefix am Anfang des Kerns entfernen
-            # (z.B. "DE: DYN PPV 1" -> "DYN PPV 1"), das Praefix
-            # gehoert zur Anzeige, nicht zum eigentlichen Kern.
-            kurzname = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", kern_roh).strip()
-            if not kurzname:
-                kurzname = kern_roh
-        else:
-            # Kein Pipe im Namen - Pipe-Konvention nicht anwendbar,
-            # Fallback auf bekanntes DYN-PPV/FLO-RACING-Muster
-            # (Doppelpunkt-Format, siehe FLO_RACING/DYN_PPV weiter unten).
-            kurzname_match = re.search(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", voller_name, re.IGNORECASE)
-            if kurzname_match and kurzname_match.start() > 0:
-                kurzname = kurzname_match.group(0)
-                event_teil = voller_name[:kurzname_match.start()].strip(" :").strip()
-            else:
-                kurzname = voller_name
-                event_teil = ""
+        # DYN-PPV/FLO-RACING-Muster (siehe kern_und_event_extrahieren()).
+        kurzname, event_teil = kern_und_event_extrahieren(voller_name)
 
         beschreibung, kategorie_key = standard_beschreibung("DE", kurzname)
 
@@ -262,7 +336,7 @@ for zeile in zeilen:
         event_titel = None
 
         if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
-            event_titel = event_teil
+            event_titel = formatiere_event_text(event_teil)
 
         sender_daten.append({
             "kanal": voller_name,
@@ -631,23 +705,24 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 # DYN LIVE EVENTS
 # ==========================================================
 
-# Echte DYN-PPV-1-50-Sender (aus sender.txt, NAME:-Eintraege,
-# eigenstaendige Kategorie neben den 1-20 synthetischen "DE| DYN PPV
-# N HD"-Kanaelen weiter unten) per Kernname "DYN PPV N" indizieren,
-# damit API-Events zusaetzlich per eigenem Round-Robin auch auf diese
-# echten Kanaele verteilt werden koennen.
-dyn_ppv_real_kanal_index = {}
+# Generischer Index ALLER NAME:-Sender (nicht nur DYN PPV) nach
+# normalisiertem Kernnamen - ermoeglicht es, den EPG-Anbieter-Abgleich
+# (siehe "DYN LIVE-KANALNAMEN VOM EPG-ANBIETER" weiter unten) spaeter
+# auch fuer weitere Kategorien (z.B. "US: SOCCER PPV" oder andere) ohne
+# erneute Codeaenderung zu nutzen: es reicht, den neuen Sender per
+# NAME:-Zeile in sender.txt einzutragen, sofern sein Kernname (Teil
+# nach dem letzten Pipe-Zeichen bzw. nach "Land: ") exakt mit dem
+# Kernnamen uebereinstimmt, den der Anbieter selbst im Kanalnamen fuehrt.
+name_pipe_kanal_index = {}
 for daten in sender_daten:
     if daten.get("exakter_name"):
-        treffer = re.match(r"^DYN\s*PPV\s*(\d+)$", daten["sender"], re.IGNORECASE)
-        if treffer:
-            dyn_ppv_real_kanal_index[int(treffer.group(1))] = daten
-dyn_ppv_real_kanal_anzahl = max(dyn_ppv_real_kanal_index.keys(), default=0)
+        normalisierter_kern = re.sub(r"\s+", " ", daten["sender"]).strip().upper()
+        name_pipe_kanal_index[normalisierter_kern] = daten
 
 # Zeitfenster der API-Events je synthetischem "DE| DYN PPV N HD"-Kanal
-# (1-20), analog zu dyn_ppv_real_kanal_index/api_event_fenster fuer die
-# echten 1-50-Sender - wird unten bei den DYN LEERZEITEN gebraucht, um
-# den ueberlappenden Teil der stuendlichen Platzhalter auszuschneiden.
+# (1-20), analog zu api_event_fenster fuer die echten 1-50-Sender -
+# wird unten bei den DYN LEERZEITEN gebraucht, um den ueberlappenden
+# Teil der stuendlichen Platzhalter auszuschneiden.
 dyn_synth_api_fenster = {}
 
 try:
@@ -727,43 +802,90 @@ try:
                 if kanal_nummer > DYN_PPV_ANZAHL:
                     kanal_nummer = 1
 
-                # Dasselbe Event zusaetzlich per eigenem Round-Robin auf
-                # die echten DYN-PPV-1-50-Sender verteilen. Die API
-                # kennt keinen festen Kanal pro Event, daher bleibt die
-                # Zuordnung wie bei den 1-20 rein reihenfolgebasiert.
-                # API hat Vorrang: ein playlist-namensbasierter
-                # Event-Titel (Pipe-Konvention) wird fuer diesen Lauf
-                # unterdrueckt, sobald der Kanal ein API-Event bekommt.
-                # Zusaetzlich wird das Zeitfenster gemerkt, damit das
-                # Standard-EPG unten fuer denselben Zeitraum KEINEN
-                # ueberlappenden generischen Platzhalter-Block mehr
-                # eintraegt (sonst haetten zwei <programme>-Eintraege
-                # denselben Kanal zur selben Zeit belegt).
-                if dyn_ppv_real_kanal_anzahl:
-                    real_daten = dyn_ppv_real_kanal_index.get(real_kanal_nummer)
-                    if real_daten is not None:
-                        xml_teile.append(
-                            f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(real_daten["kanal"])}">'
-                            f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
-                        )
-                        real_daten["event_titel"] = None
-                        # Ein Kanal kann ueber den Lauf hinweg mehrere
-                        # API-Events zugewiesen bekommen (es gibt idR
-                        # mehr als 50 Events, der Round-Robin durchlaeuft
-                        # die 50 Kanaele also mehrfach) - ALLE Zeitfenster
-                        # sammeln statt nur das letzte zu merken, sonst
-                        # greift der Ueberlapp-Schutz unten nur fuer das
-                        # zuletzt zugewiesene (ggf. viel spaetere) Event.
-                        real_daten.setdefault("api_event_fenster", []).append(
-                            (start_dt, ende_dt)
-                        )
-
-                    real_kanal_nummer += 1
-                    if real_kanal_nummer > dyn_ppv_real_kanal_anzahl:
-                        real_kanal_nummer = 1
-
 except Exception as e:
     print("DYN Fehler:", e)
+
+# ==========================================================
+# LIVE-KANALNAMEN VOM EPG-ANBIETER (alle NAME:-Sender, z.B. DYN PPV)
+# ==========================================================
+#
+# Statt Events per Round-Robin zu raten (unzuverlaessig - siehe
+# Clubber, wo sich das als falsch erwiesen hat), werden hier die
+# echten Live-Kanalnamen direkt aus der EPG-Datei des Nutzer-eigenen
+# EPG-Anbieters gelesen. Dieser Anbieter spiegelt die tatsaechlichen
+# Live-Playlist-Kanalnamen (inkl. Event-Text) direkt in seine
+# <channel>-Definitionen (bestaetigt am Beispiel "US: SOCCER PPV") -
+# das ist die echte, korrekte Zuordnung statt eines Ratens. Der
+# Abgleich laeuft ueber name_pipe_kanal_index und ist NICHT auf DYN PPV
+# beschraenkt: jeder Sender, der per NAME:-Zeile in sender.txt
+# eingetragen ist (Kernname exakt wie beim Anbieter), wird automatisch
+# erfasst - fuer weitere Kategorien (z.B. "US: SOCCER PPV") reicht ein
+# neuer NAME:-Eintrag in sender.txt, ohne dass hier Code geaendert
+# werden muss.
+#
+# Sicherheit: Die URL enthaelt persoenliche Zugangsdaten (uid/key) des
+# Nutzers und wird NIEMALS im Code/Repo hinterlegt, sondern kommt
+# ausschliesslich ueber die Umgebungsvariable DYN_EPG_PROVIDER_URL
+# (als GitHub Actions Secret gesetzt). Fehlt die Variable (z.B. beim
+# lokalen Testen), wird dieser Abschnitt einfach uebersprungen.
+#
+# Die Datei ist riesig (>150 MB entpackt), enthaelt aber ALLE
+# <channel>-Definitionen VOR dem allerersten <programme>-Tag - daher
+# wird nur gestreamt entpackt, bis das erste <programme> auftaucht,
+# und die Verbindung dann abgebrochen, statt die komplette Datei
+# herunterzuladen.
+
+DYN_EPG_PROVIDER_URL = os.environ.get("DYN_EPG_PROVIDER_URL")
+DYN_EPG_PROVIDER_TIMEOUT_SEKUNDEN = 30
+# Grosszuegige Obergrenze fuer den gestreamten Bereich, falls das erste
+# <programme>-Tag aus irgendeinem Grund fehlt/sich stark verschiebt -
+# verhindert, dass versehentlich die komplette 150+MB-Datei geladen wird.
+DYN_EPG_PROVIDER_MAX_ZEICHEN = 20_000_000
+
+if DYN_EPG_PROVIDER_URL and name_pipe_kanal_index:
+    try:
+        response = requests.get(
+            DYN_EPG_PROVIDER_URL, timeout=DYN_EPG_PROVIDER_TIMEOUT_SEKUNDEN, stream=True
+        )
+        response.raise_for_status()
+
+        dekomprimierer = zlib.decompressobj(16 + zlib.MAX_WBITS)
+        gepuffert = ""
+        for chunk in response.iter_content(chunk_size=65536):
+            gepuffert += dekomprimierer.decompress(chunk).decode("utf-8", errors="ignore")
+            if "<programme" in gepuffert or len(gepuffert) > DYN_EPG_PROVIDER_MAX_ZEICHEN:
+                break
+        response.close()
+
+        kanal_bereich = gepuffert.split("<programme", 1)[0]
+
+        aktualisiert = 0
+        for channel_match in re.finditer(r"<channel[^>]*>(.*?)</channel>", kanal_bereich, re.DOTALL):
+            for name_match in re.finditer(
+                r"<display-name>([^<]*)</display-name>", channel_match.group(1)
+            ):
+                voller_name = name_match.group(1).strip()
+                kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+                normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+
+                real_daten = name_pipe_kanal_index.get(normalisierter_kern)
+                if real_daten is None:
+                    continue
+
+                if event_teil and not any(
+                    marker in event_teil.lower() for marker in LEERLAUF_MARKER
+                ):
+                    real_daten["event_titel"] = formatiere_event_text(event_teil)
+                    aktualisiert += 1
+                break
+
+        print(
+            f"EPG-Anbieter: {aktualisiert} von {len(name_pipe_kanal_index)} "
+            f"NAME:-Kanaelen mit Live-Kanalnamen aktualisiert"
+        )
+
+    except Exception as e:
+        print("EPG-Anbieter Fehler:", e)
 
 # ==========================================================
 # CLUBBER LIVE EVENTS
@@ -946,82 +1068,82 @@ for tag_index in range(ANZAHL_TAGE):
                                 ist_naechster_block
                             )
 
-            if verwende_event:
-                titel_text = escape(event_titel)
-                beschr_text = event_titel
-                lang_code = "de"
-            elif vorbericht_titel:
-                titel_text = escape(vorbericht_titel)
-                beschr_text = vorbericht_titel
-                lang_code = vorbericht_lang_code
-            else:
-                titel_text = escape(
+            if event_start_dt is not None:
+                # Praezises Event: eigener Programme-Eintrag im engeren
+                # Event-Zeitfenster (mit "Live"-Tag). Das Fenster wird
+                # danach in api_event_fenster eingetragen, damit sowohl
+                # der Rest DIESES Blocks als auch spaetere Bloecke
+                # desselben Tages (naechste block_index-Iterationen fuer
+                # denselben Sender) den Ueberlapp automatisch heraus-
+                # schneiden statt ihn zu duplizieren (behebt die vorher
+                # bestehende Luecke vor bzw. Ueberlappung nach dem Event).
+                event_segmente = segmente_ohne_ueberlappung(
+                    event_start_dt, event_ende_dt, daten.get("api_event_fenster", [])
+                )
+                schreibe_programme_segmente(
+                    xml_teile, event_segmente, daten["kanal"],
+                    escape(event_titel), event_titel, "de",
+                    kategorie_key, daten["land"], True,
+                )
+                daten.setdefault("api_event_fenster", []).append(
+                    (event_start_dt, event_ende_dt)
+                )
+
+                # Block-Rest (vor/nach dem engeren Event-Zeitfenster,
+                # aber noch innerhalb dieses Tagesraster-Blocks) bekommt
+                # weiterhin den generischen Kategorietext statt einer
+                # Luecke mit "Keine Information".
+                block_titel_text = escape(
                     sendetitel(
                         kategorie_key, daten["land"], hash_wert, tageszeit,
                         datum=tag_start.date(), tag_index=tag_index
                     )
                 )
-                beschr_text, lang_code = beschreibung_fuer_sender(
+                block_beschr_text, block_lang_code = beschreibung_fuer_sender(
                     kategorie_key, daten["land"], daten["sender"], hash_wert,
                     tag_index=tag_index
                 )
-
-            # Programmzeitraum: normalerweise der komplette Tagesraster-
-            # Block, bei praezise erkanntem DYN/Flo-Racing-Event aber das
-            # engere, tatsaechliche Event-Zeitfenster.
-            if event_start_dt is not None:
-                prog_start_dt = event_start_dt
-                prog_ende_dt = event_ende_dt
+                block_segmente = segmente_ohne_ueberlappung(
+                    start, ende, daten.get("api_event_fenster", [])
+                )
+                schreibe_programme_segmente(
+                    xml_teile, block_segmente, daten["kanal"],
+                    block_titel_text, block_beschr_text, block_lang_code,
+                    kategorie_key, daten["land"], False,
+                )
             else:
-                prog_start_dt = start
-                prog_ende_dt = ende
+                if verwende_event:
+                    titel_text = escape(event_titel)
+                    beschr_text = event_titel
+                    lang_code = "de"
+                elif vorbericht_titel:
+                    titel_text = escape(vorbericht_titel)
+                    beschr_text = vorbericht_titel
+                    lang_code = vorbericht_lang_code
+                else:
+                    titel_text = escape(
+                        sendetitel(
+                            kategorie_key, daten["land"], hash_wert, tageszeit,
+                            datum=tag_start.date(), tag_index=tag_index
+                        )
+                    )
+                    beschr_text, lang_code = beschreibung_fuer_sender(
+                        kategorie_key, daten["land"], daten["sender"], hash_wert,
+                        tag_index=tag_index
+                    )
 
-            # Ueberschneidet sich dieser Zeitraum mit einem bereits per
-            # DYN-API geschriebenen, praezisen Event-Programme (siehe
-            # DYN LIVE EVENTS weiter oben), wird NUR der ueberlappende
-            # Teil herausgeschnitten - der Rest (vor/nach dem Event)
-            # bekommt weiterhin den generischen Platzhaltertext, statt
-            # den kompletten Block wegzulassen (das wuerde zu einer
-            # Luecke mit "Keine Information" vor/nach dem Event fuehren).
-            segmente = segmente_ohne_ueberlappung(
-                prog_start_dt, prog_ende_dt, daten.get("api_event_fenster", [])
-            )
-
-            # Genre-Tags: die normale Kategorie, UND zusaetzlich ein
-            # "Live"-Tag, sobald es sich um ein praezise erkanntes
-            # DYN/Flo-Racing-Event handelt (XMLTV erlaubt mehrere
-            # <category>-Tags pro Sendung, z.B. "Sport" + "Live").
-            # Sprache richtet sich nach dem Land des Senders, damit
-            # z.B. ein EXYU-Sender "Sport" auch in seiner Sprache
-            # bekommt statt eines fix deutschen Labels.
-            label = kategorie_label(kategorie_key, daten["land"])
-            category_tags = ""
-            if label:
-                category_tags += f' <category lang="{lang_code}">{escape(label)}</category>'
-            if event_start_dt is not None:
-                live_label = {"de": "Live", "hr": "Uživo", "sl": "V živo", "mk": "Vo živo"}.get(lang_code, "Live")
-                category_tags += f' <category lang="{lang_code}">{escape(live_label)}</category>'
-
-            # Altersfreigabe passend zur Kategorie (Standard: 6)
-            altersfreigabe = ALTERSFREIGABE.get(kategorie_key, DEFAULT_ALTERSFREIGABE)
-            rating_tag = (
-                f' <rating system="FSK"><value>{altersfreigabe}</value></rating>'
-            )
-
-            # Beschreibung nur in der zum Sender-Land passenden Sprache
-            # (DE/EXYU/EN) - jeweils identisch fuer sub-title und desc.
-            beschr_escaped = escape(beschr_text)
-            desc_tag = f' <desc lang="{lang_code}">{beschr_escaped}</desc>'
-            sub_title_tag = f' <sub-title lang="{lang_code}">{beschr_escaped}</sub-title>'
-
-            for seg_start, seg_ende in segmente:
-                seg_start_str = seg_start.strftime("%Y%m%d%H%M%S +0000")
-                seg_ende_str = seg_ende.strftime("%Y%m%d%H%M%S +0000")
-                xml_teile.append(
-                    f' <programme start="{seg_start_str}" stop="{seg_ende_str}" channel="{escape(daten["kanal"])}">'
-                    f' <title lang="{lang_code}">{titel_text}</title>'
-                    f'{sub_title_tag}'
-                    f'{desc_tag}{category_tags}{rating_tag} </programme> '
+                # Ueberschneidet sich dieser Block mit einem bereits per
+                # DYN-API/Clubber-API bzw. praezisem Event (siehe oben)
+                # geschriebenen Zeitfenster, wird NUR der ueberlappende
+                # Teil herausgeschnitten - der Rest bekommt weiterhin den
+                # obigen Text, statt den kompletten Block wegzulassen.
+                segmente = segmente_ohne_ueberlappung(
+                    start, ende, daten.get("api_event_fenster", [])
+                )
+                schreibe_programme_segmente(
+                    xml_teile, segmente, daten["kanal"],
+                    titel_text, beschr_text, lang_code,
+                    kategorie_key, daten["land"], False,
                 )
 
 # ==========================================================
