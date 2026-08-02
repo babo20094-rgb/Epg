@@ -5,8 +5,7 @@
  <channel id="UK|KARAOKE 1"> <display-name>UK| KARAOKE 1</display-name> </channel>
  <channel id="UK|KARAOKE 2"> <display-name>UK| KARAOKE 2</display-name> </channel>
  <channel id="UK|KARAOKE 3"> <display-name>UK| KARAOKE 3</display-name> </channel>
- <channel id="UK|KARAOKE 4"> <display-name>UK| KARAOKE 4</display-name>  <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NBC_logo_2022_%28vertical%29.svg/960px-NBC_logo_2022_%28vertical%29.svg.png"/>
-</channel>
+ <channel id="UK|KARAOKE 4"> <display-name>UK| KARAOKE 4</display-name> </channel>
  <channel id="UK|KARAOKE 5"> <display-name>UK| KARAOKE 5</display-name> </channel>
  <channel id="UK|KARAOKE 6"> <display-name>UK| KARAOKE 6</display-name> </channel>
  <channel id="UK|KARAOKE 7"> <display-name>UK| KARAOKE 7</display-name> </channel>
