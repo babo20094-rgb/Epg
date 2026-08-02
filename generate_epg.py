@@ -1143,7 +1143,7 @@ for tag_index in range(ANZAHL_TAGE):
                 block_titel_text = escape(
                     sendetitel(
                         kategorie_key, daten["land"], hash_wert, tageszeit,
-                        datum=tag_start.date(), tag_index=tag_index
+                        tag_index=tag_index
                     )
                 )
                 block_beschr_text, block_lang_code = beschreibung_fuer_sender(
@@ -1171,7 +1171,7 @@ for tag_index in range(ANZAHL_TAGE):
                     titel_text = escape(
                         sendetitel(
                             kategorie_key, daten["land"], hash_wert, tageszeit,
-                            datum=tag_start.date(), tag_index=tag_index
+                            tag_index=tag_index
                         )
                     )
                     beschr_text, lang_code = beschreibung_fuer_sender(
