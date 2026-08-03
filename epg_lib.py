@@ -1316,7 +1316,7 @@ def standard_beschreibung(land, sender):
 
         for keyword in daten["keywords"]:
 
-            if keyword in sender_upper:
+            if re.search(rf"\b{re.escape(keyword)}\b", sender_upper):
                 varianten = daten[sprache]
                 nummer = hash_wert % len(varianten)
                 label = daten["label"][sprache]
