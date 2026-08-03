@@ -1177,7 +1177,7 @@ US|AT&amp;T Sportsnet Southwest HD|
 US|Fox Kansas HD|
 US|Fox 29|
 US|CW Seattle HD|
-US|WNYC|
+US|WNYC||https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/WNYC-Logo.svg/3840px-WNYC-Logo.svg.png
 US|US MyTv (KHII) Hanolulu|
 DE|Geo Tv HD|
 DE|Nat Geo Wild FHD|
