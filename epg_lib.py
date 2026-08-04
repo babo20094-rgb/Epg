@@ -26,31 +26,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -63,31 +73,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -100,31 +120,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -137,31 +167,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -174,31 +214,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -211,31 +261,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -248,31 +308,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -285,31 +355,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -322,31 +402,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -359,31 +449,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -396,31 +496,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -433,31 +543,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -470,31 +590,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -507,31 +637,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -544,31 +684,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -581,31 +731,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -618,31 +778,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -655,31 +825,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -692,31 +872,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -729,31 +919,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -766,31 +966,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -803,31 +1013,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -840,31 +1060,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -877,31 +1107,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -914,31 +1154,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -951,31 +1201,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -988,31 +1248,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -1025,31 +1295,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -1062,31 +1342,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -1099,31 +1389,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -1136,31 +1436,41 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     },
 
@@ -1173,31 +1483,276 @@ KATEGORIEN = {
             "{sender} zeigt {label} rund um die Uhr.",
             "{label} live und aktuell bei {sender}.",
             "{sender} - Ihr Sender fuer {label}.",
-            "Erleben Sie {label} jederzeit auf {sender}."
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
         ],
         "EXYU": [
             "{sender} donosi {label} tokom cijelog dana.",
             "{label} uzivo i aktuelno na {sender}.",
             "{sender} - vas kanal za {label}.",
-            "Pratite {label} u svakom trenutku na {sender}."
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
         ],
         "SI": [
             "{sender} prinaša {label} 24 ur na dan.",
             "{label} v živo in ažurno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Spremljajte {label} kadarkoli na {sender}."
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
         ],
         "MK": [
             "{sender} nudi {label} tekom celiot den.",
             "{label} vo živo i aktuelno na {sender}.",
             "{sender} - vaš kanal za {label}.",
-            "Sledete {label} vo sekoe vreme na {sender}."
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
         ],
         "EN": [
             "{sender} brings you {label} around the clock.",
             "{label} live and up to date on {sender}.",
             "{sender} - your channel for {label}.",
-            "Enjoy {label} anytime on {sender}."
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
+        ]
+    },
+
+    "GARTEN_HEIM": {
+        "label": {"DE": "Garten & Heim", "EXYU": "Vrt i dom", "EN": "Home & Garden", "SI": "Vrt in dom", "MK": "Gradina i dom"},
+        "keywords": [
+            "GARDEN", "GARDENING", "HGTV", "HOME AND GARDEN", "DIY", "MONTY DON", "HOME NETWORK", "PROPERTY", "RENOVATION", "VRT", "DOM"
+        ],
+        "DE": [
+            "{sender} zeigt {label} rund um die Uhr.",
+            "{label} live und aktuell bei {sender}.",
+            "{sender} - Ihr Sender fuer {label}.",
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} donosi {label} tokom cijelog dana.",
+            "{label} uzivo i aktuelno na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
+        ],
+        "SI": [
+            "{sender} prinaša {label} 24 ur na dan.",
+            "{label} v živo in ažurno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
+        ],
+        "MK": [
+            "{sender} nudi {label} tekom celiot den.",
+            "{label} vo živo i aktuelno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
+        ],
+        "EN": [
+            "{sender} brings you {label} around the clock.",
+            "{label} live and up to date on {sender}.",
+            "{sender} - your channel for {label}.",
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
+        ]
+    },
+
+    "WELTRAUM_WISSENSCHAFT": {
+        "label": {"DE": "Weltraum & Wissenschaft", "EXYU": "Svemir i nauka", "EN": "Space & Science", "SI": "Vesolje in znanost", "MK": "Vselena i nauka"},
+        "keywords": [
+            "SPACE", "NASA", "COSMOS", "UNIVERSE", "GALAXY", "SVEMIR", "VESOLJE", "VSELENA"
+        ],
+        "DE": [
+            "{sender} zeigt {label} rund um die Uhr.",
+            "{label} live und aktuell bei {sender}.",
+            "{sender} - Ihr Sender fuer {label}.",
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} donosi {label} tokom cijelog dana.",
+            "{label} uzivo i aktuelno na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
+        ],
+        "SI": [
+            "{sender} prinaša {label} 24 ur na dan.",
+            "{label} v živo in ažurno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
+        ],
+        "MK": [
+            "{sender} nudi {label} tekom celiot den.",
+            "{label} vo živo i aktuelno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
+        ],
+        "EN": [
+            "{sender} brings you {label} around the clock.",
+            "{label} live and up to date on {sender}.",
+            "{sender} - your channel for {label}.",
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
+        ]
+    },
+
+    "MODE": {
+        "label": {"DE": "Mode", "EXYU": "Moda", "EN": "Fashion", "SI": "Moda", "MK": "Moda"},
+        "keywords": [
+            "FASHION", "VOGUE", "GLAMOUR", "FASHION TV", "FASHIONTV", "STYLE NETWORK", "MODA"
+        ],
+        "DE": [
+            "{sender} zeigt {label} rund um die Uhr.",
+            "{label} live und aktuell bei {sender}.",
+            "{sender} - Ihr Sender fuer {label}.",
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} donosi {label} tokom cijelog dana.",
+            "{label} uzivo i aktuelno na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
+        ],
+        "SI": [
+            "{sender} prinaša {label} 24 ur na dan.",
+            "{label} v živo in ažurno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
+        ],
+        "MK": [
+            "{sender} nudi {label} tekom celiot den.",
+            "{label} vo živo i aktuelno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
+        ],
+        "EN": [
+            "{sender} brings you {label} around the clock.",
+            "{label} live and up to date on {sender}.",
+            "{sender} - your channel for {label}.",
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
+        ]
+    },
+
+    "GLUECKSSPIEL": {
+        "label": {"DE": "Glücksspiel", "EXYU": "Kockanje", "EN": "Gambling", "SI": "Igre na srečo", "MK": "Kockanje"},
+        "keywords": [
+            "CASINO", "POKER", "GAMBLING", "LOTTO", "BETTING", "BET365", "KOCKANJE"
+        ],
+        "DE": [
+            "{sender} zeigt {label} rund um die Uhr.",
+            "{label} live und aktuell bei {sender}.",
+            "{sender} - Ihr Sender fuer {label}.",
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} donosi {label} tokom cijelog dana.",
+            "{label} uzivo i aktuelno na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
+        ],
+        "SI": [
+            "{sender} prinaša {label} 24 ur na dan.",
+            "{label} v živo in ažurno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
+        ],
+        "MK": [
+            "{sender} nudi {label} tekom celiot den.",
+            "{label} vo živo i aktuelno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
+        ],
+        "EN": [
+            "{sender} brings you {label} around the clock.",
+            "{label} live and up to date on {sender}.",
+            "{sender} - your channel for {label}.",
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
+        ]
+    },
+
+    "EROTIK": {
+        "label": {"DE": "Erotik", "EXYU": "Erotika", "EN": "Adult", "SI": "Erotika", "MK": "Erotika"},
+        "keywords": [
+            "XXX", "EROTIC", "EROTIK", "EROTIKA", "PLAYBOY", "VENUS", "HUSTLER", "PRIVATE TV", "BRAZZERS"
+        ],
+        "DE": [
+            "{sender} zeigt {label} rund um die Uhr.",
+            "{label} live und aktuell bei {sender}.",
+            "{sender} - Ihr Sender fuer {label}.",
+            "Erleben Sie {label} jederzeit auf {sender}.",
+            "{sender} - immer aktuell mit {label}.",
+            "Schalten Sie ein und genießen Sie {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} donosi {label} tokom cijelog dana.",
+            "{label} uzivo i aktuelno na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "Pratite {label} u svakom trenutku na {sender}.",
+            "{sender} - uvijek aktuelno sa {label}.",
+            "Ukljucite se i uzivajte u {label} na {sender}."
+        ],
+        "SI": [
+            "{sender} prinaša {label} 24 ur na dan.",
+            "{label} v živo in ažurno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Spremljajte {label} kadarkoli na {sender}.",
+            "{sender} - vedno sveže z {label}.",
+            "Prižgite in uživajte v {label} na {sender}."
+        ],
+        "MK": [
+            "{sender} nudi {label} tekom celiot den.",
+            "{label} vo živo i aktuelno na {sender}.",
+            "{sender} - vaš kanal za {label}.",
+            "Sledete {label} vo sekoe vreme na {sender}.",
+            "{sender} - sekogash aktuelno so {label}.",
+            "Vklucete se i uzivajte vo {label} na {sender}."
+        ],
+        "EN": [
+            "{sender} brings you {label} around the clock.",
+            "{label} live and up to date on {sender}.",
+            "{sender} - your channel for {label}.",
+            "Enjoy {label} anytime on {sender}.",
+            "{sender} - always up to date with {label}.",
+            "Tune in and enjoy {label} on {sender}."
         ]
     }
 }
@@ -1209,6 +1764,7 @@ KATEGORIEN = {
 # Auffang-Kategorie vor dem generischen Fallback-Text.
 KATEGORIE_PRIORITAET = [
     "REALITY", "NEWS", "WETTER", "KINDER", "ANIME", "FAMILIE", "GAMING", "RADIO", "SHOPPING",
+    "EROTIK", "GLUECKSSPIEL", "WELTRAUM_WISSENSCHAFT", "MODE", "GARTEN_HEIM",
     "WISSEN", "NATUR", "JAGD_FISCHEREI", "DOKU", "MILITAER", "AUTO", "REISEN", "KOCHEN",
     "MUSIK", "COMEDY", "RELIGION", "HORROR", "KRIMI", "TALKSHOW",
     "WIRTSCHAFT", "GESUNDHEIT", "TECH",
@@ -1220,35 +1776,45 @@ DE_STANDARD = [
     "{sender} sendet abwechslungsreiches Programm rund um die Uhr.",
     "Vielseitige Unterhaltung erwartet Sie bei {sender}.",
     "{sender} - Programm fuer die ganze Familie.",
-    "Schalten Sie ein bei {sender} fuer kurzweiliges Programm."
+    "Schalten Sie ein bei {sender} fuer kurzweiliges Programm.",
+    "{sender} - rund um die Uhr fuer Sie auf Sendung.",
+    "Verpassen Sie nichts - {sender} begleitet Sie durch den Tag."
 ]
 
 EXYU_STANDARD = [
     "{sender} emituje raznovrstan program tokom cijelog dana.",
     "Raznovrsna zabava vas ocekuje na {sender}.",
     "{sender} - program za cijelu porodicu.",
-    "Ukljucite se na {sender} za zanimljiv program."
+    "Ukljucite se na {sender} za zanimljiv program.",
+    "{sender} - na programu 24 sata dnevno.",
+    "Ne propustite nista - {sender} vas prati tokom dana."
 ]
 
 SI_STANDARD = [
     "{sender} predvaja raznolik program 24 ur na dan.",
     "Pestra zabava vas čaka na {sender}.",
     "{sender} - program za vso družino.",
-    "Prižgite {sender} za zanimiv program."
+    "Prižgite {sender} za zanimiv program.",
+    "{sender} - na sporedu 24 ur na dan.",
+    "Ne zamudite nič - {sender} vas spremlja skozi dan."
 ]
 
 MK_STANDARD = [
     "{sender} emituva raznovidna programa tekom celiot den.",
     "Raznovidna zabava ve čeka na {sender}.",
     "{sender} - programa za celoto semejstvo.",
-    "Vklučete se na {sender} za interesna programa."
+    "Vklučete se na {sender} za interesna programa.",
+    "{sender} - na programa 24 časa na den.",
+    "Ne propuštajte ništo - {sender} ve prati tekom denot."
 ]
 
 EN_STANDARD = [
     "{sender} broadcasts varied programming around the clock.",
     "Varied entertainment awaits you on {sender}.",
     "{sender} - programming for the whole family.",
-    "Tune in to {sender} for engaging programming."
+    "Tune in to {sender} for engaging programming.",
+    "{sender} - on air 24 hours a day.",
+    "Don't miss out - {sender} keeps you company all day long."
 ]
 
 
