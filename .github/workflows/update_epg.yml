@@ -37,13 +37,6 @@ jobs:
         run: |
           python generate_epg.py
 
-      - name: Debug - Anbieter-Dateien auf Clubber-Kanaele pruefen
-        env:
-          DYN_EPG_PROVIDER_URL: ${{ secrets.DYN_EPG_PROVIDER_URL }}
-          DYN_EPG_PROVIDER_URL_EU: ${{ secrets.DYN_EPG_PROVIDER_URL_EU }}
-        run: |
-          python debug_clubber_check.py
-
       - name: Commit EPG
         run: |
           git config user.name "github-actions[bot]"

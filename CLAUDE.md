@@ -64,3 +64,12 @@ manuellem Trigger.
   fälschlich das Kurz-Keyword "LOV" der Kategorie Jagd & Angeln).
 - Generische Sendetitel enthalten keinen Wochentag/kein Datum mehr, nur
   noch Event- bzw. Kategorietext.
+- Der Mechanismus deckt zwei Namenskonventionen ab: Kern-HINTEN (DYN PPV,
+  Flo Racing - Kern nach dem letzten Pipe) und Kern-VORNE (Clubber-PPV,
+  Irland/GAA - Kern vor dem ersten Pipe, z. B. "(IE) (Clubber 01) | Kerry
+  GAA: ..."). `epg_anbieter_datei_abgleichen()` probiert bei einem Sender
+  automatisch beide Konventionen durch (`kern_und_event_extrahieren()` /
+  `kern_vorne_und_event_extrahieren()`), bevor er den Kanal als
+  "kein Treffer" überspringt. Clubber hatte vorher eine eigene
+  Round-Robin-API-Zuordnung (unzuverlässig, siehe Git-Historie) - läuft
+  jetzt komplett über denselben generischen myepg.top-Abgleich wie DYN PPV.

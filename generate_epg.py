@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta, timezone
 from xml.sax.saxutils import escape
-from zoneinfo import ZoneInfo
 import os
 import re
 import requests
@@ -107,6 +106,23 @@ def kern_und_event_extrahieren(voller_name):
             event_teil = ""
     return kurzname, event_teil
 
+
+def kern_vorne_und_event_extrahieren(voller_name):
+    """Gegenstueck zu kern_und_event_extrahieren() fuer Anbieter, die den
+    stabilen Kern VORNE im Kanalnamen fuehren statt hinten (z.B. Clubber:
+    "(IE) (Clubber 01) | Kerry GAA: Abbeydorney vs St Brendans (...)" ->
+    Kern "(IE) (Clubber 01)", Event-Text der Rest). Wird beim EPG-
+    Anbieter-Abgleich zusaetzlich zur Hinten-Konvention probiert, damit
+    beide Namensschemata ueber denselben generischen Mechanismus laufen,
+    ohne dass die Zuordnung anbieterspezifisch im Code verdrahtet ist.
+    Ohne Pipe im Namen gibt es keinen Kandidaten (None, "")."""
+    if "|" not in voller_name:
+        return None, ""
+    segmente = voller_name.split("|")
+    kurzname = segmente[0].strip()
+    event_teil = "|".join(segmente[1:]).strip()
+    return kurzname, event_teil
+
 # ==========================================================
 # ZENTRALE KONFIGURATION
 #
@@ -145,23 +161,6 @@ DYN_API_ENDPUNKTE = [
     "https://streaming.contentdesk.sport/api/public/live-productions",
 ]
 DYN_API_TIMEOUT_SEKUNDEN = 15
-
-# Clubber-PPV (Irland, GAA-Club-Spiele): analog zur DYN-API, aber die
-# Kernnamen der 50 echten Kanaele stehen VORNE im Kanalnamen (z.B.
-# "(IE) (Clubber 01)"), nicht hinten wie bei DYN - deshalb kommt hier
-# KEINE Playlist-Namen-Extraktion zum Einsatz, sondern ausschliesslich
-# die API, per Kernname-Regex den 50 echten Sendern zugeordnet.
-CLUBBER_API_ENDPUNKTE = [
-    "https://prodgameservicecontainer.azurewebsites.net/api/Game/GetUpcomingGames",
-]
-CLUBBER_API_TIMEOUT_SEKUNDEN = 15
-
-# Clubber liefert keine Endzeit, nur Datum+Uhrzeit (irische Lokalzeit) -
-# angenommene feste Spieldauer.
-CLUBBER_EVENT_DAUER_STUNDEN = 2.5
-
-# Zeitzone der Clubber-API-Zeitangaben (Irland).
-CLUBBER_ZEITZONE = ZoneInfo("Europe/Dublin")
 
 # Bekannte Leerlauf-Platzhalter-Texte fuer NAME:-Sender (Pipe-
 # Konvention, siehe Einlese-Logik weiter unten). Enthaelt der
@@ -929,7 +928,16 @@ def epg_anbieter_datei_abgleichen(url, quelle_name):
 
             real_daten = name_pipe_kanal_index.get(normalisierter_kern)
             if real_daten is None:
-                continue
+                # Kern-hinten-Konvention (DYN PPV, Flo Racing, ...) hat
+                # nicht gematcht - zusaetzlich Kern-vorne-Konvention
+                # probieren (z.B. Clubber: "(IE) (Clubber 01) | ...").
+                kurzname, event_teil = kern_vorne_und_event_extrahieren(voller_name)
+                if kurzname is None:
+                    continue
+                normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+                real_daten = name_pipe_kanal_index.get(normalisierter_kern)
+                if real_daten is None:
+                    continue
 
             # Bei DYN PPV wird der Leerlauf-Text ("- NO EVENT STREAMING -
             # | 8K EXCLUSIVE") bewusst NICHT herausgefiltert, sondern
@@ -971,93 +979,14 @@ if name_pipe_kanal_index:
         except Exception as e:
             print(f"EPG-Anbieter ({quelle_name}) Fehler:", e)
 
-# ==========================================================
-# CLUBBER LIVE EVENTS
-# ==========================================================
-
-# Echte Clubber-PPV-1-50-Sender (aus sender.txt, NAME:-Eintraege) per
-# Kernname "Clubber N" indizieren - der Kernname steht bei Clubber
-# VORNE im Kanalnamen (z.B. "(IE) (Clubber 01)"), daher genuegt eine
-# einfache Regex-Suche statt der DYN-Pipe-Konvention.
-clubber_real_kanal_index = {}
-for daten in sender_daten:
-    if daten.get("exakter_name"):
-        treffer = re.search(r"CLUBBER\s*(\d+)", daten["sender"], re.IGNORECASE)
-        if treffer:
-            clubber_real_kanal_index[int(treffer.group(1))] = daten
-clubber_real_kanal_anzahl = max(clubber_real_kanal_index.keys(), default=0)
-
-if clubber_real_kanal_anzahl:
-    try:
-        response = None
-        letzter_fehler = None
-
-        for endpunkt in CLUBBER_API_ENDPUNKTE:
-            try:
-                versuch = requests.get(endpunkt, timeout=CLUBBER_API_TIMEOUT_SEKUNDEN)
-                if versuch.status_code == 200:
-                    response = versuch
-                    break
-                else:
-                    letzter_fehler = f"{endpunkt} -> HTTP {versuch.status_code}"
-            except requests.RequestException as e:
-                letzter_fehler = f"{endpunkt} -> {e}"
-
-        if response is None:
-            raise RuntimeError(
-                f"Alle Clubber-API-Endpunkte nicht erreichbar. Letzter Fehler: {letzter_fehler}"
-            )
-
-        antwort = response.json()
-        spiele = antwort.get("result") or []
-
-        if len(spiele) == 0:
-            print("Keine Clubber-Spiele - Standardtext wird erstellt")
-        else:
-            clubber_kanal_nummer = 1
-
-            for spiel in spiele:
-                club = spiel.get("club") or ""
-                gegner = spiel.get("teams", {}).get("competitorClubName") or ""
-                county = spiel.get("county") or ""
-
-                if club and gegner:
-                    titel = f"{county}: {club} vs {gegner}" if county else f"{club} vs {gegner}"
-                else:
-                    titel = club or gegner or "Clubber Sport"
-
-                datum = spiel.get("date")
-                uhrzeit = spiel.get("time")
-
-                if not datum or not uhrzeit:
-                    continue
-
-                start_lokal = datetime.strptime(
-                    f"{datum} {uhrzeit}", "%Y-%m-%d %H:%M"
-                ).replace(tzinfo=CLUBBER_ZEITZONE)
-                start_dt = start_lokal.astimezone(timezone.utc)
-                ende_dt = start_dt + timedelta(hours=CLUBBER_EVENT_DAUER_STUNDEN)
-
-                startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
-                endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
-
-                real_daten = clubber_real_kanal_index.get(clubber_kanal_nummer)
-                if real_daten is not None:
-                    xml_teile.append(
-                        f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(real_daten["kanal"])}">'
-                        f' <title>{escape(titel)}</title> <desc>{escape(titel)}</desc> </programme> '
-                    )
-                    real_daten["event_titel"] = None
-                    real_daten.setdefault("api_event_fenster", []).append(
-                        (start_dt, ende_dt)
-                    )
-
-                clubber_kanal_nummer += 1
-                if clubber_kanal_nummer > clubber_real_kanal_anzahl:
-                    clubber_kanal_nummer = 1
-
-    except Exception as e:
-        print("Clubber Fehler:", e)
+# Hinweis Clubber-PPV (Irland, GAA-Club-Spiele): laeuft seit dem Umbau
+# NICHT mehr ueber eine eigene Round-Robin-API-Zuordnung (die sich als
+# unzuverlaessig erwiesen hatte, siehe Kommentar bei
+# "LIVE-KANALNAMEN VOM EPG-ANBIETER" weiter oben), sondern automatisch
+# ueber denselben generischen myepg.top-Namensabgleich wie DYN PPV -
+# der Anbieter fuehrt die 50 echten Clubber-Kanaele mit demselben Kern
+# ("(IE) (Clubber 01)" usw.) nur in Kern-vorne- statt Kern-hinten-
+# Konvention (siehe kern_vorne_und_event_extrahieren()).
 
 # ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
