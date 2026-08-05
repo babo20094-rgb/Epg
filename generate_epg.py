@@ -62,7 +62,16 @@ def schreibe_programme_segmente(
 
     beschr_escaped = escape(beschr_text)
     desc_tag = f' <desc lang="{lang_code}">{beschr_escaped}</desc>'
-    sub_title_tag = f' <sub-title lang="{lang_code}">{beschr_escaped}</sub-title>'
+    # Bei Live-Events/Vorberichten (DYN PPV, Clubber, ...) sind Titel und
+    # Beschreibung derselbe generierte Satz - ein zusaetzliches <sub-title>
+    # mit demselben Text liesse ihn im EPG-Raster doppelt erscheinen
+    # (manche Player wie TiviMate zeigen Titel UND Untertitel als eigene
+    # Zeile). Nur setzen, wenn sich Untertitel/Beschreibung tatsaechlich
+    # vom Titel unterscheiden (z.B. beim generischen Tagesraster-Block).
+    sub_title_tag = (
+        f' <sub-title lang="{lang_code}">{beschr_escaped}</sub-title>'
+        if beschr_escaped != titel_text else ""
+    )
 
     for seg_start, seg_ende in segmente:
         seg_start_str = seg_start.strftime("%Y%m%d%H%M%S +0000")
