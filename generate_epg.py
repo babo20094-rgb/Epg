@@ -107,7 +107,15 @@ def kern_und_event_extrahieren(voller_name):
             kurzname = kern_roh
     else:
         kurzname_match = re.search(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", voller_name, re.IGNORECASE)
-        if kurzname_match and kurzname_match.start() > 0:
+        if kurzname_match:
+            # Immer den sauber erkannten Kern verwenden (Text NACH dem
+            # Muster, z.B. ein angehaengtes " :" wie bei "Flo Racing 01 :",
+            # wird bewusst verworfen statt Teil des Kerns zu bleiben) -
+            # sonst wuerde z.B. "Flo Racing 01 :" (Leerlauf-Schreibweise
+            # in sender.txt) NIE mit dem echten Live-Kern "Flo Racing  01"
+            # (aus einem Event-Namen wie "PBR RidePass :Flo Racing  01")
+            # uebereinstimmen, weil einmal der Rohtext samt Doppelpunkt
+            # und einmal nur der reine Kern normalisiert wuerde.
             kurzname = kurzname_match.group(0)
             event_teil = voller_name[:kurzname_match.start()].strip(" :").strip()
         else:
