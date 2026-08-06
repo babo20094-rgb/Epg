@@ -2,10 +2,12 @@ name: Update EPG
 
 on:
   schedule:
-    # Alle 8 Stunden (3x täglich), synchron zum TiviMate-EPG-
-    # Aktualisierungsintervall - schont den externen EPG-Anbieter,
-    # DYN-Live-Events kommen trotzdem 3x täglich aktuell rein.
-    - cron: '0 */8 * * *'
+    # Alle 4 Stunden (6x täglich) - kürzeres Intervall als frueher (8h),
+    # damit Live-Kanalname-Aenderungen (DYN PPV, Flo Racing, ...) nicht
+    # mehrere Stunden veraltet im EPG-Raster stehen bleiben. Oeffentliches
+    # Repo, daher keine GitHub-Actions-Minutenkosten durch die hoehere
+    # Frequenz.
+    - cron: '0 */4 * * *'
   workflow_dispatch:
 
 jobs:
