@@ -2075,39 +2075,6 @@ KATEGORIE_TITELWORT = {
 }
 
 
-# ==========================================================
-# Vorbericht-Texte fuer DYN/Flo-Racing-Events, die spaeter am Tag
-# noch bevorstehen (siehe generate_epg.py). Sprachabhaengig, damit
-# EXYU/SI/MK/EN-Sender nicht faelschlich einen deutschen Text
-# bekommen.
-# ==========================================================
-VORBERICHT_TEXTE = {
-    "DE": {"praefix": "Vorbericht", "uhr": "Uhr", "in_kuerze": "in Kürze"},
-    "EXYU": {"praefix": "Najava", "uhr": "h", "in_kuerze": "uskoro"},
-    "SI": {"praefix": "Napoved", "uhr": "h", "in_kuerze": "kmalu"},
-    "MK": {"praefix": "Najava", "uhr": "č", "in_kuerze": "naskoro"},
-    "EN": {"praefix": "Preview", "uhr": "", "in_kuerze": "coming up soon"},
-}
-
-
-def vorbericht_text(sprache, event_titel, uhrzeit_str, ist_naechster_block):
-    """Baut den Vorbericht-Text fuer ein spaeter am Tag bevorstehendes
-    Event in der zur Sprache passenden Form. Ist es der Block
-    UNMITTELBAR vor dem Event (ist_naechster_block=True), wird statt
-    der festen Uhrzeit ein "in Kuerze"-Hinweis verwendet - wirkt im
-    Player dynamischer als bei jedem frueheren Block dieselbe feste
-    Zeit zu wiederholen."""
-    texte = VORBERICHT_TEXTE.get(sprache, VORBERICHT_TEXTE["EN"])
-
-    if ist_naechster_block:
-        zeit_teil = texte["in_kuerze"]
-    else:
-        uhr_suffix = f" {texte['uhr']}" if texte["uhr"] else ""
-        zeit_teil = f"{uhrzeit_str}{uhr_suffix}"
-
-    return f"{texte['praefix']}: {event_titel} ({zeit_teil})"
-
-
 def titelwort_fuer_kategorie(kategorie_key, sprache, fallback_label, hash_wert=0, tag_index=0):
     """Liefert das spezifischere Titelwort fuer eine Kategorie, falls
     vorhanden, sonst das normale Kategorie-Label als Fallback (auch
@@ -2208,46 +2175,6 @@ def beschreibung_fuer_sender(kategorie_key, land, sender, hash_wert, tag_index=0
 def sender_anzeigename(name):
     worte = [wort.capitalize() for wort in name.split()]
     return " ".join(worte)
-
-
-# ==========================================================
-# DYN PPV / Flo Racing: Uhrzeit aus Event-Namen herauslesen
-#
-# Flo-Racing-Namen enthalten bei laufendem/geplantem Event oft eine
-# Uhrzeit direkt im Namen, z.B. "Sa 14:00 : Flo Racing 05". Statt den
-# Event-Titel nur als Text in einen der groben Tagesraster-Bloecke
-# (z.B. den ganzen 4h-Nachmittagsblock) zu packen, wird hier - wenn
-# moeglich - die exakte Uhrzeit erkannt, damit das Programm im EPG
-# zeitlich genauer (Standard: 2 Stunden Dauer) statt ueber den
-# gesamten Block hinweg angezeigt wird.
-# ==========================================================
-
-_ZEIT_MUSTER = re.compile(r"\b([01]?\d|2[0-3]):([0-5]\d)\b")
-
-
-def parse_event_zeit(event_text):
-    """Sucht in einem Event-Namen/-Text nach einer Uhrzeit im Format
-    HH:MM (z.B. "14:00" in "Sa 14:00 : Flo Racing 05") und gibt bei
-    Erfolg ein Tupel (stunde, minute) zurueck, sonst None.
-
-    Bewusst KEIN Datum/Wochentag-Parsing - die Wochentagskuerzel vor
-    der Uhrzeit (z.B. "Sa") sind nicht eindeutig genug, um daraus
-    zuverlaessig ein konkretes Kalenderdatum abzuleiten (koennte
-    diese oder naechste Woche sein). Die Uhrzeit selbst reicht aber,
-    um das Event am naechsten passenden Tag (i.d.R. heute, siehe
-    Anwendung in generate_epg.py) praeziser statt blockweise
-    einzutragen."""
-
-    if not event_text:
-        return None
-
-    treffer = _ZEIT_MUSTER.search(event_text)
-    if not treffer:
-        return None
-
-    stunde = int(treffer.group(1))
-    minute = int(treffer.group(2))
-    return stunde, minute
 
 
 # ==========================================================

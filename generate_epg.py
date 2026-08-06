@@ -12,9 +12,9 @@ from epg_lib import (
     EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
     ALTERSFREIGABE, DEFAULT_ALTERSFREIGABE,
     TAGESRASTER, FALLBACK_LABEL, SENDETITEL_VORLAGEN, WOCHENTAGE,
-    sprache_fuer_land, sendetitel, beschreibung_fuer_sender,
+    sendetitel, beschreibung_fuer_sender,
     sender_anzeigename, standard_beschreibung, kategorie_label,
-    parse_event_zeit, datumspraefix, vorbericht_text,
+    datumspraefix,
     kanalname_normal_geschrieben,
     normalisiere_sendername, baue_logo_index, finde_logo,
 )
@@ -154,10 +154,6 @@ ANZAHL_TAGE = 3
 
 # Anzahl der DYN-PPV-Kanaele (DE| DYN PPV 1 HD ... DE| DYN PPV N HD).
 DYN_PPV_ANZAHL = 20
-
-# Wie lange ein per parse_event_zeit() erkanntes DYN/Flo-Racing-Event
-# im EPG als Zeitfenster eingetragen wird (Stunden).
-DYN_EVENT_DAUER_STUNDEN = 2
 
 # Wie viele Tage im Voraus die "DYN Leerzeiten" (Platzhalter ohne
 # erkanntes Live-Event) vorbefuellt werden. Bleibt bewusst identisch
@@ -786,9 +782,8 @@ for daten in sender_daten:
         name_pipe_kanal_index[normalisierter_kern] = daten
 
 # Zeitfenster der API-Events je synthetischem "DE| DYN PPV N HD"-Kanal
-# (1-20), analog zu api_event_fenster fuer die echten 1-50-Sender -
-# wird unten bei den DYN LEERZEITEN gebraucht, um den ueberlappenden
-# Teil der stuendlichen Platzhalter auszuschneiden.
+# (1-20) - wird unten bei den DYN LEERZEITEN gebraucht, um den
+# ueberlappenden Teil der stuendlichen Platzhalter auszuschneiden.
 dyn_synth_api_fenster = {}
 
 try:
@@ -1029,162 +1024,41 @@ for tag_index in range(ANZAHL_TAGE):
         stunden_cursor += dauer
 
         for daten in sender_daten:
-            # DYN PPV 1-50 (NAME:-Einträge): hat sich der Kanalname wegen
-            # eines laufenden Events geändert (siehe Erkennung weiter
-            # oben beim Einlesen), wird dieser Event-Name hier als
-            # Sendungstitel/-beschreibung übernommen. Ohne Event bleibt
+            # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
+            # sich der Kanalname wegen eines laufenden/angekuendigten
+            # Events geaendert (siehe Erkennung weiter oben beim
+            # Einlesen bzw. beim EPG-Anbieter-Abgleich), wird dieser
+            # Event-Name hier 1:1 als Sendungstitel/-beschreibung
+            # uebernommen - unabhaengig von einer im Text erkennbaren
+            # Uhrzeit. Steht das Event im Kanalnamen, steht es auch im
+            # EPG-Raster; verschwindet es dort wieder, verschwindet es
+            # auch hier wieder (naechster Skriptlauf). Ohne Event bleibt
             # es beim bisherigen kategoriebasierten Text.
             event_titel = daten.get("event_titel")
             kategorie_key = daten.get("kategorie")
             hash_wert = sum(ord(c) for c in daten["sender"])
 
-            # DYN/Flo-Racing-Zeit-Automatisierung: steht im Event-Namen
-            # eine erkennbare Uhrzeit (z.B. "Sa 14:00 : Flo Racing 05"),
-            # wird das Event NUR fuer den heutigen Tag (tag_index==0)
-            # zeitlich praezise (Standard: 2 Stunden) statt ueber den
-            # ganzen, oft mehrstuendigen Tagesraster-Block hinweg
-            # angezeigt. Faellt die erkannte Uhrzeit nicht in den
-            # aktuellen Block, wird in diesem Block stattdessen der
-            # generische kategoriebasierte Text gezeigt (statt den
-            # Event-Titel ueber den kompletten Tag zu "schmieren") -
-            # AUSSER das Event steht in einem spaeteren Block noch
-            # bevor: dann wird ein "Vorbericht"-Hinweis mit der
-            # Uhrzeit gezeigt statt des generischen Kategorietexts.
-            # Fuer Folgetage (tag_index>0, Uhrzeit/Datum des Events dann
-            # nicht mehr sicher zuordenbar) bleibt es beim bisherigen
-            # Verhalten: Event-Titel gilt fuer den ganzen Tag.
-            verwende_event = bool(event_titel)
-            event_start_dt = None
-            event_ende_dt = None
-            vorbericht_titel = None
-            vorbericht_lang_code = None
-
-            # Ist das Event laut Anbieter bereits als "LIVE" markiert
-            # (Kanalname beginnt mit "Live | ..."), laeuft es JETZT -
-            # die Uhrzeit-Erkennung unten ist nur fuer noch bevorstehende
-            # Events gedacht (Flo Racing "Sa 14:00 : ...") und wuerde bei
-            # einem bereits laufenden Event faelschlich irgendeine Zahl
-            # im Titel (z.B. "Platzierungsspiele 13-16") als kuenftige
-            # Anstosszeit missdeuten und das Event dadurch in einen
-            # spaeteren Block verschieben, statt es sofort zu zeigen.
-            ist_bereits_live = bool(event_titel) and event_titel.strip().lower().startswith("live")
-
-            if verwende_event and tag_index == 0 and not ist_bereits_live:
-                geparste_zeit = parse_event_zeit(event_titel)
-                if geparste_zeit:
-                    stunde, minute = geparste_zeit
-                    kandidat_start = tag_start.replace(
-                        hour=stunde, minute=minute, second=0, microsecond=0
-                    )
-                    kandidat_ende = kandidat_start + timedelta(hours=DYN_EVENT_DAUER_STUNDEN)
-
-                    if start <= kandidat_start < ende:
-                        event_start_dt = kandidat_start
-                        event_ende_dt = kandidat_ende
-                    else:
-                        # Erkannte Uhrzeit gehoert zu einem anderen
-                        # Block des Tages - hier generischen Text zeigen.
-                        verwende_event = False
-                        if kandidat_start >= ende:
-                            # Event steht noch bevor (spaeterer Block
-                            # heute) - sprachabhaengiger Vorbericht statt
-                            # generischem Kategorietext. Ist dies der
-                            # Block UNMITTELBAR vor dem Event-Block, wird
-                            # "in Kuerze" statt der festen Uhrzeit gezeigt.
-                            naechster_index = block_index + 1
-                            ist_naechster_block = False
-                            if naechster_index < len(TAGESRASTER):
-                                naechste_dauer = TAGESRASTER[naechster_index][0]
-                                if ende <= kandidat_start < ende + timedelta(hours=naechste_dauer):
-                                    ist_naechster_block = True
-
-                            uhrzeit_str = f"{stunde:02d}:{minute:02d}"
-                            vorbericht_sprache = sprache_fuer_land(daten["land"])
-                            vorbericht_lang_code = {
-                                "DE": "de", "EXYU": "hr", "SI": "sl", "MK": "mk", "EN": "en"
-                            }[vorbericht_sprache]
-                            vorbericht_titel = vorbericht_text(
-                                vorbericht_sprache, event_titel, uhrzeit_str,
-                                ist_naechster_block
-                            )
-
-            if event_start_dt is not None:
-                # Praezises Event: eigener Programme-Eintrag im engeren
-                # Event-Zeitfenster (mit "Live"-Tag). Das Fenster wird
-                # danach in api_event_fenster eingetragen, damit sowohl
-                # der Rest DIESES Blocks als auch spaetere Bloecke
-                # desselben Tages (naechste block_index-Iterationen fuer
-                # denselben Sender) den Ueberlapp automatisch heraus-
-                # schneiden statt ihn zu duplizieren (behebt die vorher
-                # bestehende Luecke vor bzw. Ueberlappung nach dem Event).
-                event_segmente = segmente_ohne_ueberlappung(
-                    event_start_dt, event_ende_dt, daten.get("api_event_fenster", [])
-                )
-                schreibe_programme_segmente(
-                    xml_teile, event_segmente, daten["kanal"],
-                    escape(event_titel), event_titel, "de",
-                    kategorie_key, daten["land"], True,
-                )
-                daten.setdefault("api_event_fenster", []).append(
-                    (event_start_dt, event_ende_dt)
-                )
-
-                # Block-Rest (vor/nach dem engeren Event-Zeitfenster,
-                # aber noch innerhalb dieses Tagesraster-Blocks) bekommt
-                # weiterhin den generischen Kategorietext statt einer
-                # Luecke mit "Keine Information".
-                block_titel_text = escape(
+            if event_titel:
+                titel_text = escape(event_titel)
+                beschr_text = event_titel
+                lang_code = "de"
+            else:
+                titel_text = escape(
                     sendetitel(
                         kategorie_key, daten["land"], hash_wert, tageszeit,
                         tag_index=tag_index
                     )
                 )
-                block_beschr_text, block_lang_code = beschreibung_fuer_sender(
+                beschr_text, lang_code = beschreibung_fuer_sender(
                     kategorie_key, daten["land"], daten["sender"], hash_wert,
                     tag_index=tag_index
                 )
-                block_segmente = segmente_ohne_ueberlappung(
-                    start, ende, daten.get("api_event_fenster", [])
-                )
-                schreibe_programme_segmente(
-                    xml_teile, block_segmente, daten["kanal"],
-                    block_titel_text, block_beschr_text, block_lang_code,
-                    kategorie_key, daten["land"], False,
-                )
-            else:
-                if verwende_event:
-                    titel_text = escape(event_titel)
-                    beschr_text = event_titel
-                    lang_code = "de"
-                elif vorbericht_titel:
-                    titel_text = escape(vorbericht_titel)
-                    beschr_text = vorbericht_titel
-                    lang_code = vorbericht_lang_code
-                else:
-                    titel_text = escape(
-                        sendetitel(
-                            kategorie_key, daten["land"], hash_wert, tageszeit,
-                            tag_index=tag_index
-                        )
-                    )
-                    beschr_text, lang_code = beschreibung_fuer_sender(
-                        kategorie_key, daten["land"], daten["sender"], hash_wert,
-                        tag_index=tag_index
-                    )
 
-                # Ueberschneidet sich dieser Block mit einem bereits per
-                # DYN-API/Clubber-API bzw. praezisem Event (siehe oben)
-                # geschriebenen Zeitfenster, wird NUR der ueberlappende
-                # Teil herausgeschnitten - der Rest bekommt weiterhin den
-                # obigen Text, statt den kompletten Block wegzulassen.
-                segmente = segmente_ohne_ueberlappung(
-                    start, ende, daten.get("api_event_fenster", [])
-                )
-                schreibe_programme_segmente(
-                    xml_teile, segmente, daten["kanal"],
-                    titel_text, beschr_text, lang_code,
-                    kategorie_key, daten["land"], False,
-                )
+            schreibe_programme_segmente(
+                xml_teile, [(start, ende)], daten["kanal"],
+                titel_text, beschr_text, lang_code,
+                kategorie_key, daten["land"], bool(event_titel),
+            )
 
 # ==========================================================
 # DYN LEERZEITEN

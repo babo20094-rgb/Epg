@@ -15,7 +15,6 @@ Kategorien oder Sprachen erweitert werden:
 - Prioritätsreihenfolge zwischen Kategorien (z.B. NEWS vor UNTERHALTUNG)
 - Sprachzuordnung nach Land
 - Datumsbezug im Sendetitel
-- DYN/Flo-Racing-Zeit-Parsing
 - Poster-Zuordnung je Kategorie
 """
 
@@ -30,7 +29,6 @@ from epg_lib import (
     sprache_fuer_land,
     sendetitel,
     datumspraefix,
-    parse_event_zeit,
 )
 
 
@@ -141,27 +139,4 @@ def test_sendetitel_ist_deterministisch():
     titel1 = sendetitel("SPORT", "DE", hash_wert=42, tageszeit="NACHT")
     titel2 = sendetitel("SPORT", "DE", hash_wert=42, tageszeit="NACHT")
     assert titel1 == titel2
-
-
-# ==========================================================
-# DYN / Flo-Racing Zeit-Parsing
-# ==========================================================
-
-@pytest.mark.parametrize("text,erwartet", [
-    ("Sa 14:00 : Flo Racing 05", (14, 0)),
-    ("Mi 09:30 : Flo Racing 12", (9, 30)),
-    ("So 23:59 : Flo Racing 01", (23, 59)),
-    ("- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 1", None),
-    ("Flo Racing 03", None),
-    ("FC Bayern - Real Madrid", None),
-    ("", None),
-    (None, None),
-])
-def test_parse_event_zeit(text, erwartet):
-    assert parse_event_zeit(text) == erwartet
-
-
-def test_parse_event_zeit_ignoriert_ungueltige_stunden():
-    """'25:00' ist keine gültige Uhrzeit und darf nicht erkannt werden."""
-    assert parse_event_zeit("Sa 25:00 : Flo Racing 05") is None
 
