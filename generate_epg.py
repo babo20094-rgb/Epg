@@ -1051,7 +1051,17 @@ for tag_index in range(ANZAHL_TAGE):
             vorbericht_titel = None
             vorbericht_lang_code = None
 
-            if verwende_event and tag_index == 0:
+            # Ist das Event laut Anbieter bereits als "LIVE" markiert
+            # (Kanalname beginnt mit "Live | ..."), laeuft es JETZT -
+            # die Uhrzeit-Erkennung unten ist nur fuer noch bevorstehende
+            # Events gedacht (Flo Racing "Sa 14:00 : ...") und wuerde bei
+            # einem bereits laufenden Event faelschlich irgendeine Zahl
+            # im Titel (z.B. "Platzierungsspiele 13-16") als kuenftige
+            # Anstosszeit missdeuten und das Event dadurch in einen
+            # spaeteren Block verschieben, statt es sofort zu zeigen.
+            ist_bereits_live = bool(event_titel) and event_titel.strip().lower().startswith("live")
+
+            if verwende_event and tag_index == 0 and not ist_bereits_live:
                 geparste_zeit = parse_event_zeit(event_titel)
                 if geparste_zeit:
                     stunde, minute = geparste_zeit
