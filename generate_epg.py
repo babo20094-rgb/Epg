@@ -910,12 +910,59 @@ DYN_EPG_PROVIDER_TIMEOUT_SEKUNDEN = 30
 DYN_EPG_PROVIDER_MAX_ZEICHEN = 20_000_000
 
 
-def epg_anbieter_datei_abgleichen(url, quelle_name):
-    """Laedt die <channel>-Definitionen einer EPG-Anbieter-Datei und
-    uebertraegt fuer jeden per Kernname matchenden NAME:-Sender (siehe
-    name_pipe_kanal_index) den aktuellen Live-Kanalnamen als
-    Sendungstitel. Gibt (Anzahl Treffer, Gesamtanzahl NAME:-Sender)
-    zurueck."""
+def _kern_und_event_aus_rohname(voller_name):
+    """Versucht Kern-hinten- (DYN PPV, Flo Racing, ...), dann Kern-vorne-
+    Konvention (Clubber, ...) und gibt (normalisierter_kern, real_daten,
+    kurzname, event_teil) zurueck, oder (None, None, None, None) bei
+    keinem Treffer in name_pipe_kanal_index. Gemeinsame Matching-Logik
+    fuer alle Live-Kanalnamen-Quellen (myepg.top-Anbieterdatei UND
+    IPTV-Playlist), damit beide Quellen exakt gleich behandelt werden."""
+    kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+    normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+    real_daten = name_pipe_kanal_index.get(normalisierter_kern)
+    if real_daten is None:
+        kurzname, event_teil = kern_vorne_und_event_extrahieren(voller_name)
+        if kurzname is None:
+            return None, None, None, None
+        normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+        real_daten = name_pipe_kanal_index.get(normalisierter_kern)
+        if real_daten is None:
+            return None, None, None, None
+    return normalisierter_kern, real_daten, kurzname, event_teil
+
+
+def _live_event_uebernehmen(kurzname, event_teil, real_daten):
+    """Prueft, ob event_teil ein echtes Event ist (kein Leerlauf-Marker,
+    ausser bei DYN PPV - siehe Kommentar unten) und traegt es bei
+    Treffer in real_daten ein. Gibt True bei Uebernahme zurueck."""
+    # Bei DYN PPV wird der Leerlauf-Text ("- NO EVENT STREAMING -
+    # | 8K EXCLUSIVE") bewusst NICHT herausgefiltert, sondern
+    # immer 1:1 uebernommen - der Nutzer will im EPG-Raster
+    # exakt das sehen, was gerade im echten Live-Kanalnamen
+    # steht, statt eines generischen Platzhaltertexts.
+    ist_dyn_ppv = bool(re.match(r"^DYN\s*PPV\s*\d+$", kurzname, re.IGNORECASE))
+
+    if event_teil and (
+        ist_dyn_ppv
+        or not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER)
+    ):
+        real_daten["event_titel"] = formatiere_event_text(event_teil)
+        return True
+    return False
+
+
+def epg_anbieter_datei_abgleichen(url, quelle_name, ausschluss_keys=None):
+    """Laedt die <channel>-Definitionen einer EPG-Anbieter-Datei (z.B.
+    myepg.top) und uebertraegt fuer jeden per Kernname matchenden
+    NAME:-Sender (siehe name_pipe_kanal_index) den aktuellen Live-
+    Kanalnamen als Sendungstitel. Kanaele, deren normalisierter Kern
+    bereits in ausschluss_keys steht (z.B. weil die IPTV-Playlist dafuer
+    schon ein aktuelleres Event geliefert hat, siehe
+    m3u_playlist_abgleichen()), werden uebersprungen - diese Anbieter-
+    Datei dient nur noch als FALLBACK fuer alles, was die Playlist
+    nicht abdeckt. Gibt die Anzahl Treffer zurueck."""
+    ausschluss_keys = ausschluss_keys or set()
+
     response = requests.get(url, timeout=DYN_EPG_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
     response.raise_for_status()
 
@@ -936,34 +983,11 @@ def epg_anbieter_datei_abgleichen(url, quelle_name):
             r"<display-name>([^<]*)</display-name>", channel_match.group(1)
         ):
             voller_name = name_match.group(1).strip()
-            kurzname, event_teil = kern_und_event_extrahieren(voller_name)
-            normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+            normalisierter_kern, real_daten, kurzname, event_teil = _kern_und_event_aus_rohname(voller_name)
+            if real_daten is None or normalisierter_kern in ausschluss_keys:
+                break
 
-            real_daten = name_pipe_kanal_index.get(normalisierter_kern)
-            if real_daten is None:
-                # Kern-hinten-Konvention (DYN PPV, Flo Racing, ...) hat
-                # nicht gematcht - zusaetzlich Kern-vorne-Konvention
-                # probieren (z.B. Clubber: "(IE) (Clubber 01) | ...").
-                kurzname, event_teil = kern_vorne_und_event_extrahieren(voller_name)
-                if kurzname is None:
-                    continue
-                normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
-                real_daten = name_pipe_kanal_index.get(normalisierter_kern)
-                if real_daten is None:
-                    continue
-
-            # Bei DYN PPV wird der Leerlauf-Text ("- NO EVENT STREAMING -
-            # | 8K EXCLUSIVE") bewusst NICHT herausgefiltert, sondern
-            # immer 1:1 uebernommen - der Nutzer will im EPG-Raster
-            # exakt das sehen, was gerade im echten Live-Kanalnamen
-            # steht, statt eines generischen Platzhaltertexts.
-            ist_dyn_ppv = bool(re.match(r"^DYN\s*PPV\s*\d+$", kurzname, re.IGNORECASE))
-
-            if event_teil and (
-                ist_dyn_ppv
-                or not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER)
-            ):
-                real_daten["event_titel"] = formatiere_event_text(event_teil)
+            if _live_event_uebernehmen(kurzname, event_teil, real_daten):
                 aktualisiert += 1
                 aktualisierte_sender.append(real_daten["sender"])
             break
@@ -974,7 +998,80 @@ def epg_anbieter_datei_abgleichen(url, quelle_name):
     return aktualisiert
 
 
+# ==========================================================
+# LIVE-KANALNAMEN AUS DER EIGENEN IPTV-PLAYLIST (primaere Quelle)
+#
+# Manche IPTV-Anbieter pflegen die aktuellen Live-Event-Namen direkt
+# im Anzeigenamen der eigenen M3U-Playlist (z.B. Clubber: "(IE)
+# (Clubber 01) | Kerry GAA: Milltown/Castlemaine vs An Ghaeltacht
+# (2026-08-07 16:00:00)") - und das teils vollstaendiger/aktueller als
+# die separate myepg.top-Anbieterdatei (siehe deren bekanntes
+# Verzoegerungsproblem). Deshalb wird die Playlist ZUERST abgeglichen,
+# myepg.top laeuft danach nur noch als Fallback fuer alles, was die
+# Playlist nicht liefert.
+# ==========================================================
+
+M3U_PROVIDER_TIMEOUT_SEKUNDEN = 30
+# Die Playlist enthaelt (anders als die myepg.top-Datei) ausschliesslich
+# Kanaldefinitionen, keine Programmdaten - daher reicht ein grosszuegiges,
+# aber festes Limit als Sicherheitsnetz gegen eine unerwartet riesige Datei.
+M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
+
+
+def m3u_playlist_abgleichen(url, quelle_name):
+    """Laedt die M3U-Playlist des IPTV-Anbieters und uebertraegt fuer
+    jeden per Kernname matchenden NAME:-Sender (siehe
+    name_pipe_kanal_index) den aktuellen Anzeigenamen aus der
+    #EXTINF-Zeile als Sendungstitel. Gibt die Menge der normalisierten
+    Kern-Keys zurueck, die dabei ein echtes Event geliefert haben
+    (siehe ausschluss_keys bei epg_anbieter_datei_abgleichen())."""
+    response = requests.get(url, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
+    response.raise_for_status()
+
+    gepuffert = ""
+    for chunk in response.iter_content(chunk_size=65536):
+        gepuffert += chunk.decode("utf-8", errors="ignore")
+        if len(gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
+            break
+    response.close()
+
+    erledigte_keys = set()
+    aktualisierte_sender = []
+    for zeile in gepuffert.splitlines():
+        zeile = zeile.strip()
+        if not zeile.startswith("#EXTINF") or "," not in zeile:
+            continue
+
+        voller_name = zeile.rsplit(",", 1)[-1].strip()
+        normalisierter_kern, real_daten, kurzname, event_teil = _kern_und_event_aus_rohname(voller_name)
+        if real_daten is None:
+            continue
+
+        if _live_event_uebernehmen(kurzname, event_teil, real_daten):
+            erledigte_keys.add(normalisierter_kern)
+            aktualisierte_sender.append(real_daten["sender"])
+
+    if aktualisierte_sender:
+        print(f"M3U-Playlist ({quelle_name}) Treffer:", ", ".join(aktualisierte_sender))
+
+    return erledigte_keys
+
+
 if name_pipe_kanal_index:
+    bereits_per_playlist_erledigt = set()
+
+    m3u_url = os.environ.get("IPTV_M3U_PROVIDER_URL")
+    if m3u_url:
+        try:
+            bereits_per_playlist_erledigt = m3u_playlist_abgleichen(m3u_url, "IPTV-Playlist")
+            print(
+                f"M3U-Playlist: {len(bereits_per_playlist_erledigt)} von "
+                f"{len(name_pipe_kanal_index)} NAME:-Kanaelen mit "
+                f"Live-Kanalnamen aktualisiert"
+            )
+        except Exception as e:
+            print("M3U-Playlist Fehler:", e)
+
     for env_name, quelle_name in (
         ("DYN_EPG_PROVIDER_URL", "World"),
         ("DYN_EPG_PROVIDER_URL_EU", "EU"),
@@ -983,11 +1080,11 @@ if name_pipe_kanal_index:
         if not url:
             continue
         try:
-            treffer = epg_anbieter_datei_abgleichen(url, quelle_name)
+            treffer = epg_anbieter_datei_abgleichen(url, quelle_name, ausschluss_keys=bereits_per_playlist_erledigt)
             print(
                 f"EPG-Anbieter ({quelle_name}): {treffer} von "
                 f"{len(name_pipe_kanal_index)} NAME:-Kanaelen mit "
-                f"Live-Kanalnamen aktualisiert"
+                f"Live-Kanalnamen aktualisiert (Fallback fuer nicht per Playlist abgedeckte Kanaele)"
             )
         except Exception as e:
             print(f"EPG-Anbieter ({quelle_name}) Fehler:", e)

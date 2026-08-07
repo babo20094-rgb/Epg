@@ -40,8 +40,21 @@ manuellem Trigger.
 ## DYN PPV / Live-Kanalname-Mechanismus
 
 - DYN PPV 1-50 und andere `NAME:`-Sender bekommen ihren Sendungstitel
-  automatisch aus dem echten, aktuellen Live-Kanalnamen des
-  EPG-Anbieters (myepg.top), statt aus einem geratenen API-Round-Robin.
+  automatisch aus dem echten, aktuellen Live-Kanalnamen - primär aus
+  der eigenen IPTV-Playlist des Nutzers (Secret `IPTV_M3U_PROVIDER_URL`,
+  optional), sekundär/als Fallback aus dem separaten EPG-Anbieter
+  (myepg.top), statt aus einem geratenen API-Round-Robin.
+- **Reihenfolge/Fallback:** `m3u_playlist_abgleichen()` läuft zuerst und
+  liest die `#EXTINF`-Anzeigenamen der M3U-Playlist (derselbe
+  Kern+Event-Mechanismus wie bei myepg.top). Nur für `NAME:`-Sender, die
+  darüber KEIN Event geliefert bekommen, läuft anschließend
+  `epg_anbieter_datei_abgleichen()` (myepg.top, World+EU) als Fallback.
+  Grund: myepg.top ist teils verzögert/unvollständig (siehe bekanntes
+  Problem unten) - manche IPTV-Anbieter pflegen die Live-Event-Namen
+  direkt und vollständiger in der eigenen Playlist (z.B. bei Clubber:
+  myepg.top kennt oft nur 1 von 50 Kanälen, die Playlist alle 50).
+  Ohne gesetztes `IPTV_M3U_PROVIDER_URL`-Secret läuft der Mechanismus
+  unverändert nur über myepg.top wie bisher.
 - Zwei GitHub Secrets liefern die Anbieter-Dateien: `DYN_EPG_PROVIDER_URL`
   (World) und `DYN_EPG_PROVIDER_URL_EU` (EU) - beide werden abgefragt und
   die Treffer zusammengeführt, da unterschiedliche Kategorien (z. B. DYN
