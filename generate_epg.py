@@ -814,9 +814,6 @@ try:
         else:
             kanal_nummer = 1
             real_kanal_nummer = 1
-            uebersprungen_ohne_zeit = 0
-            geschrieben = 0
-            zeitfenster_beispiele = []
 
             for event in daten:
                 titel = event.get("title", "Dyn Sport")
@@ -843,7 +840,6 @@ try:
                 ende = event.get("scheduledEnd")
 
                 if not start or not ende:
-                    uebersprungen_ohne_zeit += 1
                     continue
 
                 start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
@@ -862,21 +858,10 @@ try:
                 dyn_synth_api_fenster.setdefault(kanal_nummer, []).append(
                     (start_dt, ende_dt)
                 )
-                geschrieben += 1
-                if len(zeitfenster_beispiele) < 5:
-                    zeitfenster_beispiele.append(f"{kanal}: {titel} ({start_dt} - {ende_dt})")
 
                 kanal_nummer += 1
                 if kanal_nummer > DYN_PPV_ANZAHL:
                     kanal_nummer = 1
-
-            print(
-                f"DYN Live-API: {len(daten)} Events erhalten, {geschrieben} "
-                f"geschrieben, {uebersprungen_ohne_zeit} ohne Start-/Endzeit "
-                f"uebersprungen."
-            )
-            if zeitfenster_beispiele:
-                print("DYN Live-API Beispiele:", " | ".join(zeitfenster_beispiele))
 
 except Exception as e:
     print("DYN Fehler:", e)
