@@ -132,13 +132,24 @@ def kern_vorne_und_event_extrahieren(voller_name):
     Anbieter-Abgleich zusaetzlich zur Hinten-Konvention probiert, damit
     beide Namensschemata ueber denselben generischen Mechanismus laufen,
     ohne dass die Zuordnung anbieterspezifisch im Code verdrahtet ist.
-    Ohne Pipe im Namen gibt es keinen Kandidaten (None, "")."""
-    if "|" not in voller_name:
-        return None, ""
-    segmente = voller_name.split("|")
-    kurzname = segmente[0].strip()
-    event_teil = "|".join(segmente[1:]).strip()
-    return kurzname, event_teil
+    Ohne Pipe im Namen gibt es keinen Kandidaten (None, ""), ausser fuer
+    bekannte Kern-vorne-Anbieter mit DOPPELPUNKT statt Pipe (z.B.
+    DirtVision: "DIRTVISION 01 : Knoxville Raceway 7:15 pm" -> Kern
+    "DIRTVISION 01", Event "Knoxville Raceway 7:15 pm"). Dafuer wird
+    gezielt nach bekannten Kern-Keywords gesucht, statt am ERSTEN
+    Doppelpunkt zu trennen - sonst wuerde eine Uhrzeitangabe im Event-
+    Text selbst (z.B. "7:15 pm") faelschlich als Trenner genommen."""
+    if "|" in voller_name:
+        segmente = voller_name.split("|")
+        kurzname = segmente[0].strip()
+        event_teil = "|".join(segmente[1:]).strip()
+        return kurzname, event_teil
+
+    match = re.match(r"^\s*(DIRTVISION\s*\d+)\s*:\s*(.*)$", voller_name, re.IGNORECASE)
+    if match:
+        return match.group(1).strip(), match.group(2).strip()
+
+    return None, ""
 
 # ==========================================================
 # ZENTRALE KONFIGURATION
@@ -355,6 +366,17 @@ for zeile in zeilen:
         # Konvention nicht, daher Fallback auf das bekannte
         # DYN-PPV/FLO-RACING-Muster (siehe kern_und_event_extrahieren()).
         kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+
+        # Kein Kern-hinten-Muster erkannt (kurzname unveraendert) ->
+        # zusaetzlich Kern-VORNE probieren (Clubber-Pipe-Konvention oder
+        # DirtVision-Doppelpunkt-Konvention, siehe
+        # kern_vorne_und_event_extrahieren()). Nur uebernehmen, wenn
+        # dabei wirklich ein Kern erkannt wurde (kein Ratschlag), sonst
+        # bleibt es beim bisherigen kurzname/event_teil.
+        if kurzname == voller_name:
+            kern_vorne, event_vorne = kern_vorne_und_event_extrahieren(voller_name)
+            if kern_vorne:
+                kurzname, event_teil = kern_vorne, event_vorne
 
         # Land-Praefix wie "NA|", "US|" am ANFANG des Namens (nicht zu
         # verwechseln mit echtem Event-Text vor dem Pipe) wird als Land
