@@ -40,25 +40,20 @@ manuellem Trigger.
 ## DYN PPV / Live-Kanalname-Mechanismus
 
 - DYN PPV 1-50 und andere `NAME:`-Sender bekommen ihren Sendungstitel
-  automatisch aus dem echten, aktuellen Live-Kanalnamen - primär aus
+  automatisch aus dem echten, aktuellen Live-Kanalnamen - ausgelesen aus
   der eigenen IPTV-Playlist des Nutzers (Secret `IPTV_M3U_PROVIDER_URL`,
-  optional), sekundär/als Fallback aus dem separaten EPG-Anbieter
-  (myepg.top), statt aus einem geratenen API-Round-Robin.
-- **Reihenfolge/Fallback:** `m3u_playlist_abgleichen()` läuft zuerst und
-  liest die `#EXTINF`-Anzeigenamen der M3U-Playlist (derselbe
-  Kern+Event-Mechanismus wie bei myepg.top). Nur für `NAME:`-Sender, die
-  darüber KEIN Event geliefert bekommen, läuft anschließend
-  `epg_anbieter_datei_abgleichen()` (myepg.top, World+EU) als Fallback.
-  Grund: myepg.top ist teils verzögert/unvollständig (siehe bekanntes
-  Problem unten) - manche IPTV-Anbieter pflegen die Live-Event-Namen
-  direkt und vollständiger in der eigenen Playlist (z.B. bei Clubber:
-  myepg.top kennt oft nur 1 von 50 Kanälen, die Playlist alle 50).
-  Ohne gesetztes `IPTV_M3U_PROVIDER_URL`-Secret läuft der Mechanismus
-  unverändert nur über myepg.top wie bisher.
-- Zwei GitHub Secrets liefern die Anbieter-Dateien: `DYN_EPG_PROVIDER_URL`
-  (World) und `DYN_EPG_PROVIDER_URL_EU` (EU) - beide werden abgefragt und
-  die Treffer zusammengeführt, da unterschiedliche Kategorien (z. B. DYN
-  PPV) nur in einer der beiden Dateien stecken.
+  optional), statt aus einem geratenen API-Round-Robin.
+- `m3u_playlist_abgleichen()` liest die `#EXTINF`-Anzeigenamen der
+  M3U-Playlist und matcht sie ueber den Kernnamen gegen die `NAME:`-Sender
+  aus `sender.txt`. Ohne gesetztes `IPTV_M3U_PROVIDER_URL`-Secret bleibt
+  es bei den generischen Kategorie-Platzhaltertexten (siehe
+  `epg_lib.py`).
+- Frueher gab es zusaetzlich einen Fallback auf eine separate
+  Anbieter-Datei (myepg.top, Secrets `DYN_EPG_PROVIDER_URL`/`_EU`) - der
+  wurde entfernt, da die eigene Playlist vollstaendiger und aktueller
+  ist (z. B. bei Clubber: myepg.top kannte oft nur 1 von 50 Kanälen,
+  die Playlist alle 50) und der Fallback in der Praxis nie noch etwas
+  beigetragen hat.
 - DYN PPV zeigt bewusst auch den Leerlauf-Text ("- NO EVENT STREAMING -
   | 8K EXCLUSIVE") 1:1 an statt eines generischen Platzhalters - das ist
   gewolltes Verhalten, kein Bug.
@@ -67,10 +62,6 @@ manuellem Trigger.
   fester Abmoderationstext bei "End").
 - Komplett großgeschriebene Wörter im Event-Text werden normalisiert
   (z. B. "8K EXCLUSIVE" -> "8K Exclusive"), damit es nicht "schreit".
-- **Bekanntes, ungelöstes Problem:** Die Anbieter-Daten (myepg.top) sind
-  teils deutlich verzögert/asynchron zur echten DYN-Sport-Live-Zeitplanung
-  (z. B. zeigt "beendet" an, obwohl noch gar kein Spiel lief). Das liegt an
-  der Datenqualität des Anbieters, nicht am Skript.
 - Kategorie-Erkennung (`epg_lib.py`, `standard_beschreibung()`) nutzt
   Wortgrenzen (`\b...\b`) statt reinem Teilstring-Vergleich, um
   Fehlzuordnungen zu vermeiden (z. B. "LOVE AND MARRIAGE" matchte früher
@@ -80,9 +71,7 @@ manuellem Trigger.
 - Der Mechanismus deckt zwei Namenskonventionen ab: Kern-HINTEN (DYN PPV,
   Flo Racing - Kern nach dem letzten Pipe) und Kern-VORNE (Clubber-PPV,
   Irland/GAA - Kern vor dem ersten Pipe, z. B. "(IE) (Clubber 01) | Kerry
-  GAA: ..."). `epg_anbieter_datei_abgleichen()` probiert bei einem Sender
+  GAA: ..."). `m3u_playlist_abgleichen()` probiert bei einem Sender
   automatisch beide Konventionen durch (`kern_und_event_extrahieren()` /
   `kern_vorne_und_event_extrahieren()`), bevor er den Kanal als
-  "kein Treffer" überspringt. Clubber hatte vorher eine eigene
-  Round-Robin-API-Zuordnung (unzuverlässig, siehe Git-Historie) - läuft
-  jetzt komplett über denselben generischen myepg.top-Abgleich wie DYN PPV.
+  "kein Treffer" überspringt.

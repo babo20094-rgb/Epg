@@ -34,8 +34,6 @@ jobs:
 
       - name: Generate EPG
         env:
-          DYN_EPG_PROVIDER_URL: ${{ secrets.DYN_EPG_PROVIDER_URL }}
-          DYN_EPG_PROVIDER_URL_EU: ${{ secrets.DYN_EPG_PROVIDER_URL_EU }}
           IPTV_M3U_PROVIDER_URL: ${{ secrets.IPTV_M3U_PROVIDER_URL }}
         run: |
           python generate_epg.py
