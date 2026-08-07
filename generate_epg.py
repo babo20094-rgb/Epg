@@ -12,9 +12,10 @@ from epg_lib import (
     EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
     ALTERSFREIGABE, DEFAULT_ALTERSFREIGABE,
     TAGESRASTER, FALLBACK_LABEL, SENDETITEL_VORLAGEN, WOCHENTAGE,
+    unterteile_block,
     sendetitel, beschreibung_fuer_sender,
     sender_anzeigename, standard_beschreibung, kategorie_label,
-    datumspraefix,
+    datumspraefix, sender_hash,
     kanalname_normal_geschrieben,
     normalisiere_sendername, baue_logo_index, finde_logo,
 )
@@ -384,7 +385,7 @@ for zeile in zeilen:
         if re.search(r"CLUBBER\s*\d+", kurzname, re.IGNORECASE):
             kategorie_key = "SPORT"
             sport_daten = KATEGORIEN["SPORT"]
-            hash_wert_sport = sum(ord(c) for c in kurzname)
+            hash_wert_sport = sender_hash(kurzname)
             varianten_sport = sport_daten["DE"]
             beschreibung = varianten_sport[hash_wert_sport % len(varianten_sport)].format(
                 sender=kurzname, label=sport_daten["label"]["DE"]
@@ -1036,29 +1037,48 @@ for tag_index in range(ANZAHL_TAGE):
             # es beim bisherigen kategoriebasierten Text.
             event_titel = daten.get("event_titel")
             kategorie_key = daten.get("kategorie")
-            hash_wert = sum(ord(c) for c in daten["sender"])
+            hash_wert = sender_hash(daten["sender"])
 
             if event_titel:
                 titel_text = escape(event_titel)
                 beschr_text = event_titel
                 lang_code = "de"
-            else:
+                schreibe_programme_segmente(
+                    xml_teile, [(start, ende)], daten["kanal"],
+                    titel_text, beschr_text, lang_code,
+                    kategorie_key, daten["land"], True,
+                )
+                continue
+
+            # Block in mehrere kuerzere Einzelsendungen aufteilen (ca.
+            # 60-120 Min. statt eines einzigen mehrstuendigen Blocks) -
+            # wirkt wie ein echtes Sendungsraster statt eines
+            # Platzhalter-Blocks. Jede Teilsendung bekommt ueber
+            # sub_index einen eigenen, aber weiterhin deterministischen
+            # Hash-Offset, damit sich die Vorlagen innerhalb des Blocks
+            # unterscheiden.
+            segment_start = start
+            for sub_index, segment_minuten in enumerate(unterteile_block(dauer, hash_wert)):
+                segment_ende = segment_start + timedelta(minutes=segment_minuten)
+                sub_hash = hash_wert + sub_index * 97
+
                 titel_text = escape(
                     sendetitel(
-                        kategorie_key, daten["land"], hash_wert, tageszeit,
+                        kategorie_key, daten["land"], sub_hash, tageszeit,
                         tag_index=tag_index
                     )
                 )
                 beschr_text, lang_code = beschreibung_fuer_sender(
-                    kategorie_key, daten["land"], daten["sender"], hash_wert,
+                    kategorie_key, daten["land"], daten["sender"], sub_hash,
                     tag_index=tag_index
                 )
 
-            schreibe_programme_segmente(
-                xml_teile, [(start, ende)], daten["kanal"],
-                titel_text, beschr_text, lang_code,
-                kategorie_key, daten["land"], bool(event_titel),
-            )
+                schreibe_programme_segmente(
+                    xml_teile, [(segment_start, segment_ende)], daten["kanal"],
+                    titel_text, beschr_text, lang_code,
+                    kategorie_key, daten["land"], False,
+                )
+                segment_start = segment_ende
 
 # ==========================================================
 # DYN LEERZEITEN

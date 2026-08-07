@@ -10,6 +10,23 @@ dass dabei sender.txt gelesen oder die DYN-API angefragt werden muss.
 import re
 import unicodedata
 import difflib
+import zlib
+
+
+def sender_hash(sender):
+    """Liefert einen gut gestreuten, deterministischen Hash-Wert fuer
+    einen Sendernamen (fuer die Auswahl von Text-/Titel-Varianten).
+
+    Bewusst NICHT einfach sum(ord(c) for c in sender): bei
+    durchnummerierten Sendern wie "KIDS 1", "KIDS 2", "KIDS 3", ...
+    unterscheidet sich der Name nur in einer Ziffer, wodurch die
+    Zeichensumme (und damit die gewaehlte Textvariante) exakt um 1 pro
+    Sender steigt - die Vorlagen liefen dann strikt der Reihe nach
+    durch statt "zufaellig" zu wirken (sichtbar z.B. bei den
+    VODAFONE-GO-Kanaelen). zlib.crc32 streut auch bei minimalen
+    Namensunterschieden gut, bleibt aber deterministisch (gleicher
+    Sender -> gleicher Wert bei jedem Lauf)."""
+    return zlib.crc32(sender.encode("utf-8"))
 
 
 # ==========================================================
@@ -114,7 +131,7 @@ KATEGORIEN = {
     "KINDER": {
         "label": {"DE": "Kinder", "EXYU": "Dječiji program", "EN": "Kids", "SI": "Otroški program", "MK": "Detska programa"},
         "keywords": [
-            "KIDS", "KID", "JR", "JUNIOR", "DISNEY", "CARTOON", "NICKELODEON", "NICK", "BOOMERANG", "BABY", "TOON", "CBEEBIES", "MINIMAX", "TINY", "POPCORN", "GULLI", "DJECA", "CRTANI", "CBBC", "PBS KIDS", "MILKSHAKE", "BABY TV", "BABYTV", "SUPER RTL", "SUPERRTL", "KIKA", "PANDA", "DUCK TV", "MINI", "PLANETA DJECA"
+            "KIDS", "KID", "KINDER", "JR", "JUNIOR", "DISNEY", "CARTOON", "CARTOONS", "NICKELODEON", "NICK", "BOOMERANG", "BABY", "TOON", "CBEEBIES", "MINIMAX", "TINY", "POPCORN", "GULLI", "DJECA", "CRTANI", "CBBC", "PBS KIDS", "MILKSHAKE", "BABY TV", "BABYTV", "SUPER RTL", "SUPERRTL", "KIKA", "PANDA", "DUCK TV", "MINI", "PLANETA DJECA"
         ],
         "DE": [
             "{sender} zeigt {label} rund um die Uhr.",
@@ -819,7 +836,7 @@ KATEGORIEN = {
     "FILM": {
         "label": {"DE": "Filme", "EXYU": "Filmovi", "EN": "Movies", "SI": "Filmi", "MK": "Filmovi"},
         "keywords": [
-            "CINEMA", "FILM", "MOVIE", "HOLLYWOOD", "HBO", "CINEMAX", "SKY CINEMA", "WARNER", "PARAMOUNT", "UNIVERSAL", "SONY", "STAR", "AXN", "AMC", "SYFY", "TNT", "THRILLER", "FILMOVI", "FILM4", "ITV MOVIES", "MGM", "EPIC DRAMA", "PINK FILM", "KLASIK FILM", "CINESTAR", "CINE"
+            "CINEMA", "FILM", "FILME", "MOVIE", "MOVIES", "HOLLYWOOD", "HBO", "CINEMAX", "SKY CINEMA", "WARNER", "PARAMOUNT", "UNIVERSAL", "SONY", "STAR", "AXN", "AMC", "SYFY", "TNT", "THRILLER", "FILMOVI", "FILM4", "ITV MOVIES", "MGM", "EPIC DRAMA", "PINK FILM", "KLASIK FILM", "CINESTAR", "CINE"
         ],
         "DE": [
             "{sender} zeigt {label} rund um die Uhr.",
@@ -1875,7 +1892,7 @@ def standard_beschreibung(land, sender):
     sprache = sprache_fuer_land(land)
 
     sender_upper = sender.upper()
-    hash_wert = sum(ord(c) for c in sender)
+    hash_wert = sender_hash(sender)
 
     for kategorie_key in KATEGORIE_PRIORITAET:
         daten = KATEGORIEN[kategorie_key]
@@ -1958,6 +1975,27 @@ TAGESRASTER = [
 
 FALLBACK_LABEL = {"DE": "Programm", "EXYU": "Program", "SI": "Program", "MK": "Programa", "EN": "Programme"}
 
+
+def unterteile_block(dauer_stunden, hash_wert):
+    """Teilt einen mehrstuendigen Tagesraster-Block in 1-4 kuerzere,
+    realistischere Einzelsendungen auf (ca. 60-120 Minuten), statt
+    einer einzigen Sendung ueber den kompletten Block. Liefert eine
+    Liste von Segmentlaengen in Minuten (Summe = dauer_stunden*60).
+
+    Die Zielsegmentlaenge wird deterministisch aus hash_wert gewaehlt
+    (60-120 Min.), damit derselbe Sender bei jedem Lauf dieselbe
+    Aufteilung bekommt (kein Flackern), sich aber von Sender zu Sender
+    unterscheidet (nicht jeder Sender hat exakt gleich lange
+    "Sendungen")."""
+    dauer_minuten = dauer_stunden * 60
+    ziel_minuten = 60 + (hash_wert % 61)
+    anzahl = max(1, min(4, round(dauer_minuten / ziel_minuten)))
+    basis = dauer_minuten // anzahl
+    rest = dauer_minuten - basis * anzahl
+    laengen = [basis] * anzahl
+    laengen[-1] += rest
+    return laengen
+
 # Wochentags-Kuerzel je Sprache fuer den Datumsbezug im Sendetitel
 # (z.B. "Mo 27.07: Sport am Abend"). Index 0 = Montag (passend zu
 # date.weekday()).
@@ -1984,49 +2022,49 @@ def datumspraefix(sprache, datum):
 # einen neutralen Fallback, falls keine Kategorie erkannt wurde).
 SENDETITEL_VORLAGEN = {
     "DE": {
-        "NACHT": ["{label} in der Nacht", "Best of {label}", "{label} Nachtprogramm", "{label} bis in die Nacht", "Nachtschicht: {label}"],
-        "MORGEN": ["{label} am Morgen", "Morgenmagazin: {label}", "{label} zum Frühstück", "Guten Morgen mit {label}", "{label} Frühprogramm"],
-        "VORMITTAG": ["{label} Vormittag", "{label} Magazin", "Vormittagsprogramm: {label}", "{label} am Vormittag", "{label} bis Mittag"],
-        "MITTAG": ["{label} zur Mittagszeit", "{label} Mittagsprogramm", "Mittagsmagazin: {label}", "{label} zum Mittag", "{label} in der Mittagspause"],
-        "NACHMITTAG": ["{label} am Nachmittag", "{label} Spezial", "Nachmittagsprogramm: {label}", "{label} zum Nachmittag", "{label} bis zum Abend"],
-        "ABEND": ["{label} Primetime", "{label} am Abend", "Abendprogramm: {label}", "{label} zur besten Sendezeit", "{label} am Vorabend"],
-        "SPAETABEND": ["{label} Spätprogramm", "{label} Late Night", "Spätabend: {label}", "{label} nach Mitternacht", "{label} zur späten Stunde"],
+        "NACHT": ["{label} in der Nacht", "Best of {label}", "{label} Nachtprogramm", "{label} bis in die Nacht", "Nachtschicht: {label}", "{label} rund um Mitternacht", "Nachtsendung: {label}", "{label} für Nachteulen", "Die Nacht mit {label}", "{label} bis zum Morgengrauen"],
+        "MORGEN": ["{label} am Morgen", "Morgenmagazin: {label}", "{label} zum Frühstück", "Guten Morgen mit {label}", "{label} Frühprogramm", "Der frühe Vogel: {label}", "{label} zum Wachwerden", "Frühstart: {label}", "{label} für den Tagesbeginn", "Morgenrunde: {label}"],
+        "VORMITTAG": ["{label} Vormittag", "{label} Magazin", "Vormittagsprogramm: {label}", "{label} am Vormittag", "{label} bis Mittag", "Vormittagsrunde: {label}", "{label} zur Kaffeezeit", "Der Vormittag mit {label}", "{label} vor dem Mittag", "Vormittagsmagazin: {label}"],
+        "MITTAG": ["{label} zur Mittagszeit", "{label} Mittagsprogramm", "Mittagsmagazin: {label}", "{label} zum Mittag", "{label} in der Mittagspause", "Mittagsrunde: {label}", "{label} zum Lunch", "Die Mittagsstunde: {label}", "{label} zur Tischzeit", "Mittagsjournal: {label}"],
+        "NACHMITTAG": ["{label} am Nachmittag", "{label} Spezial", "Nachmittagsprogramm: {label}", "{label} zum Nachmittag", "{label} bis zum Abend", "Nachmittagsrunde: {label}", "{label} zur Kaffeepause", "Der Nachmittag mit {label}", "{label} nach der Mittagspause", "Nachmittagsmagazin: {label}"],
+        "ABEND": ["{label} Primetime", "{label} am Abend", "Abendprogramm: {label}", "{label} zur besten Sendezeit", "{label} am Vorabend", "Abendrunde: {label}", "{label} im Hauptabendprogramm", "Der Abend mit {label}", "{label} zur Feierabendzeit", "Abendjournal: {label}"],
+        "SPAETABEND": ["{label} Spätprogramm", "{label} Late Night", "Spätabend: {label}", "{label} nach Mitternacht", "{label} zur späten Stunde", "Nachtprogramm: {label}", "{label} für Nachtschwärmer", "Die späte Runde: {label}", "{label} zum Tagesausklang", "Spätsendung: {label}"],
     },
     "EXYU": {
-        "NACHT": ["{label} tokom noći", "Najbolje iz: {label}", "{label} noćni program", "{label} do kasno u noć", "Noćna smjena: {label}"],
-        "MORGEN": ["{label} ujutro", "Jutarnji program: {label}", "{label} uz doručak", "Dobro jutro uz {label}", "{label} rani program"],
-        "VORMITTAG": ["{label} prijepodne", "{label} magazin", "Prijepodnevni program: {label}", "{label} do podneva", "{label} pred podne"],
-        "MITTAG": ["{label} u podne", "{label} program", "Podnevni magazin: {label}", "{label} za vrijeme pauze", "{label} u podnevnim satima"],
-        "NACHMITTAG": ["{label} popodne", "{label} specijal", "Popodnevni program: {label}", "{label} do večeri", "{label} u popodnevnim satima"],
-        "ABEND": ["{label} večernji program", "{label} u udarnom terminu", "Večernji program: {label}", "{label} predveče", "{label} u najgledanijem terminu"],
-        "SPAETABEND": ["{label} kasno navečer", "{label} noćni program", "Kasna večer: {label}", "{label} poslije ponoći", "{label} u kasnim satima"],
+        "NACHT": ["{label} tokom noći", "Najbolje iz: {label}", "{label} noćni program", "{label} do kasno u noć", "Noćna smjena: {label}", "{label} oko ponoći", "Noćna emisija: {label}", "{label} za noćne ptice", "Noć uz {label}", "{label} do zore"],
+        "MORGEN": ["{label} ujutro", "Jutarnji program: {label}", "{label} uz doručak", "Dobro jutro uz {label}", "{label} rani program", "Rana ptica: {label}", "{label} za buđenje", "Jutarnji start: {label}", "{label} za početak dana", "Jutarnja runda: {label}"],
+        "VORMITTAG": ["{label} prijepodne", "{label} magazin", "Prijepodnevni program: {label}", "{label} do podneva", "{label} pred podne", "Prijepodnevna runda: {label}", "{label} uz kafu", "Prijepodne uz {label}", "{label} prije podneva", "Prijepodnevni magazin: {label}"],
+        "MITTAG": ["{label} u podne", "{label} program", "Podnevni magazin: {label}", "{label} za vrijeme pauze", "{label} u podnevnim satima", "Podnevna runda: {label}", "{label} za ručak", "Podnevni sat: {label}", "{label} u vrijeme ručka", "Podnevni pregled: {label}"],
+        "NACHMITTAG": ["{label} popodne", "{label} specijal", "Popodnevni program: {label}", "{label} do večeri", "{label} u popodnevnim satima", "Popodnevna runda: {label}", "{label} uz popodnevnu kafu", "Popodne uz {label}", "{label} poslije pauze", "Popodnevni magazin: {label}"],
+        "ABEND": ["{label} večernji program", "{label} u udarnom terminu", "Večernji program: {label}", "{label} predveče", "{label} u najgledanijem terminu", "Večernja runda: {label}", "{label} u glavnom terminu", "Veče uz {label}", "{label} u vrijeme večere", "Večernji pregled: {label}"],
+        "SPAETABEND": ["{label} kasno navečer", "{label} noćni program", "Kasna večer: {label}", "{label} poslije ponoći", "{label} u kasnim satima", "Noćni termin: {label}", "{label} za noćne ptice", "Kasna runda: {label}", "{label} za kraj dana", "Kasnovečernja emisija: {label}"],
     },
     "SI": {
-        "NACHT": ["{label} ponoči", "Najboljše: {label}", "{label} nočni program", "{label} pozno v noč", "Nočna izmena: {label}"],
-        "MORGEN": ["{label} zjutraj", "Jutranji program: {label}", "{label} ob zajtrku", "Dobro jutro z {label}", "{label} zgodnji program"],
-        "VORMITTAG": ["{label} dopoldne", "{label} magazin", "Dopoldanski program: {label}", "{label} do poldneva", "{label} pred poldnevom"],
-        "MITTAG": ["{label} opoldne", "{label} program", "Poldanski magazin: {label}", "{label} v odmoru", "{label} v poldanskih urah"],
-        "NACHMITTAG": ["{label} popoldne", "{label} posebno", "Popoldanski program: {label}", "{label} do večera", "{label} v popoldanskih urah"],
-        "ABEND": ["{label} zvečer", "{label} ob najboljšem času", "Večerni program: {label}", "{label} predvečer", "{label} v najbolj gledanem terminu"],
-        "SPAETABEND": ["{label} pozno zvečer", "{label} nočni program", "Pozni večer: {label}", "{label} po polnoči", "{label} v poznih urah"],
+        "NACHT": ["{label} ponoči", "Najboljše: {label}", "{label} nočni program", "{label} pozno v noč", "Nočna izmena: {label}", "{label} okoli polnoči", "Nočna oddaja: {label}", "{label} za nočne ptice", "Noč z {label}", "{label} do zore"],
+        "MORGEN": ["{label} zjutraj", "Jutranji program: {label}", "{label} ob zajtrku", "Dobro jutro z {label}", "{label} zgodnji program", "Zgodnja ptica: {label}", "{label} za prebujanje", "Jutranji start: {label}", "{label} za začetek dneva", "Jutranja runda: {label}"],
+        "VORMITTAG": ["{label} dopoldne", "{label} magazin", "Dopoldanski program: {label}", "{label} do poldneva", "{label} pred poldnevom", "Dopoldanska runda: {label}", "{label} ob kavi", "Dopoldne z {label}", "{label} pred poldnevom", "Dopoldanski magazin: {label}"],
+        "MITTAG": ["{label} opoldne", "{label} program", "Poldanski magazin: {label}", "{label} v odmoru", "{label} v poldanskih urah", "Poldanska runda: {label}", "{label} za kosilo", "Poldanska ura: {label}", "{label} v času kosila", "Poldanski pregled: {label}"],
+        "NACHMITTAG": ["{label} popoldne", "{label} posebno", "Popoldanski program: {label}", "{label} do večera", "{label} v popoldanskih urah", "Popoldanska runda: {label}", "{label} ob popoldanski kavi", "Popoldne z {label}", "{label} po odmoru", "Popoldanski magazin: {label}"],
+        "ABEND": ["{label} zvečer", "{label} ob najboljšem času", "Večerni program: {label}", "{label} predvečer", "{label} v najbolj gledanem terminu", "Večerna runda: {label}", "{label} v glavnem terminu", "Večer z {label}", "{label} v času večerje", "Večerni pregled: {label}"],
+        "SPAETABEND": ["{label} pozno zvečer", "{label} nočni program", "Pozni večer: {label}", "{label} po polnoči", "{label} v poznih urah", "Nočni termin: {label}", "{label} za nočne ptice", "Pozna runda: {label}", "{label} za konec dneva", "Poznovečerna oddaja: {label}"],
     },
     "MK": {
-        "NACHT": ["{label} navečer", "Najdobro od: {label}", "{label} nokna programa", "{label} do docna vo nokta", "Nokna smena: {label}"],
-        "MORGEN": ["{label} nautro", "Utrinska programa: {label}", "{label} na pojadok", "Dobro utro so {label}", "{label} rana programa"],
-        "VORMITTAG": ["{label} pretpladne", "{label} magazin", "Pretpladnevna programa: {label}", "{label} do pladne", "{label} pred pladne"],
-        "MITTAG": ["{label} napladne", "{label} programa", "Pladnevna programa: {label}", "{label} vo pauza", "{label} vo pladnevni časovi"],
-        "NACHMITTAG": ["{label} popladne", "{label} specijal", "Popladnevna programa: {label}", "{label} do večer", "{label} vo popladnevni časovi"],
-        "ABEND": ["{label} večerna programa", "{label} udaren termin", "Večerna programa: {label}", "{label} predvečer", "{label} vo najgledaniot termin"],
-        "SPAETABEND": ["{label} docna navečer", "{label} nokna programa", "Docna večer: {label}", "{label} po polnok", "{label} vo docni časovi"],
+        "NACHT": ["{label} navečer", "Najdobro od: {label}", "{label} nokna programa", "{label} do docna vo nokta", "Nokna smena: {label}", "{label} okolu polnoć", "Nokna emisija: {label}", "{label} za nokni ptici", "Noć so {label}", "{label} do zora"],
+        "MORGEN": ["{label} nautro", "Utrinska programa: {label}", "{label} na pojadok", "Dobro utro so {label}", "{label} rana programa", "Rana ptica: {label}", "{label} za budenje", "Utrinski start: {label}", "{label} za početok na denot", "Utrinska runda: {label}"],
+        "VORMITTAG": ["{label} pretpladne", "{label} magazin", "Pretpladnevna programa: {label}", "{label} do pladne", "{label} pred pladne", "Pretpladnevna runda: {label}", "{label} so kafe", "Pretpladne so {label}", "{label} pred pladne", "Pretpladneven magazin: {label}"],
+        "MITTAG": ["{label} napladne", "{label} programa", "Pladnevna programa: {label}", "{label} vo pauza", "{label} vo pladnevni časovi", "Pladnevna runda: {label}", "{label} za ruček", "Pladneven čas: {label}", "{label} vo vreme na ruček", "Pladneven pregled: {label}"],
+        "NACHMITTAG": ["{label} popladne", "{label} specijal", "Popladnevna programa: {label}", "{label} do večer", "{label} vo popladnevni časovi", "Popladnevna runda: {label}", "{label} so popladnevno kafe", "Popladne so {label}", "{label} po pauza", "Popladneven magazin: {label}"],
+        "ABEND": ["{label} večerna programa", "{label} udaren termin", "Večerna programa: {label}", "{label} predvečer", "{label} vo najgledaniot termin", "Večerna runda: {label}", "{label} vo glaven termin", "Večer so {label}", "{label} vo vreme na večera", "Večeren pregled: {label}"],
+        "SPAETABEND": ["{label} docna navečer", "{label} nokna programa", "Docna večer: {label}", "{label} po polnok", "{label} vo docni časovi", "Nokten termin: {label}", "{label} za nokni ptici", "Docna runda: {label}", "{label} za krajot na denot", "Docnovečerna emisija: {label}"],
     },
     "EN": {
-        "NACHT": ["{label} Overnight", "Best of {label}", "{label} Night Program", "{label} Through the Night", "Night Shift: {label}"],
-        "MORGEN": ["{label} in the Morning", "Morning {label}", "{label} at Breakfast", "Good Morning {label}", "Early {label}"],
-        "VORMITTAG": ["{label} Late Morning", "{label} Magazine", "Late Morning {label}", "{label} Before Noon", "{label} Mid-Morning"],
-        "MITTAG": ["{label} at Noon", "Midday {label}", "{label} Lunch Hour", "{label} at Midday", "Noon {label}"],
-        "NACHMITTAG": ["{label} in the Afternoon", "{label} Special", "Afternoon {label}", "{label} Into the Evening", "{label} Mid-Afternoon"],
-        "ABEND": ["{label} Primetime", "{label} Tonight", "Evening {label}", "{label} at Prime Time", "{label} This Evening"],
-        "SPAETABEND": ["Late Night {label}", "{label} After Hours", "{label} Late Show", "{label} Past Midnight", "{label} in the Late Hours"],
+        "NACHT": ["{label} Overnight", "Best of {label}", "{label} Night Program", "{label} Through the Night", "Night Shift: {label}", "{label} Around Midnight", "Overnight Feature: {label}", "{label} for Night Owls", "The Night with {label}", "{label} Until Dawn"],
+        "MORGEN": ["{label} in the Morning", "Morning {label}", "{label} at Breakfast", "Good Morning {label}", "Early {label}", "Early Bird: {label}", "{label} Wake-Up Call", "Morning Kickoff: {label}", "{label} to Start Your Day", "Morning Round-Up: {label}"],
+        "VORMITTAG": ["{label} Late Morning", "{label} Magazine", "Late Morning {label}", "{label} Before Noon", "{label} Mid-Morning", "Mid-Morning Round-Up: {label}", "{label} with Coffee", "Late Morning with {label}", "{label} Ahead of Noon", "Late Morning Magazine: {label}"],
+        "MITTAG": ["{label} at Noon", "Midday {label}", "{label} Lunch Hour", "{label} at Midday", "Noon {label}", "Midday Round-Up: {label}", "{label} at Lunchtime", "The Noon Hour: {label}", "{label} During Lunch", "Midday Bulletin: {label}"],
+        "NACHMITTAG": ["{label} in the Afternoon", "{label} Special", "Afternoon {label}", "{label} Into the Evening", "{label} Mid-Afternoon", "Afternoon Round-Up: {label}", "{label} with Afternoon Coffee", "The Afternoon with {label}", "{label} After Lunch", "Afternoon Magazine: {label}"],
+        "ABEND": ["{label} Primetime", "{label} Tonight", "Evening {label}", "{label} at Prime Time", "{label} This Evening", "Evening Round-Up: {label}", "{label} in the Main Slot", "The Evening with {label}", "{label} at Dinner Time", "Evening Bulletin: {label}"],
+        "SPAETABEND": ["Late Night {label}", "{label} After Hours", "{label} Late Show", "{label} Past Midnight", "{label} in the Late Hours", "Late Slot: {label}", "{label} for Night Owls", "The Late Round: {label}", "{label} to Close the Day", "Late Night Feature: {label}"],
     },
 }
 
@@ -2040,38 +2078,38 @@ SENDETITEL_VORLAGEN = {
 # auf ihr normales Label zurueck (siehe titelwort_fuer_kategorie()).
 # ==========================================================
 KATEGORIE_TITELWORT = {
-    "SPORT": {"DE": ["Sport-Highlights", "Sportmagazin"], "EXYU": ["Sportski pregled", "Sportski magazin"], "EN": ["Sports Highlights", "Sports Roundup"], "SI": ["Športni pregled", "Športna oddaja"], "MK": ["Sportski pregled", "Sportska emisija"]},
-    "KOCHEN": {"DE": ["Kochshow", "Kulinarik-Magazin"], "EXYU": ["Kulinarska emisija", "Kulinarski magazin"], "EN": ["Cooking Show", "Culinary Feature"], "SI": ["Kuharska oddaja", "Kulinarična oddaja"], "MK": ["Kulinarska emisija", "Kulinarska programa"]},
-    "NEWS": {"DE": ["Nachrichtenüberblick", "Nachrichtenmagazin"], "EXYU": ["Pregled vijesti", "Informativni program"], "EN": ["News Roundup", "News Update"], "SI": ["Pregled novic", "Informativna oddaja"], "MK": ["Pregled na vesti", "Informativna programa"]},
-    "MUSIK": {"DE": ["Musikshow", "Musikmagazin"], "EXYU": ["Muzička emisija", "Muzički program"], "EN": ["Music Show", "Music Special"], "SI": ["Glasbena oddaja", "Glasbeni magazin"], "MK": ["Muzička emisija", "Muzička programa"]},
-    "FILM": {"DE": ["Spielfilm", "Filmklassiker"], "EXYU": ["Igrani film", "Filmski klasik"], "EN": ["Feature Film", "Movie Classic"], "SI": ["Igrani film", "Filmska klasika"], "MK": ["Igran film", "Filmski klasik"]},
-    "SERIEN": {"DE": ["Serienmarathon", "Serien-Doppelfolge"], "EXYU": ["Serijski maraton", "Duple epizode"], "EN": ["Series Marathon", "Double Episode"], "SI": ["Serijski maraton", "Dvojna epizoda"], "MK": ["Serijski maraton", "Dvojna epizoda"]},
-    "GAMING": {"DE": ["Gaming-Show", "Gaming-Magazin"], "EXYU": ["Gejming emisija", "Gejming magazin"], "EN": ["Gaming Show", "Gaming Roundup"], "SI": ["Igričarska oddaja", "Igričarski magazin"], "MK": ["Gejming emisija", "Gejming magazin"]},
-    "REISEN": {"DE": ["Reisemagazin", "Reisereportage"], "EXYU": ["Putopisni magazin", "Putopisna reportaža"], "EN": ["Travel Magazine", "Travel Report"], "SI": ["Potopisni magazin", "Potopisna reportaža"], "MK": ["Patopisen magazin", "Patopisna reportaža"]},
-    "AUTO": {"DE": ["Automagazin", "Motorsport-Magazin"], "EXYU": ["Auto magazin", "Motosport magazin"], "EN": ["Auto Show", "Motoring Show"], "SI": ["Avto magazin", "Avtomobilistična oddaja"], "MK": ["Avto magazin", "Avtomobilska programa"]},
-    "COMEDY": {"DE": ["Comedy-Show", "Comedy-Spezial"], "EXYU": ["Komedijaška emisija", "Komedijaški specijal"], "EN": ["Comedy Show", "Comedy Special"], "SI": ["Humoristična oddaja", "Humoristični posebni program"], "MK": ["Komedijaška emisija", "Komedijaski specijal"]},
-    "KRIMI": {"DE": ["Krimi des Tages", "Krimi-Doppelfolge"], "EXYU": ["Kriminalistička priča", "Kriminalistička dvostruka epizoda"], "EN": ["Crime Feature", "Crime Double Bill"], "SI": ["Kriminalka dneva", "Kriminalna dvojna epizoda"], "MK": ["Kriminalistička priča", "Kriminalna dvojna epizoda"]},
-    "HORROR": {"DE": ["Horrornacht", "Horror-Klassiker"], "EXYU": ["Horor noć", "Horor klasik"], "EN": ["Horror Night", "Horror Classic"], "SI": ["Grozljiva noč", "Grozljivka klasika"], "MK": ["Horor noќ", "Horor klasik"]},
-    "TALKSHOW": {"DE": ["Talkrunde", "Late-Night-Talk"], "EXYU": ["Tok šou emisija", "Kasnonoćni tok šou"], "EN": ["Talk Round", "Late Night Talk"], "SI": ["Pogovorni krog", "Poznovečerni pogovor"], "MK": ["Tok-šou emisija", "Docnovečerno tok-šou"]},
-    "WIRTSCHAFT": {"DE": ["Wirtschaftsreport", "Börsenmagazin"], "EXYU": ["Poslovni izvještaj", "Berzanski magazin"], "EN": ["Business Report", "Markets Update"], "SI": ["Poslovno poročilo", "Borzni magazin"], "MK": ["Biznis izveštaj", "Berzanski magazin"]},
-    "REALITY": {"DE": ["Reality-Highlights", "Reality-Spezial"], "EXYU": ["Rijaliti pregled", "Rijaliti specijal"], "EN": ["Reality Highlights", "Reality Special"], "SI": ["Resničnostni pregled", "Resničnostni posebni program"], "MK": ["Rijaliti pregled", "Rijaliti specijal"]},
-    "DOKU": {"DE": ["Doku-Highlight", "Doku-Reportage"], "EXYU": ["Dokumentarni pregled", "Dokumentarna reportaža"], "EN": ["Documentary Feature", "Documentary Special"], "SI": ["Dokumentarni izbor", "Dokumentarna reportaža"], "MK": ["Dokumentaren izbor", "Dokumentarna reportaža"]},
-    "KINDER": {"DE": ["Kinderprogramm", "Kindershow"], "EXYU": ["Dječiji program", "Dječija emisija"], "EN": ["Kids Show", "Kids Special"], "SI": ["Otroški program", "Otroška oddaja"], "MK": ["Detska programa", "Detska emisija"]},
-    "RADIO": {"DE": ["Radioshow", "Radiomagazin"], "EXYU": ["Radio emisija", "Radio magazin"], "EN": ["Radio Show", "Radio Special"], "SI": ["Radijska oddaja", "Radijski magazin"], "MK": ["Radio emisija", "Radio magazin"]},
-    "SHOPPING": {"DE": ["Shopping-Show", "Teleshopping"], "EXYU": ["Šoping emisija", "TV šoping"], "EN": ["Shopping Show", "Teleshopping"], "SI": ["Nakupovalna oddaja", "TV nakupovanje"], "MK": ["Emisija za kupuvanje", "TV kupuvanje"]},
-    "WISSEN": {"DE": ["Wissensmagazin", "Wissenschaftsmagazin"], "EXYU": ["Edukativni magazin", "Naučni magazin"], "EN": ["Knowledge Magazine", "Science Feature"], "SI": ["Izobraževalni magazin", "Znanstveni magazin"], "MK": ["Edukativen magazin", "Naučna programa"]},
-    "NATUR": {"DE": ["Naturdokumentation", "Tierdokumentation"], "EXYU": ["Dokumentarac o prirodi", "Dokumentarac o životinjama"], "EN": ["Nature Documentary", "Wildlife Feature"], "SI": ["Naravoslovni dokumentarec", "Dokumentarec o živalih"], "MK": ["Dokumentarec za priroda", "Dokumentarec za životni"]},
+    "SPORT": {"DE": ["Sport-Highlights", "Sportmagazin", "Sportarena", "Ballkontakt", "Matchball"], "EXYU": ["Sportski pregled", "Sportski magazin"], "EN": ["Sports Highlights", "Sports Roundup", "The Sports Arena", "Match Report"], "SI": ["Športni pregled", "Športna oddaja"], "MK": ["Sportski pregled", "Sportska emisija"]},
+    "KOCHEN": {"DE": ["Kochshow", "Kulinarik-Magazin", "Küchenparade", "Kochstudio"], "EXYU": ["Kulinarska emisija", "Kulinarski magazin"], "EN": ["Cooking Show", "Culinary Feature", "The Kitchen Table", "Chef's Corner"], "SI": ["Kuharska oddaja", "Kulinarična oddaja"], "MK": ["Kulinarska emisija", "Kulinarska programa"]},
+    "NEWS": {"DE": ["Nachrichtenüberblick", "Nachrichtenmagazin", "Tagesschau kompakt", "Zeitgeschehen"], "EXYU": ["Pregled vijesti", "Informativni program"], "EN": ["News Roundup", "News Update", "The Daily Brief", "News Desk"], "SI": ["Pregled novic", "Informativna oddaja"], "MK": ["Pregled na vesti", "Informativna programa"]},
+    "MUSIK": {"DE": ["Musikshow", "Musikmagazin", "Hitparade", "Musikbox"], "EXYU": ["Muzička emisija", "Muzički program"], "EN": ["Music Show", "Music Special", "The Hit Mix", "Music Box"], "SI": ["Glasbena oddaja", "Glasbeni magazin"], "MK": ["Muzička emisija", "Muzička programa"]},
+    "FILM": {"DE": ["Spielfilm", "Filmklassiker", "Kinonacht", "Filmpalast"], "EXYU": ["Igrani film", "Filmski klasik"], "EN": ["Feature Film", "Movie Classic", "Movie Night", "The Screening Room"], "SI": ["Igrani film", "Filmska klasika"], "MK": ["Igran film", "Filmski klasik"]},
+    "SERIEN": {"DE": ["Serienmarathon", "Serien-Doppelfolge", "Serienabend", "Seriennacht"], "EXYU": ["Serijski maraton", "Duple epizode"], "EN": ["Series Marathon", "Double Episode", "Series Night", "Boxset Hour"], "SI": ["Serijski maraton", "Dvojna epizoda"], "MK": ["Serijski maraton", "Dvojna epizoda"]},
+    "GAMING": {"DE": ["Gaming-Show", "Gaming-Magazin", "Zockerstunde", "Level Up"], "EXYU": ["Gejming emisija", "Gejming magazin"], "EN": ["Gaming Show", "Gaming Roundup", "Level Up", "Game Zone"], "SI": ["Igričarska oddaja", "Igričarski magazin"], "MK": ["Gejming emisija", "Gejming magazin"]},
+    "REISEN": {"DE": ["Reisemagazin", "Reisereportage", "Fernweh", "Weltentdecker"], "EXYU": ["Putopisni magazin", "Putopisna reportaža"], "EN": ["Travel Magazine", "Travel Report", "Wanderlust", "Around the World"], "SI": ["Potopisni magazin", "Potopisna reportaža"], "MK": ["Patopisen magazin", "Patopisna reportaža"]},
+    "AUTO": {"DE": ["Automagazin", "Motorsport-Magazin", "PS-Report", "Fahrbericht"], "EXYU": ["Auto magazin", "Motosport magazin"], "EN": ["Auto Show", "Motoring Show", "Gearhead", "The Garage"], "SI": ["Avto magazin", "Avtomobilistična oddaja"], "MK": ["Avto magazin", "Avtomobilska programa"]},
+    "COMEDY": {"DE": ["Comedy-Show", "Comedy-Spezial", "Lachparade", "Comedy-Bühne"], "EXYU": ["Komedijaška emisija", "Komedijaški specijal"], "EN": ["Comedy Show", "Comedy Special", "Laugh Track", "The Comedy Club"], "SI": ["Humoristična oddaja", "Humoristični posebni program"], "MK": ["Komedijaška emisija", "Komedijaski specijal"]},
+    "KRIMI": {"DE": ["Krimi des Tages", "Krimi-Doppelfolge", "Tatort-Nacht", "Ermittlerakte"], "EXYU": ["Kriminalistička priča", "Kriminalistička dvostruka epizoda"], "EN": ["Crime Feature", "Crime Double Bill", "The Case File", "Detective Hour"], "SI": ["Kriminalka dneva", "Kriminalna dvojna epizoda"], "MK": ["Kriminalistička priča", "Kriminalna dvojna epizoda"]},
+    "HORROR": {"DE": ["Horrornacht", "Horror-Klassiker", "Gruselkabinett", "Schockstunde"], "EXYU": ["Horor noć", "Horor klasik"], "EN": ["Horror Night", "Horror Classic", "The Fright Hour", "Nightmare Theater"], "SI": ["Grozljiva noč", "Grozljivka klasika"], "MK": ["Horor noќ", "Horor klasik"]},
+    "TALKSHOW": {"DE": ["Talkrunde", "Late-Night-Talk", "Gesprächsrunde", "Talk am Abend"], "EXYU": ["Tok šou emisija", "Kasnonoćni tok šou"], "EN": ["Talk Round", "Late Night Talk", "The Round Table", "Talk Hour"], "SI": ["Pogovorni krog", "Poznovečerni pogovor"], "MK": ["Tok-šou emisija", "Docnovečerno tok-šou"]},
+    "WIRTSCHAFT": {"DE": ["Wirtschaftsreport", "Börsenmagazin", "Marktbericht", "Finanzjournal"], "EXYU": ["Poslovni izvještaj", "Berzanski magazin"], "EN": ["Business Report", "Markets Update", "The Market Hour", "Finance Desk"], "SI": ["Poslovno poročilo", "Borzni magazin"], "MK": ["Biznis izveštaj", "Berzanski magazin"]},
+    "REALITY": {"DE": ["Reality-Highlights", "Reality-Spezial", "Alltagsdrama", "Reality-Check"], "EXYU": ["Rijaliti pregled", "Rijaliti specijal"], "EN": ["Reality Highlights", "Reality Special", "Reality Check", "Behind the Scenes"], "SI": ["Resničnostni pregled", "Resničnostni posebni program"], "MK": ["Rijaliti pregled", "Rijaliti specijal"]},
+    "DOKU": {"DE": ["Doku-Highlight", "Doku-Reportage", "Zeitzeugen", "Hintergrundbericht"], "EXYU": ["Dokumentarni pregled", "Dokumentarna reportaža"], "EN": ["Documentary Feature", "Documentary Special", "The Long Story", "Behind the Facts"], "SI": ["Dokumentarni izbor", "Dokumentarna reportaža"], "MK": ["Dokumentaren izbor", "Dokumentarna reportaža"]},
+    "KINDER": {"DE": ["Kinderprogramm", "Kindershow", "Kinderstunde", "Bunte Kinderwelt"], "EXYU": ["Dječiji program", "Dječija emisija"], "EN": ["Kids Show", "Kids Special", "Kids' Corner", "Playtime"], "SI": ["Otroški program", "Otroška oddaja"], "MK": ["Detska programa", "Detska emisija"]},
+    "RADIO": {"DE": ["Radioshow", "Radiomagazin", "Radionacht", "Musikwelle"], "EXYU": ["Radio emisija", "Radio magazin"], "EN": ["Radio Show", "Radio Special", "On Air", "The Wavelength"], "SI": ["Radijska oddaja", "Radijski magazin"], "MK": ["Radio emisija", "Radio magazin"]},
+    "SHOPPING": {"DE": ["Shopping-Show", "Teleshopping", "Kaufhausrunde", "Angebotsstunde"], "EXYU": ["Šoping emisija", "TV šoping"], "EN": ["Shopping Show", "Teleshopping", "Deal of the Day", "The Shopping Hour"], "SI": ["Nakupovalna oddaja", "TV nakupovanje"], "MK": ["Emisija za kupuvanje", "TV kupuvanje"]},
+    "WISSEN": {"DE": ["Wissensmagazin", "Wissenschaftsmagazin", "Faktencheck", "Erklärstunde"], "EXYU": ["Edukativni magazin", "Naučni magazin"], "EN": ["Knowledge Magazine", "Science Feature", "The Fact Files", "Explained"], "SI": ["Izobraževalni magazin", "Znanstveni magazin"], "MK": ["Edukativen magazin", "Naučna programa"]},
+    "NATUR": {"DE": ["Naturdokumentation", "Tierdokumentation", "Wildnis live", "Tierreich"], "EXYU": ["Dokumentarac o prirodi", "Dokumentarac o životinjama"], "EN": ["Nature Documentary", "Wildlife Feature", "Into the Wild", "Animal Kingdom"], "SI": ["Naravoslovni dokumentarec", "Dokumentarec o živalih"], "MK": ["Dokumentarec za priroda", "Dokumentarec za životni"]},
     "RELIGION": {"DE": ["Andacht", "Gottesdienst"], "EXYU": ["Vjerski program", "Bogosluženje"], "EN": ["Devotional Program", "Church Service"], "SI": ["Verski program", "Bogoslužje"], "MK": ["Religiozna programa", "Bogosluženie"]},
     "WETTER": {"DE": ["Wetterbericht", "Wetteraussichten"], "EXYU": ["Vremenska prognoza", "Vremenski izgledi"], "EN": ["Weather Report", "Weather Outlook"], "SI": ["Vremenska napoved", "Vremenski obeti"], "MK": ["Vremenska prognoza", "Vremenski izgledi"]},
     "JAGD_FISCHEREI": {"DE": ["Jagdreport", "Angelmagazin"], "EXYU": ["Lovački izvještaj", "Ribolovni magazin"], "EN": ["Hunting Report", "Fishing Feature"], "SI": ["Lovsko poročilo", "Ribiški magazin"], "MK": ["Lovački izveštaj", "Ribolovna programa"]},
     "MILITAER": {"DE": ["Kriegsdokumentation", "Militärgeschichte"], "EXYU": ["Ratni dokumentarac", "Vojna istorija"], "EN": ["War Documentary", "Military History"], "SI": ["Vojni dokumentarec", "Vojaška zgodovina"], "MK": ["Voen dokumentarec", "Vojna istorija"]},
-    "FAMILIE": {"DE": ["Familienfilm", "Familienabend"], "EXYU": ["Porodični film", "Porodično veče"], "EN": ["Family Feature", "Family Night"], "SI": ["Družinski film", "Družinski večer"], "MK": ["Semeen film", "Semeen večer"]},
+    "FAMILIE": {"DE": ["Familienfilm", "Familienabend", "Familienzeit"], "EXYU": ["Porodični film", "Porodično veče"], "EN": ["Family Feature", "Family Night", "Family Time"], "SI": ["Družinski film", "Družinski večer"], "MK": ["Semeen film", "Semeen večer"]},
     "ANIME": {"DE": ["Anime-Marathon", "Anime-Spezial"], "EXYU": ["Anime maraton", "Anime specijal"], "EN": ["Anime Marathon", "Anime Special"], "SI": ["Anime maraton", "Anime posebni program"], "MK": ["Anime maraton", "Anime specijal"]},
-    "GESUNDHEIT": {"DE": ["Fitnessprogramm", "Wellness-Magazin"], "EXYU": ["Fitnes program", "Wellness magazin"], "EN": ["Fitness Program", "Wellness Feature"], "SI": ["Fitnes program", "Wellness oddaja"], "MK": ["Fitnes programa", "Wellness programa"]},
-    "TECH": {"DE": ["Technikmagazin", "Innovationsmagazin"], "EXYU": ["Tehnički magazin", "Magazin o inovacijama"], "EN": ["Tech Magazine", "Innovation Feature"], "SI": ["Tehnološki magazin", "Magazin o inovacijah"], "MK": ["Tehnološki magazin", "Magazin za inovacii"]},
-    "LIFESTYLE": {"DE": ["Lifestyle-Magazin", "Trend-Magazin"], "EXYU": ["Lifestyle magazin", "Magazin o trendovima"], "EN": ["Lifestyle Magazine", "Trend Report"], "SI": ["Lifestyle magazin", "Magazin o trendih"], "MK": ["Lifestyle magazin", "Magazin za trendovi"]},
-    "REGIONAL": {"DE": ["Regionalmagazin", "Lokalmagazin"], "EXYU": ["Regionalni magazin", "Lokalni magazin"], "EN": ["Regional Magazine", "Local Feature"], "SI": ["Regionalni magazin", "Lokalni magazin"], "MK": ["Regionalna programa", "Lokalna programa"]},
-    "UNTERHALTUNG": {"DE": ["Showprogramm", "Abendshow"], "EXYU": ["Šou program", "Večernji šou"], "EN": ["Entertainment Show", "Evening Show"], "SI": ["Zabavni program", "Večerna oddaja"], "MK": ["Zabavna programa", "Večerno šou"]},
+    "GESUNDHEIT": {"DE": ["Fitnessprogramm", "Wellness-Magazin", "Gesundheitsstunde"], "EXYU": ["Fitnes program", "Wellness magazin"], "EN": ["Fitness Program", "Wellness Feature", "The Wellness Hour"], "SI": ["Fitnes program", "Wellness oddaja"], "MK": ["Fitnes programa", "Wellness programa"]},
+    "TECH": {"DE": ["Technikmagazin", "Innovationsmagazin", "Zukunftslabor"], "EXYU": ["Tehnički magazin", "Magazin o inovacijama"], "EN": ["Tech Magazine", "Innovation Feature", "The Innovation Lab"], "SI": ["Tehnološki magazin", "Magazin o inovacijah"], "MK": ["Tehnološki magazin", "Magazin za inovacii"]},
+    "LIFESTYLE": {"DE": ["Lifestyle-Magazin", "Trend-Magazin", "Trendstunde"], "EXYU": ["Lifestyle magazin", "Magazin o trendovima"], "EN": ["Lifestyle Magazine", "Trend Report", "The Trend Hour"], "SI": ["Lifestyle magazin", "Magazin o trendih"], "MK": ["Lifestyle magazin", "Magazin za trendovi"]},
+    "REGIONAL": {"DE": ["Regionalmagazin", "Lokalmagazin", "Aus der Region"], "EXYU": ["Regionalni magazin", "Lokalni magazin"], "EN": ["Regional Magazine", "Local Feature", "Local Focus"], "SI": ["Regionalni magazin", "Lokalni magazin"], "MK": ["Regionalna programa", "Lokalna programa"]},
+    "UNTERHALTUNG": {"DE": ["Showprogramm", "Abendshow", "Unterhaltungsbühne", "Showzeit"], "EXYU": ["Šou program", "Večernji šou"], "EN": ["Entertainment Show", "Evening Show", "Showtime", "The Variety Hour"], "SI": ["Zabavni program", "Večerna oddaja"], "MK": ["Zabavna programa", "Večerno šou"]},
 }
 
 
@@ -2168,6 +2206,15 @@ def beschreibung_fuer_sender(kategorie_key, land, sender, hash_wert, tag_index=0
     # {label} wird nur befuellt, falls die Vorlage ihn nutzt (die
     # STANDARD-Fallback-Texte kommen ohne {label} aus).
     text = varianten[nummer].format(sender=sender, label=label)
+
+    # Denselben "Shownamen" wie im Sendetitel (siehe sendetitel(), nutzt
+    # dieselbe hash_wert+tag_index-Formel) der Beschreibung voranstellen,
+    # damit Titel und Beschreibung erkennbar zur selben Sendung gehoeren
+    # statt unabhaengig voneinander zu wirken.
+    if kategorie_key:
+        showname = titelwort_fuer_kategorie(kategorie_key, sprache, label, hash_wert=hash_wert, tag_index=tag_index)
+        if showname != label:
+            text = f"{showname}: {text}"
 
     return text, lang_code
 
