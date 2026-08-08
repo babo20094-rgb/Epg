@@ -974,7 +974,7 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
 # Secret bleibt es bei den generischen Kategorie-Platzhaltertexten.
 # ==========================================================
 
-M3U_PROVIDER_TIMEOUT_SEKUNDEN = 90
+M3U_PROVIDER_TIMEOUT_SEKUNDEN = 120
 # Die Playlist enthaelt (anders als die myepg.top-Datei) ausschliesslich
 # Kanaldefinitionen, keine Programmdaten - daher reicht ein grosszuegiges,
 # aber festes Limit als Sicherheitsnetz gegen eine unerwartet riesige Datei.
