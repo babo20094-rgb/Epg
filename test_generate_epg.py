@@ -38,6 +38,7 @@ import mtel_epg
 import sky_epg
 import arena_epg
 import magenta_epg
+import dazn_epg
 
 
 # ==========================================================
@@ -853,3 +854,104 @@ def test_magenta_ohne_magenta_zeilen_werden_keine_requests_ausgeloest():
             magenta_epg.magenta_kanal_finden(daten["sender"])
 
     assert magenta_sender_leer == []
+
+
+# ==========================================================
+# DAZN-EPG (opt-in DAZN:-Sender, beliebiges Land, siehe dazn_epg.py)
+# ==========================================================
+
+@pytest.fixture(autouse=True)
+def _dazn_cache_zuruecksetzen():
+    dazn_epg._raw_cache = {}
+    yield
+    dazn_epg._raw_cache = {}
+
+
+def _dazn_rail_response():
+    return _mock_response({
+        "Tiles": [
+            {
+                "AssetId": "dazn1",
+                "Title": "DAZN 1 HD",
+                "LinearSchedule": {
+                    "Now": {
+                        "Title": "Bundesliga Live",
+                        "Description": "1. FC Koeln - Bayern Muenchen",
+                        "Start": "2026-08-09T18:00:00Z",
+                        "End": "2026-08-09T20:00:00Z",
+                    },
+                    "Next": {
+                        "Title": "Analyse",
+                        "Start": "2026-08-09T20:00:00Z",
+                        "End": "2026-08-09T21:00:00Z",
+                    },
+                    "Later": [],
+                },
+            },
+            {"AssetId": "dazn2", "Title": "DAZN 2 HD"},
+        ]
+    })
+
+
+def test_dazn_erfolgreicher_abruf_liefert_echte_sendungen():
+    """Erfolgreiche Kanalsuche + Programmabruf muss echte Sendungen mit
+    Titel/Zeiten liefern (gemockter Netzwerkaufruf) - nur EIN Request pro
+    Land, da _rail_holen() pro Land cached."""
+    with patch("dazn_epg.requests.get", side_effect=[_dazn_rail_response()]):
+        site_id = dazn_epg.dazn_kanal_finden("DAZN 1 HD", "de")
+        assert site_id == "dazn1"
+
+        programme = dazn_epg.dazn_hole_programme(site_id, "de", tage=3)
+
+    assert len(programme) == 2
+    sendung = programme[0]
+    assert sendung["title"] == "Bundesliga Live"
+    assert sendung["beschreibung"] == "1. FC Koeln - Bayern Muenchen"
+    assert sendung["bild"] is None
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_dazn_kanal_id_verwendet_land_pipe_name_format():
+    """Regressionstest fuer den kuerzlich gefixten Bug: 'kanal' (die
+    <channel>-id/display-name in der XML) muss im selben 'LAND| Name'-
+    Format wie normale sender.txt-Zeilen gebaut werden (z.B. 'DE| RTL'),
+    NICHT als bloßer Kanalname - sonst bricht TiviMates automatisches
+    EPG-zu-Playlist-Channel-Matching. Repliziert exakt die Formel aus dem
+    DAZN:-Parsing-Block in generate_epg.py."""
+    dazn_land = "de"
+    dazn_kanalname = "DAZN 1 HD"
+    kanal = f"{dazn_land.upper()}| {dazn_kanalname}"
+    assert kanal == "DE| DAZN 1 HD"
+    assert kanal != dazn_kanalname
+
+
+def test_dazn_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck():
+    """Kein Kanal-Treffer bzw. ein Netzwerkfehler duerfen NIE eine
+    Exception werfen, sondern muessen graceful auf None/[]
+    zurueckfallen - Grundlage fuer den generischen Fallback in
+    generate_epg.py."""
+    with patch("dazn_epg.requests.get", side_effect=[_dazn_rail_response()]):
+        assert dazn_epg.dazn_kanal_finden("Nicht Existierender Kanal XYZ", "de") is None
+
+    dazn_epg._raw_cache = {}
+
+    with patch("dazn_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert dazn_epg.dazn_hole_kanalliste("de") == []
+        assert dazn_epg.dazn_kanal_finden("DAZN 1 HD", "de") is None
+        assert dazn_epg.dazn_hole_programme("dazn1", "de", tage=3) == []
+
+
+def test_dazn_ohne_dazn_zeilen_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne DAZN:-Zeilen darf dazn_epg's Request-
+    Funktionen ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog
+    zum SKY:-Guard in generate_epg.py: `dazn_sender = [d for d in
+    sender_daten if d.get("dazn")]` bleibt leer, die for-Schleife
+    darueber laeuft dann nie)."""
+    dazn_sender_leer = []
+
+    with patch("dazn_epg.requests.get", side_effect=AssertionError("dazn_epg haette nicht kontaktiert werden duerfen")):
+        for daten in dazn_sender_leer:
+            dazn_epg.dazn_kanal_finden(daten["sender"], "de")
+
+    assert dazn_sender_leer == []

@@ -125,6 +125,27 @@ manuellem Trigger.
   EPG-Generierung, kein Absturz moeglich - Tage 3-365 sind ohnehin
   immer generisch.
 
+## DAZN:-Sender (DAZN, opt-in)
+
+- Echte Programmdaten von DAZN (`dazn_epg.py`, Rail-API) gibt es NUR ueber
+  das explizite Praefix `DAZN:<Land, 2-Buchstaben-Laendercode,
+  optional/Default "DE">|<Kanalname wie bei DAZN>|<Logo-URL>`, z. B.
+  `DAZN:DE|DAZN 1 HD|https://example.com/logo.png`.
+- Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
+  genau wie bei SKY/MAGENTA: reines Opt-in ueber die explizite Zeile.
+- Anders als Sky (nur "DE") oder Arena (nur HR/RS) akzeptiert DAZN einen
+  beliebigen 2-Buchstaben-Laendercode; ein leerer oder ungueltiger Wert
+  faellt still auf "DE" zurueck. Die Sprachzuordnung fuer die Anfrage ist
+  bewusst vereinfacht: nur de/at/ch/li -> Deutsch, alle anderen Laender
+  -> Englisch (kein vollstaendiger Port der Original-Laendertabelle).
+- Degradiert bei jedem Fehler (Netzwerk, kein Kanal-Treffer, keine Daten)
+  graceful auf die normale generische EPG-Generierung, kein Absturz
+  moeglich.
+- Wichtige Einschraenkung: DAZNs API liefert kein echtes mehrtaegiges
+  Datumsraster, sondern nur ihr aktuelles Now/Next/Later-Fenster - die
+  Datenabdeckung ist entsprechend duenn (meist nur die naechsten paar
+  Sendungen/Stunden statt mehrerer voller Tage).
+
 ## SKY:-Sender (Sky Deutschland, opt-in)
 
 - Echte Programmdaten von Sky Deutschland (`sky_epg.py`, HAWK-API) gibt

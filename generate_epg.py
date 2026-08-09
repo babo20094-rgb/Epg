@@ -23,6 +23,7 @@ from mtel_epg import mtel_kanal_finden, mtel_hole_programme
 from sky_epg import sky_kanal_finden, sky_hole_programme
 from magenta_epg import magenta_kanal_finden, magenta_hole_programme
 from arena_epg import arena_kanal_finden, arena_hole_programme
+from dazn_epg import dazn_kanal_finden, dazn_hole_programme
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
@@ -679,6 +680,65 @@ for zeile in zeilen:
         })
         continue
 
+    # DAZN:-Präfix: opt-in für EINZELNE Sender, die echte Programmdaten
+    # von der DAZN-Rail-API (siehe dazn_epg.py) bekommen sollen, statt der
+    # generischen kategoriebasierten Platzhaltertexte. Genau wie bei SKY:/
+    # ARENA: gibt es hier BEWUSST KEIN automatisches Matching - nur Sender
+    # mit dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:/ARENA:-Schema):
+    #
+    #   DAZN:<Land, 2-Buchstaben-Ländercode, optional, Default DE>|<Kanalname wie bei DAZN>|<Logo-URL>
+    #
+    # Beispiel:
+    #   DAZN:DE|DAZN 1 HD|https://example.com/logo.png
+    #
+    # Im Unterschied zu SKY: (nur "DE") und ARENA: (nur "HR"/"RS")
+    # unterstützt DAZN beliebige 2-Buchstaben-Ländercodes (die echte DAZN-
+    # API deckt viele Länder ab) - ein leerer oder ungültiger Wert fällt
+    # graceful auf "DE" zurück (siehe dazn_epg.py). Der Kanalname (2. Feld)
+    # wird 1:1 als <channel> id/display-name verwendet UND als Suchbegriff
+    # gegen die DAZN-Kanalliste (dazn_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match). DAZNs API liefert kein
+    # echtes mehrtägiges Datumsraster, sondern nur ihr aktuelles Now/Next/
+    # Later-Fenster (siehe dazn_epg.py-Docstring) - entsprechend dünn ist
+    # die Datenabdeckung in der Praxis. Alle weiteren Tage (und bei jedem
+    # Fehlschlag der DAZN-Anfrage) fallen exakt auf die normale,
+    # generische Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("DAZN:"):
+        rest = zeile[len("DAZN:"):]
+        teile_dazn = [x.strip() for x in rest.split("|")]
+
+        while len(teile_dazn) < 3:
+            teile_dazn.append("")
+
+        dazn_land = teile_dazn[0].lower() or "de"
+        if not (len(dazn_land) == 2 and dazn_land.isalpha()):
+            dazn_land = "de"
+
+        dazn_kanalname = teile_dazn[1]
+        dazn_logo = teile_dazn[2]
+
+        if not dazn_kanalname:
+            continue
+
+        dazn_auto_beschreibung, dazn_kategorie_key = standard_beschreibung(
+            dazn_land.upper(), dazn_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": f"{dazn_land.upper()}| {dazn_kanalname}",
+            "land": dazn_land.upper(),
+            "sender": dazn_kanalname,
+            "beschreibung": dazn_auto_beschreibung,
+            "logo": dazn_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": dazn_kategorie_key,
+            "dazn": {"land": dazn_land},
+        })
+        continue
+
     teile = [x.strip() for x in zeile.split("|")]
 
     while len(teile) < 4:
@@ -1327,10 +1387,12 @@ MTEL_TAGE = 2
 SKY_TAGE = 2
 MAGENTA_TAGE = 2
 ARENA_TAGE = 2
+DAZN_TAGE = 3
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 magenta_sender = [d for d in sender_daten if d.get("magenta")]
 arena_sender = [d for d in sender_daten if d.get("arena")]
+dazn_sender = [d for d in sender_daten if d.get("dazn")]
 
 
 def _schreibe_echte_programme(daten, programme):
@@ -1495,6 +1557,35 @@ for daten in arena_sender:
         print(f"Arena-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
 # ==========================================================
+# DAZN: echte Programmdaten fuer DAZN:-Sender (siehe dazn_epg.py und der
+# Parsing-Kommentar oben bei "DAZN:"). Rein opt-in, unabhaengig von den
+# anderen Quellen. Ohne jegliche DAZN:-Zeile in sender.txt passiert hier
+# gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in dazn_sender:
+    programme = []
+    try:
+        site_id = dazn_kanal_finden(daten["sender"], daten["dazn"]["land"])
+        if site_id is not None:
+            programme = dazn_hole_programme(site_id, daten["dazn"]["land"], DAZN_TAGE)
+        else:
+            print(f"DAZN-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"DAZN-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["dazn_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"DAZN-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"DAZN-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
 # Statt starrer 2h-Slots orientieren sich die Blocklaengen an
 # einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
@@ -1547,6 +1638,11 @@ for tag_index in range(ANZAHL_TAGE):
             # echte Arena-Sport-Programmdaten geschrieben wurden, werden
             # hier ebenfalls nicht generisch nachgeneriert.
             if daten.get("arena") and tag_start.date() in daten.get("arena_tage", set()):
+                continue
+            # DAZN:-Sender (siehe Block oben): Tage, an denen bereits
+            # echte DAZN-Programmdaten geschrieben wurden, werden hier
+            # ebenfalls nicht generisch nachgeneriert.
+            if daten.get("dazn") and tag_start.date() in daten.get("dazn_tage", set()):
                 continue
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
