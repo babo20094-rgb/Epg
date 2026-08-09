@@ -486,7 +486,7 @@ for zeile in zeilen:
         )
 
         sender_daten.append({
-            "kanal": telemach_kanalname,
+            "kanal": f"{telemach_land}| {telemach_kanalname}",
             "land": telemach_land,
             "sender": telemach_kanalname,
             "beschreibung": telemach_auto_beschreibung,
@@ -546,7 +546,7 @@ for zeile in zeilen:
         )
 
         sender_daten.append({
-            "kanal": sky_kanalname,
+            "kanal": f"DE| {sky_kanalname}",
             "land": "DE",
             "sender": sky_kanalname,
             "beschreibung": sky_auto_beschreibung,
@@ -607,7 +607,7 @@ for zeile in zeilen:
         )
 
         sender_daten.append({
-            "kanal": magenta_kanalname,
+            "kanal": f"DE| {magenta_kanalname}",
             "land": "DE",
             "sender": magenta_kanalname,
             "beschreibung": magenta_auto_beschreibung,
@@ -667,7 +667,7 @@ for zeile in zeilen:
         )
 
         sender_daten.append({
-            "kanal": arena_kanalname,
+            "kanal": f"{arena_land}| {arena_kanalname}",
             "land": arena_land,
             "sender": arena_kanalname,
             "beschreibung": arena_auto_beschreibung,
