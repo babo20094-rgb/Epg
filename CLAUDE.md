@@ -182,3 +182,42 @@ manuellem Trigger.
   degradiert aber nach derselben Zero-Risk-Garantie bei jedem Fehler
   (Netzwerk, kein Kanal-Treffer, unerwartete HTML-Struktur) still auf
   die normale generische EPG-Generierung fuer diesen Sender.
+
+## FREEVIEW:-Sender (Freeview UK, opt-in)
+
+- Echte Programmdaten von Freeview UK (`freeview_epg.py`) gibt es NUR
+  ueber das explizite Praefix `FREEVIEW:<Land, nur "GB"
+  unterstuetzt/optional>|<Kanalname wie bei Freeview>|<Logo-URL>`, z. B.
+  `FREEVIEW:GB|BBC One|https://example.com/logo.png`.
+- Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
+  genau wie bei SKY/DAZN: reines Opt-in ueber die explizite Zeile.
+- Die Kanalliste stammt aus nur EINER repraesentativen UK-Network-ID
+  ("Greater London" statt aller ~169 regionalen IDs des Originals) und
+  deckt damit nur nationale Kanaele ab (BBC One, ITV1, Channel 4, Sky-
+  Kanaele auf Freeview, ...), keine rein regionalen Lokalnachrichten-
+  Opt-outs - eine bewusste Vereinfachung. Ebenso wird keine erweiterte
+  Sendungs-Synopsis nachgeladen (kein Extra-Request pro Sendung wie im
+  Original), `beschreibung` bleibt daher meist leer.
+- Degradiert bei jedem Fehler (Netzwerk, kein Kanal-Treffer, keine
+  Daten, unparsbare Sendungsdauer) graceful auf die normale generische
+  EPG-Generierung, kein Absturz moeglich.
+
+## TVGUIDE:-Sender (TVGuide.com US, opt-in)
+
+- Echte Programmdaten von TVGuide.com (`tvguide_epg.py`) gibt es NUR
+  ueber das explizite Praefix `TVGUIDE:<Land, nur "US"
+  unterstuetzt/optional>|<Kanalname wie bei TVGuide>|<Logo-URL>`, z. B.
+  `TVGUIDE:US|CBS|https://example.com/logo.png`.
+- Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
+  genau wie bei SKY/DAZN/FREEVIEW: reines Opt-in ueber die explizite
+  Zeile.
+- Es wird nur EINE fest hinterlegte, nationale providerId verwendet
+  (nicht die postleitzahl-/anbieterabhaengige Provider-Auswahl des
+  Originals), deckt also die gaengigen US-Networks ab, aber keine
+  lokalen/kabelanbieter-spezifischen Sender. Ebenso wird keine
+  ausfuehrliche Sendungsbeschreibung/Rating/Genre nachgeladen (kein
+  Extra-Request pro Sendung wie im Original), `beschreibung` bleibt
+  daher immer leer.
+- Degradiert bei jedem Fehler (Netzwerk, kein Kanal-Treffer, keine
+  Daten) graceful auf die normale generische EPG-Generierung, kein
+  Absturz moeglich.

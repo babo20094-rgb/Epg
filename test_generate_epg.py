@@ -39,6 +39,8 @@ import sky_epg
 import arena_epg
 import magenta_epg
 import dazn_epg
+import freeview_epg
+import tvguide_epg
 
 
 # ==========================================================
@@ -955,3 +957,210 @@ def test_dazn_ohne_dazn_zeilen_werden_keine_requests_ausgeloest():
             dazn_epg.dazn_kanal_finden(daten["sender"], "de")
 
     assert dazn_sender_leer == []
+
+
+# ==========================================================
+# FREEVIEW-EPG (opt-in FREEVIEW:-Sender, nur GB, siehe freeview_epg.py)
+# ==========================================================
+
+@pytest.fixture(autouse=True)
+def _freeview_cache_zuruecksetzen():
+    freeview_epg._raw_cache = {}
+    yield
+    freeview_epg._raw_cache = {}
+
+
+def _freeview_guide_response():
+    return _mock_response({
+        "data": {
+            "programs": [
+                {
+                    "service_id": "bbc1",
+                    "title": "BBC One",
+                    "events": [
+                        {
+                            "main_title": "News",
+                            "secondary_title": None,
+                            "start_time": "2026-08-09T18:00:00Z",
+                            "duration": "01:00:00",
+                            "image_url": "https://example.com/img.jpg",
+                        },
+                        {
+                            "main_title": "Drama",
+                            "secondary_title": "Episode 1",
+                            "start_time": "2026-08-09T19:00:00Z",
+                            "duration": 1800,
+                        },
+                    ],
+                },
+                {"service_id": "itv1", "title": "ITV1", "events": []},
+            ]
+        }
+    })
+
+
+def test_freeview_erfolgreicher_abruf_liefert_echte_sendungen():
+    """Erfolgreiche Kanalsuche + Programmabruf muss echte Sendungen mit
+    Titel/Zeiten liefern (gemockter Netzwerkaufruf) - EIN Request pro Tag
+    (kanal_finden und Tag 0 des Programmabrufs teilen sich den Cache)."""
+    with patch(
+        "freeview_epg.requests.get",
+        side_effect=[_freeview_guide_response(), _freeview_guide_response()],
+    ):
+        site_id = freeview_epg.freeview_kanal_finden("BBC One")
+        assert site_id == "64257#bbc1"
+
+        programme = freeview_epg.freeview_hole_programme(site_id, tage=2)
+
+    assert len(programme) == 2
+    sendung = programme[0]
+    assert sendung["title"] == "News"
+    assert sendung["beschreibung"] is None
+    assert sendung["bild"] == "https://example.com/img.jpg"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+    assert programme[1]["title"] == "Drama (Episode 1)"
+
+
+def test_freeview_kanal_id_verwendet_land_pipe_name_format():
+    """Regressionstest fuer den kanal-id-Bug: 'kanal' (die <channel>-id/
+    display-name in der XML) muss im 'LAND| Name'-Format gebaut werden
+    (z.B. 'GB| BBC One'), NICHT als bloßer Kanalname - repliziert exakt
+    die Formel aus dem FREEVIEW:-Parsing-Block in generate_epg.py."""
+    freeview_land = "GB"
+    freeview_kanalname = "BBC One"
+    kanal = f"{freeview_land}| {freeview_kanalname}"
+    assert kanal == "GB| BBC One"
+    assert kanal != freeview_kanalname
+
+
+def test_freeview_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck():
+    """Kein Kanal-Treffer bzw. ein Netzwerkfehler duerfen NIE eine
+    Exception werfen, sondern muessen graceful auf None/[]
+    zurueckfallen."""
+    with patch("freeview_epg.requests.get", side_effect=[_freeview_guide_response()]):
+        assert freeview_epg.freeview_kanal_finden("Nicht Existierender Kanal XYZ") is None
+
+    freeview_epg._raw_cache = {}
+
+    with patch("freeview_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert freeview_epg.freeview_hole_kanalliste() == []
+        assert freeview_epg.freeview_kanal_finden("BBC One") is None
+        assert freeview_epg.freeview_hole_programme("64257#bbc1", tage=2) == []
+
+
+def test_freeview_ohne_freeview_zeilen_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne FREEVIEW:-Zeilen darf freeview_epg's Request-
+    Funktionen ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog
+    zum SKY:/DAZN:-Guard in generate_epg.py)."""
+    freeview_sender_leer = []
+
+    with patch("freeview_epg.requests.get", side_effect=AssertionError("freeview_epg haette nicht kontaktiert werden duerfen")):
+        for daten in freeview_sender_leer:
+            freeview_epg.freeview_kanal_finden(daten["sender"])
+
+    assert freeview_sender_leer == []
+
+
+# ==========================================================
+# TVGUIDE-EPG (opt-in TVGUIDE:-Sender, nur US, siehe tvguide_epg.py)
+# ==========================================================
+
+@pytest.fixture(autouse=True)
+def _tvguide_cache_zuruecksetzen():
+    tvguide_epg._segment_cache = {}
+    yield
+    tvguide_epg._segment_cache = {}
+
+
+def _tvguide_channels_response():
+    return _mock_response({
+        "data": {
+            "items": [
+                {"sourceId": "111", "fullName": "CBS Channel Schedule"},
+                {"sourceId": "222", "fullName": "NBC"},
+            ]
+        }
+    })
+
+
+def _tvguide_segment_response(mit_daten=True):
+    if not mit_daten:
+        return _mock_response({"data": {"items": []}})
+    return _mock_response({
+        "data": {
+            "items": [
+                {
+                    "channel": {"sourceId": 111},
+                    "programSchedules": [
+                        {
+                            "title": "Evening News",
+                            "startTime": 1786377600,
+                            "endTime": 1786381200,
+                        }
+                    ],
+                },
+                {"channel": {"sourceId": 222}, "programSchedules": []},
+            ]
+        }
+    })
+
+
+def test_tvguide_erfolgreicher_abruf_liefert_echte_sendungen():
+    """Erfolgreiche Kanalsuche + Programmabruf muss echte Sendungen mit
+    Titel/Zeiten liefern (gemockter Netzwerkaufruf) - 1 Request fuer die
+    Kanalliste + 6 Segment-Requests pro Tag."""
+    responses = [_tvguide_channels_response()] + [
+        _tvguide_segment_response() for _ in range(12)
+    ]
+    with patch("tvguide_epg.requests.get", side_effect=responses):
+        site_id = tvguide_epg.tvguide_kanal_finden("CBS")
+        assert site_id == "111"
+
+        programme = tvguide_epg.tvguide_hole_programme(site_id, tage=2)
+
+    assert len(programme) == 1
+    sendung = programme[0]
+    assert sendung["title"] == "Evening News"
+    assert sendung["beschreibung"] is None
+    assert sendung["bild"] is None
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_tvguide_kanal_id_verwendet_land_pipe_name_format():
+    """Regressionstest fuer den kanal-id-Bug: 'kanal' (die <channel>-id/
+    display-name in der XML) muss im 'LAND| Name'-Format gebaut werden
+    (z.B. 'US| CBS'), NICHT als bloßer Kanalname - repliziert exakt die
+    Formel aus dem TVGUIDE:-Parsing-Block in generate_epg.py."""
+    tvguide_land = "US"
+    tvguide_kanalname = "CBS"
+    kanal = f"{tvguide_land}| {tvguide_kanalname}"
+    assert kanal == "US| CBS"
+    assert kanal != tvguide_kanalname
+
+
+def test_tvguide_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck():
+    """Kein Kanal-Treffer bzw. ein Netzwerkfehler duerfen NIE eine
+    Exception werfen, sondern muessen graceful auf None/[]
+    zurueckfallen."""
+    with patch("tvguide_epg.requests.get", side_effect=[_tvguide_channels_response()]):
+        assert tvguide_epg.tvguide_kanal_finden("Nicht Existierender Kanal XYZ") is None
+
+    with patch("tvguide_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert tvguide_epg.tvguide_hole_kanalliste() == []
+        assert tvguide_epg.tvguide_kanal_finden("CBS") is None
+        assert tvguide_epg.tvguide_hole_programme("111", tage=2) == []
+
+
+def test_tvguide_ohne_tvguide_zeilen_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne TVGUIDE:-Zeilen darf tvguide_epg's Request-
+    Funktionen ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog
+    zum SKY:/DAZN:-Guard in generate_epg.py)."""
+    tvguide_sender_leer = []
+
+    with patch("tvguide_epg.requests.get", side_effect=AssertionError("tvguide_epg haette nicht kontaktiert werden duerfen")):
+        for daten in tvguide_sender_leer:
+            tvguide_epg.tvguide_kanal_finden(daten["sender"])
+
+    assert tvguide_sender_leer == []

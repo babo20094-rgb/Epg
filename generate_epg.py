@@ -24,6 +24,8 @@ from sky_epg import sky_kanal_finden, sky_hole_programme
 from magenta_epg import magenta_kanal_finden, magenta_hole_programme
 from arena_epg import arena_kanal_finden, arena_hole_programme
 from dazn_epg import dazn_kanal_finden, dazn_hole_programme
+from freeview_epg import freeview_kanal_finden, freeview_hole_programme
+from tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
@@ -739,6 +741,121 @@ for zeile in zeilen:
         })
         continue
 
+    # FREEVIEW:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von der Freeview-UK-TV-Guide-API (siehe
+    # freeview_epg.py) bekommen sollen, statt der generischen
+    # kategoriebasierten Platzhaltertexte. Genau wie bei SKY:/DAZN: gibt
+    # es hier BEWUSST KEIN automatisches Matching - nur Sender mit
+    # dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:/DAZN:-Schema):
+    #
+    #   FREEVIEW:<Land, nur "GB" unterstützt, optional, Default GB>|<Kanalname wie bei Freeview>|<Logo-URL>
+    #
+    # Beispiel:
+    #   FREEVIEW:GB|BBC One|https://example.com/logo.png
+    #
+    # Es wird nur "GB" unterstützt (jeder andere Wert fällt still auf
+    # "GB" zurück). Der Kanalname (2. Feld) wird 1:1 als <channel>
+    # id/display-name verwendet UND als Suchbegriff gegen die Freeview-
+    # Kanalliste (freeview_kanal_finden(), erst exakt normalisiert, dann
+    # difflib-Fuzzy-Match). Die Kanalliste deckt nur die eine
+    # repräsentative Network-ID "Greater London" ab, also nur NATIONALE
+    # Kanäle, keine regionalen Opt-out-Varianten (siehe
+    # freeview_epg.py-Docstring). Jeder Fehlschlag der Freeview-Anfrage
+    # fällt exakt auf die normale, generische Generierung zurück wie bei
+    # jedem anderen Sender.
+    if zeile.upper().startswith("FREEVIEW:"):
+        rest = zeile[len("FREEVIEW:"):]
+        teile_freeview = [x.strip() for x in rest.split("|")]
+
+        while len(teile_freeview) < 3:
+            teile_freeview.append("")
+
+        freeview_land = teile_freeview[0].upper() or "GB"
+        if freeview_land != "GB":
+            freeview_land = "GB"
+
+        freeview_kanalname = teile_freeview[1]
+        freeview_logo = teile_freeview[2]
+
+        if not freeview_kanalname:
+            continue
+
+        freeview_auto_beschreibung, freeview_kategorie_key = standard_beschreibung(
+            freeview_land, freeview_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": f"{freeview_land}| {freeview_kanalname}",
+            "land": freeview_land,
+            "sender": freeview_kanalname,
+            "beschreibung": freeview_auto_beschreibung,
+            "logo": freeview_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": freeview_kategorie_key,
+            "freeview": True,
+        })
+        continue
+
+    # TVGUIDE:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von der TVGuide.com-US-API (siehe tvguide_epg.py)
+    # bekommen sollen, statt der generischen kategoriebasierten
+    # Platzhaltertexte. Genau wie bei SKY:/DAZN:/FREEVIEW: gibt es hier
+    # BEWUSST KEIN automatisches Matching - nur Sender mit dieser Zeile
+    # bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:/DAZN:-Schema):
+    #
+    #   TVGUIDE:<Land, nur "US" unterstützt, optional, Default US>|<Kanalname wie bei TVGuide>|<Logo-URL>
+    #
+    # Beispiel:
+    #   TVGUIDE:US|CBS|https://example.com/logo.png
+    #
+    # Es wird nur "US" unterstützt (jeder andere Wert fällt still auf
+    # "US" zurück). Der Kanalname (2. Feld) wird 1:1 als <channel>
+    # id/display-name verwendet UND als Suchbegriff gegen die TVGuide-
+    # Kanalliste (tvguide_kanal_finden(), erst exakt normalisiert, dann
+    # difflib-Fuzzy-Match). Die Kanalliste deckt nur die eine fest
+    # hinterlegte, nationale providerId ab, keine lokalen/anbieter-
+    # spezifischen Sender (siehe tvguide_epg.py-Docstring). Jeder
+    # Fehlschlag der TVGuide-Anfrage fällt exakt auf die normale,
+    # generische Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("TVGUIDE:"):
+        rest = zeile[len("TVGUIDE:"):]
+        teile_tvguide = [x.strip() for x in rest.split("|")]
+
+        while len(teile_tvguide) < 3:
+            teile_tvguide.append("")
+
+        tvguide_land = teile_tvguide[0].upper() or "US"
+        if tvguide_land != "US":
+            tvguide_land = "US"
+
+        tvguide_kanalname = teile_tvguide[1]
+        tvguide_logo = teile_tvguide[2]
+
+        if not tvguide_kanalname:
+            continue
+
+        tvguide_auto_beschreibung, tvguide_kategorie_key = standard_beschreibung(
+            tvguide_land, tvguide_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": f"{tvguide_land}| {tvguide_kanalname}",
+            "land": tvguide_land,
+            "sender": tvguide_kanalname,
+            "beschreibung": tvguide_auto_beschreibung,
+            "logo": tvguide_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": tvguide_kategorie_key,
+            "tvguide": True,
+        })
+        continue
+
     teile = [x.strip() for x in zeile.split("|")]
 
     while len(teile) < 4:
@@ -1388,11 +1505,15 @@ SKY_TAGE = 2
 MAGENTA_TAGE = 2
 ARENA_TAGE = 2
 DAZN_TAGE = 3
+FREEVIEW_TAGE = 2
+TVGUIDE_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 magenta_sender = [d for d in sender_daten if d.get("magenta")]
 arena_sender = [d for d in sender_daten if d.get("arena")]
 dazn_sender = [d for d in sender_daten if d.get("dazn")]
+freeview_sender = [d for d in sender_daten if d.get("freeview")]
+tvguide_sender = [d for d in sender_daten if d.get("tvguide")]
 
 
 def _schreibe_echte_programme(daten, programme):
@@ -1586,6 +1707,66 @@ for daten in dazn_sender:
         print(f"DAZN-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
 # ==========================================================
+# FREEVIEW: echte Programmdaten fuer FREEVIEW:-Sender (siehe
+# freeview_epg.py und der Parsing-Kommentar oben bei "FREEVIEW:"). Rein
+# opt-in, unabhaengig von den anderen Quellen. Ohne jegliche
+# FREEVIEW:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in freeview_sender:
+    programme = []
+    try:
+        site_id = freeview_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = freeview_hole_programme(site_id, FREEVIEW_TAGE)
+        else:
+            print(f"Freeview-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"Freeview-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["freeview_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Freeview-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Freeview-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
+# TVGUIDE: echte Programmdaten fuer TVGUIDE:-Sender (siehe
+# tvguide_epg.py und der Parsing-Kommentar oben bei "TVGUIDE:"). Rein
+# opt-in, unabhaengig von den anderen Quellen. Ohne jegliche
+# TVGUIDE:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in tvguide_sender:
+    programme = []
+    try:
+        site_id = tvguide_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = tvguide_hole_programme(site_id, TVGUIDE_TAGE)
+        else:
+            print(f"TVGuide-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"TVGuide-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["tvguide_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"TVGuide-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"TVGuide-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
 # Statt starrer 2h-Slots orientieren sich die Blocklaengen an
 # einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
@@ -1643,6 +1824,16 @@ for tag_index in range(ANZAHL_TAGE):
             # echte DAZN-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
             if daten.get("dazn") and tag_start.date() in daten.get("dazn_tage", set()):
+                continue
+            # FREEVIEW:-Sender (siehe Block oben): Tage, an denen bereits
+            # echte Freeview-Programmdaten geschrieben wurden, werden
+            # hier ebenfalls nicht generisch nachgeneriert.
+            if daten.get("freeview") and tag_start.date() in daten.get("freeview_tage", set()):
+                continue
+            # TVGUIDE:-Sender (siehe Block oben): Tage, an denen bereits
+            # echte TVGuide-Programmdaten geschrieben wurden, werden hier
+            # ebenfalls nicht generisch nachgeneriert.
+            if daten.get("tvguide") and tag_start.date() in daten.get("tvguide_tage", set()):
                 continue
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
