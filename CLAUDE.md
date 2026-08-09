@@ -75,3 +75,89 @@ manuellem Trigger.
   automatisch beide Konventionen durch (`kern_und_event_extrahieren()` /
   `kern_vorne_und_event_extrahieren()`), bevor er den Kanal als
   "kein Treffer" überspringt.
+
+## TELEMACH:-Sender (echte Programmdaten, opt-in)
+
+- Jeder ganz normal eingetragene Sender mit Land `BA` oder `ME` in
+  `sender.txt` (z. B. `BA|BHT 1||AUTO`) wird automatisch beim
+  Generieren per Name gegen die Telemach-Kanalliste geprueft - kein
+  eigenes Prefix noetig. Bei Treffer gibt's echte Programmdaten statt
+  der generischen Kategorie-Platzhaltertexte, bei keinem Treffer oder
+  Fehler unveraendert die normale generische Beschreibung.
+- Zusaetzlich gibt es weiterhin `TELEMACH:<Land BA oder ME,
+  optional>|<Kanalname wie bei Telemach>|<Logo-URL>` (z. B.
+  `TELEMACH:BA|BHT 1|https://example.com/logo.png`) fuer Sender, die
+  in der eigenen Playlist unter einem anderen Namen laufen als bei
+  Telemach - der Kanalname hier ist gezielt der Telemach-Suchbegriff,
+  unabhaengig vom sonstigen Playlist-Namen.
+- Login, Kanalsuche (`telemach_kanal_finden()`, exakt dann fuzzy per
+  `difflib`) und Programmabruf (`telemach_hole_programme()`, bis zu 3
+  Tage) laufen in `telemach_epg.py` und degradieren bei jedem Fehler
+  (Netzwerk, kein Kanal-Treffer, keine Daten) graceful auf die normale
+  generische EPG-Generierung fuer diesen Sender - Tage 4-365 sind
+  ohnehin immer generisch.
+- Fuer BA-Sender (Bosnien, keine Montenegro-Variante) gibt es zusaetzlich
+  `mtel.ba` als zweite echte EPG-Quelle (`mtel_epg.py`): findet Telemach
+  fuer einen Sender gar nichts (kein Kanal-Treffer oder keine
+  Programmdaten), wird mtel.ba automatisch als zweiter Versuch probiert,
+  bevor es auf die generische Beschreibung zurueckfaellt. Gleiche
+  Zero-Risk-Garantie wie bei Telemach: jeder Fehler (Netzwerk, kein
+  Treffer, kaputtes JSON) degradiert still auf die normale generische
+  EPG-Generierung, kein neues sender.txt-Praefix noetig.
+
+## MAGENTA:-Sender (Magenta TV, opt-in)
+
+- Echte Programmdaten von Magenta TV (Deutsche Telekom, `magenta_epg.py`)
+  gibt es NUR ueber das explizite Praefix `MAGENTA:<Territory, nur "DE"
+  unterstuetzt/optional>|<Kanalname wie bei Magenta/eigener Playlist>|<Logo-
+  URL>`, z. B. `MAGENTA:DE|RTL|https://example.com/logo.png`.
+- Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
+  genau wie bei SKY: gibt es zu viele DE-Sender-Zeilen in sender.txt,
+  das waeren zu viele API-Aufrufe pro Lauf und ein zu hohes
+  Fehltreffer-Risiko.
+- Intern werden zwei Magenta-Quellen verkettet probiert (analog zum
+  Telemach->mtel.ba-Fallback): zuerst die neuere www.magenta.tv-API
+  (MPX-Feed-basiert, keine Anmeldung noetig), bei keinem Kanal-Treffer
+  oder keinen Programmdaten als zweiter Versuch die aeltere
+  web.magentatv.de-API (Cookie/CSRF-JSON).
+- Degradiert bei jedem Fehler (Netzwerk, kein Kanal-Treffer bei beiden
+  Quellen, keine Daten) graceful auf die normale generische
+  EPG-Generierung, kein Absturz moeglich - Tage 3-365 sind ohnehin
+  immer generisch.
+
+## SKY:-Sender (Sky Deutschland, opt-in)
+
+- Echte Programmdaten von Sky Deutschland (`sky_epg.py`, HAWK-API) gibt
+  es NUR ueber das explizite Praefix `SKY:<Territory, nur "DE"
+  unterstuetzt/optional>|<Kanalname wie bei Sky/eigener Playlist>|<Logo-
+  URL>`, z. B. `SKY:DE|Sky Sport Bundesliga 1|https://example.com/logo.png`.
+- Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
+  dafuer gibt es schlicht zu viele DE-Sender-Zeilen in sender.txt, das
+  waeren zu viele API-Aufrufe pro Lauf und ein zu hohes Fehltreffer-
+  Risiko.
+- Kanalsuche (`sky_kanal_finden()`, exakt dann fuzzy per `difflib`) und
+  Programmabruf (`sky_hole_programme()`, bis zu 2 Tage) degradieren bei
+  jedem Fehler (Netzwerk, kein Kanal-Treffer, keine Daten) graceful auf
+  die normale generische EPG-Generierung - Tage 3-365 sind ohnehin immer
+  generisch.
+- Nur das Territory "DE" und die nicht-UHD-Kanaele (HAWK-API) werden
+  unterstuetzt, keine anderen Sky-Laender und keine UHD-Kanaele
+  (Atlantis-API).
+
+## ARENA:-Sender (Arena Sport HR/RS, opt-in)
+
+- Echte, HTML-gescrapte Programmdaten von Arena Sport (`arena_epg.py`)
+  gibt es NUR ueber das explizite Praefix `ARENA:<Land HR oder RS>|
+  <Kanalname, z.B. "Arena Sport 1">|<Logo-URL>`, z. B.
+  `ARENA:HR|Arena Sport 1|https://example.com/logo.png`. HR nutzt
+  tvarenasport.hr (Kroatisch, Zeitzone Europe/Budapest), RS nutzt
+  tvarenasport.com (Serbisch, Zeitzone Europe/Belgrade); unbekannte/
+  leere Land-Werte fallen auf HR zurueck.
+- Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
+  genau wie bei SKY: nur reines Opt-in ueber die explizite Zeile.
+- Da hier HTML statt einer stabilen JSON-API geparst wird
+  (`BeautifulSoup`), ist die Quelle prinzipiell anfaelliger fuer
+  Breaking Changes bei einem Website-Redesign als Telemach/mtel/Sky -
+  degradiert aber nach derselben Zero-Risk-Garantie bei jedem Fehler
+  (Netzwerk, kein Kanal-Treffer, unerwartete HTML-Struktur) still auf
+  die normale generische EPG-Generierung fuer diesen Sender.

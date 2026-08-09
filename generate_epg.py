@@ -18,6 +18,11 @@ from epg_lib import (
     kanalname_normal_geschrieben,
     normalisiere_sendername, baue_logo_index, finde_logo,
 )
+from telemach_epg import telemach_kanal_finden, telemach_hole_programme
+from mtel_epg import mtel_kanal_finden, mtel_hole_programme
+from sky_epg import sky_kanal_finden, sky_hole_programme
+from magenta_epg import magenta_kanal_finden, magenta_hole_programme
+from arena_epg import arena_kanal_finden, arena_hole_programme
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
@@ -434,6 +439,246 @@ for zeile in zeilen:
         })
         continue
 
+    # TELEMACH:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von der Telemach BA/ME-EPG-API bekommen sollen
+    # (siehe telemach_epg.py), statt der generischen kategoriebasierten
+    # Platzhaltertexte - z.B. weil der Sender in der eigenen TiviMate-
+    # Playlist gar kein EPG mitbringt. KEIN automatisches Matching
+    # gegen alle bosnischen/montenegrinischen Sender - nur Sender mit
+    # dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum bestehenden Land|Sender|...-Schema,
+    # nur mit Präfix und fest auf Land+Name+Logo begrenzt):
+    #
+    #   TELEMACH:<Land BA oder ME, optional, Default BA>|<Kanalname wie bei Telemach>|<Logo-URL>
+    #
+    # Beispiel:
+    #   TELEMACH:BA|BHT 1|https://example.com/logo.png
+    #   TELEMACH:|Sport Klub 1|                      (Land leer -> BA, ohne Logo)
+    #
+    # Der Kanalname (2. Feld) wird 1:1 als <channel> id/display-name
+    # verwendet (wie bei NAME:) UND als Suchbegriff gegen die Telemach-
+    # Kanalliste (telemach_kanal_finden(), erst exakt normalisiert,
+    # dann difflib-Fuzzy-Match). Fuer die ersten bis zu 3 Tage werden -
+    # sofern Login/Kanalsuche/Programmabruf gelingen - echte Sendungen
+    # eingetragen; alle weiteren Tage (und bei jedem Fehlschlag der
+    # Telemach-Anfrage) fallen exakt auf die normale, generische
+    # Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("TELEMACH:"):
+        rest = zeile[len("TELEMACH:"):]
+        teile_telemach = [x.strip() for x in rest.split("|")]
+
+        while len(teile_telemach) < 3:
+            teile_telemach.append("")
+
+        telemach_land = teile_telemach[0].upper() or "BA"
+        if telemach_land not in ("BA", "ME"):
+            telemach_land = "BA"
+
+        telemach_kanalname = teile_telemach[1]
+        telemach_logo = teile_telemach[2]
+
+        if not telemach_kanalname:
+            continue
+
+        telemach_auto_beschreibung, telemach_kategorie_key = standard_beschreibung(
+            telemach_land, telemach_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": telemach_kanalname,
+            "land": telemach_land,
+            "sender": telemach_kanalname,
+            "beschreibung": telemach_auto_beschreibung,
+            "logo": telemach_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": telemach_kategorie_key,
+            "telemach": {"country": telemach_land.lower()},
+        })
+        continue
+
+    # SKY:-Präfix: opt-in für EINZELNE Sender, die echte Programmdaten
+    # von der Sky-Deutschland-EPG-API bekommen sollen (siehe
+    # sky_epg.py), statt der generischen kategoriebasierten
+    # Platzhaltertexte. Im Unterschied zum TELEMACH:-Mechanismus gibt es
+    # hier BEWUSST KEIN automatisches Matching gegen alle Sender mit
+    # Land "DE" - zu viele DE-Zeilen in sender.txt, das wären zu viele
+    # API-Aufrufe pro Lauf und ein zu hohes Fehltreffer-Risiko. Nur
+    # Sender mit dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum TELEMACH:-Schema):
+    #
+    #   SKY:<Territory, nur "DE" unterstützt/Default>|<Kanalname wie bei Sky>|<Logo-URL>
+    #
+    # Beispiel:
+    #   SKY:DE|Sky Sport Bundesliga 1|https://example.com/logo.png
+    #
+    # Der Kanalname (2. Feld) wird 1:1 als <channel> id/display-name
+    # verwendet (wie bei NAME:/TELEMACH:) UND als Suchbegriff gegen die
+    # Sky-Kanalliste (sky_kanal_finden(), erst exakt normalisiert, dann
+    # difflib-Fuzzy-Match). Für die ersten bis zu 2 Tage werden - sofern
+    # Kanalsuche/Programmabruf gelingen - echte Sendungen eingetragen;
+    # alle weiteren Tage (und bei jedem Fehlschlag der Sky-Anfrage)
+    # fallen exakt auf die normale, generische Generierung zurück wie
+    # bei jedem anderen Sender.
+    if zeile.upper().startswith("SKY:"):
+        rest = zeile[len("SKY:"):]
+        teile_sky = [x.strip() for x in rest.split("|")]
+
+        while len(teile_sky) < 3:
+            teile_sky.append("")
+
+        # Territory ist aktuell fest auf "DE" - andere Werte werden
+        # graceful ignoriert/auf "DE" zurückgesetzt (siehe sky_epg.py).
+        sky_territory = teile_sky[0].upper() or "DE"
+        if sky_territory != "DE":
+            sky_territory = "DE"
+
+        sky_kanalname = teile_sky[1]
+        sky_logo = teile_sky[2]
+
+        if not sky_kanalname:
+            continue
+
+        sky_auto_beschreibung, sky_kategorie_key = standard_beschreibung(
+            "DE", sky_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": sky_kanalname,
+            "land": "DE",
+            "sender": sky_kanalname,
+            "beschreibung": sky_auto_beschreibung,
+            "logo": sky_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": sky_kategorie_key,
+            "sky": {"territory": sky_territory},
+        })
+        continue
+
+    # MAGENTA:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von Magenta TV (Deutsche Telekom) bekommen sollen
+    # (siehe magenta_epg.py), statt der generischen kategoriebasierten
+    # Platzhaltertexte. Genau wie bei SKY: gibt es hier BEWUSST KEIN
+    # automatisches Matching gegen alle Sender mit Land "DE" - nur
+    # Sender mit dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:-Schema):
+    #
+    #   MAGENTA:<Territory, nur "DE" unterstützt/Default>|<Kanalname wie bei Magenta>|<Logo-URL>
+    #
+    # Beispiel:
+    #   MAGENTA:DE|RTL|https://example.com/logo.png
+    #
+    # Der Kanalname (2. Feld) wird 1:1 als <channel> id/display-name
+    # verwendet (wie bei NAME:/SKY:) UND als Suchbegriff gegen die
+    # Magenta-Kanalliste (magenta_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match). Dabei wird zuerst die
+    # neuere www.magenta.tv-API versucht, bei keinem Treffer/keinen
+    # Daten als zweiter Versuch die ältere web.magentatv.de-API (analog
+    # zum Telemach->mtel.ba-Fallback). Für die ersten bis zu 2 Tage
+    # werden - sofern eine der beiden Quellen etwas liefert - echte
+    # Sendungen eingetragen; alle weiteren Tage (und bei Fehlschlag
+    # beider Quellen) fallen exakt auf die normale, generische
+    # Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("MAGENTA:"):
+        rest = zeile[len("MAGENTA:"):]
+        teile_magenta = [x.strip() for x in rest.split("|")]
+
+        while len(teile_magenta) < 3:
+            teile_magenta.append("")
+
+        # Territory ist aktuell fest auf "DE" - andere Werte werden
+        # graceful ignoriert/auf "DE" zurückgesetzt (siehe magenta_epg.py).
+        magenta_territory = teile_magenta[0].upper() or "DE"
+        if magenta_territory != "DE":
+            magenta_territory = "DE"
+
+        magenta_kanalname = teile_magenta[1]
+        magenta_logo = teile_magenta[2]
+
+        if not magenta_kanalname:
+            continue
+
+        magenta_auto_beschreibung, magenta_kategorie_key = standard_beschreibung(
+            "DE", magenta_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": magenta_kanalname,
+            "land": "DE",
+            "sender": magenta_kanalname,
+            "beschreibung": magenta_auto_beschreibung,
+            "logo": magenta_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": magenta_kategorie_key,
+            "magenta": True,
+        })
+        continue
+
+    # ARENA:-Präfix: opt-in für EINZELNE Sender, die echte Programmdaten
+    # von den HTML-gescrapten Arena-Sport-Seiten (siehe arena_epg.py)
+    # bekommen sollen, statt der generischen kategoriebasierten
+    # Platzhaltertexte. Genau wie bei SKY: gibt es hier BEWUSST KEIN
+    # automatisches Matching - nur Sender mit dieser Zeile bekommen die
+    # echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:-Schema):
+    #
+    #   ARENA:<Land HR oder RS>|<Kanalname, z.B. "Arena Sport 1">|<Logo-URL>
+    #
+    # Beispiele:
+    #   ARENA:HR|Arena Sport 1|https://example.com/logo.png
+    #   ARENA:RS|Arena Sport 2 Serbia|https://example.com/logo.png
+    #
+    # Land bestimmt, welche Seite gescrapt wird (HR -> tvarenasport.hr,
+    # RS -> tvarenasport.com) und welche Zeitzone gilt (HR: Europe/
+    # Budapest, RS: Europe/Belgrade). Unbekannte/leere Werte fallen
+    # graceful auf HR zurück. Der Kanalname (2. Feld) wird 1:1 als
+    # <channel> id/display-name verwendet UND als Suchbegriff gegen die
+    # Arena-Kanalliste (arena_kanal_finden(), erst exakt normalisiert,
+    # dann difflib-Fuzzy-Match). Für die verfügbaren Tage (bis zu
+    # ARENA_TAGE) werden - sofern Kanalsuche/Programmabruf gelingen -
+    # echte Sendungen eingetragen; alle weiteren Tage (und bei jedem
+    # Fehlschlag) fallen exakt auf die normale, generische Generierung
+    # zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("ARENA:"):
+        rest = zeile[len("ARENA:"):]
+        teile_arena = [x.strip() for x in rest.split("|")]
+
+        while len(teile_arena) < 3:
+            teile_arena.append("")
+
+        arena_land = teile_arena[0].upper() or "HR"
+        if arena_land not in ("HR", "RS"):
+            arena_land = "HR"
+
+        arena_kanalname = teile_arena[1]
+        arena_logo = teile_arena[2]
+
+        if not arena_kanalname:
+            continue
+
+        arena_auto_beschreibung, arena_kategorie_key = standard_beschreibung(
+            arena_land, arena_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": arena_kanalname,
+            "land": arena_land,
+            "sender": arena_kanalname,
+            "beschreibung": arena_auto_beschreibung,
+            "logo": arena_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": arena_kategorie_key,
+            "arena": {"land": arena_land},
+        })
+        continue
+
     teile = [x.strip() for x in zeile.split("|")]
 
     while len(teile) < 4:
@@ -475,7 +720,7 @@ for zeile in zeilen:
     if manueller_text:
         direkter_text_event_titel = manueller_text
 
-    sender_daten.append({
+    eintrag = {
         "kanal": kanal,
         "land": land,
         "sender": sender,
@@ -484,7 +729,21 @@ for zeile in zeilen:
         "exakter_name": False,
         "event_titel": direkter_text_event_titel,
         "kategorie": kategorie_key
-    })
+    }
+
+    # Automatischer Telemach-Abgleich fuer BA/ME-Sender: kein eigenes
+    # TELEMACH:-Prefix noetig - jeder ganz normal eingetragene Sender
+    # mit Land "BA" oder "ME" wird beim Generieren zusaetzlich per
+    # Name gegen die Telemach-Kanalliste geprueft (siehe telemach_epg.py
+    # und der Verarbeitungsblock bei "telemach_sender" weiter unten).
+    # Bei Treffer werden fuer die ersten bis zu 3 Tage echte Sendungen
+    # eingetragen, sonst faellt der Sender unveraendert auf die normale
+    # generische Beschreibung zurueck - reine Zusatzanreicherung ohne
+    # Risiko fuer bestehende Sender.
+    if land.strip().upper() in ("BA", "ME"):
+        eintrag["telemach"] = {"country": land.strip().lower()}
+
+    sender_daten.append(eintrag)
 
 # ==========================================================
 # logo_only.txt lesen (optional)
@@ -1055,6 +1314,187 @@ if name_pipe_kanal_index:
 # kern_vorne_und_event_extrahieren()).
 
 # ==========================================================
+# TELEMACH: echte Programmdaten fuer TELEMACH:-Sender (siehe
+# telemach_epg.py und der Parsing-Kommentar oben bei "TELEMACH:").
+# Login und Kanalliste werden dank Caching in telemach_epg.py nur
+# einmal pro Land geholt, egal wie viele TELEMACH:-Sender es gibt.
+# Ohne jegliche TELEMACH:-Zeile in sender.txt passiert hier gar
+# nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+TELEMACH_TAGE = 3
+MTEL_TAGE = 2
+SKY_TAGE = 2
+MAGENTA_TAGE = 2
+ARENA_TAGE = 2
+telemach_sender = [d for d in sender_daten if d.get("telemach")]
+sky_sender = [d for d in sender_daten if d.get("sky")]
+magenta_sender = [d for d in sender_daten if d.get("magenta")]
+arena_sender = [d for d in sender_daten if d.get("arena")]
+
+
+def _schreibe_echte_programme(daten, programme):
+    """Haengt die uebergebenen echten Programmdaten (Telemach ODER
+    mtel.ba, gleiches dict-Format) als <programme>-Eintraege an
+    xml_teile an."""
+    for p in programme:
+        start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
+        stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
+        titel_escaped = escape(p["title"])
+        beschr_text = p["beschreibung"] or p["title"]
+        beschr_escaped = escape(beschr_text)
+        sub_title_tag = (
+            f' <sub-title lang="de">{beschr_escaped}</sub-title>'
+            if beschr_escaped != titel_escaped else ""
+        )
+        icon_tag = f' <icon src="{escape(p["bild"])}"/>' if p.get("bild") else ""
+        xml_teile.append(
+            f' <programme start="{start_str}" stop="{stop_str}" channel="{escape(daten["kanal"])}">'
+            f' <title lang="de">{titel_escaped}</title>'
+            f'{sub_title_tag}'
+            f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
+        )
+
+
+for daten in telemach_sender:
+    programme = []
+    try:
+        site_id = telemach_kanal_finden(daten["sender"], daten["telemach"]["country"])
+        if site_id is not None:
+            programme = telemach_hole_programme(
+                site_id, daten["telemach"]["country"], TELEMACH_TAGE
+            )
+        else:
+            print(f"Telemach-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"Telemach-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["telemach_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Telemach-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Telemach-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+        # mtel.ba als zweiter Versuch: nur fuer BA-Sender (mtel.ba kennt
+        # kein Montenegro), und nur weil Telemach fuer diesen Sender
+        # nichts gefunden hat. Kein Merge beider Quellen - entweder
+        # Telemach ODER mtel.ba ODER generisch.
+        if daten["telemach"]["country"] == "ba":
+            mtel_programme = []
+            try:
+                mtel_site_id = mtel_kanal_finden(daten["sender"])
+                if mtel_site_id is not None:
+                    mtel_programme = mtel_hole_programme(mtel_site_id, MTEL_TAGE)
+                else:
+                    print(f"Mtel-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            except Exception as e:
+                print(f"Mtel-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                mtel_programme = []
+
+            daten["mtel_tage"] = {p["start"].date() for p in mtel_programme}
+
+            if mtel_programme:
+                print(f"Mtel-EPG: {len(mtel_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach-Fallback).")
+                _schreibe_echte_programme(daten, mtel_programme)
+            else:
+                print(f"Mtel-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
+# SKY: echte Programmdaten fuer SKY:-Sender (siehe sky_epg.py und der
+# Parsing-Kommentar oben bei "SKY:"). Rein opt-in, unabhaengig von
+# Telemach/mtel.ba (die sind BA/ME-only, Sky ist DE-only - beide
+# Mechanismen schliessen sich gegenseitig aus). Ohne jegliche
+# SKY:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in sky_sender:
+    programme = []
+    try:
+        site_id = sky_kanal_finden(daten["sender"], daten["sky"]["territory"])
+        if site_id is not None:
+            programme = sky_hole_programme(site_id, daten["sky"]["territory"], SKY_TAGE)
+        else:
+            print(f"Sky-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"Sky-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["sky_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Sky-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Sky-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
+# MAGENTA: echte Programmdaten fuer MAGENTA:-Sender (siehe magenta_epg.py
+# und der Parsing-Kommentar oben bei "MAGENTA:"). Rein opt-in,
+# unabhaengig von den anderen Quellen. Ohne jegliche MAGENTA:-Zeile in
+# sender.txt passiert hier gar nichts - keine zusaetzlichen
+# Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in magenta_sender:
+    programme = []
+    try:
+        kanal_ref = magenta_kanal_finden(daten["sender"])
+        if kanal_ref is not None:
+            programme = magenta_hole_programme(kanal_ref, MAGENTA_TAGE)
+        else:
+            print(f"Magenta-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"Magenta-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["magenta_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Magenta-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Magenta-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
+# ARENA: echte Programmdaten fuer ARENA:-Sender (siehe arena_epg.py und
+# der Parsing-Kommentar oben bei "ARENA:"). Rein opt-in, unabhaengig von
+# den anderen Quellen. Ohne jegliche ARENA:-Zeile in sender.txt passiert
+# hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in arena_sender:
+    programme = []
+    try:
+        site_id = arena_kanal_finden(daten["sender"], daten["arena"]["land"])
+        if site_id is not None:
+            programme = arena_hole_programme(site_id, daten["arena"]["land"], ARENA_TAGE)
+        else:
+            print(f"Arena-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"Arena-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["arena_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Arena-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Arena-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
 # Statt starrer 2h-Slots orientieren sich die Blocklaengen an
 # einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
@@ -1078,6 +1518,37 @@ for tag_index in range(ANZAHL_TAGE):
         stunden_cursor += dauer
 
         for daten in sender_daten:
+            # TELEMACH:-Sender: fuer Tage, an denen bereits echte
+            # Telemach-Programmdaten geschrieben wurden (siehe Block
+            # oben vor diesem Tagesraster), wird HIER nichts generisch
+            # nachgeneriert - sonst gaebe es doppelte/ueberlappende
+            # <programme>-Eintraege fuer denselben Zeitraum. Tage ohne
+            # echte Daten (Tag 4+, oder wenn der Abruf komplett
+            # fehlgeschlagen ist) fallen unveraendert auf den normalen
+            # generischen Pfad weiter unten durch.
+            if daten.get("telemach") and tag_start.date() in daten.get("telemach_tage", set()):
+                continue
+            # mtel.ba-Fallback (siehe Block oben): Tage, an denen mtel.ba
+            # anstelle von Telemach echte Daten geliefert hat, werden
+            # hier ebenfalls nicht generisch nachgeneriert.
+            if daten.get("telemach") and tag_start.date() in daten.get("mtel_tage", set()):
+                continue
+            # SKY:-Sender (siehe Block oben): Tage, an denen bereits
+            # echte Sky-Programmdaten geschrieben wurden, werden hier
+            # ebenfalls nicht generisch nachgeneriert.
+            if daten.get("sky") and tag_start.date() in daten.get("sky_tage", set()):
+                continue
+            # MAGENTA:-Sender (siehe Block oben): Tage, an denen bereits
+            # echte Magenta-Programmdaten geschrieben wurden, werden hier
+            # ebenfalls nicht generisch nachgeneriert.
+            if daten.get("magenta") and tag_start.date() in daten.get("magenta_tage", set()):
+                continue
+            # ARENA:-Sender (siehe Block oben): Tage, an denen bereits
+            # echte Arena-Sport-Programmdaten geschrieben wurden, werden
+            # hier ebenfalls nicht generisch nachgeneriert.
+            if daten.get("arena") and tag_start.date() in daten.get("arena_tage", set()):
+                continue
+
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
             # sich der Kanalname wegen eines laufenden/angekuendigten
             # Events geaendert (siehe Erkennung weiter oben beim
