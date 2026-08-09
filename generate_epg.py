@@ -447,7 +447,15 @@ for zeile in zeilen:
 
     auto_beschreibung, kategorie_key = standard_beschreibung(land, sender)
 
-    if beschreibung == "":
+    # "AUTO" ist im Beschreibungsfeld reserviert (analog zum Logofeld,
+    # siehe LOGO_AUTO_MARKER) - schuetzt vor dem haeufigen Tippfehler
+    # "Land|Sender|AUTO" (fehlender Pipe vor dem eigentlich gemeinten
+    # "Land|Sender||AUTO"), bei dem "AUTO" sonst versehentlich im
+    # Beschreibungsfeld statt im Logofeld landet und woertlich als
+    # Sendungstext erscheinen wuerde.
+    manueller_text = beschreibung if beschreibung.strip().upper() != LOGO_AUTO_MARKER else ""
+
+    if beschreibung == "" or beschreibung.strip().upper() == LOGO_AUTO_MARKER:
         beschreibung = auto_beschreibung
 
     # DAZN-Sender: im Gegensatz zu DYN PPV/Flo Racing aendert sich der
@@ -457,7 +465,15 @@ for zeile in zeilen:
     # eigentliche Kanalname selbst (z.B. "DAZN Bar 1 HD"), damit im
     # EPG-Raster erkennbar ist, um welchen konkreten DAZN-Sender es
     # sich handelt statt eines generischen Sport-Textes.
-    dazn_event_titel = kanalname_normal_geschrieben(sender) if "DAZN" in sender.upper() else None
+    direkter_text_event_titel = kanalname_normal_geschrieben(sender) if "DAZN" in sender.upper() else None
+
+    # Manuell eingetragener Text im Beschreibungsfeld (3. Spalte) hat
+    # Vorrang vor allem anderen: wird 1:1 als Sendungstitel/-beschreibung
+    # uebernommen, ohne Kategorie-Text oder Variation - fuer Sender, bei
+    # denen einfach immer derselbe feste Text gewuenscht ist, statt der
+    # automatisch generierten, abwechslungsreichen Kategorie-Beschreibung.
+    if manueller_text:
+        direkter_text_event_titel = manueller_text
 
     sender_daten.append({
         "kanal": kanal,
@@ -466,7 +482,7 @@ for zeile in zeilen:
         "beschreibung": beschreibung,
         "logo": logo,
         "exakter_name": False,
-        "event_titel": dazn_event_titel,
+        "event_titel": direkter_text_event_titel,
         "kategorie": kategorie_key
     })
 
