@@ -856,12 +856,6 @@ DE| DAZN ACL CORNHOLE TV SD||https://upload.wikimedia.org/wikipedia/commons/d/d6
 DE| DAZN BILLIARD TV SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE| DAZN ACL CORNHOLE TV RAW||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE| DAZN BILLIARD TV RAW||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
-DE| DAZN BAR 1 HD||https://epg.pw/media/images/epg/2024/06/08/20240608034440935332_61.png
-DE| DAZN BAR 1 FHD||https://epg.pw/media/images/epg/2024/06/08/20240608034440935332_61.png
-DE| DAZN BAR 1 FHD*||https://epg.pw/media/images/epg/2024/06/08/20240608034440935332_61.png
-DE| DAZN BAR 2 HD||https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/DAZN_2.svg/500px-DAZN_2.svg.png
-DE| DAZN BAR 2 FHD||https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/DAZN_2.svg/500px-DAZN_2.svg.png
-DE| DAZN BAR 2 FHD*||https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/DAZN_2.svg/500px-DAZN_2.svg.png
 NAME:- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 1|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
 NAME:- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 2|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
 NAME:- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 3|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
