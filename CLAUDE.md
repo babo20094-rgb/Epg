@@ -34,7 +34,7 @@ Ende anhängen).
 oder `NAME:<exakter Kanalname>|Logo` für Sender, deren echter Playlist-Name
 selbst Pipe-Zeichen enthält) und erzeugt daraus `Epg_365_Tage.xml`.
 `epg_lib.py` enthält die Kategorie-/Sprach-/Text-Logik. Der
-GitHub-Actions-Workflow `update_epg.yml` läuft alle 8h automatisch und bei
+GitHub-Actions-Workflow `update_epg.yml` läuft alle 4h automatisch und bei
 manuellem Trigger.
 
 ## DYN PPV / Live-Kanalname-Mechanismus
