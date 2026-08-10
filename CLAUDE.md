@@ -146,22 +146,6 @@ manuellem Trigger.
   Datenabdeckung ist entsprechend duenn (meist nur die naechsten paar
   Sendungen/Stunden statt mehrerer voller Tage).
 
-## MaxTV Go (Nordmazedonien, automatisch)
-
-- Echte Programmdaten von Max TV Go (`maxtv_epg.py`, Spectar-API,
-  keine Anmeldung noetig) werden - genau wie bei BA/ME/Telemach -
-  **automatisch** fuer jeden ganz normal eingetragenen Sender mit Land
-  `MK` in `sender.txt` versucht, kein eigenes Praefix noetig. Das ist
-  bewusst anders als bei den neueren Quellen (SKY/MAGENTA/DAZN/ARENA/
-  FREEVIEW/TVGUIDE), die reines Opt-in per Praefix sind - vertretbar,
-  weil sender.txt nur ~50 MK-Zeilen enthaelt (aehnliches
-  API-Aufrufvolumen wie bei BA/ME).
-- Kanalsuche (`maxtv_kanal_finden()`, exakt dann fuzzy per `difflib`)
-  und Programmabruf (`maxtv_hole_programme()`, bis zu 2 Tage)
-  degradieren bei jedem Fehler (Netzwerk, kein Kanal-Treffer, keine
-  Daten) graceful auf die normale generische EPG-Generierung fuer
-  diesen Sender - Tage 3-365 sind ohnehin immer generisch.
-
 ## SKY:-Sender (Sky Deutschland, opt-in)
 
 - Echte Programmdaten von Sky Deutschland (`sky_epg.py`, HAWK-API) gibt
