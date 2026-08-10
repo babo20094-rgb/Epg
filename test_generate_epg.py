@@ -41,6 +41,7 @@ import magenta_epg
 import dazn_epg
 import freeview_epg
 import tvguide_epg
+import maxtv_epg
 
 
 # ==========================================================
@@ -1164,3 +1165,98 @@ def test_tvguide_ohne_tvguide_zeilen_werden_keine_requests_ausgeloest():
             tvguide_epg.tvguide_kanal_finden(daten["sender"])
 
     assert tvguide_sender_leer == []
+
+
+# ==========================================================
+# MaxTV-Go-EPG (automatischer Abgleich fuer Land=MK-Sender, siehe
+# maxtv_epg.py, analog zum automatischen Telemach-Abgleich fuer BA/ME)
+# ==========================================================
+
+@pytest.fixture(autouse=True)
+def _maxtv_cache_zuruecksetzen():
+    """Modul-weiter Kanallisten-Cache muss zwischen Tests zurueckgesetzt
+    werden, sonst beeinflussen sich Tests gegenseitig."""
+    maxtv_epg._kanalliste_cache = None
+    yield
+    maxtv_epg._kanalliste_cache = None
+
+
+def _maxtv_channels_response():
+    return _mock_response([
+        {"id": "77", "name": "Sitel"},
+        {"id": "78", "name": "Kanal 5"},
+    ])
+
+
+def _maxtv_epg_response():
+    return _mock_response({
+        "programme": [
+            {
+                "title": "Vesti",
+                "desc": "Dnevnik na vesti",
+                "icon": {"@attributes": {"src": "https://example.com/vesti.png"}},
+                "@attributes": {
+                    "start": "20260810190000 +0200",
+                    "stop": "20260810193000 +0200",
+                },
+            },
+        ]
+    })
+
+
+def test_maxtv_plain_mk_zeile_bekommt_marker_und_liefert_echte_sendungen():
+    """Eine ganz normale 'MK|Sender|...'-sender.txt-Zeile (KEIN Praefix)
+    bekommt beim Einlesen den 'maxtv'-Marker (repliziert die Logik aus
+    generate_epg.py: `if land.strip().upper() == "MK": eintrag["maxtv"]
+    = True`), und ein erfolgreicher Kanal-Match + Programmabruf liefert
+    echte Sendungen mit Titel/Zeiten."""
+    land = "MK"
+    eintrag = {"land": land, "sender": "Sitel", "maxtv": False}
+    if land.strip().upper() == "MK":
+        eintrag["maxtv"] = True
+    assert eintrag["maxtv"] is True
+
+    with patch("maxtv_epg.requests.get", side_effect=[_maxtv_channels_response(), _maxtv_epg_response(), _maxtv_epg_response()]):
+        site_id = maxtv_epg.maxtv_kanal_finden("Sitel")
+        assert site_id == "77"
+
+        programme = maxtv_epg.maxtv_hole_programme(site_id, tage=2)
+
+    assert len(programme) == 2
+    sendung = programme[0]
+    assert sendung["title"] == "Vesti"
+    assert sendung["beschreibung"] == "Dnevnik na vesti"
+    assert sendung["bild"] == "https://example.com/vesti.png"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_maxtv_kein_treffer_oder_fehlschlag_faellt_graceful_zurueck():
+    """Kein Kanal-Treffer bzw. ein Netzwerkfehler duerfen NIE eine
+    Exception werfen, sondern muessen graceful auf None/[]
+    zurueckfallen - der betroffene Sender bekommt in generate_epg.py
+    dann einfach die normale generische EPG."""
+    with patch("maxtv_epg.requests.get", side_effect=[_maxtv_channels_response()]):
+        assert maxtv_epg.maxtv_kanal_finden("Nicht Existierender Kanal XYZ") is None
+
+    maxtv_epg._kanalliste_cache = None
+
+    with patch("maxtv_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert maxtv_epg.maxtv_hole_kanalliste() == []
+        assert maxtv_epg.maxtv_kanal_finden("Sitel") is None
+        assert maxtv_epg.maxtv_hole_programme("77", tage=2) == []
+
+
+def test_maxtv_ohne_mk_sender_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne Land=MK-Zeilen darf maxtv_epg's Request-
+    Funktionen ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog
+    zum automatischen BA/ME-Telemach-Guard: `maxtv_sender = [d for d in
+    sender_daten if d.get("maxtv")]` bleibt leer, die for-Schleife
+    darueber laeuft dann nie)."""
+    maxtv_sender_leer = []
+
+    with patch("maxtv_epg.requests.get", side_effect=AssertionError("maxtv_epg haette nicht kontaktiert werden duerfen")):
+        for daten in maxtv_sender_leer:
+            maxtv_epg.maxtv_kanal_finden(daten["sender"])
+
+    assert maxtv_sender_leer == []

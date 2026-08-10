@@ -26,6 +26,7 @@ from arena_epg import arena_kanal_finden, arena_hole_programme
 from dazn_epg import dazn_kanal_finden, dazn_hole_programme
 from freeview_epg import freeview_kanal_finden, freeview_hole_programme
 from tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
+from maxtv_epg import maxtv_kanal_finden, maxtv_hole_programme
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
@@ -920,6 +921,19 @@ for zeile in zeilen:
     if land.strip().upper() in ("BA", "ME"):
         eintrag["telemach"] = {"country": land.strip().lower()}
 
+    # Automatischer MaxTV-Go-Abgleich fuer MK-Sender (Nordmazedonien):
+    # analog zum automatischen Telemach-Abgleich oben - kein eigenes
+    # Praefix noetig, jeder ganz normal eingetragene Sender mit Land
+    # "MK" wird beim Generieren zusaetzlich per Name gegen die MaxTV-Go-
+    # Kanalliste geprueft (siehe maxtv_epg.py und der Verarbeitungsblock
+    # bei "maxtv_sender" weiter unten). Bei Treffer werden fuer die
+    # ersten bis zu 2 Tage echte Sendungen eingetragen, sonst faellt der
+    # Sender unveraendert auf die normale generische Beschreibung
+    # zurueck - reine Zusatzanreicherung ohne Risiko fuer bestehende
+    # Sender. Vertretbar, weil sender.txt nur ~50 MK-Zeilen enthaelt.
+    if land.strip().upper() == "MK":
+        eintrag["maxtv"] = True
+
     sender_daten.append(eintrag)
 
 # ==========================================================
@@ -1507,6 +1521,7 @@ ARENA_TAGE = 2
 DAZN_TAGE = 3
 FREEVIEW_TAGE = 2
 TVGUIDE_TAGE = 2
+MAXTV_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 magenta_sender = [d for d in sender_daten if d.get("magenta")]
@@ -1514,6 +1529,7 @@ arena_sender = [d for d in sender_daten if d.get("arena")]
 dazn_sender = [d for d in sender_daten if d.get("dazn")]
 freeview_sender = [d for d in sender_daten if d.get("freeview")]
 tvguide_sender = [d for d in sender_daten if d.get("tvguide")]
+maxtv_sender = [d for d in sender_daten if d.get("maxtv")]
 
 
 def _schreibe_echte_programme(daten, programme):
@@ -1767,6 +1783,37 @@ for daten in tvguide_sender:
         print(f"TVGuide-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
 # ==========================================================
+# MAXTV: echte Programmdaten fuer automatisch erkannte MK-Sender (siehe
+# maxtv_epg.py und der Kommentar oben beim Setzen von "maxtv" in
+# eintrag). Kein eigenes Praefix, kein Login noetig - analog zum
+# automatischen Telemach-Abgleich fuer BA/ME. Ohne jegliche Land=MK-
+# Zeile in sender.txt passiert hier gar nichts - keine zusaetzlichen
+# Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in maxtv_sender:
+    programme = []
+    try:
+        site_id = maxtv_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = maxtv_hole_programme(site_id, MAXTV_TAGE)
+        else:
+            print(f"MaxTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"MaxTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["maxtv_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"MaxTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"MaxTV-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
 # Statt starrer 2h-Slots orientieren sich die Blocklaengen an
 # einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
@@ -1834,6 +1881,11 @@ for tag_index in range(ANZAHL_TAGE):
             # echte TVGuide-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
             if daten.get("tvguide") and tag_start.date() in daten.get("tvguide_tage", set()):
+                continue
+            # MAXTV-Sender (siehe Block oben): Tage, an denen bereits
+            # echte MaxTV-Go-Programmdaten geschrieben wurden, werden
+            # hier ebenfalls nicht generisch nachgeneriert.
+            if daten.get("maxtv") and tag_start.date() in daten.get("maxtv_tage", set()):
                 continue
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
