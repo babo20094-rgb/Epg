@@ -550,13 +550,21 @@ for zeile in zeilen:
         if not sky_kanalname:
             continue
 
+        # Anzeige-Land: Sky selbst kennt nur "GB" als Territory-Code
+        # (siehe sky_territory oben, wird 1:1 an sky_epg.py durchgereicht),
+        # aber in der eigenen IPTV-Playlist des Nutzers heissen britische
+        # Sender durchgehend "UK|..." statt "GB|..." - fuer die
+        # automatische TiviMate-Zuordnung muss die <channel> id/
+        # display-name daher "UK" zeigen, nicht "GB".
+        sky_anzeige_land = "UK" if sky_territory == "GB" else sky_territory
+
         sky_auto_beschreibung, sky_kategorie_key = standard_beschreibung(
-            sky_territory, sky_kanalname
+            sky_anzeige_land, sky_kanalname
         )
 
         sender_daten.append({
-            "kanal": f"{sky_territory}| {sky_kanalname}",
-            "land": sky_territory,
+            "kanal": f"{sky_anzeige_land}| {sky_kanalname}",
+            "land": sky_anzeige_land,
             "sender": sky_kanalname,
             "beschreibung": sky_auto_beschreibung,
             "logo": sky_logo,
@@ -779,8 +787,15 @@ for zeile in zeilen:
             teile_freeview.append("")
 
         freeview_land = teile_freeview[0].upper() or "GB"
+        if freeview_land == "UK":
+            freeview_land = "GB"
         if freeview_land != "GB":
             freeview_land = "GB"
+
+        # Anzeige-Land "UK" statt "GB" (siehe gleicher Kommentar beim
+        # SKY:-Block oben) - Freeview kennt intern ohnehin kein eigenes
+        # Territory-Konzept, freeview_epg.py deckt immer nur GB ab.
+        freeview_anzeige_land = "UK"
 
         freeview_kanalname = teile_freeview[1]
         freeview_logo = teile_freeview[2]
@@ -789,12 +804,12 @@ for zeile in zeilen:
             continue
 
         freeview_auto_beschreibung, freeview_kategorie_key = standard_beschreibung(
-            freeview_land, freeview_kanalname
+            freeview_anzeige_land, freeview_kanalname
         )
 
         sender_daten.append({
-            "kanal": f"{freeview_land}| {freeview_kanalname}",
-            "land": freeview_land,
+            "kanal": f"{freeview_anzeige_land}| {freeview_kanalname}",
+            "land": freeview_anzeige_land,
             "sender": freeview_kanalname,
             "beschreibung": freeview_auto_beschreibung,
             "logo": freeview_logo,

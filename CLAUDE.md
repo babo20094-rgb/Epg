@@ -155,7 +155,13 @@ manuellem Trigger.
   oder `SKY:GB|Sky Showcase|https://example.com/logo.png`.
 - "DE" deckt technisch auch Oesterreich/Schweiz mit ab (Sky kennt dafuer
   kein eigenes Territory, "Sky Sport Austria"-Kanaele laufen ueber DE).
-  Andere Werte als DE/GB fallen graceful auf "DE" zurueck.
+  "UK" wird als Alias fuer "GB" akzeptiert. Andere Werte fallen graceful
+  auf "DE" zurueck.
+- Die erzeugte <channel> id/display-name zeigt bei GB-Sendern bewusst
+  immer "UK|..." (nicht "GB|..."), damit sie zur "UK|..."-Konvention der
+  eigenen IPTV-Playlist passt und TiviMate automatisch zuordnen kann -
+  intern (API-Anfragen an Sky) wird trotzdem immer "GB" verwendet, das
+  ist Skys eigener Territory-Code.
 - Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
   dafuer gibt es schlicht zu viele DE/GB-Sender-Zeilen in sender.txt, das
   waeren zu viele API-Aufrufe pro Lauf und ein zu hohes Fehltreffer-
@@ -189,9 +195,12 @@ manuellem Trigger.
 ## FREEVIEW:-Sender (Freeview UK, opt-in)
 
 - Echte Programmdaten von Freeview UK (`freeview_epg.py`) gibt es NUR
-  ueber das explizite Praefix `FREEVIEW:<Land, nur "GB"
+  ueber das explizite Praefix `FREEVIEW:<Land, nur "GB"/"UK"
   unterstuetzt/optional>|<Kanalname wie bei Freeview>|<Logo-URL>`, z. B.
-  `FREEVIEW:GB|BBC One|https://example.com/logo.png`.
+  `FREEVIEW:GB|BBC One|https://example.com/logo.png`. Die erzeugte
+  <channel> id/display-name zeigt bewusst immer "UK|..." (nicht "GB|..."),
+  damit sie zur "UK|..."-Konvention der eigenen IPTV-Playlist passt und
+  TiviMate automatisch zuordnen kann.
 - Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
   genau wie bei SKY/DAZN: reines Opt-in ueber die explizite Zeile.
 - Die Kanalliste stammt aus nur EINER repraesentativen UK-Network-ID

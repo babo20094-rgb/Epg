@@ -1050,13 +1050,15 @@ def test_freeview_erfolgreicher_abruf_liefert_echte_sendungen():
 
 def test_freeview_kanal_id_verwendet_land_pipe_name_format():
     """Regressionstest fuer den kanal-id-Bug: 'kanal' (die <channel>-id/
-    display-name in der XML) muss im 'LAND| Name'-Format gebaut werden
-    (z.B. 'GB| BBC One'), NICHT als bloßer Kanalname - repliziert exakt
-    die Formel aus dem FREEVIEW:-Parsing-Block in generate_epg.py."""
-    freeview_land = "GB"
+    display-name in der XML) muss im 'LAND| Name'-Format gebaut werden,
+    NICHT als bloßer Kanalname - repliziert exakt die Formel aus dem
+    FREEVIEW:-Parsing-Block in generate_epg.py. Anzeige-Land ist bewusst
+    "UK" (nicht "GB"), damit es zur "UK|..."-Konvention der eigenen
+    IPTV-Playlist des Nutzers passt und TiviMate automatisch zuordnet."""
+    freeview_anzeige_land = "UK"
     freeview_kanalname = "BBC One"
-    kanal = f"{freeview_land}| {freeview_kanalname}"
-    assert kanal == "GB| BBC One"
+    kanal = f"{freeview_anzeige_land}| {freeview_kanalname}"
+    assert kanal == "UK| BBC One"
     assert kanal != freeview_kanalname
 
 
