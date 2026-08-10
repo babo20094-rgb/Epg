@@ -54,9 +54,10 @@ manuellem Trigger.
   ist (z. B. bei Clubber: myepg.top kannte oft nur 1 von 50 Kanälen,
   die Playlist alle 50) und der Fallback in der Praxis nie noch etwas
   beigetragen hat.
-- DYN PPV zeigt bewusst auch den Leerlauf-Text ("- NO EVENT STREAMING -
-  | 8K EXCLUSIVE") 1:1 an statt eines generischen Platzhalters - das ist
-  gewolltes Verhalten, kein Bug.
+- DYN PPV zeigt bei Leerlauf (kein erkanntes Event, z.B. Anbieter-
+  Platzhaltertext "- NO EVENT STREAMING - | 8K EXCLUSIVE") NICHT mehr
+  den rohen Platzhaltertext, sondern "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ" (N = Kanal-
+  Nummer 1-50) - gleiche Konvention wie bei DirtVision/Flo Racing.
 - Status-Marker im rohen Kanalnamen ("NEXT | ...", "End | ...") werden
   automatisch in verständlichen deutschen Text übersetzt ("Es folgt: ...",
   fester Abmoderationstext bei "End").

@@ -434,6 +434,16 @@ for zeile in zeilen:
         if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
             event_titel = formatiere_event_text(event_teil)
 
+        # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
+        # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
+        # EXCLUSIVE") oder der generischen kategoriebasierten
+        # Beschreibung wird "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ" angezeigt - gleiche
+        # Konvention wie bei DirtVision/Flo Racing unten.
+        if event_titel is None:
+            dyn_ppv_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if dyn_ppv_match:
+                event_titel = f"Dyn Sport ({dyn_ppv_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
         # DirtVision-Kanaele ohne erkanntes Event: statt der generischen
         # kategoriebasierten Beschreibung (s.o.) wird "Kanalname (Nr) ᴸⁱᵛᵉ"
         # angezeigt (z.B. "DirtVision (1) ᴺᵒ ᴸⁱᵛᵉ") - gleiche Konvention wie
@@ -1512,20 +1522,14 @@ def _kern_und_event_aus_rohname(voller_name):
 
 
 def _live_event_uebernehmen(kurzname, event_teil, real_daten):
-    """Prueft, ob event_teil ein echtes Event ist (kein Leerlauf-Marker,
-    ausser bei DYN PPV - siehe Kommentar unten) und traegt es bei
-    Treffer in real_daten ein. Gibt True bei Uebernahme zurueck."""
-    # Bei DYN PPV wird der Leerlauf-Text ("- NO EVENT STREAMING -
-    # | 8K EXCLUSIVE") bewusst NICHT herausgefiltert, sondern
-    # immer 1:1 uebernommen - der Nutzer will im EPG-Raster
-    # exakt das sehen, was gerade im echten Live-Kanalnamen
-    # steht, statt eines generischen Platzhaltertexts.
-    ist_dyn_ppv = bool(re.match(r"^DYN\s*PPV\s*\d+$", kurzname, re.IGNORECASE))
-
-    if event_teil and (
-        ist_dyn_ppv
-        or not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER)
-    ):
+    """Prueft, ob event_teil ein echtes Event ist (kein Leerlauf-Marker)
+    und traegt es bei Treffer in real_daten ein. Gibt True bei
+    Uebernahme zurueck. Bei Leerlauf (z.B. DYN-PPV-Platzhaltertext
+    "- NO EVENT STREAMING - | 8K EXCLUSIVE") bleibt real_daten
+    unveraendert - der beim Einlesen gesetzte Fallback ("Dyn Sport (N)
+    ᴺᵒ ᴸⁱᵛᵉ" bei DYN PPV, generischer Kategorietext sonst) bleibt
+    stehen, statt des rohen Platzhaltertexts."""
+    if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
         real_daten["event_titel"] = formatiere_event_text(event_teil)
         return True
     return False
