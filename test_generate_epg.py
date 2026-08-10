@@ -19,6 +19,7 @@ Kategorien oder Sprachen erweitert werden:
 """
 
 import datetime
+import json
 from unittest.mock import patch, MagicMock
 
 import pytest
@@ -41,6 +42,9 @@ import magenta_epg
 import dazn_epg
 import freeview_epg
 import tvguide_epg
+import mts_epg
+import mojmaxtv_epg
+import siol_epg
 
 
 # ==========================================================
@@ -1193,3 +1197,304 @@ def test_tvguide_ohne_tvguide_zeilen_werden_keine_requests_ausgeloest():
 
     assert tvguide_sender_leer == []
 
+
+
+# ==========================================================
+# Mts-EPG (automatischer Abgleich fuer RS-Sender, siehe mts_epg.py)
+# ==========================================================
+
+@pytest.fixture(autouse=False)
+def _mts_cache_zuruecksetzen():
+    mts_epg._tages_cache = {}
+    yield
+    mts_epg._tages_cache = {}
+
+
+def _mts_tagesdaten_response():
+    return _mock_response({
+        "products": [
+            {
+                "code": "1",
+                "name": "RTS 1",
+                "programs": [
+                    {
+                        "title": "Dnevnik",
+                        "description": "Vesti",
+                        "picture": {"url": "http://example.com/p.jpg"},
+                        "start": "2026-08-10T19:30:00",
+                        "end": "2026-08-10T20:00:00",
+                    }
+                ],
+            }
+        ]
+    })
+
+
+def test_mts_erfolgreicher_abruf_liefert_echte_sendungen(_mts_cache_zuruecksetzen):
+    with patch("mts_epg.requests.get", return_value=_mts_tagesdaten_response()):
+        site_id = mts_epg.mts_kanal_finden("RTS 1")
+        assert site_id is not None
+
+        programme = mts_epg.mts_hole_programme(site_id, tage=2)
+
+    # tage=2 -> 2 Tagesabrufe, das Mock liefert fuer jeden Tag dieselbe
+    # eine Sendung zurueck.
+    assert len(programme) == 2
+    sendung = programme[0]
+    assert sendung["title"] == "Dnevnik"
+    assert sendung["beschreibung"] == "Vesti"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_mts_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_mts_cache_zuruecksetzen):
+    with patch("mts_epg.requests.get", return_value=_mts_tagesdaten_response()):
+        assert mts_epg.mts_kanal_finden("Nicht Existierender Kanal XYZ") is None
+
+    mts_epg._tages_cache = {}
+    with patch("mts_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert mts_epg.mts_hole_kanalliste() == []
+        assert mts_epg.mts_kanal_finden("RTS 1") is None
+        assert mts_epg.mts_hole_programme("1", tage=2) == []
+
+
+def test_mts_ohne_rs_zeilen_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne RS-Zeilen darf mts_epg's Request-Funktionen
+    ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog zum
+    TELEMACH:/mtel-Guard in generate_epg.py)."""
+    mts_sender_leer = []
+
+    with patch("mts_epg.requests.get", side_effect=AssertionError("mts_epg haette nicht kontaktiert werden duerfen")):
+        for daten in mts_sender_leer:
+            mts_epg.mts_kanal_finden(daten["sender"])
+
+    assert mts_sender_leer == []
+
+
+# ==========================================================
+# MojMaxTV-EPG (automatischer Abgleich fuer HR-Sender, siehe
+# mojmaxtv_epg.py)
+# ==========================================================
+
+@pytest.fixture(autouse=False)
+def _mojmaxtv_cache_zuruecksetzen():
+    mojmaxtv_epg._kanalliste_cache = None
+    mojmaxtv_epg._schedule_cache = {}
+    yield
+    mojmaxtv_epg._kanalliste_cache = None
+    mojmaxtv_epg._schedule_cache = {}
+
+
+def _mojmaxtv_channels_response():
+    return _mock_response({"channels": [{"station_id": "42", "title": "RTL Hrvatska"}]})
+
+
+def _mojmaxtv_schedule_response(mit_sendung=True):
+    if not mit_sendung:
+        return _mock_response({"channels": {}})
+    return _mock_response({
+        "channels": {
+            "42": [
+                {
+                    "description": "Vijesti",
+                    "start_time": "2026-08-10T19:00:00Z",
+                    "end_time": "2026-08-10T19:30:00Z",
+                }
+            ]
+        }
+    })
+
+
+def test_mojmaxtv_erfolgreicher_abruf_liefert_echte_sendungen(_mojmaxtv_cache_zuruecksetzen):
+    responses = [_mojmaxtv_channels_response()] + [
+        _mojmaxtv_schedule_response() for _ in range(8)
+    ]
+    with patch("mojmaxtv_epg.requests.get", side_effect=responses):
+        site_id = mojmaxtv_epg.mojmaxtv_kanal_finden("RTL Hrvatska")
+        assert site_id == "42"
+
+        programme = mojmaxtv_epg.mojmaxtv_hole_programme(site_id, tage=1)
+
+    # 8 3h-Zeitfenster pro Tag, das Mock liefert fuer jedes Fenster
+    # dieselbe eine Sendung zurueck.
+    assert len(programme) == 8
+    sendung = programme[0]
+    assert sendung["title"] == "Vijesti"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_mojmaxtv_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_mojmaxtv_cache_zuruecksetzen):
+    with patch("mojmaxtv_epg.requests.get", return_value=_mojmaxtv_channels_response()):
+        assert mojmaxtv_epg.mojmaxtv_kanal_finden("Nicht Existierender Kanal XYZ") is None
+
+    mojmaxtv_epg._kanalliste_cache = None
+    with patch("mojmaxtv_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert mojmaxtv_epg.mojmaxtv_hole_kanalliste() == []
+        assert mojmaxtv_epg.mojmaxtv_kanal_finden("RTL Hrvatska") is None
+        assert mojmaxtv_epg.mojmaxtv_hole_programme("42", tage=1) == []
+
+
+def test_mojmaxtv_ohne_hr_zeilen_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne HR-Zeilen darf mojmaxtv_epg's Request-
+    Funktionen ueberhaupt nicht kontaktieren (Zero-Risk-Garantie)."""
+    mojmaxtv_sender_leer = []
+
+    with patch("mojmaxtv_epg.requests.get", side_effect=AssertionError("mojmaxtv_epg haette nicht kontaktiert werden duerfen")):
+        for daten in mojmaxtv_sender_leer:
+            mojmaxtv_epg.mojmaxtv_kanal_finden(daten["sender"])
+
+    assert mojmaxtv_sender_leer == []
+
+
+# ==========================================================
+# Siol-EPG (automatischer Abgleich fuer SI-Sender, HTML-Scraping,
+# siehe siol_epg.py)
+# ==========================================================
+
+@pytest.fixture(autouse=False)
+def _siol_cache_zuruecksetzen():
+    siol_epg._kanalliste_cache = None
+    siol_epg._programm_cache = {}
+    yield
+    siol_epg._kanalliste_cache = None
+    siol_epg._programm_cache = {}
+
+
+def _siol_next_f_html(payload_dict, praefix="1"):
+    """Baut ein minimales HTML-Fixture mit einem echten
+    self.__next_f.push([1, "..."])-Aufruf, wie ihn siol_epg._extrahiere_
+    schluessel_aus_html() parsen koennen muss."""
+    roh_json = json.dumps(payload_dict)
+    gepusht_string = f"{praefix}:{roh_json}"
+    # Wie im echten Next.js-Output: der gepushte Wert ist selbst ein
+    # JSON-String-Literal (also nochmal escaped) innerhalb des
+    # push()-Aufrufs.
+    js_string_literal = json.dumps(gepusht_string)[1:-1]
+    return (
+        "<html><body>"
+        f'<script>self.__next_f.push([1,"{js_string_literal}"])</script>'
+        "</body></html>"
+    )
+
+
+def test_siol_extrahiert_channelsasjson_aus_next_f_push_fixture(_siol_cache_zuruecksetzen):
+    """Exercised die echte HTML/Script-Tag-Extraktionslogik (kein
+    Mocken der Parse-Funktion selbst) mit einem handgebauten Next.js-
+    Streaming-Fixture."""
+    html = _siol_next_f_html({
+        "irrelevant": "wert",
+        "verschachtelt": {
+            "channelsAsJson": [
+                {
+                    "events": [
+                        {
+                            "title": "Poročila",
+                            "category": "Novice",
+                            "startDateTime": "2026-08-10T19:00:00",
+                            "stopDateTime": "2026-08-10T19:30:00",
+                        }
+                    ]
+                }
+            ]
+        },
+    })
+
+    treffer = siol_epg._extrahiere_schluessel_aus_html(html, "channelsAsJson")
+    assert isinstance(treffer, list)
+    assert treffer[0]["events"][0]["title"] == "Poročila"
+
+
+def test_siol_extrahiert_tvchannelsasjson_aus_next_f_push_fixture(_siol_cache_zuruecksetzen):
+    html = _siol_next_f_html({
+        "tvChannelsAsJson": [
+            {"name": "RTV SLO 1", "externalId": "RTV1"},
+        ]
+    })
+
+    treffer = siol_epg._extrahiere_schluessel_aus_html(html, "tvChannelsAsJson")
+    assert treffer == [{"name": "RTV SLO 1", "externalId": "RTV1"}]
+
+
+def test_siol_kaputte_html_struktur_gibt_none_statt_exception(_siol_cache_zuruecksetzen):
+    """Fehlt der erwartete Schluessel komplett oder ist das Skript-Tag
+    kaputt/leer, muss die Extraktion still None liefern statt zu
+    werfen - dieser Parsing-Pfad ist bewusst fragil."""
+    assert siol_epg._extrahiere_schluessel_aus_html("<html></html>", "channelsAsJson") is None
+    assert siol_epg._extrahiere_schluessel_aus_html(
+        '<script>self.__next_f.push([1,"kein json hier {{{"])</script>',
+        "channelsAsJson",
+    ) is None
+    assert siol_epg._extrahiere_schluessel_aus_html(
+        _siol_next_f_html({"anderer_schluessel": []}), "channelsAsJson"
+    ) is None
+
+
+def test_siol_erfolgreicher_abruf_liefert_echte_sendungen(_siol_cache_zuruecksetzen):
+    kanalliste_html = _siol_next_f_html({
+        "tvChannelsAsJson": [{"name": "RTV SLO 1", "externalId": "RTV1"}]
+    })
+    programm_html = _siol_next_f_html({
+        "channelsAsJson": [
+            {
+                "events": [
+                    {
+                        "title": "Dnevnik",
+                        "category": "Informativno",
+                        "startDateTime": "2026-08-10T19:00:00",
+                        "stopDateTime": "2026-08-10T19:30:00",
+                    }
+                ]
+            }
+        ]
+    })
+
+    kanalliste_response = MagicMock()
+    kanalliste_response.text = kanalliste_html
+    kanalliste_response.raise_for_status.return_value = None
+
+    programm_response = MagicMock()
+    programm_response.text = programm_html
+    programm_response.raise_for_status.return_value = None
+
+    with patch("siol_epg.requests.get", side_effect=[kanalliste_response, programm_response]):
+        site_id = siol_epg.siol_kanal_finden("RTV SLO 1")
+        assert site_id == "rtv1"
+
+        programme = siol_epg.siol_hole_programme(site_id, tage=1)
+
+    assert len(programme) == 1
+    sendung = programme[0]
+    assert sendung["title"] == "Dnevnik"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_siol_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_siol_cache_zuruecksetzen):
+    kanalliste_html = _siol_next_f_html({
+        "tvChannelsAsJson": [{"name": "RTV SLO 1", "externalId": "RTV1"}]
+    })
+    kanalliste_response = MagicMock()
+    kanalliste_response.text = kanalliste_html
+    kanalliste_response.raise_for_status.return_value = None
+
+    with patch("siol_epg.requests.get", return_value=kanalliste_response):
+        assert siol_epg.siol_kanal_finden("Nicht Existierender Kanal XYZ") is None
+
+    siol_epg._kanalliste_cache = None
+    with patch("siol_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert siol_epg.siol_hole_kanalliste() == []
+        assert siol_epg.siol_kanal_finden("RTV SLO 1") is None
+        assert siol_epg.siol_hole_programme("rtv1", tage=1) == []
+
+
+def test_siol_ohne_si_zeilen_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne SI-Zeilen darf siol_epg's Request-Funktionen
+    ueberhaupt nicht kontaktieren (Zero-Risk-Garantie)."""
+    siol_sender_leer = []
+
+    with patch("siol_epg.requests.get", side_effect=AssertionError("siol_epg haette nicht kontaktiert werden duerfen")):
+        for daten in siol_sender_leer:
+            siol_epg.siol_kanal_finden(daten["sender"])
+
+    assert siol_sender_leer == []

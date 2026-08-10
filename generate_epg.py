@@ -20,6 +20,9 @@ from epg_lib import (
 )
 from telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from mtel_epg import mtel_kanal_finden, mtel_hole_programme
+from mts_epg import mts_kanal_finden, mts_hole_programme
+from mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
+from siol_epg import siol_kanal_finden, siol_hole_programme
 from sky_epg import sky_kanal_finden, sky_hole_programme
 from magenta_epg import magenta_kanal_finden, magenta_hole_programme
 from arena_epg import arena_kanal_finden, arena_hole_programme
@@ -941,6 +944,24 @@ for zeile in zeilen:
     if land.strip().upper() in ("BA", "ME"):
         eintrag["telemach"] = {"country": land.strip().lower()}
 
+    # Automatischer Abgleich fuer RS/HR/SI-Sender: analog zum BA/ME-
+    # Telemach-Autoabgleich oben - kein eigenes Praefix noetig, jeder
+    # ganz normal eingetragene Sender mit Land "RS"/"HR"/"SI" wird beim
+    # Generieren zusaetzlich per Name gegen die jeweilige Kanalliste
+    # geprueft (mts.rs/MojMaxTV/tv-spored.siol.net, siehe die
+    # Verarbeitungsbloecke bei "mts_sender"/"mojmaxtv_sender"/
+    # "siol_sender" weiter unten). Bei Treffer werden echte Sendungen
+    # eingetragen, sonst faellt der Sender unveraendert auf die normale
+    # generische Beschreibung zurueck - drei unabhaengige, sich
+    # gegenseitig ausschliessende Zusatzanreicherungen ohne Risiko fuer
+    # bestehende Sender.
+    if land.strip().upper() == "RS":
+        eintrag["mts"] = True
+    if land.strip().upper() == "HR":
+        eintrag["mojmaxtv"] = True
+    if land.strip().upper() == "SI":
+        eintrag["siol"] = True
+
     sender_daten.append(eintrag)
 
 # ==========================================================
@@ -1528,6 +1549,9 @@ ARENA_TAGE = 2
 DAZN_TAGE = 3
 FREEVIEW_TAGE = 2
 TVGUIDE_TAGE = 2
+MTS_TAGE = 2
+MOJMAXTV_TAGE = 2
+SIOL_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 magenta_sender = [d for d in sender_daten if d.get("magenta")]
@@ -1535,6 +1559,9 @@ arena_sender = [d for d in sender_daten if d.get("arena")]
 dazn_sender = [d for d in sender_daten if d.get("dazn")]
 freeview_sender = [d for d in sender_daten if d.get("freeview")]
 tvguide_sender = [d for d in sender_daten if d.get("tvguide")]
+mts_sender = [d for d in sender_daten if d.get("mts")]
+mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
+siol_sender = [d for d in sender_daten if d.get("siol")]
 
 
 def _schreibe_echte_programme(daten, programme):
@@ -1788,6 +1815,88 @@ for daten in tvguide_sender:
         print(f"TVGuide-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
 # ==========================================================
+# MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
+# der Parsing-Kommentar oben bei "Automatischer Abgleich fuer RS/HR/
+# SI-Sender"). Kein eigenes Praefix noetig. Ohne jegliche RS-Zeile in
+# sender.txt passiert hier gar nichts - keine zusaetzlichen Netzwerk-
+# Aufrufe.
+# ==========================================================
+
+for daten in mts_sender:
+    programme = []
+    try:
+        site_id = mts_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = mts_hole_programme(site_id, MTS_TAGE)
+        else:
+            print(f"Mts-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        print(f"Mts-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["mts_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Mts-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Mts-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
+# MOJMAXTV: automatischer Abgleich fuer alle HR-Sender (siehe
+# mojmaxtv_epg.py). Kein eigenes Praefix noetig. Ohne jegliche
+# HR-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in mojmaxtv_sender:
+    programme = []
+    try:
+        site_id = mojmaxtv_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
+        else:
+            print(f"MojMaxTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        print(f"MojMaxTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["mojmaxtv_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"MojMaxTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"MojMaxTV-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
+# SIOL: automatischer Abgleich fuer alle SI-Sender (siehe siol_epg.py -
+# HTML-Scraping, fragiler als die anderen Quellen). Kein eigenes
+# Praefix noetig. Ohne jegliche SI-Zeile in sender.txt passiert hier
+# gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in siol_sender:
+    programme = []
+    try:
+        site_id = siol_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = siol_hole_programme(site_id, SIOL_TAGE)
+        else:
+            print(f"Siol-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        print(f"Siol-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["siol_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Siol-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Siol-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
 # Statt starrer 2h-Slots orientieren sich die Blocklaengen an
 # einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
@@ -1855,6 +1964,16 @@ for tag_index in range(ANZAHL_TAGE):
             # echte TVGuide-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
             if daten.get("tvguide") and tag_start.date() in daten.get("tvguide_tage", set()):
+                continue
+            # MTS/MOJMAXTV/SIOL-Sender (automatischer Abgleich, siehe
+            # Bloecke oben): Tage, an denen bereits echte Programmdaten
+            # geschrieben wurden, werden hier ebenfalls nicht generisch
+            # nachgeneriert.
+            if daten.get("mts") and tag_start.date() in daten.get("mts_tage", set()):
+                continue
+            if daten.get("mojmaxtv") and tag_start.date() in daten.get("mojmaxtv_tage", set()):
+                continue
+            if daten.get("siol") and tag_start.date() in daten.get("siol_tage", set()):
                 continue
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat

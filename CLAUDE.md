@@ -105,6 +105,48 @@ manuellem Trigger.
   Treffer, kaputtes JSON) degradiert still auf die normale generische
   EPG-Generierung, kein neues sender.txt-Praefix noetig.
 
+## mts.rs (Serbien, automatisch)
+
+- Echte Programmdaten von mts.rs (`mts_epg.py`, oeffentliche Hybris-
+  Ecommerce-API, kein Login) gibt es AUTOMATISCH fuer jeden ganz normal
+  eingetragenen Sender mit Land `RS` in `sender.txt` - kein eigenes
+  Praefix noetig, gleiches Prinzip wie der BA/ME-Telemach-Autoabgleich.
+  Bei aktuell ~60 RS-Zeilen ist das Volumen an zusaetzlichen API-
+  Aufrufen pro Lauf ueberschaubar (analog zur BA/ME/MK-Begruendung).
+- Kanalsuche (`mts_kanal_finden()`, exakt dann fuzzy per `difflib`) und
+  Programmabruf (`mts_hole_programme()`, bis zu 2 Tage) degradieren bei
+  jedem Fehler (Netzwerk, kein Kanal-Treffer, keine Daten) graceful auf
+  die normale generische EPG-Generierung fuer diesen Sender.
+
+## MojMaxTV (Kroatien, automatisch)
+
+- Echte Programmdaten von MojMaxTV/Hrvatski Telekom
+  (`mojmaxtv_epg.py`, signierte, aber loginfreie API) gibt es
+  AUTOMATISCH fuer jeden ganz normal eingetragenen Sender mit Land `HR`
+  in `sender.txt` - kein eigenes Praefix noetig, gleiches Prinzip wie
+  der BA/ME-Telemach-Autoabgleich. Bei aktuell ~42 HR-Zeilen ist das
+  Volumen an zusaetzlichen API-Aufrufen pro Lauf ueberschaubar.
+- Kanalsuche und Programmabruf (bis zu 2 Tage, ohne Programm-Detail-
+  Nachladung wie sub_title/season/episode) degradieren bei jedem
+  Fehler (Netzwerk, kein Kanal-Treffer, keine Daten) graceful auf die
+  normale generische EPG-Generierung fuer diesen Sender.
+
+## tv-spored.siol.net (Slowenien, automatisch)
+
+- Echte Programmdaten von tv-spored.siol.net (`siol_epg.py`) gibt es
+  AUTOMATISCH fuer jeden ganz normal eingetragenen Sender mit Land `SI`
+  in `sender.txt` - kein eigenes Praefix noetig, gleiches Prinzip wie
+  der BA/ME-Telemach-Autoabgleich. Bei aktuell nur ~2 SI-Zeilen ist das
+  Volumen minimal.
+- Anders als die anderen echten EPG-Quellen dieses Repos gibt es hier
+  keine stabile JSON-API, sondern HTML-Scraping eines in <script>-Tags
+  eingebetteten Next.js-JSON-Payloads - das ist prinzipiell deutlich
+  anfaelliger fuer Breaking Changes bei einem Website-Redesign als
+  Telemach/mtel/mts.rs/MojMaxTV. Degradiert aber nach derselben Zero-
+  Risk-Garantie bei jedem Fehler (Netzwerk, kein Kanal-Treffer,
+  unerwartete Seitenstruktur) still auf die normale generische EPG-
+  Generierung fuer diesen Sender.
+
 ## MAGENTA:-Sender (Magenta TV, opt-in)
 
 - Echte Programmdaten von Magenta TV (Deutsche Telekom, `magenta_epg.py`)
