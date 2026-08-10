@@ -20,6 +20,7 @@ Kategorien oder Sprachen erweitert werden:
 
 import datetime
 import json
+import os
 from unittest.mock import patch, MagicMock
 
 import pytest
@@ -42,6 +43,7 @@ import magenta_epg
 import dazn_epg
 import freeview_epg
 import tvguide_epg
+import tvpassport_epg
 import mts_epg
 import mojmaxtv_epg
 import siol_epg
@@ -1498,3 +1500,124 @@ def test_siol_ohne_si_zeilen_werden_keine_requests_ausgeloest():
             siol_epg.siol_kanal_finden(daten["sender"])
 
     assert siol_sender_leer == []
+
+
+# ==========================================================
+# TVPASSPORT-EPG (opt-in TVPASSPORT:-Sender, nur US, statische
+# Kanalliste tvpassport_kanalliste.xml, siehe tvpassport_epg.py)
+# ==========================================================
+
+@pytest.fixture(autouse=True)
+def _tvpassport_cache_zuruecksetzen():
+    tvpassport_epg._kanalliste_cache = None
+    yield
+    tvpassport_epg._kanalliste_cache = None
+
+
+def _mock_html_response(html_text, status_ok=True):
+    response = MagicMock()
+    response.text = html_text
+    if status_ok:
+        response.raise_for_status.return_value = None
+    else:
+        response.raise_for_status.side_effect = Exception("HTTP-Fehler")
+    return response
+
+
+def _tvpassport_tagesseite_html():
+    return """
+    <html><body>
+    <select id="timezone_selector">
+        <option value="America/New_York" selected="selected">Eastern</option>
+    </select>
+    <div class="station-listings">
+        <div class="list-group-item"
+             data-st="2026-08-10 20:00:00"
+             data-duration="60"
+             data-showname="Evening News"
+             data-episodetitle=""
+             data-description="Lokale Nachrichten"
+             data-showpicture="news.jpg"></div>
+        <div class="list-group-item"
+             data-st="2026-08-10 21:00:00"
+             data-duration="120"
+             data-showname="Movie"
+             data-episodetitle="Der grosse Film"
+             data-description=""
+             data-showpicture=""></div>
+    </div>
+    </body></html>
+    """
+
+
+def test_tvpassport_kanal_finden_nutzt_reale_statische_kanalliste():
+    """kanal_finden muss ohne jeglichen Netzwerk-Request gegen die echte,
+    im Repo mitgelieferte tvpassport_kanalliste.xml aufloesen - Beispiel
+    per exaktem Namen aus der Datei selbst gelesen, damit der Test nicht
+    von einem geratenen Eintrag abhaengt."""
+    import xml.etree.ElementTree as ET
+
+    baum = ET.parse(os.path.join(os.path.dirname(os.path.abspath(__file__)), "tvpassport_kanalliste.xml"))
+    treffer = None
+    for element in baum.getroot().findall("channel"):
+        if (element.text or "").strip() == "FOX (KFFX) Yakima, WA":
+            treffer = element.get("site_id")
+            break
+
+    assert treffer is not None, "Erwarteter Beispiel-Kanal nicht in tvpassport_kanalliste.xml gefunden"
+
+    with patch("tvpassport_epg.requests.get", side_effect=AssertionError("kanal_finden haette keinen Netzwerk-Request ausloesen duerfen")):
+        site_id = tvpassport_epg.tvpassport_kanal_finden("FOX (KFFX) Yakima, WA")
+
+    assert site_id == treffer
+
+
+def test_tvpassport_erfolgreicher_programmabruf_und_kanal_id_format():
+    """Nach erfolgreicher (statischer) Kanalsuche muss der gemockte
+    Schedule-Abruf echte Sendungen liefern - inkl. Movie/data-episodetitle-
+    Tausch. Zusaetzlich Regressionscheck fuer das 'LAND| Name'-kanal-id-
+    Format (analog TVGUIDE:)."""
+    site_id = tvpassport_epg.tvpassport_kanal_finden("FOX (KFFX) Yakima, WA")
+    assert site_id is not None
+
+    responses = [_mock_html_response(_tvpassport_tagesseite_html()) for _ in range(2)]
+    with patch("tvpassport_epg.requests.get", side_effect=responses):
+        programme = tvpassport_epg.tvpassport_hole_programme(site_id, tage=2)
+
+    assert len(programme) >= 1
+    titel = [p["title"] for p in programme]
+    assert "Evening News" in titel
+    assert "Der grosse Film" in titel  # Movie -> episodetitle-Tausch
+    for p in programme:
+        assert p["start"].tzinfo is not None
+        assert p["stop"] > p["start"]
+
+    tvpassport_land = "US"
+    tvpassport_kanalname = "FOX (KFFX) Yakima, WA"
+    kanal = f"{tvpassport_land}| {tvpassport_kanalname}"
+    assert kanal == "US| FOX (KFFX) Yakima, WA"
+    assert kanal != tvpassport_kanalname
+
+
+def test_tvpassport_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck():
+    """Kein Kanal-Treffer bzw. ein Netzwerkfehler duerfen NIE eine
+    Exception werfen, sondern muessen graceful auf None/[]
+    zurueckfallen."""
+    assert tvpassport_epg.tvpassport_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
+
+    with patch("tvpassport_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert tvpassport_epg.tvpassport_hole_programme("fox-kffx-yakima-wa/2141", tage=2) == []
+
+
+def test_tvpassport_ohne_tvpassport_zeilen_werden_keine_requests_ausgeloest():
+    """sender.txt ganz ohne TVPASSPORT:-Zeilen darf tvpassport_epg's
+    Schedule-Request-Funktion ueberhaupt nicht kontaktieren (Zero-Risk-
+    Garantie, analog zum TVGUIDE:-Guard). Die statische Kanalliste darf
+    weiterhin lokal gelesen werden (kein Netzwerk-Request)."""
+    tvpassport_sender_leer = []
+
+    with patch("tvpassport_epg.requests.get", side_effect=AssertionError("tvpassport_epg haette nicht kontaktiert werden duerfen")):
+        for daten in tvpassport_sender_leer:
+            tvpassport_epg.tvpassport_hole_programme(daten["sender"])
+
+    assert tvpassport_sender_leer == []

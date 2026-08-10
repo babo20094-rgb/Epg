@@ -147,6 +147,37 @@ manuellem Trigger.
   unerwartete Seitenstruktur) still auf die normale generische EPG-
   Generierung fuer diesen Sender.
 
+## TVPASSPORT:-Sender (tvpassport.com US, opt-in)
+
+- Echte Programmdaten von tvpassport.com (`tvpassport_epg.py`) gibt es
+  NUR ueber das explizite Praefix `TVPASSPORT:<Land, nur "US"
+  unterstuetzt/optional>|<Kanalname wie bei TVPassport>|<Logo-URL>`, z. B.
+  `TVPASSPORT:US|FOX (KFFX) Yakima, WA|https://example.com/logo.png`.
+  Im Unterschied zu TVGuide.com (nur EINE feste nationale
+  Grundaufstellung, siehe TVGUIDE:-Abschnitt oben) deckt tvpassport.com
+  gezielt LOKALE US-Affiliate-Sender pro Stadt/Call-Sign ab und ergaenzt
+  damit TVGuide.com fuer genau die Art lokaler Sender-Zeilen, die in
+  dieser sender.txt haeufig vorkommen.
+- Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
+  genau wie bei TVGUIDE:/SKY:/DAZN:/FREEVIEW:: reines Opt-in ueber die
+  explizite Zeile.
+- Die Kanalsuche nutzt eine im Repo mitgelieferte statische Datei
+  (`tvpassport_kanalliste.xml`, ~19.000 Eintraege, eine Kopie der
+  bereits vom iptv-org/epg-Projekt gecrawlten tvpassport.com-Kanalliste)
+  statt live alle Seiten zu crawlen - das kostet keinen einzigen
+  Netzwerk-Request fuer die Kanalsuche selbst, nur der eigentliche
+  Programmabruf fuer tatsaechlich getroffene Kanaele geht live. Die
+  Datei sollte gelegentlich manuell aus dem iptv-org/epg-Projekt
+  aktualisiert werden, falls sich Sender-Seiten dort aendern - das
+  passiert hier nicht automatisch.
+- Da hier HTML statt einer stabilen JSON-API geparst wird
+  (`BeautifulSoup`), ist die Programmabruf-Quelle prinzipiell
+  anfaelliger fuer Breaking Changes bei einem Website-Redesign als z. B.
+  Telemach/mtel/mts.rs - degradiert aber nach derselben Zero-Risk-
+  Garantie bei jedem Fehler (Netzwerk, kein Kanal-Treffer, unerwartete
+  HTML-Struktur) still auf die normale generische EPG-Generierung fuer
+  diesen Sender.
+
 ## MAGENTA:-Sender (Magenta TV, opt-in)
 
 - Echte Programmdaten von Magenta TV (Deutsche Telekom, `magenta_epg.py`)

@@ -29,6 +29,7 @@ from arena_epg import arena_kanal_finden, arena_hole_programme
 from dazn_epg import dazn_kanal_finden, dazn_hole_programme
 from freeview_epg import freeview_kanal_finden, freeview_hole_programme
 from tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
+from tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
@@ -880,6 +881,63 @@ for zeile in zeilen:
         })
         continue
 
+    # TVPASSPORT:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von tvpassport.com (siehe tvpassport_epg.py) bekommen
+    # sollen, statt der generischen kategoriebasierten Platzhaltertexte.
+    # Genau wie bei TVGUIDE:/SKY:/DAZN:/FREEVIEW: gibt es hier BEWUSST
+    # KEIN automatisches Matching - nur Sender mit dieser Zeile bekommen
+    # die echten Daten. Im Unterschied zu TVGUIDE: (eine feste nationale
+    # Grundaufstellung) deckt tvpassport.com ~19.000 LOKALE US-Sender pro
+    # Stadt/Call-Sign ab (z. B. "FOX (KFFX) Yakima, WA").
+    #
+    # SYNTAX (3 Felder, analog zum TVGUIDE:-Schema):
+    #
+    #   TVPASSPORT:<Land, nur "US" unterstützt, optional, Default US>|<Kanalname wie bei TVPassport>|<Logo-URL>
+    #
+    # Beispiel:
+    #   TVPASSPORT:US|FOX (KFFX) Yakima, WA|https://example.com/logo.png
+    #
+    # Es wird nur "US" unterstützt (jeder andere Wert fällt still auf
+    # "US" zurück). Der Kanalname (2. Feld) wird 1:1 als <channel>
+    # id/display-name verwendet UND als Suchbegriff gegen die statische,
+    # im Repo mitgelieferte TVPassport-Kanalliste (tvpassport_kanal_finden(),
+    # erst exakt normalisiert, dann difflib-Fuzzy-Match). Jeder
+    # Fehlschlag der TVPassport-Anfrage fällt exakt auf die normale,
+    # generische Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("TVPASSPORT:"):
+        rest = zeile[len("TVPASSPORT:"):]
+        teile_tvpassport = [x.strip() for x in rest.split("|")]
+
+        while len(teile_tvpassport) < 3:
+            teile_tvpassport.append("")
+
+        tvpassport_land = teile_tvpassport[0].upper() or "US"
+        if tvpassport_land != "US":
+            tvpassport_land = "US"
+
+        tvpassport_kanalname = teile_tvpassport[1]
+        tvpassport_logo = teile_tvpassport[2]
+
+        if not tvpassport_kanalname:
+            continue
+
+        tvpassport_auto_beschreibung, tvpassport_kategorie_key = standard_beschreibung(
+            tvpassport_land, tvpassport_kanalname
+        )
+
+        sender_daten.append({
+            "kanal": f"{tvpassport_land}| {tvpassport_kanalname}",
+            "land": tvpassport_land,
+            "sender": tvpassport_kanalname,
+            "beschreibung": tvpassport_auto_beschreibung,
+            "logo": tvpassport_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": tvpassport_kategorie_key,
+            "tvpassport": True,
+        })
+        continue
+
     teile = [x.strip() for x in zeile.split("|")]
 
     while len(teile) < 4:
@@ -1549,6 +1607,7 @@ ARENA_TAGE = 2
 DAZN_TAGE = 3
 FREEVIEW_TAGE = 2
 TVGUIDE_TAGE = 2
+TVPASSPORT_TAGE = 2
 MTS_TAGE = 2
 MOJMAXTV_TAGE = 2
 SIOL_TAGE = 2
@@ -1559,6 +1618,7 @@ arena_sender = [d for d in sender_daten if d.get("arena")]
 dazn_sender = [d for d in sender_daten if d.get("dazn")]
 freeview_sender = [d for d in sender_daten if d.get("freeview")]
 tvguide_sender = [d for d in sender_daten if d.get("tvguide")]
+tvpassport_sender = [d for d in sender_daten if d.get("tvpassport")]
 mts_sender = [d for d in sender_daten if d.get("mts")]
 mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
 siol_sender = [d for d in sender_daten if d.get("siol")]
@@ -1815,6 +1875,36 @@ for daten in tvguide_sender:
         print(f"TVGuide-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
 # ==========================================================
+# TVPASSPORT: echte Programmdaten fuer TVPASSPORT:-Sender (siehe
+# tvpassport_epg.py und der Parsing-Kommentar oben bei "TVPASSPORT:").
+# Rein opt-in, unabhaengig von den anderen Quellen. Ohne jegliche
+# TVPASSPORT:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in tvpassport_sender:
+    programme = []
+    try:
+        site_id = tvpassport_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+        else:
+            print(f"TVPassport-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        print(f"TVPassport-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["tvpassport_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"TVPassport-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"TVPassport-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
 # MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
 # der Parsing-Kommentar oben bei "Automatischer Abgleich fuer RS/HR/
 # SI-Sender"). Kein eigenes Praefix noetig. Ohne jegliche RS-Zeile in
@@ -1964,6 +2054,11 @@ for tag_index in range(ANZAHL_TAGE):
             # echte TVGuide-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
             if daten.get("tvguide") and tag_start.date() in daten.get("tvguide_tage", set()):
+                continue
+            # TVPASSPORT:-Sender (siehe Block oben): Tage, an denen
+            # bereits echte TVPassport-Programmdaten geschrieben wurden,
+            # werden hier ebenfalls nicht generisch nachgeneriert.
+            if daten.get("tvpassport") and tag_start.date() in daten.get("tvpassport_tage", set()):
                 continue
             # MTS/MOJMAXTV/SIOL-Sender (automatischer Abgleich, siehe
             # Bloecke oben): Tage, an denen bereits echte Programmdaten
