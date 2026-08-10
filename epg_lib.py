@@ -2546,13 +2546,24 @@ def normalisiere_sendername(name):
     """Reduziert einen Sendernamen auf reine Grossbuchstaben/Ziffern
     (keine Leerzeichen, Satzzeichen, Akzente) fuer einen robusten
     Namensabgleich, z.B. "Al Jazeera Balkans FHD" und "AL JAZEERA
-    BALKANS" ergeben denselben Schluessel."""
+    BALKANS" ergeben denselben Schluessel.
+
+    Entfernt zusaetzlich die Anbieter-eigenen Deko-Marker "VIP"/"RAW"
+    (auch in hochgestellter Unicode-Schreibweise wie "ⱽᴵᴾ ᴿᴬᵂ" - NFKD
+    zerlegt diese Zeichen zu normalen Buchstaben, siehe unten) als
+    eigene Woerter, BEVOR die Buchstaben zusammengeschoben werden -
+    diese Marker sind reine Playlist-Tags des Nutzers, tauchen in
+    keiner echten Sender-API auf und wuerden sonst bei kurzen
+    Sendernamen (z.B. "ATV ⱽᴵᴾ ᴿᴬᵂ" -> "ATVVIPRAW") den unscharfen
+    difflib-Abgleich gegen den echten Namen ("ATV") unter die
+    Aehnlichkeits-Schwelle druecken und den Treffer verhindern."""
     if not name:
         return ""
 
     name = unicodedata.normalize("NFKD", name)
     name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
     name = name.upper()
+    name = re.sub(r"\bVIP\b|\bRAW\b", " ", name)
     name = re.sub(r"[^A-Z0-9]", "", name)
     return name
 
