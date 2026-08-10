@@ -1,3 +1,4 @@
+TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|AUTO
 RS| DELUXE RAP|
 MO| TV A +|
 BA| BANJA LUKA|

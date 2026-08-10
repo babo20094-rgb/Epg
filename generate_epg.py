@@ -434,6 +434,22 @@ for zeile in zeilen:
         if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
             event_titel = formatiere_event_text(event_teil)
 
+        # DirtVision-Kanaele ohne erkanntes Event: statt der generischen
+        # kategoriebasierten Beschreibung (s.o.) wird "Kanalname (Nr) ᴸⁱᵛᵉ"
+        # angezeigt (z.B. "DirtVision (1) ᴺᵒ ᴸⁱᵛᵉ") - gleiche Konvention wie
+        # bei den manuell eingetragenen Sendern in sender.txt.
+        if event_titel is None:
+            dirtvision_match = re.match(r"^DIRTVISION\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if dirtvision_match:
+                event_titel = f"DirtVision ({dirtvision_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Flo Racing-Kanaele ohne erkanntes Event: gleiche Konvention wie
+        # DirtVision oben (z.B. "Flo Racing (1) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            flo_racing_match = re.match(r"^FLO\s*RACING\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if flo_racing_match:
+                event_titel = f"Flo Racing ({flo_racing_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
         sender_daten.append({
             "kanal": voller_name,
             "land": land,
