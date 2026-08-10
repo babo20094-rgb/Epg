@@ -8,15 +8,17 @@ viele API-Aufrufe pro Lauf und ein zu hohes Risiko fuer Fehltreffer).
 
 Portiert aus dem config.js-Site-Plugin "sky.com" des iptv-org/epg-
 Projekts, aber deutlich im Umfang reduziert: nur die HAWK-API (nicht-UHD-
-Kanaele) und nur das Territory "DE" werden unterstuetzt - die Atlantis-
-API (fuer UHD-Kanaele, braucht zusaetzliche Header + eine lokale
-channels.xml-Lookup-Tabelle, die wir nicht haben) und die anderen
-Territories (GB/IT) wurden komplett weggelassen. Aus Einfachheit wird pro
-Sender/Tag ein eigener Schedule-Request gemacht (kein Batching mehrerer
-sids ueber die lokale XML-Datei wie im Original).
+Kanaele) und nur die Territories "DE" (Sky Deutschland, deckt technisch
+auch Oesterreich/Schweiz mit ab - Sky kennt dafuer kein eigenes
+Territory) und "GB" (Sky UK) werden unterstuetzt - die Atlantis-API
+(fuer UHD-Kanaele, braucht zusaetzliche Header + eine lokale
+channels.xml-Lookup-Tabelle, die wir nicht haben) und "IT" wurden
+komplett weggelassen. Aus Einfachheit wird pro Sender/Tag ein eigener
+Schedule-Request gemacht (kein Batching mehrerer sids ueber die lokale
+XML-Datei wie im Original).
 
 Braucht keinen Login (oeffentliche REST-API), nur den Header
-"X-SkyOTT-Territory: DE" auf jedem Request. Degradiert an JEDER Stelle
+"X-SkyOTT-Territory: DE"/"GB" auf jedem Request. Degradiert an JEDER Stelle
 graceful auf None/[] statt zu werfen: schlaegt Kanalsuche oder
 Programmabruf fehl, bekommt der betroffene Sender in generate_epg.py
 einfach die normale, kategoriebasierte generische EPG-Generierung wie
@@ -42,11 +44,16 @@ REQUEST_TIMEOUT_SEKUNDEN = 20
 _kanalliste_cache = {}
 
 
+UNTERSTUETZTE_TERRITORIES = ("DE", "GB")
+
+
 def _territory_normalisieren(territory):
-    """Es wird nur "DE" unterstuetzt (kein GB/IT-Port) - jeder andere
-    Wert faellt still auf "DE" zurueck."""
+    """Unterstuetzt werden "DE" (Sky Deutschland, deckt auch Oesterreich/
+    Schweiz mit ab - eigenes Territory dafuer kennt Skys API nicht) und
+    "GB" (Sky UK). Kein Port von "IT" - jeder andere/unbekannte Wert
+    faellt still auf "DE" zurueck."""
     territory = (territory or "DE").strip().upper()
-    return territory if territory == "DE" else "DE"
+    return territory if territory in UNTERSTUETZTE_TERRITORIES else "DE"
 
 
 def sky_hole_kanalliste(territory="DE"):

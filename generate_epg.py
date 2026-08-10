@@ -502,20 +502,26 @@ for zeile in zeilen:
         continue
 
     # SKY:-Präfix: opt-in für EINZELNE Sender, die echte Programmdaten
-    # von der Sky-Deutschland-EPG-API bekommen sollen (siehe
-    # sky_epg.py), statt der generischen kategoriebasierten
-    # Platzhaltertexte. Im Unterschied zum TELEMACH:-Mechanismus gibt es
-    # hier BEWUSST KEIN automatisches Matching gegen alle Sender mit
-    # Land "DE" - zu viele DE-Zeilen in sender.txt, das wären zu viele
-    # API-Aufrufe pro Lauf und ein zu hohes Fehltreffer-Risiko. Nur
-    # Sender mit dieser Zeile bekommen die echten Daten.
+    # von der Sky-EPG-API bekommen sollen (siehe sky_epg.py), statt der
+    # generischen kategoriebasierten Platzhaltertexte. Im Unterschied
+    # zum TELEMACH:-Mechanismus gibt es hier BEWUSST KEIN automatisches
+    # Matching gegen alle Sender mit Land "DE"/"GB" - zu viele Zeilen in
+    # sender.txt, das wären zu viele API-Aufrufe pro Lauf und ein zu
+    # hohes Fehltreffer-Risiko. Nur Sender mit dieser Zeile bekommen die
+    # echten Daten.
     #
     # SYNTAX (3 Felder, analog zum TELEMACH:-Schema):
     #
-    #   SKY:<Territory, nur "DE" unterstützt/Default>|<Kanalname wie bei Sky>|<Logo-URL>
+    #   SKY:<Territory, "DE" oder "GB", optional/Default "DE">|<Kanalname wie bei Sky>|<Logo-URL>
     #
-    # Beispiel:
+    # Beispiele:
     #   SKY:DE|Sky Sport Bundesliga 1|https://example.com/logo.png
+    #   SKY:GB|Sky Showcase|https://example.com/logo.png
+    #
+    # "DE" deckt technisch auch Oesterreich/Schweiz mit ab (Sky kennt
+    # dafuer kein eigenes Territory - "Sky Sport Austria"-Kanaele laufen
+    # ueber DE). Andere Werte als DE/GB fallen graceful auf "DE" zurück
+    # (siehe sky_epg.py).
     #
     # Der Kanalname (2. Feld) wird 1:1 als <channel> id/display-name
     # verwendet (wie bei NAME:/TELEMACH:) UND als Suchbegriff gegen die
@@ -532,10 +538,10 @@ for zeile in zeilen:
         while len(teile_sky) < 3:
             teile_sky.append("")
 
-        # Territory ist aktuell fest auf "DE" - andere Werte werden
-        # graceful ignoriert/auf "DE" zurückgesetzt (siehe sky_epg.py).
         sky_territory = teile_sky[0].upper() or "DE"
-        if sky_territory != "DE":
+        if sky_territory == "UK":
+            sky_territory = "GB"
+        if sky_territory not in ("DE", "GB"):
             sky_territory = "DE"
 
         sky_kanalname = teile_sky[1]
@@ -545,12 +551,12 @@ for zeile in zeilen:
             continue
 
         sky_auto_beschreibung, sky_kategorie_key = standard_beschreibung(
-            "DE", sky_kanalname
+            sky_territory, sky_kanalname
         )
 
         sender_daten.append({
-            "kanal": f"DE| {sky_kanalname}",
-            "land": "DE",
+            "kanal": f"{sky_territory}| {sky_kanalname}",
+            "land": sky_territory,
             "sender": sky_kanalname,
             "beschreibung": sky_auto_beschreibung,
             "logo": sky_logo,

@@ -146,14 +146,18 @@ manuellem Trigger.
   Datenabdeckung ist entsprechend duenn (meist nur die naechsten paar
   Sendungen/Stunden statt mehrerer voller Tage).
 
-## SKY:-Sender (Sky Deutschland, opt-in)
+## SKY:-Sender (Sky Deutschland/UK, opt-in)
 
-- Echte Programmdaten von Sky Deutschland (`sky_epg.py`, HAWK-API) gibt
-  es NUR ueber das explizite Praefix `SKY:<Territory, nur "DE"
-  unterstuetzt/optional>|<Kanalname wie bei Sky/eigener Playlist>|<Logo-
-  URL>`, z. B. `SKY:DE|Sky Sport Bundesliga 1|https://example.com/logo.png`.
+- Echte Programmdaten von Sky (`sky_epg.py`, HAWK-API) gibt es NUR ueber
+  das explizite Praefix `SKY:<Territory, "DE" oder "GB",
+  optional/Default "DE">|<Kanalname wie bei Sky/eigener Playlist>|<Logo-
+  URL>`, z. B. `SKY:DE|Sky Sport Bundesliga 1|https://example.com/logo.png`
+  oder `SKY:GB|Sky Showcase|https://example.com/logo.png`.
+- "DE" deckt technisch auch Oesterreich/Schweiz mit ab (Sky kennt dafuer
+  kein eigenes Territory, "Sky Sport Austria"-Kanaele laufen ueber DE).
+  Andere Werte als DE/GB fallen graceful auf "DE" zurueck.
 - Bewusst KEIN automatisches Matching wie bei BA/ME (Telemach/mtel) -
-  dafuer gibt es schlicht zu viele DE-Sender-Zeilen in sender.txt, das
+  dafuer gibt es schlicht zu viele DE/GB-Sender-Zeilen in sender.txt, das
   waeren zu viele API-Aufrufe pro Lauf und ein zu hohes Fehltreffer-
   Risiko.
 - Kanalsuche (`sky_kanal_finden()`, exakt dann fuzzy per `difflib`) und
@@ -161,9 +165,8 @@ manuellem Trigger.
   jedem Fehler (Netzwerk, kein Kanal-Treffer, keine Daten) graceful auf
   die normale generische EPG-Generierung - Tage 3-365 sind ohnehin immer
   generisch.
-- Nur das Territory "DE" und die nicht-UHD-Kanaele (HAWK-API) werden
-  unterstuetzt, keine anderen Sky-Laender und keine UHD-Kanaele
-  (Atlantis-API).
+- Nur die Territories "DE"/"GB" und die nicht-UHD-Kanaele (HAWK-API)
+  werden unterstuetzt, kein "IT" und keine UHD-Kanaele (Atlantis-API).
 
 ## ARENA:-Sender (Arena Sport HR/RS, opt-in)
 

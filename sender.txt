@@ -1,3 +1,21 @@
+SKY:DE| SKY SPORT BUNDESLIGA 1|
+SKY:DE| SKY SPORT 1|
+SKY:DE| SKY SPORT AUSTRIA 1|
+MAGENTA:DE| BILD+ EVENT FAME FIGHTING|
+MAGENTA:DE| HR HD|
+MAGENTA:DE| PRO7SAT.1 FHD|
+MAGENTA:DE| YU-GI-OH!|
+MAGENTA:DE| SR|
+MAGENTA:DE| SONY AXN HD|
+MAGENTA:DE| SONY CHANNEL FHD|
+SKY:DE| NOW|
+TVGUIDE:US| FOX 41 YAKIMA WA|
+TVGUIDE:US| FOX 67 BROWNSVILLE TX|
+TVGUIDE:US| FOX 17 SIOUX FALLS SD|
+FREEVIEW:GB| PTV GLOBAL|
+FREEVIEW:GB| BBC ARABIC|
+FREEVIEW:GB| NICK|
+FREEVIEW:GB| 4 MUSIC|
 SI| PLANET PLUS ⱽᴵᴾ ᴿᴬᵂ||Auto
 TVGUIDE:US|NBC 16 LAFAYETTE LA (WPBI)|
 TVGUIDE:US| C-SPAN 1 HD|
@@ -190,17 +208,17 @@ US| ViX+ DEPORTES 17||AUTO
 US| ViX+ DEPORTES 18||AUTO
 US| ViX+ DEPORTES 19||AUTO
 US| ViX+ DEPORTES 20||AUTO
-UK| SKY SHOWCASE||AUTO
-UK| TCM FHD||AUTO
+SKY:UK| SKY SHOWCASE|AUTO
+FREEVIEW:GB| TCM FHD|AUTO
 UK| SKY SHOWCASE FHD||AUTO
-UK| SKY SHOWCASE+1|
+SKY:UK| SKY SHOWCASE+1|
 UK| BT BOX OFFICE HD||AUTO
-UK| BBC BBC WORLD SERVICE|
-UK| SKY REPLAY|
-UK| LONDON LIVE|
-UK| RT DOCUMENTRY HD|| AUTO
-UK| RTE TWO HD|
-UK| TALK TV HD|
+FREEVIEW:GB| BBC World Service|
+SKY:UK| SKY REPLAY|
+FREEVIEW:GB| LONDON LIVE|
+FREEVIEW:GB| RT DOCUMENTRY HD|AUTO
+FREEVIEW:GB| RTE TWO HD|
+FREEVIEW:GB| TALK TV HD|
 UK| TALK TV FHD|
 US| TELEMUNDO 6 (WTCL) CLEVELAND|
 US| TELEMUNDO 46 (KXTQ) LUBBOCK/TEXAS|
@@ -375,12 +393,12 @@ US| FANDUEL NETBASE||Auto
 US| FANDUEL NEW ORLEANS||Auto
 UK| MC-POP HITS||Auto
 UK| MC-POP & COUNTRY||Auto
-UK| MC-MUSICA URBANA||Auto
-UK| MC-MEXICANA||Auto
-UK| MC-HIT LIST||Auto
-UK| MC-HIP HOP||Auto
+FREEVIEW:GB| MC-MUSICA URBANA|Auto
+FREEVIEW:GB| MC-MEXICANA|Auto
+FREEVIEW:GB| MC-HIT LIST|Auto
+FREEVIEW:GB| MC-HIP HOP|Auto
 UK| MC-DANCE EDM||Auto
-UK| MC-ALTERNATIVE||Auto
+FREEVIEW:GB| MC-ALTERNATIVE|Auto
 UK| MC-90S||Auto
 UK| MC-TROPICALES||Auto
 UK| MC-TODAYS COUNTRY||Auto
@@ -612,8 +630,8 @@ US| CW 19 JEANNETTE PA (WPCW)|
 US| CW (WNOL) 38 NEW ORLEANS|
 US| PBS PORTLAND (KOPB) OR|
 UK| NOW HK PREMIER SPORTS 8|
-UK| SKY CINEMA OSCARS HD|
-UK| MTV MUSIC|
+SKY:UK| SKY CINEMA OSCARS HD|
+FREEVIEW:GB| MTV MUSIC|
 IR| RTE TWO HD|
 IT| RAI 1 HD|
 LAT| TIGO SPORTS 1 BO HD|
@@ -927,7 +945,7 @@ RS| SYFY|
 HR| NICK JUNIOR|
 UK| KIDZ BOP-DIRECT HD|
 UK| KIDZ ONLY!-DIRECT HD|
-UK| CINEMANIA HOLLYWOOD 4K|
+FREEVIEW:GB| CINEMANIA HOLLYWOOD 4K|
 UK| UFC HD|
 UK| EDGE SPORT FHD|
 DE| EB PEPPA WUTZ FHD||https://images.seeklogo.com/logo-png/32/2/peppa-pig-without-peppa-logo-png_seeklogo-327074.png
@@ -1426,8 +1444,8 @@ DE|Sky Cinema Special HEVC|
 DE|Hr HD Hessischer Rundfunk|
 DE|UHD1 by Astra|
 UK|R&B Soul-Direkt HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
-UK|Rap 2K-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
-UK|Pop Latino-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
+FREEVIEW:GB|Rap 2K-Direct HD|https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
+FREEVIEW:GB|Pop Latino-Direct HD|https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 UK|80'S-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 UK|Dave&amp;Ana HD|
 UK|Rt FHD Russian (Temp off Air)|
@@ -1435,8 +1453,8 @@ UK|RTE News Now|
 UK|RT uk HD|
 UK|W!-Watch FHD|
 UK|RTE 1 Hevc FHD|
-UK|Praise Tv Network|
-UK|N4 Iceland HD|
+FREEVIEW:GB|Praise Tv Network|
+FREEVIEW:GB|N4 Iceland HD|
 US|THE CROWN ᴿᴬᵂ| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
 US|Cw 23 (KCWT)|
 US|Cw (WLMT) 30 Memphis|

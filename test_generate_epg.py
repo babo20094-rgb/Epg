@@ -534,6 +534,32 @@ def test_sky_ohne_sky_zeilen_werden_keine_requests_ausgeloest():
     assert sky_sender_leer == []
 
 
+def test_sky_gb_territory_wird_unterstuetzt_und_nicht_auf_de_zurueckgesetzt():
+    """Seit der GB-Erweiterung darf "GB" NICHT mehr still auf "DE"
+    zurueckfallen (im Unterschied zu jedem anderen/unbekannten Wert, der
+    weiterhin auf "DE" faellt) - der Territory-Header muss "GB" sein."""
+    regions_response = _mock_response({"regions": [{"bouquetId": 2, "subBouquetId": 2}]})
+    services_response = _mock_response({
+        "services": [{"sid": "2001", "t": "Sky Showcase", "schedule": True}]
+    })
+
+    aufgerufene_header = []
+
+    def _get(url, headers=None, timeout=None):
+        aufgerufene_header.append(headers.get("X-SkyOTT-Territory"))
+        if "regions" in url:
+            return regions_response
+        return services_response
+
+    with patch("sky_epg.requests.get", side_effect=_get):
+        site_id = sky_epg.sky_kanal_finden("Sky Showcase", "GB")
+
+    assert site_id == "2001"
+    assert all(h == "GB" for h in aufgerufene_header)
+    assert sky_epg._territory_normalisieren("unbekannt") == "DE"
+    assert sky_epg._territory_normalisieren("GB") == "GB"
+
+
 # ==========================================================
 # Arena-EPG (opt-in ARENA:-Sender, HR/RS, siehe arena_epg.py)
 # ==========================================================
