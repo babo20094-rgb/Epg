@@ -494,51 +494,51 @@ UK| KARAOKE 5|Karaoke (5) ᴸⁱᵛᵉ|Auto
 UK| KARAOKE 6|Karaoke (6) ᴸⁱᵛᵉ|Auto
 UK| KARAOKE 7|Karaoke (7) ᴸⁱᵛᵉ|Auto
 UK| KARAOKE 8|Karaoke (8) ᴸⁱᵛᵉ|Auto
-NA| Bakersfield Condors||Auto
-NA| Belleville Senators||Auto
-NA| Bridgeport Islanders||Auto
-NA| Chicago Wolves||Auto
-NA| Cleveland Monsters||Auto
-NA| Colorado Eagles||Auto
-NA| Grand Rapids Griffins||Auto
-NA| Hartford Wolf Pack||Auto
-NA| Henderson Silver Knights||Auto
-NA| Hershey Bears||Auto
-NA| Iowa Wild||Auto
-NA| Laval Rocket||Auto
-NA| Lehigh Valley Phantoms||Auto
-NA| Manitoba Moose||Auto
-NA| Ontario Reign||Auto
-NA| Providence Bruins||Auto
-NA| Rochester Americans||Auto
-NA| Rockford IceHogs||Auto
-NA| San Diego Gulls||Auto
-NA| San Jose Barracuda||Auto
-NA| Syracuse Crunch||Auto
-NA| Texas Stars||Auto
-NA| Toronto Marlies||Auto
-NA| Tucson Roadrunners||Auto
-NA| Utica Comets||Auto
-NA| W-B/Scranton Penguins||Auto
-NA| Victoriaville Tigres||Auto
-NA| Sherbrooke Phoenix||Auto
-NA| Val-d'Or Foreurs||Auto
-NA| Shawinigan Cataractes||Auto
-NA| Saint John Sea Dogs||Auto
-NA| Rouyn-Noranda Huskies||Auto
-NA| Rimouski Océanic||Auto
-NA| Québec Remparts||Auto
-NA| Moncton Wildcats||Auto
-NA| Halifax Mooseheads||Auto
-NA| Gatineau Olympiques||Auto
-NA| Drummondville Voltigeurs||Auto
-NA| Chicoutimi Saguenéens||Auto
-NA| Charlottetown Islanders||Auto
-NA| Blainville-Boisbriand Armada||Auto
-NA| Cape Breton Eagles||Auto
-NA| Baie-Comeau Drakkar||Auto
-NA| Acadie-Bathurst Titan||Auto
-NA| Calgary Wranglers||Auto
+NA| Bakersfield Condors|Bakersfield Condors ᴸⁱᵛᵉ|Auto
+NA| Belleville Senators|Belleville Senators ᴸⁱᵛᵉ|Auto
+NA| Bridgeport Islanders|Bridgeport Islanders ᴸⁱᵛᵉ|Auto
+NA| Chicago Wolves|Chicago Wolves ᴸⁱᵛᵉ|Auto
+NA| Cleveland Monsters|Cleveland Monsters ᴸⁱᵛᵉ|Auto
+NA| Colorado Eagles|Colorado Eagles ᴸⁱᵛᵉ|Auto
+NA| Grand Rapids Griffins|Grand Rapids Griffins ᴸⁱᵛᵉ|Auto
+NA| Hartford Wolf Pack|Hartford Wolf Pack ᴸⁱᵛᵉ|Auto
+NA| Henderson Silver Knights|Henderson Silver Knights ᴸⁱᵛᵉ|Auto
+NA| Hershey Bears|Hershey Bears ᴸⁱᵛᵉ|Auto
+NA| Iowa Wild|Iowa Wild ᴸⁱᵛᵉ|Auto
+NA| Laval Rocket|Laval Rocket ᴸⁱᵛᵉ|Auto
+NA| Lehigh Valley Phantoms|Lehigh Valley Phantoms ᴸⁱᵛᵉ|Auto
+NA| Manitoba Moose|Manitoba Moose ᴸⁱᵛᵉ|Auto
+NA| Ontario Reign|Ontario Reign ᴸⁱᵛᵉ|Auto
+NA| Providence Bruins|Providence Bruins ᴸⁱᵛᵉ|Auto
+NA| Rochester Americans|Rochester Americans ᴸⁱᵛᵉ|Auto
+NA| Rockford IceHogs|Rockford Icehogs ᴸⁱᵛᵉ|Auto
+NA| San Diego Gulls|San Diego Gulls ᴸⁱᵛᵉ|Auto
+NA| San Jose Barracuda|San Jose Barracuda ᴸⁱᵛᵉ|Auto
+NA| Syracuse Crunch|Syracuse Crunch ᴸⁱᵛᵉ|Auto
+NA| Texas Stars|Texas Stars ᴸⁱᵛᵉ|Auto
+NA| Toronto Marlies|Toronto Marlies ᴸⁱᵛᵉ|Auto
+NA| Tucson Roadrunners|Tucson Roadrunners ᴸⁱᵛᵉ|Auto
+NA| Utica Comets|Utica Comets ᴸⁱᵛᵉ|Auto
+NA| W-B/Scranton Penguins|W-B/scranton Penguins ᴸⁱᵛᵉ|Auto
+NA| Victoriaville Tigres|Victoriaville Tigres ᴸⁱᵛᵉ|Auto
+NA| Sherbrooke Phoenix|Sherbrooke Phoenix ᴸⁱᵛᵉ|Auto
+NA| Val-d'Or Foreurs|Val-D'or Foreurs ᴸⁱᵛᵉ|Auto
+NA| Shawinigan Cataractes|Shawinigan Cataractes ᴸⁱᵛᵉ|Auto
+NA| Saint John Sea Dogs|Saint John Sea Dogs ᴸⁱᵛᵉ|Auto
+NA| Rouyn-Noranda Huskies|Rouyn-Noranda Huskies ᴸⁱᵛᵉ|Auto
+NA| Rimouski Océanic|Rimouski Océanic ᴸⁱᵛᵉ|Auto
+NA| Québec Remparts|Québec Remparts ᴸⁱᵛᵉ|Auto
+NA| Moncton Wildcats|Moncton Wildcats ᴸⁱᵛᵉ|Auto
+NA| Halifax Mooseheads|Halifax Mooseheads ᴸⁱᵛᵉ|Auto
+NA| Gatineau Olympiques|Gatineau Olympiques ᴸⁱᵛᵉ|Auto
+NA| Drummondville Voltigeurs|Drummondville Voltigeurs ᴸⁱᵛᵉ|Auto
+NA| Chicoutimi Saguenéens|Chicoutimi Saguenéens ᴸⁱᵛᵉ|Auto
+NA| Charlottetown Islanders|Charlottetown Islanders ᴸⁱᵛᵉ|Auto
+NA| Blainville-Boisbriand Armada|Blainville-Boisbriand Armada ᴸⁱᵛᵉ|Auto
+NA| Cape Breton Eagles|Cape Breton Eagles ᴸⁱᵛᵉ|Auto
+NA| Baie-Comeau Drakkar|Baie-Comeau Drakkar ᴸⁱᵛᵉ|Auto
+NA| Acadie-Bathurst Titan|Acadie-Bathurst Titan ᴸⁱᵛᵉ|Auto
+NA| Calgary Wranglers|Calgary Wranglers ᴸⁱᵛᵉ|Auto
 US| REALITY||AUTO
 US| YOGA EXERCISE||Auto
 DE| BILD+ EVENT FAME FIGHTING|
