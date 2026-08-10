@@ -2516,7 +2516,9 @@ def kanalname_normal_geschrieben(name):
         if kern.upper() in KANALNAME_ABKUERZUNGEN:
             kern_formatiert = kern.upper()
         else:
-            kern_formatiert = kern.capitalize()
+            # Jeden Bindestrich-Teil einzeln kapitalisieren, sonst wird
+            # aus "YU-GI-OH!" nur "Yu-gi-oh!" statt "Yu-Gi-Oh!".
+            kern_formatiert = "-".join(teil.capitalize() for teil in kern.split("-"))
 
         ergebnis.append(praefix + kern_formatiert + suffix)
 
