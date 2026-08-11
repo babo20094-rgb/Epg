@@ -306,49 +306,20 @@ manuellem Trigger.
   (Netzwerk, unerwartete HTML-Struktur) still auf die normale
   generische EPG-Generierung.
 
-## mojtv.hr (BA/RS/HR/SI/ME, automatisch, letzter Fallback)
-
-- Echte, HTML-gescrapte Programmdaten von mojtv.hr (`mojtv_epg.py`,
-  ~400 Kanaele ueber viele Laender-Kategorien) gibt es AUTOMATISCH als
-  LETZTER Fallback fuer Sender mit Land `BA`/`ME`/`MNG`/`CG` (nach
-  Telemach/mtel.ba/mymedia.ba), `RS` (nach mts.rs), `HR` (nach
-  MojMaxTV) und `SI` (nach tv-spored.siol.net) - kein eigenes Praefix
-  noetig, greift nur wenn die jeweilige laenderspezifische Hauptquelle
-  fuer diesen Sender nichts gefunden hat.
-- Die Kanalsuche nutzt eine im Repo mitgelieferte statische Datei
-  (`mojtv_kanalliste.txt`, ca. 190 Eintraege aus den Kategorien
-  Hrvatski/Sportski/Dokumentarni/Glazbeni/Djecji/Informativni/
-  Zabavni/BiH/Slovenski/Srpski/Cg, Zeilenformat "<id>|<Name>") statt
-  live alle Kategorie-Seiten zu crawlen - kein Netzwerk-Request fuer
-  die Kanalsuche selbst, nur der eigentliche Programmabruf fuer
-  tatsaechlich getroffene Kanaele geht live. Sollte gelegentlich
-  manuell aktualisiert werden, falls mojtv.hr neue Kanaele listet -
-  das passiert hier nicht automatisch.
-- Pro Kanal/Tag wird `kanal.aspx?datum=DD.M.YYYY&id=<ID>` einzeln
-  abgerufen (bis zu 3 Tage). Die Seite liefert nur Startzeiten - die
-  Endzeit wird aus der Startzeit der naechsten Sendung berechnet
-  (letzte Sendung des Tages endet um Mitternacht), analog zu
-  arena_epg.py/mymedia_epg.py. Da hier HTML statt einer stabilen
-  JSON-API geparst wird, ist die Quelle prinzipiell anfaelliger fuer
-  Breaking Changes bei einem Website-Redesign als Telemach/mtel/
-  mts.rs - degradiert aber nach derselben Zero-Risk-Garantie bei jedem
-  Fehler (Netzwerk, kein Kanal-Treffer, unerwartete HTML-Struktur)
-  still auf die normale generische EPG-Generierung fuer diesen Sender.
-
 ## free-epg.de (BA/RS/HR/DE/MK, automatisch)
 
 - Echte Programmdaten von free-epg.de (`freeepg_epg.py`, kostenloses,
   offenes XMLTV-Bulk-EPG-Projekt "FreeEPG/2" - kein Login, keine
   kommerzielle Rytec-Weiterverteilung wie die abgelehnten
   ricxepg.nl/kodi-unlimited-support.de-Mirrors) gibt es AUTOMATISCH:
-  fuer BA-Sender als ALLERLETZTER Fallback (nach Telemach/mtel.ba/
-  mymedia.ba/mojtv.hr), fuer RS- und HR-Sender als letzter Fallback
-  (nach mts.rs/mojtv.hr bzw. MojMaxTV/mojtv.hr), und fuer DE- und
-  MK-Sender als EINZIGE automatische Quelle (kein Telemach/mts-
-  Aequivalent fuer Deutschland, und fuer Nordmazedonien nachdem MaxTV
-  Go wegen toter Domain entfernt wurde, siehe unten) - bewusst NUR fuer
-  diese fuenf Laender (nicht fuer alle Laender, die free-epg.de
-  anbietet), auf ausdruecklichen Wunsch.
+  fuer BA-Sender als LETZTER Fallback (nach Telemach/mtel.ba/
+  mymedia.ba), fuer RS- und HR-Sender als letzter Fallback (nach
+  mts.rs bzw. MojMaxTV), und fuer DE- und MK-Sender als EINZIGE
+  automatische Quelle (kein Telemach/mts-Aequivalent fuer
+  Deutschland, und fuer Nordmazedonien nachdem MaxTV Go wegen toter
+  Domain entfernt wurde, siehe unten) - bewusst NUR fuer diese fuenf
+  Laender (nicht fuer alle Laender, die free-epg.de anbietet), auf
+  ausdruecklichen Wunsch.
 - Anders als alle anderen echten EPG-Quellen dieses Repos ist das kein
   Kanal-fuer-Kanal-API-Abruf, sondern JE LAND EINE komplette XMLTV-
   Datei (`https://free-epg.de/api/epg/<land>.xml.gz`) mit allen

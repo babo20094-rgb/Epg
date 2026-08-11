@@ -1,7 +1,9 @@
 """Optionale, echte Programmdaten von free-epg.de - AUTOMATISCH als
-LETZTER Fallback fuer BA-Sender (nach Telemach/mtel.ba/mymedia.ba/
-mojtv.hr, siehe die Verarbeitungsbloecke in generate_epg.py), nur wenn
-keine der anderen Quellen fuer diesen Sender etwas gefunden hat.
+Fallback fuer BA/RS/HR-Sender (nach Telemach/mtel.ba/mymedia.ba bzw.
+mts.rs bzw. MojMaxTV, siehe die Verarbeitungsbloecke in
+generate_epg.py) sowie als einzige automatische Quelle fuer DE/MK,
+nur wenn keine der anderen Quellen fuer diesen Sender etwas gefunden
+hat.
 
 free-epg.de ("FreeEPG/2") ist ein kostenloses, offenes XMLTV-Bulk-
 EPG-Projekt (kein Login, keine kommerzielle Rytec-Weiterverteilung wie
@@ -171,11 +173,23 @@ def freeepg_kanal_finden(kanalname, land="ba"):
     if not ziel_schluessel:
         return None
 
+    # free-epg.de fuehrt manchmal mehrere <channel>-Eintraege mit
+    # identischem Namen unter verschiedenen IDs (z.B. Regional-
+    # Varianten), von denen aber nur eine tatsaechlich Sendungen im
+    # <programme>-Teil hat. Bei mehreren Kandidaten mit gleichem Namen
+    # wird deshalb die ID bevorzugt, die auch echte Sendungen hat -
+    # sonst matcht man dauerhaft auf eine programmlose ID und bekommt
+    # trotz Kanaltreffer nie Daten.
     name_index = {}
     for kanal in daten["kanaele"]:
         schluessel = normalisiere_sendername(kanal["name"])
-        if schluessel:
-            name_index.setdefault(schluessel, kanal["site_id"])
+        if not schluessel:
+            continue
+        bisherige_id = name_index.get(schluessel)
+        if bisherige_id is None:
+            name_index[schluessel] = kanal["site_id"]
+        elif not daten["programme"].get(bisherige_id) and daten["programme"].get(kanal["site_id"]):
+            name_index[schluessel] = kanal["site_id"]
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]
