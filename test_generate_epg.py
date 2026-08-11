@@ -48,6 +48,8 @@ import mts_epg
 import mojmaxtv_epg
 import siol_epg
 import mymedia_epg
+import mojtv_epg
+import freeepg_epg
 
 
 # ==========================================================
@@ -1680,3 +1682,146 @@ def test_mymedia_fehlschlag_faellt_graceful_auf_leere_liste_zurueck(_mymedia_cac
     response.raise_for_status.return_value = None
     with patch("mymedia_epg.requests.get", return_value=response):
         assert mymedia_epg.mymedia_hole_programme(tage=1) == []
+
+
+def _mojtv_kanal_html(zeit, titel, beschreibung=""):
+    return (
+        '<li class="pastshow">'
+        f'<span class="show-time"><b>{zeit}</b></span>'
+        '<a href="https://mojtv.hr/m2/film.aspx?id=1">'
+        f'<span><b>{titel}</b><em></em><img src=""/><span>{beschreibung}</span></span>'
+        '</a></li>'
+    )
+
+
+@pytest.fixture
+def _mojtv_cache_zuruecksetzen():
+    mojtv_epg._kanalliste_cache = None
+    mojtv_epg._seite_cache = {}
+    yield
+    mojtv_epg._kanalliste_cache = None
+    mojtv_epg._seite_cache = {}
+
+
+def test_mojtv_kanalliste_wird_aus_datei_gelesen(_mojtv_cache_zuruecksetzen):
+    kanaele = mojtv_epg.mojtv_hole_kanalliste()
+    assert len(kanaele) > 0
+    assert any(k["name"].upper() == "HTV1" for k in kanaele)
+
+
+def test_mojtv_kanal_finden_exakt_und_kein_treffer(_mojtv_cache_zuruecksetzen):
+    assert mojtv_epg.mojtv_kanal_finden("HTV1") is not None
+    assert mojtv_epg.mojtv_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
+
+
+def test_mojtv_erfolgreicher_abruf_liefert_echte_sendungen(_mojtv_cache_zuruecksetzen):
+    html = "<html><body><ul>" + _mojtv_kanal_html("20:00", "Film Titel", "Kurzbeschreibung") + "</ul></body></html>"
+    response = MagicMock()
+    response.text = html
+    response.raise_for_status.return_value = None
+
+    with patch("mojtv_epg.requests.get", return_value=response):
+        programme = mojtv_epg.mojtv_hole_programme("41", tage=1)
+
+    assert len(programme) == 1
+    sendung = programme[0]
+    assert sendung["title"] == "Film Titel"
+    assert sendung["beschreibung"] == "Kurzbeschreibung"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_mojtv_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_mojtv_cache_zuruecksetzen):
+    assert mojtv_epg.mojtv_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
+
+    with patch("mojtv_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert mojtv_epg.mojtv_hole_programme("41", tage=1) == []
+
+
+def test_mojtv_ohne_relevante_sender_werden_keine_requests_ausgeloest():
+    """sender.txt ohne BA/RS/HR/SI/ME-Zeilen darf mojtv_epg's Schedule-
+    Request-Funktion ueberhaupt nicht kontaktieren (Zero-Risk-Garantie,
+    analog zu den anderen automatischen Quellen). Die statische
+    Kanalliste darf weiterhin lokal gelesen werden (kein Netzwerk-
+    Request)."""
+    mojtv_relevante_sender_leer = []
+
+    with patch("mojtv_epg.requests.get", side_effect=AssertionError("mojtv_epg haette nicht kontaktiert werden duerfen")):
+        for daten in mojtv_relevante_sender_leer:
+            mojtv_epg.mojtv_hole_programme(daten["sender"])
+
+    assert mojtv_relevante_sender_leer == []
+
+
+def _freeepg_xmltv_bauen(kanaele, programme):
+    root = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tv generator-info-name=\"FreeEPG/2\" generator-info-url=\"https://free-epg.de\">\n"
+    for kid, name in kanaele:
+        root += f'  <channel id="{kid}"><display-name>{name}</display-name></channel>\n'
+    for kid, titel, start, stop, beschr in programme:
+        root += (
+            f'  <programme start="{start}" stop="{stop}" channel="{kid}">'
+            f'<title>{titel}</title><desc>{beschr}</desc></programme>\n'
+        )
+    root += "</tv>"
+    return root.encode("utf-8")
+
+
+@pytest.fixture
+def _freeepg_cache_zuruecksetzen():
+    freeepg_epg._daten_cache = {}
+    yield
+    freeepg_epg._daten_cache = {}
+
+
+def test_freeepg_erfolgreicher_abruf_liefert_echte_sendungen(_freeepg_cache_zuruecksetzen):
+    heute = datetime.datetime.now(datetime.timezone.utc)
+    start_str = heute.strftime("%Y%m%d") + "180000 +0000"
+    stop_str = heute.strftime("%Y%m%d") + "183000 +0000"
+    xml_bytes = _freeepg_xmltv_bauen(
+        [("ATV.ba", "ATV")],
+        [("ATV.ba", "Vijesti", start_str, stop_str, "Kurzbeschreibung")],
+    )
+    response = MagicMock()
+    response.content = xml_bytes
+    response.raise_for_status.return_value = None
+
+    with patch("freeepg_epg.requests.get", return_value=response):
+        site_id = freeepg_epg.freeepg_kanal_finden("ATV", "ba")
+        assert site_id == "ATV.ba"
+
+        programme = freeepg_epg.freeepg_hole_programme(site_id, "ba", tage=1)
+
+    assert len(programme) == 1
+    sendung = programme[0]
+    assert sendung["title"] == "Vijesti"
+    assert sendung["beschreibung"] == "Kurzbeschreibung"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_freeepg_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_freeepg_cache_zuruecksetzen):
+    xml_bytes = _freeepg_xmltv_bauen([("ATV.ba", "ATV")], [])
+    response = MagicMock()
+    response.content = xml_bytes
+    response.raise_for_status.return_value = None
+
+    with patch("freeepg_epg.requests.get", return_value=response):
+        assert freeepg_epg.freeepg_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999", "ba") is None
+
+    freeepg_epg._daten_cache = {}
+    with patch("freeepg_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert freeepg_epg.freeepg_kanal_finden("ATV", "ba") is None
+        assert freeepg_epg.freeepg_hole_programme("ATV.ba", "ba", tage=1) == []
+
+
+def test_freeepg_ohne_ba_sender_werden_keine_requests_ausgeloest():
+    """sender.txt ohne BA-Zeilen darf freeepg_epg's Download-Funktion
+    ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog zu den
+    anderen automatischen Quellen)."""
+    freeepg_relevante_sender_leer = []
+
+    with patch("freeepg_epg.requests.get", side_effect=AssertionError("freeepg_epg haette nicht kontaktiert werden duerfen")):
+        for daten in freeepg_relevante_sender_leer:
+            freeepg_epg.freeepg_hole_programme(daten["sender"], "ba")
+
+    assert freeepg_relevante_sender_leer == []

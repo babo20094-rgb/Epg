@@ -21,6 +21,8 @@ from epg_lib import (
 from telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from mtel_epg import mtel_kanal_finden, mtel_hole_programme
 from mymedia_epg import mymedia_hole_programme
+from mojtv_epg import mojtv_kanal_finden, mojtv_hole_programme
+from freeepg_epg import freeepg_kanal_finden, freeepg_hole_programme
 from mts_epg import mts_kanal_finden, mts_hole_programme
 from mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
 from siol_epg import siol_kanal_finden, siol_hole_programme
@@ -1062,6 +1064,21 @@ for zeile in zeilen:
     if land.strip().upper() == "SI":
         eintrag["siol"] = True
 
+    # Automatischer free-epg.de-Abgleich fuer alle DE-Sender (siehe
+    # freeepg_epg.py) - analog zum BA/RS-Fallback, aber hier die
+    # EINZIGE automatische Quelle fuer DE (kein Telemach/mts-Aequivalent
+    # fuer Deutschland). Rein lokaler Namensabgleich gegen die einmal
+    # geladene Bulk-Datei, kein zusaetzlicher Netzwerk-Aufruf pro
+    # Sender.
+    if land.strip().upper() == "DE":
+        eintrag["freeepg_de"] = True
+
+    # Automatischer free-epg.de-Abgleich fuer alle MK-Sender - analog
+    # zu DE (kein anderes automatisches MK-Aequivalent vorhanden,
+    # nachdem MaxTV Go wegen toter Domain entfernt wurde).
+    if land.strip().upper() == "MK":
+        eintrag["freeepg_mk"] = True
+
     sender_daten.append(eintrag)
 
 # ==========================================================
@@ -1647,6 +1664,8 @@ if name_pipe_kanal_index:
 TELEMACH_TAGE = 3
 MTEL_TAGE = 2
 MYMEDIA_TAGE = 3
+MOJTV_TAGE = 3
+FREEEPG_TAGE = 3
 SKY_TAGE = 2
 MAGENTA_TAGE = 2
 ARENA_TAGE = 2
@@ -1668,6 +1687,8 @@ tvpassport_sender = [d for d in sender_daten if d.get("tvpassport")]
 mts_sender = [d for d in sender_daten if d.get("mts")]
 mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
 siol_sender = [d for d in sender_daten if d.get("siol")]
+freeepg_de_sender = [d for d in sender_daten if d.get("freeepg_de")]
+freeepg_mk_sender = [d for d in sender_daten if d.get("freeepg_mk")]
 
 
 def _schreibe_echte_programme(daten, programme):
@@ -1710,6 +1731,7 @@ for daten in telemach_sender:
         programme = []
 
     daten["telemach_tage"] = {p["start"].date() for p in programme}
+    echte_daten_gefunden = bool(programme)
 
     if programme:
         print(f"Telemach-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -1738,6 +1760,7 @@ for daten in telemach_sender:
             if mtel_programme:
                 print(f"Mtel-EPG: {len(mtel_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach-Fallback).")
                 _schreibe_echte_programme(daten, mtel_programme)
+                echte_daten_gefunden = True
             else:
                 print(f"Mtel-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
@@ -1758,8 +1781,53 @@ for daten in telemach_sender:
                     if mymedia_programme:
                         print(f"MyMedia-EPG: {len(mymedia_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach/Mtel-Fallback).")
                         _schreibe_echte_programme(daten, mymedia_programme)
+                        echte_daten_gefunden = True
                     else:
                         print(f"MyMedia-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+        # mojtv.hr als letzter Versuch fuer BA/ME/MNG/CG (siehe
+        # mojtv_epg.py): nur wenn oben noch keine echten Daten
+        # gefunden wurden (Telemach UND ggf. mtel.ba/mymedia.ba
+        # erfolglos).
+        if not echte_daten_gefunden:
+            mojtv_programme = []
+            try:
+                mojtv_site_id = mojtv_kanal_finden(daten["sender"])
+                if mojtv_site_id is not None:
+                    mojtv_programme = mojtv_hole_programme(mojtv_site_id, MOJTV_TAGE)
+                else:
+                    print(f"MojTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            except Exception as e:
+                print(f"MojTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                mojtv_programme = []
+
+            daten["mojtv_tage"] = {p["start"].date() for p in mojtv_programme}
+
+            if mojtv_programme:
+                print(f"MojTV-EPG: {len(mojtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach-Fallback).")
+                _schreibe_echte_programme(daten, mojtv_programme)
+                echte_daten_gefunden = True
+
+        # free-epg.de als allerletzter Versuch, NUR fuer BA-Sender
+        # (siehe freeepg_epg.py) - nur wenn oben noch keine echten
+        # Daten gefunden wurden.
+        if not echte_daten_gefunden and daten["telemach"]["country"] == "ba":
+            freeepg_programme = []
+            try:
+                freeepg_site_id = freeepg_kanal_finden(daten["sender"], "ba")
+                if freeepg_site_id is not None:
+                    freeepg_programme = freeepg_hole_programme(freeepg_site_id, "ba", FREEEPG_TAGE)
+                else:
+                    print(f"FreeEPG-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            except Exception as e:
+                print(f"FreeEPG-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                freeepg_programme = []
+
+            daten["freeepg_tage"] = {p["start"].date() for p in freeepg_programme}
+
+            if freeepg_programme:
+                print(f"FreeEPG-EPG: {len(freeepg_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach/MojTV-Fallback).")
+                _schreibe_echte_programme(daten, freeepg_programme)
 
 # ==========================================================
 # SKY: echte Programmdaten fuer SKY:-Sender (siehe sky_epg.py und der
@@ -1998,6 +2066,45 @@ for daten in mts_sender:
     else:
         print(f"Mts-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
+        # mojtv.hr als zweiter Versuch fuer RS-Sender (siehe
+        # mojtv_epg.py), nur wenn mts.rs nichts gefunden hat.
+        mojtv_programme = []
+        try:
+            mojtv_site_id = mojtv_kanal_finden(daten["sender"])
+            if mojtv_site_id is not None:
+                mojtv_programme = mojtv_hole_programme(mojtv_site_id, MOJTV_TAGE)
+            else:
+                print(f"MojTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+        except Exception as e:
+            print(f"MojTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+            mojtv_programme = []
+
+        daten["mojtv_tage"] = {p["start"].date() for p in mojtv_programme}
+
+        if mojtv_programme:
+            print(f"MojTV-EPG: {len(mojtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Mts-Fallback).")
+            _schreibe_echte_programme(daten, mojtv_programme)
+        else:
+            # free-epg.de als dritter Versuch fuer RS-Sender (siehe
+            # freeepg_epg.py), nur wenn mts.rs UND mojtv.hr nichts
+            # gefunden haben.
+            freeepg_programme = []
+            try:
+                freeepg_site_id = freeepg_kanal_finden(daten["sender"], "rs")
+                if freeepg_site_id is not None:
+                    freeepg_programme = freeepg_hole_programme(freeepg_site_id, "rs", FREEEPG_TAGE)
+                else:
+                    print(f"FreeEPG-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            except Exception as e:
+                print(f"FreeEPG-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                freeepg_programme = []
+
+            daten["freeepg_tage"] = {p["start"].date() for p in freeepg_programme}
+
+            if freeepg_programme:
+                print(f"FreeEPG-EPG: {len(freeepg_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Mts/MojTV-Fallback).")
+                _schreibe_echte_programme(daten, freeepg_programme)
+
 # ==========================================================
 # MOJMAXTV: automatischer Abgleich fuer alle HR-Sender (siehe
 # mojmaxtv_epg.py). Kein eigenes Praefix noetig. Ohne jegliche
@@ -2025,6 +2132,45 @@ for daten in mojmaxtv_sender:
     else:
         print(f"MojMaxTV-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
+        # mojtv.hr als zweiter Versuch fuer HR-Sender (siehe
+        # mojtv_epg.py), nur wenn MojMaxTV nichts gefunden hat.
+        mojtv_programme = []
+        try:
+            mojtv_site_id = mojtv_kanal_finden(daten["sender"])
+            if mojtv_site_id is not None:
+                mojtv_programme = mojtv_hole_programme(mojtv_site_id, MOJTV_TAGE)
+            else:
+                print(f"MojTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+        except Exception as e:
+            print(f"MojTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+            mojtv_programme = []
+
+        daten["mojtv_tage"] = {p["start"].date() for p in mojtv_programme}
+
+        if mojtv_programme:
+            print(f"MojTV-EPG: {len(mojtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (MojMaxTV-Fallback).")
+            _schreibe_echte_programme(daten, mojtv_programme)
+        else:
+            # free-epg.de als dritter Versuch fuer HR-Sender (siehe
+            # freeepg_epg.py), nur wenn MojMaxTV UND mojtv.hr nichts
+            # gefunden haben.
+            freeepg_programme = []
+            try:
+                freeepg_site_id = freeepg_kanal_finden(daten["sender"], "hr")
+                if freeepg_site_id is not None:
+                    freeepg_programme = freeepg_hole_programme(freeepg_site_id, "hr", FREEEPG_TAGE)
+                else:
+                    print(f"FreeEPG-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            except Exception as e:
+                print(f"FreeEPG-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                freeepg_programme = []
+
+            daten["freeepg_tage"] = {p["start"].date() for p in freeepg_programme}
+
+            if freeepg_programme:
+                print(f"FreeEPG-EPG: {len(freeepg_programme)} echte Sendungen fuer '{daten['sender']}' geladen (MojMaxTV/MojTV-Fallback).")
+                _schreibe_echte_programme(daten, freeepg_programme)
+
 # ==========================================================
 # SIOL: automatischer Abgleich fuer alle SI-Sender (siehe siol_epg.py -
 # HTML-Scraping, fragiler als die anderen Quellen). Kein eigenes
@@ -2051,6 +2197,72 @@ for daten in siol_sender:
         _schreibe_echte_programme(daten, programme)
     else:
         print(f"Siol-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+        # mojtv.hr als zweiter Versuch fuer SI-Sender (siehe
+        # mojtv_epg.py), nur wenn siol nichts gefunden hat.
+        mojtv_programme = []
+        try:
+            mojtv_site_id = mojtv_kanal_finden(daten["sender"])
+            if mojtv_site_id is not None:
+                mojtv_programme = mojtv_hole_programme(mojtv_site_id, MOJTV_TAGE)
+            else:
+                print(f"MojTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+        except Exception as e:
+            print(f"MojTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+            mojtv_programme = []
+
+        daten["mojtv_tage"] = {p["start"].date() for p in mojtv_programme}
+
+        if mojtv_programme:
+            print(f"MojTV-EPG: {len(mojtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Siol-Fallback).")
+            _schreibe_echte_programme(daten, mojtv_programme)
+
+# ==========================================================
+# FREEEPG: automatischer Abgleich fuer alle DE-Sender (siehe
+# freeepg_epg.py). Kein eigenes Praefix noetig, einzige automatische
+# Quelle fuer DE. Ohne jegliche DE-Zeile in sender.txt passiert hier
+# gar nichts.
+# ==========================================================
+
+for daten in freeepg_de_sender:
+    programme = []
+    try:
+        site_id = freeepg_kanal_finden(daten["sender"], "de")
+        if site_id is not None:
+            programme = freeepg_hole_programme(site_id, "de", FREEEPG_TAGE)
+        else:
+            print(f"FreeEPG-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        print(f"FreeEPG-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["freeepg_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"FreeEPG-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"FreeEPG-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+for daten in freeepg_mk_sender:
+    programme = []
+    try:
+        site_id = freeepg_kanal_finden(daten["sender"], "mk")
+        if site_id is not None:
+            programme = freeepg_hole_programme(site_id, "mk", FREEEPG_TAGE)
+        else:
+            print(f"FreeEPG-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        print(f"FreeEPG-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["freeepg_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"FreeEPG-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"FreeEPG-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
 # ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
@@ -2095,6 +2307,17 @@ for tag_index in range(ANZAHL_TAGE):
             # Tage mit echten Daten werden hier ebenfalls nicht
             # generisch nachgeneriert.
             if daten.get("telemach") and tag_start.date() in daten.get("mymedia_tage", set()):
+                continue
+            # mojtv.hr-Fallback (siehe Bloecke oben, letzter Versuch
+            # fuer Telemach/mtel/mts/MojMaxTV/siol-Sender): Tage mit
+            # echten Daten werden hier ebenfalls nicht generisch
+            # nachgeneriert.
+            if tag_start.date() in daten.get("mojtv_tage", set()):
+                continue
+            # free-epg.de-Fallback (siehe Block oben, nur fuer BA):
+            # Tage mit echten Daten werden hier ebenfalls nicht
+            # generisch nachgeneriert.
+            if tag_start.date() in daten.get("freeepg_tage", set()):
                 continue
             # SKY:-Sender (siehe Block oben): Tage, an denen bereits
             # echte Sky-Programmdaten geschrieben wurden, werden hier
