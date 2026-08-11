@@ -1397,7 +1397,7 @@ BA|TATABRADA|Tatabrada ᴸⁱᵛᵉ|https://bihlink.com/wp-content/uploads/2026/
 BA|AL JAZEERA BALKANS FHD|Al Jazeera Balkans FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/9/9f/Al_Jazeera_Balkans.png
 BA|AL JAZEERA BALKANS |Al Jazeera Balkans ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/9/9f/Al_Jazeera_Balkans.png
 BA|RTV CAZIN HD|Rtv Cazin HD ᴸⁱᵛᵉ|https://zona.ba/wp-content/uploads/cazintv-1.jpg
-BA|ATV HD BANJA LUKA|Atv HD Banja Luka ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/BN_Televizija_Logo.svg/500px-BN_Televizija_Logo.svg.png
+BA|ATV HD BANJA LUKA|Atv HD Banja Luka ᴸⁱᵛᵉ|https://mediadaily.biz/wp-content/uploads/2023/10/atv-banja-luka-novi-logo-ok.jpg
 BA|RTV PODRINJE|Rtv Podrinje ᴸⁱᵛᵉ|https://rtvpodrinje.rs/wp-content/uploads/2024/05/social.jpg
 BA|RTV KRAJINA|Rtv Krajina ᴸⁱᵛᵉ|https://krajina.at/assets/img/team/stjepan_mock.jpg
 BA|RTV BANJA LUKA|Rtv Banja Luka ᴸⁱᵛᵉ|https://rtvbn.tv/assets/images/rtvbn-logo-live.png
