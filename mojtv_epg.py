@@ -50,6 +50,13 @@ REQUEST_TIMEOUT_SEKUNDEN = 20
 
 TZ = ZoneInfo("Europe/Zagreb")
 
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+}
+
 KANALLISTE_DATEI = os.path.join(os.path.dirname(__file__), "mojtv_kanalliste.txt")
 
 # Modul-weite Caches: die statische Kanalliste wird nur einmal
@@ -130,7 +137,7 @@ def _seite_holen(site_id, tag):
     try:
         response = requests.get(
             BASE_URL, params={"datum": datum_text, "id": site_id},
-            timeout=REQUEST_TIMEOUT_SEKUNDEN,
+            headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")

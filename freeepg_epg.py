@@ -29,6 +29,7 @@ from datetime import datetime, timedelta, timezone
 
 import difflib
 import gzip
+import re
 import xml.etree.ElementTree as ET
 
 import requests
@@ -76,6 +77,12 @@ def _xml_laden(land):
             name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
             if not kanal_id or not name:
                 continue
+            # Manche Eintraege haben ein Land-Praefix im Anzeigenamen
+            # ("DE - WDR" statt "WDR") - das verfaelscht sonst den
+            # Namensabgleich (z.B. wuerde "DDR" faelschlich auf
+            # "DE - WDR" matchen, weil das "DE" im Praefix die
+            # Aehnlichkeit erhoeht), deshalb hier entfernen.
+            name = re.sub(r"^[A-Z]{2}\s*-\s*", "", name)
             kanaele.append({"site_id": kanal_id, "name": name})
 
         programme = {}
@@ -131,12 +138,22 @@ def _xmltv_zeit_parsen(text):
         return None
 
 
+# Kurze Namen (z.B. "K3", "TV1") duerfen NICHT per Teilstring-Abgleich
+# matchen - sonst wuerde z.B. "TV1" in praktisch jedem laengeren
+# Kanalnamen wie "TV18" oder "ETV1" stecken und zu Fehltreffern fuehren.
+MIN_TEILSTRING_LAENGE = 5
+
+
 def freeepg_kanal_finden(kanalname, land="ba"):
-    """Sucht den free-epg.de-Kanal, der am besten zu kanalname passt -
-    erst exakter Abgleich nach normalisiere_sendername(), sonst
-    unscharfer difflib-Abgleich (gleiche Vorgehensweise wie
-    telemach_kanal_finden()/mojtv_kanal_finden()). Gibt die Kanal-ID
-    zurueck oder None."""
+    """Sucht den free-epg.de-Kanal, der am besten zu kanalname passt, in
+    drei Stufen: (1) exakter Abgleich nach normalisiere_sendername(),
+    (2) Teilstring-Abgleich (ein Name steckt komplett im anderen, z.B.
+    weil free-epg.de oder sender.txt Zusaetze wie "HD"/"FHD"/Ortsnamen
+    fuehrt, die der jeweils andere nicht hat) - nur ab
+    MIN_TEILSTRING_LAENGE Zeichen, um triviale Kurz-Treffer zu
+    vermeiden, bei mehreren Kandidaten gewinnt der mit der geringsten
+    Laengendifferenz, (3) unscharfer difflib-Abgleich wie bei den
+    anderen Quellen. Gibt die Kanal-ID zurueck oder None."""
     daten = _xml_laden(land)
     if not daten or not daten["kanaele"]:
         return None
@@ -153,6 +170,17 @@ def freeepg_kanal_finden(kanalname, land="ba"):
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]
+
+    if len(ziel_schluessel) >= MIN_TEILSTRING_LAENGE:
+        kandidaten = []
+        for schluessel, site_id in name_index.items():
+            if len(schluessel) < MIN_TEILSTRING_LAENGE:
+                continue
+            if ziel_schluessel in schluessel or schluessel in ziel_schluessel:
+                kandidaten.append((abs(len(schluessel) - len(ziel_schluessel)), site_id))
+        if kandidaten:
+            kandidaten.sort(key=lambda k: k[0])
+            return kandidaten[0][1]
 
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
     if aehnliche:
