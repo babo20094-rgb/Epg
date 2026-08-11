@@ -1380,10 +1380,10 @@ HR|NET IP SELECT 4 HD|Net Ip Select 4 HD ᴸⁱᵛᵉ|
 #BA| BOSNA I HERCEGOVINA
 BA| BANJA LUKA|
 BA| TV SLON EXTRA|
-BA| MY TV
+BA| MY TV||https://mymedia.ba/wp-content/uploads/2025/10/mytv-bijelo.png
 BA| RTV DOBOJ|
 BA| ELTA 1|
-BA| TV SIMIĆ|
+BA| TV SIMIĆ||https://i.imgur.com/CtkXEvJ.png
 BA| BN TV HD||AUTO
 BA| DOBRA EXLUSIVE||Auto
 BA| SEHARA||Auto
@@ -1402,10 +1402,10 @@ BA|RTV PODRINJE|Rtv Podrinje ᴸⁱᵛᵉ|https://rtvpodrinje.rs/wp-content/uplo
 BA|RTV KRAJINA|Rtv Krajina ᴸⁱᵛᵉ|https://krajina.at/assets/img/team/stjepan_mock.jpg
 BA|RTV BANJA LUKA|Rtv Banja Luka ᴸⁱᵛᵉ|https://rtvbn.tv/assets/images/rtvbn-logo-live.png
 BA|GLAS DRINE|Glas Drine ᴸⁱᵛᵉ|https://www.phonostar.de/images/auto_created/Radio_Glas_Drine3184x184.png
-BA|HIT TV VIP RAW|Hit TV ᴸⁱᵛᵉ|https://channels2.digital.ugbb.net/wp-content/uploads/2020/08/rtv-hit.png
+BA|HIT TV VIP RAW|Hit TV ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/2/22/Logo_of_HIT_Televizija.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original
 BA|K3 PRNJAVOR|K3 Prnjavor ᴸⁱᵛᵉ|https://tvprofil.com/img/kanali-logo/K3_BA_logo.png?1736339813
 BA|SIMIC TV|Simic TV ᴸⁱᵛᵉ|https://i.imgur.com/CtkXEvJ.png
-BA|RTV SLON|Rtv Slon ᴸⁱᵛᵉ|https://tvprofil.com/img/kanali-logo/RTV_Slon_BA_logo.png?1736336424
+BA|RTV SLON|Rtv Slon ᴸⁱᵛᵉ|https://balkantelevizija.net/wp-content/uploads/2025/01/rtv_slon.png
 BA|RTV USK|Rtv Usk ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/f/ff/Logo_of_RTVUSK.png
 BA|MEKA TV|Meka TV ᴸⁱᵛᵉ|https://makkahtv.tv/assets/images/0.png-714x367.png
 BA|RTV VOGOSCA VIP RAW|Rtv Vogosca ᴸⁱᵛᵉ|https://www.rtvvogosca.ba/logo6.png
@@ -1425,8 +1425,8 @@ BA|BLAGOVESTI TV VIP RAW|Blagovesti TV ᴸⁱᵛᵉ|https://static.tildacdn.net/
 BA|DOBRA MUZICKA TV VIP RAW|Dobra Muzicka TV ᴸⁱᵛᵉ|https://static.wixstatic.com/media/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png/v1/fill/w_2500,h_2500,al_c/0e5f34_03035bd98224495783b962c8069b8c04~mv2.png
 BA|HAYAT STIL I ZIVOT VIP RAW|Hayat Stil I Zivot ᴸⁱᵛᵉ|https://static.wikia.nocookie.net/logopedia/images/d/de/Hayat_Stil_i_%C5%BEivot_-_Logo.png/revision/latest?cb=20240223105710
 BA|HAYAT LOVE BOX VIP RAW|Hayat Love Box ᴸⁱᵛᵉ|https://static.wikia.nocookie.net/logopedia/images/0/0c/Hayat_Love_Box_-_Logo.png/revision/latest?cb=20240223105808
-BA|HAYAT PLUS VIP RAW|Hayat Plus ᴸⁱᵛᵉ|
-BA|HAYAT PLUS|Hayat Plus ᴸⁱᵛᵉ|
+BA|HAYAT PLUS VIP RAW|Hayat Plus ᴸⁱᵛᵉ|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
+BA|HAYAT PLUS|Hayat Plus ᴸⁱᵛᵉ|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 BA|HIT TELEVIZIJA BRCKO|Hit Televizija Brcko ᴸⁱᵛᵉ|
 BA|RTV VOGOSCA|Rtv Vogosca ᴸⁱᵛᵉ|
 BA|HIT TELEVIZIJA|Hit Televizija ᴸⁱᵛᵉ|

@@ -20,6 +20,7 @@ from epg_lib import (
 )
 from telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from mtel_epg import mtel_kanal_finden, mtel_hole_programme
+from mymedia_epg import mymedia_hole_programme
 from mts_epg import mts_kanal_finden, mts_hole_programme
 from mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
 from siol_epg import siol_kanal_finden, siol_hole_programme
@@ -1621,6 +1622,7 @@ if name_pipe_kanal_index:
 
 TELEMACH_TAGE = 3
 MTEL_TAGE = 2
+MYMEDIA_TAGE = 3
 SKY_TAGE = 2
 MAGENTA_TAGE = 2
 ARENA_TAGE = 2
@@ -1714,6 +1716,26 @@ for daten in telemach_sender:
                 _schreibe_echte_programme(daten, mtel_programme)
             else:
                 print(f"Mtel-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+                # mymedia.ba als dritter Versuch: deckt technisch nur
+                # EINEN festen Kanal ab ("MY TV", siehe mymedia_epg.py),
+                # daher hier per Namensvergleich statt Kanalsuche - nur
+                # wenn Telemach UND mtel.ba nichts gefunden haben.
+                if normalisiere_sendername(daten["sender"]) == normalisiere_sendername("MY TV"):
+                    mymedia_programme = []
+                    try:
+                        mymedia_programme = mymedia_hole_programme(MYMEDIA_TAGE)
+                    except Exception as e:
+                        print(f"MyMedia-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                        mymedia_programme = []
+
+                    daten["mymedia_tage"] = {p["start"].date() for p in mymedia_programme}
+
+                    if mymedia_programme:
+                        print(f"MyMedia-EPG: {len(mymedia_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach/Mtel-Fallback).")
+                        _schreibe_echte_programme(daten, mymedia_programme)
+                    else:
+                        print(f"MyMedia-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
 
 # ==========================================================
 # SKY: echte Programmdaten fuer SKY:-Sender (siehe sky_epg.py und der
@@ -2044,6 +2066,11 @@ for tag_index in range(ANZAHL_TAGE):
             # anstelle von Telemach echte Daten geliefert hat, werden
             # hier ebenfalls nicht generisch nachgeneriert.
             if daten.get("telemach") and tag_start.date() in daten.get("mtel_tage", set()):
+                continue
+            # mymedia.ba-Fallback (siehe Block oben, nur fuer "MY TV"):
+            # Tage mit echten Daten werden hier ebenfalls nicht
+            # generisch nachgeneriert.
+            if daten.get("telemach") and tag_start.date() in daten.get("mymedia_tage", set()):
                 continue
             # SKY:-Sender (siehe Block oben): Tage, an denen bereits
             # echte Sky-Programmdaten geschrieben wurden, werden hier

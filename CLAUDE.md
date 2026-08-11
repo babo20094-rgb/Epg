@@ -288,6 +288,24 @@ manuellem Trigger.
   Daten, unparsbare Sendungsdauer) graceful auf die normale generische
   EPG-Generierung, kein Absturz moeglich.
 
+## mymedia.ba (Sender "MY TV", automatisch)
+
+- Echte, HTML-gescrapte Programmdaten von mymedia.ba/tv-program/
+  (`mymedia_epg.py`) gibt es AUTOMATISCH als dritter Fallback nach
+  Telemach und mtel.ba (siehe Block oben), aber NUR fuer einen Sender
+  mit Namen exakt "MY TV" (Land BA) - kein eigenes Praefix noetig.
+- Die Seite deckt technisch nur EINEN einzigen, festen Kanal ab (kein
+  Kanal-Verzeichnis, kein Login), daher gibt es hier bewusst keine
+  eigene Kanalsuche wie bei den anderen Quellen - die Zuordnung
+  passiert per direktem Namensvergleich, nicht per Fuzzy-Match.
+- Pro Tag wird die Seite mit `?epg_day=YYYY-MM-DD` einzeln abgerufen
+  (bis zu 3 Tage). Da hier HTML statt einer stabilen JSON-API geparst
+  wird (`BeautifulSoup`), ist die Quelle prinzipiell anfaelliger fuer
+  Breaking Changes bei einem Website-Redesign als Telemach/mtel.ba -
+  degradiert aber nach derselben Zero-Risk-Garantie bei jedem Fehler
+  (Netzwerk, unerwartete HTML-Struktur) still auf die normale
+  generische EPG-Generierung.
+
 ## TVGUIDE:-Sender (TVGuide.com US, opt-in)
 
 - Echte Programmdaten von TVGuide.com (`tvguide_epg.py`) gibt es NUR
