@@ -43,6 +43,13 @@ REQUEST_TIMEOUT_SEKUNDEN = 30
 # Modul-weiter Cache pro Land: {"kanaele": [...], "programme": {kanal_id: [...]}}
 _daten_cache = {}
 
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+}
+
 
 def _xml_laden(land):
     """Laedt und parst (und cached pro Land) die komplette free-epg.de-
@@ -54,7 +61,7 @@ def _xml_laden(land):
 
     try:
         response = requests.get(
-            URL_VORLAGE.format(land=land), timeout=REQUEST_TIMEOUT_SEKUNDEN
+            URL_VORLAGE.format(land=land), headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN
         )
         response.raise_for_status()
         rohbytes = response.content
@@ -119,6 +126,8 @@ def _xml_laden(land):
 
         for eintraege in programme.values():
             eintraege.sort(key=lambda s: s["start"])
+
+        print(f"FreeEPG-EPG: {len(kanaele)} Kanaele, {len(programme)} Kanaele mit Sendungen fuer '{land}' geladen.")
 
         daten = {"kanaele": kanaele, "programme": programme}
         _daten_cache[land] = daten
