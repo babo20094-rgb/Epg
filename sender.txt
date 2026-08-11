@@ -44,7 +44,7 @@ TELEMACH:BA|DOBOJ TV|AUTO
 TELEMACH:BA|ELTA TV|AUTO
 TELEMACH:BA|TB1|AUTO
 TELEMACH:BA|ALFA TV|AUTO
-TELEMACH:BA|SUPER TV MEDIA TUZLA|AUTO
+BA|SUPER TV MEDIA TUZLA|Super TV Media Tuzla ᴸⁱᵛᵉ|https://supertelevizija.com/wp-content/uploads/2023/03/supertv.jpg
 #DE| DAZN SPORT
 DAZN:DE|DAZN 1 HD|AUTO
 DAZN:DE|DAZN 1 FHD|AUTO
@@ -1060,30 +1060,30 @@ DE|VODAFONE GO FILME 47 FHD|Vodafone Go Filme 47 FHD ᴸⁱᵛᵉ|
 DE|VODAFONE GO FILME 48 FHD|Vodafone Go Filme 48 FHD ᴸⁱᵛᵉ|
 DE|VODAFONE GO FILME 49 FHD|Vodafone Go Filme 49 FHD ᴸⁱᵛᵉ|
 DE|VODAFONE GO FILME 50 FHD|Vodafone Go Filme 50 FHD ᴸⁱᵛᵉ|
-#BS| BALKAN SKY 24/7
-BS| AKCIJA||https://balkan-sky.com/img/logo.png
-BS| CRTANI||https://balkan-sky.com/img/logo.png
-BS| DRAMA||https://balkan-sky.com/img/logo.png
-BS| HOROR||https://balkan-sky.com/img/logo.png
-BS| KOMEDIJA||https://balkan-sky.com/img/logo.png
-BS| SCI-FI||https://balkan-sky.com/img/logo.png
-BS| TRILER||https://balkan-sky.com/img/logo.png
-BS| WESTERN||https://balkan-sky.com/img/logo.png
+#EXYU| Balkan Sky 24/7
+BS| AKCIJA|Akcija ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| CRTANI|Crtani ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| DRAMA|Drama ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| HOROR|Horor ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| KOMEDIJA|Komedija ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| SCI-FI|Sci-Fi ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| TRILER|Triler ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| WESTERN|Western ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
 
-BS| ANGELINA JOLIE COLLECTION||https://pngimg.com/uploads/angelina_jolie/angelina_jolie_PNG8.png
-BS| ARNOLD SCHWARZENEGGER COLLECTION||https://thumbnail.imgbin.com/16/12/20/imgbin-arnold-schwarzenegger-arnold-sports-festival-professional-bodybuilding-international-federation-of-bodybuilding-fitness-arnold-strongman-classic-bodybuilding-QqrqchDRUmQFLNhcbVe77DuSq_t.jpg
-BS| BRUCE WILLIS COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/caX3KtMU42EP3VLRFFBwqIIrch5.jpg
-BS| DWAYNE THE ROCK JOHNSON COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/kuqFzlYMc2IrsOyPznMd1FroeGq.jpg
-BS| J LO COLLECTION||https://w7.pngwing.com/pngs/722/614/png-transparent-jennifer-lopez-jennifer-lopez-photography-fashion-model-digital-image-thumbnail.png
-BS| JASON STATHAM COLLECTION||https://www.themoviedb.org/t/p/w300_and_h450_bestv2/lldeQ91GwIVff43JBrpdbAAeYWj.jpg
-BS| MEL GIBSON COLLECTION||https://p7.hiclipart.com/preview/993/362/342/5bbc346910e60.jpg
-BS| NICOLAS CAGE COLLECTION||https://e7.pngegg.com/pngimages/7/456/png-clipart-nicholas-cage-nicolas-cage-close-up-at-the-movies-nicolas-cage.png
-BS| PAUL WALKER COLLECTION||https://static.wixstatic.com/media/e59907_585add2930b64ddb907923430e9f32db~mv2.png/v1/fill/w_560,h_574,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png
-BS| STEVEN SEAGAL COLLECTION||https://dandelts.com.au/wp-content/uploads/2019/07/steven-suit.png
-BS| SYLVESTER STALLONE COLLECTION||https://e7.pngegg.com/pngimages/595/729/png-clipart-sylvester-stallone-sylvester-stallone-rocky-at-the-movies-sylvester-stallone.png
-BS| TOM CRUISE COLLECTION||https://freepngimg.com/download/tom_cruise/28977-6-tom-cruise-transparent-image.png
-BS| TOM HANKS COLLECTION||https://www.vhv.rs/dpng/d/562-5626857_tom-hanks-clip-arts-transparent-tom-hanks-png.png
-BS| WILL SMITH COLLECTION||https://p7.hiclipart.com/preview/737/858/501/5bbc39646174e.jpg
+BS| ANGELINA JOLIE COLLECTION|Angelina Jolie Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://pngimg.com/uploads/angelina_jolie/angelina_jolie_PNG8.png
+BS| ARNOLD SCHWARZENEGGER COLLECTION|Arnold Schwarzenegger Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://thumbnail.imgbin.com/16/12/20/imgbin-arnold-schwarzenegger-arnold-sports-festival-professional-bodybuilding-international-federation-of-bodybuilding-fitness-arnold-strongman-classic-bodybuilding-QqrqchDRUmQFLNhcbVe77DuSq_t.jpg
+BS| BRUCE WILLIS COLLECTION|Bruce Willis Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://www.themoviedb.org/t/p/w300_and_h450_bestv2/caX3KtMU42EP3VLRFFBwqIIrch5.jpg
+BS| DWAYNE THE ROCK JOHNSON COLLECTION|Dwayne The Rock Johnson Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://www.themoviedb.org/t/p/w300_and_h450_bestv2/kuqFzlYMc2IrsOyPznMd1FroeGq.jpg
+BS| J LO COLLECTION|J Lo Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://w7.pngwing.com/pngs/722/614/png-transparent-jennifer-lopez-jennifer-lopez-photography-fashion-model-digital-image-thumbnail.png
+BS| JASON STATHAM COLLECTION|Jason Statham Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://www.themoviedb.org/t/p/w300_and_h450_bestv2/lldeQ91GwIVff43JBrpdbAAeYWj.jpg
+BS| MEL GIBSON COLLECTION|Mel Gibson Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://p7.hiclipart.com/preview/993/362/342/5bbc346910e60.jpg
+BS| NICOLAS CAGE COLLECTION|Nicolas Cage Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/7/456/png-clipart-nicholas-cage-nicolas-cage-close-up-at-the-movies-nicolas-cage.png
+BS| PAUL WALKER COLLECTION|Paul Walker Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://static.wixstatic.com/media/e59907_585add2930b64ddb907923430e9f32db~mv2.png/v1/fill/w_560,h_574,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png
+BS| STEVEN SEAGAL COLLECTION|Steven Seagal Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://dandelts.com.au/wp-content/uploads/2019/07/steven-suit.png
+BS| SYLVESTER STALLONE COLLECTION|Sylvester Stallone Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/595/729/png-clipart-sylvester-stallone-sylvester-stallone-rocky-at-the-movies-sylvester-stallone.png
+BS| TOM CRUISE COLLECTION|Tom Cruise Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://freepngimg.com/download/tom_cruise/28977-6-tom-cruise-transparent-image.png
+BS| TOM HANKS COLLECTION|Tom Hanks Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://www.vhv.rs/dpng/d/562-5626857_tom-hanks-clip-arts-transparent-tom-hanks-png.png
+BS| WILL SMITH COLLECTION|Will Smith Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://p7.hiclipart.com/preview/737/858/501/5bbc39646174e.jpg
 #DE| SKY SELECT
 DE| SKY SELECT 1 FHD|Sky Select 1 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
 DE| SKY SELECT 3 FHD|Sky Select 3 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
@@ -1097,88 +1097,88 @@ DE| MAX SELECT 2 FHD|Max Select 2 FHD ᴸⁱᵛᵉ|https://www.citypng.com/publi
 DE| MAX SELECT 4 FHD|Max Select 4 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
 DE| MAX SELECT 5 FHD|Max Select 5 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
 DE| MAX SELECT 7 FHD|Max Select 7 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
-EXYU| BAKUGAN|
-EXYU| BE COOL SCOOBY-DOO|
-EXYU| AND THE MONSTER MACHINES|
-EXYU| GARFIELD AND FRIENDS|
-EXYU| KUNG FU PANDA LEGENDS OF AWESOMENESS|
-EXYU| LEGO FRIENDS GIRLS ON A MISSION|
-EXYU| LEGO NINJAGO MASTERS OF SPINJITZU|
-EXYU|LEGO NINJAGO SECRETS OF THE FORBID DEN SPINJITZU|
-EXYU| LUCKY LUKE|
-EXYU| METAJETS|
-EXYU| MUMIJEVI|
-EXYU| MY LITTLE PONY|
-EXYU| PENGUINS OF MADAGASCAR|
-EXYU| PHINEAS AND FERB|
-EXYU| SCOOBY-DOO AND GUESS WHO|
-EXYU| SHAUN THE SHEEP|
-EXYU| SOFIA THE FIRST|
-EXYU| SPEEDY GONZALEZ|
-EXYU| SPONJE BOB|
-EXYU| TANGLED THE SERIE|
-EXYU| THE BATMAN|
-EXYU| THE FLINTSTONES|
-EXYU| THE PINK PANTHER|
-EXYU| THOMAS & FRIENDS|
 #EXYU| 24/7 NON STOP
-EXYU| LOONEY TUNES||https://toppng.com/uploads/preview/looney-tunes-image-looney-tunes-logo-11562925456xfff6wikqf.png
-EXYU| PAW PATROL||https://www.clipartmax.com/png/middle/436-4366822_free-printable-paw-patrol-logo.png
-EXYU| PEPPA PIG|
-EXYU| TURTLES||https://toppng.com/uploads/preview/turtle-clipart-logo-png-ninja-turtles-logo-11563607466lfdxtxap6h.png
-EXYU| HEY KIDS|
-EXYU| MR. BEAN|
-EXYU| STRUMFOV||https://images.seeklogo.com/logo-png/52/2/smurf-croatian-strumpfovi-logo-png_seeklogo-520025.png
-EXYU| TOM AND JERRY|
-EXYU| TOM AND JERRY SHOW|
-EXYU| PCELICA MAJA||https://pcelicamaja.com/wp-content/uploads/2022/06/frame_2_delay-0.9s-removebg-preview-1-1.png
-EXYU| MICKEY MOUSE CLUBHOUSE|
-EXYU| FAST AND THE FURIOUS SPY RACERS||https://upload.wikimedia.org/wikipedia/en/5/51/Fast_%26_Furious_Spy_Racers_Title_Card.png
-EXYU| BLUEY||https://images.seeklogo.com/logo-png/53/1/bluey-logo-png_seeklogo-536960.png
-EXYU| A NIGHTMARE ON ELM STREET|
-EXYU| BAD BOYS||https://brandeps.com/logo-download/b/bad-boys-logo-01.png
-EXYU| BEVERLY HILLS COP|
-EXYU| DC COLLECTION||https://forums.cdn.launchbox.gg/monthly_2025_04/5bbffb9f4553a_DCCollectionposter.png.3d9ccd00b2bf53486c1c3e1e5bfe3d04.png
-EXYU| DIE HARD||https://upload.wikimedia.org/wikipedia/commons/d/d1/Die_Hard_film_logo.png
-EXYU| FINAL DESTINATION|
-EXYU| HAJDE DA SE VOLIMO||https://images.plex.tv/photo?size=large-1280&url=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfmcLzOAeVNcSf2cLF9MAiUrwUjZ.jpg
-EXYU| HARRY POTTER|
-EXYU| IP MAN||https://e7.pngegg.com/pngimages/773/355/png-clipart-ip-man-wing-chun-foshan-biographical-film-martial-arts-bruce-lee-tshirt-celebrities.png
-EXYU| JAMES BOND||https://w7.pngwing.com/pngs/320/776/png-transparent-james-bond-007.png
-EXYU| JURASSIC PARK|
-EXYU| LUDE GODINE||https://m.media-amazon.com/images/M/MV5BMTdkNGNlNGItZTJkYS00N2MxLTkxMDMtNTcwMjc5MTA5NzA2XkEyXkFqcGc@._V1_.jpg
-EXYU| MARVEL||https://www.citypng.com/public/uploads/preview/hd-marvel-black-logo-transparent-png-701751694711750vvppensm7p.png
-EXYU| MATRIX||https://www.vhv.rs/dpng/d/210-2105390_the-matrix-matrix-movie-logo-png-transparent-png.png
-EXYU| MISSION IMPOSSIBLE|
-EXYU| PIRATES OF THE CARIBBEAN|
-EXYU| POLICE ACADEMY|
-EXYU| RAMBO|
-EXYU| ROCKY||https://images.seeklogo.com/logo-png/42/1/rocky-balboa-logo-png_seeklogo-428261.png
-EXYU| SAW||https://images.seeklogo.com/logo-png/12/1/saw-logo-png_seeklogo-123050.png
-EXYU| TESNA KOZA||https://m.media-amazon.com/images/M/MV5BYzA2YWMwZDUtNTZlOC00OGQ4LTkxMWUtMWI4MWRlY2Y4NDBkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg
-EXYU| THE FAST AND FURIOUS||https://p1.hiclipart.com/preview/699/606/491/fast-and-furious-logo-fast-furious-logo-png-clipart.jpg
-EXYU| THE GODFATHER|
-EXYU| UNDISPUTED|
-EXYU| STAR WARS|
-EXYU| STAR TREK|
-EXYU| RISE OF THE FOOTSOLDIER|
-EXYU| AFTER|
-EXYU| VIKINGS VALHALLA|
-EXYU| VIKINGS|
-EXYU| THE BLACKLIST|
-EXYU| SRECNI LJUDI|
-EXYU| SELO GORI A BABA SE CESLJA|
-EXYU| LUD ZBUNJEN NORMALAN|
-EXYU| GAME OF THRONES|
-EXYU| JUZIN VETAR|
-EXYU| FRIENDS|
-EXYU| DOBRO JUTRO KOMSIJA|
-EXYU| BOLJI ZIVOT|
-EXYU| BELA LADA|
-EXYU| UZIVOTEKA|
-EXYU| KAFANSKO VECE|
-EXYU| KAFANSKO VECE 2|
-EXYU| TERMINATOR|
+EXYU| BAKUGAN|Bakugan ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| BE COOL SCOOBY-DOO|Be Cool Scooby-Doo ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| AND THE MONSTER MACHINES|And The Monster Machines ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| GARFIELD AND FRIENDS|Garfield And Friends ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| KUNG FU PANDA LEGENDS OF AWESOMENESS|Kung Fu Panda Legends Of Awesomeness ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| LEGO FRIENDS GIRLS ON A MISSION|Lego Friends Girls On A Mission ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| LEGO NINJAGO MASTERS OF SPINJITZU|Lego Ninjago Masters Of Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU|LEGO NINJAGO SECRETS OF THE FORBID DEN SPINJITZU|Lego Ninjago Secrets Of The Forbid Den Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| LUCKY LUKE|Lucky Luke ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| METAJETS|Metajets ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| MUMIJEVI|Mumijevi ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| MY LITTLE PONY|My Little Pony ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| PENGUINS OF MADAGASCAR|Penguins Of Madagascar ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| PHINEAS AND FERB|Phineas And Ferb ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| SCOOBY-DOO AND GUESS WHO|Scooby-Doo And Guess Who ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| SHAUN THE SHEEP|Shaun The Sheep ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| SOFIA THE FIRST|Sofia The First ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| SPEEDY GONZALEZ|Speedy Gonzalez ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| SPONJE BOB|Sponje Bob ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| TANGLED THE SERIE|Tangled The Serie ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| THE BATMAN|The Batman ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| THE FLINTSTONES|The Flintstones ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| THE PINK PANTHER|The Pink Panther ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| THOMAS & FRIENDS|Thomas & Friends ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| LOONEY TUNES|Looney Tunes ²⁴/⁷ ᴸⁱᵛᵉ|https://toppng.com/uploads/preview/looney-tunes-image-looney-tunes-logo-11562925456xfff6wikqf.png
+EXYU| PAW PATROL|Paw Patrol ²⁴/⁷ ᴸⁱᵛᵉ|https://www.clipartmax.com/png/middle/436-4366822_free-printable-paw-patrol-logo.png
+EXYU| PEPPA PIG|Peppa Pig ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| TURTLES|Turtles ²⁴/⁷ ᴸⁱᵛᵉ|https://toppng.com/uploads/preview/turtle-clipart-logo-png-ninja-turtles-logo-11563607466lfdxtxap6h.png
+EXYU| HEY KIDS|Hey Kids ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| MR. BEAN|Mr. Bean ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| STRUMFOV|Strumfov ²⁴/⁷ ᴸⁱᵛᵉ|https://commons.wikimedia.org/wiki/Special:FilePath/The_Smurfs_Original_Logo.png
+EXYU| TOM AND JERRY|Tom And Jerry ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| TOM AND JERRY SHOW|Tom And Jerry Show ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| PCELICA MAJA|Pcelica Maja ²⁴/⁷ ᴸⁱᵛᵉ|https://pcelicamaja.com/wp-content/uploads/2022/06/frame_2_delay-0.9s-removebg-preview-1-1.png
+EXYU| MICKEY MOUSE CLUBHOUSE|Mickey Mouse Clubhouse ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| FAST AND THE FURIOUS SPY RACERS|Fast And The Furious Spy Racers ²⁴/⁷ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/5/51/Fast_%26_Furious_Spy_Racers_Title_Card.png
+EXYU| BLUEY|Bluey ²⁴/⁷ ᴸⁱᵛᵉ|https://commons.wikimedia.org/wiki/Special:FilePath/TV_logo_for_Bluey.png
+EXYU| A NIGHTMARE ON ELM STREET|A Nightmare On Elm Street ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| BAD BOYS|Bad Boys ²⁴/⁷ ᴸⁱᵛᵉ|https://brandeps.com/logo-download/b/bad-boys-logo-01.png
+EXYU| BEVERLY HILLS COP|Beverly Hills Cop ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| DC COLLECTION|Dc Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://forums.cdn.launchbox.gg/monthly_2025_04/5bbffb9f4553a_DCCollectionposter.png.3d9ccd00b2bf53486c1c3e1e5bfe3d04.png
+EXYU| DIE HARD|Die Hard ²⁴/⁷ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/d/d1/Die_Hard_film_logo.png
+EXYU| FINAL DESTINATION|Final Destination ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| HAJDE DA SE VOLIMO|Hajde Da Se Volimo ²⁴/⁷ ᴸⁱᵛᵉ|https://images.plex.tv/photo?size=large-1280&url=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfmcLzOAeVNcSf2cLF9MAiUrwUjZ.jpg
+EXYU| HARRY POTTER|Harry Potter ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| IP MAN|Ip Man ²⁴/⁷ ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/773/355/png-clipart-ip-man-wing-chun-foshan-biographical-film-martial-arts-bruce-lee-tshirt-celebrities.png
+EXYU| JAMES BOND|James Bond ²⁴/⁷ ᴸⁱᵛᵉ|https://w7.pngwing.com/pngs/320/776/png-transparent-james-bond-007.png
+EXYU| JURASSIC PARK|Jurassic Park ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| LUDE GODINE|Lude Godine ²⁴/⁷ ᴸⁱᵛᵉ|https://m.media-amazon.com/images/M/MV5BMTdkNGNlNGItZTJkYS00N2MxLTkxMDMtNTcwMjc5MTA5NzA2XkEyXkFqcGc@._V1_.jpg
+EXYU| MARVEL|Marvel ²⁴/⁷ ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hd-marvel-black-logo-transparent-png-701751694711750vvppensm7p.png
+EXYU| MATRIX|Matrix ²⁴/⁷ ᴸⁱᵛᵉ|https://www.vhv.rs/dpng/d/210-2105390_the-matrix-matrix-movie-logo-png-transparent-png.png
+EXYU| MISSION IMPOSSIBLE|Mission Impossible ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| PIRATES OF THE CARIBBEAN|Pirates Of The Caribbean ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| POLICE ACADEMY|Police Academy ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| RAMBO|Rambo ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| ROCKY|Rocky ²⁴/⁷ ᴸⁱᵛᵉ|https://commons.wikimedia.org/wiki/Special:FilePath/Rocky_Balboa_(Film)_Logo.png
+EXYU| SAW|Saw ²⁴/⁷ ᴸⁱᵛᵉ|https://commons.wikimedia.org/wiki/Special:FilePath/Saw_movie_logo.png
+EXYU| TESNA KOZA|Tesna Koza ²⁴/⁷ ᴸⁱᵛᵉ|https://m.media-amazon.com/images/M/MV5BYzA2YWMwZDUtNTZlOC00OGQ4LTkxMWUtMWI4MWRlY2Y4NDBkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg
+EXYU| THE FAST AND FURIOUS|The Fast And Furious ²⁴/⁷ ᴸⁱᵛᵉ|https://p1.hiclipart.com/preview/699/606/491/fast-and-furious-logo-fast-furious-logo-png-clipart.jpg
+EXYU| THE GODFATHER|The Godfather ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| UNDISPUTED|Undisputed ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| STAR WARS|Star Wars ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| STAR TREK|Star Trek ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| RISE OF THE FOOTSOLDIER|Rise Of The Footsoldier ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| AFTER|After ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| VIKINGS VALHALLA|Vikings Valhalla ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| VIKINGS|Vikings ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| THE BLACKLIST|The Blacklist ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| SRECNI LJUDI|Srecni Ljudi ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| SELO GORI A BABA SE CESLJA|Selo Gori A Baba Se Ceslja ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| LUD ZBUNJEN NORMALAN|Lud Zbunjen Normalan ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| GAME OF THRONES|Game Of Thrones ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| JUZIN VETAR|Juzin Vetar ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| FRIENDS|Friends ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| DOBRO JUTRO KOMSIJA|Dobro Jutro Komsija ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| BOLJI ZIVOT|Bolji Zivot ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| BELA LADA|Bela Lada ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| UZIVOTEKA|Uzivoteka ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| KAFANSKO VECE|Kafansko Vece ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| KAFANSKO VECE 2|Kafansko Vece 2 ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| TERMINATOR|Terminator ²⁴/⁷ ᴸⁱᵛᵉ
 
 #IE| CLUBBER
 NAME:(IE) (Clubber 01)|https://cdn.broadbandtvnews.com/wp-content/uploads/2024/09/13090148/Clubber-TV-logo-768x271.png
@@ -1266,6 +1266,7 @@ NAME:Flo Racing 20 :|Auto
 MNG| RTCG|
 MNG|TV POBEDA VIP ᴿᴬᵂ|
 MNG|RTV HN VIP ᴿᴬᵂ|
+MNG| TV A + ⱽᴵᴾ ᴿᴬᵂ|
 MO| TV A +|
 MO| NEWSMAX BALKANS|
 MO| EURONEWS MONTENEGRO|
@@ -1441,7 +1442,7 @@ RS| RTS SVET HD||https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/RTS_S
 RS| PARTIZAN TV FHD||Auto
 RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ|
 RS| KCN 3 ⱽᴵᴾ ᴿᴬᵂ|
-RS| MASA I MEDVJED|
+RS| MASA I MEDVJED|Masa I Medvjed ²⁴/⁷ ᴸⁱᵛᵉ|
 RS| DM SAT|Dm Sat ᴸⁱᵛᵉ|
 RS| SYFY|
 RS|BALKANIKA|Balkanika ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/862/556/png-clipart-bulgaria-balkanika-tv-logo-television-music-national-geographic-animal-jam-television-logo.png

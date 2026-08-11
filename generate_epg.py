@@ -435,6 +435,18 @@ for zeile in zeilen:
         if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
             event_titel = formatiere_event_text(event_teil)
 
+        # DYN-PPV-Kanaele mit erkanntem "NEXT"-Marker: statt des
+        # uebersetzten "Es folgt: ..."-Texts wird "Dyn Sport (N) ᴺᵉˣᵗ"
+        # angezeigt - gleiche Konvention wie beim Leerlauf-Fallback
+        # unten, nur fuer den Ankuendigungs-Fall.
+        if event_titel is not None:
+            dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if dyn_ppv_next_match:
+                roh_segmente = [s.strip() for s in event_teil.split("|")]
+                roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+                if roh_marker in EVENT_MARKER_NEXT:
+                    event_titel = f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+
         # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
         # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
         # EXCLUSIVE") oder der generischen kategoriebasierten
@@ -1019,15 +1031,18 @@ for zeile in zeilen:
 
     # Automatischer Telemach-Abgleich fuer BA/ME-Sender: kein eigenes
     # TELEMACH:-Prefix noetig - jeder ganz normal eingetragene Sender
-    # mit Land "BA" oder "ME" wird beim Generieren zusaetzlich per
-    # Name gegen die Telemach-Kanalliste geprueft (siehe telemach_epg.py
-    # und der Verarbeitungsblock bei "telemach_sender" weiter unten).
-    # Bei Treffer werden fuer die ersten bis zu 3 Tage echte Sendungen
-    # eingetragen, sonst faellt der Sender unveraendert auf die normale
-    # generische Beschreibung zurueck - reine Zusatzanreicherung ohne
-    # Risiko fuer bestehende Sender.
-    if land.strip().upper() in ("BA", "ME"):
-        eintrag["telemach"] = {"country": land.strip().lower()}
+    # mit Land "BA" oder "ME" (bzw. den in sender.txt gebraeuchlichen
+    # Alias-Kuerzeln "MNG"/"CG" fuer Crna Gora/Montenegro) wird beim
+    # Generieren zusaetzlich per Name gegen die Telemach-Kanalliste
+    # geprueft (siehe telemach_epg.py und der Verarbeitungsblock bei
+    # "telemach_sender" weiter unten). Bei Treffer werden fuer die
+    # ersten bis zu 3 Tage echte Sendungen eingetragen, sonst faellt
+    # der Sender unveraendert auf die normale generische Beschreibung
+    # zurueck - reine Zusatzanreicherung ohne Risiko fuer bestehende
+    # Sender.
+    TELEMACH_LAND_ALIAS = {"BA": "ba", "ME": "me", "MNG": "me", "CG": "me"}
+    if land.strip().upper() in TELEMACH_LAND_ALIAS:
+        eintrag["telemach"] = {"country": TELEMACH_LAND_ALIAS[land.strip().upper()]}
 
     # Automatischer Abgleich fuer RS/HR/SI-Sender: analog zum BA/ME-
     # Telemach-Autoabgleich oben - kein eigenes Praefix noetig, jeder
@@ -1531,7 +1546,16 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
     ᴺᵒ ᴸⁱᵛᵉ" bei DYN PPV, generischer Kategorietext sonst) bleibt
     stehen, statt des rohen Platzhaltertexts."""
     if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
-        real_daten["event_titel"] = formatiere_event_text(event_teil)
+        event_titel = formatiere_event_text(event_teil)
+
+        dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        if dyn_ppv_next_match:
+            roh_segmente = [s.strip() for s in event_teil.split("|")]
+            roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+            if roh_marker in EVENT_MARKER_NEXT:
+                event_titel = f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+
+        real_daten["event_titel"] = event_titel
         return True
     return False
 
