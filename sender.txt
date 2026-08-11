@@ -11,6 +11,7 @@ MAGENTA:DE| YU-GI-OH!|
 MAGENTA:DE| SR|
 MAGENTA:DE| SONY AXN HD|
 MAGENTA:DE| SONY CHANNEL FHD|
+DE| CNN||https://e7.pngegg.com/pngimages/782/988/png-clipart-logo-cnn-brand-trademark-logo-cnn.png
 TVPASSPORT:US|FOX (KFFX) Yakima, WA|AUTO
 TVPASSPORT:US|FOX (KXFX) Brownsville, TX|AUTO
 TVPASSPORT:US|FOX 17 Sioux Falls SD|AUTO
@@ -1083,7 +1084,6 @@ BS| SYLVESTER STALLONE COLLECTION||https://e7.pngegg.com/pngimages/595/729/png-c
 BS| TOM CRUISE COLLECTION||https://freepngimg.com/download/tom_cruise/28977-6-tom-cruise-transparent-image.png
 BS| TOM HANKS COLLECTION||https://www.vhv.rs/dpng/d/562-5626857_tom-hanks-clip-arts-transparent-tom-hanks-png.png
 BS| WILL SMITH COLLECTION||https://p7.hiclipart.com/preview/737/858/501/5bbc39646174e.jpg
-DE| CNN||https://e7.pngegg.com/pngimages/782/988/png-clipart-logo-cnn-brand-trademark-logo-cnn.png
 #DE| SKY SELECT
 DE| SKY SELECT 1 FHD|Sky Select 1 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
 DE| SKY SELECT 3 FHD|Sky Select 3 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
