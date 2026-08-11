@@ -1437,7 +1437,7 @@ BA|TV DUGAPLUS|TV Dugaplus ᴸⁱᵛᵉ|
 BA|BN MUSIC|Bn Music ᴸⁱᵛᵉ|
 #RS| SRBIJA
 RS| DELUXE RAP|
-RS| RTS SVET HD||AUTO
+RS| RTS SVET HD||https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/RTS_Svet_logo_%282018%29.svg/960px-RTS_Svet_logo_%282018%29.svg.png
 RS| PARTIZAN TV FHD||Auto
 RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ|
 RS| KCN 3 ⱽᴵᴾ ᴿᴬᵂ|
