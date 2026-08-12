@@ -1061,14 +1061,14 @@ DE|VODAFONE GO FILME 48 FHD|Vodafone Go Filme 48 FHD ᴸⁱᵛᵉ|
 DE|VODAFONE GO FILME 49 FHD|Vodafone Go Filme 49 FHD ᴸⁱᵛᵉ|
 DE|VODAFONE GO FILME 50 FHD|Vodafone Go Filme 50 FHD ᴸⁱᵛᵉ|
 #EXYU| Balkan Sky 24/7
-BS| AKCIJA|Akcija ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
-BS| CRTANI|Crtani ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
-BS| DRAMA|Drama ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
-BS| HOROR|Horor ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
-BS| KOMEDIJA|Komedija ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
-BS| SCI-FI|Sci-Fi ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
-BS| TRILER|Triler ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
-BS| WESTERN|Western ²⁴/⁷ ᴸⁱᵛᵉ|https://balkan-sky.com/img/logo.png
+BS| AKCIJA|Akcija ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
+BS| CRTANI|Crtani ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
+BS| DRAMA|Drama ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
+BS| HOROR|Horor ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
+BS| KOMEDIJA|Komedija ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
+BS| SCI-FI|Sci-Fi ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
+BS| TRILER|Triler ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
+BS| WESTERN|Western ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/balkan_sky.png
 
 BS| ANGELINA JOLIE COLLECTION|Angelina Jolie Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://pngimg.com/uploads/angelina_jolie/angelina_jolie_PNG8.png
 BS| ARNOLD SCHWARZENEGGER COLLECTION|Arnold Schwarzenegger Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://thumbnail.imgbin.com/16/12/20/imgbin-arnold-schwarzenegger-arnold-sports-festival-professional-bodybuilding-international-federation-of-bodybuilding-fitness-arnold-strongman-classic-bodybuilding-QqrqchDRUmQFLNhcbVe77DuSq_t.jpg
