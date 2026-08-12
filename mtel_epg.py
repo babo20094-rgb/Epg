@@ -13,12 +13,19 @@ statt zu werfen: schlaegt Kanalsuche oder Programmabruf fehl, bekommt der
 betroffene Sender in generate_epg.py einfach die normale, kategorie-
 basierte generische EPG-Generierung wie jeder andere Sender - dieses
 Modul darf einen Lauf niemals zum Absturz bringen.
+
+Der Namensabgleich (mtel_kanal_finden()) wird zusaetzlich um eine
+statische Namenserweiterung ergaenzt (mtel_kanalliste.txt, aus der
+offiziellen iptv-org/epg-Kanalliste fuer mtel.ba extrahiert) - kostet
+keinen zusaetzlichen Netzwerk-Request, der Live-Abruf bleibt bei
+Ueberschneidungen immer massgeblich.
 """
 
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 import difflib
+import os
 
 import requests
 
@@ -33,10 +40,49 @@ SARAJEVO_TZ = ZoneInfo("Europe/Sarajevo")
 
 _KEIN_INFO_TEXT = "Nema informacija o programu"
 
+# Statische Namenserweiterung (aus der offiziellen iptv-org/epg-
+# Kanalliste fuer mtel.ba, sites/mtel.ba/mtel.ba_<iptv|msat>.channels.xml,
+# Zeilenformat "<platform>#<code>|<Name>"): ergaenzt den Namensabgleich
+# um Kanal-Namensvarianten, die evtl. nicht (mehr) 1:1 im Live-Suchergebnis
+# auftauchen, KOSTET ABER KEINEN Netzwerk-Request - reine lokale Datei,
+# wird nur zusaetzlich in den Namensindex gemischt, live-Eintraege haben
+# bei Ueberschneidung immer Vorrang (siehe mtel_kanal_finden()).
+KANALLISTE_DATEI = os.path.join(os.path.dirname(__file__), "mtel_kanalliste.txt")
+
+_statische_kanalliste_cache = None
+
 # Modul-weiter Cache, analog zu telemach_epg.py - die Kanalliste wird pro
 # Plattform nur einmal pro Lauf geholt, auch wenn mehrere BA-Sender ueber
 # mtel.ba aufgeloest werden muessen.
 _kanalliste_cache = {}
+
+
+def _mtel_hole_statische_kanalliste():
+    """Liest (und cached) die statische Namenserweiterungs-Datei
+    mtel_kanalliste.txt. Leere Liste bei jedem Fehler (Datei fehlt,
+    unlesbar, leer)."""
+    global _statische_kanalliste_cache
+
+    if _statische_kanalliste_cache is not None:
+        return _statische_kanalliste_cache
+
+    try:
+        kanaele = []
+        with open(KANALLISTE_DATEI, encoding="utf-8") as f:
+            for zeile in f:
+                zeile = zeile.strip()
+                if not zeile or "|" not in zeile:
+                    continue
+                site_id, name = zeile.split("|", 1)
+                if not site_id.strip() or not name.strip():
+                    continue
+                kanaele.append({"site_id": site_id.strip(), "name": name.strip()})
+        _statische_kanalliste_cache = kanaele
+        return kanaele
+    except Exception as e:
+        print(f"Mtel-EPG: statische Kanalliste konnte nicht gelesen werden ({e}), ueberspringe.")
+        _statische_kanalliste_cache = []
+        return []
 
 
 def mtel_hole_kanalliste(platform="iptv"):
@@ -83,9 +129,17 @@ def mtel_kanal_finden(kanalname, platform="iptv"):
     """Sucht den Mtel-Kanal, der am besten zu kanalname passt - erst
     exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
     difflib-Abgleich (gleiche Vorgehensweise wie telemach_kanal_finden()).
-    Gibt die site_id ("<platform>#<code>") zurueck oder None."""
+    Gibt die site_id ("<platform>#<code>") zurueck oder None.
+
+    Der Namensindex wird zusaetzlich um die statische Namenserweiterung
+    (siehe mtel_kanalliste.txt) ergaenzt - bei Ueberschneidung gewinnt
+    immer der Live-Eintrag (aktueller/verlaesslicher), die statische
+    Liste greift nur dort, wo der Live-Abruf den Namen (noch) nicht
+    liefert."""
+    platform = (platform or "iptv").strip().lower()
+
     kanaele = mtel_hole_kanalliste(platform)
-    if not kanaele:
+    if not kanaele and not _mtel_hole_statische_kanalliste():
         return None
 
     ziel_schluessel = normalisiere_sendername(kanalname)
@@ -94,6 +148,14 @@ def mtel_kanal_finden(kanalname, platform="iptv"):
 
     name_index = {}
     for kanal in kanaele:
+        schluessel = normalisiere_sendername(kanal["name"])
+        if schluessel:
+            name_index.setdefault(schluessel, kanal["site_id"])
+
+    praefix = f"{platform}#"
+    for kanal in _mtel_hole_statische_kanalliste():
+        if not kanal["site_id"].startswith(praefix):
+            continue
         schluessel = normalisiere_sendername(kanal["name"])
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])

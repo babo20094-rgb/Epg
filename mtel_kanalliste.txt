@@ -1,0 +1,501 @@
+iptv#ch-1-pink-family|Pink Family
+iptv#ch-3-rts-1|RTS 1
+iptv#ch-4-pink|Pink
+iptv#ch-6-happy-tv|Happy TV
+iptv#ch-11-rtrs|RTRS
+iptv#ch-13-atv-hd|ATV HD
+iptv#ch-14-nova-bh-hd|Nova BH HD
+iptv#ch-15-bht|BHT 1
+iptv#ch-17-tv-k3-hd|TV K3 HD
+iptv#ch-18-rtrs-plus|RTRS Plus
+iptv#ch-19-rts-svet|RTS Svet
+iptv#ch-20-rts-2|RTS 2
+iptv#ch-21-rts-nauka-hd|RTS Nauka HD
+iptv#ch-22-rtv-1|RTV 1
+iptv#ch-25-al-jazeera-balkans|AL Jazeera Balkans
+iptv#ch-26-o-kanal|O Kanal HD
+iptv#ch-29-kcn|K:CN
+iptv#ch-32-hrt-3|HRT 3
+iptv#ch-33-vikom|VIKOM
+iptv#ch-34-rtl-hd|RTL HD
+iptv#ch-35-hayat-tv|HAYAT TV
+iptv#ch-36-rtl-2-hd|RTL 2 HD
+iptv#ch-37-face-tv|FACE TV
+iptv#ch-39-rtv-hit|RTV HIT
+iptv#ch-41-herceg-tv|Herceg TV HD
+iptv#ch-42-pink-m|PINK M
+iptv#ch-45-rts-zivot|RTS Život
+iptv#ch-46-rts-drama|RTS Drama
+iptv#ch-47-rtv-i-sarajevo|RTVIS
+iptv#ch-48-rts-kolo|RTS Kolo
+iptv#ch-49-rts-trezor|RTS Trezor
+iptv#ch-50-rts-muzika|RTS Muzika
+iptv#ch-51-elta-1-hd|ELTA 1 HD
+iptv#ch-53-arena-sport-1|Arena Sport 1
+iptv#ch-54-arena-sport-2|Arena Sport 2
+iptv#ch-55-arena-sport-3|Arena Sport 3
+iptv#ch-56-arena-sport-4|Arena Sport 4
+iptv#ch-58-eurosport-1|Eurosport 1
+iptv#ch-59-eurosport-2|Eurosport 2
+iptv#ch-66-sos-kanal|SOS Kanal
+iptv#ch-67-fight-network|Fight Network
+iptv#ch-68-fight-box|FIGHT BOX
+iptv#ch-70-fast-funbox|FAST&amp;FUNBOX
+iptv#ch-72-arena-sport-1-hd|Arena Sport 1 HD
+iptv#ch-74-arena-sport-2-hd|Arena Sport 2 HD
+iptv#ch-75-arena-sport-3-hd|Arena Sport 3 HD
+iptv#ch-76-arena-sport-4-hd|Arena Sport 4 HD
+iptv#ch-77-arena-sport-1-hd-srbija|Arena Sport 5 HD
+iptv#ch-78-alfa-tv|ALFA TV
+iptv#ch-79-eurosport-1-hd|Eurosport 1 HD
+iptv#ch-80-eurosport-2-hd|Eurosport 2 HD
+iptv#ch-81-rtv-kd|RTV KD
+iptv#ch-83-hayat-plus|Hayat 2
+iptv#ch-85-baby-tv|BABY TV
+iptv#ch-86-tv-simic-hd|TV SIMIĆ HD
+iptv#ch-89-minimax|Minimax
+iptv#ch-90-tv-prijedor|TV Prijedor
+iptv#ch-91-pink-super-kids|Pink Super Kids
+iptv#ch-92-pink-kids|Pink Kids
+iptv#ch-93-hema-tv|Hema TV
+iptv#ch-94-nickelodeon|Nickelodeon
+iptv#ch-95-nick-jr|NICK JR.
+iptv#ch-98-da-vinci-learning|Da Vinci Learning
+iptv#ch-100-hayatovci|HAYATOVCI
+iptv#ch-101-hbo|HBO
+iptv#ch-102-hbo-2|HBO 2
+iptv#ch-103-hbo-3|HBO 3
+iptv#ch-104-cinemax|CINEMAX
+iptv#ch-106-cinemax-2|CINEMAX 2
+iptv#ch-107-tv-1000|TV 1000
+iptv#ch-108-hbo-hd|HBO HD
+iptv#ch-109-hbo-2-hd|HBO 2 HD
+iptv#ch-110-axn|AXN
+iptv#ch-111-hbo-3-hd|HBO 3 HD
+iptv#ch-112-axn-spin|AXN Spin
+iptv#ch-113-cinemax-hd|Cinemax HD
+iptv#ch-114-fox|Star Channel HD
+iptv#ch-115-cinemax-2-hd|Cinemax 2 HD
+iptv#ch-116-fox-life|Star LIFE
+iptv#ch-117-fox-crime|Star CRIME
+iptv#ch-118-history|HISTORY
+iptv#ch-119-national-geographic|National Geographic
+iptv#ch-120-filmbox-extra|Filmbox Extra
+iptv#ch-121-national-geographic-wild|National Geographic Wild
+iptv#ch-122-filmbox-stars|Filmbox Stars
+iptv#ch-123-discovery-channel|Discovery Channel
+iptv#ch-124-filmbox-arthouse|Filmbox Arthouse
+iptv#ch-125-animal-planet|Animal Planet
+iptv#ch-126-pink-premium|Pink Premium
+iptv#ch-127-tlc|TLC
+iptv#ch-128-id|ID
+iptv#ch-129-pink-world-cinema|Pink World Cinema
+iptv#ch-131-pink-action|Pink Action
+iptv#ch-133-pink-thriller|Pink Thriller
+iptv#ch-134-history2|History 2
+iptv#ch-135-viasat-nature|Viasat Nature
+iptv#ch-136-pink-crime-mystery|Pink Crime &amp; Mystery
+iptv#ch-137-viasat-explore|Viasat Explore
+iptv#ch-138-viasat-history|Viasat History
+iptv#ch-140-docubox-hd|Docubox
+iptv#ch-142-pink-pedia|PINK PEDIA
+iptv#ch-143-pink-romance|Pink Romance
+iptv#ch-145-pink-movies|Pink Movies
+iptv#ch-146-pink-comedy|Pink Comedy
+iptv#ch-147-agro-tv|Agro TV
+iptv#ch-149-pink-sci-fi-fantasy|Pink Sci-Fi &amp; Fantasy
+iptv#ch-150-pink-style|Pink Style
+iptv#ch-151-pink-fashion|Pink Fashion
+iptv#ch-153-24-kitchen|24 Kitchen
+iptv#ch-154-pink-western|Pink Western
+iptv#ch-155-pink-kuvar|Pink Kuvar
+iptv#ch-156-pink-classic|Pink Classic
+iptv#ch-158-rtl-living|RTL Living
+iptv#ch-159-pink-horror|Pink Horror
+iptv#ch-161-pink-soap|Pink Soap
+iptv#ch-162-fashion|Fashion
+iptv#ch-164-pink-film|Pink Film
+iptv#ch-165-pink-serije|Pink Serije
+iptv#ch-166-fashionbox|Fashionbox
+iptv#ch-168-mtv-hits-international|MTV Hits International
+iptv#ch-169-360-tune-box|360 Tune Box
+iptv#ch-173-hustler|HUSTLER
+iptv#ch-174-pink-music|Pink Music
+iptv#ch-175-erox-hd|EROX
+iptv#ch-176-pink-music-2|Pink Music 2
+iptv#ch-177-eroxxx-hd|EROXXX
+iptv#ch-178-pink-koncert|PINK KONCERT
+iptv#ch-179-pink-erotic|Pink Erotic
+iptv#ch-180-pink-hits|PINK HITS
+iptv#ch-181-pink-erotic-2|Pink Erotic 2
+iptv#ch-182-pink-erotic-3|Pink Erotic 3
+iptv#ch-184-pink-erotic-4|Pink Erotic 4
+iptv#ch-185-pink-hits-2|Pink Hits 2
+iptv#ch-186-pink-erotic-5|Pink Erotic 5
+iptv#ch-187-kontakt-tv|Kontakt TV
+iptv#ch-188-pink-erotic-6|Pink Erotic 6
+iptv#ch-189-pink-erotic-7|Pink Erotic 7
+iptv#ch-190-hifi-music|HiFi Music
+iptv#ch-191-pink-erotic-8|Pink Erotic 8
+iptv#ch-195-russia-24|RUSSIA 24
+iptv#ch-198-rt-news-tv|RT NEWS TV
+iptv#ch-199-dm-sat|DM SAT
+iptv#ch-201-rtr-planeta|RTR PLANETA
+iptv#ch-202-deutsche-welle|DEUTSCHE WELLE
+iptv#ch-203-pink-folk-2|PINK FOLK 2
+iptv#ch-204-france-24|France 24
+iptv#ch-206-bravo-music|Bravo Music
+iptv#ch-207-cgtn|CGTN HD
+iptv#ch-208-city-play|City Play
+iptv#ch-209-pink-folk|Pink Folk
+iptv#ch-210-kcn-3|K:CN 3
+iptv#ch-211-kcn-2-music|K:CN 2 Music
+iptv#ch-214-pink-zabava|PINK ZABAVA
+iptv#ch-215-pink-world|PINK WORLD
+iptv#ch-216-pink-show|PINK SHOW
+iptv#ch-217-pink-plus|PINK PLUS
+iptv#ch-218-pink-extra|PINK EXTRA
+iptv#ch-219-ha-ha|HA HA
+iptv#ch-220-lol|LOL
+iptv#ch-221-pink-reality|Pink Reality
+iptv#ch-222-hayat-music|Hayat Music Box
+iptv#ch-223-hayat-folk|Hayat Folk Box
+iptv#ch-224-pink-roll|Pink&amp;Roll
+iptv#ch-225-ftv|FTV
+iptv#ch-226-mtv-80s|MTV 80’s
+iptv#ch-227-english-club-tv|English Club TV
+iptv#ch-228-al-jazeera-balkans-hd|AL Jazeera Balkans HD
+iptv#ch-242-t1|tß1
+iptv#ch-263-hayat-hd|Hayat HD
+iptv#ch-265-ntv-arena|NTV Arena
+iptv#ch-266-mtel-info|m:tel Info
+iptv#ch-270-extreme-sports|Extreme Sports
+iptv#ch-271-jim-jam|Jim Jam
+iptv#ch-272-amc|AMC
+iptv#ch-280-tv-zdravlje|Zelena TV Zdravlje
+iptv#ch-281-bvn|BVN
+iptv#ch-282-epic-drama|Epic Drama
+iptv#ch-283-bht-hd|BHT 1 HD
+iptv#ch-284-balkan-tv|Balkan TV
+iptv#ch-286-filmbox-premium|Filmbox Premium
+iptv#ch-288-pink-bh|Pink BH
+iptv#ch-289-bn-hd|BN HD
+iptv#ch-290-ras-tv|RAS TV
+iptv#ch-291-one|ONE
+iptv#ch-293-superstar-tv|Superstar
+iptv#ch-295-id-hd|ID HD
+iptv#ch-296-gametoon|Gametoon
+iptv#ch-327-rts-3|RTS 3
+iptv#ch-330-tv-hram|TV Hram
+iptv#ch-331-koreni|Koreni
+iptv#ch-332-travel-channel|Travel Channel
+iptv#ch-334-mtv-europe|MTV Europe
+iptv#ch-349-melos-tv|Melos TV
+iptv#ch-358-prva|Prva
+iptv#ch-359-b92|B92
+iptv#ch-360-prva-max|Prva Max
+iptv#ch-361-prva-world|Prva World
+iptv#ch-362-prva-kick|Prva Kick
+iptv#ch-363-prva-life|Prva Life
+iptv#ch-364-prva-files|Prva Files
+iptv#ch-365-eg-melody|EG Melody
+iptv#ch-366-pop-melody|Pop Melody
+iptv#ch-367-ex-yu-melody|EX YU Melody
+iptv#ch-368-folk-melody|Folk Melody
+iptv#ch-369-hits-melody|Hits Melody
+iptv#ch-370-amari|Amari
+iptv#ch-371-happy-reality-1|Happy Reality 1
+iptv#ch-372-happy-reality-2|Happy Reality 2
+iptv#ch-373-babes-tv|Babes TV
+iptv#ch-374-realty-kings|Realty Kings
+iptv#ch-375-bang-u|Bang U
+iptv#ch-376-adult-1|Adult 1
+iptv#ch-377-adult-2|Adult 2
+iptv#ch-378-adult-3|Adult 3
+iptv#ch-379-adult-4|Adult 4
+iptv#ch-383-tv-partizan|TV Partizan
+iptv#ch-385-rtv-2|RTV 2
+iptv#ch-388-rts-poletarac|RTS Poletarac
+iptv#ch-390-tv-niksic|TV Nikšić
+iptv#ch-391-timeless-dizi-channel|Timeless Dizi Channel
+iptv#ch-393-tv-d-plus|TV D+
+iptv#ch-394-zadruga-1|Elita Live 1
+iptv#ch-395-zadruga-2|Elita Live 2
+iptv#ch-396-zadruga-3|Elita Live 3
+iptv#ch-397-zadruga-4|Elita Live 4
+iptv#ch-398-nba-tv-hd|NBA TV HD
+iptv#ch-399-tropik-tv-hd|Tropik TV HD
+iptv#ch-400-zvezda-tv-hd|Zvezda TV HD
+iptv#ch-403-klasik-tv|Klasik
+iptv#ch-404-dox-tv|DOX TV
+iptv#ch-405-dexy-tv-hd|Dexy TV HD
+iptv#ch-406-arena-esport-hd|Arena Esport HD
+iptv#ch-407-toxic-tv|Toxic TV
+iptv#ch-409-kazbuka|Kazbuka
+iptv#ch-410-tv-dr|TV DR
+iptv#ch-411-k1|K1
+iptv#ch-412-viasat-nature-hd|Viasat Nature HD
+iptv#ch-419-kurir-tv-hd|Kurir TV HD
+iptv#ch-420-rtv-usk-hd|RTV USK HD
+iptv#ch-424-nicktoons|NickToons
+iptv#ch-425-super-sat-tv|Super Sat TV
+iptv#ch-428-tv-101|TV 101
+iptv#ch-429-cnn|CNN
+iptv#ch-430-red-tv|Red TV
+iptv#ch-431-kuvo-tv-hd|Kuvo TV HD
+iptv#ch-432-boomerang|Cartoonito
+iptv#ch-433-rts-klasika|RTS Klasika
+iptv#ch-436-fox-news-channel|Fox News Channel
+iptv#ch-437-toxic-folk|Toxic Folk
+iptv#ch-438-cartoon-network|Cartoon Network
+iptv#ch-439-otv-valentino|OTV Valentino
+iptv#ch-440-arena-sport-1-2|Arena sport 1x2
+iptv#ch-442-superstar-2|Superstar 2
+iptv#ch-444-hgtv|HGTV
+iptv#ch-445-mtv-00s|MTV 00s
+iptv#ch-446-hype-tv|Hype TV
+iptv#ch-447-euronews-serbia-hd|Euronews Serbia HD
+iptv#ch-448-tanjug-tv|Tanjug TV
+iptv#ch-449-vesti|Vesti
+iptv#ch-450-ftv-hd|FTV HD
+iptv#ch-451-food-network|Food Network
+iptv#ch-452-svetska-srpska-tv|RTV Puls Brčko distrikt BiH
+iptv#ch-453-radio-bn|Radio BN
+iptv#ch-453-radio-rs|Radio RS
+iptv#ch-454-nes-radio|Nes radio
+iptv#ch-455-kontakt-radio|Kontakt Radio
+iptv#ch-456-naxi-radio|Naxi Radio
+iptv#ch-457-naxi-kids-radio|Naxi Kids Radio
+iptv#ch-458-naxi-rock-radio|Naxi Rock Radio
+iptv#ch-459-big-radio-1|BIG Radio 1
+iptv#ch-460-big-radio-2|BIG Radio 2
+iptv#ch-461-balkan-trip-hd|Balkan Trip HD
+iptv#ch-462-hrt-1-hd|HRT 1 HD
+iptv#ch-463-hrt-2-hd|HRT 2 HD
+iptv#ch-464-liverpool-hd|Liverpool FC TV HD
+iptv#ch-465-arena-fight-hd|Arena Fight HD
+iptv#ch-466-rtl-kockica-hd|RTL KOCKICA HD
+iptv#ch-467-euronews-serbia-hd|Euronews Serbia HD
+iptv#ch-467-superstar-tv|Superstar
+iptv#ch-468-bn-2|BN 2 HD
+iptv#ch-468-tanjug-tv|Tanjug TV
+iptv#ch-469-adria-tv|Adria TV
+iptv#ch-470-izvorna-tv|Izvorna TV
+iptv#ch-471-vikom|VIKOM
+iptv#ch-472-bn-music|BN Music HD
+iptv#ch-472-bn-music-hd|BN Music HD
+iptv#ch-480-bn-hd|BN HD
+iptv#ch-arena-premium-1|Arena Premium 1
+iptv#ch-arena-premium-1-hd|Arena Premium 1 HD
+iptv#ch-arena-premium-2|Arena Premium 2
+iptv#ch-arena-premium-2-hd|Arena Premium 2 HD
+iptv#ch-arena-premium-3|Arena Premium 3
+iptv#ch-arena-premium-3-hd|Arena Premium 3 HD
+iptv#ch-arena-sport-5|Arena Sport 5
+iptv#ch-arena-sport-6|Arena Sport 6
+iptv#ch-arena-sport-6-hd|Arena Sport 6 HD
+iptv#ch-bbc-earth-hd|BBC Earth HD
+iptv#ch-bir-tv|Bir TV
+iptv#ch-blic-tv-hd|Blic TV HD
+iptv#ch-bloomberg-adria-hd|Bloomberg Adria HD
+iptv#ch-blue-hustler|Blue Hustler
+iptv#ch-brazzers|Brazzers
+iptv#ch-crime-investigation|Crime &amp; Investigation
+iptv#ch-current-time|Current Time TV HD
+iptv#ch-dankos-plus-tv|Dankos Plus TV
+iptv#ch-ekovizija-hd|Ekovizija HD
+iptv#ch-euro-cinema-1|Euro Cinema 1
+iptv#ch-euro-cinema-2|Euro Cinema 2
+iptv#ch-euro-cinema-3|Euro Cinema 3
+iptv#ch-euro-cinema-4|Euro Cinema 4
+iptv#ch-hayat-love-box|Hayat Love Box
+iptv#ch-hayat-zivot-i-stil|Hayat Život i Stil
+iptv#ch-hrt-4-hd|HRT 4 HD
+iptv#ch-hype-2|Hype 2
+iptv#ch-informer-tv-hd|Informer TV HD
+iptv#ch-insta-tv-hd|Narodna TV
+iptv#ch-lh-tv-hd|LH TV HD
+iptv#ch-moj-astrolog-hd|Moj astrolog HD
+iptv#ch-newsmax-balkans-hd|Newsmax Balkans HD
+iptv#ch-o-kanal-music-hd|O Kanal Music HD
+iptv#ch-o-kanal-plus-hd|O Kanal Plus HD
+iptv#ch-obn-hd|OBN HD
+iptv#ch-premier-league-tv-hd|Premier League TV HD
+iptv#ch-private-tv|Private TV
+iptv#ch-radio-beograd-1|Radio Beograd 1
+iptv#ch-radio-beograd-2|Radio Beograd 2
+iptv#ch-radio-beograd-3|Radio Beograd 3
+iptv#ch-radio-beograd-202|Radio Beograd 202
+iptv#ch-radio-dzuboks|RTS Džuboks
+iptv#ch-radio-pletenica|RTS Pletenica
+iptv#ch-radio-rokenroler|RTS Rokenroler
+iptv#ch-radio-vrteska|RTS Vrteška
+iptv#ch-rt-documentary-hd|RT Documentary
+iptv#ch-rtv-gradiska-hd|RTV Gradiška HD
+iptv#ch-rtv-hb-hd|RTV HB HD
+iptv#ch-rtv-zenica-hd|RTV Zenica HD
+iptv#ch-sky-news|Sky News
+iptv#ch-superstar-3-hd|SUPERSTAR 3 HD
+iptv#ch-televizija-m|Televizija M
+iptv#ch-toxic-rap|Toxic Rap
+iptv#ch-turizam-tv|Turizam TV
+iptv#ch-tv-rudo-hd|TV Rudo
+iptv#ch-una-tv|UNA TV
+iptv#ch-yachting-tv-hd|Yachting TV HD
+msat#ch-1-pink-family|Pink Family
+msat#ch-4-pink|Pink
+msat#ch-6-happy-tv|Happy TV
+msat#ch-11-rtrs|RTRS
+msat#ch-13-atv-hd|ATV HD
+msat#ch-14-nova-bh|Nova BH
+msat#ch-15-bht|BHT 1
+msat#ch-16-obn|OBN
+msat#ch-18-rtrs-plus|RTRS Plus
+msat#ch-22-rtv-1|RTV 1
+msat#ch-24-kitchen|24 Kitchen
+msat#ch-29-kcn|K:CN
+msat#ch-30-hrt-1|HRT 1
+msat#ch-31-hrt-2|HRT 2
+msat#ch-32-hrt-3|HRT 3
+msat#ch-37-face-tv|FACE TV
+msat#ch-45-rts-zivot|RTS Život
+msat#ch-46-rts-drama|RTS Drama
+msat#ch-48-rts-kolo|RTS Kolo
+msat#ch-49-rts-trezor|RTS Trezor
+msat#ch-50-rts-muzika|RTS Muzika
+msat#ch-54-arena-sport-2|Arena Sport 2
+msat#ch-55-arena-sport-3|Arena Sport 3
+msat#ch-56-arena-sport-4|Arena Sport 4
+msat#ch-72-arena-sport-1-hd|Arena Sport 1 HD
+msat#ch-79-eurosport-1-hd|Eurosport 1 HD
+msat#ch-80-eurosport-2-hd|Eurosport 2 HD
+msat#ch-83-hayat-plus|Hayat 2
+msat#ch-89-minimax|Minimax
+msat#ch-94-nickelodeon|Nickelodeon
+msat#ch-100-hayatovci|HAYATOVCI
+msat#ch-103-hbo-3|HBO 3
+msat#ch-104-cinemax|CINEMAX
+msat#ch-106-cinemax-2|CINEMAX 2
+msat#ch-108-hbo-hd|HBO HD
+msat#ch-109-hbo-2-hd|HBO 2 HD
+msat#ch-114-fox|Star Channel HD
+msat#ch-119-national-geographic|National Geographic
+msat#ch-121-national-geographic-wild|National Geographic Wild
+msat#ch-123-discovery-channel|Discovery Channel
+msat#ch-125-animal-planet|Animal Planet
+msat#ch-126-pink-premium|Pink Premium
+msat#ch-127-tlc|TLC
+msat#ch-128-id|ID
+msat#ch-131-pink-action|Pink Action
+msat#ch-133-pink-thriller|Pink Thriller
+msat#ch-134-history2|History 2
+msat#ch-136-pink-crime-mystery|Pink Crime &amp; Mystery
+msat#ch-137-viasat-explore|Viasat Explore
+msat#ch-138-viasat-history|Viasat History
+msat#ch-146-pink-comedy|Pink Comedy
+msat#ch-149-pink-sci-fi-fantasy|Pink Sci-Fi &amp; Fantasy
+msat#ch-154-pink-western|Pink Western
+msat#ch-164-pink-film|Pink Film
+msat#ch-165-pink-serije|Pink Serije
+msat#ch-173-hustler|HUSTLER
+msat#ch-174-pink-music|Pink Music
+msat#ch-176-pink-music-2|Pink Music 2
+msat#ch-180-pink-hits|PINK HITS
+msat#ch-192-bn-music|BN Music
+msat#ch-199-dm-sat|DM SAT
+msat#ch-206-bravo-music|Bravo Music
+msat#ch-208-city-play|City Play
+msat#ch-210-kcn-3|K:CN 3
+msat#ch-211-kcn-2-music|K:CN 2 Music
+msat#ch-221-pink-reality|Pink Reality
+msat#ch-222-hayat-music|Hayat Music Box
+msat#ch-223-hayat-folk|Hayat Folk Box
+msat#ch-224-pink-roll|Pink&amp;Roll
+msat#ch-225-ftv|FTV
+msat#ch-263-hayat-hd|Hayat HD
+msat#ch-272-amc|AMC
+msat#ch-288-pink-bh|Pink BH
+msat#ch-289-bn-hd|BN HD
+msat#ch-304-nickelodeon-junior|Nickelodeon Junior
+msat#ch-309-rts-svet-hd|RTS Svet HD
+msat#ch-310-rts-1-hd|RTS 1 HD
+msat#ch-311-rts-2-hd|RTS 2 HD
+msat#ch-313-prva-max|Prva MAX
+msat#ch-315-sos-kanal-plus|SOS Kanal Plus
+msat#ch-327-rts-3|RTS 3
+msat#ch-329-al-jazeera|Al Jazeera
+msat#ch-330-tv-hram|TV Hram
+msat#ch-331-koreni|Koreni
+msat#ch-335-euronews|Euronews
+msat#ch-336-dw-english|DW English
+msat#ch-340-agro-tv-hd|Agro TV HD
+msat#ch-355-studio-b|Studio B
+msat#ch-358-prva|Prva
+msat#ch-359-b92|B92
+msat#ch-361-prva-world|Prva World
+msat#ch-363-prva-life|Prva Life
+msat#ch-364-prva-files|Prva Files
+msat#ch-385-rtv-2|RTV 2
+msat#ch-388-rts-poletarac|RTS Poletarac
+msat#ch-390-tv-niksic|TV Nikšić
+msat#ch-391-timeless-dizi-channel|Timeless Dizi Channel
+msat#ch-393-tv-d-plus|TV D+
+msat#ch-398-nba-tv-hd|NBA TV HD
+msat#ch-401-turizam-plus-tv|Turizam TV
+msat#ch-402-tv-mreza-most|TV Mreža Most
+msat#ch-403-klasik-tv|Klasik
+msat#ch-404-dox-tv|DOX TV
+msat#ch-407-toxic-tv|Toxic TV
+msat#ch-408-balkan-trip|Balkan Trip
+msat#ch-409-kazbuka|Kazbuka
+msat#ch-410-tv-dr|TV DR
+msat#ch-411-k1|K1
+msat#ch-421-kurir-tv|Kurir TV
+msat#ch-422-msat-info|m:SAT Info
+msat#ch-423-dexy-tv|Dexy TV
+msat#ch-426-superstar-tv-hd|Superstar HD
+msat#ch-427-tv-k3|TV K3
+msat#ch-429-cnn|CNN
+msat#ch-430-red-tv|Red TV
+msat#ch-433-rts-klasika|RTS Klasika
+msat#ch-434-arena-fight|Arena Fight
+msat#ch-435-liverpool-fc-tv|Liverpool FC TV
+msat#ch-436-fox-news-channel|Fox News Channel
+msat#ch-437-toxic-folk|Toxic Folk
+msat#ch-440-arena-sport-1-2|Arena sport 1x2
+msat#ch-444-hgtv|HGTV
+msat#ch-446-hype-tv|Hype TV
+msat#ch-448-tanjug-tv|Tanjug TV
+msat#ch-449-vesti|Vesti
+msat#ch-468-bn-2|BN 2 HD
+msat#ch-481-euronews-serbia|Euronews Serbia
+msat#ch-482-rtl|RTL
+msat#ch-483-rtl-2|RTL 2
+msat#ch-484-arena-esport|Arena Esport
+msat#ch-485-kuvo-tv|Kuvo TV
+msat#ch-486-superstar-2-hd|Superstar 2 TV HD
+msat#ch-488-toxic-rap|Toxic Rap
+msat#ch-arena-premium-1|Arena Premium 1
+msat#ch-arena-premium-2|Arena Premium 2
+msat#ch-arena-premium-3|Arena Premium 3
+msat#ch-arena-sport-5|Arena Sport 5
+msat#ch-arena-sport-6|Arena Sport 6
+msat#ch-baby-tv|Baby TV
+msat#ch-bbc-earth|BBC Earth
+msat#ch-blic-tv-hd|Blic TV HD
+msat#ch-bloomberg-adria|Bloomberg Adria
+msat#ch-ekovizija|Ekovizija
+msat#ch-euro-cinema-1|Euro Cinema 1
+msat#ch-euro-cinema-2|Euro Cinema 2
+msat#ch-euro-cinema-3|Euro Cinema 3
+msat#ch-euro-cinema-4|Euro Cinema 4
+msat#ch-fox-crime|Star CRIME
+msat#ch-hype-2|Hype 2
+msat#ch-informer-tv|Informer TV
+msat#ch-insta-tv|Narodna TV
+msat#ch-moj-astrolog|Moj astrolog
+msat#ch-newsmax-balkans|Newsmax Balkans
+msat#ch-premier-league-tv|Premier League TV
+msat#ch-star-life-hd|Star Life HD
+msat#ch-superstar-3|Superstar 3
+msat#ch-una-tv|UNA TV

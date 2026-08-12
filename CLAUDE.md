@@ -105,6 +105,13 @@ manuellem Trigger.
   Zero-Risk-Garantie wie bei Telemach: jeder Fehler (Netzwerk, kein
   Treffer, kaputtes JSON) degradiert still auf die normale generische
   EPG-Generierung, kein neues sender.txt-Praefix noetig.
+- Der Namensabgleich fuer mtel.ba (`mtel_kanal_finden()`) wird zusaetzlich
+  um eine statische Namenserweiterung ergaenzt (`mtel_kanalliste.txt`,
+  ~500 Eintraege, aus der offiziellen iptv-org/epg-Kanalliste fuer
+  mtel.ba extrahiert, Zeilenformat "<platform>#<code>|<Name>") - kostet
+  keinen zusaetzlichen Netzwerk-Request, greift nur dort, wo der
+  Live-Kanalabruf einen Namen (noch) nicht liefert; bei Ueberschneidung
+  hat der Live-Eintrag immer Vorrang.
 
 ## mts.rs (Serbien, automatisch)
 
@@ -306,30 +313,73 @@ manuellem Trigger.
   (Netzwerk, unerwartete HTML-Struktur) still auf die normale
   generische EPG-Generierung.
 
-## free-epg.de (BA/RS/HR/DE/MK, automatisch)
+## klix.ba (Bosnien, automatisch)
 
-- Echte Programmdaten von free-epg.de (`freeepg_epg.py`, kostenloses,
-  offenes XMLTV-Bulk-EPG-Projekt "FreeEPG/2" - kein Login, keine
-  kommerzielle Rytec-Weiterverteilung wie die abgelehnten
-  ricxepg.nl/kodi-unlimited-support.de-Mirrors) gibt es AUTOMATISCH:
-  fuer BA-Sender als LETZTER Fallback (nach Telemach/mtel.ba/
-  mymedia.ba), fuer RS- und HR-Sender als letzter Fallback (nach
-  mts.rs bzw. MojMaxTV), und fuer DE- und MK-Sender als EINZIGE
-  automatische Quelle (kein Telemach/mts-Aequivalent fuer
-  Deutschland, und fuer Nordmazedonien nachdem MaxTV Go wegen toter
-  Domain entfernt wurde, siehe unten) - bewusst NUR fuer diese fuenf
-  Laender (nicht fuer alle Laender, die free-epg.de anbietet), auf
-  ausdruecklichen Wunsch.
-- Anders als alle anderen echten EPG-Quellen dieses Repos ist das kein
-  Kanal-fuer-Kanal-API-Abruf, sondern JE LAND EINE komplette XMLTV-
-  Datei (`https://free-epg.de/api/epg/<land>.xml.gz`) mit allen
-  Kanaelen UND allen Sendungen darin - wird pro Land nur EINMAL pro
-  Lauf komplett geladen und geparst (Modul-weiter Cache), danach
-  werden alle betroffenen Sender lokal dagegen gematcht ohne weitere
-  Netzwerk-Aufrufe.
-- Degradiert bei jedem Fehler (Netzwerk, kaputtes Gzip/XML, kein
-  Kanal-Treffer) graceful auf die normale generische EPG-Generierung,
-  kein Absturz moeglich.
+- Echte Programmdaten von klix.ba (`klix_epg.py`, oeffentliche,
+  loginfreie JSON-API) gibt es AUTOMATISCH als vierter Fallback fuer
+  BA-Sender, nach Telemach/mtel.ba/mymedia.ba (siehe Bloecke oben) -
+  kein eigenes sender.txt-Praefix noetig.
+- Die Kanalsuche nutzt eine im Repo mitgelieferte statische Datei
+  (`klix_kanalliste.txt`, ~55 Eintraege, aus der Original-Kanalliste
+  des WebGrab+Plus-Site-Plugins "klix.ba" extrahiert, Zeilenformat
+  "<site_id>|<Name>") statt live zu crawlen - kein Netzwerk-Request
+  fuer die Kanalsuche selbst, nur der eigentliche Programmabruf fuer
+  tatsaechlich getroffene Kanaele geht live.
+- Pro Kanal/Tag wird `api.klix.ba/v1/tvprogram/<id>?datum=YYYY-MM-DD`
+  einzeln abgerufen (bis zu 3 Tage). Die API liefert nur Startzeiten -
+  die Endzeit einer Sendung wird aus der Startzeit der naechsten
+  Sendung berechnet (letzte Sendung des Tages endet um Mitternacht),
+  analog zu arena_epg.py/mymedia_epg.py. Eine ausfuehrliche
+  Beschreibung gibt es laut Original-Plugin nur ueber einen
+  zusaetzlichen Detailseiten-Abruf pro Sendung - wird hier bewusst
+  NICHT nachgeladen (kein Extra-Request pro Sendung), `beschreibung`
+  bleibt daher leer.
+- Degradiert bei jedem Fehler (Netzwerk, kein Kanal-Treffer, keine
+  Daten, unerwartetes JSON) graceful auf die normale generische
+  EPG-Generierung fuer diesen Sender.
+
+## Pluto TV / tvmovie.de (DE, automatisch)
+
+- Echte Programmdaten von Pluto TV Deutschland (`plutotv_epg.py`) gibt
+  es AUTOMATISCH als ERSTE automatische Quelle fuer alle DE-Sender
+  (kein eigenes sender.txt-Praefix noetig) - Nachfolger des wieder
+  entfernten free-epg.de-DE-Blocks (siehe unten), diesmal mit echten,
+  sauberen Pluto-TV-Kanalnamen statt generischer Land-Kuerzel.
+- Datenquelle ist das offene, loginfreie i.mjh.nz/PlutoTV-XMLTV-Bulk-
+  Projekt (generator-info-name "www.matthuisman.nz", bekannt und weit
+  verbreitet, z.B. in vielen Kodi-Addons) - EINE komplette XMLTV-Datei
+  (`https://i.mjh.nz/PlutoTV/de.xml.gz`) mit allen deutschen Pluto-TV-
+  Kanaelen UND allen Sendungen darin, wird nur EINMAL pro Lauf komplett
+  geladen und geparst (Modul-weiter Cache), danach werden alle DE-
+  Sender lokal dagegen gematcht ohne weitere Netzwerk-Aufrufe.
+- Deckt nur ca. 1-2 Tage im Voraus ab (kein mehrtaegiges Datumsraster
+  wie Telemach/mts.rs), Tage danach sind ohnehin immer generisch.
+- Findet Pluto TV fuer einen Sender nichts, wird automatisch tvmovie.de
+  (`tvmovie_epg.py`, HTML-Scraping via `BeautifulSoup`, portiert aus
+  dem WebGrab+Plus-Site-Plugin "tvmovie.de") als zweiter Versuch
+  probiert, ueber eine im Repo mitgelieferte statische Kanalliste
+  (`tvmovie_kanalliste.txt`, ~180 Eintraege, Zeilenformat
+  "<slug>|<Name>"). WICHTIGE EINSCHRAENKUNG: Die Sender-Seite
+  (`tvmovie.de/tv/sender-<slug>`) unterstuetzt anders als im Original-
+  Plugin KEINEN Datumsparameter mehr (Website-Redesign,
+  `?date=...&type=day` liefert nur noch 404) - es gibt daher nur den
+  aktuellen Tag, und laut Beobachtung eines Snapshots offenbar auch
+  davon nur einen Teil (~05:00-20:00 Uhr statt der vollen 24 Stunden,
+  vermutlich laedt der Rest der Seite serverseitig ueber Nachladen/
+  Scrollen per JavaScript nach, das ein reiner Server-Abruf ohne
+  Browser nicht bekommt). Da hier HTML statt einer stabilen JSON-API
+  geparst wird, ist diese Quelle prinzipiell anfaelliger fuer Breaking
+  Changes bei einem weiteren Website-Redesign als Pluto TV.
+- Beide Quellen degradieren bei jedem Fehler (Netzwerk, kaputtes
+  Gzip/XML, kein Kanal-Treffer, unerwartete HTML-Struktur) graceful
+  auf die normale generische EPG-Generierung, kein Absturz moeglich.
+
+Fuer MK gab es frueher MaxTV Go (wegen toter Domain entfernt) und
+zwischenzeitlich free-epg.de (wegen leerer/unzuverlaessiger Datenbasis
+auf ausdruecklichen Wunsch wieder entfernt) - MK laeuft bis auf
+Weiteres rein generisch, sofern keine andere Quelle
+(TVGUIDE:/TVPASSPORT:/MAGENTA:/SKY:/DAZN: etc.) explizit als Praefix
+eingetragen wird.
 
 ## TVGUIDE:-Sender (TVGuide.com US, opt-in)
 

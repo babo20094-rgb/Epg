@@ -1,0 +1,179 @@
+ard|ARD
+zdf|ZDF
+rtl|RTL
+sat1|SAT.1
+pro-7|PRO 7
+rtl-ii|RTL II
+kabel-1|KABEL 1
+vox|VOX
+sixx|sixx
+zdf-neo|ZDF neo
+arte|ARTE
+3sat|3SAT
+tele-5|Tele 5
+super-rtl|Super RTL
+kika|KI.KA
+rtl-nitro|RTL NITRO
+13th-street|13TH STREET
+3plus|3PLUS
+4plus|4PLUS
+animal-planet|ANIMAL PLANET
+animax|Animax
+anixe-hd|ANIXE HD
+ard-alpha|ARD Alpha
+atv|ATV
+atv-avrupa|ATV Avrupa
+atv2|ATV2
+auto-motor-sport|Auto Motor Sport
+axn|AXN
+b-3|B 3
+baby-tv|Baby TV
+bbc-entertainment|BBC Entertainment
+bbc-world|BBC World
+beate-uhse-tv|Beate-Uhse-TV
+bibel-tv|Bibel-TV
+biography-channel|BIOGRAPHY CHANNEL
+bongusto|BonGusto
+boomerang|Boomerang
+cartoon-network|Cartoon Network
+classica|Classica
+cnn|CNN
+comedy-central|Comedy Central
+deluxe-music-tv|DELUXE MUSIC TV
+discovery-channel|Discovery Channel
+disney-channel|Disney Channel
+disney-cinemagic|Disney Cinemagic
+disney-junior|Disney Junior
+disney-xd|Disney XD
+dr1|DR1
+dr2|DR2
+e-entertainment-television|E! Entertainment Television
+einsfestival|EinsFestival
+einsplus|EinsPlus
+euro-d|Euro D
+euro-star|Euro Star
+euronews|EURONEWS
+eurosport|EUROSPORT
+eurosport-2|Eurosport 2
+eurosport-hd|Eurosport HD
+extreme-sports-channel|Extreme Sports Channel
+fashiontv-hd|fashiontv HD
+fine-living-network|Fine Living Network
+fix-und-foxi|Fix und Foxi
+fox|FOX
+goldstar-tv|Goldstar TV
+gotv|gotv
+gute-laune-tv|Gute Laune TV
+h-3|H 3
+heimatkanal|Heimatkanal
+hh1|HH1
+history|History
+hse24|HSE24
+itvn|iTVN
+jimjam|JimJam
+jukebox|Jukebox
+junior|Junior
+k-tv|K-TV
+kabel-eins-classics|kabel eins classics
+kanal-7-int|Kanal 7 Int
+kinowelt-tv|Kinowelt TV
+lust-pur|LUST PUR
+luxe-tv|LUXE TV
+mcm-top|MCM Top
+mdr|MDR
+mezzo|MEZZO
+mgm|MGM
+motors-tv|Motors TV
+motorvision-tv|MOTORVISION TV
+mtv|MTV
+mtv-base|MTV Base
+mtv-dance|MTV Dance
+mtv-hits|MTV Hits
+mtv-live-hd|MTV LIVE HD
+mtv-music|MTV Music
+n24|N24
+nat-geo-wild|Nat Geo Wild
+national-geographic|National Geographic
+ndr|NDR
+nick-jr|Nick jr.
+nickelodeon|nickelodeon
+nicktoons|nicktoons
+nl1|NL1
+nl2|NL2
+nl3|NL3
+ntv|NTV
+okto-tv|OKTO TV
+orf-1|ORF 1
+orf-2|ORF 2
+orf3|ORF3
+orfsportplus|ORFSportPlus
+phoenix|Phoenix
+planet|Planet
+powert%C3%BCrk|Powertürk
+prosieben-fun|ProSieben FUN
+prosieben-maxx|ProSieben MAXX
+puls-4|PULS 4
+qvc|QVC
+rbb|RBB
+ric|RIC
+rock-tv|Rock TV
+romance-tv|Romance TV
+rtl-crime|RTL Crime
+rtl-living|RTL Living
+rtl-passion|RTL Passion
+rtlplus|RTLplus
+rtr-planeta|RTR-Planeta
+sat1-emotions|SAT.1 emotions
+sat1gold|SAT.1Gold
+servus-tv|Servus TV
+sf-1|SF 1
+sf-2|SF 2
+show-turk|Show Turk
+silverline|Silverline
+sky-3d|SKY 3D
+sky-action|Sky ACTION
+sky-atlantic-hd|Sky Atlantic HD
+sky-cinema|Sky CINEMA
+sky-cinema-plus1|Sky CINEMA +1
+sky-cinema-plus24|Sky CINEMA +24
+sky-comedy|Sky COMEDY
+sky-emotion|Sky EMOTION
+sky-fu%C3%9Fball-bundesliga|Sky Fußball Bundesliga
+sky-hits|Sky HITS
+sky-krimi|Sky KRIMI
+sky-nostalgie|Sky NOSTALGIE
+sky-sport-1|Sky SPORT 1
+sky-sport-2|Sky SPORT 2
+sky-sport-austria|Sky SPORT AUSTRIA
+sky-sport-hd-1|Sky SPORT HD 1
+sky-sport-hd-2|Sky SPORT HD 2
+sky-sport-news-hd|Sky Sport News HD
+sonnenklartv|Sonnenklar.TV
+spiegel-geschichte|Spiegel Geschichte
+spiegel-tv-wissen|Spiegel TV Wissen
+sport1|Sport1
+sport1-us|Sport1 US
+sport1plus|SPORT1+
+sportdigitaltv|sportdigital.tv
+swr-fernsehen|SWR Fernsehen
+syfy|Syfy
+tagesschau24|tagesschau24
+tgrt-eu|TGRT EU
+tlc|TLC
+tnt-comedy|TNT Comedy
+tnt-film|TNT Film
+tnt-serie|TNT SERIE
+toggo-plus|TOGGO plus
+trace|TRACE
+tv5|TV5
+tvp-info|TVP Info
+tvp-kultura|TVP Kultura
+tvp-polonia|TVP Polonia
+t%C3%BCrkmax|Türkmax
+unichan|UNICHAN
+vh1-classic|VH1 Classic
+viva|VIVA
+wdr|WDR
+wetter-fernsehen|Wetter Fernsehen
+zdfkultur|zdf.kultur
+zdfinfo|ZDFinfo

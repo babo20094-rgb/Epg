@@ -48,7 +48,9 @@ import mts_epg
 import mojmaxtv_epg
 import siol_epg
 import mymedia_epg
-import freeepg_epg
+import plutotv_epg
+import klix_epg
+import tvmovie_epg
 
 
 # ==========================================================
@@ -312,13 +314,16 @@ def test_mtel_erfolgreicher_abruf_liefert_echte_sendungen():
 
 def test_mtel_fehlschlag_gibt_leere_liste_ohne_exception():
     """Schlaegt der Netzwerkaufruf fehl, duerfen
-    mtel_hole_kanalliste()/mtel_kanal_finden()/mtel_hole_programme() NIE
-    werfen, sondern muessen graceful auf leere Ergebnisse zurueckfallen -
-    das ist die Grundlage fuer den generischen Fallback in
-    generate_epg.py, auch wenn schon Telemach fehlgeschlagen ist."""
+    mtel_hole_kanalliste()/mtel_hole_programme() NIE werfen, sondern
+    muessen graceful auf leere Ergebnisse zurueckfallen - das ist die
+    Grundlage fuer den generischen Fallback in generate_epg.py, auch
+    wenn schon Telemach fehlgeschlagen ist. mtel_kanal_finden() darf
+    trotz Live-Fehlschlag ueber die statische Namenserweiterung
+    (mtel_kanalliste.txt) noch einen Treffer liefern - der eigentliche
+    Programmabruf faellt dann separat (s.u.) auf [] zurueck."""
     with patch("mtel_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
         assert mtel_epg.mtel_hole_kanalliste() == []
-        assert mtel_epg.mtel_kanal_finden("BHT 1") is None
+        assert mtel_epg.mtel_kanal_finden("BHT 1") == "iptv#ch-15-bht"
         assert mtel_epg.mtel_hole_programme("iptv#111", tage=2) == []
 
 
@@ -1683,8 +1688,10 @@ def test_mymedia_fehlschlag_faellt_graceful_auf_leere_liste_zurueck(_mymedia_cac
         assert mymedia_epg.mymedia_hole_programme(tage=1) == []
 
 
-def _freeepg_xmltv_bauen(kanaele, programme):
-    root = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tv generator-info-name=\"FreeEPG/2\" generator-info-url=\"https://free-epg.de\">\n"
+
+
+def _plutotv_xmltv_bauen(kanaele, programme):
+    root = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tv generator-info-name=\"www.matthuisman.nz\">\n"
     for kid, name in kanaele:
         root += f'  <channel id="{kid}"><display-name>{name}</display-name></channel>\n'
     for kid, titel, start, stop, beschr in programme:
@@ -1697,61 +1704,199 @@ def _freeepg_xmltv_bauen(kanaele, programme):
 
 
 @pytest.fixture
-def _freeepg_cache_zuruecksetzen():
-    freeepg_epg._daten_cache = {}
+def _plutotv_cache_zuruecksetzen():
+    plutotv_epg._daten_cache = None
     yield
-    freeepg_epg._daten_cache = {}
+    plutotv_epg._daten_cache = None
 
 
-def test_freeepg_erfolgreicher_abruf_liefert_echte_sendungen(_freeepg_cache_zuruecksetzen):
+def test_plutotv_erfolgreicher_abruf_liefert_echte_sendungen(_plutotv_cache_zuruecksetzen):
     heute = datetime.datetime.now(datetime.timezone.utc)
     start_str = heute.strftime("%Y%m%d") + "180000 +0000"
     stop_str = heute.strftime("%Y%m%d") + "183000 +0000"
-    xml_bytes = _freeepg_xmltv_bauen(
-        [("ATV.ba", "ATV")],
-        [("ATV.ba", "Vijesti", start_str, stop_str, "Kurzbeschreibung")],
+    xml_bytes = _plutotv_xmltv_bauen(
+        [("abc123", "iCarly")],
+        [("abc123", "Freddie und Sam", start_str, stop_str, "Kurzbeschreibung")],
     )
     response = MagicMock()
     response.content = xml_bytes
     response.raise_for_status.return_value = None
 
-    with patch("freeepg_epg.requests.get", return_value=response):
-        site_id = freeepg_epg.freeepg_kanal_finden("ATV", "ba")
-        assert site_id == "ATV.ba"
+    with patch("plutotv_epg.requests.get", return_value=response):
+        site_id = plutotv_epg.plutotv_kanal_finden("ICARLY")
+        assert site_id == "abc123"
 
-        programme = freeepg_epg.freeepg_hole_programme(site_id, "ba", tage=1)
+        programme = plutotv_epg.plutotv_hole_programme(site_id, tage=1)
 
     assert len(programme) == 1
     sendung = programme[0]
-    assert sendung["title"] == "Vijesti"
+    assert sendung["title"] == "Freddie und Sam"
     assert sendung["beschreibung"] == "Kurzbeschreibung"
     assert sendung["start"].tzinfo is not None
     assert sendung["stop"] > sendung["start"]
 
 
-def test_freeepg_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_freeepg_cache_zuruecksetzen):
-    xml_bytes = _freeepg_xmltv_bauen([("ATV.ba", "ATV")], [])
+def test_plutotv_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_plutotv_cache_zuruecksetzen):
+    xml_bytes = _plutotv_xmltv_bauen([("abc123", "iCarly")], [])
     response = MagicMock()
     response.content = xml_bytes
     response.raise_for_status.return_value = None
 
-    with patch("freeepg_epg.requests.get", return_value=response):
-        assert freeepg_epg.freeepg_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999", "ba") is None
+    with patch("plutotv_epg.requests.get", return_value=response):
+        assert plutotv_epg.plutotv_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
 
-    freeepg_epg._daten_cache = {}
-    with patch("freeepg_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
-        assert freeepg_epg.freeepg_kanal_finden("ATV", "ba") is None
-        assert freeepg_epg.freeepg_hole_programme("ATV.ba", "ba", tage=1) == []
+    plutotv_epg._daten_cache = None
+    with patch("plutotv_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert plutotv_epg.plutotv_kanal_finden("ICARLY") is None
+        assert plutotv_epg.plutotv_hole_programme("abc123", tage=1) == []
 
 
-def test_freeepg_ohne_ba_sender_werden_keine_requests_ausgeloest():
-    """sender.txt ohne BA-Zeilen darf freeepg_epg's Download-Funktion
+def test_plutotv_ohne_de_sender_werden_keine_requests_ausgeloest():
+    """sender.txt ohne DE-Zeilen darf plutotv_epg's Download-Funktion
     ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog zu den
     anderen automatischen Quellen)."""
-    freeepg_relevante_sender_leer = []
+    plutotv_relevante_sender_leer = []
 
-    with patch("freeepg_epg.requests.get", side_effect=AssertionError("freeepg_epg haette nicht kontaktiert werden duerfen")):
-        for daten in freeepg_relevante_sender_leer:
-            freeepg_epg.freeepg_hole_programme(daten["sender"], "ba")
+    with patch("plutotv_epg.requests.get", side_effect=AssertionError("plutotv_epg haette nicht kontaktiert werden duerfen")):
+        for daten in plutotv_relevante_sender_leer:
+            plutotv_epg.plutotv_hole_programme(daten["sender"])
 
-    assert freeepg_relevante_sender_leer == []
+    assert plutotv_relevante_sender_leer == []
+
+
+
+
+@pytest.fixture
+def _klix_cache_zuruecksetzen():
+    klix_epg._kanalliste_cache = None
+    klix_epg._tag_cache = {}
+    yield
+    klix_epg._kanalliste_cache = None
+    klix_epg._tag_cache = {}
+
+
+def test_klix_kanalliste_wird_aus_datei_gelesen(_klix_cache_zuruecksetzen):
+    kanaele = klix_epg.klix_hole_kanalliste()
+    assert len(kanaele) > 0
+    assert any(k["name"].upper() == "BHT1" for k in kanaele)
+
+
+def test_klix_kanal_finden_exakt_und_kein_treffer(_klix_cache_zuruecksetzen):
+    assert klix_epg.klix_kanal_finden("BHT1") is not None
+    assert klix_epg.klix_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
+
+
+def test_klix_erfolgreicher_abruf_liefert_echte_sendungen(_klix_cache_zuruecksetzen):
+    response = MagicMock()
+    response.json.return_value = [
+        {"timeStart": "20:00", "title": "Dnevnik", "type": "Info"},
+        {"timeStart": "20:30", "title": "Film", "type": "Film"},
+    ]
+    response.raise_for_status.return_value = None
+
+    with patch("klix_epg.requests.get", return_value=response):
+        programme = klix_epg.klix_hole_programme("59", tage=1)
+
+    assert len(programme) == 2
+    sendung = programme[0]
+    assert sendung["title"] == "Dnevnik"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_klix_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_klix_cache_zuruecksetzen):
+    assert klix_epg.klix_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
+
+    with patch("klix_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert klix_epg.klix_hole_programme("59", tage=1) == []
+
+
+def test_klix_ohne_relevante_sender_werden_keine_requests_ausgeloest():
+    """sender.txt ohne BA-Zeilen darf klix_epg's Programm-Request-Funktion
+    ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog zu den
+    anderen automatischen Quellen). Die statische Kanalliste darf
+    weiterhin lokal gelesen werden (kein Netzwerk-Request)."""
+    klix_relevante_sender_leer = []
+
+    with patch("klix_epg.requests.get", side_effect=AssertionError("klix_epg haette nicht kontaktiert werden duerfen")):
+        for daten in klix_relevante_sender_leer:
+            klix_epg.klix_hole_programme(daten["sender"])
+
+    assert klix_relevante_sender_leer == []
+
+
+def _tvmovie_broadcast_html(titel, zeit, datum_text, genre1="Genre", genre2="Subgenre"):
+    return (
+        f'<a aria-label="{titel}" class="bx-epg-broadcast" href="https://www.tvmovie.de/tv/x">'
+        f'<figure><img src=""/></figure><div>'
+        f'<div><span>{genre1}</span><span>{genre2}</span></div>'
+        f'<div>{titel}</div><div><!-- --></div>'
+        f'<div><span>{zeit}</span><span>- {datum_text}</span></div>'
+        f'</div></a>'
+    )
+
+
+@pytest.fixture
+def _tvmovie_cache_zuruecksetzen():
+    tvmovie_epg._kanalliste_cache = None
+    tvmovie_epg._seite_cache = {}
+    yield
+    tvmovie_epg._kanalliste_cache = None
+    tvmovie_epg._seite_cache = {}
+
+
+def test_tvmovie_kanalliste_wird_aus_datei_gelesen(_tvmovie_cache_zuruecksetzen):
+    kanaele = tvmovie_epg.tvmovie_hole_kanalliste()
+    assert len(kanaele) > 0
+    assert any(k["name"].upper() == "ARD" for k in kanaele)
+
+
+def test_tvmovie_kanal_finden_exakt_und_kein_treffer(_tvmovie_cache_zuruecksetzen):
+    assert tvmovie_epg.tvmovie_kanal_finden("ARD") == "ard"
+    assert tvmovie_epg.tvmovie_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
+
+
+def test_tvmovie_erfolgreicher_abruf_liefert_echte_sendungen(_tvmovie_cache_zuruecksetzen):
+    heute = datetime.datetime.now(tvmovie_epg.BERLIN_TZ)
+    datum_text = f"Mi. {heute.day:02d}.{heute.month:02d}."
+    html = "<html><body>" + _tvmovie_broadcast_html("Tagesschau", "20:00-20:15", datum_text) + "</body></html>"
+    response = MagicMock()
+    response.text = html
+    response.raise_for_status.return_value = None
+
+    with patch("tvmovie_epg.requests.get", return_value=response):
+        programme = tvmovie_epg.tvmovie_hole_programme("ard", tage=1)
+
+    assert len(programme) == 1
+    sendung = programme[0]
+    assert sendung["title"] == "Tagesschau"
+    assert sendung["beschreibung"] == "Genre / Subgenre"
+    assert sendung["start"].tzinfo is not None
+    assert sendung["stop"] > sendung["start"]
+
+
+def test_tvmovie_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_tvmovie_cache_zuruecksetzen):
+    assert tvmovie_epg.tvmovie_kanal_finden("Nicht Existierender Kanal Voellig Andere Stadt XYZ 999") is None
+
+    with patch("tvmovie_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert tvmovie_epg.tvmovie_hole_programme("ard", tage=1) == []
+
+    response = MagicMock()
+    response.text = "<html><body>kein passendes Markup hier</body></html>"
+    response.raise_for_status.return_value = None
+    with patch("tvmovie_epg.requests.get", return_value=response):
+        assert tvmovie_epg.tvmovie_hole_programme("zdf", tage=1) == []
+
+
+def test_tvmovie_ohne_relevante_sender_werden_keine_requests_ausgeloest():
+    """sender.txt ohne TVMOVIE:-Zeilen darf tvmovie_epg's Seitenabruf-
+    Funktion ueberhaupt nicht kontaktieren (Zero-Risk-Garantie, analog
+    zu den anderen automatischen Quellen). Die statische Kanalliste
+    darf weiterhin lokal gelesen werden (kein Netzwerk-Request)."""
+    tvmovie_relevante_sender_leer = []
+
+    with patch("tvmovie_epg.requests.get", side_effect=AssertionError("tvmovie_epg haette nicht kontaktiert werden duerfen")):
+        for daten in tvmovie_relevante_sender_leer:
+            tvmovie_epg.tvmovie_hole_programme(daten["sender"])
+
+    assert tvmovie_relevante_sender_leer == []
