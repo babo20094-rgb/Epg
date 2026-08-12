@@ -2570,6 +2570,79 @@ def normalisiere_sendername(name):
     return name
 
 
+def normalisiere_sendername_kern(name):
+    """Wie normalisiere_sendername(), entfernt zusaetzlich die
+    Qualitaets-Suffixe "HD"/"FHD"/"UHD"/"SD" als eigene Woerter (z.B.
+    "QVC FHD" -> gleicher Kern wie "QVC"). Nur als KERN-Fallback
+    gedacht, NICHT als Ersatz fuer normalisiere_sendername(): manche
+    Anbieter fuehren HD/SD als eigene, unterschiedliche Kanaele (z.B.
+    zwei getrennte TVPassport-Eintraege fuer dieselbe Lokalstation), der
+    exakte Abgleich nach normalisiere_sendername() muss daher immer
+    zuerst versucht werden - der Kern-Vergleich ist nur ein Fallback,
+    wenn dieser keinen Treffer findet."""
+    if not name:
+        return ""
+
+    name = unicodedata.normalize("NFKD", name)
+    name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
+    name = name.upper()
+    name = re.sub(r"\bVIP\b|\bRAW\b|\bU?HD\b|\bFHD\b|\bSD\b", " ", name)
+    name = re.sub(r"[^A-Z0-9]", "", name)
+    return name
+
+
+def kanal_index_suchen(ziel_name, name_index, kern_index=None, cutoff=0.72):
+    """Generischer Kanal-Namensabgleich fuer die *_kanal_finden()-
+    Funktionen: erst exakter Abgleich nach normalisiere_sendername(),
+    dann (falls kern_index uebergeben) ein eindeutiger Kern-Abgleich
+    ohne HD/FHD/UHD/SD, zuletzt unscharfer difflib-Abgleich auf dem
+    vollen Namen. name_index/kern_index sind Dicts Schluessel->Wert,
+    kern_index sollte bei mehrdeutigem Kern-Schluessel keinen Eintrag
+    enthalten (siehe Aufrufer), damit dieser Fallback nie einen von
+    mehreren echten HD/SD-Varianten falsch auswaehlt. Gibt den Wert aus
+    name_index/kern_index zurueck oder None."""
+    ziel_schluessel = normalisiere_sendername(ziel_name)
+    if not ziel_schluessel:
+        return None
+
+    if ziel_schluessel in name_index:
+        return name_index[ziel_schluessel]
+
+    if kern_index:
+        ziel_kern = normalisiere_sendername_kern(ziel_name)
+        if ziel_kern and ziel_kern in kern_index:
+            return kern_index[ziel_kern]
+
+    aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=cutoff)
+    if aehnliche:
+        return name_index[aehnliche[0]]
+
+    return None
+
+
+def kern_index_aufbauen(eintraege, namensfeld, wertfeld):
+    """Baut aus einer Liste von Kanal-Dicts einen Kern-Index (siehe
+    normalisiere_sendername_kern()) fuer kanal_index_suchen(). Ist ein
+    Kern-Schluessel mehrdeutig (mehrere unterschiedliche Werte, z.B.
+    echte getrennte HD/SD-Kanaele desselben Namens), wird er bewusst
+    NICHT aufgenommen, damit der Fallback nie zufaellig die falsche
+    Variante trifft."""
+    kern_index = {}
+    mehrdeutig = set()
+    for eintrag in eintraege:
+        kern = normalisiere_sendername_kern(eintrag[namensfeld])
+        if not kern:
+            continue
+        wert = eintrag[wertfeld]
+        if kern in kern_index and kern_index[kern] != wert:
+            mehrdeutig.add(kern)
+        else:
+            kern_index.setdefault(kern, wert)
+    for kern in mehrdeutig:
+        kern_index.pop(kern, None)
+    return kern_index
+
+
 def baue_logo_index(channels_daten, logos_daten):
     """Baut aus den beiden iptv-org-JSON-Listen (channels.json/
     logos.json) zwei Nachschlage-Strukturen:

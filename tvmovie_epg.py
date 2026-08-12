@@ -32,14 +32,13 @@ einen Lauf niemals zum Absturz bringen.
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-import difflib
 import os
 import re
 
 import requests
 from bs4 import BeautifulSoup
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
 
 BASE_URL = "https://www.tvmovie.de/tv/sender-{slug}"
 
@@ -93,15 +92,12 @@ def tvmovie_hole_kanalliste():
 
 def tvmovie_kanal_finden(kanalname):
     """Sucht den tvmovie.de-Kanal, der am besten zu kanalname passt -
-    erst exakter Abgleich nach normalisiere_sendername(), sonst
-    unscharfer difflib-Abgleich. Gibt den Slug (site_id) zurueck oder
-    None."""
+    erst exakter Abgleich nach normalisiere_sendername(), dann ein
+    eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD, zuletzt unscharfer
+    difflib-Abgleich (siehe epg_lib.kanal_index_suchen()). Gibt den
+    Slug (site_id) zurueck oder None."""
     kanaele = tvmovie_hole_kanalliste()
     if not kanaele:
-        return None
-
-    ziel_schluessel = normalisiere_sendername(kanalname)
-    if not ziel_schluessel:
         return None
 
     name_index = {}
@@ -110,14 +106,9 @@ def tvmovie_kanal_finden(kanalname):
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
 
-    if ziel_schluessel in name_index:
-        return name_index[ziel_schluessel]
+    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
 
-    aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
-    if aehnliche:
-        return name_index[aehnliche[0]]
-
-    return None
+    return kanal_index_suchen(kanalname, name_index, kern_index)
 
 
 def _seite_holen(slug):
