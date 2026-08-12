@@ -2558,19 +2558,14 @@ def normalisiere_sendername(name):
     keiner echten Sender-API auf und wuerden sonst bei kurzen
     Sendernamen (z.B. "ATV ⱽᴵᴾ ᴿᴬᵂ" -> "ATVVIPRAW") den unscharfen
     difflib-Abgleich gegen den echten Namen ("ATV") unter die
-    Aehnlichkeits-Schwelle druecken und den Treffer verhindern.
-
-    Ebenso werden die Qualitaets-Suffixe "HD"/"FHD"/"UHD"/"SD" als
-    eigene Woerter entfernt, da sie je nach Anbieter/Playlist mal
-    vorhanden sind und mal fehlen (z.B. "QVC FHD" vs. "QVC") und den
-    Treffer sonst verhindern wuerden."""
+    Aehnlichkeits-Schwelle druecken und den Treffer verhindern."""
     if not name:
         return ""
 
     name = unicodedata.normalize("NFKD", name)
     name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
     name = name.upper()
-    name = re.sub(r"\bVIP\b|\bRAW\b|\bU?HD\b|\bFHD\b|\bSD\b", " ", name)
+    name = re.sub(r"\bVIP\b|\bRAW\b", " ", name)
     name = re.sub(r"[^A-Z0-9]", "", name)
     return name
 
