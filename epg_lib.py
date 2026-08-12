@@ -2558,7 +2558,12 @@ def normalisiere_sendername(name):
     keiner echten Sender-API auf und wuerden sonst bei kurzen
     Sendernamen (z.B. "ATV ⱽᴵᴾ ᴿᴬᵂ" -> "ATVVIPRAW") den unscharfen
     difflib-Abgleich gegen den echten Namen ("ATV") unter die
-    Aehnlichkeits-Schwelle druecken und den Treffer verhindern."""
+    Aehnlichkeits-Schwelle druecken und den Treffer verhindern.
+
+    Wandelt ausserdem "+" in das Wort "PLUS" um (statt es ersatzlos zu
+    entfernen), damit z.B. "Sky Premieren +24" und "Sky Premieren Plus
+    24" auf denselben Schluessel abbilden - beide Schreibweisen sind in
+    freier Wildbahn ueblich (eigene Playlist vs. Anbieter-API)."""
     if not name:
         return ""
 
@@ -2566,6 +2571,7 @@ def normalisiere_sendername(name):
     name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
     name = name.upper()
     name = re.sub(r"\bVIP\b|\bRAW\b", " ", name)
+    name = name.replace("+", " PLUS ")
     name = re.sub(r"[^A-Z0-9]", "", name)
     return name
 
@@ -2587,6 +2593,7 @@ def normalisiere_sendername_kern(name):
     name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
     name = name.upper()
     name = re.sub(r"\bVIP\b|\bRAW\b|\bU?HD\b|\bFHD\b|\bSD\b", " ", name)
+    name = name.replace("+", " PLUS ")
     name = re.sub(r"[^A-Z0-9]", "", name)
     return name
 
