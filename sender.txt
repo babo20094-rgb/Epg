@@ -1875,7 +1875,7 @@ DE| QVC UHD|
 DE| QVC FHD|
 DE| QVC|
 DE| ZDF NEO HD|
-DE| TAGESSCHAU 24 HD|
+DE| TAGESSCHAU 24 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tagesschau24.png
 SKY:DE|SKY NATURE FHD|
 DE| RTL UP|
 DE| TOGGO PLUS|

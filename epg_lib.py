@@ -2486,7 +2486,8 @@ def sender_anzeigename(name):
 # ==========================================================
 
 KANALNAME_ABKUERZUNGEN = {
-    "DAZN", "HD", "FHD", "UHD", "SD", "HEVC", "TV", "ACL", "RAW", "4K", "8K"
+    "DAZN", "HD", "FHD", "UHD", "SD", "HEVC", "TV", "ACL", "RAW", "4K", "8K",
+    "ZDF", "ARD", "RTL", "MDR", "NDR", "WDR", "SWR", "BR", "HR", "SR", "RBB",
 }
 
 

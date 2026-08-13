@@ -101,6 +101,62 @@ def schreibe_programme_segmente(
         )
 
 
+def ueberlappt_intervall(intervalle, start, ende):
+    """Prueft, ob der Zeitraum [start, ende) mit irgendeinem (start, stop)-
+    Intervall aus `intervalle` echt zeitlich ueberlappt - NICHT nur, ob sie
+    auf denselben Kalendertag fallen. Wird fuer die "bereits echte Daten
+    vorhanden"-Sperre im generischen Tagesraster verwendet: manche echten
+    Quellen (z.B. tvmovie.de, laut Doku nur ca. 05:00-20:00 Uhr statt des
+    vollen Tages) decken nur einen TEIL eines Tages ab. Eine reine
+    Tages-Pruefung wuerde dann faelschlich den KOMPLETTEN Tag sperren und
+    die generische Fuellung fuer die unbedeckte Restzeit (z.B. den Abend)
+    verhindern - es bliebe dort komplett leer ("Keine Information")."""
+    for real_start, real_stop in intervalle:
+        if start < real_stop and ende > real_start:
+            return True
+    return False
+
+
+# Ordnet jedem "hat eine echte Quelle aktiv"-Flag in daten die zugehoerigen
+# *_intervalle-Felder zu (mehrere bei Faellen mit Fallback-Kette, z.B.
+# Telemach -> mtel.ba -> mymedia.ba -> klix.ba oder PlutoTV -> tvmovie.de).
+_ECHTE_QUELLEN_INTERVALLE = {
+    "telemach": ["telemach_intervalle", "mtel_intervalle", "mymedia_intervalle", "klix_intervalle"],
+    "sky": ["sky_intervalle"],
+    "magenta": ["magenta_intervalle"],
+    "arena": ["arena_intervalle"],
+    "dazn": ["dazn_intervalle"],
+    "freeview": ["freeview_intervalle"],
+    "tvguide": ["tvguide_intervalle"],
+    "tvpassport": ["tvpassport_intervalle"],
+    "mts": ["mts_intervalle"],
+    "mojmaxtv": ["mojmaxtv_intervalle"],
+    "siol": ["siol_intervalle"],
+    "plutotv": ["plutotv_intervalle", "tvmovie_intervalle"],
+    "tubi": ["tubi_intervalle"],
+}
+
+
+def hat_aktive_echte_quelle(daten):
+    """True, wenn fuer diesen Sender mindestens eine echte EPG-Quelle
+    (Telemach, Sky, Magenta, Pluto TV/tvmovie.de, Tubi, ...) aktiv ist -
+    unabhaengig davon, ob sie fuer den aktuell betrachteten Zeitblock
+    tatsaechlich Daten geliefert hat."""
+    return any(daten.get(flag) for flag in _ECHTE_QUELLEN_INTERVALLE)
+
+
+def alle_echten_intervalle(daten):
+    """Sammelt alle (start, stop)-Intervalle aller fuer diesen Sender
+    aktiven echten Quellen in einer Liste, fuer den Ueberlappungs-Check
+    gegen einen einzelnen Zeitblock."""
+    ergebnis = []
+    for flag, felder in _ECHTE_QUELLEN_INTERVALLE.items():
+        if daten.get(flag):
+            for feld in felder:
+                ergebnis.extend(daten.get(feld, []))
+    return ergebnis
+
+
 def kern_und_event_extrahieren(voller_name):
     """Trennt einen rohen Kanalnamen in (Kurzname/Kern, Event-Text) nach
     der Pipe-Konvention: der Abschnitt NACH dem letzten Pipe-Zeichen gilt
@@ -1778,7 +1834,7 @@ for daten in telemach_sender:
         print(f"Telemach-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["telemach_tage"] = {p["start"].date() for p in programme}
+    daten["telemach_intervalle"] = [(p["start"], p["stop"]) for p in programme]
     echte_daten_gefunden = bool(programme)
 
     if programme:
@@ -1803,7 +1859,7 @@ for daten in telemach_sender:
                 print(f"Mtel-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
                 mtel_programme = []
 
-            daten["mtel_tage"] = {p["start"].date() for p in mtel_programme}
+            daten["mtel_intervalle"] = [(p["start"], p["stop"]) for p in mtel_programme]
 
             if mtel_programme:
                 print(f"Mtel-EPG: {len(mtel_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach-Fallback).")
@@ -1824,7 +1880,7 @@ for daten in telemach_sender:
                         print(f"MyMedia-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
                         mymedia_programme = []
 
-                    daten["mymedia_tage"] = {p["start"].date() for p in mymedia_programme}
+                    daten["mymedia_intervalle"] = [(p["start"], p["stop"]) for p in mymedia_programme]
 
                     if mymedia_programme:
                         print(f"MyMedia-EPG: {len(mymedia_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach/Mtel-Fallback).")
@@ -1848,7 +1904,7 @@ for daten in telemach_sender:
                         print(f"Klix-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
                         klix_programme = []
 
-                    daten["klix_tage"] = {p["start"].date() for p in klix_programme}
+                    daten["klix_intervalle"] = [(p["start"], p["stop"]) for p in klix_programme]
 
                     if klix_programme:
                         print(f"Klix-EPG: {len(klix_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach/Mtel-Fallback).")
@@ -1880,7 +1936,7 @@ for daten in sky_sender:
         print(f"Sky-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["sky_tage"] = {p["start"].date() for p in programme}
+    daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"Sky-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -1910,7 +1966,7 @@ for daten in magenta_sender:
         print(f"Magenta-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["magenta_tage"] = {p["start"].date() for p in programme}
+    daten["magenta_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"Magenta-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -1939,7 +1995,7 @@ for daten in arena_sender:
         print(f"Arena-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["arena_tage"] = {p["start"].date() for p in programme}
+    daten["arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"Arena-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -1968,7 +2024,7 @@ for daten in dazn_sender:
         print(f"DAZN-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["dazn_tage"] = {p["start"].date() for p in programme}
+    daten["dazn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"DAZN-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -1998,7 +2054,7 @@ for daten in freeview_sender:
         print(f"Freeview-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["freeview_tage"] = {p["start"].date() for p in programme}
+    daten["freeview_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"Freeview-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2028,7 +2084,7 @@ for daten in tvguide_sender:
         print(f"TVGuide-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["tvguide_tage"] = {p["start"].date() for p in programme}
+    daten["tvguide_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"TVGuide-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2058,7 +2114,7 @@ for daten in tvpassport_sender:
         print(f"TVPassport-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["tvpassport_tage"] = {p["start"].date() for p in programme}
+    daten["tvpassport_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"TVPassport-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2086,7 +2142,7 @@ for daten in mts_sender:
         print(f"Mts-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["mts_tage"] = {p["start"].date() for p in programme}
+    daten["mts_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"Mts-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2113,7 +2169,7 @@ for daten in mojmaxtv_sender:
         print(f"MojMaxTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["mojmaxtv_tage"] = {p["start"].date() for p in programme}
+    daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"MojMaxTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2140,7 +2196,7 @@ for daten in siol_sender:
         print(f"Siol-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["siol_tage"] = {p["start"].date() for p in programme}
+    daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"Siol-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2168,7 +2224,7 @@ for daten in plutotv_sender:
         print(f"PlutoTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["plutotv_tage"] = {p["start"].date() for p in programme}
+    daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"PlutoTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2189,7 +2245,7 @@ for daten in plutotv_sender:
             print(f"TvMovie-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
             tvmovie_programme = []
 
-        daten["tvmovie_tage"] = {p["start"].date() for p in tvmovie_programme}
+        daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
 
         if tvmovie_programme:
             print(f"TvMovie-EPG: {len(tvmovie_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV-Fallback).")
@@ -2222,7 +2278,7 @@ for daten in tubi_sender:
         print(f"Tubi-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
         programme = []
 
-    daten["tubi_tage"] = {p["start"].date() for p in programme}
+    daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
         print(f"Tubi-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
@@ -2262,78 +2318,78 @@ for tag_index in range(ANZAHL_TAGE):
             # echte Daten (Tag 4+, oder wenn der Abruf komplett
             # fehlgeschlagen ist) fallen unveraendert auf den normalen
             # generischen Pfad weiter unten durch.
-            if daten.get("telemach") and tag_start.date() in daten.get("telemach_tage", set()):
+            if daten.get("telemach") and ueberlappt_intervall(daten.get("telemach_intervalle", []), start, ende):
                 continue
             # mtel.ba-Fallback (siehe Block oben): Tage, an denen mtel.ba
             # anstelle von Telemach echte Daten geliefert hat, werden
             # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("telemach") and tag_start.date() in daten.get("mtel_tage", set()):
+            if daten.get("telemach") and ueberlappt_intervall(daten.get("mtel_intervalle", []), start, ende):
                 continue
             # mymedia.ba-Fallback (siehe Block oben, nur fuer "MY TV"):
             # Tage mit echten Daten werden hier ebenfalls nicht
             # generisch nachgeneriert.
-            if daten.get("telemach") and tag_start.date() in daten.get("mymedia_tage", set()):
+            if daten.get("telemach") and ueberlappt_intervall(daten.get("mymedia_intervalle", []), start, ende):
                 continue
             # klix.ba-Fallback (siehe Block oben): Tage mit echten Daten
             # werden hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("telemach") and tag_start.date() in daten.get("klix_tage", set()):
+            if daten.get("telemach") and ueberlappt_intervall(daten.get("klix_intervalle", []), start, ende):
                 continue
             # SKY:-Sender (siehe Block oben): Tage, an denen bereits
             # echte Sky-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("sky") and tag_start.date() in daten.get("sky_tage", set()):
+            if daten.get("sky") and ueberlappt_intervall(daten.get("sky_intervalle", []), start, ende):
                 continue
             # MAGENTA:-Sender (siehe Block oben): Tage, an denen bereits
             # echte Magenta-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("magenta") and tag_start.date() in daten.get("magenta_tage", set()):
+            if daten.get("magenta") and ueberlappt_intervall(daten.get("magenta_intervalle", []), start, ende):
                 continue
             # ARENA:-Sender (siehe Block oben): Tage, an denen bereits
             # echte Arena-Sport-Programmdaten geschrieben wurden, werden
             # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("arena") and tag_start.date() in daten.get("arena_tage", set()):
+            if daten.get("arena") and ueberlappt_intervall(daten.get("arena_intervalle", []), start, ende):
                 continue
             # DAZN:-Sender (siehe Block oben): Tage, an denen bereits
             # echte DAZN-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("dazn") and tag_start.date() in daten.get("dazn_tage", set()):
+            if daten.get("dazn") and ueberlappt_intervall(daten.get("dazn_intervalle", []), start, ende):
                 continue
             # FREEVIEW:-Sender (siehe Block oben): Tage, an denen bereits
             # echte Freeview-Programmdaten geschrieben wurden, werden
             # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("freeview") and tag_start.date() in daten.get("freeview_tage", set()):
+            if daten.get("freeview") and ueberlappt_intervall(daten.get("freeview_intervalle", []), start, ende):
                 continue
             # TVGUIDE:-Sender (siehe Block oben): Tage, an denen bereits
             # echte TVGuide-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("tvguide") and tag_start.date() in daten.get("tvguide_tage", set()):
+            if daten.get("tvguide") and ueberlappt_intervall(daten.get("tvguide_intervalle", []), start, ende):
                 continue
             # TVPASSPORT:-Sender (siehe Block oben): Tage, an denen
             # bereits echte TVPassport-Programmdaten geschrieben wurden,
             # werden hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("tvpassport") and tag_start.date() in daten.get("tvpassport_tage", set()):
+            if daten.get("tvpassport") and ueberlappt_intervall(daten.get("tvpassport_intervalle", []), start, ende):
                 continue
             # TVMOVIE:-Sender (siehe Block oben): Tage, an denen bereits
             # echte tvmovie.de-Programmdaten geschrieben wurden, werden
             # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("plutotv") and tag_start.date() in daten.get("tvmovie_tage", set()):
+            if daten.get("plutotv") and ueberlappt_intervall(daten.get("tvmovie_intervalle", []), start, ende):
                 continue
             # MTS/MOJMAXTV/SIOL-Sender (automatischer Abgleich, siehe
             # Bloecke oben): Tage, an denen bereits echte Programmdaten
             # geschrieben wurden, werden hier ebenfalls nicht generisch
             # nachgeneriert.
-            if daten.get("mts") and tag_start.date() in daten.get("mts_tage", set()):
+            if daten.get("mts") and ueberlappt_intervall(daten.get("mts_intervalle", []), start, ende):
                 continue
-            if daten.get("mojmaxtv") and tag_start.date() in daten.get("mojmaxtv_tage", set()):
+            if daten.get("mojmaxtv") and ueberlappt_intervall(daten.get("mojmaxtv_intervalle", []), start, ende):
                 continue
-            if daten.get("siol") and tag_start.date() in daten.get("siol_tage", set()):
+            if daten.get("siol") and ueberlappt_intervall(daten.get("siol_intervalle", []), start, ende):
                 continue
-            if daten.get("plutotv") and tag_start.date() in daten.get("plutotv_tage", set()):
+            if daten.get("plutotv") and ueberlappt_intervall(daten.get("plutotv_intervalle", []), start, ende):
                 continue
             # TUBI-Sender (siehe Block oben): Tage, an denen bereits
             # echte Tubi-Programmdaten geschrieben wurden, werden hier
             # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("tubi") and tag_start.date() in daten.get("tubi_tage", set()):
+            if daten.get("tubi") and ueberlappt_intervall(daten.get("tubi_intervalle", []), start, ende):
                 continue
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
@@ -2357,6 +2413,25 @@ for tag_index in range(ANZAHL_TAGE):
                 schreibe_programme_segmente(
                     xml_teile, [(start, ende)], daten["kanal"],
                     titel_text, beschr_text, lang_code,
+                    kategorie_key, daten["land"], True,
+                )
+                continue
+
+            # Luecken-Fuellung fuer Sender mit einer echten, aber nur
+            # TEILWEISE tagesabdeckenden Quelle (z.B. tvmovie.de, ca.
+            # 05:00-20:00 Uhr statt des vollen Tages, siehe
+            # ueberlappt_intervall()): fuer den unbedeckten Rest (z.B.
+            # den Abend) wird statt des generischen, abwechslungsreichen
+            # Kategorietexts schlicht "<Sendername> ᴸⁱᵛᵉ" angezeigt -
+            # weniger verwirrend als ein zufaellig wirkender Kategorie-
+            # Platzhaltertext neben echten Sendungen am selben Tag.
+            if hat_aktive_echte_quelle(daten) and not ueberlappt_intervall(
+                alle_echten_intervalle(daten), start, ende
+            ):
+                luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
+                schreibe_programme_segmente(
+                    xml_teile, [(start, ende)], daten["kanal"],
+                    escape(luecken_titel), luecken_titel, "de",
                     kategorie_key, daten["land"], True,
                 )
                 continue
