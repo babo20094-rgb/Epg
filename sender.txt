@@ -2,6 +2,7 @@
 |US| GHOST ADVENTURES FHD|Ghost Adventures FHD ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/8kSwNLygLOYccu9vPSTlIuVquVj.png
 |24/7 GHOST ADVENTURES SCREAMING ROOM|Ghost Adventures Screaming Room ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/8kSwNLygLOYccu9vPSTlIuVquVj.png
 |24/7 GHOST ADVENTURES QUARANTINE|Ghost Adventures Quarantine ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/8kSwNLygLOYccu9vPSTlIuVquVj.png
+MAGENTA:DE|PROSIEBENSAT.1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/prosiebensat1.png
 TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|AUTO
 TVGUIDE:US|TODAY ALL DAY|
 TVGUIDE:US|CBS WSHM LP DETROIT|
@@ -10,7 +11,6 @@ TVGUIDE:US|NBC WNBD LP TAMPA|AUTO
 #DE| MAGENTA TV
 MAGENTA:DE| BILD+ EVENT FAME FIGHTING|
 MAGENTA:DE| HR HD|
-MAGENTA:DE| PRO7SAT.1 FHD|
 MAGENTA:DE| YU-GI-OH!|
 MAGENTA:DE| SR|
 SKY:DE|AXN BLACK HD||DE| AXN BLACK HD
@@ -395,7 +395,6 @@ US| FOX SPORTS WISCONSIN HD|
 DE| NOW ᴿᴬᵂ
 DE| NTRO ᴿᴬᵂ
 4k| NESN UHD/4K+|
-DE| PRO7SAT.1 FHD|
 UK| EPL SOUTHAMPTON|
 US| 3ABN PRAISE HIM MUSIC NETWORK|
 US| PTVN|

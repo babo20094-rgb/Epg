@@ -26,7 +26,20 @@ ausdrücklich danach fragt.
 ## Neue Sender in sender.txt
 
 Neue Sender werden immer **ganz oben** in `sender.txt` eingefügt (nicht ans
-Ende anhängen).
+Ende anhängen), außer der Nutzer nennt explizit eine andere Stelle
+(z. B. "unter diesem Header einordnen").
+
+Bevor ein neuer Sender eingetragen wird, IMMER zuerst prüfen, ob eine
+echte EPG-Quelle (Pluto TV/tvmovie.de automatisch bei Land `DE`, sonst
+gezielt `MAGENTA:`, `SKY:`, `TVGUIDE:`, `TVPASSPORT:`, `DAZN:`,
+`ARENA:`, `FREEVIEW:` je nach Land/Anbieter) für den Sender echte
+Programmdaten liefert (z. B. per `*_kanal_finden()`/`*_hole_programme()`
+lokal testen). Erst danach wird die Zeile mit dem passenden Präfix
+eingetragen — nicht blind als einfacher `Land|Sender`-Eintrag, wenn ein
+Präfix mit echten Daten möglich wäre. Kein pauschales automatisches
+Durchsuchen ALLER Quellen für jeden `DE|`-Sender (bewusst nicht gebaut -
+zu hohe Laufzeit/Fehltreffer-Risiko bei der großen Zahl an DE-Zeilen),
+sondern gezielt pro Sender auf Zuruf.
 
 ## Architektur-Überblick
 
