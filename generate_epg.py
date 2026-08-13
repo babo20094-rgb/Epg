@@ -1114,15 +1114,15 @@ for zeile in zeilen:
     if land.strip().upper() == "DE":
         eintrag["plutotv"] = True
 
-    # Automatischer Tubi-TV-Abgleich fuer PRIME-Sender: analog zum
+    # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-Sender: analog zum
     # PlutoTV-Autoabgleich fuer DE - kein eigenes Praefix noetig, jeder
-    # ganz normal eingetragene Sender mit Land "PRIME" wird beim
-    # Generieren zusaetzlich per Name gegen die Tubi-Kanalliste
+    # ganz normal eingetragene Sender mit Land "PRIME" oder "TUBI" wird
+    # beim Generieren zusaetzlich per Name gegen die Tubi-Kanalliste
     # geprueft (siehe tubi_epg.py, Verarbeitungsblock bei "tubi_sender"
     # weiter unten). Bei Treffer werden echte Sendungen UND ein
     # passendes Kanal-Icon eingetragen, sonst faellt der Sender
     # unveraendert auf die normale generische Beschreibung zurueck.
-    if land.strip().upper() == "PRIME":
+    if land.strip().upper() in ("PRIME", "TUBI"):
         eintrag["tubi"] = True
 
     sender_daten.append(eintrag)
