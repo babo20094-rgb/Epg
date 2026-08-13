@@ -1004,25 +1004,36 @@ for zeile in zeilen:
     # Grundaufstellung) deckt tvpassport.com ~19.000 LOKALE US-Sender pro
     # Stadt/Call-Sign ab (z. B. "FOX (KFFX) Yakima, WA").
     #
-    # SYNTAX (3 Felder, analog zum TVGUIDE:-Schema):
+    # SYNTAX (3 Felder, analog zum TVGUIDE:-Schema, optional ein 4.
+    # Feld fuer Playlist-Namen, die NICHT dem "US| ..."-Schema folgen,
+    # analog zum SKY:-ID-Override):
     #
     #   TVPASSPORT:<Land, nur "US" unterstützt, optional, Default US>|<Kanalname wie bei TVPassport>|<Logo-URL>
+    #   TVPASSPORT:<Land>|<Suchbegriff wie bei TVPassport>|<Logo-URL>|<Kompletter Playlist-Name/ID, falls abweichend>
     #
-    # Beispiel:
+    # Beispiele:
     #   TVPASSPORT:US|FOX (KFFX) Yakima, WA|https://example.com/logo.png
+    #   TVPASSPORT:US|FOX (KTTV) Los Angeles, CA HD|https://example.com/logo.png|TUBI| FOX 11 LOS ANGELES ᴿᴬᵂ
     #
     # Es wird nur "US" unterstützt (jeder andere Wert fällt still auf
-    # "US" zurück). Der Kanalname (2. Feld) wird 1:1 als <channel>
-    # id/display-name verwendet UND als Suchbegriff gegen die statische,
-    # im Repo mitgelieferte TVPassport-Kanalliste (tvpassport_kanal_finden(),
-    # erst exakt normalisiert, dann difflib-Fuzzy-Match). Jeder
-    # Fehlschlag der TVPassport-Anfrage fällt exakt auf die normale,
-    # generische Generierung zurück wie bei jedem anderen Sender.
+    # "US" zurück). Der Kanalname (2. Feld) wird als Suchbegriff gegen
+    # die statische, im Repo mitgelieferte TVPassport-Kanalliste
+    # verwendet (tvpassport_kanal_finden(), erst exakt normalisiert,
+    # dann difflib-Fuzzy-Match) UND - falls kein 4. Feld angegeben ist -
+    # 1:1 als <channel> id/display-name. Manche Playlists benennen
+    # solche lokalen US-Sender aber unter einem komplett anderen
+    # Praefix (z.B. "TUBI| ..." statt "US| ...") - fuer genau diesen
+    # Fall kann das optionale 4. Feld den kompletten, echten Playlist-
+    # Namen 1:1 vorgeben. Jeder Fehlschlag der TVPassport-Anfrage fällt
+    # exakt auf die normale, generische Generierung zurück wie bei
+    # jedem anderen Sender.
     if zeile.upper().startswith("TVPASSPORT:"):
         rest = zeile[len("TVPASSPORT:"):]
-        teile_tvpassport = [x.strip() for x in rest.split("|")]
+        # maxsplit=3: das optionale 4. Feld (ID-Override) darf selbst
+        # Pipe-Zeichen enthalten (z.B. "TUBI| FOX 11 LOS ANGELES ᴿᴬᵂ").
+        teile_tvpassport = [x.strip() for x in rest.split("|", 3)]
 
-        while len(teile_tvpassport) < 3:
+        while len(teile_tvpassport) < 4:
             teile_tvpassport.append("")
 
         tvpassport_land = teile_tvpassport[0].upper() or "US"
@@ -1031,6 +1042,7 @@ for zeile in zeilen:
 
         tvpassport_kanalname = teile_tvpassport[1]
         tvpassport_logo = teile_tvpassport[2]
+        tvpassport_id_override = teile_tvpassport[3]
 
         if not tvpassport_kanalname:
             continue
@@ -1040,7 +1052,7 @@ for zeile in zeilen:
         )
 
         sender_daten.append({
-            "kanal": f"{tvpassport_land}| {tvpassport_kanalname}",
+            "kanal": tvpassport_id_override if tvpassport_id_override else f"{tvpassport_land}| {tvpassport_kanalname}",
             "land": tvpassport_land,
             "sender": tvpassport_kanalname,
             "beschreibung": tvpassport_auto_beschreibung,

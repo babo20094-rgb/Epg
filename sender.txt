@@ -1510,6 +1510,7 @@ US|CW News 9 San Diego (KUSI) HD|
 US|CW Seattle HD|
 TVPASSPORT:US|MNT (KHII) Honolulu, HI|AUTO
 #US| TUBI
+TVPASSPORT:US|FOX (KTTV) Los Angeles, CA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fox11_los_angeles.png|TUBI| FOX 11 LOS ANGELES ᴿᴬᵂ
 TUBI| THE RIFLEMAN ᴿᴬᵂ|
 TUBI| THE FBI ᴿᴬᵂ|
 TUBI| THE CONNERS ᴿᴬᵂ|
