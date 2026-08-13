@@ -557,32 +557,46 @@ for zeile in zeilen:
     # hohes Fehltreffer-Risiko. Nur Sender mit dieser Zeile bekommen die
     # echten Daten.
     #
-    # SYNTAX (3 Felder, analog zum TELEMACH:-Schema):
+    # SYNTAX (3 Felder, analog zum TELEMACH:-Schema, optional ein 4.
+    # Feld fuer Playlist-Namen, die NICHT dem normalen "DE|"/"UK|"-
+    # Schema folgen):
     #
     #   SKY:<Territory, "DE" oder "GB", optional/Default "DE">|<Kanalname wie bei Sky>|<Logo-URL>
+    #   SKY:<Territory>|<Suchbegriff wie bei Sky>|<Logo-URL>|<Kompletter Playlist-Name/ID, falls abweichend>
     #
     # Beispiele:
     #   SKY:DE|Sky Sport Bundesliga 1|https://example.com/logo.png
     #   SKY:GB|Sky Showcase|https://example.com/logo.png
+    #   SKY:DE|SKY CRIME|https://example.com/logo.png|WOW| SKY CRIME ᴴᴰ ◉
     #
     # "DE" deckt technisch auch Oesterreich/Schweiz mit ab (Sky kennt
     # dafuer kein eigenes Territory - "Sky Sport Austria"-Kanaele laufen
     # ueber DE). Andere Werte als DE/GB fallen graceful auf "DE" zurück
     # (siehe sky_epg.py).
     #
-    # Der Kanalname (2. Feld) wird 1:1 als <channel> id/display-name
-    # verwendet (wie bei NAME:/TELEMACH:) UND als Suchbegriff gegen die
-    # Sky-Kanalliste (sky_kanal_finden(), erst exakt normalisiert, dann
-    # difflib-Fuzzy-Match). Für die ersten bis zu 2 Tage werden - sofern
-    # Kanalsuche/Programmabruf gelingen - echte Sendungen eingetragen;
-    # alle weiteren Tage (und bei jedem Fehlschlag der Sky-Anfrage)
-    # fallen exakt auf die normale, generische Generierung zurück wie
-    # bei jedem anderen Sender.
+    # Der Kanalname (2. Feld) wird als Suchbegriff gegen die
+    # Sky-Kanalliste verwendet (sky_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match) UND - falls kein 4. Feld
+    # angegeben ist - 1:1 als <channel> id/display-name (wie bei
+    # NAME:/TELEMACH:). Manche Playlists benennen Sky-Buendel-Sender
+    # aber unter einem komplett anderen Praefix (z.B. "WOW| ..." statt
+    # "DE| .../UK| ...") - fuer genau diesen Fall kann das optionale 4.
+    # Feld den kompletten, echten Playlist-Namen 1:1 vorgeben, waehrend
+    # das 2. Feld weiterhin nur als Sky-Suchbegriff dient. Für die
+    # ersten bis zu 2 Tage werden - sofern Kanalsuche/Programmabruf
+    # gelingen - echte Sendungen eingetragen; alle weiteren Tage (und
+    # bei jedem Fehlschlag der Sky-Anfrage) fallen exakt auf die
+    # normale, generische Generierung zurück wie bei jedem anderen
+    # Sender.
     if zeile.upper().startswith("SKY:"):
         rest = zeile[len("SKY:"):]
-        teile_sky = [x.strip() for x in rest.split("|")]
+        # maxsplit=3: das optionale 4. Feld (ID-Override) darf selbst
+        # Pipe-Zeichen enthalten (z.B. "WOW| SKY CRIME ᴴᴰ ◉") - wird
+        # daher NICHT weiter zerschnitten, alles ab dem 3. Pipe bleibt
+        # als ein Stueck erhalten.
+        teile_sky = [x.strip() for x in rest.split("|", 3)]
 
-        while len(teile_sky) < 3:
+        while len(teile_sky) < 4:
             teile_sky.append("")
 
         sky_territory = teile_sky[0].upper() or "DE"
@@ -593,6 +607,7 @@ for zeile in zeilen:
 
         sky_kanalname = teile_sky[1]
         sky_logo = teile_sky[2]
+        sky_id_override = teile_sky[3]
 
         if not sky_kanalname:
             continue
@@ -610,7 +625,7 @@ for zeile in zeilen:
         )
 
         sender_daten.append({
-            "kanal": f"{sky_anzeige_land}| {sky_kanalname}",
+            "kanal": sky_id_override if sky_id_override else f"{sky_anzeige_land}| {sky_kanalname}",
             "land": sky_anzeige_land,
             "sender": sky_kanalname,
             "beschreibung": sky_auto_beschreibung,
