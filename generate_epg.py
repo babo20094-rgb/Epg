@@ -34,6 +34,7 @@ from tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
 from tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
 from tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
+from tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
@@ -1067,6 +1068,17 @@ for zeile in zeilen:
     if land.strip().upper() == "DE":
         eintrag["plutotv"] = True
 
+    # Automatischer Tubi-TV-Abgleich fuer PRIME-Sender: analog zum
+    # PlutoTV-Autoabgleich fuer DE - kein eigenes Praefix noetig, jeder
+    # ganz normal eingetragene Sender mit Land "PRIME" wird beim
+    # Generieren zusaetzlich per Name gegen die Tubi-Kanalliste
+    # geprueft (siehe tubi_epg.py, Verarbeitungsblock bei "tubi_sender"
+    # weiter unten). Bei Treffer werden echte Sendungen UND ein
+    # passendes Kanal-Icon eingetragen, sonst faellt der Sender
+    # unveraendert auf die normale generische Beschreibung zurueck.
+    if land.strip().upper() == "PRIME":
+        eintrag["tubi"] = True
+
     sender_daten.append(eintrag)
 
 # ==========================================================
@@ -1665,6 +1677,7 @@ MOJMAXTV_TAGE = 2
 SIOL_TAGE = 2
 PLUTOTV_TAGE = 2
 TVMOVIE_TAGE = 1
+TUBI_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 magenta_sender = [d for d in sender_daten if d.get("magenta")]
@@ -1677,6 +1690,7 @@ mts_sender = [d for d in sender_daten if d.get("mts")]
 mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
 siol_sender = [d for d in sender_daten if d.get("siol")]
 plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
+tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
 
 def _schreibe_echte_programme(daten, programme):
@@ -2136,6 +2150,41 @@ for daten in plutotv_sender:
             _schreibe_echte_programme(daten, tvmovie_programme)
 
 # ==========================================================
+# TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
+# tubi_epg.py - community-gepflegte, loginfreie XMLTV-Datei mit echten
+# Tubi-TV-Sendungen und Kanal-Icons). Kein eigenes Praefix noetig.
+# Ohne jegliche PRIME-Zeile in sender.txt passiert hier gar nichts.
+# ==========================================================
+
+for daten in tubi_sender:
+    programme = []
+    try:
+        site_id = tubi_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = tubi_hole_programme(site_id, TUBI_TAGE)
+            # Kanal-Icon von Tubi uebernehmen, aber nur wenn noch kein
+            # manuelles Logo in sender.txt gesetzt wurde (leeres Feld
+            # oder der "AUTO"-Marker fuer die spaetere automatische
+            # Logo-Suche).
+            if daten["logo"].strip().upper() in ("", LOGO_AUTO_MARKER):
+                tubi_icon = tubi_kanal_icon(site_id)
+                if tubi_icon:
+                    daten["logo"] = tubi_icon
+        else:
+            print(f"Tubi-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+    except Exception as e:
+        print(f"Tubi-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        programme = []
+
+    daten["tubi_tage"] = {p["start"].date() for p in programme}
+
+    if programme:
+        print(f"Tubi-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        print(f"Tubi-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+
+# ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
 # Statt starrer 2h-Slots orientieren sich die Blocklaengen an
 # einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
@@ -2234,6 +2283,11 @@ for tag_index in range(ANZAHL_TAGE):
             if daten.get("siol") and tag_start.date() in daten.get("siol_tage", set()):
                 continue
             if daten.get("plutotv") and tag_start.date() in daten.get("plutotv_tage", set()):
+                continue
+            # TUBI-Sender (siehe Block oben): Tage, an denen bereits
+            # echte Tubi-Programmdaten geschrieben wurden, werden hier
+            # ebenfalls nicht generisch nachgeneriert.
+            if daten.get("tubi") and tag_start.date() in daten.get("tubi_tage", set()):
                 continue
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
