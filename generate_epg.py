@@ -1024,7 +1024,9 @@ for zeile in zeilen:
             sender, beschreibung, logo = rechte_teile[0], rechte_teile[1], rechte_teile[2]
         land = ""
         kanal = sender
+        leeres_land_zeile = True
     else:
+        leeres_land_zeile = False
         teile = [x.strip() for x in zeile.split("|")]
 
         while len(teile) < 4:
@@ -1072,7 +1074,7 @@ for zeile in zeilen:
         "sender": sender,
         "beschreibung": beschreibung,
         "logo": logo,
-        "exakter_name": False,
+        "exakter_name": leeres_land_zeile,
         "event_titel": direkter_text_event_titel,
         "kategorie": kategorie_key
     }
