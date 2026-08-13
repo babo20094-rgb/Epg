@@ -13,7 +13,7 @@ MAGENTA:DE| HR HD|
 MAGENTA:DE| PRO7SAT.1 FHD|
 MAGENTA:DE| YU-GI-OH!|
 MAGENTA:DE| SR|
-MAGENTA:DE| SONY AXN HD|
+SKY:DE|AXN BLACK HD||DE| AXN BLACK HD
 MAGENTA:DE| SONY CHANNEL FHD|
 DE| CNN||https://e7.pngegg.com/pngimages/782/988/png-clipart-logo-cnn-brand-trademark-logo-cnn.png
 TVPASSPORT:US|FOX (KFFX) Yakima, WA|AUTO
