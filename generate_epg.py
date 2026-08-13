@@ -981,16 +981,45 @@ for zeile in zeilen:
         })
         continue
 
-    teile = [x.strip() for x in zeile.split("|")]
+    # Leeres Land-Feld (Zeile beginnt mit "|"): fuer Sender, deren
+    # echter Playlist-Name selbst KEIN Land-Praefix hat (z.B.
+    # "24/7 GHOST ADVENTURES SCREAMING ROOM") oder deren Name selbst
+    # ein Pipe-Zeichen enthaelt (z.B. "US| GHOST ADVENTURES FHD" mit
+    # Leerzeichen nach dem Pipe als fester Teil des Playlist-Namens).
+    # Hier wird NUR an den LETZTEN ZWEI Pipes der Zeile getrennt
+    # (Beschreibung, Logo) - alles davor bleibt unveraendert der
+    # komplette Sendername, egal wie viele Pipes er selbst enthaelt.
+    # Ohne diese Ausnahme wuerde kanal = f"{land}|{sender}" faelschlich
+    # ein fuehrendes "|" einfuegen bzw. der Name wuerde am falschen
+    # Pipe zerschnitten - beides wuerde das Playlist-Matching
+    # verhindern.
+    if zeile.startswith("|"):
+        rechte_teile = [x.strip() for x in zeile[1:].rsplit("|", 2)]
+        while len(rechte_teile) < 3:
+            rechte_teile.append("")
+        # rsplit(maxsplit=2) liefert bei WENIGER als 2 Pipes im Rest zu
+        # wenige Elemente an der falschen Position (Logo wuerde in die
+        # Beschreibung-Spalte rutschen) - deshalb wird bei nur 1 Pipe
+        # (Sender + Logo, keine Beschreibung) die leere Beschreibung
+        # eingeschoben statt hinten angehaengt.
+        if "|" in zeile[1:] and zeile[1:].count("|") == 1:
+            sender, logo = rechte_teile[0], rechte_teile[1]
+            beschreibung = ""
+        else:
+            sender, beschreibung, logo = rechte_teile[0], rechte_teile[1], rechte_teile[2]
+        land = ""
+        kanal = sender
+    else:
+        teile = [x.strip() for x in zeile.split("|")]
 
-    while len(teile) < 4:
-        teile.append("")
+        while len(teile) < 4:
+            teile.append("")
 
-    land = teile[0]
-    sender = teile[1]
-    beschreibung = teile[2]
-    logo = teile[3]
-    kanal = f"{land}|{sender}"
+        land = teile[0]
+        sender = teile[1]
+        beschreibung = teile[2]
+        logo = teile[3]
+        kanal = f"{land}|{sender}"
 
     auto_beschreibung, kategorie_key = standard_beschreibung(land, sender)
 
