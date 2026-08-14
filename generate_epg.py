@@ -1158,7 +1158,7 @@ for zeile in zeilen:
     # der Sender unveraendert auf die normale generische Beschreibung
     # zurueck - reine Zusatzanreicherung ohne Risiko fuer bestehende
     # Sender.
-    TELEMACH_LAND_ALIAS = {"BA": "ba", "ME": "me", "MNG": "me", "CG": "me"}
+    TELEMACH_LAND_ALIAS = {"BA": "ba", "ME": "me", "MNG": "me", "CG": "me", "MO": "me"}
     if land.strip().upper() in TELEMACH_LAND_ALIAS:
         eintrag["telemach"] = {"country": TELEMACH_LAND_ALIAS[land.strip().upper()]}
 
@@ -1182,15 +1182,16 @@ for zeile in zeilen:
     if land.strip().upper() == "DE":
         eintrag["plutotv"] = True
 
-    # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-Sender: analog zum
-    # PlutoTV-Autoabgleich fuer DE - kein eigenes Praefix noetig, jeder
-    # ganz normal eingetragene Sender mit Land "PRIME" oder "TUBI" wird
-    # beim Generieren zusaetzlich per Name gegen die Tubi-Kanalliste
-    # geprueft (siehe tubi_epg.py, Verarbeitungsblock bei "tubi_sender"
-    # weiter unten). Bei Treffer werden echte Sendungen UND ein
-    # passendes Kanal-Icon eingetragen, sonst faellt der Sender
-    # unveraendert auf die normale generische Beschreibung zurueck.
-    if land.strip().upper() in ("PRIME", "TUBI"):
+    # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-/GO-Sender: analog
+    # zum PlutoTV-Autoabgleich fuer DE - kein eigenes Praefix noetig,
+    # jeder ganz normal eingetragene Sender mit Land "PRIME", "TUBI"
+    # oder "GO" wird beim Generieren zusaetzlich per Name gegen die
+    # Tubi-Kanalliste geprueft (siehe tubi_epg.py, Verarbeitungsblock
+    # bei "tubi_sender" weiter unten). Bei Treffer werden echte
+    # Sendungen UND ein passendes Kanal-Icon eingetragen, sonst faellt
+    # der Sender unveraendert auf die normale generische Beschreibung
+    # zurueck.
+    if land.strip().upper() in ("PRIME", "TUBI", "GO"):
         eintrag["tubi"] = True
 
     sender_daten.append(eintrag)
