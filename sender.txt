@@ -11,6 +11,12 @@ TVPASSPORT:US|CBS (KSWL-LD) Lake Charles, LA HD|AUTO|CITY| CBS (KSWL-LD) LAKE CH
 |US| GHOST ADVENTURES FHD|Ghost Adventures FHD ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/8kSwNLygLOYccu9vPSTlIuVquVj.png
 |24/7 GHOST ADVENTURES SCREAMING ROOM|Ghost Adventures Screaming Room ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/8kSwNLygLOYccu9vPSTlIuVquVj.png
 |24/7 GHOST ADVENTURES QUARANTINE|Ghost Adventures Quarantine ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/8kSwNLygLOYccu9vPSTlIuVquVj.png
+#US| 24/7 MOVIES & SERIES
+|US| NXT|NXT ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/9nLBX5Bf7PW4FAaWJLXpFFdeTlV.jpg
+|US| MUBI|MUBI ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/ltHubSF7YTefDDE62BNlxROYnxc.png
+|US| FLING|Fling ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/3D8yE5PGFHwavMEwBkHt00LkHuD.jpg
+|US| EROS|Eros ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/bz8pWVNsbg1MMKCgp2VX6wFOXJX.jpg
+|US| DEKKOO|Dekkoo ²⁴/⁷ ᴸⁱᵛᵉ|https://image.tmdb.org/t/p/w500/qD8575BVoagIUosW3JQo25HYShP.png
 MAGENTA:DE|PROSIEBENSAT.1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/prosiebensat1.png
 TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|AUTO
 TVGUIDE:US|TODAY ALL DAY|
