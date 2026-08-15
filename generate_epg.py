@@ -1840,11 +1840,11 @@ for daten in telemach_sender:
                 site_id, daten["telemach"]["country"], TELEMACH_TAGE
             )
         else:
-            print(f"Telemach-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"Telemach-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["telemach_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -1854,7 +1854,7 @@ for daten in telemach_sender:
         print(f"Telemach-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Telemach-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
         # mtel.ba als zweiter Versuch: nur fuer BA-Sender (mtel.ba kennt
         # kein Montenegro), und nur weil Telemach fuer diesen Sender
@@ -1867,9 +1867,9 @@ for daten in telemach_sender:
                 if mtel_site_id is not None:
                     mtel_programme = mtel_hole_programme(mtel_site_id, MTEL_TAGE)
                 else:
-                    print(f"Mtel-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+                    pass  # log unterdrueckt: keine echten Programmdaten
             except Exception as e:
-                print(f"Mtel-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                pass  # log unterdrueckt: keine echten Programmdaten
                 mtel_programme = []
 
             daten["mtel_intervalle"] = [(p["start"], p["stop"]) for p in mtel_programme]
@@ -1879,7 +1879,7 @@ for daten in telemach_sender:
                 _schreibe_echte_programme(daten, mtel_programme)
                 echte_daten_gefunden = True
             else:
-                print(f"Mtel-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+                pass  # log unterdrueckt: keine echten Programmdaten
 
                 # mymedia.ba als dritter Versuch: deckt technisch nur
                 # EINEN festen Kanal ab ("MY TV", siehe mymedia_epg.py),
@@ -1890,7 +1890,7 @@ for daten in telemach_sender:
                     try:
                         mymedia_programme = mymedia_hole_programme(MYMEDIA_TAGE)
                     except Exception as e:
-                        print(f"MyMedia-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                        pass  # log unterdrueckt: keine echten Programmdaten
                         mymedia_programme = []
 
                     daten["mymedia_intervalle"] = [(p["start"], p["stop"]) for p in mymedia_programme]
@@ -1900,7 +1900,7 @@ for daten in telemach_sender:
                         _schreibe_echte_programme(daten, mymedia_programme)
                         echte_daten_gefunden = True
                     else:
-                        print(f"MyMedia-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+                        pass  # log unterdrueckt: keine echten Programmdaten
 
                 # klix.ba als vierter Versuch fuer BA-Sender (siehe
                 # klix_epg.py), nur wenn Telemach UND mtel.ba (UND ggf.
@@ -1912,9 +1912,9 @@ for daten in telemach_sender:
                         if klix_site_id is not None:
                             klix_programme = klix_hole_programme(klix_site_id, KLIX_TAGE)
                         else:
-                            print(f"Klix-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+                            pass  # log unterdrueckt: keine echten Programmdaten
                     except Exception as e:
-                        print(f"Klix-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+                        pass  # log unterdrueckt: keine echten Programmdaten
                         klix_programme = []
 
                     daten["klix_intervalle"] = [(p["start"], p["stop"]) for p in klix_programme]
@@ -1924,7 +1924,7 @@ for daten in telemach_sender:
                         _schreibe_echte_programme(daten, klix_programme)
                         echte_daten_gefunden = True
                     else:
-                        print(f"Klix-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+                        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # SKY: echte Programmdaten fuer SKY:-Sender (siehe sky_epg.py und der
@@ -1942,11 +1942,11 @@ for daten in sky_sender:
         if site_id is not None:
             programme = sky_hole_programme(site_id, daten["sky"]["territory"], SKY_TAGE)
         else:
-            print(f"Sky-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"Sky-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -1955,7 +1955,7 @@ for daten in sky_sender:
         print(f"Sky-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Sky-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # MAGENTA: echte Programmdaten fuer MAGENTA:-Sender (siehe magenta_epg.py
@@ -1972,11 +1972,11 @@ for daten in magenta_sender:
         if kanal_ref is not None:
             programme = magenta_hole_programme(kanal_ref, MAGENTA_TAGE)
         else:
-            print(f"Magenta-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"Magenta-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["magenta_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -1985,7 +1985,7 @@ for daten in magenta_sender:
         print(f"Magenta-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Magenta-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # ARENA: echte Programmdaten fuer ARENA:-Sender (siehe arena_epg.py und
@@ -2001,11 +2001,11 @@ for daten in arena_sender:
         if site_id is not None:
             programme = arena_hole_programme(site_id, daten["arena"]["land"], ARENA_TAGE)
         else:
-            print(f"Arena-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"Arena-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2014,7 +2014,7 @@ for daten in arena_sender:
         print(f"Arena-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Arena-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # DAZN: echte Programmdaten fuer DAZN:-Sender (siehe dazn_epg.py und der
@@ -2030,11 +2030,11 @@ for daten in dazn_sender:
         if site_id is not None:
             programme = dazn_hole_programme(site_id, daten["dazn"]["land"], DAZN_TAGE)
         else:
-            print(f"DAZN-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"DAZN-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["dazn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2043,7 +2043,7 @@ for daten in dazn_sender:
         print(f"DAZN-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"DAZN-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # FREEVIEW: echte Programmdaten fuer FREEVIEW:-Sender (siehe
@@ -2060,11 +2060,11 @@ for daten in freeview_sender:
         if site_id is not None:
             programme = freeview_hole_programme(site_id, FREEVIEW_TAGE)
         else:
-            print(f"Freeview-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"Freeview-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["freeview_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2073,7 +2073,7 @@ for daten in freeview_sender:
         print(f"Freeview-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Freeview-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # TVGUIDE: echte Programmdaten fuer TVGUIDE:-Sender (siehe
@@ -2090,11 +2090,11 @@ for daten in tvguide_sender:
         if site_id is not None:
             programme = tvguide_hole_programme(site_id, TVGUIDE_TAGE)
         else:
-            print(f"TVGuide-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"TVGuide-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["tvguide_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2103,7 +2103,7 @@ for daten in tvguide_sender:
         print(f"TVGuide-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"TVGuide-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # TVPASSPORT: echte Programmdaten fuer TVPASSPORT:-Sender (siehe
@@ -2120,11 +2120,11 @@ for daten in tvpassport_sender:
         if site_id is not None:
             programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
         else:
-            print(f"TVPassport-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        print(f"TVPassport-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["tvpassport_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2133,7 +2133,7 @@ for daten in tvpassport_sender:
         print(f"TVPassport-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"TVPassport-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
@@ -2150,9 +2150,9 @@ for daten in mts_sender:
         if site_id is not None:
             programme = mts_hole_programme(site_id, MTS_TAGE)
         else:
-            print(f"Mts-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
-        print(f"Mts-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["mts_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2161,7 +2161,7 @@ for daten in mts_sender:
         print(f"Mts-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Mts-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # MOJMAXTV: automatischer Abgleich fuer alle HR-Sender (siehe
@@ -2177,9 +2177,9 @@ for daten in mojmaxtv_sender:
         if site_id is not None:
             programme = mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
         else:
-            print(f"MojMaxTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
-        print(f"MojMaxTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2188,7 +2188,7 @@ for daten in mojmaxtv_sender:
         print(f"MojMaxTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"MojMaxTV-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # SIOL: automatischer Abgleich fuer alle SI-Sender (siehe siol_epg.py -
@@ -2204,9 +2204,9 @@ for daten in siol_sender:
         if site_id is not None:
             programme = siol_hole_programme(site_id, SIOL_TAGE)
         else:
-            print(f"Siol-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
-        print(f"Siol-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2215,7 +2215,7 @@ for daten in siol_sender:
         print(f"Siol-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Siol-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # PLUTOTV / TVMOVIE: automatischer Abgleich fuer alle DE-Sender (siehe
@@ -2232,9 +2232,9 @@ for daten in plutotv_sender:
         if site_id is not None:
             programme = plutotv_hole_programme(site_id, PLUTOTV_TAGE)
         else:
-            print(f"PlutoTV-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
-        print(f"PlutoTV-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2243,7 +2243,7 @@ for daten in plutotv_sender:
         print(f"PlutoTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"PlutoTV-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
         # tvmovie.de als zweiter Versuch fuer DE-Sender (siehe
         # tvmovie_epg.py), nur wenn Pluto TV nichts gefunden hat.
@@ -2253,9 +2253,9 @@ for daten in plutotv_sender:
             if tvmovie_site_id is not None:
                 tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
             else:
-                print(f"TvMovie-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+                pass  # log unterdrueckt: keine echten Programmdaten
         except Exception as e:
-            print(f"TvMovie-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
             tvmovie_programme = []
 
         daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
@@ -2286,9 +2286,9 @@ for daten in tubi_sender:
                 if tubi_icon:
                     daten["logo"] = tubi_icon
         else:
-            print(f"Tubi-EPG: kein Kanal-Treffer fuer '{daten['sender']}', generische EPG.")
+            pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:
-        print(f"Tubi-EPG: Fehler bei '{daten['sender']}' ({e}), generische EPG.")
+        pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
     daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -2297,7 +2297,7 @@ for daten in tubi_sender:
         print(f"Tubi-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
-        print(f"Tubi-EPG: keine Daten fuer '{daten['sender']}', generische EPG (Fallback).")
+        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
