@@ -243,10 +243,12 @@ def kern_vorne_und_event_extrahieren(voller_name):
     DirtVision: "DIRTVISION 01 : Knoxville Raceway 7:15 pm" -> Kern
     "DIRTVISION 01", Event "Knoxville Raceway 7:15 pm"; gleiches Schema
     bei FA Player: "FA Player 05 : Arsenal vs London City Lionesses //
-    ..." -> Kern "FA Player 05"). Dafuer wird gezielt nach bekannten
-    Kern-Keywords gesucht, statt am ERSTEN Doppelpunkt zu trennen -
-    sonst wuerde eine Uhrzeitangabe im Event-Text selbst (z.B.
-    "7:15 pm") faelschlich als Trenner genommen."""
+    ..." -> Kern "FA Player 05"; und bei Supercross: "Supercross 2: 2024
+    round 5: detroit, mi - ford field (feb 3rd) // ..." -> Kern
+    "Supercross 2"). Dafuer wird gezielt nach bekannten Kern-Keywords
+    gesucht, statt am ERSTEN Doppelpunkt zu trennen - sonst wuerde eine
+    Uhrzeitangabe im Event-Text selbst (z.B. "7:15 pm") faelschlich als
+    Trenner genommen."""
     if "|" in voller_name:
         segmente = voller_name.split("|")
         kurzname = segmente[0].strip()
@@ -254,7 +256,7 @@ def kern_vorne_und_event_extrahieren(voller_name):
         return kurzname, event_teil
 
     match = re.match(
-        r"^\s*((?:DIRTVISION|FA\s*PLAYER)\s*\d+)\s*:\s*(.*)$",
+        r"^\s*((?:DIRTVISION|FA\s*PLAYER|SUPERCROSS)\s*\d+)\s*:\s*(.*)$",
         voller_name, re.IGNORECASE,
     )
     if match:
@@ -591,6 +593,13 @@ for zeile in zeilen:
             fa_player_match = re.match(r"^FA\s*PLAYER\s*0*(\d+)$", kurzname, re.IGNORECASE)
             if fa_player_match:
                 event_titel = f"FA Player ({fa_player_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Supercross-Kanaele ohne erkanntes Event: gleiche Konvention wie
+        # DirtVision oben (z.B. "Supercross (3) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            supercross_match = re.match(r"^SUPERCROSS\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if supercross_match:
+                event_titel = f"Supercross ({supercross_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
 
         # Super League Plus-Kanaele ohne erkanntes Event: gleiche
         # Konvention wie DirtVision/Flo Racing oben (z.B. "Super League

@@ -966,6 +966,19 @@ NAME:TT RACES| EVENT 2|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Ma
 NAME:TT RACES| EVENT 3|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
 NAME:TT RACES| EVENT 4|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
 NAME:TT RACES| EVENT 5|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+#UK| SUPERCROSS
+NAME:Supercross 1:|https://upload.wikimedia.org/wikipedia/en/5/58/AMA_Supercross_logo.png
+NAME:Supercross 2:|https://upload.wikimedia.org/wikipedia/en/5/58/AMA_Supercross_logo.png
+NAME:Supercross 3:|https://upload.wikimedia.org/wikipedia/en/5/58/AMA_Supercross_logo.png
+#UK| PDC BOARD PPV
+|PDC Board 01 ||PDC Board 01 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
+|PDC Board 02 ||PDC Board 02 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
+|PDC Board 03 ||PDC Board 03 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
+PDC Board 04|PDC Board 04 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
+PDC Board 05|PDC Board 05 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
+PDC Board 06|PDC Board 06 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
+PDC Board 07|PDC Board 07 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
+|PDC Board 8 ||PDC Board 8 ᴺᵘʳ ᴱᵛᵉⁿᵗ|
 #UK| MOTORSPORT MULTICAM
 |UK| FORMULA 1| VER - VERSTAPPEN REDBULL RACING|FORMULA 1| VER - VERSTAPPEN REDBULL RACING ²⁴/⁷ ᴸⁱᵛᵉ|
 |UK| FORMULA 1| ZHO - ZHOU ALFA ROMEO|FORMULA 1| ZHO - ZHOU ALFA ROMEO ²⁴/⁷ ᴸⁱᵛᵉ|
