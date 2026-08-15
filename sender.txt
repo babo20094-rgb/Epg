@@ -942,6 +942,42 @@ NAME:- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 47|https://www.dslweb.d
 NAME:- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 48|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
 NAME:- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 49|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
 NAME:- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 50|https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg
+#UK| SUPER LEAGUE PLUS
+NAME:Super League Plus | Event 1|https://upload.wikimedia.org/wikipedia/en/f/fb/Super_League_Logo_2020.png
+NAME:Super League Plus | Event 2|https://upload.wikimedia.org/wikipedia/en/f/fb/Super_League_Logo_2020.png
+NAME:Super League Plus | Event 3|https://upload.wikimedia.org/wikipedia/en/f/fb/Super_League_Logo_2020.png
+NAME:Super League Plus | Event 4|https://upload.wikimedia.org/wikipedia/en/f/fb/Super_League_Logo_2020.png
+NAME:Super League Plus | Event 5|https://upload.wikimedia.org/wikipedia/en/f/fb/Super_League_Logo_2020.png
+NAME:Super League Plus | Event 6|https://upload.wikimedia.org/wikipedia/en/f/fb/Super_League_Logo_2020.png
+#UK| FA PLAYER
+NAME:FA Player 01 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 02 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 03 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 04 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 05 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 06 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 07 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 08 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 09 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+NAME:FA Player 10 :|https://image.winudf.com/v2/image1/Y29tLnRoZWZhLnBsYXllcl9pY29uXzE1Njc0MzQzNzBfMDg2/icon.png?w=140&fakeurl=1
+#UK| TT RACES
+NAME:TT RACES| EVENT 1|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+NAME:TT RACES| EVENT 2|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+NAME:TT RACES| EVENT 3|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+NAME:TT RACES| EVENT 4|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+NAME:TT RACES| EVENT 5|https://upload.wikimedia.org/wikipedia/en/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+#UK| MOTORSPORT MULTICAM
+|UK| FORMULA 1| VER - VERSTAPPEN REDBULL RACING|FORMULA 1| VER - VERSTAPPEN REDBULL RACING ²⁴/⁷ ᴸⁱᵛᵉ|
+|UK| FORMULA 1| ZHO - ZHOU ALFA ROMEO|FORMULA 1| ZHO - ZHOU ALFA ROMEO ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| MOTOGP AMBIENT|MOTOGP AMBIENT ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| MOTOGP HELI|MOTOGP HELI ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| MOTOGP OB1|MOTOGP OB1 ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| MOTOGP OB2|MOTOGP OB2 ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| MOTOGP OB3|MOTOGP OB3 ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| MOTOGP OB4|MOTOGP OB4 ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| TT RACES01|TT RACES01 ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| TT RACES02|TT RACES02 ²⁴/⁷ ᴸⁱᵛᵉ|
+UK| TT RACES03|TT RACES03 ²⁴/⁷ ᴸⁱᵛᵉ|
 #DE| SKY GO FILME
 DE|SKY GO DETEKTIV CONAN 1 FHD |Sky Go Detektiv Conan 1 FHD ᴸⁱᵛᵉ| https://bilder.fernsehserien.de/sendung/hr2/detektiv-conan_626689.png
 DE|SKY GO DETEKTIV CONAN 2 FHD |Sky Go Detektiv Conan 2 FHD ᴸⁱᵛᵉ| https://bilder.fernsehserien.de/sendung/hr2/detektiv-conan_626689.png

@@ -165,6 +165,39 @@ def kern_und_event_extrahieren(voller_name):
     DYN-PPV/FLO-RACING-Doppelpunkt-Muster zurueckgefallen. Wird sowohl
     beim Einlesen von sender.txt als auch beim Auslesen der Live-
     Kanalnamen aus der EPG-Anbieter-Datei verwendet."""
+    # Super League Plus: die Kanal-Nummer steckt weder am Ende (wie DYN
+    # PPV/Flo Racing) noch im reinen Markennamen vorne (wie Clubber),
+    # sondern im ERSTEN Event-Segment ("Super League Plus | Event 6" im
+    # Leerlauf, "Super League Plus | Event 3 Castleford Tigers v Hull FC
+    # | Betfred Super League | Round 9 // ..." bei laufendem Event). Die
+    # normale Kern-HINTEN-Regel wuerde faelschlich das LETZTE Pipe-
+    # Segment (Runden-/Datumsangabe, aendert sich pro Event) als Kern
+    # nehmen - kein stabiler Schluessel, und alle 6 Kanaele wuerden auf
+    # denselben Kern "Super League Plus" kollidieren. Deshalb hier ein
+    # dedizierter Sonderfall, der die Nummer in den Kern einbaut.
+    sl_match = re.match(
+        r"^\s*Super\s*League\s*Plus\s*\|\s*Event\s*0*(\d+)\s*(.*)$",
+        voller_name, re.IGNORECASE | re.DOTALL,
+    )
+    if sl_match:
+        kurzname = f"SUPER LEAGUE PLUS EVENT {sl_match.group(1)}"
+        event_teil = sl_match.group(2).strip(" |").strip()
+        return kurzname, event_teil
+
+    # TT Races: gleiches Problem/gleiche Loesung wie bei Super League
+    # Plus oben ("TT RACES| EVENT 1" im Leerlauf) - die Nummer steckt im
+    # ersten Event-Segment statt im Markennamen, daher hier ebenfalls
+    # dediziert in den Kern eingebaut, bevor die generische Kern-HINTEN-
+    # Regel faelschlich das letzte (variable) Pipe-Segment nehmen wuerde.
+    tt_match = re.match(
+        r"^\s*TT\s*RACES\s*\|\s*EVENT\s*0*(\d+)\s*(.*)$",
+        voller_name, re.IGNORECASE | re.DOTALL,
+    )
+    if tt_match:
+        kurzname = f"TT RACES EVENT {tt_match.group(1)}"
+        event_teil = tt_match.group(2).strip(" |").strip()
+        return kurzname, event_teil
+
     if "|" in voller_name:
         segmente = voller_name.split("|")
         kern_roh = segmente[-1].strip()
@@ -208,17 +241,22 @@ def kern_vorne_und_event_extrahieren(voller_name):
     Ohne Pipe im Namen gibt es keinen Kandidaten (None, ""), ausser fuer
     bekannte Kern-vorne-Anbieter mit DOPPELPUNKT statt Pipe (z.B.
     DirtVision: "DIRTVISION 01 : Knoxville Raceway 7:15 pm" -> Kern
-    "DIRTVISION 01", Event "Knoxville Raceway 7:15 pm"). Dafuer wird
-    gezielt nach bekannten Kern-Keywords gesucht, statt am ERSTEN
-    Doppelpunkt zu trennen - sonst wuerde eine Uhrzeitangabe im Event-
-    Text selbst (z.B. "7:15 pm") faelschlich als Trenner genommen."""
+    "DIRTVISION 01", Event "Knoxville Raceway 7:15 pm"; gleiches Schema
+    bei FA Player: "FA Player 05 : Arsenal vs London City Lionesses //
+    ..." -> Kern "FA Player 05"). Dafuer wird gezielt nach bekannten
+    Kern-Keywords gesucht, statt am ERSTEN Doppelpunkt zu trennen -
+    sonst wuerde eine Uhrzeitangabe im Event-Text selbst (z.B.
+    "7:15 pm") faelschlich als Trenner genommen."""
     if "|" in voller_name:
         segmente = voller_name.split("|")
         kurzname = segmente[0].strip()
         event_teil = "|".join(segmente[1:]).strip()
         return kurzname, event_teil
 
-    match = re.match(r"^\s*(DIRTVISION\s*\d+)\s*:\s*(.*)$", voller_name, re.IGNORECASE)
+    match = re.match(
+        r"^\s*((?:DIRTVISION|FA\s*PLAYER)\s*\d+)\s*:\s*(.*)$",
+        voller_name, re.IGNORECASE,
+    )
     if match:
         return match.group(1).strip(), match.group(2).strip()
 
@@ -507,6 +545,20 @@ for zeile in zeilen:
                 if roh_marker in EVENT_MARKER_NEXT:
                     event_titel = f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
 
+            sl_next_match = re.match(r"^SUPER\s*LEAGUE\s*PLUS\s*EVENT\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if sl_next_match:
+                roh_segmente = [s.strip() for s in event_teil.split("|")]
+                roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+                if roh_marker in EVENT_MARKER_NEXT:
+                    event_titel = f"Super League Plus ({sl_next_match.group(1)}) ᴺᵉˣᵗ"
+
+            tt_next_match = re.match(r"^TT\s*RACES\s*EVENT\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if tt_next_match:
+                roh_segmente = [s.strip() for s in event_teil.split("|")]
+                roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+                if roh_marker in EVENT_MARKER_NEXT:
+                    event_titel = f"TT Races ({tt_next_match.group(1)}) ᴺᵉˣᵗ"
+
         # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
         # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
         # EXCLUSIVE") oder der generischen kategoriebasierten
@@ -532,6 +584,28 @@ for zeile in zeilen:
             flo_racing_match = re.match(r"^FLO\s*RACING\s*0*(\d+)$", kurzname, re.IGNORECASE)
             if flo_racing_match:
                 event_titel = f"Flo Racing ({flo_racing_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # FA Player-Kanaele ohne erkanntes Event: gleiche Konvention wie
+        # DirtVision oben (z.B. "FA Player (5) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            fa_player_match = re.match(r"^FA\s*PLAYER\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if fa_player_match:
+                event_titel = f"FA Player ({fa_player_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Super League Plus-Kanaele ohne erkanntes Event: gleiche
+        # Konvention wie DirtVision/Flo Racing oben (z.B. "Super League
+        # Plus (6) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            sl_match = re.match(r"^SUPER\s*LEAGUE\s*PLUS\s*EVENT\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if sl_match:
+                event_titel = f"Super League Plus ({sl_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # TT Races-Kanaele ohne erkanntes Event: gleiche Konvention wie
+        # Super League Plus oben (z.B. "TT Races (1) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            tt_match = re.match(r"^TT\s*RACES\s*EVENT\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if tt_match:
+                event_titel = f"TT Races ({tt_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
 
         sender_daten.append({
             "kanal": voller_name,
@@ -1686,6 +1760,20 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
             roh_marker = roh_segmente[0].lower() if roh_segmente else ""
             if roh_marker in EVENT_MARKER_NEXT:
                 event_titel = f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+
+        sl_next_match = re.match(r"^SUPER\s*LEAGUE\s*PLUS\s*EVENT\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        if sl_next_match:
+            roh_segmente = [s.strip() for s in event_teil.split("|")]
+            roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+            if roh_marker in EVENT_MARKER_NEXT:
+                event_titel = f"Super League Plus ({sl_next_match.group(1)}) ᴺᵉˣᵗ"
+
+        tt_next_match = re.match(r"^TT\s*RACES\s*EVENT\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        if tt_next_match:
+            roh_segmente = [s.strip() for s in event_teil.split("|")]
+            roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+            if roh_marker in EVENT_MARKER_NEXT:
+                event_titel = f"TT Races ({tt_next_match.group(1)}) ᴺᵉˣᵗ"
 
         real_daten["event_titel"] = event_titel
         return True
