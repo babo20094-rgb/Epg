@@ -4,16 +4,16 @@ TELEMACH:BA|ARENA SPORT 2 HD|AUTO
 TELEMACH:BA|ARENA SPORT 3 HD|AUTO
 TELEMACH:BA|ARENA SPORT 4 HD|AUTO
 TELEMACH:BA|ARENA SPORT PREMIUM 1|https://i.imgur.com/csv6YsL.png
-HR|SK 1||AUTO
+HR|SK 1||https://i.imgur.com/XVHewd6.png
 HR|SK 2||AUTO
 HR|SK 3||AUTO
 HR|SK 4||AUTO
 HR|SK 5||AUTO
 HR|SK 6||AUTO
-HR|SK 7||AUTO
-HR|SK 8||AUTO
-HR|SK 9||AUTO
-HR|SK 10||AUTO
+HR|SK 7||https://static.wikia.nocookie.net/logopedia/images/2/26/SK7.png/revision/latest
+HR|SK 8||https://static.wikia.nocookie.net/logopedia/images/d/d0/SK8.png/revision/latest
+HR|SK 9||https://static.wikia.nocookie.net/logopedia/images/3/3e/SK9.png/revision/latest
+HR|SK 10||https://static.wikia.nocookie.net/logopedia/images/b/bc/SK10.png/revision/latest
 #US| ENTERTAINMENT
 TVPASSPORT:US|American Heroes Channel HD|AUTO|US| AMERICA HEROES HD
 TVPASSPORT:US|Investigation Discovery USA HD - Eastern|AUTO|US| ID HD
