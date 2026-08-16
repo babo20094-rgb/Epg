@@ -358,6 +358,31 @@ manuellem Trigger.
   Daten, unerwartetes JSON) graceful auf die normale generische
   EPG-Generierung fuer diesen Sender.
 
+## Tubi TV (PRIME/TUBI/GO, automatisch)
+
+- Echte Programmdaten von Tubi TV (USA, `tubi_epg.py`) gibt es
+  AUTOMATISCH fuer jeden ganz normal eingetragenen Sender mit Land
+  `PRIME`, `TUBI` oder `GO` in `sender.txt` - kein eigenes Praefix
+  noetig, gleiches Prinzip wie der PlutoTV-Autoabgleich fuer DE.
+- Datenquelle ist die community-gepflegte, loginfreie XMLTV-Datei des
+  BuddyChewChew/tubi-scraper-Projekts auf GitHub (eine komplette Datei
+  mit allen Tubi-TV-Kanaelen UND deren echten Sendungen sowie
+  Kanal-Icons), wird nur EINMAL pro Lauf komplett geladen und geparst
+  (Modul-weiter Cache), danach werden alle PRIME-/TUBI-/GO-Sender
+  lokal dagegen gematcht ohne weitere Netzwerk-Aufrufe.
+- Bewusst NICHT Tubis eigene offizielle API (`tubitv.com/oz/epg`)
+  verwendet, da die ein Login/Zugangstoken braucht - der GitHub-Mirror
+  ist loginfrei.
+- Bei Treffer wird zusaetzlich automatisch ein passendes Kanal-Icon
+  von Tubi uebernommen, aber nur wenn in sender.txt noch kein
+  manuelles Logo gesetzt wurde (leeres Logo-Feld oder der `AUTO`-
+  Marker).
+- Deckt nur ca. 1-2 Tage im Voraus ab (kein mehrtaegiges Datumsraster),
+  Tage danach sind ohnehin immer generisch.
+- Degradiert bei jedem Fehler (Netzwerk, kaputtes XML, kein
+  Kanal-Treffer) graceful auf die normale generische EPG-Generierung,
+  kein Absturz moeglich.
+
 ## Pluto TV / tvmovie.de / hoerzu.de (DE, automatisch)
 
 - Echte Programmdaten von Pluto TV Deutschland (`plutotv_epg.py`) gibt
