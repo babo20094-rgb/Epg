@@ -1105,7 +1105,7 @@ for zeile in zeilen:
         sender = teile[1]
         beschreibung = teile[2]
         logo = teile[3]
-        kanal = f"{land}|{sender}"
+        kanal = f"{land}| {sender}"
 
     auto_beschreibung, kategorie_key = standard_beschreibung(land, sender)
 
