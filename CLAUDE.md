@@ -48,6 +48,14 @@ Durchsuchen ALLER Quellen für jeden `DE|`-Sender (bewusst nicht gebaut -
 zu hohe Laufzeit/Fehltreffer-Risiko bei der großen Zahl an DE-Zeilen),
 sondern gezielt pro Sender auf Zuruf.
 
+Findet sich für einen neuen Sender KEINE echte EPG-Quelle, wird er als
+normale Zeile `Land|Sender|Beschreibung ᴸⁱᵛᵉ|Logo` eingetragen -
+Beschreibungsfeld immer der Sendername in normaler Schrift (Title
+Case) mit `ᴸⁱᵛᵉ` am Ende, automatisch und ohne Rückfrage, damit der
+Sendername im EPG-Raster erscheint statt eines leeren generischen
+Kategorietexts. Nur wenn der Nutzer explizit ein anderes Unicode-Suffix
+statt `ᴸⁱᵛᵉ` nennt, wird stattdessen das verwendet.
+
 ## Architektur-Überblick
 
 `generate_epg.py` liest `sender.txt` (Format `Land|Sender|Beschreibung|Logo`,
