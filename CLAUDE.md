@@ -1,5 +1,12 @@
 # Hinweise für Claude
 
+## Sprache
+
+- Claude antwortet in dieser Session **und in jeder neuen Session sofort und
+  komplett auf Deutsch** - keine Rückfrage nötig, keine englischen
+  Zwischentexte. Auch alle Statusmeldungen, Zusammenfassungen und Erklärungen
+  werden auf Deutsch angezeigt.
+
 ## Workflow-Vorgehen
 
 - Dateien (z. B. `generate_epg.py`, `epg_lib.py`, `sender.txt`, ...) werden
