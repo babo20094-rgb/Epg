@@ -56,10 +56,10 @@ TELEMACH:BA|TB1|AUTO
 TELEMACH:BA|ALFA TV|AUTO
 BA|SUPER TV MEDIA TUZLA|Super TV Media Tuzla ᴸⁱᵛᵉ|https://supertelevizija.com/wp-content/uploads/2023/03/supertv.jpg
 #DE| DAZN SPORT
-DAZN:DE|DAZN 1 HD|AUTO
-DAZN:DE|DAZN 1 FHD|AUTO
-DAZN:DE|DAZN 2 HD|AUTO
-DAZN:DE|DAZN 2 FHD|AUTO
+DAZN:DE|DAZN 1 HD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DAZN:DE|DAZN 1 FHD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DAZN:DE|DAZN 2 HD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
+DAZN:DE|DAZN 2 FHD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE| NICK PLUTO TV|Nick Pluto TV ᴸⁱᵛᵉ|Auto
 DE| YU-GI-OH!|Yu-Gi-Oh! ᴸⁱᵛᵉ|Auto
 US| YAHOO FINANCE|
@@ -803,46 +803,46 @@ DE|SKY GO FILME 48 FHD|Sky Go Filme 48 FHD ᴸⁱᵛᵉ|https://championstream.d
 DE|SKY GO FILME 49 FHD|Sky Go Filme 49 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 50 FHD|Sky Go Filme 50 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 #DE| PREMIUM PLAY 40
-DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://i.imgur.com/U4a79nh.png
-DE|FILME 2022 2 4K|Filme 2022 2 4K ᴸⁱᵛᵉ|https://i.imgur.com/U4a79nh.png
-DE|FILME 2022 3 4K|Filme 2022 3 4K ᴸⁱᵛᵉ|https://i.imgur.com/U4a79nh.png
-DE|FILME 2022 4 4K|Filme 2022 4 4K ᴸⁱᵛᵉ|https://i.imgur.com/U4a79nh.png
-DE|NETFLIX 1 4K|Netflix 1 4K ᴸⁱᵛᵉ|https://i.imgur.com/loXJ8zf.png
-DE|NETFLIX 2 4K|Netflix 2 4K ᴸⁱᵛᵉ|https://i.imgur.com/TuyW97j.png
-DE|NETFLIX 3 4K|Netflix 3 4K ᴸⁱᵛᵉ|https://i.imgur.com/zKs1XKw.png
-DE|NETFLIX 4 4K|Netflix 4 4K ᴸⁱᵛᵉ|https://i.imgur.com/lFEqiz4.png
-DE|NETFLIX 5 4K|Netflix 5 4K ᴸⁱᵛᵉ|https://i.imgur.com/wqCksMG.png
-DE|NETFLIX 6 4K|Netflix 6 4K ᴸⁱᵛᵉ|https://i.imgur.com/IltFeVw.png
-DE|NETFLIX 7 4K|Netflix 7 4K ᴸⁱᵛᵉ|https://i.imgur.com/jQRCf3X.png
-DE|PRIME 1 4K|Prime 1 4K ᴸⁱᵛᵉ|https://static.vecteezy.com/system/resources/thumbnails/019/766/188/small/prime-video-logo-prime-video-icon-transparent-logo-free-png.png
-DE|PRIME 2 4K|Prime 2 4K ᴸⁱᵛᵉ|https://static.vecteezy.com/system/resources/thumbnails/019/766/188/small/prime-video-logo-prime-video-icon-transparent-logo-free-png.png
-DE|ACTION 1 4K|Action 1 4K ᴸⁱᵛᵉ|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
-DE|ACTION 2 4K|Action 2 4K ᴸⁱᵛᵉ|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
-DE|ACTION 3 4K|Action 3 4K ᴸⁱᵛᵉ|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
-DE|ACTION 4 4K|Action 4 4K ᴸⁱᵛᵉ|https://pyrofx.ru/upload/iblock/90a/90a1471f9ea88ea60bd33343dc3b8ead.jpg
-DE|POLICIER 1 4K|Policier 1 4K ᴸⁱᵛᵉ|https://i.imgur.com/BnKYJnk.png
-DE|POLICIER 2 4K|Policier 2 4K ᴸⁱᵛᵉ|https://i.imgur.com/BnKYJnk.png
-DE|HORROR 1 4K|Horror 1 4K ᴸⁱᵛᵉ|https://i.imgur.com/9YkAId0.png
-DE|HORROR 2 4K|Horror 2 4K ᴸⁱᵛᵉ|https://i.imgur.com/9YkAId0.png
-DE|HORROR 3 4K|Horror 3 4K ᴸⁱᵛᵉ|https://i.imgur.com/9YkAId0.png
-DE|COMEDY 1 4K|Comedy 1 4K ᴸⁱᵛᵉ|https://i.imgur.com/MpVD3fi.png
-DE|COMEDY 2 4K|Comedy 2 4K ᴸⁱᵛᵉ|https://i.imgur.com/MpVD3fi.png
-DE|COMEDY 3 4K|Comedy 3 4K ᴸⁱᵛᵉ|https://i.imgur.com/MpVD3fi.png
-DE|DOCU 1 4K|Docu 1 4K ᴸⁱᵛᵉ|https://i.imgur.com/wxAVySv.jpeg
-DE|DOCU 2 4K|Docu 2 4K ᴸⁱᵛᵉ|https://i.imgur.com/wxAVySv.jpeg
-DE|DOCU 3 4K|Docu 3 4K ᴸⁱᵛᵉ|https://i.imgur.com/wxAVySv.jpeg
-DE|DOCU 4 4K|Docu 4 4K ᴸⁱᵛᵉ|https://i.imgur.com/wxAVySv.jpeg
-DE|KIDS 1 4K|Kids 1 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 2 4K|Kids 2 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 3 4K|Kids 3 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 4 4K|Kids 4 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 5 4K|Kids 5 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 6 4K|Kids 6 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 7 4K|Kids 7 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 8 4K|Kids 8 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 9 4K|Kids 9 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 10 4K|Kids 10 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
-DE|KIDS 11 4K|Kids 11 4K ᴸⁱᵛᵉ|https://i.imgur.com/XKIUwqp.jpeg
+DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
+DE|FILME 2022 2 4K|Filme 2022 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
+DE|FILME 2022 3 4K|Filme 2022 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
+DE|FILME 2022 4 4K|Filme 2022 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
+DE|NETFLIX 1 4K|Netflix 1 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
+DE|NETFLIX 2 4K|Netflix 2 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
+DE|NETFLIX 3 4K|Netflix 3 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
+DE|NETFLIX 4 4K|Netflix 4 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
+DE|NETFLIX 5 4K|Netflix 5 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
+DE|NETFLIX 6 4K|Netflix 6 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
+DE|NETFLIX 7 4K|Netflix 7 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
+DE|PRIME 1 4K|Prime 1 4K ᴸⁱᵛᵉ|https://img.icons8.com/color/512/amazon-prime-video.png
+DE|PRIME 2 4K|Prime 2 4K ᴸⁱᵛᵉ|https://img.icons8.com/color/512/amazon-prime-video.png
+DE|ACTION 1 4K|Action 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
+DE|ACTION 2 4K|Action 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
+DE|ACTION 3 4K|Action 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
+DE|ACTION 4 4K|Action 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
+DE|POLICIER 1 4K|Policier 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2e9bff/png?text=POLICIER&font=montserrat
+DE|POLICIER 2 4K|Policier 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2e9bff/png?text=POLICIER&font=montserrat
+DE|HORROR 1 4K|Horror 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff2b2b/png?text=HORROR&font=montserrat
+DE|HORROR 2 4K|Horror 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff2b2b/png?text=HORROR&font=montserrat
+DE|HORROR 3 4K|Horror 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff2b2b/png?text=HORROR&font=montserrat
+DE|COMEDY 1 4K|Comedy 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffe135/png?text=COMEDY&font=montserrat
+DE|COMEDY 2 4K|Comedy 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffe135/png?text=COMEDY&font=montserrat
+DE|COMEDY 3 4K|Comedy 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffe135/png?text=COMEDY&font=montserrat
+DE|DOCU 1 4K|Docu 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
+DE|DOCU 2 4K|Docu 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
+DE|DOCU 3 4K|Docu 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
+DE|DOCU 4 4K|Docu 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
+DE|KIDS 1 4K|Kids 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 2 4K|Kids 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 3 4K|Kids 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 4 4K|Kids 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 5 4K|Kids 5 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 6 4K|Kids 6 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 7 4K|Kids 7 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 8 4K|Kids 8 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 9 4K|Kids 9 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 10 4K|Kids 10 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|KIDS 11 4K|Kids 11 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
 #DE| PLEX TV
 DE|PLEX BOX-OFFICE 1|Plex Box-Office (1) ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
 DE|PLEX BOX-OFFICE 2|Plex Box-Office (2) ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
