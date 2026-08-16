@@ -358,7 +358,7 @@ manuellem Trigger.
   Daten, unerwartetes JSON) graceful auf die normale generische
   EPG-Generierung fuer diesen Sender.
 
-## Pluto TV / tvmovie.de (DE, automatisch)
+## Pluto TV / tvmovie.de / hoerzu.de (DE, automatisch)
 
 - Echte Programmdaten von Pluto TV Deutschland (`plutotv_epg.py`) gibt
   es AUTOMATISCH als ERSTE automatische Quelle fuer alle DE-Sender
@@ -390,9 +390,20 @@ manuellem Trigger.
   Browser nicht bekommt). Da hier HTML statt einer stabilen JSON-API
   geparst wird, ist diese Quelle prinzipiell anfaelliger fuer Breaking
   Changes bei einem weiteren Website-Redesign als Pluto TV.
-- Beide Quellen degradieren bei jedem Fehler (Netzwerk, kaputtes
-  Gzip/XML, kein Kanal-Treffer, unerwartete HTML-Struktur) graceful
-  auf die normale generische EPG-Generierung, kein Absturz moeglich.
+- Findet auch tvmovie.de nichts, wird automatisch hoerzu.de
+  (`hoerzu_epg.py`) als dritter Versuch probiert, ueber eine im Repo
+  mitgelieferte statische Kanalliste (`hoerzu_kanalliste.txt`, ~170
+  Eintraege, aus der WebGrab+Plus-Kanalliste fuer hoerzu.de extrahiert,
+  Zeilenformat "<slug>|<Name>"). Jede Kanalseite
+  (`hoerzu.de/tv-programm/<slug>/`) enthaelt serverseitig gerendert
+  einen JSON-LD-Block (schema.org "BroadcastEvent") mit dem kompletten
+  Tagesraster - kein HTML-Gefrickel wie bei tvmovie.de, aber wie dort
+  auch nur der aktuelle Tag (~24 Stunden), ein Datums-Query-Parameter
+  wird von der Website ignoriert.
+- Alle drei Quellen degradieren bei jedem Fehler (Netzwerk, kaputtes
+  Gzip/XML, kein Kanal-Treffer, unerwartete HTML-Struktur/fehlender
+  JSON-LD-Block) graceful auf die normale generische EPG-Generierung,
+  kein Absturz moeglich.
 
 Fuer MK gab es frueher MaxTV Go (wegen toter Domain entfernt) und
 zwischenzeitlich free-epg.de (wegen leerer/unzuverlaessiger Datenbasis

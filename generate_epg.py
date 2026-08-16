@@ -34,6 +34,7 @@ from tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
 from tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
 from tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
+from hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
 from tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 
 
@@ -132,7 +133,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle"],
     "siol": ["siol_intervalle"],
-    "plutotv": ["plutotv_intervalle", "tvmovie_intervalle"],
+    "plutotv": ["plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle"],
     "tubi": ["tubi_intervalle"],
 }
 
@@ -2218,11 +2219,12 @@ for daten in siol_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# PLUTOTV / TVMOVIE: automatischer Abgleich fuer alle DE-Sender (siehe
-# plutotv_epg.py, tvmovie_epg.py). Kein eigenes Praefix noetig, einzige
-# automatischen Quellen fuer DE - Pluto TV zuerst, tvmovie.de als
-# zweiter Versuch, wenn Pluto TV nichts findet. Ohne jegliche DE-Zeile
-# in sender.txt passiert hier gar nichts.
+# PLUTOTV / TVMOVIE / HOERZU: automatischer Abgleich fuer alle DE-Sender
+# (siehe plutotv_epg.py, tvmovie_epg.py, hoerzu_epg.py). Kein eigenes
+# Praefix noetig, einzige automatischen Quellen fuer DE - Pluto TV
+# zuerst, tvmovie.de als zweiter Versuch, hoerzu.de als dritter Versuch,
+# jeweils nur wenn die vorherige(n) Quelle(n) nichts gefunden haben.
+# Ohne jegliche DE-Zeile in sender.txt passiert hier gar nichts.
 # ==========================================================
 
 for daten in plutotv_sender:
@@ -2263,6 +2265,26 @@ for daten in plutotv_sender:
         if tvmovie_programme:
             print(f"TvMovie-EPG: {len(tvmovie_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV-Fallback).")
             _schreibe_echte_programme(daten, tvmovie_programme)
+        else:
+            # hoerzu.de als dritter Versuch fuer DE-Sender (siehe
+            # hoerzu_epg.py), nur wenn weder Pluto TV noch tvmovie.de
+            # etwas gefunden haben.
+            hoerzu_programme = []
+            try:
+                hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
+                if hoerzu_slug is not None:
+                    hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
+                else:
+                    pass  # log unterdrueckt: keine echten Programmdaten
+            except Exception as e:
+                pass  # log unterdrueckt: keine echten Programmdaten
+                hoerzu_programme = []
+
+            daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
+
+            if hoerzu_programme:
+                print(f"Hoerzu-EPG: {len(hoerzu_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV/TvMovie-Fallback).")
+                _schreibe_echte_programme(daten, hoerzu_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
@@ -2386,6 +2408,11 @@ for tag_index in range(ANZAHL_TAGE):
             # echte tvmovie.de-Programmdaten geschrieben wurden, werden
             # hier ebenfalls nicht generisch nachgeneriert.
             if daten.get("plutotv") and ueberlappt_intervall(daten.get("tvmovie_intervalle", []), start, ende):
+                continue
+            # HOERZU-Sender (siehe Block oben): Tage, an denen bereits
+            # echte hoerzu.de-Programmdaten geschrieben wurden, werden
+            # hier ebenfalls nicht generisch nachgeneriert.
+            if daten.get("plutotv") and ueberlappt_intervall(daten.get("hoerzu_intervalle", []), start, ende):
                 continue
             # MTS/MOJMAXTV/SIOL-Sender (automatischer Abgleich, siehe
             # Bloecke oben): Tage, an denen bereits echte Programmdaten
