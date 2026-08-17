@@ -4,8 +4,8 @@ TELEMACH:BA|ARENA SPORT 2 HD|AUTO
 TELEMACH:BA|ARENA SPORT 3 HD|AUTO
 TELEMACH:BA|ARENA SPORT 4 HD|AUTO
 TELEMACH:BA|ARENA SPORT PREMIUM 1|https://i.imgur.com/csv6YsL.png
-TELEMACH:BA|ARENA SPORT 5 HD|AUTO
-TELEMACH:BA|ARENA SPORT 6 HD|AUTO
+TELEMACH:BA|ARENA SPORT 5 HD|https://tvprofil.com/img/kanali-logo/Arena_Sport_5_RS_logo_v2.png
+TELEMACH:BA|ARENA SPORT 6 HD|https://tvprofil.com/img/kanali-logo/Arena_Sport_6_BiH_BA_logo.png
 HR|SK 1||https://tvprofil.com/img/kanali-logo/SK1_RS_logo_v2.png
 HR|SK 2||https://tvprofil.com/img/kanali-logo/SK2_RS_logo_v3.png
 HR|SK 3||https://tvprofil.com/img/kanali-logo/SK3_logo.png
