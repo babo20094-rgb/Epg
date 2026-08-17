@@ -1411,6 +1411,7 @@ HR|MAXCRO SELECT KIDS HD|Maxcro Select Kids HD ᴸⁱᵛᵉ|
 HR|NET IP SELECT 3 HD|Net Ip Select 3 HD ᴸⁱᵛᵉ|
 HR|NET IP SELECT 4 HD|Net Ip Select 4 HD ᴸⁱᵛᵉ|
 #BA| BOSNA I HERCEGOVINA
+TELEMACH:BA|Hayat 2|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 TELEMACH:BA|TV5 HD (BH)|https://tvprofil.com/img/kanali-logo/Televizija_5_BA_logo.png
 BA| BANJA LUKA|
 BA| TV SLON EXTRA|
