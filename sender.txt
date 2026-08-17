@@ -69,7 +69,7 @@ TELEMACH:BA|ATV|AUTO
 TELEMACH:BA|HERCEG TV|AUTO
 TELEMACH:BA|K3|AUTO
 TELEMACH:BA|RTV BPK|AUTO
-TELEMACH:BA|HIT TV|AUTO
+TELEMACH:BA|RTV HIT|AUTO
 TELEMACH:BA|BIR TV|AUTO
 TELEMACH:BA|DOBOJ TV|AUTO
 TELEMACH:BA|ELTA TV|AUTO
@@ -1461,7 +1461,6 @@ BA|HAYAT PLUS VIP RAW|Hayat Plus ᴸⁱᵛᵉ|https://telemach.ba/wp-content/upl
 BA|HAYAT PLUS|Hayat Plus ᴸⁱᵛᵉ|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 BA|HIT TELEVIZIJA BRCKO|Hit Televizija Brcko ᴸⁱᵛᵉ|
 BA|RTV VOGOSCA|Rtv Vogosca ᴸⁱᵛᵉ|
-BA|HIT TELEVIZIJA|Hit Televizija ᴸⁱᵛᵉ|
 BA|HAYAT MUSIC|Hayat Music ᴸⁱᵛᵉ|
 BA|HAYAT FOLK|Hayat Folk ᴸⁱᵛᵉ|
 BA|YU PLANET|Yu Planet ᴸⁱᵛᵉ|
