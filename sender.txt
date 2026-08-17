@@ -1411,7 +1411,7 @@ HR|MAXCRO SELECT KIDS HD|Maxcro Select Kids HD ᴸⁱᵛᵉ|
 HR|NET IP SELECT 3 HD|Net Ip Select 3 HD ᴸⁱᵛᵉ|
 HR|NET IP SELECT 4 HD|Net Ip Select 4 HD ᴸⁱᵛᵉ|
 #BA| BOSNA I HERCEGOVINA
-TELEMACH:BA|TV5 HD (BH)|AUTO
+TELEMACH:BA|TV5 HD (BH)|https://tvprofil.com/img/kanali-logo/Televizija_5_BA_logo.png
 BA| BANJA LUKA|
 BA| TV SLON EXTRA|
 BA| MY TV||https://mymedia.ba/wp-content/uploads/2025/10/mytv-bijelo.png
