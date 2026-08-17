@@ -57,26 +57,40 @@ def _hole_tagesdaten(datum):
         f":pozicija-rastuce:tip-kanala-radio:TV kanali:channelProgramDates:{datum_str}"
     )
 
+    produkte = []
     try:
-        response = requests.get(
-            SEARCH_URL,
-            params={
-                "sort": "pozicija-rastuce",
-                "searchQueryContext": "CHANNEL_PROGRAM",
-                "query": query,
-                "pageSize": 10000,
-            },
-            timeout=REQUEST_TIMEOUT_SEKUNDEN,
-        )
-        response.raise_for_status()
-        daten = response.json()
-        produkte = daten.get("products", []) if isinstance(daten, dict) else []
+        seite = 0
+        while True:
+            response = requests.get(
+                SEARCH_URL,
+                params={
+                    "sort": "pozicija-rastuce",
+                    "searchQueryContext": "CHANNEL_PROGRAM",
+                    "query": query,
+                    "pageSize": 50,
+                    "currentPage": seite,
+                },
+                timeout=REQUEST_TIMEOUT_SEKUNDEN,
+            )
+            response.raise_for_status()
+            daten = response.json()
+            if not isinstance(daten, dict):
+                break
+
+            produkte.extend(daten.get("products", []) or [])
+
+            pagination = daten.get("pagination") or {}
+            gesamt_seiten = pagination.get("totalPages", 1)
+            seite += 1
+            if seite >= gesamt_seiten:
+                break
+
         _tages_cache[datum_str] = produkte
         return produkte
     except Exception as e:
         print(f"Mts-EPG: Tagesdaten ({datum_str}) fehlgeschlagen ({e}), ueberspringe.")
-        _tages_cache[datum_str] = []
-        return []
+        _tages_cache[datum_str] = produkte
+        return produkte
 
 
 def mts_hole_kanalliste():
