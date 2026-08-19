@@ -166,6 +166,22 @@ def kern_und_event_extrahieren(voller_name):
     DYN-PPV/FLO-RACING-Doppelpunkt-Muster zurueckgefallen. Wird sowohl
     beim Einlesen von sender.txt als auch beim Auslesen der Live-
     Kanalnamen aus der EPG-Anbieter-Datei verwendet."""
+    # Super League Plus-Sonderfall: die Event-Nummer steckt mal mit,
+    # mal ohne Pipe direkt hinter "Super League Plus" (Leerlauf:
+    # "Super League Plus | Event 5", live: "Super League Plus Event 1
+    # | Leeds Rhinos v Bradford Bulls | ..."). Ein fester Regex auf die
+    # Nummer macht den Kern in beiden Schreibweisen identisch
+    # ("Super League Plus Event N"), damit Leerlauf-Eintrag und
+    # Live-Playlist-Name zuverlaessig zusammenfinden - analog zum
+    # DYN-PPV/FLO-RACING-Muster unten, nur mit Pipe-Toleranz.
+    super_league_match = re.search(
+        r"SUPER\s*LEAGUE\s*PLUS.*?EVENT\s*0*(\d+)", voller_name, re.IGNORECASE
+    )
+    if super_league_match:
+        kurzname = f"Super League Plus Event {super_league_match.group(1)}"
+        event_teil = voller_name[super_league_match.end():].strip(" |").strip()
+        return kurzname, event_teil
+
     if "|" in voller_name:
         segmente = voller_name.split("|")
         kern_roh = segmente[-1].strip()
@@ -540,6 +556,15 @@ for zeile in zeilen:
             fa_player_match = re.match(r"^FA\s*PLAYER\s*0*(\d+)$", kurzname, re.IGNORECASE)
             if fa_player_match:
                 event_titel = f"FA Player ({fa_player_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Super League Plus-Kanaele ohne erkanntes Event: gleiche
+        # Konvention wie oben (z.B. "Super League Plus (1) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            super_league_idle_match = re.match(
+                r"^Super League Plus Event (\d+)$", kurzname
+            )
+            if super_league_idle_match:
+                event_titel = f"Super League Plus ({super_league_idle_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
 
         sender_daten.append({
             "kanal": voller_name,

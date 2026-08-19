@@ -1,3 +1,9 @@
+#UK| SUPER LEAGUE+ PPV
+NAME:Super League Plus | Event 1|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
+NAME:Super League Plus | Event 2|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
+NAME:Super League Plus | Event 3|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
+NAME:Super League Plus | Event 4|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
+NAME:Super League Plus | Event 5|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
 #UK| FA PLAYER
 NAME:FA Player 01 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
 NAME:FA Player 02 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
