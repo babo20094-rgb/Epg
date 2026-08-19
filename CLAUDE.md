@@ -48,6 +48,16 @@ Durchsuchen ALLER Quellen für jeden `DE|`-Sender (bewusst nicht gebaut -
 zu hohe Laufzeit/Fehltreffer-Risiko bei der großen Zahl an DE-Zeilen),
 sondern gezielt pro Sender auf Zuruf.
 
+**Ausnahme (Direktauftrag ohne Quellenprüfung):** Gibt der Nutzer einen
+neuen Header/Kategorienamen UND die Sendernamen direkt vor (z. B. "lege
+unter dem Header X diese Sender an: ..."), wird OHNE Prüfung auf echte
+EPG-Quellen eingetragen — als normale Zeile `Land|Sender|Beschreibung
+ᴸⁱᵛᵉ|Logo` (Beschreibung = Sendername in Title Case + `ᴸⁱᵛᵉ`, wie im
+Abschnitt unten beschrieben), direkt unter einem neuen `##### <Header>
+#####`-Kommentarzeilen-Header, außer der Nutzer nennt eine andere
+Einfügestelle. Die Quellenprüfung wird nur dann trotzdem durchgeführt,
+wenn der Nutzer explizit **PRÜFE AUF ECHTE PROGRAMMDATEN** schreibt.
+
 Findet sich für einen neuen Sender KEINE echte EPG-Quelle, wird er als
 normale Zeile `Land|Sender|Beschreibung ᴸⁱᵛᵉ|Logo` eingetragen -
 Beschreibungsfeld immer der Sendername in normaler Schrift (Title
