@@ -1,3 +1,28 @@
+#UK| LEAGUE ONE
+|L1 | Wycombe Wanderers|Wycombe Wanderers ᴸⁱᵛᵉ|
+|L1 | Wigan Athletic|Wigan Athletic ᴸⁱᵛᵉ|
+|L1 | Stockport County|Stockport County ᴸⁱᵛᵉ|
+|L1 | Stevenage|Stevenage ᴸⁱᵛᵉ|
+|L1 | Sheffield Wednesday|Sheffield Wednesday ᴸⁱᵛᵉ|
+|L1 | Reading|Reading ᴸⁱᵛᵉ|
+|L1 | Plymouth Argyle|Plymouth Argyle ᴸⁱᵛᵉ|
+|L1 | Peterborough United|Peterborough United ᴸⁱᵛᵉ|
+|L1 | Oxford United|Oxford United ᴸⁱᵛᵉ|
+|L1 | Notts County|Notts County ᴸⁱᵛᵉ|
+|L1 | MK Dons|MK Dons ᴸⁱᵛᵉ|
+|L1 | Mansfield Town|Mansfield Town ᴸⁱᵛᵉ|
+|L1 | Luton Town|Luton Town ᴸⁱᵛᵉ|
+|L1 | Leyton Orient|Leyton Orient ᴸⁱᵛᵉ|
+|L1 | Leicester City|Leicester City ᴸⁱᵛᵉ|
+|L1 | Huddersfield Town|Huddersfield Town ᴸⁱᵛᵉ|
+|L1 | Doncaster Rovers|Doncaster Rovers ᴸⁱᵛᵉ|
+|L1 | Cambridge United|Cambridge United ᴸⁱᵛᵉ|
+|L1 | Burton Albion|Burton Albion ᴸⁱᵛᵉ|
+|L1 | Bromley|Bromley ᴸⁱᵛᵉ|
+|L1 | Bradford City|Bradford City ᴸⁱᵛᵉ|
+|L1 | Blackpool|Blackpool ᴸⁱᵛᵉ|
+|L1 | Barnsley|Barnsley ᴸⁱᵛᵉ|
+|L1 | AFC Wimbledon|AFC Wimbledon ᴸⁱᵛᵉ|
 #UK| LEAGUE TWO
 |L2 | York City|York City ᴸⁱᵛᵉ|
 |L2 | Walsall|Walsall ᴸⁱᵛᵉ|
