@@ -1,3 +1,13 @@
+#UK| FORMULA 1 + MOTOGP
+UK| MOTOGP AMBIENT|Motogp Ambient ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/MotoGP_logo_%282024%29.svg/960px-MotoGP_logo_%282024%29.svg.png
+UK| MOTOGP HELI|Motogp Heli ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/MotoGP_logo_%282024%29.svg/960px-MotoGP_logo_%282024%29.svg.png
+UK| MOTOGP OB1|Motogp Ob1 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/MotoGP_logo_%282024%29.svg/960px-MotoGP_logo_%282024%29.svg.png
+UK| MOTOGP OB2|Motogp Ob2 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/MotoGP_logo_%282024%29.svg/960px-MotoGP_logo_%282024%29.svg.png
+UK| MOTOGP OB3|Motogp Ob3 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/MotoGP_logo_%282024%29.svg/960px-MotoGP_logo_%282024%29.svg.png
+UK| MOTOGP OB4|Motogp Ob4 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/MotoGP_logo_%282024%29.svg/960px-MotoGP_logo_%282024%29.svg.png
+UK| TT RACES01|Tt Races01 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg/250px-Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+UK| TT RACES02|Tt Races02 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg/250px-Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
+UK| TT RACES03|Tt Races03 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg/250px-Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
 #UK| SUPERCROSS PPV
 |Supercross 1:|Supercross (1) ᴸⁱᵛᵉ|
 |Supercross 2:|Supercross (2) ᴸⁱᵛᵉ|
