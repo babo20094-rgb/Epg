@@ -1,4 +1,28 @@
-#UK| SUPER LEAGUE+ PPV
+#UK| LEAGUE TWO
+|L2 | York City|York City ᴸⁱᵛᵉ|
+|L2 | Walsall|Walsall ᴸⁱᵛᵉ|
+|L2 | Tranmere Rovers|Tranmere Rovers ᴸⁱᵛᵉ|
+|L2 | Swindon Town|Swindon Town ᴸⁱᵛᵉ|
+|L2 | Shrewsbury Town|Shrewsbury Town ᴸⁱᵛᵉ|
+|L2 | Salford City|Salford City ᴸⁱᵛᵉ|
+|L2 | Rotherham United|Rotherham United ᴸⁱᵛᵉ|
+|L2 | Rochdale|Rochdale ᴸⁱᵛᵉ|
+|L2 | Port Vale|Port Vale ᴸⁱᵛᵉ|
+|L2 | Oldham Athletic|Oldham Athletic ᴸⁱᵛᵉ|
+|L2 | Northampton Town|Northampton Town ᴸⁱᵛᵉ|
+|L2 | Newport County|Newport County ᴸⁱᵛᵉ|
+|L2 | Grimsby Town|Grimsby Town ᴸⁱᵛᵉ|
+|L2 | Gillingham|Gillingham ᴸⁱᵛᵉ|
+|L2 | Fleetwood Town|Fleetwood Town ᴸⁱᵛᵉ|
+|L2 | Exeter City|Exeter City ᴸⁱᵛᵉ|
+|L2 | Crewe Alexandra|Crewe Alexandra ᴸⁱᵛᵉ|
+|L2 | Crawley Town|Crawley Town ᴸⁱᵛᵉ|
+|L2 | Colchester United|Colchester United ᴸⁱᵛᵉ|
+|L2 | Chesterfield|Chesterfield ᴸⁱᵛᵉ|
+|L2 | Cheltenham Town|Cheltenham Town ᴸⁱᵛᵉ|
+|L2 | Bristol Rovers|Bristol Rovers ᴸⁱᵛᵉ|
+|L2 | Barnet|Barnet ᴸⁱᵛᵉ|
+|L2 | Accrington Stanley|Accrington Stanley ᴸⁱᵛᵉ|
 NAME:Super League Plus | Event 1|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
 NAME:Super League Plus | Event 2|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
 NAME:Super League Plus | Event 3|https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Super_League_Logo_2020.png/250px-Super_League_Logo_2020.png
