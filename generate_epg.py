@@ -219,7 +219,7 @@ def kern_vorne_und_event_extrahieren(voller_name):
         event_teil = "|".join(segmente[1:]).strip()
         return kurzname, event_teil
 
-    match = re.match(r"^\s*(DIRTVISION\s*\d+)\s*:\s*(.*)$", voller_name, re.IGNORECASE)
+    match = re.match(r"^\s*(DIRTVISION\s*\d+|FA\s*PLAYER\s*\d+)\s*:\s*(.*)$", voller_name, re.IGNORECASE)
     if match:
         return match.group(1).strip(), match.group(2).strip()
 
@@ -533,6 +533,13 @@ for zeile in zeilen:
             flo_racing_match = re.match(r"^FLO\s*RACING\s*0*(\d+)$", kurzname, re.IGNORECASE)
             if flo_racing_match:
                 event_titel = f"Flo Racing ({flo_racing_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # FA Player-Kanaele ohne erkanntes Event: gleiche Konvention wie
+        # DirtVision/Flo Racing oben (z.B. "FA Player (1) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            fa_player_match = re.match(r"^FA\s*PLAYER\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if fa_player_match:
+                event_titel = f"FA Player ({fa_player_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
 
         sender_daten.append({
             "kanal": voller_name,

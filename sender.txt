@@ -1,3 +1,14 @@
+#UK| FA PLAYER
+NAME:FA Player 01 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 02 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 03 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 04 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 05 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 06 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 07 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 08 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 09 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
+NAME:FA Player 10 :|https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/The_FA_logo.svg/500px-The_FA_logo.svg.png
 #UK| TT RACE PPV
 |TT RACES| EVENT 1|TT Races (1) ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg/250px-Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
 |TT RACES| EVENT 2|TT Races (2) ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg/250px-Isle_of_Man_TT_Races%2C_Tourist_Trophy_-_Logo.jpg
