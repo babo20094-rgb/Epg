@@ -1544,7 +1544,6 @@ HR|TREND TV VIP RAW|Trend TV ᴸⁱᵛᵉ|
 HR|SCI-FI VIP RAW|Sci-Fi ᴸⁱᵛᵉ|
 HR|AMC BALKAN VIP RAW|Amc Balkan ᴸⁱᵛᵉ|
 HR|TOON KIDS|Toon Kids ᴸⁱᵛᵉ|
-HR|MASA I MEDVJED|Masa I Medvjed ᴸⁱᵛᵉ|
 #BA| BOSNA I HERCEGOVINA
 TELEMACH:BA|Hayat 2|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 TELEMACH:BA|TV5 HD (BH)|https://tvprofil.com/img/kanali-logo/Televizija_5_BA_logo.png
@@ -1610,7 +1609,6 @@ RS| RTS SVET HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 RS| PARTIZAN TV FHD||Auto
 RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ|
 RS| KCN 3 ⱽᴵᴾ ᴿᴬᵂ|
-RS| MASA I MEDVJED|Masa I Medvjed ²⁴/⁷ ᴸⁱᵛᵉ|
 RS| DM SAT|Dm Sat ᴸⁱᵛᵉ|
 RS| SYFY|
 RS|BALKANIKA|Balkanika ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/862/556/png-clipart-bulgaria-balkanika-tv-logo-television-music-national-geographic-animal-jam-television-logo.png
@@ -1650,7 +1648,6 @@ RS|TIMELESS DIZI CHANNEL ⱽᴵᴾ ᴿᴬᵂ|Timeless Dizi Channel ᴸⁱᵛᵉ|
 RS|SLOBODNA TV ⱽᴵᴾ ᴿᴬᵂ|Slobodna TV ᴸⁱᵛᵉ|
 RS|KUVO TV ⱽᴵᴾ ᴿᴬᵂ|Kuvo TV ᴸⁱᵛᵉ|
 RS|EKO VIZIJA ⱽᴵᴾ ᴿᴬᵂ|Eko Vizija ᴸⁱᵛᵉ|
-RS|COMEDY CENTRAL|Comedy Central ᴸⁱᵛᵉ|
 RS|DISNEY CHANNEL|Disney Channel ᴸⁱᵛᵉ|
 RS|PAROVI LIVE|Parovi Live ᴸⁱᵛᵉ|
 RS|NGC HD|Ngc HD ᴸⁱᵛᵉ|
@@ -1664,6 +1661,11 @@ RS|NETIP CINEMA 3 HD|Netip Cinema 3 HD ᴸⁱᵛᵉ|
 RS|NETIP CINEMA 4 HD|Netip Cinema 4 HD ᴸⁱᵛᵉ|
 RS|NETIP MOVIES 3 HD|Netip Movies 3 HD ᴸⁱᵛᵉ|
 RS|FILM KLUB EXTRA|Film Klub Extra ᴸⁱᵛᵉ|
+##### EXYU| DJECIJI KANALI #####
+BA|HAYATOVCI|Hayatovci ᴸⁱᵛᵉ|
+HR|MASA I MEDVJED|Masa I Medvjed ᴸⁱᵛᵉ|
+RS|COMEDY CENTRAL|Comedy Central ᴸⁱᵛᵉ|
+RS| MASA I MEDVJED|Masa I Medvjed ²⁴/⁷ ᴸⁱᵛᵉ|
 ##### EXYU| FILMSKI KANALI #####
 RS| EURO CINEMA 1 FHD|Euro Cinema 1 ᴸⁱᵛᵉ|
 RS| EURO CINEMA 2 FHD|Euro Cinema 2 ᴸⁱᵛᵉ|
