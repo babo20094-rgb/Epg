@@ -155,6 +155,7 @@ HR|SK 10||https://tvprofil.com/img/kanali-logo/SK10_RS_logo_v2.png
 #US| ENTERTAINMENT
 TVPASSPORT:US|American Heroes Channel HD|AUTO|US| AMERICA HEROES HD
 TVPASSPORT:US|Investigation Discovery USA HD - Eastern|AUTO|US| ID HD
+TVPASSPORT:US|Investigation Discovery USA HD - Pacific|AUTO|US| ID WEST HD
 #UK| ENTERTAINMENT
 SKY:GB|Sky One|AUTO|UK| SKY SHOWCASE FHD
 SKY:GB|Sky Sci-Fi||UK-NOWTV| SKY SCI-FI FHD
