@@ -1212,7 +1212,7 @@ for zeile in zeilen:
         eintrag["mojmaxtv"] = True
     if land.strip().upper() == "SI":
         eintrag["siol"] = True
-    if land.strip().upper() == "DE":
+    if land.strip().upper() in ("DE", "JOYN"):
         eintrag["plutotv"] = True
 
     # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-/GO-Sender: analog

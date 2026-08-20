@@ -1167,9 +1167,11 @@ DE|Sony Channel FHD|
 DE|Sony AXN HD|
 DE|Sky Cinema Premieren FHD|
 DE|Sky Cinema Premieren HD|
-JOYN|SR ᴿᴬᵂ|
 JOYN|Serienklassiker ᴿᴬᵂ|
+##### DE| JOYN TV #####
+JOYN|SR ᴿᴬᵂ|
 JOYN|Elf ᴿᴬᵂ|
+JOYN| ZDF NEO ᴿᴬᵂ|
 DE|DAZN Moto America ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE|DAZN Lacrosse Tv ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE|DAZN Moto America SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
