@@ -1671,6 +1671,11 @@ RS|NETIP CINEMA 3 HD|Netip Cinema 3 HD ᴸⁱᵛᵉ|
 RS|NETIP CINEMA 4 HD|Netip Cinema 4 HD ᴸⁱᵛᵉ|
 RS|NETIP MOVIES 3 HD|Netip Movies 3 HD ᴸⁱᵛᵉ|
 RS|FILM KLUB EXTRA|Film Klub Extra ᴸⁱᵛᵉ|
+##### EXYU| FILMSKI KANALI #####
+RS| EURO CINEMA 1 FHD|Euro Cinema 1 ᴸⁱᵛᵉ|
+RS| EURO CINEMA 2 FHD|Euro Cinema 2 ᴸⁱᵛᵉ|
+RS| EURO CINEMA 3 FHD|Euro Cinema 3 ᴸⁱᵛᵉ|
+RS| EURO CINEMA 4 FHD|Euro Cinema 4 ᴸⁱᵛᵉ|
 RS| Radio Lola|
 RS| MTV Club|
 #US| NEWS NETWORK
