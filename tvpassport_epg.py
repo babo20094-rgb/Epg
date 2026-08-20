@@ -149,9 +149,13 @@ def _timezone_aus_seite(soup):
     return ZoneInfo(STANDARD_TIMEZONE)
 
 
-def _tag_seite_holen(slug, tag):
+def _tag_seite_holen(site_id, tag):
+    # site_id muss im vollen Format "<slug>/<numerische-id>" uebergeben
+    # werden - die Website leitet seit einem Redesign jede URL ohne die
+    # numerische ID auf eine generische Platzhalterseite um (identischer
+    # Inhalt fuer JEDEN Kanal, statt eines Fehlers/leeren Ergebnisses).
     datum_str = tag.strftime("%Y-%m-%d")
-    url = f"{BASE_URL}/{slug}/{datum_str}"
+    url = f"{BASE_URL}/{site_id}/{datum_str}"
     try:
         response = requests.get(url, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
@@ -216,10 +220,6 @@ def tvpassport_hole_programme(site_id, tage=2):
     if not site_id:
         return []
 
-    slug = site_id.rsplit("/", 1)[0]
-    if not slug:
-        return []
-
     alle_sendungen = []
     gesehene = set()
 
@@ -227,14 +227,14 @@ def tvpassport_hole_programme(site_id, tage=2):
 
     for tag_index in range(tage):
         tag = heute + timedelta(days=tag_index)
-        soup = _tag_seite_holen(slug, tag)
+        soup = _tag_seite_holen(site_id, tag)
         if soup is None:
             continue
 
         try:
             sendungen = _tag_parsen(soup, tag)
         except Exception as e:
-            print(f"TVPassport-EPG: Parsen fuer '{slug}' ({tag}) fehlgeschlagen ({e}), ueberspringe Tag.")
+            print(f"TVPassport-EPG: Parsen fuer '{site_id}' ({tag}) fehlgeschlagen ({e}), ueberspringe Tag.")
             continue
 
         for p in sendungen:
