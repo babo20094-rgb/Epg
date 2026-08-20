@@ -1628,35 +1628,35 @@ RS|PESTER TV|Pester TV ᴸⁱᵛᵉ|https://mojasupernova.mts.rs/Picture/1215/pn
 RS|VIBE TV|Vibe TV ᴸⁱᵛᵉ|
 RS|MLAVA TV|Mlava TV ᴸⁱᵛᵉ|https://rtvmlava.com/wp-content/uploads/2018/11/default-990x601.jpg
 RS|UNA HD|Una HD ᴸⁱᵛᵉ|
-RS|TV HRAM VIP RAW|TV Hram ᴸⁱᵛᵉ|
-RS|TV DR VIP RAW|TV Dr ᴸⁱᵛᵉ|
-RS|MOJ HAPPY ZIVOT VIP RAW|Moj Happy Zivot ᴸⁱᵛᵉ|
-RS|MOJ HAPPY ZEMLJA VIP RAW|Moj Happy Zemlja ᴸⁱᵛᵉ|
-RS|MOJ HAPPY MUZIKA VIP RAW|Moj Happy Muzika ᴸⁱᵛᵉ|
-RS|MOJ HAPPY DRUSTVO VIP RAW|Moj Happy Drustvo ᴸⁱᵛᵉ|
-RS|TV K23 VIP RAW|TV K23 ᴸⁱᵛᵉ|
-RS|ZELENA TV ZDRAVLJE VIP RAW|Zelena TV Zdravlje ᴸⁱᵛᵉ|
-RS|DM SAT VIP RAW|Dm Sat ᴸⁱᵛᵉ|
-RS|TV RAS VIP RAW|TV Ras ᴸⁱᵛᵉ|
-RS|TV SUMADIJA VIP RAW|TV Sumadija ᴸⁱᵛᵉ|
-RS|TV POZEGA VIP RAW|TV Pozega ᴸⁱᵛᵉ|https://radiopozega.rs/wp-content/uploads/2024/05/logo-tv-pozega.png
-RS|KORENI VIP RAW|Koreni ᴸⁱᵛᵉ|
-RS|TV BAP VIP RAW|TV Bap ᴸⁱᵛᵉ|
-RS|RTV TESLA VIP RAW|Rtv Tesla ᴸⁱᵛᵉ|
-RS|INVESTIGATION DISCOVERY ID VIP RAW|Investigation Discovery Id ᴸⁱᵛᵉ|
-RS|GAMETOON VIP RAW|Gametoon ᴸⁱᵛᵉ|
-RS|DOX VIP RAW|Dox ᴸⁱᵛᵉ|
-RS|TV PARTIZAN VIP RAW|TV Partizan ᴸⁱᵛᵉ|
-RS|TV ZVEZDA VIP RAW|TV Zvezda ᴸⁱᵛᵉ|
-RS|LFCTV VIP RAW|Lfctv ᴸⁱᵛᵉ|
-RS|EURO CINEMA 1 VIP RAW|Euro Cinema (1) ᴸⁱᵛᵉ|
-RS|EURO CINEMA 2 VIP RAW|Euro Cinema (2) ᴸⁱᵛᵉ|
-RS|EURO CINEMA 3 VIP RAW|Euro Cinema (3) ᴸⁱᵛᵉ|
-RS|EURO CINEMA 4 VIP RAW|Euro Cinema (4) ᴸⁱᵛᵉ|
-RS|TIMELESS DIZI CHANNEL VIP RAW|Timeless Dizi Channel ᴸⁱᵛᵉ|
-RS|SLOBODNA TV VIP RAW|Slobodna TV ᴸⁱᵛᵉ|
-RS|KUVO TV VIP RAW|Kuvo TV ᴸⁱᵛᵉ|
-RS|EKO VIZIJA VIP RAW|Eko Vizija ᴸⁱᵛᵉ|
+RS|TV HRAM ⱽᴵᴾ ᴿᴬᵂ|TV Hram ᴸⁱᵛᵉ|
+RS|TV DR ⱽᴵᴾ ᴿᴬᵂ|TV Dr ᴸⁱᵛᵉ|
+RS|MOJ HAPPY ZIVOT ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Zivot ᴸⁱᵛᵉ|
+RS|MOJ HAPPY ZEMLJA ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Zemlja ᴸⁱᵛᵉ|
+RS|MOJ HAPPY MUZIKA ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Muzika ᴸⁱᵛᵉ|
+RS|MOJ HAPPY DRUSTVO ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Drustvo ᴸⁱᵛᵉ|
+RS|TV K23 ⱽᴵᴾ ᴿᴬᵂ|TV K23 ᴸⁱᵛᵉ|
+RS|ZELENA TV ZDRAVLJE ⱽᴵᴾ ᴿᴬᵂ|Zelena TV Zdravlje ᴸⁱᵛᵉ|
+RS|DM SAT ⱽᴵᴾ ᴿᴬᵂ|Dm Sat ᴸⁱᵛᵉ|
+RS|TV RAS ⱽᴵᴾ ᴿᴬᵂ|TV Ras ᴸⁱᵛᵉ|
+RS|TV SUMADIJA ⱽᴵᴾ ᴿᴬᵂ|TV Sumadija ᴸⁱᵛᵉ|
+RS|TV POZEGA ⱽᴵᴾ ᴿᴬᵂ|TV Pozega ᴸⁱᵛᵉ|https://radiopozega.rs/wp-content/uploads/2024/05/logo-tv-pozega.png
+RS|KORENI ⱽᴵᴾ ᴿᴬᵂ|Koreni ᴸⁱᵛᵉ|
+RS|TV BAP ⱽᴵᴾ ᴿᴬᵂ|TV Bap ᴸⁱᵛᵉ|
+RS|RTV TESLA ⱽᴵᴾ ᴿᴬᵂ|Rtv Tesla ᴸⁱᵛᵉ|
+RS|INVESTIGATION DISCOVERY ID ⱽᴵᴾ ᴿᴬᵂ|Investigation Discovery Id ᴸⁱᵛᵉ|
+RS|GAMETOON ⱽᴵᴾ ᴿᴬᵂ|Gametoon ᴸⁱᵛᵉ|
+RS|DOX ⱽᴵᴾ ᴿᴬᵂ|Dox ᴸⁱᵛᵉ|
+RS|PARTIZAN ⱽᴵᴾ ᴿᴬᵂ|Partizan ᴸⁱᵛᵉ|
+RS|TV ZVEZDA ⱽᴵᴾ ᴿᴬᵂ|TV Zvezda ᴸⁱᵛᵉ|
+RS|LFCTV ⱽᴵᴾ ᴿᴬᵂ|Lfctv ᴸⁱᵛᵉ|
+RS|EURO CINEMA 1 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (1) ᴸⁱᵛᵉ|
+RS|EURO CINEMA 2 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (2) ᴸⁱᵛᵉ|
+RS|EURO CINEMA 3 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (3) ᴸⁱᵛᵉ|
+RS|EURO CINEMA 4 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (4) ᴸⁱᵛᵉ|
+RS|TIMELESS DIZI CHANNEL ⱽᴵᴾ ᴿᴬᵂ|Timeless Dizi Channel ᴸⁱᵛᵉ|
+RS|SLOBODNA TV ⱽᴵᴾ ᴿᴬᵂ|Slobodna TV ᴸⁱᵛᵉ|
+RS|KUVO TV ⱽᴵᴾ ᴿᴬᵂ|Kuvo TV ᴸⁱᵛᵉ|
+RS|EKO VIZIJA ⱽᴵᴾ ᴿᴬᵂ|Eko Vizija ᴸⁱᵛᵉ|
 RS|COMEDY CENTRAL|Comedy Central ᴸⁱᵛᵉ|
 RS|DISNEY CHANNEL|Disney Channel ᴸⁱᵛᵉ|
 RS|PAROVI LIVE|Parovi Live ᴸⁱᵛᵉ|
