@@ -1639,7 +1639,7 @@ RS|RTV TESLA ⱽᴵᴾ ᴿᴬᵂ|Rtv Tesla ᴸⁱᵛᵉ|
 RS|INVESTIGATION DISCOVERY ID ⱽᴵᴾ ᴿᴬᵂ|Investigation Discovery Id ᴸⁱᵛᵉ|
 RS|GAMETOON ⱽᴵᴾ ᴿᴬᵂ|Gametoon ᴸⁱᵛᵉ|
 RS|DOX ⱽᴵᴾ ᴿᴬᵂ|Dox ᴸⁱᵛᵉ|
-RS|PARTIZAN ⱽᴵᴾ ᴿᴬᵂ|Partizan ᴸⁱᵛᵉ|
+RS| PARTIZAN TV ⱽᴵᴾ ᴿᴬᵂ|Partizan TV ᴸⁱᵛᵉ|
 RS|TV ZVEZDA ⱽᴵᴾ ᴿᴬᵂ|TV Zvezda ᴸⁱᵛᵉ|
 RS|LFCTV ⱽᴵᴾ ᴿᴬᵂ|Lfctv ᴸⁱᵛᵉ|
 RS|EURO CINEMA 1 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (1) ᴸⁱᵛᵉ|
