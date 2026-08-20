@@ -1438,8 +1438,8 @@ NAME:Flo Racing 19 :|Auto
 NAME:Flo Racing 20 :|Auto
 #MO| CRNA GORA
 MNG| RTCG|
-MNG|TV POBEDA VIP ᴿᴬᵂ|
-MNG|RTV HN VIP ᴿᴬᵂ|
+MNG| TV POBEDA ⱽᴵᴾ ᴿᴬᵂ|
+MNG| RTV HN ⱽᴵᴾ ᴿᴬᵂ|
 MNG| TV A + ⱽᴵᴾ ᴿᴬᵂ|
 MO| TV A +|
 MO| NEWSMAX BALKANS|
@@ -1613,7 +1613,7 @@ BA|TV DUGAPLUS|TV Dugaplus ᴸⁱᵛᵉ|
 BA|BN MUSIC|Bn Music ᴸⁱᵛᵉ|
 #RS| SRBIJA
 RS| DELUXE RAP|
-RS| RTS SVET HD||https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/RTS_Svet_logo_%282018%29.svg/960px-RTS_Svet_logo_%282018%29.svg.png
+RS| RTS SVET HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rts_svet_white.png
 RS| PARTIZAN TV FHD||Auto
 RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ|
 RS| KCN 3 ⱽᴵᴾ ᴿᴬᵂ|
