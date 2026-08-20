@@ -1539,7 +1539,10 @@ for daten in logo_only_channels:
 
 for i in range(1, DYN_PPV_ANZAHL + 1):
     kanal = f"DE| DYN PPV {i} HD"
-    logo_fuer_kanal = dyn_ppv_logo_overrides.get(i, DYN_STANDARD_LOGO)
+    logo_fuer_kanal = dyn_ppv_logo_overrides.get(
+        i,
+        f"https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/dyn_ppv/dyn_ppv_{i}.png",
+    )
     xml_teile.append(
         f' <channel id="{escape(kanal)}"> <display-name>DYN PPV {i} HD</display-name> <icon src="{escape(logo_fuer_kanal)}"/> </channel> '
     )
