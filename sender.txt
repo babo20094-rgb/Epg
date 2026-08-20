@@ -1259,13 +1259,13 @@ BS| TOM CRUISE COLLECTION|Tom Cruise Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://f
 BS| TOM HANKS COLLECTION|Tom Hanks Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://www.vhv.rs/dpng/d/562-5626857_tom-hanks-clip-arts-transparent-tom-hanks-png.png
 BS| WILL SMITH COLLECTION|Will Smith Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://p7.hiclipart.com/preview/737/858/501/5bbc39646174e.jpg
 #DE| SKY SELECT
-DE| SKY SELECT 1 FHD|Sky Select 1 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
-DE| SKY SELECT 3 FHD|Sky Select 3 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
-DE| SKY SELECT 4 FHD|Sky Select 4 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
-DE| SKY SELECT 5 FHD|Sky Select 5 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
-DE| SKY SELECT 6 FHD|Sky Select 6 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
-DE| SKY SELECT 7 FHD|Sky Select 7 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
-DE| SKY SELECT 8 FHD|Sky Select 8 FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sky_Select_HD_Germany_Logo_2016.png/1920px-Sky_Select_HD_Germany_Logo_2016.png
+DE| SKY SELECT 1 FHD|Sky Select 1 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_select/sky_select_1.png
+DE| SKY SELECT 3 FHD|Sky Select 3 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_select/sky_select_3.png
+DE| SKY SELECT 4 FHD|Sky Select 4 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_select/sky_select_4.png
+DE| SKY SELECT 5 FHD|Sky Select 5 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_select/sky_select_5.png
+DE| SKY SELECT 6 FHD|Sky Select 6 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_select/sky_select_6.png
+DE| SKY SELECT 7 FHD|Sky Select 7 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_select/sky_select_7.png
+DE| SKY SELECT 8 FHD|Sky Select 8 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_select/sky_select_8.png
 DE| MAX SELECT FHD|Max Select FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
 DE| MAX SELECT 2 FHD|Max Select 2 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
 DE| MAX SELECT 4 FHD|Max Select 4 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
