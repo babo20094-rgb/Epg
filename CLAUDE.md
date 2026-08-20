@@ -238,6 +238,19 @@ manuellem Trigger.
   Garantie bei jedem Fehler (Netzwerk, kein Kanal-Treffer, unerwartete
   HTML-Struktur) still auf die normale generische EPG-Generierung fuer
   diesen Sender.
+- WICHTIG (August 2026 behoben): Die Kanalseiten-URL braucht zwingend
+  die numerische Kanal-ID aus der site_id im Pfad
+  (`stations/<slug>/<numerische-id>/<datum>`). Frueher baute der Code
+  die URL nur aus Slug+Datum ohne ID - die Website leitete das seit
+  einem Redesign OHNE Fehler auf eine generische Platzhalterseite um
+  ("PT CHECK: Global BC"), die faelschlich als echte, kanalspezifische
+  Daten geparst wurde (ALLE TVPASSPORT:-Sender bekamen dadurch
+  identische, falsche Sendungen statt eines sauberen Fallbacks auf
+  generisch). Falls sowas nochmal auftritt (z. B. nach einem erneuten
+  Website-Redesign): Testweise `_tag_seite_holen()`/die erzeugte URL
+  pruefen, ob der Seitentitel wirklich zum angefragten Kanal passt -
+  identische Sendungen bei unterschiedlichen Kanaelen sind das
+  Alarmsignal.
 
 ## MAGENTA:-Sender (Magenta TV, opt-in)
 
