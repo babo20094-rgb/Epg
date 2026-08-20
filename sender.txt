@@ -1545,13 +1545,13 @@ HR|SCI-FI VIP RAW|Sci-Fi ᴸⁱᵛᵉ|
 HR|AMC BALKAN VIP RAW|Amc Balkan ᴸⁱᵛᵉ|
 HR|TOON KIDS|Toon Kids ᴸⁱᵛᵉ|
 HR|MASA I MEDVJED|Masa I Medvjed ᴸⁱᵛᵉ|
-HR|MAXCRO SELECT KIDS 2 HD|Maxcro Select Kids 2 HD ᴸⁱᵛᵉ|
-HR|MAXCRO SELECT 1 HD|Maxcro Select 1 HD ᴸⁱᵛᵉ|
-HR|MAXCRO SELECT 2 HD|Maxcro Select 2 HD ᴸⁱᵛᵉ|
-HR|MAXCRO SELECT 3 HD|Maxcro Select 3 HD ᴸⁱᵛᵉ|
-HR|MAXCRO SELECT KIDS HD|Maxcro Select Kids HD ᴸⁱᵛᵉ|
-HR|NET IP SELECT 3 HD|Net Ip Select 3 HD ᴸⁱᵛᵉ|
-HR|NET IP SELECT 4 HD|Net Ip Select 4 HD ᴸⁱᵛᵉ|
+HR| MAX TV SELECT KIDS 2 HD|Max Tv Select Kids 2 HD ᴸⁱᵛᵉ|https://static.hrvatskitelekom.hr/webresources/images/maxtv-new/programi/promo.png
+HR| MAX TV SELECT 1 HD|Max Tv Select 1 HD ᴸⁱᵛᵉ|https://static.hrvatskitelekom.hr/webresources/images/maxtv-new/programi/promo.png
+HR| MAX TV SELECT 2 HD|Max Tv Select 2 HD ᴸⁱᵛᵉ|https://static.hrvatskitelekom.hr/webresources/images/maxtv-new/programi/promo.png
+HR| MAX TV SELECT 3 HD|Max Tv Select 3 HD ᴸⁱᵛᵉ|https://static.hrvatskitelekom.hr/webresources/images/maxtv-new/programi/promo.png
+HR| MAX TV SELECT KIDS 1 HD|Max Tv Select Kids 1 HD ᴸⁱᵛᵉ|https://static.hrvatskitelekom.hr/webresources/images/maxtv-new/programi/promo.png
+HR| MAX TV SELECT 4 HD|Max Tv Select 4 HD ᴸⁱᵛᵉ|https://static.hrvatskitelekom.hr/webresources/images/maxtv-new/programi/promo.png
+HR| MAX TV SELECT 5 HD|Max Tv Select 5 HD ᴸⁱᵛᵉ|https://static.hrvatskitelekom.hr/webresources/images/maxtv-new/programi/promo.png
 #BA| BOSNA I HERCEGOVINA
 TELEMACH:BA|Hayat 2|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 TELEMACH:BA|TV5 HD (BH)|https://tvprofil.com/img/kanali-logo/Televizija_5_BA_logo.png
