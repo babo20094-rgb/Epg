@@ -1491,24 +1491,24 @@ MK|KANAL 21 TV|Kanal 21 TV ᴸⁱᵛᵉ|
 MK|SUTEL TV|Sutel TV ᴸⁱᵛᵉ|
 MK|TV SONCE|TV Sonce ᴸⁱᵛᵉ|
 MK|NASA TV|Nasa TV ᴸⁱᵛᵉ|
-MK|TV PLUS VIP RAW|TV Plus ᴸⁱᵛᵉ|
-MK|TV HUGO 1 VIP RAW|TV Hugo (1) ᴸⁱᵛᵉ|
-MK|TV HUGO 2 VIP RAW|TV Hugo (2) ᴸⁱᵛᵉ|
-MK|TV HUGO 3 VIP RAW|TV Hugo (3) ᴸⁱᵛᵉ|
-MK|TV HUGO 4 VIP RAW|TV Hugo (4) ᴸⁱᵛᵉ|
-MK|TV HUGO 5 VIP RAW|TV Hugo (5) ᴸⁱᵛᵉ|
-MK|TV HUGO 6 VIP RAW|TV Hugo (6) ᴸⁱᵛᵉ|
-MK|TV HUGO 7 VIP RAW|TV Hugo (7) ᴸⁱᵛᵉ|
-MK|TV HUGO 8 VIP RAW|TV Hugo (8) ᴸⁱᵛᵉ|
-MK|TV HUGO 9 VIP RAW|TV Hugo (9) ᴸⁱᵛᵉ|
-MK|TV HUGO 10 VIP RAW|TV Hugo (10) ᴸⁱᵛᵉ|
-MK|TV 24 VIP RAW|TV (24) ᴸⁱᵛᵉ|
-MK|SOBRANISKI KANAL VIP RAW|Sobraniski Kanal ᴸⁱᵛᵉ|
-MK|SITEL VIP RAW|Sitel ᴸⁱᵛᵉ|
-MK|NATIONAL GEOGRAPHIC VIP RAW|National Geographic ᴸⁱᵛᵉ|
-MK|NASHA TV VIP RAW|Nasha TV ᴸⁱᵛᵉ|
-MK|INTV 1 VIP RAW|Intv (1) ᴸⁱᵛᵉ|
-MK|INTV 2 VIP RAW|Intv (2) ᴸⁱᵛᵉ|
+MK|TV PLUS ⱽᴵᴾ ᴿᴬᵂ|TV Plus ᴸⁱᵛᵉ|
+MK|TV HUGO 1 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (1) ᴸⁱᵛᵉ|
+MK|TV HUGO 2 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (2) ᴸⁱᵛᵉ|
+MK|TV HUGO 3 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (3) ᴸⁱᵛᵉ|
+MK|TV HUGO 4 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (4) ᴸⁱᵛᵉ|
+MK|TV HUGO 5 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (5) ᴸⁱᵛᵉ|
+MK|TV HUGO 6 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (6) ᴸⁱᵛᵉ|
+MK|TV HUGO 7 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (7) ᴸⁱᵛᵉ|
+MK|TV HUGO 8 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (8) ᴸⁱᵛᵉ|
+MK|TV HUGO 9 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (9) ᴸⁱᵛᵉ|
+MK|TV HUGO 10 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (10) ᴸⁱᵛᵉ|
+MK|TV 24 ⱽᴵᴾ ᴿᴬᵂ|TV (24) ᴸⁱᵛᵉ|
+MK|SOBRANISKI KANAL ⱽᴵᴾ ᴿᴬᵂ|Sobraniski Kanal ᴸⁱᵛᵉ|
+MK|SITEL ⱽᴵᴾ ᴿᴬᵂ|Sitel ᴸⁱᵛᵉ|
+MK|NATIONAL GEOGRAPHIC ⱽᴵᴾ ᴿᴬᵂ|National Geographic ᴸⁱᵛᵉ|
+MK|NASHA TV ⱽᴵᴾ ᴿᴬᵂ|Nasha TV ᴸⁱᵛᵉ|
+MK|INTV 1 ⱽᴵᴾ ᴿᴬᵂ|Intv (1) ᴸⁱᵛᵉ|
+MK|INTV 2 ⱽᴵᴾ ᴿᴬᵂ|Intv (2) ᴸⁱᵛᵉ|
 #HR| HRVATSKA
 HR| OTVORENI RADIO||Auto
 HR| OTVORENI FITNESS||Auto
