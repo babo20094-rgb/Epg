@@ -32,6 +32,21 @@ ausdrücklich danach fragt.
 
 ## Neue Sender in sender.txt
 
+Der Nutzer schreibt seine Playlist-Kanalnamen durchgängig in
+GROSSBUCHSTABEN (z. B. "US| NBC SPORTS BAY AREA HD"). Diese
+Großschreibung gilt NUR für den Sendernamen, den Claude ihm im Chat zum
+Kopieren für seine Playlist ausgibt (und entsprechend für das 4. Feld
+bei TVPASSPORT:/SKY: etc., wenn es genau diesen Playlist-Namen abbildet
+- muss ja zum Playlist-Eintrag passen). Das Suchbegriff-Feld (2. Feld,
+Name bei der externen EPG-Quelle) bleibt immer in der Original-
+Schreibweise der Quelle (TVPassport, Sky usw.).
+
+Alles andere bleibt UNVERÄNDERT wie bisher dokumentiert - insbesondere
+die generische Beschreibung bei Sendern ohne echte Quelle (`Land|
+Sender|Beschreibung ᴸⁱᵛᵉ|Logo`, siehe unten): Das Beschreibungsfeld
+bleibt weiterhin normale Schrift/Title Case + `ᴸⁱᵛᵉ`, NICHT
+großgeschrieben.
+
 Neue Sender werden immer **ganz oben** in `sender.txt` eingefügt (nicht ans
 Ende anhängen), außer der Nutzer nennt explizit eine andere Stelle
 (z. B. "unter diesem Header einordnen").
