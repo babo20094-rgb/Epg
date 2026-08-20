@@ -1151,7 +1151,8 @@ US|Outermax HD|
 US|VSIN|
 US|NBC Golf|
 US|CSN California HD|
-US|CSN Boston HD|
+#US| SPORTS NETWORK
+TVPASSPORT:US|NBC Sports Boston HD|AUTO
 US|NBC Bay Area HD|
 US|AT&amp;T Sportsnet Southwest HD|
 US|Fox Kansas HD|
