@@ -1460,12 +1460,12 @@ SI| PLANET PLUS ⱽᴵᴾ ᴿᴬᵂ||Auto
 SI|Brio Tv Slo|
 #MK| MAKEDONIJA
 MK| M-NET SPORT HD||Auto
-MK|FFM MK FOOTBALL 1 LIVE EVENT|Ffm Mk Football 1 Live Event ᴸⁱᵛᵉ|
-MK|FFM MK FOOTBALL 2 LIVE EVENT|Ffm Mk Football 2 Live Event ᴸⁱᵛᵉ|
-MK|FFM MK FOOTBALL 3 LIVE EVENT|Ffm Mk Football 3 Live Event ᴸⁱᵛᵉ|
-MK|FFM MK FOOTBALL 4 LIVE EVENT|Ffm Mk Football 4 Live Event ᴸⁱᵛᵉ|
-MK|FFM MK FOOTBALL 5 LIVE EVENT|Ffm Mk Football 5 Live Event ᴸⁱᵛᵉ|
-MK|FFM MK FOOTBALL 6 LIVE EVENT|Ffm Mk Football 6 Live Event ᴸⁱᵛᵉ|
+MK| FFM MK FOOTBALL 1 [LIVE-EVENT]|Ffm Mk Football 1 Live Event ᴸⁱᵛᵉ|
+MK| FFM MK FOOTBALL 2 [LIVE-EVENT]|Ffm Mk Football 2 Live Event ᴸⁱᵛᵉ|
+MK| FFM MK FOOTBALL 3 [LIVE-EVENT]|Ffm Mk Football 3 Live Event ᴸⁱᵛᵉ|
+MK| FFM MK FOOTBALL 4 [LIVE-EVENT]|Ffm Mk Football 4 Live Event ᴸⁱᵛᵉ|
+MK| FFM MK FOOTBALL 5 [LIVE-EVENT]|Ffm Mk Football 5 Live Event ᴸⁱᵛᵉ|
+MK| FFM MK FOOTBALL 6 [LIVE-EVENT]|Ffm Mk Football 6 Live Event ᴸⁱᵛᵉ|
 MK|FOLK KLUB TV HD|Folk Klub TV HD ᴸⁱᵛᵉ|
 MK|TV PLUS|TV Plus ᴸⁱᵛᵉ|
 MK|FOLK HD|Folk HD ᴸⁱᵛᵉ|
