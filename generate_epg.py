@@ -1871,28 +1871,37 @@ tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
 
 BESCHREIBUNG_DATUM_BLURB_MUSTER = re.compile(r"(\d{1,2}\.\d{1,2}\.)\s*:\s*.+$")
+BESCHREIBUNG_SATZENDE_MUSTER = re.compile(r"(?<!\d)[.!?](?:\s+(?=[A-ZÀ-ÖØ-Þ])|$)")
 BESCHREIBUNG_MAX_LAENGE = 150
 
 
 def kuerze_beschreibung(text, max_laenge=BESCHREIBUNG_MAX_LAENGE):
-    """Kuerzt lange Sendungsbeschreibungen echter Quellen (z.B. Telemachs
-    "shortDescription", das bei Sport-Events oft einen mehrsaetzigen
-    generischen Liga-/Wettbewerbs-Infotext nach dem eigentlichen
-    Event-Datum enthaelt) auf die reinen Event-Kerndaten statt des
+    """Kuerzt lange Sendungstitel/-beschreibungen echter Quellen (z.B.
+    Telemachs "shortDescription", das bei Sport-Events oft einen
+    mehrsaetzigen generischen Liga-/Wettbewerbs-Infotext nach dem
+    eigentlichen Event-Datum enthaelt, oder bei Magazinsendungen einen
+    langen Ankuendigungstext) auf die reinen Kerndaten (Event-Name/
+    Teams/Datum bzw. den ersten vollstaendigen Satz) statt des
     kompletten Fliesstexts - manche Player (z.B. TiviMate) zeigen sonst
-    den ganzen Text direkt im kompakten EPG-Raster an. Erkennt das
-    Telemach-Muster "Event DD.MM.: Blabla..." und schneidet ab dem
-    Doppelpunkt nach dem Datum sauber ab (kein "…", da damit die
-    Kerninfo - Teams/Datum - bereits vollstaendig ist). Ohne dieses
-    Muster wird bei sehr langen Texten ohne erkennbares Datum hart bei
-    einer Wortgrenze abgeschnitten und "…" angehaengt. Kurze Texte
-    bleiben unveraendert."""
+    den ganzen Text direkt im kompakten EPG-Raster an. Reihenfolge:
+    1) Telemach-Muster "Event DD.MM.: Blabla..." wird ab dem Doppelpunkt
+       nach dem Datum sauber abgeschnitten (kein "…", da die Kerninfo -
+       Teams/Datum - damit bereits vollstaendig ist).
+    2) Sonst wird bei erkennbarem Satzende (Punkt/Ausrufe-/Fragezeichen
+       gefolgt von Grossbuchstabe oder Textende, Punkte in Zahlen/Daten
+       werden ignoriert) auf den ersten vollstaendigen Satz gekuerzt.
+    3) Ohne beides wird bei sehr langen Texten hart bei einer Wortgrenze
+       abgeschnitten und "…" angehaengt.
+    Kurze Texte bleiben unveraendert."""
     if not text:
         return text
     text = text.strip()
     ohne_blurb = BESCHREIBUNG_DATUM_BLURB_MUSTER.sub(r"\1", text)
     if ohne_blurb != text:
         return ohne_blurb.strip()
+    satzende = BESCHREIBUNG_SATZENDE_MUSTER.search(text)
+    if satzende and satzende.end() <= max_laenge + 30:
+        return text[: satzende.end()].strip()
     if len(text) <= max_laenge:
         return text
     gekuerzt = text[:max_laenge].rsplit(" ", 1)[0]
@@ -1906,7 +1915,7 @@ def _schreibe_echte_programme(daten, programme):
     for p in programme:
         start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
         stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
-        titel_escaped = escape(p["title"])
+        titel_escaped = escape(kuerze_beschreibung(p["title"]))
         beschr_text = kuerze_beschreibung(p["beschreibung"] or p["title"])
         beschr_escaped = escape(beschr_text)
         sub_title_tag = (
