@@ -2483,92 +2483,8 @@ for tag_index in range(ANZAHL_TAGE):
         stunden_cursor += dauer
 
         for daten in sender_daten:
-            # TELEMACH:-Sender: fuer Tage, an denen bereits echte
-            # Telemach-Programmdaten geschrieben wurden (siehe Block
-            # oben vor diesem Tagesraster), wird HIER nichts generisch
-            # nachgeneriert - sonst gaebe es doppelte/ueberlappende
-            # <programme>-Eintraege fuer denselben Zeitraum. Tage ohne
-            # echte Daten (Tag 4+, oder wenn der Abruf komplett
-            # fehlgeschlagen ist) fallen unveraendert auf den normalen
-            # generischen Pfad weiter unten durch.
-            if daten.get("telemach") and ueberlappt_intervall(daten.get("telemach_intervalle", []), start, ende):
-                continue
-            # mtel.ba-Fallback (siehe Block oben): Tage, an denen mtel.ba
-            # anstelle von Telemach echte Daten geliefert hat, werden
-            # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("telemach") and ueberlappt_intervall(daten.get("mtel_intervalle", []), start, ende):
-                continue
-            # mymedia.ba-Fallback (siehe Block oben, nur fuer "MY TV"):
-            # Tage mit echten Daten werden hier ebenfalls nicht
-            # generisch nachgeneriert.
-            if daten.get("telemach") and ueberlappt_intervall(daten.get("mymedia_intervalle", []), start, ende):
-                continue
-            # klix.ba-Fallback (siehe Block oben): Tage mit echten Daten
-            # werden hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("telemach") and ueberlappt_intervall(daten.get("klix_intervalle", []), start, ende):
-                continue
-            # SKY:-Sender (siehe Block oben): Tage, an denen bereits
-            # echte Sky-Programmdaten geschrieben wurden, werden hier
-            # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("sky") and ueberlappt_intervall(daten.get("sky_intervalle", []), start, ende):
-                continue
-            # MAGENTA:-Sender (siehe Block oben): Tage, an denen bereits
-            # echte Magenta-Programmdaten geschrieben wurden, werden hier
-            # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("magenta") and ueberlappt_intervall(daten.get("magenta_intervalle", []), start, ende):
-                continue
-            # ARENA:-Sender (siehe Block oben): Tage, an denen bereits
-            # echte Arena-Sport-Programmdaten geschrieben wurden, werden
-            # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("arena") and ueberlappt_intervall(daten.get("arena_intervalle", []), start, ende):
-                continue
-            # DAZN:-Sender (siehe Block oben): Tage, an denen bereits
-            # echte DAZN-Programmdaten geschrieben wurden, werden hier
-            # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("dazn") and ueberlappt_intervall(daten.get("dazn_intervalle", []), start, ende):
-                continue
-            # FREEVIEW:-Sender (siehe Block oben): Tage, an denen bereits
-            # echte Freeview-Programmdaten geschrieben wurden, werden
-            # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("freeview") and ueberlappt_intervall(daten.get("freeview_intervalle", []), start, ende):
-                continue
-            # TVGUIDE:-Sender (siehe Block oben): Tage, an denen bereits
-            # echte TVGuide-Programmdaten geschrieben wurden, werden hier
-            # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("tvguide") and ueberlappt_intervall(daten.get("tvguide_intervalle", []), start, ende):
-                continue
-            # TVPASSPORT:-Sender (siehe Block oben): Tage, an denen
-            # bereits echte TVPassport-Programmdaten geschrieben wurden,
-            # werden hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("tvpassport") and ueberlappt_intervall(daten.get("tvpassport_intervalle", []), start, ende):
-                continue
-            # TVMOVIE:-Sender (siehe Block oben): Tage, an denen bereits
-            # echte tvmovie.de-Programmdaten geschrieben wurden, werden
-            # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("plutotv") and ueberlappt_intervall(daten.get("tvmovie_intervalle", []), start, ende):
-                continue
-            # HOERZU-Sender (siehe Block oben): Tage, an denen bereits
-            # echte hoerzu.de-Programmdaten geschrieben wurden, werden
-            # hier ebenfalls nicht generisch nachgeneriert.
-            if daten.get("plutotv") and ueberlappt_intervall(daten.get("hoerzu_intervalle", []), start, ende):
-                continue
-            # MTS/MOJMAXTV/SIOL-Sender (automatischer Abgleich, siehe
-            # Bloecke oben): Tage, an denen bereits echte Programmdaten
-            # geschrieben wurden, werden hier ebenfalls nicht generisch
-            # nachgeneriert.
-            if daten.get("mts") and ueberlappt_intervall(daten.get("mts_intervalle", []), start, ende):
-                continue
-            if daten.get("mojmaxtv") and ueberlappt_intervall(daten.get("mojmaxtv_intervalle", []), start, ende):
-                continue
-            if daten.get("siol") and ueberlappt_intervall(daten.get("siol_intervalle", []), start, ende):
-                continue
-            if daten.get("plutotv") and ueberlappt_intervall(daten.get("plutotv_intervalle", []), start, ende):
-                continue
-            # TUBI-Sender (siehe Block oben): Tage, an denen bereits
-            # echte Tubi-Programmdaten geschrieben wurden, werden hier
-            # ebenfalls nicht generisch nachgeneriert.
-            if daten.get("tubi") and ueberlappt_intervall(daten.get("tubi_intervalle", []), start, ende):
-                continue
+            kategorie_key = daten.get("kategorie")
+            hash_wert = sender_hash(daten["sender"])
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
             # sich der Kanalname wegen eines laufenden/angekuendigten
@@ -2581,8 +2497,6 @@ for tag_index in range(ANZAHL_TAGE):
             # auch hier wieder (naechster Skriptlauf). Ohne Event bleibt
             # es beim bisherigen kategoriebasierten Text.
             event_titel = daten.get("event_titel")
-            kategorie_key = daten.get("kategorie")
-            hash_wert = sender_hash(daten["sender"])
 
             if event_titel:
                 titel_text = escape(event_titel)
@@ -2595,23 +2509,37 @@ for tag_index in range(ANZAHL_TAGE):
                 )
                 continue
 
-            # Luecken-Fuellung fuer Sender mit einer echten, aber nur
-            # TEILWEISE tagesabdeckenden Quelle (z.B. tvmovie.de, ca.
-            # 05:00-20:00 Uhr statt des vollen Tages, siehe
-            # ueberlappt_intervall()): fuer den unbedeckten Rest (z.B.
-            # den Abend) wird statt des generischen, abwechslungsreichen
-            # Kategorietexts schlicht "<Sendername> ᴸⁱᵛᵉ" angezeigt -
-            # weniger verwirrend als ein zufaellig wirkender Kategorie-
-            # Platzhaltertext neben echten Sendungen am selben Tag.
-            if hat_aktive_echte_quelle(daten) and not ueberlappt_intervall(
-                alle_echten_intervalle(daten), start, ende
-            ):
-                luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
-                schreibe_programme_segmente(
-                    xml_teile, [(start, ende)], daten["kanal"],
-                    escape(luecken_titel), luecken_titel, "de",
-                    kategorie_key, daten["land"], True,
+            # Echte EPG-Quellen (Telemach/mtel.ba/mymedia.ba/klix.ba, Sky,
+            # Magenta, Arena, DAZN, Freeview, TVGuide, TVPassport, Pluto TV/
+            # tvmovie.de/hoerzu.de, MTS, MojMaxTV, Siol, Tubi - siehe
+            # _ECHTE_QUELLEN_INTERVALLE): fuer den von einer echten Quelle
+            # bereits ABGEDECKTEN Teil dieses Blocks wird hier nichts
+            # generisch nachgeneriert - sonst gaebe es doppelte/
+            # ueberlappende <programme>-Eintraege fuer denselben Zeitraum.
+            # Frueher wurde bei einer nur TEILWEISEN Ueberlappung (z.B.
+            # weil eine Quelle wie tvmovie.de nur ca. 05:00-20:00 Uhr statt
+            # des vollen Tages abdeckt, oder weil die letzte echte Sendung
+            # mitten in diesem Block endet) der KOMPLETTE Block
+            # uebersprungen - der unbedeckte Rest bekam dadurch GAR KEINEN
+            # <programme>-Eintrag, was im Player als "Keine Information"-
+            # Luecke zwischen letzter echter Sendung und dem naechsten
+            # generischen Block auffiel. Jetzt wird ueber
+            # segmente_ohne_ueberlappung() praezise nur der tatsaechlich
+            # unbedeckte Rest ermittelt und mit "<Sendername> ᴸⁱᵛᵉ" gefuellt
+            # statt des generischen, abwechslungsreichen Kategorietexts -
+            # weniger verwirrend als ein zufaellig wirkender Platzhaltertext
+            # neben echten Sendungen am selben Tag.
+            if hat_aktive_echte_quelle(daten):
+                rest_segmente = segmente_ohne_ueberlappung(
+                    start, ende, alle_echten_intervalle(daten)
                 )
+                if rest_segmente:
+                    luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
+                    schreibe_programme_segmente(
+                        xml_teile, rest_segmente, daten["kanal"],
+                        escape(luecken_titel), luecken_titel, "de",
+                        kategorie_key, daten["land"], True,
+                    )
                 continue
 
             # Block in mehrere kuerzere Einzelsendungen aufteilen (ca.
