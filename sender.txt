@@ -1022,17 +1022,17 @@ DE|KIDS 9 4K|Kids 9 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/p
 DE|KIDS 10 4K|Kids 10 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
 DE|KIDS 11 4K|Kids 11 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
 #DE| PLEX TV
-DE|PLEX BOX-OFFICE 1|Plex Box-Office (1) ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX BOX-OFFICE 2|Plex Box-Office (2) ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX BOX-OFFICE 3|Plex Box-Office (3) ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX CINEMA|Plex Cinema ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX CINESTAR|Plex Cinestar ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX FILME|Plex Filme ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX IMAX|Plex Imax ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX KINDER|Plex Kinder ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX KINDER+|Plex Kinder ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX MTV|Plex Mtv ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
-DE|PLEX ORIGINAL|Plex Original ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/111/900/png-clipart-plex-brand-logo-subscription-gratis-gym-outdoor-poster-angle-text.png
+DE|PLEX BOX-OFFICE 1|Plex Box-Office (1) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_box_office_1.png
+DE|PLEX BOX-OFFICE 2|Plex Box-Office (2) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_box_office_2.png
+DE|PLEX BOX-OFFICE 3|Plex Box-Office (3) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_box_office_3.png
+DE|PLEX CINEMA|Plex Cinema ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_cinema.png
+DE|PLEX CINESTAR|Plex Cinestar ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_cinestar.png
+DE|PLEX FILME|Plex Filme ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_filme.png
+DE|PLEX IMAX|Plex Imax ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_imax.png
+DE|PLEX KINDER|Plex Kinder ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_kinder.png
+DE|PLEX KINDER+|Plex Kinder ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_kinder_plus.png
+DE|PLEX MTV|Plex Mtv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_mtv.png
+DE|PLEX ORIGINAL|Plex Original ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_original.png
 DE|THEMEN SENDER 1 RAW|Themen Sender (1) ᴸⁱᵛᵉ|https://www.vhv.rs/dpng/d/517-5176101_shopping-queen-logo-hd-png-download.png
 DE|THEMEN SENDER 2 RAW|Themen Sender (2) ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Alarm_f%C3%BCr_Cobra_11_Balko_Logo_2024.svg/3840px-Alarm_f%C3%BCr_Cobra_11_Balko_Logo_2024.svg.png
 DE|THEMEN SENDER 3 RAW|Themen Sender (3) ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Bauer_sucht_Frau_Logo_2024.svg/1280px-Bauer_sucht_Frau_Logo_2024.svg.png
