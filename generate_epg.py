@@ -348,18 +348,25 @@ def formatiere_event_text(event_teil):
 
 
 def dyn_next_team_namen(event_teil):
-    """Extrahiert bei einem erkannten NEXT-Marker nur die Team-/Gegner-
+    """Extrahiert bei einem erkannten NEXT-Marker die Team-/Gegner-
     Namen aus dem rohen Event-Text (z.B. "NEXT | Deutschland - Guinea |
-    IHF U18 Women's..." -> "Deutschland vs. Guinea"), ohne Status-
-    Marker oder Wettbewerbs-/Rundenangabe. Gibt None zurueck, wenn kein
-    zweites Pipe-Segment vorhanden ist (Fallback bleibt dem Aufrufer
+    Fri 21 Aug 18:10 CEST (DE) | 8K Exclusive" -> "Deutschland vs.
+    Guinea 18:10 Uhr ᴸⁱᵛᵉ"), ohne Status-Marker, Wochentag/Datum oder
+    Wettbewerbs-/Rundenangabe. Gibt None zurueck, wenn kein zweites
+    Pipe-Segment vorhanden ist (Fallback bleibt dem Aufrufer
     ueberlassen)."""
     segmente = [s.strip() for s in event_teil.split("|") if s.strip()]
     if len(segmente) < 2:
         return None
     teams = normalisiere_grossschreibung(segmente[1])
     teams = re.sub(r"\s+-\s+", " vs. ", teams).strip()
-    return teams or None
+    if not teams:
+        return None
+
+    uhrzeit_treffer = re.search(r"\b([01]?\d|2[0-3]):([0-5]\d)\b", event_teil)
+    if uhrzeit_treffer:
+        return f"{teams} {uhrzeit_treffer.group(0)} Uhr ᴸⁱᵛᵉ"
+    return teams
 
 # Automatische Logo-Suche: fehlt einem Sender in sender.txt/
 # logo_only.txt ein Logo, wird versucht, es automatisch ueber die
