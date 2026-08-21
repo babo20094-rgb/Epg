@@ -1947,15 +1947,16 @@ def _schreibe_echte_programme(daten, programme):
         titel_escaped = escape(kuerze_beschreibung(p["title"]))
         beschr_text = kuerze_beschreibung(p["beschreibung"] or p["title"])
         beschr_escaped = escape(beschr_text)
-        sub_title_tag = (
-            f' <sub-title lang="de">{beschr_escaped}</sub-title>'
-            if beschr_escaped != titel_escaped else ""
-        )
+        # Bewusst KEIN <sub-title> mehr: manche Player (z.B. TiviMate)
+        # haengen den Untertitel im kompakten Wochenraster direkt hinter
+        # den Titel an, wodurch trotz gekuerztem Titel wieder ein langer
+        # Text in der Zeile stand. Nur der Titel soll dort sichtbar
+        # sein - die volle Beschreibung bleibt im <desc>-Feld erhalten
+        # und ist ueber die Detailansicht weiterhin abrufbar.
         icon_tag = f' <icon src="{escape(p["bild"])}"/>' if p.get("bild") else ""
         xml_teile.append(
             f' <programme start="{start_str}" stop="{stop_str}" channel="{escape(daten["kanal"])}">'
             f' <title lang="de">{titel_escaped}</title>'
-            f'{sub_title_tag}'
             f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
         )
 
