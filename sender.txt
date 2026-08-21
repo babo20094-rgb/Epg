@@ -1672,7 +1672,7 @@ RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|
 RS|GORA SELECT 1 HD|Gora Select 1 HD ᴸⁱᵛᵉ|
 RS|NETIP FILM 1 HD|Netip Film 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_1.png
 RS|NETIP FILM 2 HD|Netip Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_2.png
-RS|NETIP INT. FILM 1|Netip Int. Film 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_1.png
+RS|NETIP INT. FILM 1 HD|Netip Int. Film 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_1.png
 RS|NETIP INT. FILM 2 HD|Netip Int. Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_2.png
 RS|NETIP INT. FILM 3 HD|Netip Int. Film 3 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_3.png
 RS|FILM KLUB EXTRA|Film Klub Extra ᴸⁱᵛᵉ|
