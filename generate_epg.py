@@ -1870,6 +1870,35 @@ plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
 
+BESCHREIBUNG_DATUM_BLURB_MUSTER = re.compile(r"(\d{1,2}\.\d{1,2}\.)\s*:\s*.+$")
+BESCHREIBUNG_MAX_LAENGE = 150
+
+
+def kuerze_beschreibung(text, max_laenge=BESCHREIBUNG_MAX_LAENGE):
+    """Kuerzt lange Sendungsbeschreibungen echter Quellen (z.B. Telemachs
+    "shortDescription", das bei Sport-Events oft einen mehrsaetzigen
+    generischen Liga-/Wettbewerbs-Infotext nach dem eigentlichen
+    Event-Datum enthaelt) auf die reinen Event-Kerndaten statt des
+    kompletten Fliesstexts - manche Player (z.B. TiviMate) zeigen sonst
+    den ganzen Text direkt im kompakten EPG-Raster an. Erkennt das
+    Telemach-Muster "Event DD.MM.: Blabla..." und schneidet ab dem
+    Doppelpunkt nach dem Datum sauber ab (kein "…", da damit die
+    Kerninfo - Teams/Datum - bereits vollstaendig ist). Ohne dieses
+    Muster wird bei sehr langen Texten ohne erkennbares Datum hart bei
+    einer Wortgrenze abgeschnitten und "…" angehaengt. Kurze Texte
+    bleiben unveraendert."""
+    if not text:
+        return text
+    text = text.strip()
+    ohne_blurb = BESCHREIBUNG_DATUM_BLURB_MUSTER.sub(r"\1", text)
+    if ohne_blurb != text:
+        return ohne_blurb.strip()
+    if len(text) <= max_laenge:
+        return text
+    gekuerzt = text[:max_laenge].rsplit(" ", 1)[0]
+    return gekuerzt.rstrip(".,;: ") + "…"
+
+
 def _schreibe_echte_programme(daten, programme):
     """Haengt die uebergebenen echten Programmdaten (Telemach ODER
     mtel.ba, gleiches dict-Format) als <programme>-Eintraege an
@@ -1878,7 +1907,7 @@ def _schreibe_echte_programme(daten, programme):
         start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
         stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
         titel_escaped = escape(p["title"])
-        beschr_text = p["beschreibung"] or p["title"]
+        beschr_text = kuerze_beschreibung(p["beschreibung"] or p["title"])
         beschr_escaped = escape(beschr_text)
         sub_title_tag = (
             f' <sub-title lang="de">{beschr_escaped}</sub-title>'
