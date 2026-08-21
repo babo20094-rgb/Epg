@@ -346,6 +346,21 @@ def formatiere_event_text(event_teil):
 
     return event_teil
 
+
+def dyn_next_team_namen(event_teil):
+    """Extrahiert bei einem erkannten NEXT-Marker nur die Team-/Gegner-
+    Namen aus dem rohen Event-Text (z.B. "NEXT | Deutschland - Guinea |
+    IHF U18 Women's..." -> "Deutschland vs. Guinea"), ohne Status-
+    Marker oder Wettbewerbs-/Rundenangabe. Gibt None zurueck, wenn kein
+    zweites Pipe-Segment vorhanden ist (Fallback bleibt dem Aufrufer
+    ueberlassen)."""
+    segmente = [s.strip() for s in event_teil.split("|") if s.strip()]
+    if len(segmente) < 2:
+        return None
+    teams = normalisiere_grossschreibung(segmente[1])
+    teams = re.sub(r"\s+-\s+", " vs. ", teams).strip()
+    return teams or None
+
 # Automatische Logo-Suche: fehlt einem Sender in sender.txt/
 # logo_only.txt ein Logo, wird versucht, es automatisch ueber die
 # oeffentliche iptv-org-Kanaldatenbank zu finden (per Namensabgleich).
@@ -522,7 +537,10 @@ for zeile in zeilen:
                 roh_segmente = [s.strip() for s in event_teil.split("|")]
                 roh_marker = roh_segmente[0].lower() if roh_segmente else ""
                 if roh_marker in EVENT_MARKER_NEXT:
+                    team_namen = dyn_next_team_namen(event_teil)
                     event_titel = f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+                    if team_namen:
+                        event_titel += f" {team_namen}"
 
         # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
         # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
@@ -1721,7 +1739,8 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
             roh_segmente = [s.strip() for s in event_teil.split("|")]
             roh_marker = roh_segmente[0].lower() if roh_segmente else ""
             if roh_marker in EVENT_MARKER_NEXT:
-                event_titel = f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+                team_namen = dyn_next_team_namen(event_teil)
+                event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
 
         real_daten["event_titel"] = event_titel
         return True
