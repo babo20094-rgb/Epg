@@ -291,6 +291,7 @@ LEERLAUF_MARKER = ["no event", "kein event", "nema eventa", "ni dogodka"]
 # "End | ..."). Werden erkannt und in verstaendlichen deutschen
 # EPG-Text uebersetzt statt den rohen englischen Marker anzuzeigen.
 EVENT_MARKER_NEXT = ["next"]
+EVENT_MARKER_LIVE = ["live"]
 EVENT_MARKER_ENDE = ["end", "ended", "endet"]
 EVENT_ENDE_TEXT = (
     "Spiel ist beendet, danke, dass Sie zugeschaut haben. Ihr DYN Sport Team"
@@ -347,14 +348,15 @@ def formatiere_event_text(event_teil):
     return event_teil
 
 
-def dyn_next_team_namen(event_teil):
-    """Extrahiert bei einem erkannten NEXT-Marker die Team-/Gegner-
+def dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ"):
+    """Extrahiert bei einem erkannten NEXT-/LIVE-Marker die Team-/Gegner-
     Namen aus dem rohen Event-Text (z.B. "NEXT | Deutschland - Guinea |
     Fri 21 Aug 18:10 CEST (DE) | 8K Exclusive" -> "Deutschland vs.
-    Guinea 18:10 Uhr ᴸⁱᵛᵉ"), ohne Status-Marker, Wochentag/Datum oder
-    Wettbewerbs-/Rundenangabe. Gibt None zurueck, wenn kein zweites
-    Pipe-Segment vorhanden ist (Fallback bleibt dem Aufrufer
-    ueberlassen)."""
+    Guinea 18:10 Uhr ᴺᵉˣᵗ"), ohne Status-Marker, Wochentag/Datum oder
+    Wettbewerbs-/Rundenangabe. status_suffix haengt den erkannten Status
+    ans Ende an (ᴺᵉˣᵗ bei "NEXT", ᴸⁱᵛᵉ bei "LIVE" - vom Aufrufer
+    vorgegeben). Gibt None zurueck, wenn kein zweites Pipe-Segment
+    vorhanden ist (Fallback bleibt dem Aufrufer ueberlassen)."""
     segmente = [s.strip() for s in event_teil.split("|") if s.strip()]
     if len(segmente) < 2:
         return None
@@ -365,8 +367,8 @@ def dyn_next_team_namen(event_teil):
 
     uhrzeit_treffer = re.search(r"\b([01]?\d|2[0-3]):([0-5]\d)\b", event_teil)
     if uhrzeit_treffer:
-        return f"{teams} {uhrzeit_treffer.group(0)} Uhr ᴸⁱᵛᵉ"
-    return teams
+        return f"{teams} {uhrzeit_treffer.group(0)} Uhr {status_suffix}"
+    return f"{teams} {status_suffix}"
 
 # Automatische Logo-Suche: fehlt einem Sender in sender.txt/
 # logo_only.txt ein Logo, wird versucht, es automatisch ueber die
@@ -534,20 +536,24 @@ for zeile in zeilen:
         if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
             event_titel = formatiere_event_text(event_teil)
 
-        # DYN-PPV-Kanaele mit erkanntem "NEXT"-Marker: statt des
-        # uebersetzten "Es folgt: ..."-Texts wird "Dyn Sport (N) ᴺᵉˣᵗ"
-        # angezeigt - gleiche Konvention wie beim Leerlauf-Fallback
-        # unten, nur fuer den Ankuendigungs-Fall.
+        # DYN-PPV-Kanaele mit erkanntem "NEXT"- oder "LIVE"-Marker: statt
+        # des rohen Anbietertexts (z.B. "Live| Team A - Team B | Fri 21
+        # Aug 18:10 CEST (DE) | 8K Exclusive") wird NUR "Team A vs. Team
+        # B HH:MM Uhr ᴸⁱᵛᵉ" angezeigt (siehe dyn_next_team_namen()) -
+        # ohne generischen "Dyn Sport (N)"-Praefix und ohne Datum/
+        # Zeitzone/Zusatztext. Ohne extrahierbare Teamnamen faellt es auf
+        # den generischen "Dyn Sport (N) ᴺᵉˣᵗ"-Text zurueck.
         if event_titel is not None:
             dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
             if dyn_ppv_next_match:
                 roh_segmente = [s.strip() for s in event_teil.split("|")]
                 roh_marker = roh_segmente[0].lower() if roh_segmente else ""
                 if roh_marker in EVENT_MARKER_NEXT:
-                    team_namen = dyn_next_team_namen(event_teil)
-                    event_titel = f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
-                    if team_namen:
-                        event_titel += f" {team_namen}"
+                    team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                    event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+                elif roh_marker in EVENT_MARKER_LIVE:
+                    team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                    event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
 
         # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
         # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
@@ -1746,8 +1752,11 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
             roh_segmente = [s.strip() for s in event_teil.split("|")]
             roh_marker = roh_segmente[0].lower() if roh_segmente else ""
             if roh_marker in EVENT_MARKER_NEXT:
-                team_namen = dyn_next_team_namen(event_teil)
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
                 event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
 
         real_daten["event_titel"] = event_titel
         return True
@@ -1870,38 +1879,50 @@ plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
 
-BESCHREIBUNG_DATUM_BLURB_MUSTER = re.compile(r"(\d{1,2}\.\d{1,2}\.)\s*:\s*.+$")
-BESCHREIBUNG_SATZENDE_MUSTER = re.compile(r"(?<!\d)[.!?](?:\s+(?=[A-ZÀ-ÖØ-Þ])|$)")
 BESCHREIBUNG_MAX_LAENGE = 150
+BESCHREIBUNG_SATZ_WORT_MINDEST = 6
+
+
+def _wirkt_wie_ausformulierter_satz(segment):
+    """True, wenn ein an ": " abgetrenntes Textsegment wie ein
+    ausformulierter Erklaersatz aussieht (grossgeschrieben, endet mit
+    Satzzeichen, mehrere Woerter) statt wie ein kompaktes Namens-/Datums-
+    Fragment (z.B. "Ried - Grazer" oder "15.8.")."""
+    segment = segment.strip()
+    if not segment:
+        return False
+    if not segment[0].isupper():
+        return False
+    if not segment.rstrip().endswith((".", "!", "?", "…")):
+        return False
+    return len(segment.split()) >= BESCHREIBUNG_SATZ_WORT_MINDEST
 
 
 def kuerze_beschreibung(text, max_laenge=BESCHREIBUNG_MAX_LAENGE):
     """Kuerzt lange Sendungstitel/-beschreibungen echter Quellen (z.B.
-    Telemachs "shortDescription", das bei Sport-Events oft einen
-    mehrsaetzigen generischen Liga-/Wettbewerbs-Infotext nach dem
-    eigentlichen Event-Datum enthaelt, oder bei Magazinsendungen einen
-    langen Ankuendigungstext) auf die reinen Kerndaten (Event-Name/
-    Teams/Datum bzw. den ersten vollstaendigen Satz) statt des
-    kompletten Fliesstexts - manche Player (z.B. TiviMate) zeigen sonst
-    den ganzen Text direkt im kompakten EPG-Raster an. Reihenfolge:
-    1) Telemach-Muster "Event DD.MM.: Blabla..." wird ab dem Doppelpunkt
-       nach dem Datum sauber abgeschnitten (kein "…", da die Kerninfo -
-       Teams/Datum - damit bereits vollstaendig ist).
-    2) Sonst wird bei erkennbarem Satzende (Punkt/Ausrufe-/Fragezeichen
-       gefolgt von Grossbuchstabe oder Textende, Punkte in Zahlen/Daten
-       werden ignoriert) auf den ersten vollstaendigen Satz gekuerzt.
-    3) Ohne beides wird bei sehr langen Texten hart bei einer Wortgrenze
-       abgeschnitten und "…" angehaengt.
-    Kurze Texte bleiben unveraendert."""
+    Telemachs "shortDescription", das bei Sport-/Magazin-Events oft
+    einen generischen Liga-/Ankuendigungstext nach den eigentlichen
+    Kerndaten anhaengt, etwa "Fudbal - Austrijska liga: Ried - Grazer:
+    Salzburg je austrijski fudbal podigao..." oder "Vijesti: Najnovije
+    informacije iz...") auf die reinen Kerndaten statt des kompletten
+    Fliesstexts - manche Player (z.B. TiviMate) zeigen sonst den ganzen
+    Text direkt im kompakten EPG-Raster an. Der Text wird an ": "
+    aufgeteilt; jedes abschliessende Segment, das wie ein ausformulierter
+    Satz aussieht (siehe _wirkt_wie_ausformulierter_satz()), wird
+    entfernt - so bleiben nur die kompakten Kern-Segmente (Kategorie/
+    Liga/Teams/Datum) uebrig, unabhaengig vom genauen Format der
+    jeweiligen Quelle. Ohne erkennbares Satz-Segment wird bei sehr
+    langen Texten hart bei einer Wortgrenze abgeschnitten und "…"
+    angehaengt. Kurze Texte bleiben unveraendert."""
     if not text:
         return text
     text = text.strip()
-    ohne_blurb = BESCHREIBUNG_DATUM_BLURB_MUSTER.sub(r"\1", text)
-    if ohne_blurb != text:
-        return ohne_blurb.strip()
-    satzende = BESCHREIBUNG_SATZENDE_MUSTER.search(text)
-    if satzende and satzende.end() <= max_laenge + 30:
-        return text[: satzende.end()].strip()
+    segmente = text.split(": ")
+    while len(segmente) > 1 and _wirkt_wie_ausformulierter_satz(segmente[-1]):
+        segmente.pop()
+    gekuerzter_text = ": ".join(segmente).strip().rstrip(" :;,")
+    if gekuerzter_text != text:
+        return gekuerzter_text
     if len(text) <= max_laenge:
         return text
     gekuerzt = text[:max_laenge].rsplit(" ", 1)[0]
