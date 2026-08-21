@@ -267,15 +267,15 @@ def _hr_programme_parsen(soup, site_id, tz, tage):
             titel_roh = titel_p.get_text(strip=True) if titel_p else ""
             beschr_roh = beschr_span.get_text(strip=True) if beschr_span else ""
 
-            # Absichtlicher Tausch (siehe Referenz-config.js): existiert
-            # eine Beschreibung, wird SIE zum Titel und der urspruengliche
-            # Titel zur Beschreibung.
-            if beschr_roh:
-                titel = beschr_roh
-                beschreibung = titel_roh
-            else:
-                titel = titel_roh
-                beschreibung = ""
+            # KEIN Tausch (fruehere Version tauschte Titel/Beschreibung,
+            # wodurch bei Sport-Events der lange, generische Liga-Infotext
+            # aus beschr_span als <title> im EPG-Raster erschien statt des
+            # kurzen Spielnamens aus titel_p - siehe CLAUDE.md). Der kurze
+            # Text (Team/Spielname) bleibt Titel, der laengere Fliesstext
+            # wird zur Beschreibung (dort greift die Kuerzung auf den
+            # ersten Satz in generate_epg.py's kuerze_beschreibung()).
+            titel = titel_roh
+            beschreibung = beschr_roh
 
             if not titel:
                 continue
