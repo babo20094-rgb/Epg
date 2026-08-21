@@ -1691,7 +1691,7 @@ HR| MAX TV SELECT 2 HD|Max Tv Select 2 HD ᴸⁱᵛᵉ|https://raw.githubusercon
 HR| MAX TV SELECT 3 HD|Max Tv Select 3 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_3.png
 HR| MAX TV SELECT 4 HD|Max Tv Select 4 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_4.png
 HR| MAX TV SELECT 5 HD|Max Tv Select 5 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_5.png
-RS| MAX TV SELECT 6 HD|Max Tv Select 6 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_6.png
+HR| MAX TV SELECT 6 HD|Max Tv Select 6 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_6.png
 HR| MAX TV SELECT KIDS 1 HD|Max Tv Select Kids 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_1.png
 HR| MAX TV SELECT KIDS 2 HD|Max Tv Select Kids 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_2.png
 RS| Radio Lola|
