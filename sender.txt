@@ -2096,9 +2096,9 @@ DE| TAGESSCHAU 24 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 SKY:DE|SKY NATURE FHD|
 DE| RTL UP|
 DE| TOGGO PLUS|
-SKY:DE| SKY SPORT BUNDESLIGA 1|
-SKY:DE| SKY SPORT 1|
-SKY:DE| SKY SPORT AUSTRIA 1|
+SKY:DE| SKY SPORT BUNDESLIGA 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_1.png
+SKY:DE| SKY SPORT 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_1.png
+SKY:DE| SKY SPORT AUSTRIA 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_1.png
 DE| NOW!|
 SKY:DE|SKY HIGHLIGHTS HD|
 SKY:DE|SKY HIGHLIGHT FHD*|
@@ -2110,51 +2110,51 @@ SKY:DE|SKY CINEMA PREMIEREN FHD*|
 SKY:DE|NAT GEO WILD HD|AUTO
 SKY:DE|NAT GEO WILD FHD|AUTO
 SKY:DE|GEO TV HD|
-SKY:DE|SKY SPORT 2 HD|AUTO
-SKY:DE|SKY SPORT 2 FHD|AUTO
-SKY:DE|SKY SPORT 2 FHD*|AUTO
-SKY:DE|SKY SPORT 3 HD|AUTO
-SKY:DE|SKY SPORT 3 FHD|AUTO
-SKY:DE|SKY SPORT 3 FHD*|AUTO
-SKY:DE|SKY SPORT 4 HD|AUTO
-SKY:DE|SKY SPORT 4 FHD|AUTO
-SKY:DE|SKY SPORT 4 FHD*|AUTO
-SKY:DE|SKY SPORT 5 HD|AUTO
-SKY:DE|SKY SPORT 5 FHD|AUTO
-SKY:DE|SKY SPORT 5 FHD*|AUTO
-SKY:DE|SKY SPORT 6 HD|AUTO
-SKY:DE|SKY SPORT 6 FHD|AUTO
-SKY:DE|SKY SPORT 6 FHD*|AUTO
-SKY:DE|SKY SPORT 7 HD|AUTO
-SKY:DE|SKY SPORT 7 FHD|AUTO
-SKY:DE|SKY SPORT 7 FHD*|AUTO
-SKY:DE|SKY SPORT 8 HD|AUTO
-SKY:DE|SKY SPORT 8 FHD|AUTO
-SKY:DE|SKY SPORT 8 FHD*|AUTO
-SKY:DE|SKY SPORT 9 HD|AUTO
-SKY:DE|SKY SPORT 9 FHD|AUTO
-SKY:DE|SKY SPORT 9 FHD*|AUTO
-SKY:DE|SKY SPORT 10 HD|AUTO
-SKY:DE|SKY SPORT 10 FHD|AUTO
-SKY:DE|SKY SPORT 10 FHD*|AUTO
-SKY:DE|SKY SPORT 12 FHD|AUTO
-SKY:DE|SKY SPORT 13 FHD|AUTO
-SKY:DE|SKY SPORT 14 FHD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 2 HD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 2 FHD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 2 FHD*|AUTO
-SKY:DE|SKY SPORT AUSTRIA 3 HD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 3 FHD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 3 FHD*|AUTO
-SKY:DE|SKY SPORT AUSTRIA 4 HD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 4 FHD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 4 FHD*|AUTO
-SKY:DE|SKY SPORT AUSTRIA 5 HD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 5 FHD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 6 HD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 6 FHD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 7 HD|AUTO
-SKY:DE|SKY SPORT AUSTRIA 7 FHD|AUTO
+SKY:DE|SKY SPORT 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_2.png
+SKY:DE|SKY SPORT 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_2.png
+SKY:DE|SKY SPORT 2 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_2.png
+SKY:DE|SKY SPORT 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_3.png
+SKY:DE|SKY SPORT 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_3.png
+SKY:DE|SKY SPORT 3 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_3.png
+SKY:DE|SKY SPORT 4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_4.png
+SKY:DE|SKY SPORT 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_4.png
+SKY:DE|SKY SPORT 4 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_4.png
+SKY:DE|SKY SPORT 5 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_5.png
+SKY:DE|SKY SPORT 5 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_5.png
+SKY:DE|SKY SPORT 5 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_5.png
+SKY:DE|SKY SPORT 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_6.png
+SKY:DE|SKY SPORT 6 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_6.png
+SKY:DE|SKY SPORT 6 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_6.png
+SKY:DE|SKY SPORT 7 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_7.png
+SKY:DE|SKY SPORT 7 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_7.png
+SKY:DE|SKY SPORT 7 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_7.png
+SKY:DE|SKY SPORT 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_8.png
+SKY:DE|SKY SPORT 8 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_8.png
+SKY:DE|SKY SPORT 8 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_8.png
+SKY:DE|SKY SPORT 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_9.png
+SKY:DE|SKY SPORT 9 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_9.png
+SKY:DE|SKY SPORT 9 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_9.png
+SKY:DE|SKY SPORT 10 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_10.png
+SKY:DE|SKY SPORT 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_10.png
+SKY:DE|SKY SPORT 10 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_10.png
+SKY:DE|SKY SPORT 12 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_12.png
+SKY:DE|SKY SPORT 13 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_13.png
+SKY:DE|SKY SPORT 14 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_14.png
+SKY:DE|SKY SPORT AUSTRIA 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_2.png
+SKY:DE|SKY SPORT AUSTRIA 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_2.png
+SKY:DE|SKY SPORT AUSTRIA 2 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_2.png
+SKY:DE|SKY SPORT AUSTRIA 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_3.png
+SKY:DE|SKY SPORT AUSTRIA 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_3.png
+SKY:DE|SKY SPORT AUSTRIA 3 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_3.png
+SKY:DE|SKY SPORT AUSTRIA 4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_4.png
+SKY:DE|SKY SPORT AUSTRIA 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_4.png
+SKY:DE|SKY SPORT AUSTRIA 4 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_4.png
+SKY:DE|SKY SPORT AUSTRIA 5 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_5.png
+SKY:DE|SKY SPORT AUSTRIA 5 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_5.png
+SKY:DE|SKY SPORT AUSTRIA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_6.png
+SKY:DE|SKY SPORT AUSTRIA 6 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_6.png
+SKY:DE|SKY SPORT AUSTRIA 7 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_7.png
+SKY:DE|SKY SPORT AUSTRIA 7 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_7.png
 SKY:DE|SKY BUNDESLIGA 1 HD|
 SKY:DE|SKY BUNDESLIGA 2 HD|
 SKY:DE|SKY BUNDESLIGA 3 HD|
@@ -2174,25 +2174,25 @@ SKY:DE|SKY BUNDESLIGA 7 FHD|
 SKY:DE|SKY BUNDESLIGA 8 FHD|
 SKY:DE|SKY BUNDESLIGA 9 FHD|
 SKY:DE|SKY BUNDESLIGA 10 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 1 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 2 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 3 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 4 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 5 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 6 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 7 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 8 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 9 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 10 HD|
-SKY:DE|SKY SPORT BUNDESLIGA 1 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 2 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 3 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 4 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 5 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 6 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 7 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 8 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 9 FHD|
-SKY:DE|SKY SPORT BUNDESLIGA 10 FHD|
+SKY:DE|SKY SPORT BUNDESLIGA 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_1.png
+SKY:DE|SKY SPORT BUNDESLIGA 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_2.png
+SKY:DE|SKY SPORT BUNDESLIGA 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_3.png
+SKY:DE|SKY SPORT BUNDESLIGA 4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_4.png
+SKY:DE|SKY SPORT BUNDESLIGA 5 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_5.png
+SKY:DE|SKY SPORT BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_6.png
+SKY:DE|SKY SPORT BUNDESLIGA 7 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_7.png
+SKY:DE|SKY SPORT BUNDESLIGA 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_8.png
+SKY:DE|SKY SPORT BUNDESLIGA 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_9.png
+SKY:DE|SKY SPORT BUNDESLIGA 10 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_10.png
+SKY:DE|SKY SPORT BUNDESLIGA 1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_1.png
+SKY:DE|SKY SPORT BUNDESLIGA 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_2.png
+SKY:DE|SKY SPORT BUNDESLIGA 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_3.png
+SKY:DE|SKY SPORT BUNDESLIGA 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_4.png
+SKY:DE|SKY SPORT BUNDESLIGA 5 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_5.png
+SKY:DE|SKY SPORT BUNDESLIGA 6 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_6.png
+SKY:DE|SKY SPORT BUNDESLIGA 7 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_7.png
+SKY:DE|SKY SPORT BUNDESLIGA 8 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_8.png
+SKY:DE|SKY SPORT BUNDESLIGA 9 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_9.png
+SKY:DE|SKY SPORT BUNDESLIGA 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_10.png
 SKY:DE|DAZN Lacrosse TV|
 SKY:DE|SKY BUNDESLIGA 6 HD|
