@@ -1655,13 +1655,12 @@ RS|PAROVI LIVE|Parovi Live ᴸⁱᵛᵉ|
 RS|NGC HD|Ngc HD ᴸⁱᵛᵉ|
 RS|DOCU BOX|Docu Box ᴸⁱᵛᵉ|
 RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|
-RS|CROMAX SELECT HD|Cromax Select HD ᴸⁱᵛᵉ|
 RS|GORA SELECT 1 HD|Gora Select 1 HD ᴸⁱᵛᵉ|
-RS|NETIP FILM 3 HD|Netip Film 3 HD ᴸⁱᵛᵉ|
-RS|NETIP FILM 4 HD|Netip Film 4 HD ᴸⁱᵛᵉ|
-RS|NETIP CINEMA 3 HD|Netip Cinema 3 HD ᴸⁱᵛᵉ|
-RS|NETIP CINEMA 4 HD|Netip Cinema 4 HD ᴸⁱᵛᵉ|
-RS|NETIP MOVIES 3 HD|Netip Movies 3 HD ᴸⁱᵛᵉ|
+RS|NETIP FILM 1 HD|Netip Film 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_1.png
+RS|NETIP FILM 2 HD|Netip Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_2.png
+RS|NETIP INT. FILM 1|Netip Int. Film 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_1.png
+RS|NETIP INT. FILM 2 HD|Netip Int. Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_2.png
+RS|NETIP INT. FILM 3 HD|Netip Int. Film 3 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_3.png
 RS|FILM KLUB EXTRA|Film Klub Extra ᴸⁱᵛᵉ|
 ##### EXYU| DJECIJI KANALI #####
 BA|HAYATOVCI|Hayatovci ᴸⁱᵛᵉ|
@@ -1678,6 +1677,7 @@ HR| MAX TV SELECT 2 HD|Max Tv Select 2 HD ᴸⁱᵛᵉ|https://raw.githubusercon
 HR| MAX TV SELECT 3 HD|Max Tv Select 3 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_3.png
 HR| MAX TV SELECT 4 HD|Max Tv Select 4 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_4.png
 HR| MAX TV SELECT 5 HD|Max Tv Select 5 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_5.png
+RS| MAX TV SELECT 6 HD|Max Tv Select 6 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_6.png
 HR| MAX TV SELECT KIDS 1 HD|Max Tv Select Kids 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_1.png
 HR| MAX TV SELECT KIDS 2 HD|Max Tv Select Kids 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_2.png
 RS| Radio Lola|
