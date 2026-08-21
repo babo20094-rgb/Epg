@@ -554,6 +554,10 @@ for zeile in zeilen:
                 elif roh_marker in EVENT_MARKER_LIVE:
                     team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
                     event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
+                elif roh_marker in EVENT_MARKER_ENDE:
+                    # Kein fixer Abmoderationstext bei DYN PPV - stattdessen
+                    # wie beim Leerlauf-Fall unten "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ".
+                    event_titel = None
 
         # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
         # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
@@ -1757,6 +1761,11 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
             elif roh_marker in EVENT_MARKER_LIVE:
                 team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
                 event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
+            elif roh_marker in EVENT_MARKER_ENDE:
+                # Kein fixer Abmoderationstext bei DYN PPV - stattdessen
+                # wie beim Leerlauf-Fall der bereits gesetzte Fallback
+                # ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ").
+                event_titel = None
 
         real_daten["event_titel"] = event_titel
         return True
