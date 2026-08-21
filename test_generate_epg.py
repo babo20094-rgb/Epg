@@ -688,8 +688,9 @@ def _rs_fixture_html():
 
 def test_arena_hr_erfolgreicher_abruf_liefert_echte_sendungen():
     """Erfolgreiche Kanalsuche + Programmabruf (HR/tvarenasport.hr) muss
-    echte Sendungen mit Titel/Zeiten liefern, inkl. des absichtlichen
-    Titel/Beschreibung-Tauschs bei vorhandener Beschreibung."""
+    echte Sendungen mit Titel/Zeiten liefern. Der kurze Spielname bleibt
+    Titel, der laengere Fliesstext wird zur Beschreibung (kein Tausch
+    mehr - siehe CLAUDE.md/arena_epg.py)."""
     html_response = _mock_html_response(_hr_fixture_html())
 
     with patch("arena_epg.requests.get", return_value=html_response):
@@ -700,9 +701,8 @@ def test_arena_hr_erfolgreicher_abruf_liefert_echte_sendungen():
 
     assert len(programme) >= 1
     erste = programme[0]
-    # "Description A" wird zum Titel, "Match A" zur Beschreibung (Tausch).
-    assert erste["title"] == "Description A"
-    assert erste["beschreibung"] == "Match A"
+    assert erste["title"] == "Match A"
+    assert erste["beschreibung"] == "Description A"
     assert erste["start"].tzinfo is not None
     assert erste["stop"] > erste["start"]
 
