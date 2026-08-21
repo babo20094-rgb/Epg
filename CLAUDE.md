@@ -13,13 +13,25 @@
   während der Session frei bearbeitet, **ohne** zwischendurch zu committen
   oder zu pushen.
 - Erst wenn der Nutzer explizit sagt, dass jetzt committet und **auf main**
-  gepusht werden soll (z. B. "jetzt auf main committen und pushen", "Final"),
-  wird ein Commit erstellt und **direkt auf main** gepusht.
+  gepusht werden soll (z. B. "jetzt auf main committen und pushen", "ja,
+  committen und pushen", "Final"), wird ein Commit erstellt und **direkt
+  auf main** gepusht.
 - Auch dann **immer zuerst kurz nachfragen und bestätigen lassen**
   (welche Dateien, Commit-Message), bevor der Commit/Push tatsächlich
   ausgeführt wird — auch bei wiederholten Anweisungen in derselben Session.
 
 Diese Bestätigungspflicht gilt dauerhaft und darf nicht übersprungen werden.
+
+**Wichtig (aus wiederholten Fehlern gelernt):** Committen/pushen NUR bei
+einem wörtlichen "ja, committen und pushen" (oder eindeutig gleichbedeutender
+Formulierung) auf eine explizite Rückfrage. Ein Screenshot, ein "ja" auf eine
+andere Frage (z. B. "passt das Design so?"), eine allgemeine Zustimmung zur
+Änderung selbst oder gar keine Antwort zählen NICHT als Freigabe zum Pushen -
+in diesen Fällen bleibt die Änderung nur im Arbeitsverzeichnis, bis explizit
+committet/gepusht werden soll. Vor jedem Commit zusätzlich `git fetch origin
+main` + `git pull origin main --no-edit` (der automatische 4h-Workflow
+committet z. B. "Daily EPG update" selbststaendig auf main), damit nicht am
+lokal veralteten Stand vorbei gepusht wird.
 
 ## Workflow manuell starten
 
@@ -81,6 +93,65 @@ Sendername im EPG-Raster erscheint statt eines leeren generischen
 Kategorietexts. Nur wenn der Nutzer explizit ein anderes Unicode-Suffix
 statt `ᴸⁱᵛᵉ` nennt, wird stattdessen das verwendet.
 
+## Kuerzung echter Titel/Beschreibungen (alle echten Quellen, ausser DYN PPV)
+
+- Der Nutzer will im EPG-Raster NUR den kompakten Sendungs-/Spieltitel
+  sehen (z. B. "Probuđena srca" oder "Fudbal - Španska liga: Betis -
+  Real Sociedad"), NICHT die oft mehrsaetzigen Liga-/Ankuendigungstexte,
+  die manche echten Quellen (v. a. Telemachs "shortDescription") an den
+  eigentlichen Titel anhaengen.
+- `kuerze_beschreibung(text)` in `generate_epg.py` erledigt das
+  zentral fuer ALLE echten Quellen (Telemach, mtel.ba, mts.rs,
+  MojMaxTV, Sky, Magenta, Arena, DAZN, TVGuide, TVPassport, Pluto TV,
+  tvmovie.de, hoerzu.de, Tubi TV, klix.ba, mymedia.ba) ueber die eine
+  gemeinsame Funktion `_schreibe_echte_programme()` - wird sowohl auf
+  `title` als auch auf `beschreibung`/`desc` angewendet. DYN PPV hat
+  eine eigene, davon unabhaengige Team-vs-Team-Logik (siehe oben) und
+  ist ausgenommen.
+- Vorgehen: Text wird an ": " aufgeteilt; jedes abschliessende Segment,
+  das wie ein ausformulierter Erklaersatz aussieht (grossgeschrieben,
+  endet mit Satzzeichen, >= 6 Woerter, siehe
+  `_wirkt_wie_ausformulierter_satz()`), wird entfernt - so bleiben nur
+  kompakte Kern-Segmente (Kategorie/Liga/Teams/Datum) uebrig, egal wie
+  die jeweilige Quelle formatiert. Ohne Doppelpunkt-Struktur (reiner
+  Fliesstext) greift ein Satzende-Fallback (erster vollstaendiger Satz).
+  Ohne beides wird bei sehr langen Texten hart bei einer Wortgrenze
+  abgeschnitten ("…" angehaengt). Kurze Texte bleiben unveraendert.
+- WICHTIG: `_schreibe_echte_programme()` schreibt bewusst KEIN
+  `<sub-title>`-Tag mehr. Manche Player (TiviMate) haengen den
+  Untertitel im kompakten Wochenraster direkt hinter den (bereits
+  gekuerzten) Titel an, wodurch trotz Kuerzung wieder ein langer Text
+  in der Zeile stand - das war die eigentliche Ursache eines
+  hartnaeckigen Bugs, nicht die Kuerzungslogik selbst. Die volle
+  Beschreibung bleibt weiterhin im `<desc>`-Feld (Detailansicht).
+- Bei Aenderungen an dieser Logik immer `python3 -m pytest
+  test_generate_epg.py` laufen lassen (90 Tests, u. a.
+  `test_arena_hr_erfolgreicher_abruf_liefert_echte_sendungen` prueft
+  explizit, dass Titel/Beschreibung bei Arena HR NICHT vertauscht sind
+  - frueher gab es dort einen absichtlichen, aber fehlerhaften Tausch
+  in `arena_epg.py`, der den langen Blurb faelschlich zum `<title>`
+  machte; wurde entfernt).
+
+## Nummerierte/einheitliche Logos fuer Sender-Gruppen
+
+- Wenn der Nutzer fuer eine Gruppe gleichartiger Sender (z. B. DYN PPV
+  1-50, Vodafone GO 1-53, Sky Select 1-8, MAX TV Select 1-6, PLEX-
+  Varianten, Sky Sport 1-14/Austria/Bundesliga) ein "einheitliches Logo
+  mit der jeweiligen Nummer" wünscht, wird das Basis-Logo einmal
+  bearbeitet (Firmen-/Sender-Wordmark, ggf. freigestellt/aufgehellt)
+  und dann per Skript für jede Nummer eine eigene PNG-Datei erzeugt.
+- Alle generierten Logo-Sets liegen unter `logos/<name>/<name>_<N>.png`
+  (z. B. `logos/dyn_ppv/dyn_ppv_23.png`, `logos/sky_sport/sky_sport_4.png`)
+  und werden ueber die raw.githubusercontent.com-URL
+  (`https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/...`)
+  in `sender.txt` eingetragen. Design-Feedback (Groesse, Farbe,
+  Positionierung, Farbverlauf passend zum Original) wird immer erst an
+  1-2 Beispielen gezeigt und bestaetigt, bevor alle Nummern erzeugt und
+  eingetragen werden.
+- "Logo kann aus Playlist übernommen werden" (wörtliche Nutzer-Formulierung)
+  heisst: Logo-Feld in `sender.txt` leer lassen, NICHT das Logo selbst
+  heraussuchen - der Nutzer übernimmt es aus seiner eigenen Playlist.
+
 ## Architektur-Überblick
 
 `generate_epg.py` liest `sender.txt` (Format `Land|Sender|Beschreibung|Logo`,
@@ -111,9 +182,15 @@ manuellem Trigger.
   Platzhaltertext "- NO EVENT STREAMING - | 8K EXCLUSIVE") NICHT mehr
   den rohen Platzhaltertext, sondern "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ" (N = Kanal-
   Nummer 1-50) - gleiche Konvention wie bei DirtVision/Flo Racing.
-- Status-Marker im rohen Kanalnamen ("NEXT | ...", "End | ...") werden
-  automatisch in verständlichen deutschen Text übersetzt ("Es folgt: ...",
-  fester Abmoderationstext bei "End").
+- Status-Marker im rohen Kanalnamen ("NEXT | ...", "LIVE | ...",
+  "ENDED | ...") werden erkannt: Bei NEXT/LIVE zeigt das EPG-Raster NUR
+  die extrahierten Team-/Gegnernamen plus Uhrzeit (z. B. "Deutschland
+  vs. Guinea 18:10 Uhr ᴸⁱᵛᵉ" bzw. mit ᴺᵉˣᵗ/ᴸⁱᵛᵉ-Suffix je nach Marker,
+  siehe `dyn_next_team_namen()`) - kein Rohdatum/Zeitzone/Zusatztext und
+  KEIN "Dyn Sport (N)"-Praefix mehr. Bei ENDED (und ohne erkennbares
+  Event) faellt es auf den generischen Leerlauf-Text "Dyn Sport (N)
+  ᴺᵒ ᴸⁱᵛᵉ" zurueck statt eines festen Abmoderationstexts - ENDED wird
+  also wie Leerlauf behandelt, nicht wie ein eigenes Event.
 - Komplett großgeschriebene Wörter im Event-Text werden normalisiert
   (z. B. "8K EXCLUSIVE" -> "8K Exclusive"), damit es nicht "schreit".
 - Kategorie-Erkennung (`epg_lib.py`, `standard_beschreibung()`) nutzt
@@ -475,6 +552,10 @@ manuellem Trigger.
   Gzip/XML, kein Kanal-Treffer, unerwartete HTML-Struktur/fehlender
   JSON-LD-Block) graceful auf die normale generische EPG-Generierung,
   kein Absturz moeglich.
+- Land `JOYN` loest denselben Pluto TV/tvmovie.de/hoerzu.de-Autoabgleich
+  aus wie Land `DE` (JOYN-Sender sind inhaltlich deutsche Kanaele, nur
+  mit "JOYN|"-Praefix in der eigenen Playlist statt "DE|") - kein
+  eigenes Praefix noetig, gleiche Zero-Risk-Garantie.
 
 Fuer MK gab es frueher MaxTV Go (wegen toter Domain entfernt) und
 zwischenzeitlich free-epg.de (wegen leerer/unzuverlaessiger Datenbasis
