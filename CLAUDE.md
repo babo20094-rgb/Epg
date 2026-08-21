@@ -161,6 +161,31 @@ selbst Pipe-Zeichen enthält) und erzeugt daraus `Epg_365_Tage.xml`.
 GitHub-Actions-Workflow `update_epg.yml` läuft alle 4h automatisch und bei
 manuellem Trigger.
 
+## Luecken-Fuellung bei teilweiser Ueberlappung mit echten Programmdaten
+
+- Fuer Sender mit einer aktiven echten EPG-Quelle (Telemach/mtel.ba/
+  mymedia.ba/klix.ba, SKY:, MAGENTA:, ARENA:, DAZN:, FREEVIEW:, TVGUIDE:,
+  TVPASSPORT:, Pluto TV/tvmovie.de/hoerzu.de, mts.rs, MojMaxTV,
+  tv-spored.siol.net, Tubi TV) wird im generischen Tagesraster (siehe
+  unten) fuer jeden Zeitblock geprueft, ob er mit echten Programmdaten
+  ueberlappt (`hat_aktive_echte_quelle()` / `alle_echten_intervalle()`).
+- Frueher (bis August 2026) wurde ein Block komplett uebersprungen, sobald
+  er auch nur TEILWEISE mit echten Daten ueberlappte - endete z.B. die
+  letzte echte Sendung (Pluto TV/tvmovie.de) mitten in einem mehrstuendigen
+  Block, bekam der unbedeckte Rest gar keinen `<programme>`-Eintrag mehr.
+  Das zeigte sich im Player (z.B. TiviMate) als sichtbare "Keine
+  Information"-Luecke zwischen der letzten echten Sendung und dem
+  naechsten generischen Block (beobachtet z.B. bei RTL Crime).
+- Behoben: `segmente_ohne_ueberlappung()` (urspruenglich nur fuer die
+  DYN-PPV-Leerzeiten genutzt) schneidet aus dem Zeitblock jetzt praezise
+  nur den tatsaechlich unbedeckten Rest heraus. Dieser Rest wird mit
+  "`<Sendername>` ᴸⁱᵛᵉ" gefuellt statt des generischen, abwechslungsreichen
+  Kategorietexts - komplett abgedeckte Bloecke bleiben unveraendert leer
+  (keine Duplikate ueber echte Daten), komplett unbedeckte Bloecke
+  bekommen wie bisher den ganzen Block als "`<Sendername>` ᴸⁱᵛᵉ"-Platzhalter.
+- Betrifft automatisch ALLE Sender mit einer der obigen echten Quellen,
+  keine sender.txt-Aenderung noetig.
+
 ## DYN PPV / Live-Kanalname-Mechanismus
 
 - DYN PPV 1-50 und andere `NAME:`-Sender bekommen ihren Sendungstitel
