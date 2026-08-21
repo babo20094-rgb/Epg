@@ -1881,6 +1881,7 @@ tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
 BESCHREIBUNG_MAX_LAENGE = 150
 BESCHREIBUNG_SATZ_WORT_MINDEST = 6
+BESCHREIBUNG_SATZENDE_MUSTER = re.compile(r"(?<!\d)[.!?](?:\s+(?=[A-ZÀ-ÖØ-Þ])|$)")
 
 
 def _wirkt_wie_ausformulierter_satz(segment):
@@ -1923,6 +1924,13 @@ def kuerze_beschreibung(text, max_laenge=BESCHREIBUNG_MAX_LAENGE):
     gekuerzter_text = ": ".join(segmente).strip().rstrip(" :;,")
     if gekuerzter_text != text:
         return gekuerzter_text
+    # Kein Doppelpunkt-Segment erkannt (z.B. reiner Fliesstext ohne
+    # "Kategorie: Teams:"-Struktur, nur durchgehende Saetze): auf den
+    # ersten vollstaendigen Satz kuerzen, falls der noch deutlich
+    # kompakter als der Gesamttext ist.
+    satzende = BESCHREIBUNG_SATZENDE_MUSTER.search(text)
+    if satzende and satzende.end() < len(text) and satzende.end() <= max_laenge:
+        return text[: satzende.end()].strip()
     if len(text) <= max_laenge:
         return text
     gekuerzt = text[:max_laenge].rsplit(" ", 1)[0]
