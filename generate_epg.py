@@ -1833,23 +1833,29 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
     ᴺᵒ ᴸⁱᵛᵉ" bei DYN PPV, generischer Kategorietext sonst) bleibt
     stehen, statt des rohen Platzhaltertexts."""
     if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
-        event_titel = formatiere_event_text(event_teil)
+        roh_segmente = [s.strip() for s in event_teil.split("|")]
+        roh_marker = roh_segmente[0].lower() if roh_segmente else ""
 
         dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        if dyn_ppv_next_match and roh_marker in EVENT_MARKER_ENDE:
+            # Kein fixer Abmoderationstext bei DYN PPV - stattdessen bleibt
+            # der beim Einlesen bereits gesetzte Fallback ("Dyn Sport (N)
+            # ᴺᵒ ᴸⁱᵛᵉ") unveraendert stehen. WICHTIG: real_daten["event_titel"]
+            # hier NICHT auf None ueberschreiben - das wuerde den Fallback
+            # loeschen und die Sendung faellt auf den generischen
+            # kategoriebasierten Zufallstext zurueck (Bug, August 2026
+            # behoben).
+            return True
+
+        event_titel = formatiere_event_text(event_teil)
+
         if dyn_ppv_next_match:
-            roh_segmente = [s.strip() for s in event_teil.split("|")]
-            roh_marker = roh_segmente[0].lower() if roh_segmente else ""
             if roh_marker in EVENT_MARKER_NEXT:
                 team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
                 event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
             elif roh_marker in EVENT_MARKER_LIVE:
                 team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
                 event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
-            elif roh_marker in EVENT_MARKER_ENDE:
-                # Kein fixer Abmoderationstext bei DYN PPV - stattdessen
-                # wie beim Leerlauf-Fall der bereits gesetzte Fallback
-                # ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ").
-                event_titel = None
 
         real_daten["event_titel"] = event_titel
         return True

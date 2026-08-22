@@ -259,6 +259,16 @@ bevor an der falschen Stelle gesucht wird.
   Event) faellt es auf den generischen Leerlauf-Text "Dyn Sport (N)
   ᴺᵒ ᴸⁱᵛᵉ" zurueck statt eines festen Abmoderationstexts - ENDED wird
   also wie Leerlauf behandelt, nicht wie ein eigenes Event.
+- **Bug August 2026 behoben:** `_live_event_uebernehmen()` setzte bei
+  ENDED den `event_titel` faelschlich auf `None` statt den beim
+  Einlesen bereits gesetzten Fallback ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ")
+  unveraendert zu lassen - der Kommentar im Code sagte zwar "Fallback
+  bleibt stehen", das tatsaechliche Verhalten loeschte ihn aber. Das
+  EPG-Raster zeigte dadurch bei ENDED faelschlich den generischen
+  kategoriebasierten Zufallstext (z.B. "Sportarena: Immer aktuell:
+  Sport auf DYN PPV 1") statt "Dyn Sport (1) ᴺᵒ ᴸⁱᵛᵉ". Jetzt verlaesst
+  die Funktion bei ENDED fruehzeitig, ohne `real_daten["event_titel"]`
+  zu ueberschreiben.
 - Komplett großgeschriebene Wörter im Event-Text werden normalisiert
   (z. B. "8K EXCLUSIVE" -> "8K Exclusive"), damit es nicht "schreit".
 - Kategorie-Erkennung (`epg_lib.py`, `standard_beschreibung()`) nutzt
