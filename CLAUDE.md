@@ -186,6 +186,37 @@ manuellem Trigger.
 - Betrifft automatisch ALLE Sender mit einer der obigen echten Quellen,
   keine sender.txt-Aenderung noetig.
 
+## WICHTIG: Zwei komplett getrennte DYN-Sport-Kategorien - nicht verwechseln!
+
+Es gibt ZWEI unabhaengige "DYN Sport"-Kanal-Gruppen im Repo - bei
+Fragen/Fixes zu "DYN Sport" IMMER zuerst klaeren, welche der beiden
+gemeint ist, statt anzunehmen:
+
+1. **DYN PPV 1-50** (`NAME:`-Zeilen in `sender.txt`, Kanal-ID/Kern
+   z.B. "DE: DYN PPV 3"): Bekommt Sendungstitel aus dem ECHTEN,
+   sich aendernden Live-Kanalnamen der eigenen IPTV-Playlist des
+   Nutzers (`IPTV_M3U_PROVIDER_URL`-Secret, `m3u_playlist_abgleichen()`).
+   Deckt ALLE Sportarten ab, die der Anbieter selbst im Kanalnamen
+   nennt - keine Einschraenkung auf bestimmte Ligen/Sportarten.
+   Siehe Abschnitt "DYN PPV / Live-Kanalname-Mechanismus" unten.
+2. **DYN PPV 1-20** (fest im Code als `DE| DYN PPV {i} HD`, NICHT in
+   `sender.txt`): Bekommt Sendungstitel aus der oeffentlichen DYN-API
+   (`streaming.contentdesk.sport`), komplett unabhaengig von der
+   Playlist des Nutzers. Deckt bisher nur Handball/Tischtennis
+   (`/public/live-productions`) sowie zusaetzlich Basketball
+   (`/public/competitions/{id}/matches`, nur NCAA College Basketball/
+   easyCredit BBL/Netto BBL Pokal - explizit auf Nutzerwunsch NUR
+   diese drei, keine weiteren Sportarten/Wettbewerbe) ab. Siehe
+   Abschnitt "DYN PPV: Echte API-Daten (1-20, getrennt von den
+   Playlist-Sendern 1-50)" unten.
+
+Beide Gruppen nutzen zufaellig denselben Namen "DYN PPV" und liegen im
+selben Zahlenbereich (1-20 bzw. 1-50) - das ist die Hauptquelle fuer
+Missverstaendnisse. Meldet der Nutzer "kein Event, nur Platzhalter",
+IMMER nachfragen bzw. anhand des Kontexts (Playlist-Kanalname sichtbar
+vs. reine EPG-Beobachtung) klaeren, welche der beiden gemeint ist,
+bevor an der falschen Stelle gesucht wird.
+
 ## DYN PPV / Live-Kanalname-Mechanismus
 
 - DYN PPV 1-50 und andere `NAME:`-Sender bekommen ihren Sendungstitel
@@ -243,6 +274,40 @@ manuellem Trigger.
   automatisch beide Konventionen durch (`kern_und_event_extrahieren()` /
   `kern_vorne_und_event_extrahieren()`), bevor er den Kanal als
   "kein Treffer" überspringt.
+
+## DYN PPV: Echte API-Daten (1-20, getrennt von den Playlist-Sendern 1-50)
+
+- **Nicht zu verwechseln mit DYN PPV 1-50 oben** (siehe Warnhinweis
+  weiter oben) - diese 20 Kanaele (`DE| DYN PPV 1 HD` bis `DE| DYN PPV
+  20 HD`) sind fest im Code definiert, stehen NICHT in `sender.txt` und
+  bekommen ihre Sendungstitel unabhaengig von der Nutzer-Playlist direkt
+  aus der oeffentlichen DYN-API (`streaming.contentdesk.sport`).
+- Haupt-Endpunkt `/public/live-productions` liefert bisher nur Handball
+  und Tischtennis - andere Sportarten (Basketball, Volleyball,
+  Feldhockey) fehlen dort komplett, auch wenn DYN sie tatsaechlich
+  streamt (z. B. Sonderwettbewerbe wie der "Rexel Super Cup" haben oft
+  keine "liveProduction"-Verknuepfung und tauchen deshalb dort nicht
+  auf, obwohl das Spiel laut `/public/competitions/{id}/matches`
+  existiert und live laeuft).
+- Auf ausdruecklichen Nutzerwunsch wird NUR Basketball zusaetzlich
+  nachgeladen (August 2026) - ueber `/public/competitions/{id}/matches`
+  fuer genau drei Wettbewerbe: NCAA College Basketball, easyCredit BBL,
+  Netto BBL Pokal (Competition-IDs siehe `DYN_BASKETBALL_COMPETITION_IDS`
+  in `generate_epg.py`). KEINE weiteren Sportarten/Wettbewerbe (kein
+  Volleyball, Feldhockey, weitere Handball-/Tischtennis-Wettbewerbe) -
+  das will der Nutzer bewusst nicht.
+- Diese Competitions-API liefert keine Endzeit, nur den Anstoss - es
+  wird pauschal eine 2h-Spieldauer angenommen (`DYN_BASKETBALL_SPIELDAUER`).
+  Nur Spiele in den naechsten 14 Tagen werden uebernommen
+  (`DYN_BASKETBALL_VORSCHAU_TAGE`), da die API teils Spielplaene fuer
+  Monate im Voraus liefert.
+- Beide API-Quellen (Live-Productions + Basketball-Competitions)
+  schreiben rundenweise (Round-Robin) auf dieselben 20 Kanaele, unter
+  Beachtung von `dyn_synth_api_fenster` fuer die Leerzeiten-Luecken-
+  Fuellung (siehe DYN-Leerzeiten-Abschnitt in `generate_epg.py`).
+  Degradiert bei jedem Fehler (Netzwerk, einzelner Wettbewerb nicht
+  erreichbar) graceful auf den generischen Platzhalter fuer die
+  betroffenen Kanaele/Wettbewerbe - kein Abbruch des gesamten Laufs.
 
 ## TELEMACH:-Sender (echte Programmdaten, opt-in)
 

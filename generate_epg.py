@@ -1697,6 +1697,79 @@ except Exception as e:
     print("DYN Fehler:", e)
 
 # ==========================================================
+# DYN PPV: ZUSAETZLICH BASKETBALL (Competitions-API)
+# ==========================================================
+# Der /live-productions-Endpunkt oben deckt nur Handball und
+# Tischtennis ab - Basketball fehlt dort komplett, obwohl die Spiele
+# laut /public/competitions/{id}/matches durchaus existieren (nur ohne
+# "liveProduction"-Verknuepfung, z.B. bei Sonderwettbewerben). Auf
+# ausdruecklichen Nutzerwunsch wird HIER zusaetzlich NUR Basketball
+# nachgeladen - kein Volleyball/Hockey/weitere Handball-/Tischtennis-
+# Wettbewerbe. Jeder Wettbewerb wird einzeln abgefragt; ein Fehler bei
+# einem einzelnen Wettbewerb ueberspringt nur diesen, kein Abbruch der
+# gesamten DYN-Verarbeitung.
+DYN_BASKETBALL_COMPETITION_IDS = {
+    "Qoi9d4XUraPLu9v9HzL8fk": "NCAA College Basketball",
+    "JnahjYBEhsfer9zCQbqicd": "easyCredit BBL",
+    "UuDL3pJ5GAHqnLmfu6kQov": "Netto BBL Pokal",
+}
+# Diese API liefert keine Endzeit, nur den Anstoss - eine
+# durchschnittliche Basketball-Spieldauer (inkl. Pausen/Verlaengerung)
+# wird stattdessen fest angenommen.
+DYN_BASKETBALL_SPIELDAUER = timedelta(hours=2)
+# Nur nahe Zukunft uebernehmen (die Competitions-API liefert teils
+# Spielplaene fuer Monate im Voraus) - konsistent mit dem sonstigen
+# Vorschau-Horizont dieses Skripts, statt hunderter kaum relevanter
+# Eintraege weit in der Zukunft.
+DYN_BASKETBALL_VORSCHAU_TAGE = 14
+
+basketball_kanal_nummer = 1
+jetzt_utc = datetime.now(timezone.utc)
+
+for competition_id, competition_name in DYN_BASKETBALL_COMPETITION_IDS.items():
+    try:
+        resp = requests.get(
+            f"https://streaming.contentdesk.sport/api/public/competitions/{competition_id}/matches",
+            timeout=DYN_API_TIMEOUT_SEKUNDEN,
+        )
+        resp.raise_for_status()
+        matches = resp.json().get("items", [])
+    except Exception as e:
+        print(f"DYN Basketball ({competition_name}) Fehler:", e)
+        continue
+
+    for match in matches:
+        start = match.get("scheduledAt")
+        if not start:
+            continue
+
+        start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
+        if not (jetzt_utc <= start_dt <= jetzt_utc + timedelta(days=DYN_BASKETBALL_VORSCHAU_TAGE)):
+            continue
+        ende_dt = start_dt + DYN_BASKETBALL_SPIELDAUER
+
+        heim = (match.get("homeClub") or {}).get("name", "").strip()
+        gast = (match.get("awayClub") or {}).get("name", "").strip()
+        titel = f"{heim} - {gast}".strip(" -") if (heim or gast) else competition_name
+
+        startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
+        endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
+        kanal = f"DE| DYN PPV {basketball_kanal_nummer} HD"
+
+        xml_teile.append(
+            f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal)}">'
+            f' <title>{escape(titel)}</title> <desc>{escape(titel)}</desc> </programme> '
+        )
+
+        dyn_synth_api_fenster.setdefault(basketball_kanal_nummer, []).append(
+            (start_dt, ende_dt)
+        )
+
+        basketball_kanal_nummer += 1
+        if basketball_kanal_nummer > DYN_PPV_ANZAHL:
+            basketball_kanal_nummer = 1
+
+# ==========================================================
 # LIVE-KANALNAMEN VOM EPG-ANBIETER (alle NAME:-Sender, z.B. DYN PPV)
 # ==========================================================
 #
