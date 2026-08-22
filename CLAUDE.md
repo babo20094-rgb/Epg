@@ -695,3 +695,35 @@ eingetragen wird.
 - Degradiert bei jedem Fehler (Netzwerk, kein Kanal-Treffer, keine
   Daten) graceful auf die normale generische EPG-Generierung, kein
   Absturz moeglich.
+
+## meine_logos.txt (Sendername-zu-Logo-Referenz, noch nicht aktiv genutzt)
+
+- Der Nutzer hat eine grosse XMLTV-EPG-Datei eines Drittanbieters
+  (generiert mit "IPTVEditor 4", ~205 MB entpackt, ~13.500
+  Kanaele, ~514.000 Sendungseintraege) hochgeladen. Ein Teil der Kanaele
+  darin hat echte Sendungsdaten (z. B. RTL Crime mit echten Episoden-
+  titeln/Beschreibungen), ein Teil ist nur Dummy-Platzhalter (Kanalname
+  als Titel wiederholt).
+- Daraus wurde NUR die Sendername-zu-Logo-Zuordnung extrahiert (Format
+  `Sendername|Logo-URL`, exakt wie die Playlist-Namenskonvention des
+  Nutzers, z. B. `DE| 3SAT HD|https://logo.m3uassets.com/3sat.png`) -
+  gefiltert auf die Laender DE und EXYU (BA/RS/HR/ME/SI/MK, siehe
+  `EXYU_LAENDER`/`SI_LAENDER`/`MK_LAENDER` in `epg_lib.py`), da der
+  Nutzer nur diese beiden Gruppen wollte. Liegt als
+  `logos_bei_bedarf/meine_logos.txt` (eigener Ordner, bewusst getrennt
+  von `logos/` mit den echten, selbst erstellten PNG-Logo-Dateien -
+  diese Datei enthaelt nur Text/Links, keine Bilder) (1975 Zeilen:
+  969 DE, 1006 EXYU).
+- **WICHTIG:** Diese Datei ist bisher nur eine reine Referenz/
+  Nachschlagewerk - sie ist NICHT mit `generate_epg.py` verknuepft und
+  wird beim EPG-Erzeugen noch nicht automatisch genutzt (weder fuer
+  Logos noch fuer Sendungsdaten). Erst auf expliziten Nutzerwunsch
+  waere eine Einbindung zu bauen (z. B. als zusaetzliche automatische
+  Logo-Quelle fuer Sender ohne eigenes Logo, aehnlich der Tubi-TV-
+  Icon-Uebernahme).
+- Die vollstaendige, ungefilterte Namensliste aller ~370 Laender-/
+  Anbieter-Praefixe (inkl. weiterer dynamischer PPV-Kanaele wie
+  "DISNEY+ PPV"/"CH: SFL PPV" nach demselben NEXT/LIVE/ENDED-Muster wie
+  DYN PPV) wurde dem Nutzer nur als Chat-Datei geschickt, NICHT ins
+  Repo committet (Datenschutz/Uebersicht - der Nutzer wollte zunaechst
+  nur DE+EXYU dauerhaft im Repo).
