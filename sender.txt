@@ -1,3 +1,14 @@
+##### UK| EPL PREMIER LEAGUE+ PPV #####
+NAME:Premier League+ 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_1.png
+NAME:Premier League+ 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_2.png
+NAME:Premier League+ 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_3.png
+NAME:Premier League+ 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_4.png
+NAME:Premier League+ 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_5.png
+NAME:Premier League+ 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_6.png
+NAME:Premier League+ 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_7.png
+NAME:Premier League+ 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_8.png
+NAME:Premier League+ 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_9.png
+NAME:Premier League+ 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_10.png
 ##### UK| SPORTS #####
 DAZN:ES|La Liga|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 ##### UK| WORLD SPORTS #####

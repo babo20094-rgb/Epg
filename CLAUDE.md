@@ -194,9 +194,21 @@ manuellem Trigger.
   optional), statt aus einem geratenen API-Round-Robin.
 - `m3u_playlist_abgleichen()` liest die `#EXTINF`-Anzeigenamen der
   M3U-Playlist und matcht sie ueber den Kernnamen gegen die `NAME:`-Sender
-  aus `sender.txt`. Ohne gesetztes `IPTV_M3U_PROVIDER_URL`-Secret bleibt
-  es bei den generischen Kategorie-Platzhaltertexten (siehe
-  `epg_lib.py`).
+  aus `sender.txt`.
+- **Leerlauf-Standardtext (WICHTIG, August 2026 behoben):** JEDER
+  `NAME:`-Sender ohne erkanntes Live-Event (kein gesetztes
+  `IPTV_M3U_PROVIDER_URL`-Secret, kein Playlist-Treffer, oder schlicht
+  kein bekanntes Anbieter-Muster wie DYN PPV/DirtVision/Flo Racing/FA
+  Player/Super League Plus) zeigt automatisch "`<Kurzname>` ᴸⁱᵛᵉ" -
+  EXAKT dieselbe Konvention wie bei normalen `Land|Sender|Beschreibung
+  ᴸⁱᵛᵉ|Logo`-Zeilen ohne echte Quelle. Frueher fiel ein `NAME:`-Sender
+  ohne eines der hartcodierten Anbieter-Muster (z. B. neu angelegte
+  Sender wie "Premier League+ 1") stattdessen auf den generischen,
+  kategoriebasierten Zufallstext zurueck (z. B. "Sport den ganzen Tag
+  auf Premier League+ 1" mit wechselnden Sport-Phrasen) - das war ein
+  Bug, kein gewolltes Verhalten, und wurde durch einen zentralen
+  Catch-all in `generate_epg.py` behoben. Gilt automatisch fuer JEDEN
+  neuen `NAME:`-Sender, keine Sonderbehandlung pro Anbieter noetig.
 - Frueher gab es zusaetzlich einen Fallback auf eine separate
   Anbieter-Datei (myepg.top, Secrets `DYN_EPG_PROVIDER_URL`/`_EU`) - der
   wurde entfernt, da die eigene Playlist vollstaendiger und aktueller

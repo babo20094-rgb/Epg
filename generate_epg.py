@@ -601,6 +601,17 @@ for zeile in zeilen:
             if super_league_idle_match:
                 event_titel = f"Super League Plus ({super_league_idle_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
 
+        # Alle uebrigen NAME:-Sender ohne bekanntes Anbieter-Muster
+        # (z.B. "Premier League+ 1", kein Pipe-/Event-Mechanismus
+        # vorhanden) UND ohne erkanntes Event: statt der generischen,
+        # kategoriebasierten Beschreibung (s.o.) wird "<Kurzname> ᴸⁱᵛᵉ"
+        # angezeigt - gleiche Konvention wie bei normalen sender.txt-
+        # Zeilen ohne echte Quelle (siehe CLAUDE.md), nur eben fuer
+        # Sender, deren exakter Playlist-Name per NAME:-Format
+        # uebernommen wird.
+        if event_titel is None:
+            event_titel = f"{kurzname} ᴸⁱᵛᵉ"
+
         sender_daten.append({
             "kanal": voller_name,
             "land": land,
