@@ -2166,25 +2166,25 @@ SKY:DE|SKY SPORT AUSTRIA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Ep
 SKY:DE|SKY SPORT AUSTRIA 6 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_6.png
 SKY:DE|SKY SPORT AUSTRIA 7 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_7.png
 SKY:DE|SKY SPORT AUSTRIA 7 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_7.png
-SKY:DE|SKY BUNDESLIGA 1 HD|
-SKY:DE|SKY BUNDESLIGA 2 HD|
-SKY:DE|SKY BUNDESLIGA 3 HD|
-SKY:DE|SKY BUNDESLIGA 4 HD|
-SKY:DE|SKY BUNDESLIGA 5 HD|
-SKY:DE|SKY BUNDESLIGA 7 HD|
-SKY:DE|SKY BUNDESLIGA 8 HD|
-SKY:DE|SKY BUNDESLIGA 9 HD|
-SKY:DE|SKY BUNDESLIGA 10 HD|
-SKY:DE|SKY BUNDESLIGA 1 FHD|
-SKY:DE|SKY BUNDESLIGA 2 FHD|
-SKY:DE|SKY BUNDESLIGA 3 FHD|
-SKY:DE|SKY BUNDESLIGA 4 FHD|
-SKY:DE|SKY BUNDESLIGA 5 FHD|
-SKY:DE|SKY BUNDESLIGA 6 FHD|
-SKY:DE|SKY BUNDESLIGA 7 FHD|
-SKY:DE|SKY BUNDESLIGA 8 FHD|
-SKY:DE|SKY BUNDESLIGA 9 FHD|
-SKY:DE|SKY BUNDESLIGA 10 FHD|
+SKY:DE|SKY BUNDESLIGA 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_1.png
+SKY:DE|SKY BUNDESLIGA 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_2.png
+SKY:DE|SKY BUNDESLIGA 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_3.png
+SKY:DE|SKY BUNDESLIGA 4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_4.png
+SKY:DE|SKY BUNDESLIGA 5 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_5.png
+SKY:DE|SKY BUNDESLIGA 7 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_7.png
+SKY:DE|SKY BUNDESLIGA 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_8.png
+SKY:DE|SKY BUNDESLIGA 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_9.png
+SKY:DE|SKY BUNDESLIGA 10 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_10.png
+SKY:DE|SKY BUNDESLIGA 1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_1.png
+SKY:DE|SKY BUNDESLIGA 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_2.png
+SKY:DE|SKY BUNDESLIGA 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_3.png
+SKY:DE|SKY BUNDESLIGA 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_4.png
+SKY:DE|SKY BUNDESLIGA 5 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_5.png
+SKY:DE|SKY BUNDESLIGA 6 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_6.png
+SKY:DE|SKY BUNDESLIGA 7 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_7.png
+SKY:DE|SKY BUNDESLIGA 8 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_8.png
+SKY:DE|SKY BUNDESLIGA 9 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_9.png
+SKY:DE|SKY BUNDESLIGA 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_10.png
 SKY:DE|SKY SPORT BUNDESLIGA 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_1.png
 SKY:DE|SKY SPORT BUNDESLIGA 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_2.png
 SKY:DE|SKY SPORT BUNDESLIGA 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_3.png
@@ -2206,4 +2206,4 @@ SKY:DE|SKY SPORT BUNDESLIGA 8 FHD|https://raw.githubusercontent.com/babo20094-rg
 SKY:DE|SKY SPORT BUNDESLIGA 9 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_9.png
 SKY:DE|SKY SPORT BUNDESLIGA 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_10.png
 SKY:DE|DAZN Lacrosse TV|
-SKY:DE|SKY BUNDESLIGA 6 HD|
+SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_6.png
