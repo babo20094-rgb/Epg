@@ -981,10 +981,10 @@ DE|SKY GO FILME 48 FHD|Sky Go Filme 48 FHD ᴸⁱᵛᵉ|https://championstream.d
 DE|SKY GO FILME 49 FHD|Sky Go Filme 49 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 50 FHD|Sky Go Filme 50 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 #DE| PREMIUM PLAY 40
-DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
-DE|FILME 2022 2 4K|Filme 2022 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
-DE|FILME 2022 3 4K|Filme 2022 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
-DE|FILME 2022 4 4K|Filme 2022 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffd60a/png?text=FILME+2022&font=montserrat
+DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_1.png
+DE|FILME 2022 2 4K|Filme 2022 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_2.png
+DE|FILME 2022 3 4K|Filme 2022 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_3.png
+DE|FILME 2022 4 4K|Filme 2022 4 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_4.png
 DE|NETFLIX 1 4K|Netflix 1 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
 DE|NETFLIX 2 4K|Netflix 2 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
 DE|NETFLIX 3 4K|Netflix 3 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
@@ -994,33 +994,33 @@ DE|NETFLIX 6 4K|Netflix 6 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512
 DE|NETFLIX 7 4K|Netflix 7 4K ᴸⁱᵛᵉ|https://cdn-icons-png.flaticon.com/512/732/732228.png
 DE|PRIME 1 4K|Prime 1 4K ᴸⁱᵛᵉ|https://img.icons8.com/color/512/amazon-prime-video.png
 DE|PRIME 2 4K|Prime 2 4K ᴸⁱᵛᵉ|https://img.icons8.com/color/512/amazon-prime-video.png
-DE|ACTION 1 4K|Action 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
-DE|ACTION 2 4K|Action 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
-DE|ACTION 3 4K|Action 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
-DE|ACTION 4 4K|Action 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff6a00/png?text=ACTION&font=montserrat
-DE|POLICIER 1 4K|Policier 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2e9bff/png?text=POLICIER&font=montserrat
-DE|POLICIER 2 4K|Policier 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2e9bff/png?text=POLICIER&font=montserrat
-DE|HORROR 1 4K|Horror 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff2b2b/png?text=HORROR&font=montserrat
-DE|HORROR 2 4K|Horror 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff2b2b/png?text=HORROR&font=montserrat
-DE|HORROR 3 4K|Horror 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff2b2b/png?text=HORROR&font=montserrat
-DE|COMEDY 1 4K|Comedy 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffe135/png?text=COMEDY&font=montserrat
-DE|COMEDY 2 4K|Comedy 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffe135/png?text=COMEDY&font=montserrat
-DE|COMEDY 3 4K|Comedy 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ffe135/png?text=COMEDY&font=montserrat
-DE|DOCU 1 4K|Docu 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
-DE|DOCU 2 4K|Docu 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
-DE|DOCU 3 4K|Docu 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
-DE|DOCU 4 4K|Docu 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/2bd9a3/png?text=DOCU&font=montserrat
-DE|KIDS 1 4K|Kids 1 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 2 4K|Kids 2 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 3 4K|Kids 3 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 4 4K|Kids 4 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 5 4K|Kids 5 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 6 4K|Kids 6 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 7 4K|Kids 7 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 8 4K|Kids 8 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 9 4K|Kids 9 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 10 4K|Kids 10 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
-DE|KIDS 11 4K|Kids 11 4K ᴸⁱᵛᵉ|https://placehold.co/400x400/1a1a1a/ff5fa2/png?text=KIDS&font=montserrat
+DE|ACTION 1 4K|Action 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/action/action_1.png
+DE|ACTION 2 4K|Action 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/action/action_2.png
+DE|ACTION 3 4K|Action 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/action/action_3.png
+DE|ACTION 4 4K|Action 4 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/action/action_4.png
+DE|POLICIER 1 4K|Policier 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/policier/policier_1.png
+DE|POLICIER 2 4K|Policier 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/policier/policier_2.png
+DE|HORROR 1 4K|Horror 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/horror/horror_1.png
+DE|HORROR 2 4K|Horror 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/horror/horror_2.png
+DE|HORROR 3 4K|Horror 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/horror/horror_3.png
+DE|COMEDY 1 4K|Comedy 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/comedy/comedy_1.png
+DE|COMEDY 2 4K|Comedy 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/comedy/comedy_2.png
+DE|COMEDY 3 4K|Comedy 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/comedy/comedy_3.png
+DE|DOCU 1 4K|Docu 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/docu/docu_1.png
+DE|DOCU 2 4K|Docu 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/docu/docu_2.png
+DE|DOCU 3 4K|Docu 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/docu/docu_3.png
+DE|DOCU 4 4K|Docu 4 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/docu/docu_4.png
+DE|KIDS 1 4K|Kids 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_1.png
+DE|KIDS 2 4K|Kids 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_2.png
+DE|KIDS 3 4K|Kids 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_3.png
+DE|KIDS 4 4K|Kids 4 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_4.png
+DE|KIDS 5 4K|Kids 5 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_5.png
+DE|KIDS 6 4K|Kids 6 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_6.png
+DE|KIDS 7 4K|Kids 7 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_7.png
+DE|KIDS 8 4K|Kids 8 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_8.png
+DE|KIDS 9 4K|Kids 9 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_9.png
+DE|KIDS 10 4K|Kids 10 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_10.png
+DE|KIDS 11 4K|Kids 11 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kids/kids_11.png
 #DE| PLEX TV
 DE|PLEX BOX-OFFICE 1|Plex Box-Office (1) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_box_office_1.png
 DE|PLEX BOX-OFFICE 2|Plex Box-Office (2) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_box_office_2.png
