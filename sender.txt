@@ -996,8 +996,8 @@ DE|SKY GO FILME 50 FHD|Sky Go Filme 50 FHD ᴸⁱᵛᵉ|https://championstream.d
 #DE| SKY GO (KINO/WOW ENTERTAINMENT)
 DE|Sky Cinema Highlights FHD||https://logo.m3uassets.com/skycinemahighlights.png
 DE|Sky Cinema Highlights HD||https://logo.m3uassets.com/skycinemahighlights.png
-SKY:DE|Sky Highlights FHD|
-SKY:DE|Sky Highlights HD|
+SKY:DE|Sky Highlights FHD|https://logo.m3uassets.com/skycinemahighlights.png
+SKY:DE|Sky Highlights HD|https://logo.m3uassets.com/skycinemahighlights.png
 DE|Sky Cinema Highlights HEVC||https://logo.m3uassets.com/skycinemahighlights.png
 WOW|CARTOON NETWORK ᴴᴰ ◉|
 #DE| PREMIUM PLAY 40
