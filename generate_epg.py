@@ -36,6 +36,7 @@ from tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
 from hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
 from samsungtv_epg import samsungtv_kanal_finden, samsungtv_hole_programme
+from deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 
 
@@ -134,7 +135,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle"],
     "siol": ["siol_intervalle"],
-    "plutotv": ["plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle"],
     "tubi": ["tubi_intervalle"],
 }
 
@@ -1961,6 +1962,7 @@ TVPASSPORT_TAGE = 2
 MTS_TAGE = 2
 MOJMAXTV_TAGE = 2
 SIOL_TAGE = 2
+DESWIRD_TAGE = 3
 PLUTOTV_TAGE = 2
 TVMOVIE_TAGE = 1
 SAMSUNGTV_TAGE = 1
@@ -2449,16 +2451,38 @@ for daten in siol_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# PLUTOTV / TVMOVIE / HOERZU / SAMSUNGTV: automatischer Abgleich fuer
-# alle DE-Sender (siehe plutotv_epg.py, tvmovie_epg.py, hoerzu_epg.py,
-# samsungtv_epg.py). Kein eigenes Praefix noetig, einzige automatischen
-# Quellen fuer DE - Pluto TV zuerst, tvmovie.de als zweiter Versuch,
-# hoerzu.de als dritter Versuch, Samsung TV Plus als vierter Versuch,
-# jeweils nur wenn die vorherige(n) Quelle(n) nichts gefunden haben.
-# Ohne jegliche DE-Zeile in sender.txt passiert hier gar nichts.
+# DESWIRD / PLUTOTV / TVMOVIE / HOERZU / SAMSUNGTV: automatischer
+# Abgleich fuer alle DE-Sender (siehe deswird_epg.py, plutotv_epg.py,
+# tvmovie_epg.py, hoerzu_epg.py, samsungtv_epg.py). Kein eigenes
+# Praefix noetig, einzige automatischen Quellen fuer DE - deswird.org
+# als primaere Quelle (beste Abdeckung/Qualitaet, mehrere Tage im
+# Voraus), Pluto TV als zweiter Versuch, tvmovie.de als dritter
+# Versuch, hoerzu.de als vierter Versuch, Samsung TV Plus als fuenfter
+# Versuch, jeweils nur wenn die vorherige(n) Quelle(n) nichts gefunden
+# haben. Ohne jegliche DE-Zeile in sender.txt passiert hier gar nichts.
 # ==========================================================
 
 for daten in plutotv_sender:
+    programme = []
+    try:
+        site_id = deswird_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = deswird_hole_programme(site_id, DESWIRD_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["deswird_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        print(f"Deswird-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+        continue
+
+    # Pluto TV als zweiter Versuch fuer DE-Sender (siehe
+    # plutotv_epg.py), nur wenn deswird.org nichts gefunden hat.
     programme = []
     try:
         site_id = plutotv_kanal_finden(daten["sender"])
@@ -2478,8 +2502,9 @@ for daten in plutotv_sender:
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
-        # tvmovie.de als zweiter Versuch fuer DE-Sender (siehe
-        # tvmovie_epg.py), nur wenn Pluto TV nichts gefunden hat.
+        # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
+        # tvmovie_epg.py), nur wenn weder deswird.org noch Pluto TV
+        # etwas gefunden haben.
         tvmovie_programme = []
         try:
             tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
@@ -2494,12 +2519,12 @@ for daten in plutotv_sender:
         daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
 
         if tvmovie_programme:
-            print(f"TvMovie-EPG: {len(tvmovie_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV-Fallback).")
+            print(f"TvMovie-EPG: {len(tvmovie_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV-Fallback).")
             _schreibe_echte_programme(daten, tvmovie_programme)
         else:
-            # hoerzu.de als dritter Versuch fuer DE-Sender (siehe
-            # hoerzu_epg.py), nur wenn weder Pluto TV noch tvmovie.de
-            # etwas gefunden haben.
+            # hoerzu.de als vierter Versuch fuer DE-Sender (siehe
+            # hoerzu_epg.py), nur wenn weder deswird.org noch Pluto TV
+            # noch tvmovie.de etwas gefunden haben.
             hoerzu_programme = []
             try:
                 hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
@@ -2514,12 +2539,13 @@ for daten in plutotv_sender:
             daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
 
             if hoerzu_programme:
-                print(f"Hoerzu-EPG: {len(hoerzu_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV/TvMovie-Fallback).")
+                print(f"Hoerzu-EPG: {len(hoerzu_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV/TvMovie-Fallback).")
                 _schreibe_echte_programme(daten, hoerzu_programme)
             else:
-                # Samsung TV Plus als vierter Versuch fuer DE-Sender
-                # (siehe samsungtv_epg.py), nur wenn weder Pluto TV noch
-                # tvmovie.de noch hoerzu.de etwas gefunden haben.
+                # Samsung TV Plus als fuenfter Versuch fuer DE-Sender
+                # (siehe samsungtv_epg.py), nur wenn weder deswird.org
+                # noch Pluto TV noch tvmovie.de noch hoerzu.de etwas
+                # gefunden haben.
                 samsungtv_programme = []
                 try:
                     samsungtv_site_id = samsungtv_kanal_finden(daten["sender"])
@@ -2534,7 +2560,7 @@ for daten in plutotv_sender:
                 daten["samsungtv_intervalle"] = [(p["start"], p["stop"]) for p in samsungtv_programme]
 
                 if samsungtv_programme:
-                    print(f"SamsungTV-EPG: {len(samsungtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV/TvMovie/Hoerzu-Fallback).")
+                    print(f"SamsungTV-EPG: {len(samsungtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV/TvMovie/Hoerzu-Fallback).")
                     _schreibe_echte_programme(daten, samsungtv_programme)
 
 # ==========================================================
