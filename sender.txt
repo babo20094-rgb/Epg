@@ -30,6 +30,7 @@ US| FLING|Fling ᴸⁱᵛᵉ|
 US| EROS|Eros ᴸⁱᵛᵉ|
 US| DEKKOO|Dekkoo ᴸⁱᵛᵉ|
 ##### UK CHAMPIONSHIP #####
+|CHAMP | Wrexham|Wrexham ᴸⁱᵛᵉ|
 |CHAMP | Burnley|Burnley ᴸⁱᵛᵉ|
 |CHAMP | Wycombe|Wycombe ᴸⁱᵛᵉ|
 |CHAMP | Wolverhampton Wanderers|Wolverhampton Wanderers ᴸⁱᵛᵉ|
