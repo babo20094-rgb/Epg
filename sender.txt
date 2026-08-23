@@ -993,6 +993,12 @@ DE|SKY GO FILME 47 FHD|Sky Go Filme 47 FHD ᴸⁱᵛᵉ|https://championstream.d
 DE|SKY GO FILME 48 FHD|Sky Go Filme 48 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 49 FHD|Sky Go Filme 49 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 50 FHD|Sky Go Filme 50 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
+#DE| SKY GO
+DE|Sky Cinema Highlights FHD|
+DE|Sky Cinema Highlights HD|
+SKY:DE|Sky Highlights FHD|
+SKY:DE|Sky Highlights HD|
+DE|Sky Cinema Highlights HEVC|
 #DE| PREMIUM PLAY 40
 DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_1.png
 DE|FILME 2022 2 4K|Filme 2022 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_2.png
@@ -1138,11 +1144,6 @@ UK|PL Replay 6 HD|
 UK|PL Replay 7 HD|
 UK|PL Replay 8 HD|
 UK|PL Replay 9 HD|
-DE|Sky Cinema Special FHD|
-DE|Sky Cinema Special HD|
-DE|Sky Highlights FHD|
-DE|Sky Highlights HD|
-DE|Sky Cinema Special HEVC|
 DE|Hr HD Hessischer Rundfunk|
 DE|UHD1 by Astra|
 UK|R&B Soul-Direkt HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
@@ -1192,8 +1193,8 @@ DE|Nat Geo Wild FHD|
 DE|Nat Geo Wild HD|
 DE|Sony Channel FHD|
 DE|Sony AXN HD|
-DE|Sky Cinema Premieren FHD|
-DE|Sky Cinema Premieren HD|
+SKY:DE|Sky Cinema Premieren FHD|
+SKY:DE|Sky Cinema Premieren HD|
 JOYN|Serienklassiker ᴿᴬᵂ|
 ##### DE| JOYN TV #####
 JOYN|SR ᴿᴬᵂ|
