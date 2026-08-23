@@ -35,6 +35,7 @@ from tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
 from tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
 from hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
+from samsungtv_epg import samsungtv_kanal_finden, samsungtv_hole_programme
 from tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 
 
@@ -133,7 +134,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle"],
     "siol": ["siol_intervalle"],
-    "plutotv": ["plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle"],
+    "plutotv": ["plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle"],
     "tubi": ["tubi_intervalle"],
 }
 
@@ -1962,6 +1963,7 @@ MOJMAXTV_TAGE = 2
 SIOL_TAGE = 2
 PLUTOTV_TAGE = 2
 TVMOVIE_TAGE = 1
+SAMSUNGTV_TAGE = 1
 TUBI_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
@@ -2447,10 +2449,11 @@ for daten in siol_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# PLUTOTV / TVMOVIE / HOERZU: automatischer Abgleich fuer alle DE-Sender
-# (siehe plutotv_epg.py, tvmovie_epg.py, hoerzu_epg.py). Kein eigenes
-# Praefix noetig, einzige automatischen Quellen fuer DE - Pluto TV
-# zuerst, tvmovie.de als zweiter Versuch, hoerzu.de als dritter Versuch,
+# PLUTOTV / TVMOVIE / HOERZU / SAMSUNGTV: automatischer Abgleich fuer
+# alle DE-Sender (siehe plutotv_epg.py, tvmovie_epg.py, hoerzu_epg.py,
+# samsungtv_epg.py). Kein eigenes Praefix noetig, einzige automatischen
+# Quellen fuer DE - Pluto TV zuerst, tvmovie.de als zweiter Versuch,
+# hoerzu.de als dritter Versuch, Samsung TV Plus als vierter Versuch,
 # jeweils nur wenn die vorherige(n) Quelle(n) nichts gefunden haben.
 # Ohne jegliche DE-Zeile in sender.txt passiert hier gar nichts.
 # ==========================================================
@@ -2513,6 +2516,26 @@ for daten in plutotv_sender:
             if hoerzu_programme:
                 print(f"Hoerzu-EPG: {len(hoerzu_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV/TvMovie-Fallback).")
                 _schreibe_echte_programme(daten, hoerzu_programme)
+            else:
+                # Samsung TV Plus als vierter Versuch fuer DE-Sender
+                # (siehe samsungtv_epg.py), nur wenn weder Pluto TV noch
+                # tvmovie.de noch hoerzu.de etwas gefunden haben.
+                samsungtv_programme = []
+                try:
+                    samsungtv_site_id = samsungtv_kanal_finden(daten["sender"])
+                    if samsungtv_site_id is not None:
+                        samsungtv_programme = samsungtv_hole_programme(samsungtv_site_id, SAMSUNGTV_TAGE)
+                    else:
+                        pass  # log unterdrueckt: keine echten Programmdaten
+                except Exception as e:
+                    pass  # log unterdrueckt: keine echten Programmdaten
+                    samsungtv_programme = []
+
+                daten["samsungtv_intervalle"] = [(p["start"], p["stop"]) for p in samsungtv_programme]
+
+                if samsungtv_programme:
+                    print(f"SamsungTV-EPG: {len(samsungtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (PlutoTV/TvMovie/Hoerzu-Fallback).")
+                    _schreibe_echte_programme(daten, samsungtv_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
