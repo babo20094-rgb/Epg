@@ -618,13 +618,30 @@ bevor an der falschen Stelle gesucht wird.
   Kanal-Treffer) graceful auf die normale generische EPG-Generierung,
   kein Absturz moeglich.
 
-## Pluto TV / tvmovie.de / hoerzu.de (DE, automatisch)
+## deswird.org / Pluto TV / tvmovie.de / hoerzu.de / Samsung TV Plus (DE, automatisch)
 
-- Echte Programmdaten von Pluto TV Deutschland (`plutotv_epg.py`) gibt
-  es AUTOMATISCH als ERSTE automatische Quelle fuer alle DE-Sender
-  (kein eigenes sender.txt-Praefix noetig) - Nachfolger des wieder
-  entfernten free-epg.de-DE-Blocks (siehe unten), diesmal mit echten,
-  sauberen Pluto-TV-Kanalnamen statt generischer Land-Kuerzel.
+- Fuenfstufige automatische Fallback-Kaskade fuer alle DE-Sender (kein
+  eigenes sender.txt-Praefix noetig), der Reihe nach: deswird.org
+  (`deswird_epg.py`) -> Pluto TV (`plutotv_epg.py`) -> tvmovie.de
+  (`tvmovie_epg.py`) -> hoerzu.de (`hoerzu_epg.py`) -> Samsung TV Plus
+  (`samsungtv_epg.py`). Jede Stufe wird nur probiert, wenn alle
+  vorherigen fuer diesen Sender nichts gefunden haben.
+- **deswird.org als primaere Quelle** (`https://deswird.org/iptv/
+  GuideFull.xml.gz`, Generator "Tempest EPG Generator" von K-vanc/
+  GitHub): ~785 deutsche Kanaele, beste Datenqualitaet aller DE-Quellen
+  (Titel + Sub-Title/Episodentitel + ausfuehrliche Beschreibung mit
+  Jahr/Staffel/Episode) und beste Abdeckung (~6 Tage im Voraus statt
+  nur 1-2 Tage wie die anderen DE-Quellen). Im EPG-Raster soll NUR der
+  Titel (plus ggf. ein kompakter Episodentitel) erscheinen, keine
+  ausformulierten Magazin-Teaser - `_episodentitel_kompakt()` filtert
+  deshalb lange/mehrteilige Sub-Titles (Semikolon, >60 Zeichen) heraus,
+  bevor sie an den Titel angehaengt werden; die volle Beschreibung
+  bleibt im `<desc>`-Feld. Kleine, nicht-offizielle Drittanbieter-Seite
+  ohne Stabilitaetsgarantie, degradiert wie alle anderen Quellen
+  graceful.
+- Pluto TV Deutschland (`plutotv_epg.py`) als zweite Stufe - Nachfolger
+  des wieder entfernten free-epg.de-DE-Blocks (siehe unten), mit
+  echten, sauberen Pluto-TV-Kanalnamen statt generischer Land-Kuerzel.
 - Datenquelle ist das offene, loginfreie i.mjh.nz/PlutoTV-XMLTV-Bulk-
   Projekt (generator-info-name "www.matthuisman.nz", bekannt und weit
   verbreitet, z.B. in vielen Kodi-Addons) - EINE komplette XMLTV-Datei
@@ -634,10 +651,11 @@ bevor an der falschen Stelle gesucht wird.
   Sender lokal dagegen gematcht ohne weitere Netzwerk-Aufrufe.
 - Deckt nur ca. 1-2 Tage im Voraus ab (kein mehrtaegiges Datumsraster
   wie Telemach/mts.rs), Tage danach sind ohnehin immer generisch.
-- Findet Pluto TV fuer einen Sender nichts, wird automatisch tvmovie.de
-  (`tvmovie_epg.py`, HTML-Scraping via `BeautifulSoup`, portiert aus
-  dem WebGrab+Plus-Site-Plugin "tvmovie.de") als zweiter Versuch
-  probiert, ueber eine im Repo mitgelieferte statische Kanalliste
+- Findet weder deswird.org noch Pluto TV fuer einen Sender etwas, wird
+  automatisch tvmovie.de (`tvmovie_epg.py`, HTML-Scraping via
+  `BeautifulSoup`, portiert aus dem WebGrab+Plus-Site-Plugin
+  "tvmovie.de") als dritter Versuch probiert, ueber eine im Repo
+  mitgelieferte statische Kanalliste
   (`tvmovie_kanalliste.txt`, ~180 Eintraege, Zeilenformat
   "<slug>|<Name>"). WICHTIGE EINSCHRAENKUNG: Die Sender-Seite
   (`tvmovie.de/tv/sender-<slug>`) unterstuetzt anders als im Original-
@@ -651,7 +669,7 @@ bevor an der falschen Stelle gesucht wird.
   geparst wird, ist diese Quelle prinzipiell anfaelliger fuer Breaking
   Changes bei einem weiteren Website-Redesign als Pluto TV.
 - Findet auch tvmovie.de nichts, wird automatisch hoerzu.de
-  (`hoerzu_epg.py`) als dritter Versuch probiert, ueber eine im Repo
+  (`hoerzu_epg.py`) als vierter Versuch probiert, ueber eine im Repo
   mitgelieferte statische Kanalliste (`hoerzu_kanalliste.txt`, ~170
   Eintraege, aus der WebGrab+Plus-Kanalliste fuer hoerzu.de extrahiert,
   Zeilenformat "<slug>|<Name>"). Jede Kanalseite
@@ -660,14 +678,29 @@ bevor an der falschen Stelle gesucht wird.
   Tagesraster - kein HTML-Gefrickel wie bei tvmovie.de, aber wie dort
   auch nur der aktuelle Tag (~24 Stunden), ein Datums-Query-Parameter
   wird von der Website ignoriert.
-- Alle drei Quellen degradieren bei jedem Fehler (Netzwerk, kaputtes
+- Findet auch hoerzu.de nichts, wird automatisch Samsung TV Plus
+  (`samsungtv_epg.py`, XMLTV-Datei von kodi-unlimited-support.de,
+  ~205 Kanaele) als fuenfter und letzter Versuch probiert - ebenfalls
+  eine kleine, nicht-offizielle Drittanbieter-Seite ohne
+  Stabilitaetsgarantie.
+- Alle fuenf Quellen degradieren bei jedem Fehler (Netzwerk, kaputtes
   Gzip/XML, kein Kanal-Treffer, unerwartete HTML-Struktur/fehlender
   JSON-LD-Block) graceful auf die normale generische EPG-Generierung,
   kein Absturz moeglich.
-- Land `JOYN` loest denselben Pluto TV/tvmovie.de/hoerzu.de-Autoabgleich
-  aus wie Land `DE` (JOYN-Sender sind inhaltlich deutsche Kanaele, nur
-  mit "JOYN|"-Praefix in der eigenen Playlist statt "DE|") - kein
-  eigenes Praefix noetig, gleiche Zero-Risk-Garantie.
+- Land `JOYN` loest denselben fuenfstufigen Autoabgleich aus wie Land
+  `DE` (JOYN-Sender sind inhaltlich deutsche Kanaele, nur mit
+  "JOYN|"-Praefix in der eigenen Playlist statt "DE|") - kein eigenes
+  Praefix noetig, gleiche Zero-Risk-Garantie.
+- Land `PRIME` (siehe auch Tubi-TV-Abschnitt unten) laeuft ZUSAETZLICH
+  zu Tubi auch durch diese DE-Kaskade, da der PRIME-Bereich der
+  eigenen Playlist neben US-Sendern auch deutschsprachige Kanaele
+  enthaelt (z.B. "X-Factor: Das Unfassbare", das als echter Live-Kanal
+  bei Pluto TV DE existiert). Tubi wird zuerst probiert, die DE-Kaskade
+  nur als Ergaenzung danach; eine Sperre in der Tubi-Verarbeitung
+  verhindert, dass beide Quellen bei einem Treffer dieselben Sendungen
+  doppelt ins XML schreiben (kein Sender wird automatisch angelegt -
+  nur der bestehende Code-Pfad wird fuer PRIME-Sender mit erweitert,
+  die konkrete sender.txt-Zeile bleibt Sache des Nutzers).
 
 Fuer MK gab es frueher MaxTV Go (wegen toter Domain entfernt) und
 zwischenzeitlich free-epg.de (wegen leerer/unzuverlaessiger Datenbasis

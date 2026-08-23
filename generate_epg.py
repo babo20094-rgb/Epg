@@ -1260,7 +1260,16 @@ for zeile in zeilen:
         eintrag["mojmaxtv"] = True
     if land.strip().upper() == "SI":
         eintrag["siol"] = True
-    if land.strip().upper() in ("DE", "JOYN"):
+    # "PRIME" laeuft zusaetzlich zu Tubi (siehe unten) auch durch die
+    # deutsche Kaskade (deswird.org/Pluto TV/tvmovie.de/hoerzu.de/
+    # Samsung TV Plus) - der PRIME-Bereich der Playlist enthaelt neben
+    # US-Sendern auch deutschsprachige Kanaele (z.B. "X-Factor: Das
+    # Unfassbare", das als echter Live-Kanal bei Pluto TV DE existiert).
+    # Tubi wird zuerst probiert (siehe tubi_sender-Verarbeitung), erst
+    # danach die DE-Kaskade - kein Risiko fuer echte US-PRIME-Sender,
+    # da die Namenssuche pro Quelle unabhaengig ist und nur bei
+    # tatsaechlichem Treffer etwas eintraegt.
+    if land.strip().upper() in ("DE", "JOYN", "PRIME"):
         eintrag["plutotv"] = True
 
     # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-/GO-Sender: analog
@@ -2571,6 +2580,17 @@ for daten in plutotv_sender:
 # ==========================================================
 
 for daten in tubi_sender:
+    # PRIME-Sender laufen zusaetzlich durch die DE-Kaskade (siehe oben,
+    # deswird.org/Pluto TV/tvmovie.de/hoerzu.de/Samsung TV Plus) - hat
+    # die bereits echte Daten gefunden UND geschrieben, wird Tubi hier
+    # uebersprungen, damit dieselben Sendungen nicht doppelt ins XML
+    # geschrieben werden.
+    if any(daten.get(feld) for feld in (
+        "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
+        "hoerzu_intervalle", "samsungtv_intervalle",
+    )):
+        continue
+
     programme = []
     try:
         site_id = tubi_kanal_finden(daten["sender"])
