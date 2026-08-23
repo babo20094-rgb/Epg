@@ -1269,7 +1269,14 @@ for zeile in zeilen:
     # danach die DE-Kaskade - kein Risiko fuer echte US-PRIME-Sender,
     # da die Namenssuche pro Quelle unabhaengig ist und nur bei
     # tatsaechlichem Treffer etwas eintraegt.
-    if land.strip().upper() in ("DE", "JOYN", "PRIME"):
+    # "WOW" (die eigene Playlist-Kennzeichnung fuer den WOW/Sky-
+    # Streaming-Bereich, siehe z.B. den SKY:-Override "WOW| SKY CRIME
+    # ᴴᴰ ◉") laeuft ebenfalls durch die deutsche Kaskade - WOW-Sender
+    # sind inhaltlich deutsche Kanaele (z.B. "Cartoon Network", das
+    # als echter Kanal bei deswird.org existiert), fuer Sky-exklusive
+    # WOW-Sender bleibt zusaetzlich die explizite SKY:-Zeile mit
+    # Display-ID-Override die bevorzugte Loesung.
+    if land.strip().upper() in ("DE", "JOYN", "PRIME", "WOW"):
         eintrag["plutotv"] = True
 
     # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-/GO-Sender: analog

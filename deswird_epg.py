@@ -41,7 +41,7 @@ import xml.etree.ElementTree as ET
 
 import requests
 
-from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
+from epg_lib import normalisiere_sendername, normalisiere_sendername_kern, kanal_index_suchen
 
 URL = "https://deswird.org/iptv/GuideFull.xml.gz"
 
@@ -174,12 +174,33 @@ def _xmltv_zeit_parsen(text):
         return None
 
 
+def _de_id_bevorzugen(bestehende_id, neue_id):
+    """deswird.org fuehrt fuer manche Sendernamen (z.B. "Cartoon
+    Network") mehrere, unterschiedliche Feeds unter identischem
+    Anzeigenamen (nur die Kanal-ID unterscheidet sich, z.B.
+    "CartoonNetwork.de" vs. "CartoonNetwork.ch" vs. eine dritte,
+    kuerzere ID ohne Laenderkuerzel) - ohne Vorzugsregel wuerde der
+    normale Namens-/Kern-Index das als mehrdeutig verwerfen und der
+    riskante difflib-Fallback koennte einen komplett falschen,
+    aehnlich benannten Kanal treffen (siehe CLAUDE.md: Sky Cinema
+    Special/Highlights-Verwechslung). Eine explizit mit ".de"
+    gekennzeichnete ID ist fuer diese DE-spezifische Quelle eindeutig
+    die richtige Wahl und wird deshalb bevorzugt, statt den Namen ganz
+    zu verwerfen."""
+    if neue_id.lower().endswith(".de") and not bestehende_id.lower().endswith(".de"):
+        return neue_id
+    return bestehende_id
+
+
 def deswird_kanal_finden(kanalname):
     """Sucht den deswird.org-Kanal, der am besten zu kanalname passt -
     erst exakter Abgleich nach normalisiere_sendername(), dann ein
     eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD, zuletzt unscharfer
-    difflib-Abgleich (siehe epg_lib.kanal_index_suchen()). Gibt die
-    Kanal-ID zurueck oder None."""
+    difflib-Abgleich (siehe epg_lib.kanal_index_suchen()). Bei
+    mehreren Kanaelen mit identischem (Kern-)Namen wird die explizit
+    mit ".de" gekennzeichnete Kanal-ID bevorzugt (siehe
+    _de_id_bevorzugen()) statt den Treffer als mehrdeutig zu verwerfen.
+    Gibt die Kanal-ID zurueck oder None."""
     daten = _xml_laden()
     if not daten or not daten["kanaele"]:
         return None
@@ -187,10 +208,32 @@ def deswird_kanal_finden(kanalname):
     name_index = {}
     for kanal in daten["kanaele"]:
         schluessel = normalisiere_sendername(kanal["name"])
-        if schluessel:
-            name_index.setdefault(schluessel, kanal["site_id"])
+        if not schluessel:
+            continue
+        if schluessel in name_index:
+            name_index[schluessel] = _de_id_bevorzugen(name_index[schluessel], kanal["site_id"])
+        else:
+            name_index[schluessel] = kanal["site_id"]
 
-    kern_index = kern_index_aufbauen(daten["kanaele"], "name", "site_id")
+    kern_roh = {}
+    kern_mehrdeutig = set()
+    for kanal in daten["kanaele"]:
+        kern = normalisiere_sendername_kern(kanal["name"])
+        if not kern:
+            continue
+        site_id = kanal["site_id"]
+        if kern not in kern_roh:
+            kern_roh[kern] = site_id
+        elif kern_roh[kern] != site_id:
+            if site_id.lower().endswith(".de") != kern_roh[kern].lower().endswith(".de"):
+                # Genau einer der beiden ist explizit ".de" - eindeutig
+                # bevorzugt, keine echte Mehrdeutigkeit.
+                kern_roh[kern] = _de_id_bevorzugen(kern_roh[kern], site_id)
+            else:
+                # Beide oder keiner ".de" - echte Mehrdeutigkeit wie
+                # bisher, kein Fallback-Risiko eingehen.
+                kern_mehrdeutig.add(kern)
+    kern_index = {k: v for k, v in kern_roh.items() if k not in kern_mehrdeutig}
 
     return kanal_index_suchen(kanalname, name_index, kern_index)
 
