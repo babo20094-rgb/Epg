@@ -10,11 +10,9 @@ from epg_lib import (
     DE_STANDARD, EXYU_STANDARD, EN_STANDARD,
     EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
     ALTERSFREIGABE, DEFAULT_ALTERSFREIGABE,
-    TAGESRASTER, FALLBACK_LABEL, SENDETITEL_VORLAGEN, WOCHENTAGE,
-    unterteile_block,
-    sendetitel, beschreibung_fuer_sender,
+    TAGESRASTER,
     sender_anzeigename, standard_beschreibung, kategorie_label,
-    datumspraefix, sender_hash,
+    sender_hash,
     kanalname_normal_geschrieben,
     normalisiere_sendername, baue_logo_index, finde_logo,
 )
@@ -2637,6 +2635,11 @@ starttag = datetime.now(timezone.utc).replace(
     hour=0, minute=0, second=0, microsecond=0
 )
 
+# Sender-Hash haengt nur vom (unveraenderlichen) Sendernamen ab - einmal
+# pro Sender berechnen statt bei jedem Tag/Block-Durchlauf erneut.
+for daten in sender_daten:
+    daten["_hash"] = sender_hash(daten["sender"])
+
 for tag_index in range(ANZAHL_TAGE):
 
     tag_start = starttag + timedelta(days=tag_index)
@@ -2650,7 +2653,7 @@ for tag_index in range(ANZAHL_TAGE):
 
         for daten in sender_daten:
             kategorie_key = daten.get("kategorie")
-            hash_wert = sender_hash(daten["sender"])
+            hash_wert = daten["_hash"]
 
             # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
             # sich der Kanalname wegen eines laufenden/angekuendigten
@@ -2708,35 +2711,16 @@ for tag_index in range(ANZAHL_TAGE):
                     )
                 continue
 
-            # Block in mehrere kuerzere Einzelsendungen aufteilen (ca.
-            # 60-120 Min. statt eines einzigen mehrstuendigen Blocks) -
-            # wirkt wie ein echtes Sendungsraster statt eines
-            # Platzhalter-Blocks. Jede Teilsendung bekommt ueber
-            # sub_index einen eigenen, aber weiterhin deterministischen
-            # Hash-Offset, damit sich die Vorlagen innerhalb des Blocks
-            # unterscheiden.
-            segment_start = start
-            for sub_index, segment_minuten in enumerate(unterteile_block(dauer, hash_wert)):
-                segment_ende = segment_start + timedelta(minutes=segment_minuten)
-                sub_hash = hash_wert + sub_index * 97
-
-                titel_text = escape(
-                    sendetitel(
-                        kategorie_key, daten["land"], sub_hash, tageszeit,
-                        tag_index=tag_index
-                    )
-                )
-                beschr_text, lang_code = beschreibung_fuer_sender(
-                    kategorie_key, daten["land"], daten["sender"], sub_hash,
-                    tag_index=tag_index
-                )
-
-                schreibe_programme_segmente(
-                    xml_teile, [(segment_start, segment_ende)], daten["kanal"],
-                    titel_text, beschr_text, lang_code,
-                    kategorie_key, daten["land"], False,
-                )
-                segment_start = segment_ende
+            # Kein echtes Programm bekannt: statt eines abwechslungsreichen,
+            # kategoriebasierten Zufallstitels wird hier einheitlich nur
+            # "<Sendername> ᴸⁱᵛᵉ" fuer den gesamten Block angezeigt - gleiche
+            # Konvention wie bei den Luecken echter Quellen weiter oben.
+            luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
+            schreibe_programme_segmente(
+                xml_teile, [(start, ende)], daten["kanal"],
+                escape(luecken_titel), luecken_titel, "de",
+                kategorie_key, daten["land"], True,
+            )
 
 # ==========================================================
 # DYN LEERZEITEN

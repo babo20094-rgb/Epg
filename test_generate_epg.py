@@ -14,7 +14,6 @@ Kategorien oder Sprachen erweitert werden:
 - Kategorie-Erkennung anhand von Keywords (standard_beschreibung)
 - Prioritätsreihenfolge zwischen Kategorien (z.B. NEWS vor UNTERHALTUNG)
 - Sprachzuordnung nach Land
-- Datumsbezug im Sendetitel
 - Poster-Zuordnung je Kategorie
 """
 
@@ -31,8 +30,6 @@ from epg_lib import (
     standard_beschreibung,
     kategorie_label,
     sprache_fuer_land,
-    sendetitel,
-    datumspraefix,
 )
 
 import telemach_epg
@@ -127,39 +124,6 @@ def test_sprache_ignoriert_klammerzusatz():
     """'US (ESPN+ 001)' muss trotz Klammerzusatz als 'US' erkannt
     werden."""
     assert sprache_fuer_land("US (ESPN+ 001)") == "EN"
-
-
-# ==========================================================
-# Datumsbezug im Sendetitel
-# ==========================================================
-
-def test_datumspraefix_montag():
-    montag = datetime.date(2026, 7, 27)  # tatsächlich ein Montag
-    assert datumspraefix("DE", montag) == "Mo 27.07: "
-    assert datumspraefix("EN", montag) == "Mon 27.07: "
-
-
-def test_datumspraefix_none_ergibt_leerstring():
-    assert datumspraefix("DE", None) == ""
-
-
-def test_sendetitel_enthaelt_datumsbezug_wenn_angegeben():
-    montag = datetime.date(2026, 7, 27)
-    titel = sendetitel("SPORT", "DE", hash_wert=5, tageszeit="ABEND", datum=montag)
-    assert titel.startswith("Mo 27.07: ")
-
-
-def test_sendetitel_ohne_datum_hat_keinen_praefix():
-    titel = sendetitel("SPORT", "DE", hash_wert=5, tageszeit="ABEND")
-    assert not titel.startswith("Mo") and not titel.startswith("Di")
-
-
-def test_sendetitel_ist_deterministisch():
-    """Gleicher hash_wert + gleiche Parameter müssen immer denselben
-    Titel liefern (kein Flackern zwischen Tagen)."""
-    titel1 = sendetitel("SPORT", "DE", hash_wert=42, tageszeit="NACHT")
-    titel2 = sendetitel("SPORT", "DE", hash_wert=42, tageszeit="NACHT")
-    assert titel1 == titel2
 
 
 # ==========================================================
