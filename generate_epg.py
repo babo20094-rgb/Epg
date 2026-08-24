@@ -1929,7 +1929,7 @@ def m3u_playlist_abgleichen(url, quelle_name):
             aktualisierte_sender.append(real_daten["sender"])
 
     if aktualisierte_sender:
-        print(f"M3U-Playlist ({quelle_name}) Treffer:", ", ".join(aktualisierte_sender))
+        print(f"Live-Kanalabgleich ({quelle_name}) Treffer:", ", ".join(aktualisierte_sender))
 
     return erledigte_keys
 
@@ -1938,14 +1938,14 @@ if name_pipe_kanal_index:
     m3u_url = os.environ.get("PROVIDER")
     if m3u_url:
         try:
-            treffer = m3u_playlist_abgleichen(m3u_url, "IPTV-Playlist")
+            treffer = m3u_playlist_abgleichen(m3u_url, "Live-Kanalabgleich")
             print(
-                f"M3U-Playlist: {len(treffer)} von "
+                f"Live-Kanalabgleich: {len(treffer)} von "
                 f"{len(name_pipe_kanal_index)} NAME:-Kanaelen mit "
                 f"Live-Kanalnamen aktualisiert"
             )
         except Exception as e:
-            print("M3U-Playlist Fehler:", e)
+            print("Live-Kanalabgleich Fehler:", e)
 
 # Hinweis Clubber-PPV (Irland, GAA-Club-Spiele): laeuft ueber denselben
 # generischen Playlist-Namensabgleich wie DYN PPV - der Anbieter fuehrt
