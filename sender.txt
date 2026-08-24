@@ -169,16 +169,16 @@ TELEMACH:BA|ARENA SPORT PREMIUM 2|https://tvprofil.com/img/kanali-logo/Arena_Spo
 TELEMACH:BA|ARENA SPORT PREMIUM 3|https://tvprofil.com/img/kanali-logo/Arena_Sport_3_Premium_BiH_BA_logo_v2.png?1774628046
 TELEMACH:BA|ARENA SPORT 5 HD|https://tvprofil.com/img/kanali-logo/Arena_Sport_5_RS_logo_v2.png
 TELEMACH:BA|ARENA SPORT 6 HD|https://tvprofil.com/img/kanali-logo/Arena_Sport_6_BiH_BA_logo.png
-HR|SK 1||https://tvprofil.com/img/kanali-logo/SK1_RS_logo_v2.png
-HR|SK 2||https://tvprofil.com/img/kanali-logo/SK2_RS_logo_v3.png
-HR|SK 3||https://tvprofil.com/img/kanali-logo/SK3_logo.png
-HR|SK 4||https://tvprofil.com/img/kanali-logo/SK4_logo.png
-HR|SK 5||https://tvprofil.com/img/kanali-logo/SK5_logo.png
-HR|SK 6||https://tvprofil.com/img/kanali-logo/SK6_logo.png
-HR|SK 7||https://tvprofil.com/img/kanali-logo/SK7_RS_logo_v2.png
-HR|SK 8||https://tvprofil.com/img/kanali-logo/SK8_RS_logo_v2.png
-HR|SK 9||https://tvprofil.com/img/kanali-logo/SK9_RS_logo_v2.png
-HR|SK 10||https://tvprofil.com/img/kanali-logo/SK10_RS_logo_v2.png
+HR|SK 1||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_1.png
+HR|SK 2||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_2.png
+HR|SK 3||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_3.png
+HR|SK 4||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_4.png
+HR|SK 5||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_5.png
+HR|SK 6||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_6.png
+HR|SK 7||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_7.png
+HR|SK 8||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_8.png
+HR|SK 9||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_9.png
+HR|SK 10||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_10.png
 #US| ENTERTAINMENT
 TVPASSPORT:US|American Heroes Channel HD|AUTO|US| AMERICA HEROES HD
 TVPASSPORT:US|Investigation Discovery USA HD - Eastern|AUTO|US| ID HD
