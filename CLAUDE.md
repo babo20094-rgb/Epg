@@ -152,6 +152,33 @@ statt `ᴸⁱᵛᵉ` nennt, wird stattdessen das verwendet.
   heisst: Logo-Feld in `sender.txt` leer lassen, NICHT das Logo selbst
   heraussuchen - der Nutzer übernimmt es aus seiner eigenen Playlist.
 
+## Logo-Groesse (August 2026 optimiert)
+
+- Mehrere Logo-Sets (`logos/dyn_ppv/`, `logos/sky_select/`,
+  `logos/vodafone_go/`, `logos/plex/`, `logos/maxtv_select/`,
+  `logos/balkan_sky.png`) waren fuer ein kleines TV-Guide-Icon massiv
+  ueberdimensioniert (DYN PPV z.B. 1920x540px Full-HD-Banner-Groesse,
+  MAX TV Select trotz nur 250x250px durch schlechte Kompression bei
+  ~54 KB/Bild) - das sorgte im Player sichtbar fuer langsames,
+  nacheinander erfolgendes Laden der Sender-Logos.
+- Alle Logos wurden auf max. 300px Kantenlaenge verkleinert (Pillow
+  `Image.resize()`, `Image.LANCZOS`) UND zusaetzlich auf eine
+  256-Farben-Palette quantisiert (`Image.quantize(colors=256,
+  method=Image.FASTOCTREE)` fuer RGBA/Transparenz, `MEDIANCUT` fuer
+  RGB) - bei so kleinen Icons visuell nicht wahrnehmbar, aber massiv
+  kleinere Dateigroesse bei fotografischen/farbreichen Logos (teils
+  75-98% Ersparnis). Bei neuen nummerierten Logo-Sets (siehe Abschnitt
+  oben) diese Groessen-/Kompressionsregel von Anfang an anwenden, statt
+  spaeter nachtraeglich optimieren zu muessen.
+- `HR|SK 1-10` liefen zusaetzlich extern ueber tvprofil.com (teils
+  riesige Originaldateien, SK2 z.B. 3560x1888px/1,1 MB) - wurden
+  heruntergeladen, genauso optimiert und liegen jetzt selbst gehostet
+  unter `logos/hr_sk/sk_<N>.png`. Bei weiteren extern verlinkten
+  Logos mit auffaellig langer Ladezeit im Player gleiches Vorgehen
+  (herunterladen, optimieren, unter `logos/<name>/` selbst hosten,
+  sender.txt-URL auf raw.githubusercontent.com umstellen) in Betracht
+  ziehen, statt nur den externen Host zu verlinken.
+
 ## Architektur-Überblick
 
 `generate_epg.py` liest `sender.txt` (Format `Land|Sender|Beschreibung|Logo`,
@@ -510,6 +537,28 @@ bevor an der falschen Stelle gesucht wird.
 - Nur die Territories "DE"/"GB" und die nicht-UHD-Kanaele (HAWK-API)
   werden unterstuetzt, kein "IT" und keine UHD-Kanaele (Atlantis-API).
 
+**Fallstrick "Sky Cinema Special"/"Sky Cinema Highlights" (August
+2026 behoben):** Sky Cinema Special existiert seit April 2024 nicht
+mehr als fester, eigenstaendiger Kanal - weder in Skys eigener
+HAWK-API-Kanalliste noch bei deswird.org gibt es einen Eintrag mit
+genau diesem Namen. Der `difflib`-Fuzzy-Fallback in
+`kanal_index_suchen()` (Cutoff 0.72) matchte "Sky Cinema Special"
+faelschlich auf den aehnlich benannten, aber inhaltlich komplett
+anderen Kanal "Sky Cinema Premiere" (75,7% Aehnlichkeit) - das
+EPG-Raster zeigte dadurch das falsche Programm. Die zugrunde liegende,
+tatsaechlich existierende Sendung heisst "Sky Cinema Highlights" (bei
+deswird.org als exakter Treffer vorhanden) - die betroffenen
+sender.txt-Zeilen wurden entsprechend umbenannt (Land bleibt `DE`,
+Sendername jetzt "Sky Cinema Highlights FHD"/"HD"/"HEVC" statt
+"Special"). **Lehre fuer aehnliche Faelle:** Wenn ein Sender bei KEINER
+Quelle einen exakten oder eindeutigen Kern-Treffer findet und nur der
+Fuzzy-Fallback greift, immer pruefen, ob der gefundene Kanal inhaltlich
+wirklich passt (z.B. per `*_hole_programme()` das aktuelle Programm mit
+dem echten Sender/TV-Guide vergleichen), bevor man dem Treffer traut -
+aehnliche Namen (Special/Premiere/Highlights, Cinema Special/Premium
+usw.) fuehren bei Sky-Cinema-Pop-up-Kanaelen erfahrungsgemaess leicht zu
+falschen Treffern.
+
 ## ARENA:-Sender (Arena Sport HR/RS, opt-in)
 
 - Echte, HTML-gescrapte Programmdaten von Arena Sport (`arena_epg.py`)
@@ -701,6 +750,26 @@ bevor an der falschen Stelle gesucht wird.
   doppelt ins XML schreiben (kein Sender wird automatisch angelegt -
   nur der bestehende Code-Pfad wird fuer PRIME-Sender mit erweitert,
   die konkrete sender.txt-Zeile bleibt Sache des Nutzers).
+- Land `WOW` (die eigene Playlist-Kennzeichnung fuer den WOW/Sky-
+  Streaming-Bereich, siehe auch den SKY:-Display-ID-Override "WOW|
+  SKY CRIME ᴴᴰ ◉" im SKY:-Abschnitt) laeuft ebenfalls durch diese
+  DE-Kaskade - WOW-Sender sind inhaltlich deutsche Kanaele (z.B.
+  "Cartoon Network", das bei deswird.org als echter Kanal existiert).
+
+**Mehrdeutige Kanalnamen bei deswird.org:** deswird.org fuehrt manche
+Sender (z.B. "Cartoon Network") mehrfach unter identischem
+Anzeigenamen, aber mit unterschiedlicher Kanal-ID und unterschiedlichem
+Programm (z.B. site_id "Cartoon Network" mit 717 Sendungen/7 Tagen vs.
+site_id "CartoonNetwork.de" mit 2063 Sendungen/9 Tagen - zwei echte,
+aber verschiedene aggregierte Feeds). Ohne Sonderbehandlung wuerde der
+normale Namens-/Kern-Index das als mehrdeutig verwerfen und der
+difflib-Fallback koennte einen komplett falschen, nur aehnlich
+benannten Kanal treffen (siehe Sky-Cinema-Highlights-Fall im
+SKY:-Abschnitt unten). `deswird_kanal_finden()` baut daher einen
+eigenen Namens-/Kern-Index (NICHT `epg_lib.kern_index_aufbauen()`) und
+bevorzugt bei Mehrdeutigkeit die Kanal-ID, die explizit auf ".de"
+endet (`_de_id_bevorzugen()`) - eindeutig die richtige Wahl fuer diese
+DE-spezifische Quelle, statt den Treffer ganz zu verwerfen.
 
 Fuer MK gab es frueher MaxTV Go (wegen toter Domain entfernt) und
 zwischenzeitlich free-epg.de (wegen leerer/unzuverlaessiger Datenbasis
