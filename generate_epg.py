@@ -1887,7 +1887,7 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
 # im Anzeigenamen der eigenen M3U-Playlist (z.B. Clubber: "(IE)
 # (Clubber 01) | Kerry GAA: Milltown/Castlemaine vs An Ghaeltacht
 # (2026-08-07 16:00:00)"). Das ist die einzige Quelle fuer Live-
-# Kanalnamen (Secret IPTV_M3U_PROVIDER_URL, optional) - ohne gesetztes
+# Kanalnamen (Secret PROVIDER, optional) - ohne gesetztes
 # Secret bleibt es bei den generischen Kategorie-Platzhaltertexten.
 # ==========================================================
 
@@ -1937,7 +1937,7 @@ def m3u_playlist_abgleichen(url, quelle_name):
 
 
 if name_pipe_kanal_index:
-    m3u_url = os.environ.get("IPTV_M3U_PROVIDER_URL")
+    m3u_url = os.environ.get("PROVIDER")
     if m3u_url:
         try:
             treffer = m3u_playlist_abgleichen(m3u_url, "IPTV-Playlist")

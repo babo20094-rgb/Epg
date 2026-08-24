@@ -195,7 +195,7 @@ gemeint ist, statt anzunehmen:
 1. **DYN PPV 1-50** (`NAME:`-Zeilen in `sender.txt`, Kanal-ID/Kern
    z.B. "DE: DYN PPV 3"): Bekommt Sendungstitel aus dem ECHTEN,
    sich aendernden Live-Kanalnamen der eigenen IPTV-Playlist des
-   Nutzers (`IPTV_M3U_PROVIDER_URL`-Secret, `m3u_playlist_abgleichen()`).
+   Nutzers (`PROVIDER`-Secret, `m3u_playlist_abgleichen()`).
    Deckt ALLE Sportarten ab, die der Anbieter selbst im Kanalnamen
    nennt - keine Einschraenkung auf bestimmte Ligen/Sportarten.
    Siehe Abschnitt "DYN PPV / Live-Kanalname-Mechanismus" unten.
@@ -221,14 +221,14 @@ bevor an der falschen Stelle gesucht wird.
 
 - DYN PPV 1-50 und andere `NAME:`-Sender bekommen ihren Sendungstitel
   automatisch aus dem echten, aktuellen Live-Kanalnamen - ausgelesen aus
-  der eigenen IPTV-Playlist des Nutzers (Secret `IPTV_M3U_PROVIDER_URL`,
+  der eigenen IPTV-Playlist des Nutzers (Secret `PROVIDER`,
   optional), statt aus einem geratenen API-Round-Robin.
 - `m3u_playlist_abgleichen()` liest die `#EXTINF`-Anzeigenamen der
   M3U-Playlist und matcht sie ueber den Kernnamen gegen die `NAME:`-Sender
   aus `sender.txt`.
 - **Leerlauf-Standardtext (WICHTIG, August 2026 behoben):** JEDER
   `NAME:`-Sender ohne erkanntes Live-Event (kein gesetztes
-  `IPTV_M3U_PROVIDER_URL`-Secret, kein Playlist-Treffer, oder schlicht
+  `PROVIDER`-Secret, kein Playlist-Treffer, oder schlicht
   kein bekanntes Anbieter-Muster wie DYN PPV/DirtVision/Flo Racing/FA
   Player/Super League Plus) zeigt automatisch "`<Kurzname>` ᴸⁱᵛᵉ" -
   EXAKT dieselbe Konvention wie bei normalen `Land|Sender|Beschreibung

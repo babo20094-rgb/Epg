@@ -34,7 +34,7 @@ jobs:
 
       - name: Generate EPG
         env:
-          IPTV_M3U_PROVIDER_URL: ${{ secrets.IPTV_M3U_PROVIDER_URL }}
+          PROVIDER: ${{ secrets.PROVIDER }}
         run: |
           python generate_epg.py
 
