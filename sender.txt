@@ -3,6 +3,9 @@ SKY:DE|Sky Cinema Feelgood HD|https://raw.githubusercontent.com/babo20094-rgb/Ep
 SKY:DE|Sky Cinema Feelgood HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_feelgood/sky_cinema_feelgood.png|WOW| SKY CINEMA FEELGOOD ᴴᴰ ◉
 SKY:DE|Sky Cinema Premiere HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_premiere/sky_cinema_premiere.png|DE| SKY CINEMA PREMIERE HEVC
 SKY:DE|Sky Cinema Premiere HD +24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_premiere/sky_cinema_premiere.png|DE| SKY CINEMA PREMIERE+24 HEVC
+SKY:DE|Sky Cinema Blockbuster HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_blockbuster/sky_cinema_blockbuster.png|DE| SKY CINEMA BLOCKBUSTER HD
+SKY:DE|Sky Cinema Blockbuster HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_blockbuster/sky_cinema_blockbuster.png|DE| SKY CINEMA BLOCKBUSTER FHD
+SKY:DE|Sky Cinema Blockbuster HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_blockbuster/sky_cinema_blockbuster.png|DE| SKY CINEMA BLOCKBUSTER FHD*
 ##### UK| EPL PREMIER LEAGUE+ PPV #####
 NAME:Premier League+ 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_1.png
 NAME:Premier League+ 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_2.png
