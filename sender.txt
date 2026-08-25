@@ -1008,11 +1008,6 @@ DE|SKY GO FILME 48 FHD|Sky Go Filme 48 FHD ᴸⁱᵛᵉ|https://championstream.d
 DE|SKY GO FILME 49 FHD|Sky Go Filme 49 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 50 FHD|Sky Go Filme 50 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 #DE| SKY GO (KINO/WOW ENTERTAINMENT)
-DE|Sky Cinema Highlights FHD||https://logo.m3uassets.com/skycinemahighlights.png
-DE|Sky Cinema Highlights HD||https://logo.m3uassets.com/skycinemahighlights.png
-SKY:DE|Sky Highlights FHD|https://logo.m3uassets.com/skycinemahighlights.png
-SKY:DE|Sky Highlights HD|https://logo.m3uassets.com/skycinemahighlights.png
-DE|Sky Cinema Highlights HEVC||https://logo.m3uassets.com/skycinemahighlights.png
 WOW|CARTOON NETWORK ᴴᴰ ◉|
 #DE| PREMIUM PLAY 40
 DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_1.png
@@ -2129,10 +2124,6 @@ SKY:DE| SKY SPORT BUNDESLIGA 1|https://raw.githubusercontent.com/babo20094-rgb/E
 SKY:DE| SKY SPORT 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_1.png
 SKY:DE| SKY SPORT AUSTRIA 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_1.png
 DE| NOW!|
-SKY:DE|SKY HIGHLIGHTS HD|
-SKY:DE|SKY HIGHLIGHT FHD*|
-SKY:DE|SKY CINEMA SPECIAL HD|AUTO
-SKY:DE|SKY CINEMA SPECIAL FHD|AUTO
 SKY:DE|SKY CINEMA PREMIEREN HD|
 SKY:DE|SKY CINEMA PREMIEREN FHD|
 SKY:DE|SKY CINEMA PREMIEREN FHD*|
