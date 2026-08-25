@@ -1,3 +1,4 @@
+SKY:DE|Sky Cinema Feelgood HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_feelgood/sky_cinema_feelgood.png|DE| SKY CINEMA FEELGOOD HD
 ##### UK| EPL PREMIER LEAGUE+ PPV #####
 NAME:Premier League+ 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_1.png
 NAME:Premier League+ 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epl_premier_league/epl_premier_league_2.png
