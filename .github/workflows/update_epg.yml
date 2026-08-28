@@ -11,6 +11,15 @@ on:
     # Stunde durch viele gleichzeitig feuernde Cron-Jobs anderer Repos
     # eher verzoegert/uebersprungen werden.
     - cron: '7 */4 * * *'
+    # Zweiter, um 2h versetzter Trigger als Ausfallabsicherung (August
+    # 2026 hinzugefuegt, nachdem der obige Trigger mehrfach hintereinander
+    # ~14h lang gar nicht gefeuert hat - GitHub Actions "schedule" ist
+    # "best effort" und kann Ticks komplett droppen, nicht nur verzoegern).
+    # Effektiv laeuft der Workflow dadurch alle 2h an; die "Keine
+    # Änderungen."-Kurzschluss-Pruefung im Commit-Schritt sorgt dafuer,
+    # dass ein zusaetzlicher Lauf ohne neue Daten keinen leeren Commit
+    # erzeugt.
+    - cron: '37 2,6,10,14,18,22 * * *'
   workflow_dispatch:
 
 jobs:
