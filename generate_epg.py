@@ -556,8 +556,11 @@ for zeile in zeilen:
                     event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
                 elif roh_marker in EVENT_MARKER_ENDE:
                     # Kein fixer Abmoderationstext bei DYN PPV - stattdessen
-                    # wie beim Leerlauf-Fall unten "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ".
-                    event_titel = None
+                    # bleiben die Teamnamen stehen, nur mit "ᴮᵉᵉⁿᵈᵉᵗ" statt
+                    # ᴺᵉˣᵗ/ᴸⁱᵛᵉ als Suffix. Ohne extrahierbare Teamnamen faellt
+                    # es auf "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ" zurueck (siehe unten).
+                    team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴮᵉᵉⁿᵈᵉᵗ")
+                    event_titel = team_namen
 
         # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
         # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
@@ -1854,13 +1857,17 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
 
         dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
         if dyn_ppv_next_match and roh_marker in EVENT_MARKER_ENDE:
-            # Kein fixer Abmoderationstext bei DYN PPV - stattdessen bleibt
-            # der beim Einlesen bereits gesetzte Fallback ("Dyn Sport (N)
-            # ᴺᵒ ᴸⁱᵛᵉ") unveraendert stehen. WICHTIG: real_daten["event_titel"]
-            # hier NICHT auf None ueberschreiben - das wuerde den Fallback
-            # loeschen und die Sendung faellt auf den generischen
-            # kategoriebasierten Zufallstext zurueck (Bug, August 2026
-            # behoben).
+            # Kein fixer Abmoderationstext bei DYN PPV - stattdessen werden
+            # die Teamnamen wie bei NEXT/LIVE extrahiert, nur mit "ᴮᵉᵉⁿᵈᵉᵗ"
+            # als Suffix. Gelingt die Extraktion nicht, bleibt der beim
+            # Einlesen bereits gesetzte Fallback ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ")
+            # unveraendert stehen - real_daten["event_titel"] wird dann
+            # NICHT auf None ueberschrieben (sonst faellt die Sendung auf
+            # den generischen kategoriebasierten Zufallstext zurueck, Bug
+            # August 2026 behoben).
+            team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴮᵉᵉⁿᵈᵉᵗ")
+            if team_namen:
+                real_daten["event_titel"] = team_namen
             return True
 
         event_titel = formatiere_event_text(event_teil)
