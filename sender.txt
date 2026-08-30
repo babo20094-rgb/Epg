@@ -224,8 +224,8 @@ MAGENTA:DE| BILD+ EVENT FAME FIGHTING|https://raw.githubusercontent.com/babo2009
 MAGENTA:DE| HR HD|https://logo.m3uassets.com/hr.png
 MAGENTA:DE| YU-GI-OH!|
 MAGENTA:DE| SR|
-SKY:DE|AXN BLACK HD||DE| AXN BLACK HD
-MAGENTA:DE| SONY CHANNEL FHD|
+SKY:DE|AXN BLACK HD|https://logo.m3uassets.com/axnblack.png|DE| AXN BLACK HD
+MAGENTA:DE| SONY CHANNEL FHD|https://logo.m3uassets.com/sonychannel.png
 DE| CNN||https://e7.pngegg.com/pngimages/782/988/png-clipart-logo-cnn-brand-trademark-logo-cnn.png
 TVPASSPORT:US|FOX (KFFX) Yakima, WA|AUTO
 TVPASSPORT:US|FOX (KXFX) Brownsville, TX|AUTO
@@ -2128,9 +2128,9 @@ DE| NOW!|
 SKY:DE|SKY CINEMA PREMIEREN HD|
 SKY:DE|SKY CINEMA PREMIEREN FHD|
 SKY:DE|SKY CINEMA PREMIEREN FHD*|
-SKY:DE|NAT GEO WILD HD|AUTO
-SKY:DE|NAT GEO WILD FHD|AUTO
-SKY:DE|GEO TV HD|
+SKY:DE|NAT GEO WILD HD|https://logo.m3uassets.com/natgeowild.png
+SKY:DE|NAT GEO WILD FHD|https://logo.m3uassets.com/natgeowild.png
+SKY:DE|GEO TV HD|https://logo.m3uassets.com/geotv.png
 SKY:DE|SKY SPORT 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_2.png
 SKY:DE|SKY SPORT 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_2.png
 SKY:DE|SKY SPORT 2 FHD*|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_2.png
