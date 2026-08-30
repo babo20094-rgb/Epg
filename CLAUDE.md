@@ -29,9 +29,22 @@ andere Frage (z. B. "passt das Design so?"), eine allgemeine Zustimmung zur
 Änderung selbst oder gar keine Antwort zählen NICHT als Freigabe zum Pushen -
 in diesen Fällen bleibt die Änderung nur im Arbeitsverzeichnis, bis explizit
 committet/gepusht werden soll. Vor jedem Commit zusätzlich `git fetch origin
-main` + `git pull origin main --no-edit` (der automatische 4h-Workflow
+main` + `git pull origin main --no-edit` (der automatische 3h-Workflow
 committet z. B. "Daily EPG update" selbststaendig auf main), damit nicht am
 lokal veralteten Stand vorbei gepusht wird.
+
+**Session-Branch stillschweigend mitsynchronisieren:** Diese Remote-
+Session läuft technisch auf einem eigenen Branch (z. B.
+`claude/mein-epg-twiol2`), pusht inhaltlich aber wie oben beschrieben
+direkt auf `main`. Nach jedem Push auf `main` deshalb automatisch UND
+OHNE Rückfrage/Erwähnung zusätzlich `git push origin <Session-Branch>`
+ausführen (denselben lokalen Stand, der gerade auf main gepusht wurde),
+damit der Stop-Hook dieser Umgebung ("There are unpushed commits on
+branch ...") gar nicht erst anschlägt. Das ist reine technische
+Haushaltsführung dieser Sitzungsumgebung, hat mit dem eigentlichen
+EPG-Projekt nichts zu tun und wird dem Nutzer NICHT als eigener
+Schritt gemeldet oder erklärt - nur bei einem tatsächlichen Fehler
+dabei kurz erwähnen.
 
 ## Workflow manuell starten
 
