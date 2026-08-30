@@ -2115,7 +2115,7 @@ SKY:DE|SKY CRIME|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 DE| ARD ALPHA FHD||https://logo.m3uassets.com/ardalpha.png
 DE| QVC UHD||https://logo.m3uassets.com/qvc.png
 DE| QVC FHD||https://logo.m3uassets.com/qvc.png
-DE| QVC|
+DE| QVC||https://logo.m3uassets.com/qvc.png
 DE| ZDF NEO HD||https://logo.m3uassets.com/zdfneo.png
 DE| TAGESSCHAU 24 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tagesschau24.png
 SKY:DE|SKY NATURE FHD|https://logo.m3uassets.com/skynature.png
