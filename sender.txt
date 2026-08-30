@@ -1319,9 +1319,9 @@ EXYU| KUNG FU PANDA LEGENDS OF AWESOMENESS|Kung Fu Panda Legends Of Awesomeness 
 EXYU| LEGO FRIENDS GIRLS ON A MISSION|Lego Friends Girls On A Mission ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/lego_friends.png
 EXYU| LEGO NINJAGO MASTERS OF SPINJITZU|Lego Ninjago Masters Of Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/ninjago_masters.png
 EXYU|LEGO NINJAGO SECRETS OF THE FORBID DEN SPINJITZU|Lego Ninjago Secrets Of The Forbid Den Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/ninjago_masters.png
-EXYU| LUCKY LUKE|Lucky Luke ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| METAJETS|Metajets ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| MUMIJEVI|Mumijevi ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| LUCKY LUKE|Lucky Luke ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/lucky_luke.png
+EXYU| METAJETS|Metajets ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/metajets.png
+EXYU| MUMIJEVI|Mumijevi ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/mumijevi.png
 EXYU| MY LITTLE PONY|My Little Pony ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/my_little_pony.png
 EXYU| PENGUINS OF MADAGASCAR|Penguins Of Madagascar ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/penguins_madagascar.png
 EXYU| PHINEAS AND FERB|Phineas And Ferb ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/phineas_ferb.png
