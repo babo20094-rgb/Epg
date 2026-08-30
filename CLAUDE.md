@@ -867,3 +867,28 @@ eingetragen wird.
   mit `generate_epg.py` verknuepft, keine automatische Nutzung beim
   EPG-Erzeugen. Erst auf expliziten Nutzerwunsch waere eine Einbindung
   zu bauen.
+
+## ppv_kernnamen.txt (Kern-Kanalnamen fuer dynamische PPV-Sendergruppen, Referenz)
+
+- `logos_bei_bedarf/ppv_kernnamen.txt` (August 2026 angelegt, 6742
+  Zeilen) extrahiert speziell die STABILEN Kern-Kanalnamen (Format
+  `Kernname|Logo-URL`, z.B. `AT: DAZN PPV 1|...`, `NO: VGTV PPV 10|...`)
+  aus allen dynamischen PPV-/Live-Event-Sendergruppen (analog zum
+  eigenen DYN-PPV/NAME:-Mechanismus: Sendungstitel wechselt staendig
+  z.B. "End | ... | AT: DAZN PPV 1", nur der letzte Namensteil nach dem
+  letzten Pipe bleibt stabil).
+- Erkennung heuristisch ueber typische Marker (`End |`, `Live |`,
+  `Next |`, `NO EVENT STREAMING NOW...`) in den Anzeigenamen beider
+  Quelldateien, danach wird das letzte Pipe-Segment als Kernname
+  genommen. Funktioniert bei den meisten Gruppen sauber, aber es
+  koennen vereinzelt Ausreisser/Fehltreffer drin sein (z.B. ein Team-
+  vs-Team-Titel ohne Laender-Praefix an der Stelle) - vor einer
+  tatsaechlichen Uebernahme in `sender.txt` stichprobenartig
+  gegenchecken.
+- Ergaenzt `meine_logos.txt` (DE+EXYU, feste Namen) und `alle_logos.txt`
+  (Momentaufnahme aller Anzeigenamen, alle Laender) um genau die
+  Kanalgruppen, die NUR ueber ihren dynamischen Live-Titel erkennbar
+  sind - ohne diese Datei waeren deren stabile Kernnamen in den beiden
+  anderen Referenzdateien nicht sauber auffindbar gewesen.
+- **WICHTIG:** Ebenfalls bisher nur reine Referenz - NICHT mit
+  `generate_epg.py` verknuepft.
