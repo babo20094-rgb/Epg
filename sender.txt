@@ -220,8 +220,8 @@ MAGENTA:DE|PROSIEBENSAT.1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Ep
 TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|AUTO
 TVGUIDE:US|TODAY ALL DAY|
 #DE| MAGENTA TV
-MAGENTA:DE| BILD+ EVENT FAME FIGHTING|
-MAGENTA:DE| HR HD|
+MAGENTA:DE| BILD+ EVENT FAME FIGHTING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bild_fame_fighting/bild_fame_fighting.png
+MAGENTA:DE| HR HD|https://logo.m3uassets.com/hr.png
 MAGENTA:DE| YU-GI-OH!|
 MAGENTA:DE| SR|
 SKY:DE|AXN BLACK HD||DE| AXN BLACK HD
@@ -539,7 +539,7 @@ NA| Acadie-Bathurst Titan|Acadie-Bathurst Titan ᴸⁱᵛᵉ|Auto
 NA| Calgary Wranglers|Calgary Wranglers ᴸⁱᵛᵉ|Auto
 US| REALITY||AUTO
 US| YOGA EXERCISE||Auto
-DE| BILD+ EVENT FAME FIGHTING|
+DE| BILD+ EVENT FAME FIGHTING||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bild_fame_fighting/bild_fame_fighting.png
 UK| RAITH ROVERS|
 US| BIG BROTHER QUAD VIEW FEED|
 UK| SUPERSPORTS EVENTS HD|
@@ -1154,7 +1154,7 @@ UK|PL Replay 7 HD|
 UK|PL Replay 8 HD|
 UK|PL Replay 9 HD|
 DE|Hr HD Hessischer Rundfunk|
-DE|UHD1 by Astra|
+DE|UHD1 by Astra||https://logo.m3uassets.com/uhd1.png
 UK|R&B Soul-Direkt HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 FREEVIEW:GB|Rap 2K-Direct HD|https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 FREEVIEW:GB|Pop Latino-Direct HD|https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
@@ -2112,13 +2112,13 @@ PRIME|24/7 Laughs ᴿᴬᵂ|
 DE| RTL CRIME||https://logo.m3uassets.com/rtlcrime.png
 SKY:DE|SKY CRIME FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_crime/sky_crime.png
 SKY:DE|SKY CRIME|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_crime/sky_crime.png|WOW| SKY CRIME ᴴᴰ ◉
-DE| ARD ALPHA FHD|
-DE| QVC UHD|
-DE| QVC FHD|
+DE| ARD ALPHA FHD||https://logo.m3uassets.com/ardalpha.png
+DE| QVC UHD||https://logo.m3uassets.com/qvc.png
+DE| QVC FHD||https://logo.m3uassets.com/qvc.png
 DE| QVC|
-DE| ZDF NEO HD|
+DE| ZDF NEO HD||https://logo.m3uassets.com/zdfneo.png
 DE| TAGESSCHAU 24 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tagesschau24.png
-SKY:DE|SKY NATURE FHD|
+SKY:DE|SKY NATURE FHD|https://logo.m3uassets.com/skynature.png
 DE| RTL UP|
 DE| TOGGO PLUS|
 SKY:DE| SKY SPORT BUNDESLIGA 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_1.png
