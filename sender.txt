@@ -1008,7 +1008,7 @@ DE|SKY GO FILME 48 FHD|Sky Go Filme 48 FHD ᴸⁱᵛᵉ|https://championstream.d
 DE|SKY GO FILME 49 FHD|Sky Go Filme 49 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 DE|SKY GO FILME 50 FHD|Sky Go Filme 50 FHD ᴸⁱᵛᵉ|https://championstream.de/wp-content/uploads/2024/01/Sky-Cinema-Angebot.jpg
 #DE| SKY GO (KINO/WOW ENTERTAINMENT)
-WOW|CARTOON NETWORK ᴴᴰ ◉|
+WOW|CARTOON NETWORK ᴴᴰ ◉||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/wow/cartoon_network.png
 #DE| PREMIUM PLAY 40
 DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_1.png
 DE|FILME 2022 2 4K|Filme 2022 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_2.png
@@ -2110,8 +2110,8 @@ PRIME|48 Hours ᴿᴬᵂ|
 PRIME|24/7 Laughs ᴿᴬᵂ|
 #DE| SKY, MAGENTA TV BL, SP, TV ALGEMEIN
 DE| RTL CRIME|
-SKY:DE|SKY CRIME FHD|
-SKY:DE|SKY CRIME||WOW| SKY CRIME ᴴᴰ ◉
+SKY:DE|SKY CRIME FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_crime/sky_crime.png
+SKY:DE|SKY CRIME|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_crime/sky_crime.png|WOW| SKY CRIME ᴴᴰ ◉
 DE| ARD ALPHA FHD|
 DE| QVC UHD|
 DE| QVC FHD|
