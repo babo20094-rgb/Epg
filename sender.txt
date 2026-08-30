@@ -2109,7 +2109,7 @@ PRIME|60 Minutes ᴿᴬᵂ|
 PRIME|48 Hours ᴿᴬᵂ|
 PRIME|24/7 Laughs ᴿᴬᵂ|
 #DE| SKY, MAGENTA TV BL, SP, TV ALGEMEIN
-DE| RTL CRIME|
+DE| RTL CRIME||https://logo.m3uassets.com/rtlcrime.png
 SKY:DE|SKY CRIME FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_crime/sky_crime.png
 SKY:DE|SKY CRIME|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_crime/sky_crime.png|WOW| SKY CRIME ᴴᴰ ◉
 DE| ARD ALPHA FHD|
