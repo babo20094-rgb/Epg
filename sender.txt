@@ -881,7 +881,7 @@ DE|SILO FHD|Silo FHD ²⁴/⁷
 DE|THE LAST OF US FHD|The Last Of Us FHD ²⁴/⁷
 DE| DAZN BAR 1 HEVC|
 DE| DAZN BAR 2 HEVC|
-DE| BUNDESLIGA (DAZN STREAM)|
+DE| BUNDESLIGA (DAZN STREAM)||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 US| NBC 4 WASHINGTON DC (Y)|
 US| NBC 7 WASHINGTON NC (WITN)
 UK| KIDZ BOP-DIRECT HD|
