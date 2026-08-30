@@ -1108,7 +1108,6 @@ US|PBS 36 ODESSA MIDLAND|Pbs 36 Odessa Midland ᴸⁱᵛᵉ|
 US|PBS ALBUQUERQUE SANTA FE|Pbs Albuquerque Santa Fe ᴸⁱᵛᵉ|
 US|PBS 19 KCPT KANSAS CITY|Pbs 19 Kcpt Kansas City ᴸⁱᵛᵉ|
 US|PBS PHOENIX|Pbs Phoenix ᴸⁱᵛᵉ|
-EXYU|WISSPER|Wissper ᴸⁱᵛᵉ|
 SK|TV MARKIZA FHD|TV Markiza FHD ᴸⁱᵛᵉ|
 US|ACCN HD 60FPS|Accn HD 60fps ᴸⁱᵛᵉ|
 US|A-Z CLASSIC FLIX|A-Z Classic Flix ᴸⁱᵛᵉ|
@@ -1311,31 +1310,33 @@ DE| MAX SELECT 2 FHD|Max Select 2 FHD ᴸⁱᵛᵉ|https://www.citypng.com/publi
 DE| MAX SELECT 4 FHD|Max Select 4 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
 DE| MAX SELECT 5 FHD|Max Select 5 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
 DE| MAX SELECT 7 FHD|Max Select 7 FHD ᴸⁱᵛᵉ|https://www.citypng.com/public/uploads/preview/hbo-max-white-logo-png-701751694707739y4d41kme7y.png
-#EXYU| 24/7 NON STOP
-EXYU| BAKUGAN|Bakugan ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| BE COOL SCOOBY-DOO|Be Cool Scooby-Doo ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| AND THE MONSTER MACHINES|And The Monster Machines ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| GARFIELD AND FRIENDS|Garfield And Friends ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| KUNG FU PANDA LEGENDS OF AWESOMENESS|Kung Fu Panda Legends Of Awesomeness ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| LEGO FRIENDS GIRLS ON A MISSION|Lego Friends Girls On A Mission ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| LEGO NINJAGO MASTERS OF SPINJITZU|Lego Ninjago Masters Of Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU|LEGO NINJAGO SECRETS OF THE FORBID DEN SPINJITZU|Lego Ninjago Secrets Of The Forbid Den Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ
+#EXYU| SKY KIDS
+EXYU| BAKUGAN|Bakugan ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/bakugan.png
+EXYU| BE COOL SCOOBY-DOO|Be Cool Scooby-Doo ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/becool_scooby.png
+EXYU| AND THE MONSTER MACHINES|And The Monster Machines ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/blaze_monster.png
+EXYU| GARFIELD AND FRIENDS|Garfield And Friends ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/garfield.png
+EXYU| KUNG FU PANDA LEGENDS OF AWESOMENESS|Kung Fu Panda Legends Of Awesomeness ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/kfp_awesomeness.png
+EXYU| LEGO FRIENDS GIRLS ON A MISSION|Lego Friends Girls On A Mission ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/lego_friends.png
+EXYU| LEGO NINJAGO MASTERS OF SPINJITZU|Lego Ninjago Masters Of Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/ninjago_masters.png
+EXYU|LEGO NINJAGO SECRETS OF THE FORBID DEN SPINJITZU|Lego Ninjago Secrets Of The Forbid Den Spinjitzu ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/ninjago_masters.png
 EXYU| LUCKY LUKE|Lucky Luke ²⁴/⁷ ᴸⁱᵛᵉ
 EXYU| METAJETS|Metajets ²⁴/⁷ ᴸⁱᵛᵉ
 EXYU| MUMIJEVI|Mumijevi ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| MY LITTLE PONY|My Little Pony ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| PENGUINS OF MADAGASCAR|Penguins Of Madagascar ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| PHINEAS AND FERB|Phineas And Ferb ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| SCOOBY-DOO AND GUESS WHO|Scooby-Doo And Guess Who ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| SHAUN THE SHEEP|Shaun The Sheep ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| SOFIA THE FIRST|Sofia The First ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| SPEEDY GONZALEZ|Speedy Gonzalez ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| SPONJE BOB|Sponje Bob ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| TANGLED THE SERIE|Tangled The Serie ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| THE BATMAN|The Batman ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| THE FLINTSTONES|The Flintstones ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| THE PINK PANTHER|The Pink Panther ²⁴/⁷ ᴸⁱᵛᵉ
-EXYU| THOMAS & FRIENDS|Thomas & Friends ²⁴/⁷ ᴸⁱᵛᵉ
+EXYU| MY LITTLE PONY|My Little Pony ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/my_little_pony.png
+EXYU| PENGUINS OF MADAGASCAR|Penguins Of Madagascar ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/penguins_madagascar.png
+EXYU| PHINEAS AND FERB|Phineas And Ferb ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/phineas_ferb.png
+EXYU| SCOOBY-DOO AND GUESS WHO|Scooby-Doo And Guess Who ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/scooby_guess_who.png
+EXYU| SHAUN THE SHEEP|Shaun The Sheep ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/shaun_sheep.png
+EXYU| SOFIA THE FIRST|Sofia The First ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/sofia_first.png
+EXYU| SPEEDY GONZALEZ|Speedy Gonzalez ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/speedy_gonzales.png
+EXYU| SPONJE BOB|Sponje Bob ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/spongebob.png
+EXYU| TANGLED THE SERIE|Tangled The Serie ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/tangled.png
+EXYU| THE BATMAN|The Batman ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/the_batman.png
+EXYU| THE FLINTSTONES|The Flintstones ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/flintstones.png
+EXYU| THE PINK PANTHER|The Pink Panther ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/pink_panther.png
+EXYU| THOMAS & FRIENDS|Thomas & Friends ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/thomas_friends.png
+EXYU|WISSPER|Wissper ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_kids/wissper.png
+#EXYU| 24/7 NON STOP
 EXYU| LOONEY TUNES|Looney Tunes ²⁴/⁷ ᴸⁱᵛᵉ|https://toppng.com/uploads/preview/looney-tunes-image-looney-tunes-logo-11562925456xfff6wikqf.png
 EXYU| PAW PATROL|Paw Patrol ²⁴/⁷ ᴸⁱᵛᵉ|https://www.clipartmax.com/png/middle/436-4366822_free-printable-paw-patrol-logo.png
 EXYU| PEPPA PIG|Peppa Pig ²⁴/⁷ ᴸⁱᵛᵉ
