@@ -842,3 +842,28 @@ eingetragen wird.
   DYN PPV) wurde dem Nutzer nur als Chat-Datei geschickt, NICHT ins
   Repo committet (Datenschutz/Uebersicht - der Nutzer wollte zunaechst
   nur DE+EXYU dauerhaft im Repo).
+
+## alle_logos.txt (Sendername-zu-Logo-Referenz, ALLE Laender, noch nicht aktiv genutzt)
+
+- Zusaetzlich zu `meine_logos.txt` (nur DE+EXYU) gibt es
+  `logos_bei_bedarf/alle_logos.txt` (August 2026 angelegt) - deckt
+  ALLE Laender/Anbieter-Praefixe ab, nicht nur DE+EXYU, aus zwei
+  weiteren, aehnlich grossen XMLTV-EPG-Drittanbieter-Dateien
+  (zusammengefuehrt und dedupliziert, exakt gleiches Format
+  `Sendername|Logo-URL` wie `meine_logos.txt`). Aktuell 47.567
+  eindeutige Zeilen.
+- Zweck: falls der Nutzer irgendwann unabhaengig von seinem aktuellen
+  EPG-Provider werden will, stehen fuer praktisch jeden denkbaren
+  Sendernamen (nicht nur DE/EXYU) schon Name+Logo-URL bereit, ohne
+  dass jedes Mal einzeln online gesucht werden muss.
+- Dedupliziert wurde NUR bei komplett identischen Zeilen (identischer
+  Sendername UND identische Logo-URL, Zeichen fuer Zeichen) - bewusst
+  NICHT nach Sendername allein, da z.B. gleicher Sendername mit
+  unterschiedlichem Laender-Praefix (z.B. "DE| RTL" vs. "AT| RTL")
+  fuer den Nutzer je nach eigener Playlist relevant sein kann. Nichts
+  inhaltlich entfernt, nur echte 1:1-Duplikate beim Zusammenfuehren
+  beider Quelldateien rausgefiltert.
+- **WICHTIG:** Wie `meine_logos.txt` bisher nur reine Referenz - NICHT
+  mit `generate_epg.py` verknuepft, keine automatische Nutzung beim
+  EPG-Erzeugen. Erst auf expliziten Nutzerwunsch waere eine Einbindung
+  zu bauen.
