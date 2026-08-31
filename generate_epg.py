@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 from xml.sax.saxutils import escape
+import gzip
 import os
 import re
 import requests
@@ -2776,5 +2777,18 @@ except ET.ParseError as e:
 
 with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
     f.write(xml_inhalt)
+
+# Zusaetzlich gzip-komprimiert schreiben (Epg_365_Tage.xml.gz) - seit dem
+# Playlist-Vollimport (August/September 2026, ~19.000 statt ~2.200 Sender)
+# ueberschreitet die unkomprimierte XML-Datei GitHubs 100-MB-Dateilimit
+# (ca. 200+ MB), wodurch der automatische Commit im Workflow fehlschlagen
+# wuerde. XML komprimiert sehr gut (repetitive Tags/Whitespace), die
+# gezippte Datei bleibt deutlich unter dem Limit. Git LFS wurde bewusst
+# NICHT gewaehlt, da GitHubs kostenloses LFS-Bandbreiten-Kontingent
+# (1 GB/Monat) bei einer alle 3 Stunden neu gepushten ~100+ MB-Datei
+# sofort aufgebraucht waere. Fast jeder IPTV-Player (u.a. TiviMate)
+# unterstuetzt gezippte XMLTV-Quellen direkt per URL.
+with gzip.open("Epg_365_Tage.xml.gz", "wb") as f:
+    f.write(xml_inhalt.encode("utf-8"))
 
 print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
