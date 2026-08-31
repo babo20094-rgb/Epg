@@ -669,9 +669,8 @@ for zeile in zeilen:
         if not telemach_kanalname:
             continue
 
-        telemach_auto_beschreibung, telemach_kategorie_key = standard_beschreibung(
-            telemach_land, telemach_kanalname
-        )
+        telemach_auto_beschreibung = f"{telemach_kanalname.title()} ᴸⁱᵛᵉ"
+        telemach_kategorie_key = None
 
         sender_daten.append({
             "kanal": f"{telemach_land}| {telemach_kanalname}",
@@ -758,9 +757,8 @@ for zeile in zeilen:
         # display-name daher "UK" zeigen, nicht "GB".
         sky_anzeige_land = "UK" if sky_territory == "GB" else sky_territory
 
-        sky_auto_beschreibung, sky_kategorie_key = standard_beschreibung(
-            sky_anzeige_land, sky_kanalname
-        )
+        sky_auto_beschreibung = f"{sky_kanalname.title()} ᴸⁱᵛᵉ"
+        sky_kategorie_key = None
 
         sender_daten.append({
             "kanal": sky_id_override if sky_id_override else f"{sky_anzeige_land}| {sky_kanalname}",
@@ -819,9 +817,8 @@ for zeile in zeilen:
         if not magenta_kanalname:
             continue
 
-        magenta_auto_beschreibung, magenta_kategorie_key = standard_beschreibung(
-            "DE", magenta_kanalname
-        )
+        magenta_auto_beschreibung = f"{magenta_kanalname.title()} ᴸⁱᵛᵉ"
+        magenta_kategorie_key = None
 
         sender_daten.append({
             "kanal": f"DE| {magenta_kanalname}",
@@ -879,9 +876,8 @@ for zeile in zeilen:
         if not arena_kanalname:
             continue
 
-        arena_auto_beschreibung, arena_kategorie_key = standard_beschreibung(
-            arena_land, arena_kanalname
-        )
+        arena_auto_beschreibung = f"{arena_kanalname.title()} ᴸⁱᵛᵉ"
+        arena_kategorie_key = None
 
         sender_daten.append({
             "kanal": f"{arena_land}| {arena_kanalname}",
@@ -938,9 +934,8 @@ for zeile in zeilen:
         if not dazn_kanalname:
             continue
 
-        dazn_auto_beschreibung, dazn_kategorie_key = standard_beschreibung(
-            dazn_land.upper(), dazn_kanalname
-        )
+        dazn_auto_beschreibung = f"{dazn_kanalname.title()} ᴸⁱᵛᵉ"
+        dazn_kategorie_key = None
 
         sender_daten.append({
             "kanal": f"{dazn_land.upper()}| {dazn_kanalname}",
@@ -1003,9 +998,8 @@ for zeile in zeilen:
         if not freeview_kanalname:
             continue
 
-        freeview_auto_beschreibung, freeview_kategorie_key = standard_beschreibung(
-            freeview_anzeige_land, freeview_kanalname
-        )
+        freeview_auto_beschreibung = f"{freeview_kanalname.title()} ᴸⁱᵛᵉ"
+        freeview_kategorie_key = None
 
         sender_daten.append({
             "kanal": f"{freeview_anzeige_land}| {freeview_kanalname}",
@@ -1060,9 +1054,8 @@ for zeile in zeilen:
         if not tvguide_kanalname:
             continue
 
-        tvguide_auto_beschreibung, tvguide_kategorie_key = standard_beschreibung(
-            tvguide_land, tvguide_kanalname
-        )
+        tvguide_auto_beschreibung = f"{tvguide_kanalname.title()} ᴸⁱᵛᵉ"
+        tvguide_kategorie_key = None
 
         sender_daten.append({
             "kanal": f"{tvguide_land}| {tvguide_kanalname}",
@@ -1129,9 +1122,8 @@ for zeile in zeilen:
         if not tvpassport_kanalname:
             continue
 
-        tvpassport_auto_beschreibung, tvpassport_kategorie_key = standard_beschreibung(
-            tvpassport_land, tvpassport_kanalname
-        )
+        tvpassport_auto_beschreibung = f"{tvpassport_kanalname.title()} ᴸⁱᵛᵉ"
+        tvpassport_kategorie_key = None
 
         sender_daten.append({
             "kanal": tvpassport_id_override if tvpassport_id_override else f"{tvpassport_land}| {tvpassport_kanalname}",
