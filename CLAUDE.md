@@ -870,21 +870,46 @@ eingetragen wird.
 
 ## ppv_kernnamen.txt (Kern-Kanalnamen fuer dynamische PPV-Sendergruppen, Referenz)
 
-- `logos_bei_bedarf/ppv_kernnamen.txt` (August 2026 angelegt, 6742
+- `logos_bei_bedarf/ppv_kernnamen.txt` (August 2026 angelegt, 12315
   Zeilen) extrahiert speziell die STABILEN Kern-Kanalnamen (Format
   `Kernname|Logo-URL`, z.B. `AT: DAZN PPV 1|...`, `NO: VGTV PPV 10|...`)
   aus allen dynamischen PPV-/Live-Event-Sendergruppen (analog zum
-  eigenen DYN-PPV/NAME:-Mechanismus: Sendungstitel wechselt staendig
-  z.B. "End | ... | AT: DAZN PPV 1", nur der letzte Namensteil nach dem
-  letzten Pipe bleibt stabil).
-- Erkennung heuristisch ueber typische Marker (`End |`, `Live |`,
-  `Next |`, `NO EVENT STREAMING NOW...`) in den Anzeigenamen beider
-  Quelldateien, danach wird das letzte Pipe-Segment als Kernname
-  genommen. Funktioniert bei den meisten Gruppen sauber, aber es
-  koennen vereinzelt Ausreisser/Fehltreffer drin sein (z.B. ein Team-
-  vs-Team-Titel ohne Laender-Praefix an der Stelle) - vor einer
-  tatsaechlichen Uebernahme in `sender.txt` stichprobenartig
-  gegenchecken.
+  eigenen DYN-PPV/NAME:-Mechanismus: Sendungstitel wechselt staendig,
+  nur ein Teil des Namens bleibt stabil).
+- Erkennung ueber fuenf Muster, je nach Anbieter-Konvention: (1) Kern
+  HINTEN/VORNE im Format "LAND: NAME PPV N" (Pflicht: Wort "PPV" muss
+  im erkannten Kern vorkommen, sonst greifen zufaellige Ligennamen mit
+  Doppelpunkt+Zahl wie "AEW: All In London 2026" faelschlich zuerst),
+  (2) Kern in Klammern (z.B. "(FLSP 671) | live: ..."), (3)
+  "LIVE EVENT N - ..." ohne Laender-Code, (4) "Name N | Spielinfos"
+  ohne Doppelpunkt (z.B. "National League 3 | Scunthorpe vs Chester",
+  Erkennung nur wenn der Rest nach dem Pipe dynamisch wirkt - "vs",
+  "//" oder eine Uhrzeit enthaelt), (5) ":Name(n) N" ganz am Zeilenende
+  ohne "PPV"-Wort (z.B. "Tennis: Spieler A vs Spieler B @ Datum
+  :Tennis 30" -> Kern "Tennis 30", oder ":MAX DK 01" -> Kern "MAX DK
+  01" - deckt Faelle ab, wo ein Kategorietext wie "Tennis:" vorne
+  mehrfach fuer unterschiedliche Events steht und nur der Teil nach
+  dem letzten Doppelpunkt am Ende stabil pro Kanal ist), (6) "Name N:"
+  ganz am ZeilenANFANG (z.B. "TC+ 1: 12/02 12:50pm,..." oder auch
+  "TC+ 100:" ganz ohne Text danach, wenn der Kanal gerade kein Event
+  zeigt - Kern "TC+ 100:"), (7) doppelte Klammer-Gruppe + Nummer
+  (z.B. "(Apple) (MLS) 001 | Columbus vs. New England..." -> Kern
+  "(Apple) (MLS) 001 |"). Erkennung laeuft case-insensitiv
+  (nicht nur GROSSBUCHSTABEN, da manche Anbieter gemischte
+  Schreibweise nutzen z.B. "SE: AftonBlade PPV 24"). Funktioniert bei
+  den meisten Gruppen sauber (z.B. alle 200 "US: SOCCER PPV",
+  alle 99 "DE: DAZN PPV", alle 100 "DE: SPORT DEUTSCHLAND PPV"
+  gefunden), aber es koennen vereinzelt Ausreisser/Fehltreffer drin
+  sein - vor einer tatsaechlichen Uebernahme in `sender.txt`
+  stichprobenartig gegenchecken. Fehlende Einzelnummern innerhalb
+  einer Gruppe (z.B. "DE: LEAGUES FOOTBALL PPV 6") sind idR keine
+  Erkennungsluecke, sondern eine echte Datenluecke der Quelle (Kanal
+  war zum Downloadzeitpunkt nicht im Feed aktiv) - vor weiterer Suche
+  erst direkt in den Rohdaten gegenchecken. Ein kleiner Rest
+  (~250 Kanaele) mit "LIVE"/"END" als normalem Namensbestandteil (z.B.
+  "Sky Sport 5", "Eurosport Live 9") wurde bewusst NICHT extrahiert,
+  da das bereits stabile, statische Namen ohne wechselnden Anteil
+  sind - die stehen vollstaendig in `alle_logos.txt`.
 - Ergaenzt `meine_logos.txt` (DE+EXYU, feste Namen) und `alle_logos.txt`
   (Momentaufnahme aller Anzeigenamen, alle Laender) um genau die
   Kanalgruppen, die NUR ueber ihren dynamischen Live-Titel erkennbar
