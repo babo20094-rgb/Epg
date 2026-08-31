@@ -917,3 +917,103 @@ eingetragen wird.
   anderen Referenzdateien nicht sauber auffindbar gewesen.
 - **WICHTIG:** Ebenfalls bisher nur reine Referenz - NICHT mit
   `generate_epg.py` verknuepft.
+
+## Playlist-Vollimport (August/September 2026) - sender.txt auf ~19.100 Zeilen erweitert
+
+Ziel des Nutzers: unabhaengig vom aktuellen EPG-Provider werden, indem
+ALLE Sender aus der eigenen IPTV-Playlist (nicht nur eine Auswahl) mit
+echten Programmdaten wo moeglich in `sender.txt` stehen. Umgesetzt und
+bereits auf `main` committet/gepusht (Commit `42d635d`).
+
+- **Live-TV vs. VOD-Trennung:** Die Playlist hat insgesamt ~1,38 Mio.
+  `#EXTINF`-Zeilen, weil riesige VOD-/Serien-/Film-Kataloge mitlaufen.
+  Erkennungsmerkmal: VOD-Gruppen haben ein FUEHRENDES `|` im
+  `group-title` (z. B. `|DE| SERIEN`), echte Live-/PPV-Kanaele haben
+  KEIN fuehrendes `|` (z. B. `DE| ALLGEMEIN`, `US| ESPN+ PPV VIP`).
+  Reicht als Filter aber NICHT allein - manche No-Pipe-Gruppen sind
+  trotzdem VOD-Kataloge (siehe unten).
+- **Finale, per Stichprobe verifizierte Zahl: 18.979 echte Live-Sender**
+  in 234 Gruppen (Stand des Imports). Ausgeschlossen wurden nur 11
+  Gruppen (3.473 Eintraege) mit eindeutigen Einzeltitel-VOD-Katalogen
+  (Filmtitel mit Jahreszahl, keine Kanal-Nummerierung): `NETFLIX
+  MOVIES`, `NETFLIX KIDS`, `NETFLIX ASIA`, `TOP IMDB/OSCAR MOVIES`,
+  `DISNEY+ MOVIES`, `4K NETFLIX MOVIES`, `APPLE+ MOVIES`, `DISNEY+
+  KIDS`, `APPLE+ KIDS`, eine namenlose Gruppe (Lernvideos), `US|
+  NETFLIX ON AIR RAW` (aktuell leer). **Wichtige Lehre dabei:**
+  durchnummerierte Gruppen (z. B. `SKY GO FILME 1-57`, `NETFLIX PPV
+  1-10`, `PRIME VIDEO SERIE 1-10`) sind KEINE Kataloge, sondern
+  echte (wenn auch thematische) Live-Kanaele - Nummerierung ist das
+  Unterscheidungsmerkmal, nicht das Vorkommen von Wörtern wie
+  "Filme"/"Movies"/"Serie" im Namen. `SKY GO KINO` wurde faelschlich
+  erst als VOD eingestuft, enthielt aber echte Kanaele (13th Street,
+  Sky Atlantic, Sky Crime usw.) - bei Unsicherheit immer echte
+  Beispiel-Eintraege der Gruppe pruefen, nicht nur den Gruppennamen.
+- **Sender-Namensformat aus der Playlist:** `Land| Sendername` (z. B.
+  `DE| ZDF HD`) fuer normale Kanaele -> wurde 1:1 in normale
+  `Land|Sender|Beschreibung|Logo`-Zeilen uebernommen. Namen OHNE
+  dieses Land-Pipe-Format sind ueberwiegend dynamische PPV-/Live-
+  Event-Kanaele (roher Name aendert sich mit jedem Event, z. B. "End |
+  Team A vs. Team B | ... | DE: DAZN PPV 17") - dafuer wurde der
+  stabile Kern (Land: Name PPV N) extrahiert und als `NAME:`-Zeile
+  eingetragen, exakt nach der bestehenden DYN-PPV-Konvention (siehe
+  oben). 9.303 `NAME:`-Zeilen stehen jetzt insgesamt in `sender.txt`.
+- **Dedup gegen bestehende Zeilen:** Vor dem Einfuegen wurde jeder neue
+  Playlist-Name gegen die vorhandenen `sender.txt`-Zeilen abgeglichen
+  (exaktes 4. Feld bei SKY:/TVPASSPORT:/etc.-Zeilen, rekonstruiertes
+  `Land| Sender` bei normalen Zeilen) - nur wirklich neue Sender
+  wurden ergaenzt, nichts Bestehendes veraendert oder ueberschrieben.
+  Von 18.155 eindeutigen Sendernamen waren bereits 1.320 vorhanden,
+  16.835 wurden neu ergaenzt.
+- **Echte Quellen fuer die neuen Sender:**
+  - DE/BA/RS/HR/SI/MNG/MO/JOYN/PRIME/WOW/TUBI/GO laufen automatisch
+    ueber die bereits bestehenden Code-Pfade (siehe jeweilige
+    Abschnitte oben) - **wichtige Erkenntnis dabei:** `MNG` und `MO`
+    sind im Code (`TELEMACH_LAND_ALIAS`) bereits als Alias fuer
+    Montenegro (`ME`) hinterlegt und laufen daher automatisch durch
+    Telemach, obwohl das vorher nirgends explizit dokumentiert war.
+  - US-Sender wurden auf `TVPASSPORT:US|`/`TVGUIDE:US|` umgestellt
+    (lokale Sender mit Sender-Kuerzel in Klammern -> TVPASSPORT,
+    sonst TVGUIDE), UK-Sender auf `SKY:GB|`/`FREEVIEW:GB|` (Sky-Marke
+    im Namen -> SKY, sonst FREEVIEW) - reines Best-Effort-Mapping per
+    Namensmuster, kein garantierter Treffer pro Sender, degradiert bei
+    Nichttreffer graceful auf generischen Text (Zero-Risk, siehe unten).
+  - MK, CITY, EN, LIGA, EXYU, IR, EPL, SPFL, PPV, UFC, NA, MLB, SK und
+    alle `NAME:`-Kanaele ohne erkanntes Anbieter-Muster bleiben
+    generisch (kein automatischer Massen-Abgleich vorgesehen/moeglich).
+- **Fallback-Text-Fix (generate_epg.py):** Vorher fiel bei SKY:/
+  MAGENTA:/DAZN:/ARENA:/FREEVIEW:/TVGUIDE:/TVPASSPORT:/TELEMACH:-
+  Sendern OHNE Treffer bei der echten Quelle der alte, abwechslungs-
+  reiche Kategorietext (`standard_beschreibung()`) als Fallback an -
+  das betraf auch schon VORHER bestehende Sender, nicht nur die neuen.
+  Auf Nutzerwunsch fuer alle acht Quellen-Praefixe vereinheitlicht auf
+  `<Sendername in Title Case> ᴸⁱᵛᵉ`, exakt wie beim generischen
+  Land|Sender-Format ohne Quelle.
+- **Logos:** Playlist selbst traegt bei fast jedem Kanal ein
+  `tvg-logo`-Attribut (18.433 von 18.979 Live-Kanaelen) - direkt
+  daraus extrahiert, zusaetzlich Abgleich gegen `meine_logos.txt`/
+  `alle_logos.txt`. 2.500 einzigartige Bild-URLs wurden heruntergeladen,
+  auf max. 300px/256 Farben optimiert (gleiche Konvention wie die
+  anderen `logos/`-Sets) und liegen jetzt selbst gehostet unter
+  `logos/playlist_import/<sha1-hash>.png`. **Bekannte Luecke:** ca.
+  1.580 Sender haben noch eine externe Logo-URL statt selbst gehostet -
+  deren Bilder liegen auf den privaten Picon-Servern des Anbieters
+  (`103.176.90.95`, `51.158.145.100`), die aus der damaligen Claude-
+  Code-Sandbox-Umgebung nicht erreichbar waren (kein Fehler im
+  Code/den Daten, rein eine Netzwerk-Einschraenkung der damaligen
+  Session - ein erneuter Versuch mit vollem Internetzugriff koennte
+  das nachtraeglich vervollstaendigen). 105 Sender haben noch gar kein
+  Logo (kein Treffer in Playlist-tvg-logo oder Referenzdateien).
+- **Laufzeit:** Mit dem deutlich groesseren `sender.txt` dauert ein
+  Workflow-Lauf laenger als vorher (grobe Schaetzung ~27-45 Minuten
+  statt vorher ~12-16 Minuten) - noch nicht abschliessend mit echtem
+  Internetzugriff verifiziert, da die Entwickler-Sandbox beim Import
+  selbst keinen vollen Zugriff auf die externen EPG-Quellen hatte
+  (Telemach, mtel.ba etc. wurden dort blockiert). Der naechste/erste
+  echte Workflow-Lauf auf `main` nach diesem Import ist die eigentliche
+  Bewaehrungsprobe - Ergebnis ggf. hier oder im naechsten Gespraech
+  nachtragen, sobald bekannt.
+- **Playlist-Herkunft:** Die verwendete Playlist-URL enthaelt
+  Zugangsdaten des Nutzers und wird auf dessen ausdruecklichen Wunsch
+  NIRGENDS im Klartext wiederholt (weder im Chat noch in Dateien) -
+  lokale Kopien der Playlist wurden nach jeder Analyse wieder aus dem
+  Scratchpad geloescht.
