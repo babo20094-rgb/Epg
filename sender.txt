@@ -473,7 +473,7 @@ DE|HUNTERS ᴿᴬᵂ|Hunters ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuserconten
 DE|HYPER KNIFE ᴿᴬᵂ|Hyper Knife ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/HYPERKNIFE.png
 DE|JAMES BOND|James Bond ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|JASON STATHAM|Jason Statham ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
-DE|JUKEBOX FHD|Jukebox Fhd ᴸⁱᵛᵉ|
+DE|JUKEBOX FHD|Jukebox Fhd ᴸⁱᵛᵉ|https://logo.m3uassets.com/jukebox.png
 DE|K-TV HD|K-Tv Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/KTV.png
 DE|KABEL 1 DOKU HEVC|Kabel 1 Doku Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/38a1dace36dd9754.png
 DE|KABEL 1 HEVC|Kabel 1 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4ea46e854a447a4c.png
@@ -1053,7 +1053,7 @@ EN|ADAM 12|Adam 12 ᴸⁱᵛᵉ|http://103.176.90.95/images/1811978.png
 EN|ADAM SANDLER 4K|Adam Sandler 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976589.png
 EN|AEW DYNAMITE 4K|Aew Dynamite 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/1034770.png
 EN|ALVIN|Alvin ᴸⁱᵛᵉ|http://103.176.90.95/images/1448706.png
-EN|AMC +|Amc + ᴸⁱᵛᵉ|
+EN|AMC +|Amc + ᴸⁱᵛᵉ|https://logo.m3uassets.com/amc.png
 EN|AMERICAN HORROR STORY|American Horror Story ᴸⁱᵛᵉ|http://103.176.90.95/images/1787982.png
 EN|ANT-MAN|Ant-Man ᴸⁱᵛᵉ|http://103.176.90.95/images/1448708.png
 EN|ARNOLD SCHWARZNEGGER 4K|Arnold Schwarznegger 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976590.png
@@ -1078,7 +1078,7 @@ EN|DISCOVERY+ DOC 2|Discovery+ Doc 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.
 EN|DISCOVERY+ DOCUMENTARY 4K|Discovery+ Documentary 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/1034771.png
 EN|DISCOVERY+ IMAX|Discovery+ Imax ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f068d2cb7058abac.png
 EN|DRAGNET|Dragnet ᴸⁱᵛᵉ|http://103.176.90.95/images/1811976.png
-EN|EPIX|Epix ᴸⁱᵛᵉ|
+EN|EPIX|Epix ᴸⁱᵛᵉ|https://logo.m3uassets.com/epix.png
 EN|EROS|Eros ᴸⁱᵛᵉ|
 EN|EVERYBODY LOVES RAYMOND 4K|Everybody Loves Raymond 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976552.png
 EN|EXPLAINED|Explained ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/96ae733483e23f46.png
@@ -1277,7 +1277,7 @@ EN|PITCH PERFECT 4K|Pitch Perfect 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/97
 EN|PRISON BREAK 4k|Prison Break 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976564.png
 EN|REBA|Reba ᴸⁱᵛᵉ|http://103.176.90.95/images/1060649.png
 EN|REVOLUTION 4k|Revolution 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2a86635cf0f03147.png
-EN|REVRY|Revry ᴸⁱᵛᵉ|
+EN|REVRY|Revry ᴸⁱᵛᵉ|https://logo.m3uassets.com/revry.png
 EN|ROCKY 4K|Rocky 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976601.png
 EN|ROSEANNE 4k|Roseanne 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976566.png
 EN|SANTA CLAUS FHD|Santa Claus Fhd ᴸⁱᵛᵉ|http://103.176.90.95/images/1066684.png
@@ -2010,7 +2010,7 @@ LIGA|LALIGA REPLAY INFO ᴴᴰ|Laliga Replay Info ᴴᴰ ᴸⁱᵛᵉ|https://ra
 ##### MK (aus Playlist) #####
 MK|24 KITCHEN ⱽᴵᴾ ᴿᴬᵂ|24 Kitchen ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/344574762ccd962c.png
 MK|24 VESTI|24 Vesti ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9cd561dced0a8593.png
-MK|24 VESTI HD|24 Vesti Hd ᴸⁱᵛᵉ|
+MK|24 VESTI HD|24 Vesti Hd ᴸⁱᵛᵉ|https://logo.m3uassets.com/24vesti.png
 MK|ALFA|Alfa ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/487035a90cb26d08.png
 MK|ALFA TV|Alfa Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/da61e63b63508f0f.png
 MK|ALFA TV SD|Alfa Tv Sd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/da61e63b63508f0f.png
@@ -2043,7 +2043,7 @@ MK|HBO FHD|Hbo Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/
 MK|KANAL 5|Kanal 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
 MK|KANAL 5 HD|Kanal 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
 MK|KANAL 5 ⱽᴵᴾ ᴿᴬᵂ|Kanal 5 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
-MK|KANAL 8|Kanal 8 ᴸⁱᵛᵉ|
+MK|KANAL 8|Kanal 8 ᴸⁱᵛᵉ|https://logo.m3uassets.com/kanal5.png
 MK|KOHA TV HD|Koha Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c96ffb9e4c84bd04.png
 MK|M-NET INFO|M-Net Info ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d9dec2c2ba5a58ed.png
 MK|M-NET KIDS|M-Net Kids ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c53202bfcd22f176.png
@@ -2070,7 +2070,7 @@ MK|SITEL HD|Sitel Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rg
 MK|SKAJ FOLK ⱽᴵᴾ ᴿᴬᵂ|Skaj Folk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SKAJ-FOLK.png
 MK|SKY FOLK|Sky Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aabb512d78369150.png
 MK|SKY FOLK HD|Sky Folk Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aabb512d78369150.png
-MK|SKYFOLK MK|Skyfolk Mk ᴸⁱᵛᵉ|
+MK|SKYFOLK MK|Skyfolk Mk ᴸⁱᵛᵉ|https://logo.m3uassets.com/skyfolk.png
 MK|SPORTSKA TV|Sportska Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/be85488f6b315bff.png
 MK|STAR CHANNEL HD|Star Channel Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a111b275b42325ee.png
 MK|STAR CHANNEL ⱽᴵᴾ ᴿᴬᵂ|Star Channel ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a111b275b42325ee.png
@@ -3534,7 +3534,7 @@ TUBI|XPLORE ᴿᴬᵂ|Xplore ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuserconten
 ##### UFC (aus Playlist) #####
 UFC|24/7|24/7 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e044a7029ad3839f.png
 UFC|EVENT (1080)|Event (1080) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
-UFC|EVENT (720)|Event (720) ᴸⁱᵛᵉ|
+UFC|EVENT (720)|Event (720) ᴸⁱᵛᵉ|https://logo.m3uassets.com/ppvevents.png
 
 ##### UK (aus Playlist) #####
 FREEVIEW:GB|192 RADIO|http://103.176.90.95/images/784411.png
@@ -4044,7 +4044,7 @@ FREEVIEW:GB|FITE TV 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|FITE TV 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f223c6c9d76a5774.png
 FREEVIEW:GB|FOOD NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
 FREEVIEW:GB|FOOD NETWORK +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
-UK|FORMULA 1| ALB - ALBON WILLIAMS|Formula 1| Alb - Albon Williams ᴸⁱᵛᵉ|
+UK|FORMULA 1| ALB - ALBON WILLIAMS|Formula 1| Alb - Albon Williams ᴸⁱᵛᵉ|https://logo.m3uassets.com/formula1.png
 FREEVIEW:GB|FRANCE 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d8cd29a5223736b.png
 FREEVIEW:GB|GB NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
 FREEVIEW:GB|GB NEWS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
@@ -7026,7 +7026,7 @@ TVGUIDE:US|PBS KIDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 TVPASSPORT:US|PBS KIDS (WTCI) CHATTANOOGA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/556097bab2c4a6d5.png
 US|PBS KY | KET LEXINGTON (WKLE)|Pbs Ky | Ket Lexington (Wkle) ᴸⁱᵛᵉ|
 US|PBS NJ | NEW JERSEY (WNJT)|Pbs Nj | New Jersey (Wnjt) ᴸⁱᵛᵉ|
-US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|
+US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|https://logo.m3uassets.com/pbsny.png
 TVPASSPORT:US|PBS PA Pittsburgh (WQED)|http://51.158.145.100/picons/logos/PPV/PBS.png
 TVPASSPORT:US|PBS PORTLAND (KOPB) OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aca99881d215f1b5.png
 TVGUIDE:US|PEACOCK ORIGINAL 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/116eaef5a8549899.png
@@ -16650,9 +16650,9 @@ UK| NOW HK NOW SPORTS 5|Now Hk Now Sports 5 ᴸⁱᵛᵉ|
 UK| NOW HK NOW SPORTS 6|Now Hk Now Sports 6 ᴸⁱᵛᵉ|
 UK| NOW HK NOW SPORTS 7|Now Hk Now Sports 7 ᴸⁱᵛᵉ|
 ##### HR| CROATIA ⱽᴵᴾ ᴿᴬᵂ #####
-HR| TV ZAPAD ⱽᴵᴾ ᴿᴬᵂ|Tv Zapad ᴸⁱᵛᵉ|
+HR| TV ZAPAD ⱽᴵᴾ ᴿᴬᵂ|Tv Zapad ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvzapad.png
 ##### HR| CROATIA #####
-HR| TV ZAPAD HD|Tv Zapad HD ᴸⁱᵛᵉ|
+HR| TV ZAPAD HD|Tv Zapad HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvzapad.png
 ##### 24/7 MOVIES & SERIES #####
 US| NXT|Nxt ᴸⁱᵛᵉ|
 US| MUBI|Mubi ᴸⁱᵛᵉ|
@@ -16777,18 +16777,18 @@ PRIME| FIFA+ ᴿᴬᵂ|Fifa+ ᴸⁱᵛᵉ|
 PRIME| SHE-RA: PRINCESS OF POWER ᴿᴬᵂ|She-Ra: Princess Of Power ᴸⁱᵛᵉ|
 PRIME| ROOKIE BLUE ᴿᴬᵂ|Rookie Blue ᴸⁱᵛᵉ|
 #EXYU| DOKUMENTARNI
-RS| CRIME & INVESTIGATION NETWORK|
-RS| DISCOVERY CHANNEL|
-RS| DISCOVERY CHANNEL HD|
-RS| 24 KITCHEN|
-RS| 24KITCHEN HD|
-RS| BALKAN TRIP TV|
-RS| DA VINCI LEARNING|
-RS| HISTORY 2|
-RS| VIASAT HISTORY|
-RS| VIASAT HISTORY HD|
-RS| TRAVEL XP|
-RS| TLC|
+RS| CRIME & INVESTIGATION NETWORK|https://logo.m3uassets.com/crimeinvestigationnetwork.png
+RS| DISCOVERY CHANNEL|https://logo.m3uassets.com/discoverychannel.png
+RS| DISCOVERY CHANNEL HD|https://logo.m3uassets.com/discoverychannel.png
+RS| 24 KITCHEN|https://logo.m3uassets.com/24kitchen.png
+RS| 24KITCHEN HD|https://logo.m3uassets.com/2itchen.png
+RS| BALKAN TRIP TV|https://logo.m3uassets.com/balkantriptv.png
+RS| DA VINCI LEARNING|https://logo.m3uassets.com/davincilearning.png
+RS| HISTORY 2|https://logo.m3uassets.com/history2.png
+RS| VIASAT HISTORY|https://logo.m3uassets.com/viasathistory.png
+RS| VIASAT HISTORY HD|https://logo.m3uassets.com/viasathistory.png
+RS| TRAVEL XP|https://logo.m3uassets.com/travelxp.png
+RS| TLC|https://logo.m3uassets.com/tlc.png
 #EXYU SPORTSKI KANALI
 TELEMACH:BA|ARENA SPORT 1 HD|AUTO
 TELEMACH:BA|ARENA SPORT 2 HD|AUTO
@@ -16820,8 +16820,8 @@ SKY:GB|Sky Sci-Fi||UK-NOWTV| SKY SCI-FI HD
 #US| FOX NETWORK
 TVPASSPORT:US|FOX (KKFX) Santa Barbara, CA HD|AUTO|US| FOX 24 SANTA BARBARA CA (KKFX)
 #US| DIREC TV GO
-GO|UNIMAS WEST|Unimas West ᴸⁱᵛᵉ|
-GO| PLAYERS TV|Players Tv ᴸⁱᵛᵉ|
+GO|UNIMAS WEST|Unimas West ᴸⁱᵛᵉ|https://logo.m3uassets.com/unimaswest.png
+GO| PLAYERS TV|Players Tv ᴸⁱᵛᵉ|https://logo.m3uassets.com/playerstv.png
 TVPASSPORT:US|RFD-TV HD|AUTO|GO| RFD-TV
 #US| DIREC TV
 TVPASSPORT:US|NBC (WNBD-LP) Grenada, MS HD|AUTO|CITY| NBC (WNBD-LP) GRENADA, MS HD
@@ -16881,22 +16881,22 @@ DAZN:DE|DAZN 1 HD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.
 DAZN:DE|DAZN 1 FHD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DAZN:DE|DAZN 2 HD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DAZN:DE|DAZN 2 FHD|https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
-DE| NICK PLUTO TV|Nick Pluto TV ᴸⁱᵛᵉ|Auto
-DE| YU-GI-OH!|Yu-Gi-Oh! ᴸⁱᵛᵉ|Auto
+DE| NICK PLUTO TV|Nick Pluto TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/nickplutotv.png
+DE| YU-GI-OH!|Yu-Gi-Oh! ᴸⁱᵛᵉ|https://logo.m3uassets.com/yugioh.png
 US| YAHOO FINANCE|
 GO| TORQUE BY HISTORY|
-GO| TODAY ALL DAY|
-GO| THREE STOOGES|
+GO| TODAY ALL DAY|https://logo.m3uassets.com/todayallday.png
+GO| THREE STOOGES|https://logo.m3uassets.com/247thethreestooges.png
 GO| SUPERMARKET SWEEP|
 GO| SNLVAULT|
-GO| MYTHBUSTERS|
+GO| MYTHBUSTERS|https://logo.m3uassets.com/mythbusters.png
 GO| LET'S MAKE A DEAL|
 GO| E!||AUTO
-GO| DOCUMENTARY+|
-GO| C-SPAN|
-GO| BIG TEN|
-GO| YAHOO FINANCE|
-GO| YU-GI-OH!|
+GO| DOCUMENTARY+|https://logo.m3uassets.com/documentary.png
+GO| C-SPAN|https://logo.m3uassets.com/cspan.png
+GO| BIG TEN|https://logo.m3uassets.com/bigten.png
+GO| YAHOO FINANCE|https://logo.m3uassets.com/yahoo!finance.png
+GO| YU-GI-OH!|https://logo.m3uassets.com/yugioh.png
 #US| VIX+
 US| ViX+ DEPORTES 1|Vix+ Deportes (1) ᴸⁱᵛᵉ|AUTO
 US| ViX+ DEPORTES 2|Vix+ Deportes (2) ᴸⁱᵛᵉ|AUTO
@@ -16920,7 +16920,7 @@ US| ViX+ DEPORTES 19|Vix+ Deportes (19) ᴸⁱᵛᵉ|AUTO
 US| ViX+ DEPORTES 20|Vix+ Deportes (20) ᴸⁱᵛᵉ|AUTO
 SKY:UK| SKY ONE|AUTO
 FREEVIEW:GB| TCM FHD|AUTO
-UK| SKY ONE FHD||AUTO
+UK| SKY ONE FHD||https://logo.m3uassets.com/skyone.png
 SKY:UK| SKY ONE+1|
 UK| BT BOX OFFICE HD||AUTO
 FREEVIEW:GB| BBC World Service|
@@ -16929,7 +16929,7 @@ FREEVIEW:GB| LONDON LIVE|
 FREEVIEW:GB| RT DOCUMENTRY HD|AUTO
 FREEVIEW:GB| RTE TWO HD|
 FREEVIEW:GB| TALK TV HD|
-UK| TALK TV FHD|
+UK| TALK TV FHD|https://logo.m3uassets.com/talktv.png
 #US| TELEMUNDO NETWORK
 TVPASSPORT:US|Telemundo (WTCL-LP) Cleveland, OH|AUTO
 TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|AUTO
@@ -16955,8 +16955,8 @@ US| NBC 13 DOTHAN AL (WRGX)||AUTO
 EXYU|RADIO-S-XTRA||AUTO
 EXYU| JUZNI||AUTO
 EXYU| STAR NARODNA||AUTO
-JOYN| WEDOTV-SPORTS ᴿᴬᵂ|
-JOYN| YU-GI-OH ᴿᴬᵂ||Auto
+JOYN| WEDOTV-SPORTS ᴿᴬᵂ|https://logo.m3uassets.com/wedosports.png
+JOYN| YU-GI-OH ᴿᴬᵂ||https://logo.m3uassets.com/yugioh.png
 US| 24/7 KIDS 1||
 US| 24/7 KIDS 2||
 US| 24/7 KIDS 3||
@@ -16987,7 +16987,7 @@ EXYU| MOJ RADIO||Auto
 EXYU| RADIO PINGVIN||Auto
 EXYU| RADIO S EX YU||Auto
 EXYU| RADIO KISS FM LAZAREVAC||Auto
-EXYU| EASY||Auto
+EXYU| EASY||https://logo.m3uassets.com/easy.png
 EXYU| NAXI RADIO 80-E||Auto
 EXYU| RADIO NOSTALGIJA||Auto
 EXYU| COOL RADIO||Auto
@@ -16996,7 +16996,7 @@ EXYU| NAXI CAFE RADIO||Auto
 EXYU| NAXI EVERGREEN RADIO||Auto
 EXYU| NAXI 80-E RADIO||Auto
 EXYU| NAXI MILLENNIUM RADIO||Auto
-BK| MOJA TV||Auto
+BK| MOJA TV||https://logo.m3uassets.com/mojatv.png
 EXYU| NAXI GOLD RADIO||Auto
 EXYU| MINI RADIO 70S||Auto
 EXYU| MINI RADIO FITNESS||Auto
@@ -17025,10 +17025,10 @@ EXYU| S-CAFE||Auto
 EXYU| TRAP-RAP||Auto
 EXYU| RADIO-S-GOLD||Auto
 EXYU| RADIO-S-KIDS||Auto
-EXYU| DANCE||Auto
+EXYU| DANCE||https://logo.m3uassets.com/dance.png
 EXYU| RADIO-S-XTRA||Auto
 EXYU| S-ROCK||Auto
-EXYU| NARODNI||Auto
+EXYU| NARODNI||https://logo.m3uassets.com/narodni.png
 EXYU| FOLK-STARS||Auto
 EXYU| RADIO-S-EX-YU||Auto
 EXYU| 80-E||Auto
@@ -17077,26 +17077,26 @@ US| FANDUEL KANSAS CITY||Auto
 US| FANDUEL KANSAS CITY PLUS||Auto
 US| FANDUEL NETBASE||Auto
 US| FANDUEL NEW ORLEANS||Auto
-UK| MC-POP HITS||Auto
+UK| MC-POP HITS||https://logo.m3uassets.com/mcpophits.png
 UK| MC-POP & COUNTRY||Auto
 FREEVIEW:GB| MC-MUSICA URBANA|Auto
 FREEVIEW:GB| MC-MEXICANA|Auto
 FREEVIEW:GB| MC-HIT LIST|Auto
 FREEVIEW:GB| MC-HIP HOP|Auto
-UK| MC-DANCE EDM||Auto
+UK| MC-DANCE EDM||https://logo.m3uassets.com/mcdanceedm.png
 FREEVIEW:GB| MC-ALTERNATIVE|Auto
-UK| MC-90S||Auto
-UK| MC-TROPICALES||Auto
-UK| MC-TODAYS COUNTRY||Auto
-UK| MC-ROCK||Auto
-UK| MC-RAP||Auto
+UK| MC-90S||https://logo.m3uassets.com/mc90s.png
+UK| MC-TROPICALES||https://logo.m3uassets.com/mctropicales.png
+UK| MC-TODAYS COUNTRY||https://logo.m3uassets.com/mctodayscountry.png
+UK| MC-ROCK||https://logo.m3uassets.com/mcrock.png
+UK| MC-RAP||https://logo.m3uassets.com/mcrap.png
 UK| MC-R&B SOUL||Auto
-UK| MC-POP LATINO||Auto
-UK| MTV CLUB||Auto
-UK| MTV HITS||Auto
-UK| MC-TODDLER JAMS||Auto
-UK| MC-KIDS ONLY||Auto
-UK| MTV XMAS||Auto
+UK| MC-POP LATINO||https://logo.m3uassets.com/pop.png
+UK| MTV CLUB||https://logo.m3uassets.com/mtvclub.png
+UK| MTV HITS||https://logo.m3uassets.com/mtvhits.png
+UK| MC-TODDLER JAMS||https://logo.m3uassets.com/mctoddlerjams.png
+UK| MC-KIDS ONLY||https://logo.m3uassets.com/mckidsonly.png
+UK| MTV XMAS||https://logo.m3uassets.com/mtvxmas.png
 US| HBCU GO||AUTO
 NAME:##### AMERICAN HOCKEY LEAGUE #####|AMERICAN HOCKEY LEAGUE| AUTO
 UK| KARAOKE 1|Karaoke (1) ᴸⁱᵛᵉ|Auto
@@ -17158,9 +17158,9 @@ US| YOGA EXERCISE||Auto
 DE| BILD+ EVENT FAME FIGHTING||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bild_fame_fighting/bild_fame_fighting.png
 UK| RAITH ROVERS|
 US| BIG BROTHER QUAD VIEW FEED|
-UK| SUPERSPORTS EVENTS HD|
+UK| SUPERSPORTS EVENTS HD|https://logo.m3uassets.com/supersportevent.png
 TVPASSPORT:US|ABC (WMDT) Salisbury, MD|AUTO
-DE| PLUTO TV SERIE|
+DE| PLUTO TV SERIE|https://logo.m3uassets.com/plutotvserie.png
 EN| CHRISTMAS 1 4K|
 EN| CHRISTMAS 2 4K|
 EN| CHRISTMAS 3 4K|
@@ -17218,50 +17218,50 @@ NAME:Cymru Football 14|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
 NAME:Cymru Football 15|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
 NAME:Cymru Football 16|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
 NHL TEAM| UTAH HOCKEY CLUB|
-US| FOX SPORTS WISCONSIN HD|
+US| FOX SPORTS WISCONSIN HD|https://logo.m3uassets.com/foxsportswisconsin.png
 DE| NOW ᴿᴬᵂ
 DE| NTRO ᴿᴬᵂ
-4k| NESN UHD/4K+|
+4k| NESN UHD/4K+|https://logo.m3uassets.com/nesn.png
 UK| EPL SOUTHAMPTON|
-US| 3ABN PRAISE HIM MUSIC NETWORK|
+US| 3ABN PRAISE HIM MUSIC NETWORK|https://logo.m3uassets.com/3abnpraisehimmusicnetwork.png
 US| PTVN|
 TVPASSPORT:US|Trinity TV|AUTO
-US| NBC SPORTS WASHINGTON|
+US| NBC SPORTS WASHINGTON|https://logo.m3uassets.com/nbc4newswashington.png
 US| FOX SPORTS SAD DIEGO HD|
-US| CSN WASHINGTON HD|
-US| AT&T SPORTSNET SOUTHWEST HD|
-US| MY24 MILWAUKEE|
+US| CSN WASHINGTON HD|https://logo.m3uassets.com/nbc4newswashington.png
+US| AT&T SPORTSNET SOUTHWEST HD|https://logo.m3uassets.com/attsportsnetsouthwest.png
+US| MY24 MILWAUKEE|https://logo.m3uassets.com/milwaukeemy24.png
 US| NBT HD|
 US| BIG BROTHER FEED 1|
 US| BIG BROTHER FEED 2|
 US| BIG BROTHER FEED 3|
 US| BIG BROTHER FEED 4|
-US| BIG BROTHER CAMERA 1|
-US| BIG BROTHER CAMERA 2|
-US| BIG BROTHER CAMERA 3|
-US| BIG BROTHER CAMERA 4|
+US| BIG BROTHER CAMERA 1|https://logo.m3uassets.com/bigbrothercamera1.png
+US| BIG BROTHER CAMERA 2|https://logo.m3uassets.com/bigbrothercamera2.png
+US| BIG BROTHER CAMERA 3|https://logo.m3uassets.com/bigbrothercamera3.png
+US| BIG BROTHER CAMERA 4|https://logo.m3uassets.com/bigbrothercamera4.png
 GO| JAMIE OLIVER|
 GO| GREAT AMERICAN ADVENTURES|
-GO| FAMILY FEUD (STEVE HARVEY)|
-GO| DOVE TV|
-CITY| NBC WRCB WASHINGTON ᴿᴬᵂ|
+GO| FAMILY FEUD (STEVE HARVEY)|https://logo.m3uassets.com/myfamily.png
+GO| DOVE TV|https://logo.m3uassets.com/dovetv.png
+CITY| NBC WRCB WASHINGTON ᴿᴬᵂ|https://logo.m3uassets.com/nbcwashington.png
 NFL TEAMS| FOX REDSKINS WASHINGTON DC|
 NFL TEAMS| FOX REDSKINS BALTIMORE MD|
 TVPASSPORT:US|PBS (KOPB) Portland, OR|AUTO
-UK| NOW HK PREMIER SPORTS 8|
+UK| NOW HK PREMIER SPORTS 8|https://logo.m3uassets.com/premiersports1.png
 SKY:UK| SKY CINEMA OSCARS HD|
 FREEVIEW:GB| MTV MUSIC|
-IR| RTE TWO HD|
-IT| RAI 1 HD|
+IR| RTE TWO HD|https://logo.m3uassets.com/rtetwo.png
+IT| RAI 1 HD|https://logo.m3uassets.com/rai1.png
 LAT| TIGO SPORTS 1 BO HD|
 MXC| AZTECA DEPORTES|
-CR| TELETICA 7|
-DE| ARD HD|
-FR| M6 HD|
-BY| BELARUS 1|
-CHL| CHILEVISION|
-AFG| ATN|
-AR| EN TV ALGERIA|
+CR| TELETICA 7|https://logo.m3uassets.com/teletica7.png
+DE| ARD HD|https://logo.m3uassets.com/ard.png
+FR| M6 HD|https://logo.m3uassets.com/m6.png
+BY| BELARUS 1|https://logo.m3uassets.com/belarus1.png
+CHL| CHILEVISION|https://logo.m3uassets.com/chilevision.png
+AFG| ATN|https://logo.m3uassets.com/atn.png
+AR| EN TV ALGERIA|https://logo.m3uassets.com/entvalgeria.png
 BEIN SPORTS MAX 3 4K|
 BEIN SPORTS MAX 3 FHD|
 BEIN SPORTS MAX 3 HD|
@@ -17277,25 +17277,25 @@ WC| (FR) COUPE DU MONDE DE LA FIFA 2026|
 WC| (FR) M6 (UHD/4K)|
 UK| EPL LEICESTER|
 UK| EPL LUTON|
-UK| EPL BRIGHTON|
-UK| FALKIRK TV|
-UK| FORMULA 1 TV FHD|
-UK| NFL HD|
-UK| PREMIER LEAGUE TOP EVENT HD|
+UK| EPL BRIGHTON|https://logo.m3uassets.com/premierleague.png
+UK| FALKIRK TV|https://logo.m3uassets.com/falkirktv.png
+UK| FORMULA 1 TV FHD|https://logo.m3uassets.com/f1tv.png
+UK| NFL HD|https://logo.m3uassets.com/viaplay.png
+UK| PREMIER LEAGUE TOP EVENT HD|https://logo.m3uassets.com/viaplay.png
 UK-BBCI| BBC RADIO COVENTRY & WARWICKSHIRE|
-UK-BBCI| BBC RADIO 1 ANTHEMS|
-UK-BBCI| BBC EVENTS 1|
-UK-BBCI| BBC EVENTS 1 (UHD/4K)|
+UK-BBCI| BBC RADIO 1 ANTHEMS|https://logo.m3uassets.com/bbcradio1.png
+UK-BBCI| BBC EVENTS 1|https://logo.m3uassets.com/bbc.png
+UK-BBCI| BBC EVENTS 1 (UHD/4K)|https://logo.m3uassets.com/bbc.png
 UK-NOWTV| SKY BOURNE FHD|
 UK-NOWTV| SKY BOURNE HD|
 UK-NOWTV| SKY BOURNE HD|
 IR| LOI 1 HD [LIVE-EVENT]|
 IR| LOI 2 HD [LIVE-EVENT]|
-IR| RTE NEWS|
+IR| RTE NEWS|https://logo.m3uassets.com/rtenews.png
 24/7 DIABLO GUARDIÓN|
 EN| THE CROCODILE DUNDEE|
 EN| PARANORMAL ACTIVITY|
-EN| LIFE TIME|
+EN| LIFE TIME|https://logo.m3uassets.com/lifetime.png
 WC-4K| UNIVERSO UHD 3840P|
 WC-4K| M6 UHD 3840P|
 WC| NW SPORT 4 FHD|
@@ -17307,7 +17307,7 @@ UK| COMEDY 24/7 HD|
 EN| WAR MOVIES 3 FHD|
 EN| WAR MOVIES 4 FHD|
 EN| WAR MOVIES 5 FHD|
-EN| WAYANS BROS|
+EN| WAYANS BROS|https://logo.m3uassets.com/wayansbros.png
 EN| WRONG TURN|
 EN| UNDERWORLD|
 EN| VAN DAMME|
@@ -17317,13 +17317,13 @@ EN| THE STEVE HARVEY SHOW|
 EN| THE WOLVERINE|
 EN| TOMB RAIDER|
 EN| TOM HARDY COLLECTION|
-EN| TOP MOVIES|
+EN| TOP MOVIES|https://logo.m3uassets.com/topmovies.png
 EN| THE PARKERS|
 EN| THE PURGE|
-EN| THE SMURFS|
+EN| THE SMURFS|https://logo.m3uassets.com/thesmurfs.png
 EN| THE HORROR CHANNEL 4K|
 EN| THE HUNGER GAMES|
-EN| THE JEFFERSONS|
+EN| THE JEFFERSONS|https://logo.m3uassets.com/thejeffersons.png
 EN| THE MATRIX|
 EN| THE MAZE RUNNER|
 EN| THE EXPENDABLES|
@@ -17336,8 +17336,8 @@ EN| THE AVENGERS|
 EN| THE CROCODILE|
 EN| SPY KIDS|
 EN| STAND UP COMEDY FHD|
-EN| STAR TREK|
-EN| STAR WARS|
+EN| STAR TREK|https://logo.m3uassets.com/startrek.png
+EN| STAR WARS|https://logo.m3uassets.com/starwars.png
 EN| STEVEN SEGAL 4K|
 EN| RUSH HOUR|
 EN| SCARY MOVIE|
@@ -17350,8 +17350,8 @@ EN| PARANORMAL|
 EN| MEN IN BLACK|
 EN| MORTAL KOMBAT|
 EN| LETHAL WEAPON|
-EN| LIFE TIME|
-EN| JAMES BOND 007|
+EN| LIFE TIME|https://logo.m3uassets.com/lifetime.png
+EN| JAMES BOND 007|https://logo.m3uassets.com/jamesbond007.png
 EN| JEEPERS CREEPERS|
 EN| JOHN WICK|
 EN| JURASSIC WORLD/PARK|
@@ -17359,15 +17359,15 @@ EN| INDIANA JONES|
 EN| INSIDIOUS|
 EN| IN THE HEAT OF THE NIGHT|
 EN| IRON MAN|
-EN| GUNSMOKE|
-EN| HALLMARK CHANNEL|
+EN| GUNSMOKE|https://logo.m3uassets.com/gunsmoke.png
+EN| HALLMARK CHANNEL|https://logo.m3uassets.com/hallmarkchannel.png
 EN| HALLOWEEN 4K|
 EN| HONEYMOONERS|
-EN| HORROR CHANNEL|
+EN| HORROR CHANNEL|https://logo.m3uassets.com/horrorchannel.png
 EN| GARDIANS OF THE GALAXY|
 EN| GHOSTBUSTERS|
-EN| GIRLFRIENDS|
-EN| GOOD TIMES|
+EN| GIRLFRIENDS|https://logo.m3uassets.com/girlfriends.png
+EN| GOOD TIMES|https://logo.m3uassets.com/goodtimes.png
 EN| GUARDIANS OF THE GALAXY|
 EN| DR STRANGE|
 EN| FAMILY MATTERS|
@@ -17386,11 +17386,11 @@ EN| DIE HARD|
 EN| CAPTAIN AMERICA|
 EN| CHARLIES ANGELS|
 EN| CLASSIC WAR MOVIES 1 FHD|
-EN| BRAD PITT 4K|
+EN| BRAD PITT 4K|https://logo.m3uassets.com/bradpitt.png
 EN| BRIDGET JONES DIARY|
 EN| A DIFFERENT WORLD|
 EN| AMERICAN DAD|
-EN| ANIME TV|
+EN| ANIME TV|https://logo.m3uassets.com/animetv.png
 EN| ANNABELLE|
 EN| 80s MOVIES 4K|
 BEIN SPORTS MAX 4 EN SD|
@@ -17440,35 +17440,35 @@ DE| GRUPPE D|
 DE| GRUPPE C|
 DE| GRUPPE B|
 DE| GRUPPE A|
-WC| ORTM FHD|
-WC| AZAM SPORTS 1 FHD|
-WC| AZAM SPORTS 2 FHD|
+WC| ORTM FHD|https://logo.m3uassets.com/ortm.png
+WC| AZAM SPORTS 1 FHD|https://logo.m3uassets.com/azamsports1.png
+WC| AZAM SPORTS 2 FHD|https://logo.m3uassets.com/azamsports2.png
 WC| AZAM SPORTS 3 FHD|
 WC| AZAM SPORTS 4 FHD|
-WC| NW SPORT 1 FHD|
+WC| NW SPORT 1 FHD|https://logo.m3uassets.com/nwsport1.png
 WC| NW SPORT 2 FHD|
 WC| NW SPORT 3 FHD|
-WC| TVP SPORT FHD|
-WC| ENTV ALGERIA FHD|
+WC| TVP SPORT FHD|https://logo.m3uassets.com/tvpsport.png
+WC| ENTV ALGERIA FHD|https://logo.m3uassets.com/entvalgeria.png
 WC| ARRYADIA TNT|
-WC| CT SPORT FHD|
-WC| BHT 1 FHD|
-WC| HRT 2 FHD|
-WC| LA 1 FHD|
+WC| CT SPORT FHD|https://logo.m3uassets.com/ctsport.png
+WC| BHT 1 FHD|https://logo.m3uassets.com/bht1.png
+WC| HRT 2 FHD|https://logo.m3uassets.com/hrt2.png
+WC| LA 1 FHD|https://logo.m3uassets.com/la1.png
 UK| ITV SIGNED ᴴᴰ|
 UK| LOVE ISLAND 24/7 ᴴᴰ|
-UK| MIDSOMER MURDERS ᴴᴰ|
+UK| MIDSOMER MURDERS ᴴᴰ|https://logo.m3uassets.com/midsomermurders.png
 UK| REALITY 24/7 ᴴᴰ|
 UK| SATURDAY NIGHT EVERY NIGHT! ᴴᴰ|
 UK| TOWIE TV ᴴᴰ|
 UK| VERA ᴴᴰ|
-UK| NFL ᴴᴰ|
-UK| PREMIER LEAGUE TOP EVENT FHD|
+UK| NFL ᴴᴰ|https://logo.m3uassets.com/nfl.png
+UK| PREMIER LEAGUE TOP EVENT FHD|https://logo.m3uassets.com/viaplay.png
 UK| PREMIER LEAGUE TOP EVENT ᴴᴰ|
-UK| ASTRO Premier League 2 HD|
+UK| ASTRO Premier League 2 HD|https://logo.m3uassets.com/premierleague.png
 UK| ASTRO Grandstand|
-UK| SUPERSPORTS PLAY 2 HD|
-UK| SUPERSPORTS MAXIMO HD|
+UK| SUPERSPORTS PLAY 2 HD|https://logo.m3uassets.com/supersportsplay.png
+UK| SUPERSPORTS MAXIMO HD|https://logo.m3uassets.com/supersportsmaximo1.png
 #DE| PREMIUM PLAY 25
 DE|SHOGUN S01 4K|Shogun S01 4K ²⁴/⁷
 DE| 4 BLOCKS S01 4k|4 Blocks S01 4K ²⁴/⁷|https://simg.nicepng.com/png/small/117-1174447_4-blocks-logo-4-blocks-logo-png.png
@@ -17495,16 +17495,16 @@ DE| DOGS OF BERLIN 2018 FHD|Dogs Of Berlin 2018 FHD ²⁴/⁷
 DE| BABYLON BERLIN 2017 FHD|Babylon Berlin 2017 FHD ²⁴/⁷
 DE|SILO FHD|Silo FHD ²⁴/⁷
 DE|THE LAST OF US FHD|The Last Of Us FHD ²⁴/⁷
-DE| DAZN BAR 1 HEVC|
-DE| DAZN BAR 2 HEVC|
+DE| DAZN BAR 1 HEVC|https://logo.m3uassets.com/daznbar1.png
+DE| DAZN BAR 2 HEVC|https://logo.m3uassets.com/daznbar2.png
 DE| BUNDESLIGA (DAZN STREAM)||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
-US| NBC 4 WASHINGTON DC (Y)|
+US| NBC 4 WASHINGTON DC (Y)|https://logo.m3uassets.com/nbc4washington.png
 US| NBC 7 WASHINGTON NC (WITN)
 UK| KIDZ BOP-DIRECT HD|
 UK| KIDZ ONLY!-DIRECT HD|
 FREEVIEW:GB| CINEMANIA HOLLYWOOD 4K|
-UK| UFC HD|
-UK| EDGE SPORT FHD|
+UK| UFC HD|https://logo.m3uassets.com/ufc.png
+UK| EDGE SPORT FHD|https://logo.m3uassets.com/edgesport.png
 DE| EB PEPPA WUTZ FHD||https://images.seeklogo.com/logo-png/32/2/peppa-pig-without-peppa-logo-png_seeklogo-327074.png
 DE| EB MASCHA UND DER BÄR FHD||https://upload.wikimedia.org/wikipedia/commons/9/9c/Mascha_und_der_B%C3%A4r_logo.png
 DE| TOP 100 4K|
@@ -17717,8 +17717,8 @@ US|CBS 7 BEND OR KBNZ|Cbs 7 Bend Or Kbnz ᴸⁱᵛᵉ|https://upload.wikimedia.o
 US|FOX 17 SIOUX FALLS SD KTTW|Fox 17 Sioux Falls SD Kttw ᴸⁱᵛᵉ|
 US|FOX 67 BROWNSVILLE TX KXFX|Fox 67 Brownsville Tx Kxfx ᴸⁱᵛᵉ|
 US|FOX 41 YAKIMA WA KCYU|Fox 41 Yakima Wa Kcyu ᴸⁱᵛᵉ|
-US|NBC 36 AUSTIN KXAN|Nbc 36 Austin Kxan ᴸⁱᵛᵉ|
-US|NBC 26 AUGUSTA GA WAGT|Nbc 26 Augusta Ga Wagt ᴸⁱᵛᵉ|
+US|NBC 36 AUSTIN KXAN|Nbc 36 Austin Kxan ᴸⁱᵛᵉ|https://logo.m3uassets.com/nbcaustin.png
+US|NBC 26 AUGUSTA GA WAGT|Nbc 26 Augusta Ga Wagt ᴸⁱᵛᵉ|https://logo.m3uassets.com/augustaganbcwagt.png
 US|NBC 23 BRYAN TX KAGS|Nbc 23 Bryan Tx Kags ᴸⁱᵛᵉ|
 US|PBS 36 ODESSA MIDLAND|Pbs 36 Odessa Midland ᴸⁱᵛᵉ|
 US|PBS ALBUQUERQUE SANTA FE|Pbs Albuquerque Santa Fe ᴸⁱᵛᵉ|
@@ -17760,15 +17760,15 @@ SO|SOLO SPORT 5 HEVC|
 SO|SOLO SPORT 5 FHD|
 SO|SOLO SPORT 5 HD|
 SO|SOLO SPORT 5 SD|
-UK|PL Replay 1 HD|
-UK|PL Replay 2 HD|
-UK|PL Replay 3 HD|
-UK|PL Replay 4 HD|
-UK|PL Replay 5 HD|
-UK|PL Replay 6 HD|
-UK|PL Replay 7 HD|
-UK|PL Replay 8 HD|
-UK|PL Replay 9 HD|
+UK|PL Replay 1 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 2 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 3 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 4 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 5 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 6 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 7 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 8 HD|https://logo.m3uassets.com/premierleague.png
+UK|PL Replay 9 HD|https://logo.m3uassets.com/premierleague.png
 DE|Hr HD Hessischer Rundfunk|
 DE|UHD1 by Astra||https://logo.m3uassets.com/uhd1.png
 UK|R&B Soul-Direkt HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
@@ -17777,10 +17777,10 @@ FREEVIEW:GB|Pop Latino-Direct HD|https://p7.hiclipart.com/preview/909/479/637/mu
 UK|80'S-Direct HD| |https://p7.hiclipart.com/preview/909/479/637/music-choice-television-directv-music-video-others.jpg
 UK|Dave&amp;Ana HD|
 UK|Rt FHD Russian (Temp off Air)|
-UK|RTE News Now|
-UK|RT uk HD|
+UK|RTE News Now|https://logo.m3uassets.com/rtenewsnow.png
+UK|RT uk HD|https://logo.m3uassets.com/rtuk.png
 UK|W!-Watch FHD|
-UK|RTE 1 Hevc FHD|
+UK|RTE 1 Hevc FHD|https://logo.m3uassets.com/rte1.png
 FREEVIEW:GB|Praise Tv Network|
 FREEVIEW:GB|N4 Iceland HD|
 US|THE CROWN ᴿᴬᵂ| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
@@ -17796,35 +17796,35 @@ US|Fanduel Florida|
 CITY|Nbc KLAF LP Brooklyn ᴿᴬᵂ|
 GO|Up|
 GO|Tribeca Festival+|
-GO|The Price is Right-The Barker Era|
+GO|The Price is Right-The Barker Era|https://logo.m3uassets.com/thepriceisrightthebarkerera.png
 GO|The Price is Right-Drew Carey
 GO|MSG Alt-1|
 GO|MSG Alt-2|
 GO|MSG Alt-3|
-GO|20/20|
-US|Outermax HD|
-US|VSIN|
-US|NBC Golf|
-US|CSN California HD|
+GO|20/20|https://logo.m3uassets.com/2020.png
+US|Outermax HD|https://logo.m3uassets.com/outermax.png
+US|VSIN|https://logo.m3uassets.com/vsin.png
+US|NBC Golf|https://logo.m3uassets.com/nbcgolf.png
+US|CSN California HD|https://logo.m3uassets.com/csncalifornia.png
 #US| SPORTS NETWORK
 TVPASSPORT:US|NBC Sports Boston HD|AUTO
 TVPASSPORT:US|NBC Sports Bay Area HD|AUTO|US| NBC SPORTS BAY AREA HD
 TVPASSPORT:US|Space City Home Network HD|AUTO|US| SPACE CITY HOME NETWORK HD
 US|Fox Kansas HD|
-US|Fox 29|
+US|Fox 29|https://logo.m3uassets.com/fox29.png
 US|WNYC||https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/WNYC-Logo.svg/3840px-WNYC-Logo.svg.png
-DE|Geo Tv HD|
-DE|Nat Geo Wild FHD|
-DE|Nat Geo Wild HD|
-DE|Sony Channel FHD|
-DE|Sony AXN HD|
+DE|Geo Tv HD|https://logo.m3uassets.com/geotv.png
+DE|Nat Geo Wild FHD|https://logo.m3uassets.com/natgeowild.png
+DE|Nat Geo Wild HD|https://logo.m3uassets.com/natgeowild.png
+DE|Sony Channel FHD|https://logo.m3uassets.com/sonychannel.png
+DE|Sony AXN HD|https://logo.m3uassets.com/sonyaxn.png
 SKY:DE|Sky Cinema Premieren FHD|
 SKY:DE|Sky Cinema Premieren HD|
 JOYN|Serienklassiker ᴿᴬᵂ|
 ##### DE| JOYN TV #####
-JOYN|SR ᴿᴬᵂ|
+JOYN|SR ᴿᴬᵂ|https://logo.m3uassets.com/sr.png
 JOYN|Elf ᴿᴬᵂ|
-JOYN| ZDF NEO ᴿᴬᵂ|
+JOYN| ZDF NEO ᴿᴬᵂ|https://logo.m3uassets.com/zdfneo.png
 DE|DAZN Moto America ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE|DAZN Lacrosse Tv ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE|DAZN Moto America SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
@@ -17832,9 +17832,9 @@ DE|DAZN Lacrosse Tv SD||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn
 DE|DAZN Moto America ᴴᴰ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE|DAZN Lacrosse Tv ᴴᴰ||https://upload.wikimedia.org/wikipedia/commons/d/d6/Dazn-logo.png
 DE|MOBLAND FHD|
-DE|FILMS 4K|
-DE|FILMS 2020-23|
-DE|ZONE DISNEY+ FHD|
+DE|FILMS 4K|https://logo.m3uassets.com/film+.png
+DE|FILMS 2020-23|https://logo.m3uassets.com/film+.png
+DE|ZONE DISNEY+ FHD|https://logo.m3uassets.com/skyselect.png
 #DE| VODAFONE GO
 DE|VODAFONE GO KINDER 1 FHD|Vodafone Go Kinder 1 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/vodafone_go/vodafone_go_1.png
 DE|VODAFONE GO KINDER 2 FHD|Vodafone Go Kinder 2 FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/vodafone_go/vodafone_go_2.png
@@ -18094,61 +18094,61 @@ NAME:Flo Racing 18 :|Auto
 NAME:Flo Racing 19 :|Auto
 NAME:Flo Racing 20 :|Auto
 #MO| CRNA GORA
-MNG| RTCG|
-MNG| TV POBEDA ⱽᴵᴾ ᴿᴬᵂ|
+MNG| RTCG|https://logo.m3uassets.com/rtcg.png
+MNG| TV POBEDA ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/pobeda.png
 MNG| RTV HN ⱽᴵᴾ ᴿᴬᵂ|
-MNG| TV A + ⱽᴵᴾ ᴿᴬᵂ|
-MO| TV A +|
+MNG| TV A + ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/tva.png
+MO| TV A +|https://logo.m3uassets.com/tva.png
 MO| NEWSMAX BALKANS|
 MO| EURONEWS MONTENEGRO|
 MO|WOW MONTENEGRO|
-MO|TV PARTIZAN|
+MO|TV PARTIZAN|https://logo.m3uassets.com/tvpartizan.png
 MO|TEUTA TV|
-MO|TB1|
+MO|TB1|https://logo.m3uassets.com/tb1.png
 MO|SARAJEVO TV| |
 MO|RTV HN|
-MO|NICK MUSIC|
-MO|NBA TV|
-MO|K CN 1|
-MO|DM SAT|Dm Sat ᴸⁱᵛᵉ|
-MO|DIM TV|
+MO|NICK MUSIC|https://logo.m3uassets.com/nickmusic.png
+MO|NBA TV|https://logo.m3uassets.com/nbatv.png
+MO|K CN 1|https://logo.m3uassets.com/kcn1.png
+MO|DM SAT|Dm Sat ᴸⁱᵛᵉ|https://logo.m3uassets.com/dmsat.png
+MO|DIM TV|https://logo.m3uassets.com/dimtv.png
 #SI| SLOVENIJA
-SI| PLANET PLUS ⱽᴵᴾ ᴿᴬᵂ||Auto
+SI| PLANET PLUS ⱽᴵᴾ ᴿᴬᵂ||https://logo.m3uassets.com/planetplus.png
 SI|Brio Tv Slo|
 #MK| MAKEDONIJA
-MK| M-NET SPORT HD||Auto
+MK| M-NET SPORT HD||https://logo.m3uassets.com/mnetsport.png
 MK| FFM MK FOOTBALL 1 [LIVE-EVENT]|Ffm Mk Football 1 Live Event ᴸⁱᵛᵉ|
 MK| FFM MK FOOTBALL 2 [LIVE-EVENT]|Ffm Mk Football 2 Live Event ᴸⁱᵛᵉ|
 MK| FFM MK FOOTBALL 3 [LIVE-EVENT]|Ffm Mk Football 3 Live Event ᴸⁱᵛᵉ|
 MK| FFM MK FOOTBALL 4 [LIVE-EVENT]|Ffm Mk Football 4 Live Event ᴸⁱᵛᵉ|
 MK| FFM MK FOOTBALL 5 [LIVE-EVENT]|Ffm Mk Football 5 Live Event ᴸⁱᵛᵉ|
 MK| FFM MK FOOTBALL 6 [LIVE-EVENT]|Ffm Mk Football 6 Live Event ᴸⁱᵛᵉ|
-MK|FOLK KLUB TV HD|Folk Klub TV HD ᴸⁱᵛᵉ|
-MK|TV PLUS|TV Plus ᴸⁱᵛᵉ|
-MK|FOLK HD|Folk HD ᴸⁱᵛᵉ|
+MK|FOLK KLUB TV HD|Folk Klub TV HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/folkklubtv.png
+MK|TV PLUS|TV Plus ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvplus.png
+MK|FOLK HD|Folk HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/folk.png
 MK|INTV AVSRALIJA|Intv Avsralija ᴸⁱᵛᵉ|
-MK|ROMA TV|Roma TV ᴸⁱᵛᵉ|
-MK|INTV AVSTRALIJA HD|Intv Avstralija HD ᴸⁱᵛᵉ|
+MK|ROMA TV|Roma TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/romatv.png
+MK|INTV AVSTRALIJA HD|Intv Avstralija HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/intvavstralija.png
 MK|FOX LIVE|Fox Live ᴸⁱᵛᵉ|
-MK|FOX HD|Fox HD ᴸⁱᵛᵉ|
+MK|FOX HD|Fox HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/fox.png
 MK|DISCOVERY CHANNEL MULTI SUB|Discovery Channel Multi Sub ᴸⁱᵛᵉ|
-MK|FILM BOX PLUS|Film Box Plus ᴸⁱᵛᵉ|
+MK|FILM BOX PLUS|Film Box Plus ᴸⁱᵛᵉ|https://logo.m3uassets.com/filmboxplus.png
 MK|HUGO 2 TV|Hugo 2 TV ᴸⁱᵛᵉ|
 MK|HUGO TV HD|Hugo TV HD ᴸⁱᵛᵉ|
-MK|MTM TV|Mtm TV ᴸⁱᵛᵉ|
+MK|MTM TV|Mtm TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/mtmtv.png
 MK|MPT SOBRANISKI HD|Mpt Sobraniski HD ᴸⁱᵛᵉ|
 MK|K3|K3 ᴸⁱᵛᵉ|
 MK|O2 OHRID HD|O2 Ohrid HD ᴸⁱᵛᵉ|
 MK|KTV KAVADARCI|Ktv Kavadarci ᴸⁱᵛᵉ|
 MK|MEGA BITOLA HD|Mega Bitola HD ᴸⁱᵛᵉ|
-MK|TV2 GOSTIVAR|Tv2 Gostivar ᴸⁱᵛᵉ|
-MK|TV KUMANOVO|TV Kumanovo ᴸⁱᵛᵉ|
-MK|KLAN MACEDONIA|Klan Macedonia ᴸⁱᵛᵉ|
-MK|KANAL 21 TV|Kanal 21 TV ᴸⁱᵛᵉ|
-MK|SUTEL TV|Sutel TV ᴸⁱᵛᵉ|
-MK|TV SONCE|TV Sonce ᴸⁱᵛᵉ|
-MK|NASA TV|Nasa TV ᴸⁱᵛᵉ|
-MK|TV PLUS ⱽᴵᴾ ᴿᴬᵂ|TV Plus ᴸⁱᵛᵉ|
+MK|TV2 GOSTIVAR|Tv2 Gostivar ᴸⁱᵛᵉ|https://logo.m3uassets.com/tv2gostivar.png
+MK|TV KUMANOVO|TV Kumanovo ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvkumanovo.png
+MK|KLAN MACEDONIA|Klan Macedonia ᴸⁱᵛᵉ|https://logo.m3uassets.com/klanmacedonia.png
+MK|KANAL 21 TV|Kanal 21 TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/kanal21tv.png
+MK|SUTEL TV|Sutel TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/suteltv.png
+MK|TV SONCE|TV Sonce ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvsonce.png
+MK|NASA TV|Nasa TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/nasatv.png
+MK|TV PLUS ⱽᴵᴾ ᴿᴬᵂ|TV Plus ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvplus.png
 MK|TV HUGO 1 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (1) ᴸⁱᵛᵉ|
 MK|TV HUGO 2 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (2) ᴸⁱᵛᵉ|
 MK|TV HUGO 3 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (3) ᴸⁱᵛᵉ|
@@ -18159,10 +18159,10 @@ MK|TV HUGO 7 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (7) ᴸⁱᵛᵉ|
 MK|TV HUGO 8 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (8) ᴸⁱᵛᵉ|
 MK|TV HUGO 9 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (9) ᴸⁱᵛᵉ|
 MK|TV HUGO 10 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (10) ᴸⁱᵛᵉ|
-MK|TV 24 ⱽᴵᴾ ᴿᴬᵂ|TV (24) ᴸⁱᵛᵉ|
+MK|TV 24 ⱽᴵᴾ ᴿᴬᵂ|TV (24) ᴸⁱᵛᵉ|https://logo.m3uassets.com/tv24.png
 MK|SOBRANISKI KANAL ⱽᴵᴾ ᴿᴬᵂ|Sobraniski Kanal ᴸⁱᵛᵉ|
-MK|SITEL ⱽᴵᴾ ᴿᴬᵂ|Sitel ᴸⁱᵛᵉ|
-MK|NATIONAL GEOGRAPHIC ⱽᴵᴾ ᴿᴬᵂ|National Geographic ᴸⁱᵛᵉ|
+MK|SITEL ⱽᴵᴾ ᴿᴬᵂ|Sitel ᴸⁱᵛᵉ|https://logo.m3uassets.com/sitel.png
+MK|NATIONAL GEOGRAPHIC ⱽᴵᴾ ᴿᴬᵂ|National Geographic ᴸⁱᵛᵉ|https://logo.m3uassets.com/nationalgeographic.png
 MK|NASHA TV ⱽᴵᴾ ᴿᴬᵂ|Nasha TV ᴸⁱᵛᵉ|
 MK|INTV 1 ⱽᴵᴾ ᴿᴬᵂ|Intv (1) ᴸⁱᵛᵉ|
 MK|INTV 2 ⱽᴵᴾ ᴿᴬᵂ|Intv (2) ᴸⁱᵛᵉ|
@@ -18181,44 +18181,44 @@ HR| HR RADIO RIJEKA||Auto
 HR| HR RADIO PULA||Auto
 HR| HR RADIO KNIN||Auto
 HR| NOVI RADIO||Auto
-HR| NARODNI RADIO||Auto
-HR| HR 1||Auto
-HR| HR 2||Auto
-HR| HR 3||Auto
+HR| NARODNI RADIO||https://logo.m3uassets.com/narodniradio.png
+HR| HR 1||https://logo.m3uassets.com/hr1.png
+HR| HR 2||https://logo.m3uassets.com/hr2.png
+HR| HR 3||https://logo.m3uassets.com/hr3.png
 HR| HR RADIO DUBROVNIK||Auto
 HR| EXTRA FM ZAGREB||Auto
 HR| GLAS HRVATSKE||Auto
-HR| DISCOVERY ⱽᴵᴾ ᴿᴬᵂ|
-HR| DISCOVERY VIP RAW|
-HR| NICK JUNIOR|
-HR|KREATOR HD|Kreator HD ᴸⁱᵛᵉ|
+HR| DISCOVERY ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/discovery.png
+HR| DISCOVERY VIP RAW|https://logo.m3uassets.com/discovery.png
+HR| NICK JUNIOR|https://logo.m3uassets.com/nickjunior.png
+HR|KREATOR HD|Kreator HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/kreator.png
 HR|GINIX|Ginix ᴸⁱᵛᵉ|
 HR|HAJDUK TV|Hajduk TV ᴸⁱᵛᵉ|
 HR|TREND AND KARLOVAC|Trend And Karlovac ᴸⁱᵛᵉ|
 HR|TREND TV HD|Trend TV HD ᴸⁱᵛᵉ|https://trend.com.hr/wp-content/uploads/2020/03/trend_tv.png
-HR|HRT INT|Hrt Int ᴸⁱᵛᵉ|
-HR|TREND TV VIP RAW|Trend TV ᴸⁱᵛᵉ|
-HR|SCI-FI VIP RAW|Sci-Fi ᴸⁱᵛᵉ|
+HR|HRT INT|Hrt Int ᴸⁱᵛᵉ|https://logo.m3uassets.com/hrtint.png
+HR|TREND TV VIP RAW|Trend TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/trendtv.png
+HR|SCI-FI VIP RAW|Sci-Fi ᴸⁱᵛᵉ|https://logo.m3uassets.com/scifi.png
 HR|AMC BALKAN VIP RAW|Amc Balkan ᴸⁱᵛᵉ|
-HR|TOON KIDS|Toon Kids ᴸⁱᵛᵉ|
+HR|TOON KIDS|Toon Kids ᴸⁱᵛᵉ|https://logo.m3uassets.com/onkids.png
 #BA| BOSNA I HERCEGOVINA
 TELEMACH:BA|Hayat 2|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 TELEMACH:BA|TV5 HD (BH)|https://tvprofil.com/img/kanali-logo/Televizija_5_BA_logo.png
 BA| BANJA LUKA|
-BA| TV SLON EXTRA|
+BA| TV SLON EXTRA|https://logo.m3uassets.com/tvslonextra.png
 BA| MY TV||https://mymedia.ba/wp-content/uploads/2025/10/mytv-bijelo.png
 BA| RTV DOBOJ|
-BA| ELTA 1|
+BA| ELTA 1|https://logo.m3uassets.com/elta1.png
 BA| TV SIMIĆ||https://i.imgur.com/CtkXEvJ.png
-BA| BN TV HD||AUTO
+BA| BN TV HD||https://logo.m3uassets.com/bntv.png
 BA| DOBRA EXLUSIVE||Auto
 BA| SEHARA||Auto
-BA| HAYAT FOLK ⱽᴵᴾ ᴿᴬᵂ|
-BA| HAYAT MUSIC ⱽᴵᴾ ᴿᴬᵂ|
-BA| BN MUSIC ⱽᴵᴾ ᴿᴬᵂ|
-BA| HAYATOVCI ⱽᴵᴾ ᴿᴬᵂ|
-BA| RTRS PLUS ⱽᴵᴾ ᴿᴬᵂ|
-BA| ATV ⱽᴵᴾ ᴿᴬᵂ|
+BA| HAYAT FOLK ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/hayatfolk.png
+BA| HAYAT MUSIC ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/hayatmusic.png
+BA| BN MUSIC ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/music.png
+BA| HAYATOVCI ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/hayatovci.png
+BA| RTRS PLUS ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/rtrsplus.png
+BA| ATV ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/atv.png
 BA|TATABRADA|Tatabrada ᴸⁱᵛᵉ|https://bihlink.com/wp-content/uploads/2026/04/tatabrada-tv-390x220.jpg
 BA|AL JAZEERA BALKANS FHD|Al Jazeera Balkans FHD ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/9/9f/Al_Jazeera_Balkans.png
 BA|AL JAZEERA BALKANS |Al Jazeera Balkans ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/9/9f/Al_Jazeera_Balkans.png
@@ -18254,79 +18254,79 @@ BA|HAYAT LOVE BOX VIP RAW|Hayat Love Box ᴸⁱᵛᵉ|https://static.wikia.nocoo
 BA|HAYAT PLUS VIP RAW|Hayat Plus ᴸⁱᵛᵉ|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 BA|HAYAT PLUS|Hayat Plus ᴸⁱᵛᵉ|https://telemach.ba/wp-content/uploads/2020/08/Hayat_plus_800x450.png
 BA|HIT TELEVIZIJA BRCKO|Hit Televizija Brcko ᴸⁱᵛᵉ|
-BA|RTV VOGOSCA|Rtv Vogosca ᴸⁱᵛᵉ|
-BA|HAYAT MUSIC|Hayat Music ᴸⁱᵛᵉ|
-BA|HAYAT FOLK|Hayat Folk ᴸⁱᵛᵉ|
+BA|RTV VOGOSCA|Rtv Vogosca ᴸⁱᵛᵉ|https://logo.m3uassets.com/rtvvogosca.png
+BA|HAYAT MUSIC|Hayat Music ᴸⁱᵛᵉ|https://logo.m3uassets.com/hayatmusic.png
+BA|HAYAT FOLK|Hayat Folk ᴸⁱᵛᵉ|https://logo.m3uassets.com/hayatfolk.png
 BA|YU PLANET|Yu Planet ᴸⁱᵛᵉ|
-BA|TV DUGAPLUS|TV Dugaplus ᴸⁱᵛᵉ|
-BA|BN MUSIC|Bn Music ᴸⁱᵛᵉ|
+BA|TV DUGAPLUS|TV Dugaplus ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvdugaplus.png
+BA|BN MUSIC|Bn Music ᴸⁱᵛᵉ|https://logo.m3uassets.com/music.png
 #RS| SRBIJA
-RS| DELUXE RAP|
+RS| DELUXE RAP|https://logo.m3uassets.com/deluxerap.png
 RS| RTS SVET HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rts_svet_white.png
-RS| PARTIZAN TV FHD||Auto
-RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ|
+RS| PARTIZAN TV FHD||https://logo.m3uassets.com/partizantv.png
+RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ|https://logo.m3uassets.com/kcn2.png
 RS| KCN 3 ⱽᴵᴾ ᴿᴬᵂ|
-RS| DM SAT|Dm Sat ᴸⁱᵛᵉ|
-RS| SYFY|
+RS| DM SAT|Dm Sat ᴸⁱᵛᵉ|https://logo.m3uassets.com/dmsat.png
+RS| SYFY|https://logo.m3uassets.com/syfy.png
 RS|BALKANIKA|Balkanika ᴸⁱᵛᵉ|https://e7.pngegg.com/pngimages/862/556/png-clipart-bulgaria-balkanika-tv-logo-television-music-national-geographic-animal-jam-television-logo.png
-RS|HRAM TV HD|Hram TV HD ᴸⁱᵛᵉ|
+RS|HRAM TV HD|Hram TV HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/hramtv.png
 RS|ROMA TV|Roma TV ᴸⁱᵛᵉ|https://static.wixstatic.com/media/c8f2ae_3950d73fc62044e69718d84e5c724626~mv2.png/v1/crop/x_10,y_1162,w_6229,h_1753/fill/w_280,h_79,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c8f2ae_3950d73fc62044e69718d84e5c724626~mv2.png
 RS|KTV|Ktv ᴸⁱᵛᵉ|https://www.ktv.rs/wp-content/uploads/2025/03/500X-500.png
 RS|PESTER TV|Pester TV ᴸⁱᵛᵉ|https://mojasupernova.mts.rs/Picture/1215/png/pester-tv-480x270.png
-RS|VIBE TV|Vibe TV ᴸⁱᵛᵉ|
+RS|VIBE TV|Vibe TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/vibetv.png
 RS|MLAVA TV|Mlava TV ᴸⁱᵛᵉ|https://rtvmlava.com/wp-content/uploads/2018/11/default-990x601.jpg
-RS|UNA HD|Una HD ᴸⁱᵛᵉ|
-RS|TV HRAM ⱽᴵᴾ ᴿᴬᵂ|TV Hram ᴸⁱᵛᵉ|
-RS|TV DR ⱽᴵᴾ ᴿᴬᵂ|TV Dr ᴸⁱᵛᵉ|
-RS|MOJ HAPPY ZIVOT ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Zivot ᴸⁱᵛᵉ|
+RS|UNA HD|Una HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/una.png
+RS|TV HRAM ⱽᴵᴾ ᴿᴬᵂ|TV Hram ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvhram.png
+RS|TV DR ⱽᴵᴾ ᴿᴬᵂ|TV Dr ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvdr.png
+RS|MOJ HAPPY ZIVOT ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Zivot ᴸⁱᵛᵉ|https://logo.m3uassets.com/mojhappyzivot.png
 RS|MOJ HAPPY ZEMLJA ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Zemlja ᴸⁱᵛᵉ|
 RS|MOJ HAPPY MUZIKA ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Muzika ᴸⁱᵛᵉ|
 RS|MOJ HAPPY DRUSTVO ⱽᴵᴾ ᴿᴬᵂ|Moj Happy Drustvo ᴸⁱᵛᵉ|
-RS|TV K23 ⱽᴵᴾ ᴿᴬᵂ|TV K23 ᴸⁱᵛᵉ|
-RS|ZELENA TV ZDRAVLJE ⱽᴵᴾ ᴿᴬᵂ|Zelena TV Zdravlje ᴸⁱᵛᵉ|
-RS|DM SAT ⱽᴵᴾ ᴿᴬᵂ|Dm Sat ᴸⁱᵛᵉ|
-RS|TV RAS ⱽᴵᴾ ᴿᴬᵂ|TV Ras ᴸⁱᵛᵉ|
+RS|TV K23 ⱽᴵᴾ ᴿᴬᵂ|TV K23 ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvk23.png
+RS|ZELENA TV ZDRAVLJE ⱽᴵᴾ ᴿᴬᵂ|Zelena TV Zdravlje ᴸⁱᵛᵉ|https://logo.m3uassets.com/zelenatvzdravlje.png
+RS|DM SAT ⱽᴵᴾ ᴿᴬᵂ|Dm Sat ᴸⁱᵛᵉ|https://logo.m3uassets.com/dmsat.png
+RS|TV RAS ⱽᴵᴾ ᴿᴬᵂ|TV Ras ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvras.png
 RS|TV SUMADIJA ⱽᴵᴾ ᴿᴬᵂ|TV Sumadija ᴸⁱᵛᵉ|
 RS|TV POZEGA ⱽᴵᴾ ᴿᴬᵂ|TV Pozega ᴸⁱᵛᵉ|https://radiopozega.rs/wp-content/uploads/2024/05/logo-tv-pozega.png
-RS|KORENI ⱽᴵᴾ ᴿᴬᵂ|Koreni ᴸⁱᵛᵉ|
-RS|TV BAP ⱽᴵᴾ ᴿᴬᵂ|TV Bap ᴸⁱᵛᵉ|
+RS|KORENI ⱽᴵᴾ ᴿᴬᵂ|Koreni ᴸⁱᵛᵉ|https://logo.m3uassets.com/koreni.png
+RS|TV BAP ⱽᴵᴾ ᴿᴬᵂ|TV Bap ᴸⁱᵛᵉ|https://logo.m3uassets.com/rtvbap.png
 RS|RTV TESLA ⱽᴵᴾ ᴿᴬᵂ|Rtv Tesla ᴸⁱᵛᵉ|
-RS|INVESTIGATION DISCOVERY ID ⱽᴵᴾ ᴿᴬᵂ|Investigation Discovery Id ᴸⁱᵛᵉ|
-RS|GAMETOON ⱽᴵᴾ ᴿᴬᵂ|Gametoon ᴸⁱᵛᵉ|
-RS|DOX ⱽᴵᴾ ᴿᴬᵂ|Dox ᴸⁱᵛᵉ|
-RS| PARTIZAN TV ⱽᴵᴾ ᴿᴬᵂ|Partizan TV ᴸⁱᵛᵉ|
+RS|INVESTIGATION DISCOVERY ID ⱽᴵᴾ ᴿᴬᵂ|Investigation Discovery Id ᴸⁱᵛᵉ|https://logo.m3uassets.com/investigationdiscoveryid.png
+RS|GAMETOON ⱽᴵᴾ ᴿᴬᵂ|Gametoon ᴸⁱᵛᵉ|https://logo.m3uassets.com/gametoon.png
+RS|DOX ⱽᴵᴾ ᴿᴬᵂ|Dox ᴸⁱᵛᵉ|https://logo.m3uassets.com/dox.png
+RS| PARTIZAN TV ⱽᴵᴾ ᴿᴬᵂ|Partizan TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/partizantv.png
 RS|TV ZVEZDA ⱽᴵᴾ ᴿᴬᵂ|TV Zvezda ᴸⁱᵛᵉ|
-RS|LFCTV ⱽᴵᴾ ᴿᴬᵂ|Lfctv ᴸⁱᵛᵉ|
-RS|EURO CINEMA 1 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (1) ᴸⁱᵛᵉ|
-RS|EURO CINEMA 2 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (2) ᴸⁱᵛᵉ|
-RS|EURO CINEMA 3 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (3) ᴸⁱᵛᵉ|
-RS|EURO CINEMA 4 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (4) ᴸⁱᵛᵉ|
-RS|TIMELESS DIZI CHANNEL ⱽᴵᴾ ᴿᴬᵂ|Timeless Dizi Channel ᴸⁱᵛᵉ|
+RS|LFCTV ⱽᴵᴾ ᴿᴬᵂ|Lfctv ᴸⁱᵛᵉ|https://logo.m3uassets.com/lfctv.png
+RS|EURO CINEMA 1 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (1) ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema1.png
+RS|EURO CINEMA 2 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (2) ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema2.png
+RS|EURO CINEMA 3 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (3) ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema3.png
+RS|EURO CINEMA 4 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (4) ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema4.png
+RS|TIMELESS DIZI CHANNEL ⱽᴵᴾ ᴿᴬᵂ|Timeless Dizi Channel ᴸⁱᵛᵉ|https://logo.m3uassets.com/timelessdizichannel.png
 RS|SLOBODNA TV ⱽᴵᴾ ᴿᴬᵂ|Slobodna TV ᴸⁱᵛᵉ|
-RS|KUVO TV ⱽᴵᴾ ᴿᴬᵂ|Kuvo TV ᴸⁱᵛᵉ|
-RS|EKO VIZIJA ⱽᴵᴾ ᴿᴬᵂ|Eko Vizija ᴸⁱᵛᵉ|
-RS|DISNEY CHANNEL|Disney Channel ᴸⁱᵛᵉ|
+RS|KUVO TV ⱽᴵᴾ ᴿᴬᵂ|Kuvo TV ᴸⁱᵛᵉ|https://logo.m3uassets.com/kuvotv.png
+RS|EKO VIZIJA ⱽᴵᴾ ᴿᴬᵂ|Eko Vizija ᴸⁱᵛᵉ|https://logo.m3uassets.com/ekovizija.png
+RS|DISNEY CHANNEL|Disney Channel ᴸⁱᵛᵉ|https://logo.m3uassets.com/disneychannel.png
 RS|PAROVI LIVE|Parovi Live ᴸⁱᵛᵉ|
-RS|NGC HD|Ngc HD ᴸⁱᵛᵉ|
-RS|DOCU BOX|Docu Box ᴸⁱᵛᵉ|
-RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|
+RS|NGC HD|Ngc HD ᴸⁱᵛᵉ|https://logo.m3uassets.com/ngc.png
+RS|DOCU BOX|Docu Box ᴸⁱᵛᵉ|https://logo.m3uassets.com/docubox.png
+RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|https://logo.m3uassets.com/topsound.png
 RS|GORA SELECT 1 HD|Gora Select 1 HD ᴸⁱᵛᵉ|
 RS|NETIP FILM 1 HD|Netip Film 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_1.png
 RS|NETIP FILM 2 HD|Netip Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_2.png
 RS|NETIP INT. FILM 1 HD|Netip Int. Film 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_1.png
 RS|NETIP INT. FILM 2 HD|Netip Int. Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_2.png
 RS|NETIP INT. FILM 3 HD|Netip Int. Film 3 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_3.png
-RS|FILM KLUB EXTRA|Film Klub Extra ᴸⁱᵛᵉ|
+RS|FILM KLUB EXTRA|Film Klub Extra ᴸⁱᵛᵉ|https://logo.m3uassets.com/filmklubextra.png
 ##### EXYU| DJECIJI KANALI #####
-BA|HAYATOVCI|Hayatovci ᴸⁱᵛᵉ|
+BA|HAYATOVCI|Hayatovci ᴸⁱᵛᵉ|https://logo.m3uassets.com/hayatovci.png
 HR|MASA I MEDVJED|Masa I Medvjed ᴸⁱᵛᵉ|
-RS|COMEDY CENTRAL|Comedy Central ᴸⁱᵛᵉ|
+RS|COMEDY CENTRAL|Comedy Central ᴸⁱᵛᵉ|https://logo.m3uassets.com/comedycentral.png
 RS| MASA I MEDVJED|Masa I Medvjed ²⁴/⁷ ᴸⁱᵛᵉ|
 ##### EXYU| FILMSKI KANALI #####
-RS| EURO CINEMA 1 FHD|Euro Cinema 1 ᴸⁱᵛᵉ|
-RS| EURO CINEMA 2 FHD|Euro Cinema 2 ᴸⁱᵛᵉ|
-RS| EURO CINEMA 3 FHD|Euro Cinema 3 ᴸⁱᵛᵉ|
-RS| EURO CINEMA 4 FHD|Euro Cinema 4 ᴸⁱᵛᵉ|
+RS| EURO CINEMA 1 FHD|Euro Cinema 1 ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema1.png
+RS| EURO CINEMA 2 FHD|Euro Cinema 2 ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema2.png
+RS| EURO CINEMA 3 FHD|Euro Cinema 3 ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema3.png
+RS| EURO CINEMA 4 FHD|Euro Cinema 4 ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurocinema4.png
 HR| MAX TV SELECT 1 HD|Max Tv Select 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_1.png
 HR| MAX TV SELECT 2 HD|Max Tv Select 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_2.png
 HR| MAX TV SELECT 3 HD|Max Tv Select 3 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_3.png
@@ -18336,7 +18336,7 @@ HR| MAX TV SELECT 6 HD|Max Tv Select 6 HD ᴸⁱᵛᵉ|https://raw.githubusercon
 HR| MAX TV SELECT KIDS 1 HD|Max Tv Select Kids 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_1.png
 HR| MAX TV SELECT KIDS 2 HD|Max Tv Select Kids 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_2.png
 RS| Radio Lola|
-RS| MTV Club|
+RS| MTV Club|https://logo.m3uassets.com/mtvclub.png
 #US| NEWS NETWORK
 TVPASSPORT:US|FOX (WDAF) Kansas City, MO HD|AUTO
 TVPASSPORT:US|Seattle 11 (KSTW) Tacoma, WA HD|AUTO
@@ -18345,30 +18345,30 @@ US| CW 19 JEANNETTE PA (WPCW)|
 TVPASSPORT:US|CW (WNOL) New Orleans, LA|AUTO
 US|Cw 23 (KCWT)|
 TVPASSPORT:US|CW (WLMT) Memphis, TN|AUTO
-US|CW News 9 San Diego (KUSI) HD|
+US|CW News 9 San Diego (KUSI) HD|https://logo.m3uassets.com/cw.png
 US|CW Seattle HD|
 TVPASSPORT:US|MNT (KHII) Honolulu, HI|AUTO
 TVPASSPORT:US|MYTV (KHII) HONOLULU, HI|AUTO
 #US| TUBI
 TVPASSPORT:US|FOX (KTTV) Los Angeles, CA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fox11_los_angeles.png|TUBI| FOX 11 LOS ANGELES ᴿᴬᵂ
 TVPASSPORT:US|FOX (WTTG) District of Columbia HD|AUTO|TUBI| FOX 5 WASHINGTON DC ᴿᴬᵂ
-TUBI| THE RIFLEMAN ᴿᴬᵂ|
+TUBI| THE RIFLEMAN ᴿᴬᵂ|https://logo.m3uassets.com/therifleman.png
 TUBI| THE FBI ᴿᴬᵂ|
 TUBI| THE CONNERS ᴿᴬᵂ|
 TUBI| THE BREAKFAST CLUB ON IHEARTRADIO ᴿᴬᵂ|
 TUBI| THE BIGGEST LOSER ᴿᴬᵂ|
 TUBI| SUPERMARKET SWEEP ᴿᴬᵂ|
 TUBI| SILENT WITNESS AND NEW TRICKS ᴿᴬᵂ|
-TUBI| NIKITA ᴿᴬᵂ|
+TUBI| NIKITA ᴿᴬᵂ|https://logo.m3uassets.com/nikita.png
 TUBI| NASH BRIDGES ᴿᴬᵂ|
-TUBI| MIDSOMER MURDERS ᴿᴬᵂ|
+TUBI| MIDSOMER MURDERS ᴿᴬᵂ|https://logo.m3uassets.com/midsomermurders.png
 TUBI| KARTOON CHANNEL! ᴿᴬᵂ|
 TUBI| IN THE GARAGE ᴿᴬᵂ|
 TUBI| GENERATION DRAMA ᴿᴬᵂ|
-TUBI| FORENSIC FILES ᴿᴬᵂ|
+TUBI| FORENSIC FILES ᴿᴬᵂ|https://logo.m3uassets.com/forensicfiles.png
 TUBI| FAMILY UNSCRIPTED ᴿᴬᵂ|
 TUBI| DANCE MOMS ᴿᴬᵂ|
-TUBI| CRIME THRILLHER ᴿᴬᵂ|
+TUBI| CRIME THRILLHER ᴿᴬᵂ|https://logo.m3uassets.com/thrillercrime.png
 TUBI| CINEVAULT: CLASSICS ᴿᴬᵂ|
 TUBI| CHASING CRIMINALS ᴿᴬᵂ|
 TUBI|WORLD'S MOST EVIL KILLERS RAW|World's Most Evil Killers ᴸⁱᵛᵉ|https://woodcutmedia.com/wp-content/uploads/2016/09/WORLDS-MOST-EVIL-KILLERS.jpg
@@ -18378,12 +18378,12 @@ TUBI|UNIQUE LIVES RAW|Unique Lives ᴸⁱᵛᵉ|https://spng.pngfind.com/pngs/s/
 TUBI|LIVING WITH EVIL RAW|Living With Evil ᴸⁱᵛᵉ|
 TUBI|LOVE MARRIAGE RAW|Love Marriage ᴸⁱᵛᵉ|
 TUBI|HAGERRY RAW|Hagerry ᴸⁱᵛᵉ|
-TUBI|FBI FILES RAW|Fbi Files ᴸⁱᵛᵉ|
+TUBI|FBI FILES RAW|Fbi Files ᴸⁱᵛᵉ|https://logo.m3uassets.com/fbifiles.png
 TUBI|MRBEAST RAW|Mrbeast ᴸⁱᵛᵉ|
 TUBI|NASCAR RAW|Nascar ᴸⁱᵛᵉ|
 TUBI|PAWS CLAWS RAW|Paws Claws ᴸⁱᵛᵉ|
 TUBI|THE JACK HANNA CHANNEL RAW|The Jack Hanna Channel ᴸⁱᵛᵉ|
-TUBI|THE MASKED SINGER RAW|The Masked Singer ᴸⁱᵛᵉ|
+TUBI|THE MASKED SINGER RAW|The Masked Singer ᴸⁱᵛᵉ|https://logo.m3uassets.com/themaskedsinger.png
 TUBI|TORQUE RAW|Torque ᴸⁱᵛᵉ|
 TUBI|DEF JAM RAW|Def Jam ᴸⁱᵛᵉ|
 TUBI|MYSTERIOUS WORLDS RAW|Mysterious Worlds ᴸⁱᵛᵉ|
@@ -18391,9 +18391,9 @@ TUBI|Gordon Ramsay ᴿᴬᵂ|
 TUBI|Gardening with Monty Don ᴿᴬᵂ|
 TUBI|Fox Sports on Tubi ᴿᴬᵂ|
 TUBI|Fox 5 New York ᴿᴬᵂ|
-TUBI|Britbox Mysteries ᴿᴬᵂ|
+TUBI|Britbox Mysteries ᴿᴬᵂ|https://logo.m3uassets.com/britboxmysteries.png
 #PRIME US,DE
-PRIME| LOCALISH ᴿᴬᵂ|Localish ᴸⁱᵛᵉ|
+PRIME| LOCALISH ᴿᴬᵂ|Localish ᴸⁱᵛᵉ|https://logo.m3uassets.com/localish.png
 TVPASSPORT:US|FOX (KTVU) San Francisco, CA HD|AUTO|PRIME| FOX 2 SAN FRANCISCO ᴿᴬᵂ
 TVPASSPORT:US|FOX (KDFW) Dallas, TX HD|AUTO|PRIME| FOX 4 DALLAS FORT WORTH ᴿᴬᵂ
 TVPASSPORT:US|FOX (WTTG) District of Columbia HD|AUTO|PRIME| FOX 5 WASHINGTON DC ᴿᴬᵂ
@@ -18415,40 +18415,40 @@ PRIME| CRIME + INVESTIGATION PLAY ᴿᴬᵂ|Crime + Investigation Play ᴸⁱᵛ
 PRIME| BAD GIRLS CLUB ᴿᴬᵂ|Bad Girls Club ᴸⁱᵛᵉ|Auto
 PRIME| CNN ORIGINALS ᴿᴬᵂ|Cnn Originals ᴸⁱᵛᵉ|Auto
 PRIME| Cops En Español ᴿᴬᵂ|Cops En Español ᴸⁱᵛᵉ|Auto
-PRIME| CSI ᴿᴬᵂ|Csi ᴸⁱᵛᵉ|Auto
+PRIME| CSI ᴿᴬᵂ|Csi ᴸⁱᵛᵉ|https://logo.m3uassets.com/csi.png
 PRIME| DESIGNATED SURVIVOR ᴿᴬᵂ|Designated Survivor ᴸⁱᵛᵉ|Auto
-PRIME| DOG THE BOUNTY HUNTER ᴿᴬᵂ|Dog The Bounty Hunter ᴸⁱᵛᵉ|Auto
-PRIME| FAMILY FEUD ᴿᴬᵂ|Family Feud ᴸⁱᵛᵉ|Auto
-PRIME| FARSCAPE ᴿᴬᵂ|Farscape ᴸⁱᵛᵉ|Auto
+PRIME| DOG THE BOUNTY HUNTER ᴿᴬᵂ|Dog The Bounty Hunter ᴸⁱᵛᵉ|https://logo.m3uassets.com/dogthebountyhunter.png
+PRIME| FAMILY FEUD ᴿᴬᵂ|Family Feud ᴸⁱᵛᵉ|https://logo.m3uassets.com/myfamily.png
+PRIME| FARSCAPE ᴿᴬᵂ|Farscape ᴸⁱᵛᵉ|https://logo.m3uassets.com/farscape.png
 PRIME| GROWING UP HIP HOP WE TV ᴿᴬᵂ|Growing Up Hip Hop We TV ᴸⁱᵛᵉ|Auto
-PRIME| GREEN ACRES ᴿᴬᵂ|Green Acres ᴸⁱᵛᵉ|Auto
+PRIME| GREEN ACRES ᴿᴬᵂ|Green Acres ᴸⁱᵛᵉ|https://logo.m3uassets.com/247greenacres.png
 PRIME| HOLIDAYSCAPES ᴿᴬᵂ|Holidayscapes ᴸⁱᵛᵉ|Auto
 PRIME| HORROR STORIES ᴿᴬᵂ|Horror Stories ᴸⁱᵛᵉ|Auto
-PRIME| HUNTER ᴿᴬᵂ|Hunter ᴸⁱᵛᵉ|Auto
+PRIME| HUNTER ᴿᴬᵂ|Hunter ᴸⁱᵛᵉ|https://logo.m3uassets.com/hunter.png
 PRIME| IN THE HEAT OF THE NIGHT ᴿᴬᵂ|In The Heat Of The Night ᴸⁱᵛᵉ|Auto
-PRIME| MGM+ DRIVE-IN ᴿᴬᵂ|Mgm+ Drive-In ᴸⁱᵛᵉ|Auto
-PRIME| NASA+ ᴿᴬᵂ|Nasa ᴸⁱᵛᵉ|Auto
+PRIME| MGM+ DRIVE-IN ᴿᴬᵂ|Mgm+ Drive-In ᴸⁱᵛᵉ|https://logo.m3uassets.com/mgmplusdrivein.png
+PRIME| NASA+ ᴿᴬᵂ|Nasa ᴸⁱᵛᵉ|https://logo.m3uassets.com/nasa.png
 PRIME| REAL DISASTER CHANNEL ᴿᴬᵂ|Real Disaster Channel ᴸⁱᵛᵉ|
 PRIME| THAT'S SO 90S ᴿᴬᵂ|That's So 90s ᴸⁱᵛᵉ|
 PRIME| THE THREE STOOGES + ᴿᴬᵂ|The Three Stooges ᴸⁱᵛᵉ|
-PRIME| TRAVEL AND ADVENTURE ᴿᴬᵂ|Travel And Adventure ᴸⁱᵛᵉ|
-PRIME| ANCIENT ALIENS ᴿᴬᵂ|Ancient Aliens ᴸⁱᵛᵉ|Auto
+PRIME| TRAVEL AND ADVENTURE ᴿᴬᵂ|Travel And Adventure ᴸⁱᵛᵉ|https://logo.m3uassets.com/travelandadventure.png
+PRIME| ANCIENT ALIENS ᴿᴬᵂ|Ancient Aliens ᴸⁱᵛᵉ|https://logo.m3uassets.com/ancientaliens.png
 PRIME| ALFRED HITCHCOCK PRESENTS ᴿᴬᵂ|Alfred Hitchcock Presents ᴸⁱᵛᵉ|Auto
-PRIME| PRIME ᴿᴬᵂ|
-PRIME| YU-GI-OH! ᴿᴬᵂ|
+PRIME| PRIME ᴿᴬᵂ|https://logo.m3uassets.com/prime.png
+PRIME| YU-GI-OH! ᴿᴬᵂ|https://logo.m3uassets.com/yugioh.png
 PRIME| MADE IN CHELSEA ᴿᴬᵂ||AUTO
 PRIME| CNN HEADLINES ᴿᴬᵂ||AUTO
-PRIME| THE RIFLEMAN ᴿᴬᵂ|
+PRIME| THE RIFLEMAN ᴿᴬᵂ|https://logo.m3uassets.com/therifleman.png
 PRIME| THE REAL MCCOYS ᴿᴬᵂ|
 PRIME| THE OUTER LIMITS ᴿᴬᵂ|
-PRIME| THE NEW DETECTIVES ᴿᴬᵂ|
+PRIME| THE NEW DETECTIVES ᴿᴬᵂ|https://logo.m3uassets.com/thenewdetectives.png
 PRIME| THE EMERIL LAGASSE CHANNEL ᴿᴬᵂ|
 PRIME| THE CONNERS ᴿᴬᵂ||AUTO
 PRIME| THE APPRENTICE ᴿᴬᵂ||AUTO
 PRIME| TEAM USA ᴿᴬᵂ||AUTO
 PRIME| SUPERMARKET SWEEP ᴿᴬᵂ||AUTO
 PRIME| STORAGE WARS ᴿᴬᵂ||AUTO
-PRIME| STAR TREK ᴿᴬᵂ||AUTO
+PRIME| STAR TREK ᴿᴬᵂ||https://logo.m3uassets.com/startrek.png
 PRIME| STARGATE ᴿᴬᵂ||AUTO
 PRIME| SPONGEBOB SQUAREPANTS UNIVERSE ᴿᴬᵂ||AUTO
 PRIME| SNL VAULT ᴿᴬᵂ||AUTO
@@ -18458,99 +18458,99 @@ PRIME| WEEDS AND NURSE JACKIE ᴿᴬᵂ||AUTO
 PRIME| VEVO COUNTRY ᴿᴬᵂ||AUTO
 PRIME| THE MARTHA STEWART CHANNEL ᴿᴬᵂ|
 PRIME| THE LONE RANGER ᴿᴬᵂ|
-PRIME| THE GRAND TOUR ᴿᴬᵂ|
+PRIME| THE GRAND TOUR ᴿᴬᵂ|https://logo.m3uassets.com/thegrandtour.png
 PRIME| THE FBI ᴿᴬᵂ|
 PRIME| YAHOO FINANCE LIVE ᴿᴬᵂ|
 PRIME| UNIVERSAL MONSTERS ᴿᴬᵂ|
 PRIME| UNIVERSAL WESTERNS ᴿᴬᵂ|
 PRIME| UNIVERSAL ACTION ᴿᴬᵂ|
-PRIME| UFC ᴿᴬᵂ|
-PRIME| TODAY ALL DAY ᴿᴬᵂ|
+PRIME| UFC ᴿᴬᵂ|https://logo.m3uassets.com/ufc.png
+PRIME| TODAY ALL DAY ᴿᴬᵂ|https://logo.m3uassets.com/todayallday.png
 PRIME| THE WALKING DEAD CHANNEL ᴿᴬᵂ|
-PRIME| THE ADDAMS FAMILY ᴿᴬᵂ|
-PRIME| RIFFTRAX ᴿᴬᵂ|
+PRIME| THE ADDAMS FAMILY ᴿᴬᵂ|https://logo.m3uassets.com/theaddamsfamily.png
+PRIME| RIFFTRAX ᴿᴬᵂ|https://logo.m3uassets.com/rifftrax.png
 PRIME| RUPAUL'S DRAG RACE ᴿᴬᵂ|
 PRIME| POKÉMON ᴿᴬᵂ|
 PRIME| PAW PATROL ᴿᴬᵂ|
 PRIME| PBS FOOD ᴿᴬᵂ|
-PRIME| PBS NATURE ᴿᴬᵂ|
-PRIME| NIKITA ᴿᴬᵂ|
-PRIME| NIP / TUCK ᴿᴬᵂ|
+PRIME| PBS NATURE ᴿᴬᵂ|https://logo.m3uassets.com/pbsnature.png
+PRIME| NIKITA ᴿᴬᵂ|https://logo.m3uassets.com/nikita.png
+PRIME| NIP / TUCK ᴿᴬᵂ|https://logo.m3uassets.com/niptuck.png
 PRIME| NO RESERVATIONS ᴿᴬᵂ|
 PRIME| NYPD BLUE ᴿᴬᵂ|
 PRIME| NBC 10 BOSTON NEWS ᴿᴬᵂ|
-PRIME| MURDER, SHE WROTE ᴿᴬᵂ|
-PRIME| MIDSOMER MURDERS ᴿᴬᵂ|
-PRIME| MAX LATINO EAST ᴿᴬᵂ|
+PRIME| MURDER, SHE WROTE ᴿᴬᵂ|https://logo.m3uassets.com/murdershewrote.png
+PRIME| MIDSOMER MURDERS ᴿᴬᵂ|https://logo.m3uassets.com/midsomermurders.png
+PRIME| MAX LATINO EAST ᴿᴬᵂ|https://logo.m3uassets.com/max.png
 PRIME| LOVE AFTER LOCKUP WE TV ᴿᴬᵂ|
 PRIME| LITTLE HOUSE ON THE PRAIRIE ᴿᴬᵂ|
 PRIME| LEAVE IT TO BEAVER ᴿᴬᵂ|
 PRIME| LET'S MAKE A DEAL ᴿᴬᵂ|
 PRIME| LEVERAGE ᴿᴬᵂ|
 PRIME| KIDS & FAMILY FUN ᴿᴬᵂ|
-PRIME| BRITBOX MYSTERIES ᴿᴬᵂ|
+PRIME| BRITBOX MYSTERIES ᴿᴬᵂ|https://logo.m3uassets.com/britboxmysteries.png
 PRIME| FOX 5 NEW YORK ᴿᴬᵂ|
 PRIME| GARDENING WITH MONTY DON ᴿᴬᵂ|
 PRIME| TRAILERS ᴿᴬᵂ
-PRIME| ABC CHARLESTON NEWS (WCIV.2) ᴿᴬᵂ|
+PRIME| ABC CHARLESTON NEWS (WCIV.2) ᴿᴬᵂ|https://logo.m3uassets.com/nbccharlestonsc.png
 PRIME| THE SIX MILLION DOLLAR MAN ᴿᴬᵂ|
 PRIME| NINJA WARRIOR ᴿᴬᵂ|
 PRIME| PATERNITY COURT ᴿᴬᵂ|
-PRIME| PGA TOUR ᴿᴬᵂ|
-PRIME| ID ᴿᴬᵂ|
+PRIME| PGA TOUR ᴿᴬᵂ|https://logo.m3uassets.com/pgatour.png
+PRIME| ID ᴿᴬᵂ|https://logo.m3uassets.com/id.png
 PRIME| EURO CRIME ᴿᴬᵂ|
 PRIME| CRIME SCENE TV ᴿᴬᵂ|
-PRIME| GHOST HUNTERS ᴿᴬᵂ|
+PRIME| GHOST HUNTERS ᴿᴬᵂ|https://logo.m3uassets.com/ghosthunters.png
 PRIME| MONSTER JAM ᴿᴬᵂ|
 PRIME| NASH BRIDGES ᴿᴬᵂ|
-PRIME| NBC 4 Washington News ᴿᴬᵂ|
+PRIME| NBC 4 Washington News ᴿᴬᵂ|https://logo.m3uassets.com/nbc4newswashington.png
 PRIME| NBC 7 washington nc (WITN) ᴿᴬᵂ|
 PRIME| The Dog Whisperer with Cesar Millan ᴿᴬᵂ|
 PRIME| Uefa Champions League ᴿᴬᵂ|
 PRIME| Chasing Criminals ᴿᴬᵂ|
 PRIME| Celebrity Name Game ᴿᴬᵂ|
-PRIME| CBS News Minnesota ᴿᴬᵂ|
-PRIME| CBS News Chicago ᴿᴬᵂ|
-PRIME| CBS Harrisburg (WHP) ᴿᴬᵂ|
-PRIME| CBS Grand Rapids (WWMT) ᴿᴬᵂ|
-PRIME| CBS Cincinnati News (WKRC) ᴿᴬᵂ|
+PRIME| CBS News Minnesota ᴿᴬᵂ|https://logo.m3uassets.com/cbsnewsminnesota.png
+PRIME| CBS News Chicago ᴿᴬᵂ|https://logo.m3uassets.com/cbsnewschicago.png
+PRIME| CBS Harrisburg (WHP) ᴿᴬᵂ|https://logo.m3uassets.com/cbs21harrisburg.png
+PRIME| CBS Grand Rapids (WWMT) ᴿᴬᵂ|https://logo.m3uassets.com/cbsgrandrapidsmi.png
+PRIME| CBS Cincinnati News (WKRC) ᴿᴬᵂ|https://logo.m3uassets.com/abccincinatti.png
 PRIME| Buzzfeed Unsolved ᴿᴬᵂ|
-PRIME| Bosch ᴿᴬᵂ|
+PRIME| Bosch ᴿᴬᵂ|https://logo.m3uassets.com/bosch.png
 PRIME| Beyond Belief ᴿᴬᵂ|
 PRIME| America's Dumbest Criminals ᴿᴬᵂ|
-PRIME| ABC13 Houston ᴿᴬᵂ|
-PRIME| ABC11 North Carolina ᴿᴬᵂ|
-PRIME| ABC7 Chicago ᴿᴬᵂ|
+PRIME| ABC13 Houston ᴿᴬᵂ|https://logo.m3uassets.com/houstonabc13.png
+PRIME| ABC11 North Carolina ᴿᴬᵂ|https://logo.m3uassets.com/northcarolina.png
+PRIME| ABC7 Chicago ᴿᴬᵂ|https://logo.m3uassets.com/chicagoabc7.png
 PRIME| Jamie Oliver ᴿᴬᵂ|
 PRIME| Isn't It Romantic ᴿᴬᵂ|
-PRIME| Iron Chef ᴿᴬᵂ|
+PRIME| Iron Chef ᴿᴬᵂ|https://logo.m3uassets.com/ironchef.png
 PRIME| In The Garage ᴿᴬᵂ|
 PRIME| Inside Edition ᴿᴬᵂ|
 PRIME| Harlem ᴿᴬᵂ|
 PRIME| Great American Adventures ᴿᴬᵂ|
-PRIME| Gameplay Roblox ᴿᴬᵂ|
+PRIME| Gameplay Roblox ᴿᴬᵂ|https://logo.m3uassets.com/gameplayroblox.png
 PRIME| Gameplay Minecraft ᴿᴬᵂ|
-PRIME| Fox Grand Rapids News (WXMI) ᴿᴬᵂ|
+PRIME| Fox Grand Rapids News (WXMI) ᴿᴬᵂ|https://logo.m3uassets.com/cbsgrandrapidsmi.png
 PRIME| Fox 26 Houston ᴿᴬᵂ|
-PRIME| Forensic Files ᴿᴬᵂ|
+PRIME| Forensic Files ᴿᴬᵂ|https://logo.m3uassets.com/forensicfiles.png
 PRIME| Family Unscripted ᴿᴬᵂ|
 PRIME| Don't Tell The Bride ᴿᴬᵂ|
-PRIME| Degrassi ᴿᴬᵂ|
+PRIME| Degrassi ᴿᴬᵂ|https://logo.m3uassets.com/degrassi.png
 PRIME| Dance Moms ᴿᴬᵂ|
-PRIME| Crime Thrillher ᴿᴬᵂ|
+PRIME| Crime Thrillher ᴿᴬᵂ|https://logo.m3uassets.com/thrillercrime.png
 PRIME| Corner Gas ᴿᴬᵂ|
-PRIME| NBC 10 Philadelphia News ᴿᴬᵂ|
-PRIME| The FBI Files ᴿᴬᵂ|
-PRIME| TOP CHEF RAW|
-PRIME| NOW ROCK RAW|
-PRIME|20 20 RAW|20 20 ᴸⁱᵛᵉ|
+PRIME| NBC 10 Philadelphia News ᴿᴬᵂ|https://logo.m3uassets.com/nbcphiladelphia.png
+PRIME| The FBI Files ᴿᴬᵂ|https://logo.m3uassets.com/fbifiles.png
+PRIME| TOP CHEF RAW|https://logo.m3uassets.com/topchef.png
+PRIME| NOW ROCK RAW|https://logo.m3uassets.com/nowrock.png
+PRIME|20 20 RAW|20 20 ᴸⁱᵛᵉ|https://logo.m3uassets.com/2020.png
 PRIME|ABC LAS VEGAS KTNV RAW|Abc Las Vegas Ktnv ᴸⁱᵛᵉ|
 PRIME|ADULT ANIMATION RAW|Adult Animation ᴸⁱᵛᵉ|
 PRIME|ALL OUT ALASKA RAW|All Out Alaska ᴸⁱᵛᵉ|
 PRIME|AMAZON LIVE RAW|Amazon Live ᴸⁱᵛᵉ|
-PRIME|AMERICAN GLADIATORS RAW|American Gladiators ᴸⁱᵛᵉ|
+PRIME|AMERICAN GLADIATORS RAW|American Gladiators ᴸⁱᵛᵉ|https://logo.m3uassets.com/americangladiators.png
 PRIME|BACHELOR NATION RAW|Bachelor Nation ᴸⁱᵛᵉ|
-PRIME|BBC FOOD RAW|Bbc Food ᴸⁱᵛᵉ|
+PRIME|BBC FOOD RAW|Bbc Food ᴸⁱᵛᵉ|https://logo.m3uassets.com/bbcfood.png
 PRIME|BLACK LOVE RAW|Black Love ᴸⁱᵛᵉ|
 PRIME|CARTOON REWIND RAW|Cartoon Rewind ᴸⁱᵛᵉ|
 PRIME|CHAOS ON CAM BY A E RAW|Chaos On Cam By A E ᴸⁱᵛᵉ|
@@ -18568,17 +18568,17 @@ PRIME|EXTREME JOBS BY LIONSGATE RAW|Extreme Jobs By Lionsgate ᴸⁱᵛᵉ|
 PRIME|EXTREM LIVNG RAW|Extrem Livng ᴸⁱᵛᵉ|
 PRIME|FILMRISE BLACK TV RAW|Filmrise Black TV ᴸⁱᵛᵉ|
 PRIME|FUNNY FAVORITES RAW|Funny Favorites ᴸⁱᵛᵉ|
-PRIME|HI YAH RAW|Hi Yah ᴸⁱᵛᵉ|
+PRIME|HI YAH RAW|Hi Yah ᴸⁱᵛᵉ|https://logo.m3uassets.com/hiyah.png
 PRIME|HISTORY UNDISCOVERED RAW|History Undiscovered ᴸⁱᵛᵉ|
 PRIME|HISTORY UNTOLD RAW|History Untold ᴸⁱᵛᵉ|
 PRIME|HOME CHRASHERS RAW|Home Chrashers ᴸⁱᵛᵉ|
 PRIME|HORROR STORIES RAW|Horror Stories ᴸⁱᵛᵉ|
 PRIME|HOT ONES RAW|Hot Ones ᴸⁱᵛᵉ|
-PRIME|HUNTER RAW|Hunter ᴸⁱᵛᵉ|
+PRIME|HUNTER RAW|Hunter ᴸⁱᵛᵉ|https://logo.m3uassets.com/hunter.png
 PRIME|World's Wildest Police Videos ᴿᴬᵂ|
 PRIME|Turk on Video ᴿᴬᵂ|
 PRIME|Nature ᴿᴬᵂ|
-PRIME|H&C Tv ᴿᴬᵂ|
+PRIME|H&C Tv ᴿᴬᵂ|https://logo.m3uassets.com/hctv.png
 PRIME|Grjngo-Westernfilme ᴿᴬᵂ|
 PRIME|Ein Engel auf Erden ᴿᴬᵂ|
 PRIME|CC ᴿᴬᵂ|
@@ -18589,7 +18589,7 @@ PRIME|Xite 60s & 70s Groove ᴿᴬᵂ|
 PRIME|Western Bound Wrangled by INSP ᴿᴬᵂ|
 PRIME|Wendy Williams ᴿᴬᵂ|
 PRIME|Vevo R&B ᴿᴬᵂ|
-PRIME|Vevo Hip-Hop ᴿᴬᵂ|
+PRIME|Vevo Hip-Hop ᴿᴬᵂ|https://logo.m3uassets.com/vevohiphop.png
 PRIME|Untold Stories of the Er ᴿᴬᵂ|
 PRIME|Ultimate Builds ᴿᴬᵂ|
 PRIME|Tribunal Justice ᴿᴬᵂ|
@@ -18614,7 +18614,7 @@ PRIME|Speed Sport 1 ᴿᴬᵂ|
 PRIME|Space & Beyond ᴿᴬᵂ|
 PRIME|Sheriffs EL Dorado County ᴿᴬᵂ|
 PRIME|Rustic Retreats ᴿᴬᵂ|
-PRIME|Rugbypass Tv ᴿᴬᵂ|
+PRIME|Rugbypass Tv ᴿᴬᵂ|https://logo.m3uassets.com/rugbypasstv.png
 PRIME|Rovr Pets ᴿᴬᵂ|
 PRIME|Relative Justice|
 PRIME|Reelz Famous and Imfamous
@@ -18627,13 +18627,13 @@ PRIME|Primetime Soaps ᴿᴬᵂ|
 PRIME|Preschool Corner ᴿᴬᵂ|
 PRIME|Power Rangers ᴿᴬᵂ|
 PRIME|Places & Spaces ᴿᴬᵂ|
-PRIME|Pink Panther ᴿᴬᵂ|
+PRIME|Pink Panther ᴿᴬᵂ|https://logo.m3uassets.com/pinkpanter.png
 PRIME|Personal  Injury Court ᴿᴬᵂ|
 PRIME|Perform ᴿᴬᵂ|
 PRIME|PBS Genealogy ᴿᴬᵂ|
 PRIME|PBS Drama ᴿᴬᵂ|
-PRIME|PBS Documentaries ᴿᴬᵂ|
-PRIME|Overtime ᴿᴬᵂ|
+PRIME|PBS Documentaries ᴿᴬᵂ|https://logo.m3uassets.com/documentaries.png
+PRIME|Overtime ᴿᴬᵂ|https://logo.m3uassets.com/overtime.png
 PRIME|Noticias Univision 24/7 ᴿᴬᵂ|
 PRIME|Nostalgic Hits ᴿᴬᵂ|
 PRIME|NBC Lx Home ᴿᴬᵂ|
@@ -18666,23 +18666,23 @@ PRIME|Las 3 Marias ᴿᴬᵂ|
 PRIME|Kim's Convenience ᴿᴬᵂ|
 PRIME|Karamo Presented By Nosey ᴿᴬᵂ|
 PRIME|Judge & Jury ᴿᴬᵂ|
-PRIME|JaJaJa ᴿᴬᵂ|
+PRIME|JaJaJa ᴿᴬᵂ|https://logo.m3uassets.com/vixjajaja.png
 PRIME|I was Haunted ᴿᴬᵂ|
-PRIME|In Touch+ ᴿᴬᵂ|
+PRIME|In Touch+ ᴿᴬᵂ|https://logo.m3uassets.com/touch.png
 PRIME|Impact Gospel ᴿᴬᵂ|
 PRIME|Hunter X Hunter ᴿᴬᵂ|
 PRIME|Grandes Parejas ᴿᴬᵂ|
-PRIME|Get Comedy ᴿᴬᵂ|
+PRIME|Get Comedy ᴿᴬᵂ|https://logo.m3uassets.com/comedy.png
 PRIME|General Hospital ᴿᴬᵂ|
 PRIME|Galanes ᴿᴬᵂ|
 PRIME|FV AMC En Espanol US ᴿᴬᵂ|
 PRIME|Fox 35 Orlando ᴿᴬᵂ|
-PRIME|Fox 32 Chicago ᴿᴬᵂ|
+PRIME|Fox 32 Chicago ᴿᴬᵂ|https://logo.m3uassets.com/fox32chicago.png
 PRIME|Fox 13 Tampa Bay ᴿᴬᵂ|
 PRIME|Fox 13 Seattle ᴿᴬᵂ|
 PRIME|Fox 11 Los Angeles ᴿᴬᵂ|
 PRIME|Fox 10 Phoenix ᴿᴬᵂ|
-PRIME|Fox 9 Minneapolis ᴿᴬᵂ|
+PRIME|Fox 9 Minneapolis ᴿᴬᵂ|https://logo.m3uassets.com/minneapolisfox9.png
 PRIME|Fox 7 Austin ᴿᴬᵂ|
 PRIME|Fox 6 Milwaukee ᴿᴬᵂ|
 PRIME|Fox 5 Atlanta ᴿᴬᵂ|
@@ -18699,30 +18699,30 @@ PRIME|Cook's Country ᴿᴬᵂ|
 PRIME|Como Dice El Dicho ᴿᴬᵂ|
 PRIME|Come Dine with Me ᴿᴬᵂ|
 PRIME|Classic Car Auctions ᴿᴬᵂ|
-PRIME|Cine Retro ᴿᴬᵂ|
+PRIME|Cine Retro ᴿᴬᵂ|https://logo.m3uassets.com/cineterror.png
 PRIME|Cine De Oro ᴿᴬᵂ|
 PRIME|Chris Hansen's Trublu Crime Network ᴿᴬᵂ|
-PRIME|CBS News Detroit ᴿᴬᵂ|
-PRIME|CBS News Colorado ᴿᴬᵂ|
+PRIME|CBS News Detroit ᴿᴬᵂ|https://logo.m3uassets.com/cbsnewsdetroit.png
+PRIME|CBS News Colorado ᴿᴬᵂ|https://logo.m3uassets.com/cbsnewscolorado.png
 PRIME|Caso Cebrado ᴿᴬᵂ|
 PRIME|Black Voices ᴿᴬᵂ|
-PRIME|BBC Comedy ᴿᴬᵂ|
+PRIME|BBC Comedy ᴿᴬᵂ|https://logo.m3uassets.com/abccomedy.png
 PRIME|Bargain Hunt ᴿᴬᵂ|
 PRIME|Are You Smarter than a 5th Grader? ᴿᴬᵂ|
 PRIME|Aqui Y Ahora ᴿᴬᵂ|
-PRIME|Antiques Road Trip ᴿᴬᵂ|
+PRIME|Antiques Road Trip ᴿᴬᵂ|https://logo.m3uassets.com/antiquesroadtrip.png
 PRIME|Anime X Hidive ᴿᴬᵂ|
 PRIME|Animation Favorites ᴿᴬᵂ|
 PRIME|American Ninja Warrior ᴿᴬᵂ|
 PRIME|All Day Drama ᴿᴬᵂ|
-PRIME|Action News Jax (CBS47 / FOX30) ᴿᴬᵂ|
-PRIME|Acorn Tv Mysteries ᴿᴬᵂ|
-PRIME|ABC7 New York ᴿᴬᵂ|
-PRIME|ABC7 Bay Area ᴿᴬᵂ|
+PRIME|Action News Jax (CBS47 / FOX30) ᴿᴬᵂ|https://logo.m3uassets.com/actionnewsjaxnow.png
+PRIME|Acorn Tv Mysteries ᴿᴬᵂ|https://logo.m3uassets.com/courttvmysteries.png
+PRIME|ABC7 New York ᴿᴬᵂ|https://logo.m3uassets.com/newyorkabc7.png
+PRIME|ABC7 Bay Area ᴿᴬᵂ|https://logo.m3uassets.com/nbcbayarea.png
 PRIME|90s Sitcom ᴿᴬᵂ|
 PRIME|80s Sitcom ᴿᴬᵂ|
 PRIME|60 Minutes ᴿᴬᵂ|
-PRIME|48 Hours ᴿᴬᵂ|
+PRIME|48 Hours ᴿᴬᵂ|https://logo.m3uassets.com/48hours.png
 PRIME|24/7 Laughs ᴿᴬᵂ|
 #DE| SKY, MAGENTA TV BL, SP, TV ALGEMEIN
 DE| RTL CRIME||https://logo.m3uassets.com/rtlcrime.png
@@ -18735,12 +18735,12 @@ DE| QVC||https://logo.m3uassets.com/qvc.png
 DE| ZDF NEO HD||https://logo.m3uassets.com/zdfneo.png
 DE| TAGESSCHAU 24 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tagesschau24.png
 SKY:DE|SKY NATURE FHD|https://logo.m3uassets.com/skynature.png
-DE| RTL UP|
-DE| TOGGO PLUS|
+DE| RTL UP|https://logo.m3uassets.com/rtlup.png
+DE| TOGGO PLUS|https://logo.m3uassets.com/toggoplus.png
 SKY:DE| SKY SPORT BUNDESLIGA 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_1.png
 SKY:DE| SKY SPORT 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_1.png
 SKY:DE| SKY SPORT AUSTRIA 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_austria_1.png
-DE| NOW!|
+DE| NOW!|https://logo.m3uassets.com/now.png
 SKY:DE|SKY CINEMA PREMIEREN HD|
 SKY:DE|SKY CINEMA PREMIEREN FHD|
 SKY:DE|SKY CINEMA PREMIEREN FHD*|
