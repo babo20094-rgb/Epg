@@ -2360,7 +2360,7 @@ def normalisiere_sendername_kern(name):
     name = unicodedata.normalize("NFKD", name)
     name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
     name = name.upper()
-    name = re.sub(r"\bVIP\b|\bRAW\b|\bU?HD\b|\bFHD\b|\bSD\b", " ", name)
+    name = re.sub(r"\bVIP\b|\bRAW\b|\bU?HD\b|\bFHD\b|\bSD\b|\bHEVC\b|\b[48]K\b", " ", name)
     name = name.replace("+", " PLUS ")
     name = re.sub(r"[^A-Z0-9]", "", name)
     return name

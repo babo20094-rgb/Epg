@@ -224,6 +224,15 @@ def deswird_kanal_finden(kanalname):
         site_id = kanal["site_id"]
         if kern not in kern_roh:
             kern_roh[kern] = site_id
+        elif kern_roh[kern].lower() == site_id.lower():
+            # Nur Gross-/Kleinschreibung unterschiedlich (z.B. "VOX.de"
+            # vs. "Vox.de") - deswird.org fuehrt denselben Kanal manchmal
+            # doppelt mit nur anderer ID-Schreibweise, keine echte
+            # Mehrdeutigkeit. Ohne diese Pruefung wuerde eine dritte,
+            # gleich geschriebene ".de"-ID den Kern faelschlich als
+            # mehrdeutig markieren, obwohl er es vorher schon eindeutig
+            # via _de_id_bevorzugen() aufgeloest hatte.
+            pass
         elif kern_roh[kern] != site_id:
             if site_id.lower().endswith(".de") != kern_roh[kern].lower().endswith(".de"):
                 # Genau einer der beiden ist explizit ".de" - eindeutig
