@@ -17,26 +17,26 @@ from epg_lib import (
     kanalname_normal_geschrieben,
     normalisiere_sendername, baue_logo_index, finde_logo,
 )
-from telemach_epg import telemach_kanal_finden, telemach_hole_programme
-from mtel_epg import mtel_kanal_finden, mtel_hole_programme
-from mymedia_epg import mymedia_hole_programme
-from klix_epg import klix_kanal_finden, klix_hole_programme
-from mts_epg import mts_kanal_finden, mts_hole_programme
-from mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
-from siol_epg import siol_kanal_finden, siol_hole_programme
-from sky_epg import sky_kanal_finden, sky_hole_programme
-from magenta_epg import magenta_kanal_finden, magenta_hole_programme
-from arena_epg import arena_kanal_finden, arena_hole_programme
-from dazn_epg import dazn_kanal_finden, dazn_hole_programme
-from freeview_epg import freeview_kanal_finden, freeview_hole_programme
-from tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
-from tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
-from tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
-from plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
-from hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
-from samsungtv_epg import samsungtv_kanal_finden, samsungtv_hole_programme
-from deswird_epg import deswird_kanal_finden, deswird_hole_programme
-from tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
+from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
+from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
+from quellen.mymedia_epg import mymedia_hole_programme
+from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
+from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
+from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
+from quellen.siol_epg import siol_kanal_finden, siol_hole_programme
+from quellen.sky_epg import sky_kanal_finden, sky_hole_programme
+from quellen.magenta_epg import magenta_kanal_finden, magenta_hole_programme
+from quellen.arena_epg import arena_kanal_finden, arena_hole_programme
+from quellen.dazn_epg import dazn_kanal_finden, dazn_hole_programme
+from quellen.freeview_epg import freeview_kanal_finden, freeview_hole_programme
+from quellen.tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
+from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
+from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
+from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
+from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
+from quellen.samsungtv_epg import samsungtv_kanal_finden, samsungtv_hole_programme
+from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
+from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
