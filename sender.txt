@@ -4,22 +4,15 @@
 BA|ALFA TV ⱽᴵᴾ ᴿᴬᵂ|Alfa Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/da61e63b63508f0f.png
 BA|ALI TV|Ali Tv ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1885171.png
 BA|ARENA FIGHT|Arena Fight ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b52b20e258e98d46.png
-BA|ARENA SPORT 1 HD|Arena Sport 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 BA|ARENA SPORT 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
-BA|ARENA SPORT 2 HD|Arena Sport 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
 BA|ARENA SPORT 2 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
-BA|ARENA SPORT 3 HD|Arena Sport 3 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ce3562be9a2f63d.png
 BA|ARENA SPORT 3 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ce3562be9a2f63d.png
-BA|ARENA SPORT 4 HD|Arena Sport 4 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf62f976cf7f1d6a.png
 BA|ARENA SPORT 4 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 4 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf62f976cf7f1d6a.png
 BA|ARENA SPORT 5 PREMIER LIGA|Arena Sport 5 Premier Liga ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EXYU/ARENASPORT5.png
 BA|ARENA SPORT 5 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 5 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/215cf783d40956e3.png
 BA|ARENA SPORT 6 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 6 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f017d5939dd74668.png
-BA|ARENA SPORT PREMIUM 1|Arena Sport Premium 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
 BA|ARENA SPORT PREMIUM 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
-BA|ARENA SPORT PREMIUM 2|Arena Sport Premium 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
 BA|ARENA SPORT PREMIUM 2 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
-BA|ARENA SPORT PREMIUM 3|Arena Sport Premium 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
 BA|ARENA SPORT PREMIUM 3 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
 BA|ATV BANJA LUKA|Atv Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2cb7cd4b4e070592.png
 BA|BHT|Bht ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d2a566874088cf02.png
@@ -410,26 +403,6 @@ DE|DR. HOUSE S05 4k|Dr. House S05 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.
 DE|DR. HOUSE S06 4k|Dr. House S06 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efc60651cc7ca234.png
 DE|DR. HOUSE S07 4k|Dr. House S07 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efc60651cc7ca234.png
 DE|DR. HOUSE S08 4k|Dr. House S08 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efc60651cc7ca234.png
-DE|DYN PPV 1 HD|Dyn Ppv 1 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346172.png
-DE|DYN PPV 10 HD|Dyn Ppv 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ab3f1a97f504479.png
-DE|DYN PPV 11 HD|Dyn Ppv 11 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2656e58cc452409c.png
-DE|DYN PPV 12 HD|Dyn Ppv 12 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ab91c5aea879f9d6.png
-DE|DYN PPV 13 HD|Dyn Ppv 13 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/44345b749527369f.png
-DE|DYN PPV 14 HD|Dyn Ppv 14 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5bb4c7ebea39b7d4.png
-DE|DYN PPV 15 HD|Dyn Ppv 15 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b2bebf64e755aef.png
-DE|DYN PPV 16 HD|Dyn Ppv 16 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9be0de81e3f039f7.png
-DE|DYN PPV 17 HD|Dyn Ppv 17 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8a0c6336e57b2e2.png
-DE|DYN PPV 18 HD|Dyn Ppv 18 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c9b4ccaa4d4eb250.png
-DE|DYN PPV 19 HD|Dyn Ppv 19 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4fcd8f91ed02178b.png
-DE|DYN PPV 2 HD|Dyn Ppv 2 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346173.png
-DE|DYN PPV 20 HD|Dyn Ppv 20 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a92eb861280ace3e.png
-DE|DYN PPV 3 HD|Dyn Ppv 3 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346174.png
-DE|DYN PPV 4 HD|Dyn Ppv 4 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346175.png
-DE|DYN PPV 5 HD|Dyn Ppv 5 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346176.png
-DE|DYN PPV 6 HD|Dyn Ppv 6 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346177.png
-DE|DYN PPV 7 HD|Dyn Ppv 7 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346178.png
-DE|DYN PPV 8 HD|Dyn Ppv 8 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346179.png
-DE|DYN PPV 9 HD|Dyn Ppv 9 Hd ᴸⁱᵛᵉ|http://103.176.90.95/images/1346180.png
 DE|ENGLISH TEACHER  ᴿᴬᵂ|English Teacher  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/ENGLISHTEACHER.png
 DE|ESPORTS1 FHD|Esports1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/349ebc3c2fa21d9c.png
 DE|EURONEWS HD|Euronews Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80453534d4d7fa02.png
@@ -495,7 +468,6 @@ DE|HISTORY HEVC|History Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo
 DE|HIT MONKEY  ᴿᴬᵂ|Hit Monkey  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/HITMONKEY.png
 DE|HOMELAND ᴿᴬᵂ|Homeland ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/45383f45e6a681cc.png
 DE|HOUSE OF DAVID ᴿᴬᵂ|House Of David ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|HR HD|Hr Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/HR.png
 DE|HSE FHD|Hse Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/579d9b3fe67a5fd8.png
 DE|HUNTERS ᴿᴬᵂ|Hunters ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|HYPER KNIFE ᴿᴬᵂ|Hyper Knife ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/HYPERKNIFE.png
@@ -728,9 +700,7 @@ DE|SKY ATLANTIC FHD|Sky Atlantic Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.
 DE|SKY ATLANTIC FHD*|Sky Atlantic Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dba2ffa560897a03.png
 DE|SKY ATLANTIC HD|Sky Atlantic Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dba2ffa560897a03.png
 DE|SKY ATLANTIC HEVC|Sky Atlantic Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dba2ffa560897a03.png
-DE|SKY BUNDESLIGA 1 FHD|Sky Bundesliga 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY BUNDESLIGA 1 FHD*|Sky Bundesliga 1 Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY BUNDESLIGA 1 HD|Sky Bundesliga 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY BUNDESLIGA 10 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Bundesliga 10 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY BUNDESLIGA 10 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Bundesliga 10 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY BUNDESLIGA 2 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Bundesliga 2 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
@@ -775,9 +745,6 @@ DE|SKY CINEMA PREMIEREN +24 FHD|Sky Cinema Premieren +24 Fhd ᴸⁱᵛᵉ|https:
 DE|SKY CINEMA PREMIEREN +24 FHD*|Sky Cinema Premieren +24 Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
 DE|SKY CINEMA PREMIEREN +24 HD|Sky Cinema Premieren +24 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
 DE|SKY CINEMA PREMIEREN +24 HEVC|Sky Cinema Premieren +24 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
-DE|SKY CINEMA PREMIEREN FHD|Sky Cinema Premieren Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
-DE|SKY CINEMA PREMIEREN FHD*|Sky Cinema Premieren Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
-DE|SKY CINEMA PREMIEREN HD|Sky Cinema Premieren Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
 DE|SKY CINEMA PREMIEREN HEVC|Sky Cinema Premieren Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
 DE|SKY CINEMA SPECIAL FHD|Sky Cinema Special Fhd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/SKYCINEMASPECIAL.png
 DE|SKY CINEMA SPECIAL HD|Sky Cinema Special Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/SKYCINEMASPECIAL.png
@@ -785,7 +752,6 @@ DE|SKY CINEMA SPECIAL HEVC|Sky Cinema Special Hevc ᴸⁱᵛᵉ|https://raw.gith
 DE|SKY CINEMA THRILLER FHD|Sky Cinema Thriller Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a424db1dd8ec8192.png
 DE|SKY CINEMA THRILLER HD|Sky Cinema Thriller Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a424db1dd8ec8192.png
 DE|SKY CINEMA THRILLER HEVC|Sky Cinema Thriller Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a424db1dd8ec8192.png
-DE|SKY CRIME FHD|Sky Crime Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b43cc4df53759826.png
 DE|SKY CRIME HD|Sky Crime Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b43cc4df53759826.png
 DE|SKY CRIME HEVC|Sky Crime Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b43cc4df53759826.png
 DE|SKY DOCUMENTARIES FHD|Sky Documentaries Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3cc3abf15cd22b90.png
@@ -808,7 +774,6 @@ DE|SKY MAX 6 4K|Sky Max 6 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo
 DE|SKY MAX 7 4K|Sky Max 7 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6b23462bd2c9e8a6.png
 DE|SKY MAX 8 4K|Sky Max 8 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6b23462bd2c9e8a6.png
 DE|SKY MAX 9 4K|Sky Max 9 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6b23462bd2c9e8a6.png
-DE|SKY NATURE FHD|Sky Nature Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3152831f3e466ed9.png
 DE|SKY NATURE HEVC|Sky Nature Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3152831f3e466ed9.png
 DE|SKY ONE FHD|Sky One Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fae30a817b3d6503.png
 DE|SKY ONE HD|Sky One Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fae30a817b3d6503.png
@@ -822,63 +787,43 @@ DE|SKY SPORT 1 FHD|Sky Sport 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 DE|SKY SPORT 1 FHD*|Sky Sport 1 Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f93288d05391473.png
 DE|SKY SPORT 1 HD|Sky Sport 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f93288d05391473.png
 DE|SKY SPORT 1 HEVC|Sky Sport 1 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f93288d05391473.png
-DE|SKY SPORT 10 FHD|Sky Sport 10 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b244b712b547934.png
 DE|SKY SPORT 10 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 10 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b244b712b547934.png
 DE|SKY SPORT 10 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 10 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b244b712b547934.png
-DE|SKY SPORT 10 HD|Sky Sport 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b244b712b547934.png
 DE|SKY SPORT 10 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 10 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b244b712b547934.png
 DE|SKY SPORT 10 HEVC|Sky Sport 10 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b244b712b547934.png
 DE|SKY SPORT 12 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 12 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9cafcefe30d6e9d1.png
 DE|SKY SPORT 13 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 13 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/51255d6d9ea4a156.png
 DE|SKY SPORT 14 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 14 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/33ab746406668db7.png
-DE|SKY SPORT 2 FHD|Sky Sport 2 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/764ede274244a446.png
-DE|SKY SPORT 2 FHD*|Sky Sport 2 Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/764ede274244a446.png
-DE|SKY SPORT 2 HD|Sky Sport 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/764ede274244a446.png
 DE|SKY SPORT 2 HEVC|Sky Sport 2 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/764ede274244a446.png
-DE|SKY SPORT 3 FHD|Sky Sport 3 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/304239bca0c4433e.png
 DE|SKY SPORT 3 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 3 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/304239bca0c4433e.png
 DE|SKY SPORT 3 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 3 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/304239bca0c4433e.png
-DE|SKY SPORT 3 HD|Sky Sport 3 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/304239bca0c4433e.png
 DE|SKY SPORT 3 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 3 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/304239bca0c4433e.png
 DE|SKY SPORT 3 HEVC|Sky Sport 3 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/304239bca0c4433e.png
-DE|SKY SPORT 4 FHD|Sky Sport 4 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce4b7e60dce4cf8b.png
 DE|SKY SPORT 4 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 4 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce4b7e60dce4cf8b.png
 DE|SKY SPORT 4 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 4 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce4b7e60dce4cf8b.png
-DE|SKY SPORT 4 HD|Sky Sport 4 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce4b7e60dce4cf8b.png
 DE|SKY SPORT 4 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 4 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce4b7e60dce4cf8b.png
 DE|SKY SPORT 4 HEVC|Sky Sport 4 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce4b7e60dce4cf8b.png
 DE|SKY SPORT 4K [LIVE-EVENT]|Sky Sport 4K [Live-Event] ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7061900f995405b7.png
-DE|SKY SPORT 5 FHD|Sky Sport 5 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b96219a4b47b97dc.png
 DE|SKY SPORT 5 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 5 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b96219a4b47b97dc.png
 DE|SKY SPORT 5 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 5 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b96219a4b47b97dc.png
-DE|SKY SPORT 5 HD|Sky Sport 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b96219a4b47b97dc.png
 DE|SKY SPORT 5 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 5 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b96219a4b47b97dc.png
 DE|SKY SPORT 5 HEVC|Sky Sport 5 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b96219a4b47b97dc.png
-DE|SKY SPORT 6 FHD|Sky Sport 6 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cc0527493ca0d61.png
 DE|SKY SPORT 6 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 6 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cc0527493ca0d61.png
 DE|SKY SPORT 6 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 6 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cc0527493ca0d61.png
-DE|SKY SPORT 6 HD|Sky Sport 6 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cc0527493ca0d61.png
 DE|SKY SPORT 6 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 6 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cc0527493ca0d61.png
 DE|SKY SPORT 6 HEVC|Sky Sport 6 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cc0527493ca0d61.png
-DE|SKY SPORT 7 FHD|Sky Sport 7 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
 DE|SKY SPORT 7 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 7 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
 DE|SKY SPORT 7 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 7 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
-DE|SKY SPORT 7 HD|Sky Sport 7 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
 DE|SKY SPORT 7 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 7 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
 DE|SKY SPORT 7 HEVC|Sky Sport 7 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
-DE|SKY SPORT 8 FHD|Sky Sport 8 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24685de55fb69784.png
 DE|SKY SPORT 8 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 8 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24685de55fb69784.png
 DE|SKY SPORT 8 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 8 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24685de55fb69784.png
-DE|SKY SPORT 8 HD|Sky Sport 8 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24685de55fb69784.png
 DE|SKY SPORT 8 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 8 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24685de55fb69784.png
 DE|SKY SPORT 8 HEVC|Sky Sport 8 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24685de55fb69784.png
-DE|SKY SPORT 9 FHD|Sky Sport 9 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cd3afe3fe59a51f.png
 DE|SKY SPORT 9 FHD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 9 Fhd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cd3afe3fe59a51f.png
 DE|SKY SPORT 9 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 9 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cd3afe3fe59a51f.png
-DE|SKY SPORT 9 HD|Sky Sport 9 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cd3afe3fe59a51f.png
 DE|SKY SPORT 9 HD (NUR WÄHREND DER LIVE SPIELE)|Sky Sport 9 Hd (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cd3afe3fe59a51f.png
 DE|SKY SPORT 9 HEVC|Sky Sport 9 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cd3afe3fe59a51f.png
-DE|SKY SPORT AUSTRIA 1|Sky Sport Austria 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f93288d05391473.png
 DE|SKY SPORT AUSTRIA 1 FHD|Sky Sport Austria 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f93288d05391473.png
 DE|SKY SPORT AUSTRIA 1 FHD*|Sky Sport Austria 1 Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f93288d05391473.png
 DE|SKY SPORT AUSTRIA 1 HD|Sky Sport Austria 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f93288d05391473.png
@@ -904,36 +849,16 @@ DE|SKY SPORT AUSTRIA 6|Sky Sport Austria 6 ᴸⁱᵛᵉ|https://raw.githubuserco
 DE|SKY SPORT AUSTRIA 6 FHD (DURING GAMES ONLY)|Sky Sport Austria 6 Fhd (During Games Only) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cc0527493ca0d61.png
 DE|SKY SPORT AUSTRIA 7|Sky Sport Austria 7 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
 DE|SKY SPORT AUSTRIA 7 FHD (DURING GAMES ONLY)|Sky Sport Austria 7 Fhd (During Games Only) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/74aad3ceeafc80d4.png
-DE|SKY SPORT BUNDESLIGA 1 FHD|Sky Sport Bundesliga 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 1 HD|Sky Sport Bundesliga 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 1 HEVC|Sky Sport Bundesliga 1 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 10 FHD|Sky Sport Bundesliga 10 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 10 HD|Sky Sport Bundesliga 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 10 HEVC|Sky Sport Bundesliga 10 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 2 FHD|Sky Sport Bundesliga 2 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 2 HD|Sky Sport Bundesliga 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 2 HEVC|Sky Sport Bundesliga 2 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 3 FHD|Sky Sport Bundesliga 3 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 3 HD|Sky Sport Bundesliga 3 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 3 HEVC|Sky Sport Bundesliga 3 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 4 FHD|Sky Sport Bundesliga 4 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 4 HD|Sky Sport Bundesliga 4 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 4 HEVC|Sky Sport Bundesliga 4 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 5 FHD|Sky Sport Bundesliga 5 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 5 HD|Sky Sport Bundesliga 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 5 HEVC|Sky Sport Bundesliga 5 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 6 FHD|Sky Sport Bundesliga 6 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 6 HD|Sky Sport Bundesliga 6 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 6 HEVC|Sky Sport Bundesliga 6 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 7 FHD|Sky Sport Bundesliga 7 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 7 HD|Sky Sport Bundesliga 7 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 7 HEVC|Sky Sport Bundesliga 7 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 8 FHD|Sky Sport Bundesliga 8 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 8 HD|Sky Sport Bundesliga 8 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 8 HEVC|Sky Sport Bundesliga 8 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 9 FHD|Sky Sport Bundesliga 9 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 9 FHD* (NUR WÄHREND DER LIVE SPIELE)|Sky Sport Bundesliga 9 Fhd* (Nur Während Der Live Spiele) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
-DE|SKY SPORT BUNDESLIGA 9 HD|Sky Sport Bundesliga 9 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA 9 HEVC|Sky Sport Bundesliga 9 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA FHD|Sky Sport Bundesliga Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
 DE|SKY SPORT BUNDESLIGA HD|Sky Sport Bundesliga Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f02e8eaf4f5116b.png
@@ -1182,7 +1107,6 @@ EN|LAST MAN STANDING 4K|Last Man Standing 4K ᴸⁱᵛᵉ|http://103.176.90.95/i
 EN|LEAVE IT TO BEAVER|Leave It To Beaver ᴸⁱᵛᵉ|http://103.176.90.95/images/1041932.png
 EN|LIAM NESSON 4K|Liam Nesson 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976597.png
 EN|LIE TO ME 4K|Lie To Me 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976535.png
-EN|LIFE TIME|Life Time ᴸⁱᵛᵉ|
 EN|LIMITLESS 4K|Limitless 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976556.png
 EN|LOST 4K|Lost 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976557.png
 EN|LUCIFER 4K|Lucifer 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976558.png
@@ -1721,7 +1645,6 @@ HR|AMC BALKAN ⱽᴵᴾ ᴿᴬᵂ|Amc Balkan ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|ht
 HR|ANIMAL PLANET ⱽᴵᴾ ᴿᴬᵂ|Animal Planet ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 HR|ARENA ESPORT ⱽᴵᴾ ᴿᴬᵂ|Arena Esport ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ff3f4fe40ca315f.png
 HR|ARENA FIGHT ⱽᴵᴾ ᴿᴬᵂ|Arena Fight ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b52b20e258e98d46.png
-HR|ARENA SPORT 1 HD|Arena Sport 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 HR|ARENA SPORT 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 HR|ARENA SPORT 10 HD|Arena Sport 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
 HR|ARENA SPORT 10 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 10 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
@@ -2117,7 +2040,6 @@ MK|HBO 2 ⱽᴵᴾ ᴿᴬᵂ|Hbo 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.
 MK|HBO 3 FHD|Hbo 3 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9765a6647a55f1fa.png
 MK|HBO 3 ⱽᴵᴾ ᴿᴬᵂ|Hbo 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9765a6647a55f1fa.png
 MK|HBO FHD|Hbo Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8c0c45272aa1316.png
-MK|K3|K3 ᴸⁱᵛᵉ|
 MK|KANAL 5|Kanal 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
 MK|KANAL 5 HD|Kanal 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
 MK|KANAL 5 ⱽᴵᴾ ᴿᴬᵂ|Kanal 5 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
@@ -2141,7 +2063,6 @@ MK|MRT 5|Mrt 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 MK|MRT 5 ⱽᴵᴾ ᴿᴬᵂ|Mrt 5 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8a5dd7bb076522b.png
 MK|PIKABOO FHD|Pikaboo Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a8142e1cf0e98ca9.png
 MK|PLANETA TV HD|Planeta Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/54dd5094335083b3.png
-MK|ROMA TV|Roma Tv ᴸⁱᵛᵉ|
 MK|RTV21 HD|Rtv21 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4642b2a56f2f83d3.png
 MK|SITEL|Sitel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8d52424a9808609.png
 MK|SITEL FHD|Sitel Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8d52424a9808609.png
@@ -2156,7 +2077,6 @@ MK|STAR CHANNEL ⱽᴵᴾ ᴿᴬᵂ|Star Channel ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ�
 MK|STAR CRIME ⱽᴵᴾ ᴿᴬᵂ|Star Crime ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d2747c55e8d598e.png
 MK|STAR LIFE ⱽᴵᴾ ᴿᴬᵂ|Star Life ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cc0f1041be1f8500.png
 MK|STAR MOVIES ⱽᴵᴾ ᴿᴬᵂ|Star Movies ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2f625a7337acc23f.png
-MK|SUTEL TV|Sutel Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/136cbf5b7092d0f3.png
 MK|TELMA|Telma ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/421457aeea2e378e.png
 MK|TELMA HD|Telma Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/421457aeea2e378e.png
 MK|TELMA ⱽᴵᴾ ᴿᴬᵂ|Telma ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/421457aeea2e378e.png
@@ -3151,7 +3071,6 @@ RS|HISTORY CHANNEL|History Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 RS|HISTORY CHANNEL HD|History Channel Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cab6140d534c1480.png
 RS|HISTORY H2 HD|History H2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fbe3b569dc5e1e41.png
 RS|HISTORY ⱽᴵᴾ ᴿᴬᵂ|History ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/94856e2a9cf7898f.png
-RS|HRAM TV HD|Hram Tv Hd ᴸⁱᵛᵉ|
 RS|HYPE 1|Hype 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ca1c0b0aed4d79b3.png
 RS|HYPE 2|Hype 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4be2e73f90387a10.png
 RS|IDJ KIDS HD|Idj Kids Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb4ef4b07b4f8d82.png
@@ -3174,7 +3093,6 @@ RS|KURIR TV ⱽᴵᴾ ᴿᴬᵂ|Kurir Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https:
 RS|LOV I RIBOLOV|Lov I Ribolov ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f9f8ae0c06b45c5.png
 RS|MINIMAX|Minimax ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/add88af262b46a9d.png
 RS|MINIMAX ⱽᴵᴾ ᴿᴬᵂ|Minimax ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/add88af262b46a9d.png
-RS|MLAVA TV|Mlava Tv ᴸⁱᵛᵉ|
 RS|MTV ADRIA|Mtv Adria ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c69b35e3d1f37251.png
 RS|MTV HITS|Mtv Hits ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/377d2e3826c16ec8.png
 RS|N1 INFO|N1 Info ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d53daab4f5eb523a.png
@@ -3384,7 +3302,6 @@ RS|SUPERSTAR 3 ⱽᴵᴾ ᴿᴬᵂ|Superstar 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|
 RS|SUPERSTAR TV HD|Superstar Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d3cb75e8a93aba84.png
 RS|SUPERSTAR TV ⱽᴵᴾ ᴿᴬᵂ|Superstar Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d3cb75e8a93aba84.png
 RS|TANJUG|Tanjug ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f878efb83063f84a.png
-RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|
 RS|TOXIC FOLK ⱽᴵᴾ ᴿᴬᵂ|Toxic Folk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e1b1e298de79883b.png
 RS|TOXIC TV ⱽᴵᴾ ᴿᴬᵂ|Toxic Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0bf9653797427bab.png
 RS|TRAVEL CHANNEL|Travel Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/729c1a4f352fb79f.png
@@ -3686,7 +3603,6 @@ FREEVIEW:GB|24/7 THE CAROL BURNETT SHOW|https://raw.githubusercontent.com/babo20
 FREEVIEW:GB|24/7 THE LOVE BOAT|http://103.176.90.95/images/478563.png
 FREEVIEW:GB|24/7 THE NANNY|http://103.176.90.95/images/478565.png
 FREEVIEW:GB|24/7 WILL FERRELL MOVIES|http://103.176.90.95/images/478627.png
-FREEVIEW:GB|4 MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3386f27fe5ba4237.png
 FREEVIEW:GB|5 ACTION HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4eecb027d254b7c8.png
 FREEVIEW:GB|5 SELECT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1e331820e707374.png
 FREEVIEW:GB|5 STAR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/107e1f7126748ad5.png
@@ -3783,7 +3699,6 @@ FREEVIEW:GB|BBC 3 / CBBC HEVC|http://51.158.145.100/picons/logos/UK/111550.png
 FREEVIEW:GB|BBC 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f2b09c6b73021d1.png
 FREEVIEW:GB|BBC 4 / CBEEBIES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d254711e6bd1cc7.png
 FREEVIEW:GB|BBC 4 / CBEEBIES HEVC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d254711e6bd1cc7.png
-FREEVIEW:GB|BBC ARABIC|http://51.158.145.100/picons/logos/UKNEW/BBCARABIC.png
 FREEVIEW:GB|BBC BBC WORLD SERVICE|http://103.176.90.95/images/735291.png
 FREEVIEW:GB|BBC BRIT|http://51.158.145.100/picons/logos/UK/1781183.png
 FREEVIEW:GB|BBC EARTH HD|http://51.158.145.100/picons/logos/UK/1556637.png
@@ -3943,7 +3858,6 @@ FREEVIEW:GB|CHU CHU TV 6 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 FREEVIEW:GB|CHU CHU TV 7 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
 FREEVIEW:GB|CHU CHU TV 8 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
 FREEVIEW:GB|CHU CHU TV 9 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
-FREEVIEW:GB|CINEMANIA HOLLYWOOD 4K|http://51.158.145.100/picons/logos/UKNEW/CINEMANIAHOLLYWOOD.png
 FREEVIEW:GB|CITV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/40e2ffcc4d984973.png
 FREEVIEW:GB|CLASSIC FM|http://103.176.90.95/images/735292.png
 FREEVIEW:GB|CLUBLAND TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4642f8e5f24b6c4c.png
@@ -4131,28 +4045,6 @@ FREEVIEW:GB|FITE TV 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|FOOD NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
 FREEVIEW:GB|FOOD NETWORK +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
 UK|FORMULA 1| ALB - ALBON WILLIAMS|Formula 1| Alb - Albon Williams ᴸⁱᵛᵉ|
-UK|FORMULA 1| ALO - ALONSO ALPINE|Formula 1| Alo - Alonso Alpine ᴸⁱᵛᵉ|
-UK|FORMULA 1| BOT - BOTTAS ALFA ROMEO|Formula 1| Bot - Bottas Alfa Romeo ᴸⁱᵛᵉ|
-UK|FORMULA 1| DATA|Formula 1| Data ᴸⁱᵛᵉ|
-UK|FORMULA 1| DEV - DEVRIES ALPHA TAURI|Formula 1| Dev - Devries Alpha Tauri ᴸⁱᵛᵉ|
-UK|FORMULA 1| GAS - GASLY ALPHA TAURI|Formula 1| Gas - Gasly Alpha Tauri ᴸⁱᵛᵉ|
-UK|FORMULA 1| HAM - HAMILTON MERCEDES|Formula 1| Ham - Hamilton Mercedes ᴸⁱᵛᵉ|
-UK|FORMULA 1| HUL - HULKENBERG HAAS F1 TEAM|Formula 1| Hul - Hulkenberg Haas F1 Team ᴸⁱᵛᵉ|
-UK|FORMULA 1| LAT - LATIFI WILLIAMS|Formula 1| Lat - Latifi Williams ᴸⁱᵛᵉ|
-UK|FORMULA 1| LEC - LECLERC FERRARI|Formula 1| Lec - Leclerc Ferrari ᴸⁱᵛᵉ|
-UK|FORMULA 1| MAG - MAGNUSSEN HAAS F1 TEAM|Formula 1| Mag - Magnussen Haas F1 Team ᴸⁱᵛᵉ|
-UK|FORMULA 1| NOR - NORRIS MCLAREN|Formula 1| Nor - Norris Mclaren ᴸⁱᵛᵉ|
-UK|FORMULA 1| OCO - OCON ALPINE|Formula 1| Oco - Ocon Alpine ᴸⁱᵛᵉ|
-UK|FORMULA 1| PER - PEREZ REDBULL RACING|Formula 1| Per - Perez Redbull Racing ᴸⁱᵛᵉ|
-UK|FORMULA 1| RIC - RICCIARDO MCLAREN|Formula 1| Ric - Ricciardo Mclaren ᴸⁱᵛᵉ|
-UK|FORMULA 1| RUS - RUSSELL MERCEDES|Formula 1| Rus - Russell Mercedes ᴸⁱᵛᵉ|
-UK|FORMULA 1| SAI - SAINZ FERRARI|Formula 1| Sai - Sainz Ferrari ᴸⁱᵛᵉ|
-UK|FORMULA 1| SAR - SARGEANT WILLIAMS|Formula 1| Sar - Sargeant Williams ᴸⁱᵛᵉ|
-UK|FORMULA 1| STR - STROLL ASTON MARTIN|Formula 1| Str - Stroll Aston Martin ᴸⁱᵛᵉ|
-UK|FORMULA 1| TRACKER|Formula 1| Tracker ᴸⁱᵛᵉ|
-UK|FORMULA 1| TSU - TSUNODA ALPHA TAURI|Formula 1| Tsu - Tsunoda Alpha Tauri ᴸⁱᵛᵉ|
-UK|FORMULA 1| VER - VERSTAPPEN REDBULL RACING|Formula 1| Ver - Verstappen Redbull Racing ᴸⁱᵛᵉ|
-UK|FORMULA 1| ZHO - ZHOU ALFA ROMEO|Formula 1| Zho - Zhou Alfa Romeo ᴸⁱᵛᵉ|
 FREEVIEW:GB|FRANCE 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d8cd29a5223736b.png
 FREEVIEW:GB|GB NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
 FREEVIEW:GB|GB NEWS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
@@ -4271,7 +4163,6 @@ FREEVIEW:GB|LFC HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|LFC HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
 FREEVIEW:GB|LFC TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
 FREEVIEW:GB|LFC TV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
-FREEVIEW:GB|LONDON LIVE|http://51.158.145.100/picons/logos/UK/111563.png
 FREEVIEW:GB|LOVE WORLD FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/164f92bb43a97280.png
 FREEVIEW:GB|MANCHESTER UNITED HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fe369cfe84a82817.png
 FREEVIEW:GB|MATCHROOM EVENTS 00:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09c3b3ba4b359abe.png
@@ -4290,11 +4181,6 @@ FREEVIEW:GB|MATCHROOM EVENTS 12:|https://raw.githubusercontent.com/babo20094-rgb
 FREEVIEW:GB|MATCHROOM EVENTS 13:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09c3b3ba4b359abe.png
 FREEVIEW:GB|MATCHROOM EVENTS 14:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09c3b3ba4b359abe.png
 FREEVIEW:GB|MATCHROOM EVENTS 15:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09c3b3ba4b359abe.png
-FREEVIEW:GB|MC-ALTERNATIVE|http://51.158.145.100/picons/logos/UKNEW/musicchoice.png
-FREEVIEW:GB|MC-HIP HOP|http://51.158.145.100/picons/logos/UKNEW/musicchoice.png
-FREEVIEW:GB|MC-HIT LIST|http://51.158.145.100/picons/logos/UKNEW/musicchoice.png
-FREEVIEW:GB|MC-MEXICANA|http://51.158.145.100/picons/logos/UKNEW/musicchoice.png
-FREEVIEW:GB|MC-MUSICA URBANA|http://51.158.145.100/picons/logos/UKNEW/musicchoice.png
 FREEVIEW:GB|MC-TEEN BEATS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1e0c33ab17e96bcd.png
 FREEVIEW:GB|MC-THROWBACK JAMS|http://51.158.145.100/picons/logos/UKNEW/musicchoice.png
 FREEVIEW:GB|MIRCHI RADIO|http://103.176.90.95/images/656285.png
@@ -4312,7 +4198,6 @@ FREEVIEW:GB|MTV CLASSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 FREEVIEW:GB|MTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
 FREEVIEW:GB|MTV HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
 FREEVIEW:GB|MTV LIVE FHD|http://51.158.145.100/picons/logos/UKNEW/MTVLIVE.png
-FREEVIEW:GB|MTV MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31662843a7dd3f12.png
 FREEVIEW:GB|MUSIC CHOICE MAX - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09272c174aae9ed8.png
 FREEVIEW:GB|MUSICA URBANA - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f0d2ac33e5d13932.png
 FREEVIEW:GB|MUTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fe369cfe84a82817.png
@@ -4429,7 +4314,6 @@ FREEVIEW:GB|PRIME VIDEO SERIE 7 ᴴᴰ|https://raw.githubusercontent.com/babo200
 FREEVIEW:GB|PRIME VIDEO SERIE 8 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f2f7a106d66af6f0.png
 FREEVIEW:GB|PRIME VIDEO SERIE 9 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f2f7a106d66af6f0.png
 FREEVIEW:GB|PRIME VIDEO SERIE info ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f2f7a106d66af6f0.png
-FREEVIEW:GB|PTV GLOBAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1c1c6fcc06446f95.png
 FREEVIEW:GB|QUEST +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/22b2383db3332ed0.png
 FREEVIEW:GB|QUEST FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/22b2383db3332ed0.png
 FREEVIEW:GB|QUEST RED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/91513c482747bb35.png
@@ -4477,11 +4361,9 @@ FREEVIEW:GB|REALITY XTRA IE|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 FREEVIEW:GB|REALLY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a78292886dc66ab4.png
 FREEVIEW:GB|REWOUND RADIO|http://103.176.90.95/images/735298.png
 FREEVIEW:GB|RT AMERICA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/257315be6ce948df.png
-FREEVIEW:GB|RT DOCUMENTRY HD|http://51.158.145.100/picons/logos/UK/149647.png
 FREEVIEW:GB|RT NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0da8e523cb89029d.png
 FREEVIEW:GB|RTE JR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8452fbcdedef37a.png
 FREEVIEW:GB|RTE ONE HD|http://51.158.145.100/picons/logos/UK/1014308.png
-FREEVIEW:GB|RTE TWO HD|http://51.158.145.100/picons/logos/UK/1014309.png
 FREEVIEW:GB|S4C|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/34a31131569088cf.png
 FREEVIEW:GB|SABRAS RADION LONDON|http://103.176.90.95/images/656284.png
 FREEVIEW:GB|SERIEA HIGHLIGHTS ᴴᴰ|http://51.158.145.100/picons/logos/UK/1694248.png
@@ -4536,7 +4418,6 @@ SKY:GB|SKY CINEMA HITS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 SKY:GB|SKY CINEMA HITS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/53cde27987221f3b.png
 SKY:GB|SKY CINEMA HITS HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/53cde27987221f3b.png
 SKY:GB|SKY CINEMA HITS HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/53cde27987221f3b.png
-SKY:GB|SKY CINEMA OSCARS HD|http://51.158.145.100/picons/logos/UKNEW/SKYCINEMAOSCARS.png
 SKY:GB|SKY CINEMA PREMIER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4a667cc57330c12a.png
 SKY:GB|SKY CINEMA PREMIER HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4a667cc57330c12a.png
 SKY:GB|SKY CINEMA PREMIER HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4a667cc57330c12a.png
@@ -4586,7 +4467,6 @@ SKY:GB|SKY NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 SKY:GB|SKY NEWS HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ea0dc949668a996d.png
 SKY:GB|SKY NEWS HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ea0dc949668a996d.png
 SKY:GB|SKY PREMIERE +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8e1dd0044e53e03.png
-SKY:GB|SKY REPLAY|http://51.158.145.100/picons/logos/UK/894388.png
 SKY:GB|SKY SHOWCASE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21eeab864ad4caa1.png
 SKY:GB|SKY SHOWCASE +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21eeab864ad4caa1.png
 SKY:GB|SKY SHOWCASE HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21eeab864ad4caa1.png
@@ -4788,9 +4668,7 @@ FREEVIEW:GB|SWINGING RADIO ENGLAND|http://103.176.90.95/images/1199265.png
 FREEVIEW:GB|SYFY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e8d40b2c14143d7.png
 FREEVIEW:GB|SYFY HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e8d40b2c14143d7.png
 FREEVIEW:GB|SYFY HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e8d40b2c14143d7.png
-FREEVIEW:GB|TALK TV HD|http://51.158.145.100/picons/logos/UK/919227.png
 FREEVIEW:GB|TALKING PICTURES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd4e4282294c911e.png
-FREEVIEW:GB|TCM FHD|http://51.158.145.100/picons/logos/UK/30491.png
 FREEVIEW:GB|TEEN BEATS - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/34d4cba57808b632.png
 FREEVIEW:GB|TG4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a8898613204ae8e3.png
 FREEVIEW:GB|THAT'S TV|http://51.158.145.100/picons/logos/UK/1013289.png
@@ -4844,7 +4722,6 @@ FREEVIEW:GB|TVC NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 FREEVIEW:GB|U&W HD|http://51.158.145.100/picons/logos/UK/1014331.png
 FREEVIEW:GB|UFC TV (Events2)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
 UK|UK| BEIN SPORTS ASIA 2|Uk| Bein Sports Asia 2 ᴸⁱᵛᵉ|
-UK|UK| BEIN SPORTS ASIA 3|Uk| Bein Sports Asia 3 ᴸⁱᵛᵉ|
 FREEVIEW:GB|UTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a6801908317cbdfc.png
 FREEVIEW:GB|VH1|http://51.158.145.100/picons/logos/UKNEW/VH1.png
 FREEVIEW:GB|VIAPLAY 1 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
@@ -4919,33 +4796,15 @@ FREEVIEW:GB|BBC ALBA|http://51.158.145.100/picons/logos/UK/1906073.png
 FREEVIEW:GB|BBC FOUR|http://51.158.145.100/picons/logos/UK/1906072.png
 FREEVIEW:GB|BBC NEWS|http://51.158.145.100/picons/logos/UK/1906071.png
 FREEVIEW:GB|BBC ONE CHANNEL ISLANDS|http://51.158.145.100/picons/logos/UK/1906070.png
-FREEVIEW:GB|BBC ONE EAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f88f6db6c530930.png
-FREEVIEW:GB|BBC ONE EAST MIDLANDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ab7243700b309aaa.png
 FREEVIEW:GB|BBC ONE EAST YORKSHIRE & LINCOLNSHIRE|http://51.158.145.100/picons/logos/UK/1906067.png
-FREEVIEW:GB|BBC ONE LONDON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a54eaf37a584a65b.png
 FREEVIEW:GB|BBC ONE NI|http://51.158.145.100/picons/logos/UK/1906065.png
 FREEVIEW:GB|BBC ONE NORTH EAST & CUMBRIA|http://51.158.145.100/picons/logos/UK/1906064.png
-FREEVIEW:GB|BBC ONE NORTH WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9a5aaedec586bf1e.png
 FREEVIEW:GB|BBC ONE SCOTLAND|http://51.158.145.100/picons/logos/UK/1906062.png
 FREEVIEW:GB|BBC ONE SOUTH|http://51.158.145.100/picons/logos/UK/1906061.png
-FREEVIEW:GB|BBC ONE SOUTH EAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cc2fec7389af391e.png
-FREEVIEW:GB|BBC ONE SOUTH WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/08e74c0af220c20a.png
-FREEVIEW:GB|BBC ONE WALES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/16b86ca64e7e9a80.png
-FREEVIEW:GB|BBC ONE WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b26b248be46c4293.png
-FREEVIEW:GB|BBC ONE WEST MIDLANDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d3ea47ecd01dcea.png
-FREEVIEW:GB|BBC ONE YORKSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ca9f49008318dae7.png
-FREEVIEW:GB|BBC PARLIAMENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5a1c09e1785d1079.png
-FREEVIEW:GB|BBC RADIO 1|http://103.176.90.95/images/735281.png
 FREEVIEW:GB|BBC RADIO 1 DANCE|http://51.158.145.100/picons/logos/UK/1906051.png
-FREEVIEW:GB|BBC RADIO 1XTRA|http://103.176.90.95/images/735288.png
-FREEVIEW:GB|BBC RADIO 2|http://103.176.90.95/images/735282.png
-FREEVIEW:GB|BBC RADIO 3|http://103.176.90.95/images/735283.png
 FREEVIEW:GB|BBC RADIO 3 UNWIND|http://51.158.145.100/picons/logos/UK/1906047.png
-FREEVIEW:GB|BBC RADIO 4|http://103.176.90.95/images/735284.png
-FREEVIEW:GB|BBC RADIO 4 EXTRA|http://103.176.90.95/images/735289.png
 FREEVIEW:GB|BBC RADIO 5 LIVE|http://51.158.145.100/picons/logos/UK/1906044.png
 FREEVIEW:GB|BBC RADIO 5 LIVE SPORTS EXTRA|http://51.158.145.100/picons/logos/UK/1906043.png
-FREEVIEW:GB|BBC RADIO 6 MUSIC|http://103.176.90.95/images/735287.png
 FREEVIEW:GB|BBC RADIO ASIAN NETWORK|http://51.158.145.100/picons/logos/UK/1906041.png
 FREEVIEW:GB|BBC RADIO BERKSHIRE|http://51.158.145.100/picons/logos/UK/1906040.png
 FREEVIEW:GB|BBC RADIO BRISTOL|http://51.158.145.100/picons/logos/UK/1906039.png
@@ -5025,96 +4884,54 @@ FREEVIEW:GB|BBC SCOTLAND|http://51.158.145.100/picons/logos/UK/1905964.png
 FREEVIEW:GB|BBC THREE|http://51.158.145.100/picons/logos/UK/1905963.png
 FREEVIEW:GB|BBC TWO ENGLAND|http://51.158.145.100/picons/logos/UK/1905962.png
 FREEVIEW:GB|BBC TWO NI|http://51.158.145.100/picons/logos/UK/1905961.png
-FREEVIEW:GB|BBC TWO WALES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b0709fe6963cbb88.png
 FREEVIEW:GB|CBBC|http://51.158.145.100/picons/logos/UK/1905959.png
 FREEVIEW:GB|CBEEBIES|http://51.158.145.100/picons/logos/UK/1905958.png
 
 ##### UK-NOWTV (aus Playlist) #####
 SKY:GB|ALIBI HD|http://51.158.145.100/picons/logos/UK/1905956.png
 SKY:GB|ALIBI SD|http://51.158.145.100/picons/logos/UK/1905955.png
-SKY:GB|BOOMERANG FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d16e93a0ef12b4ea.png
 SKY:GB|BOOMERANG HD|http://51.158.145.100/picons/logos/UK/1905952.png
-SKY:GB|CARTOON NETWORK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8fe0da36ca3a0588.png
 SKY:GB|CARTOON NETWORK HD|http://51.158.145.100/picons/logos/UK/1905949.png
-SKY:GB|COMEDY CENTRAL FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a507b9335912406c.png
 SKY:GB|COMEDY CENTRAL HD|http://51.158.145.100/picons/logos/UK/1905946.png
-SKY:GB|GOLD FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f6f6e2599f4cf5e.png
 SKY:GB|GOLD HD|http://51.158.145.100/picons/logos/UK/1905943.png
-SKY:GB|MTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
 SKY:GB|MTV HD|http://51.158.145.100/picons/logos/UK/1905940.png
-SKY:GB|NICK JR FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ac6b4d0ed49e391.png
-SKY:GB|NICK JR HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ac6b4d0ed49e391.png
-SKY:GB|NICKELODEON FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c97e53b327d00e46.png
-SKY:GB|NICKELODEON HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c97e53b327d00e46.png
 SKY:GB|NICKTOONS FHD|http://51.158.145.100/picons/logos/UK/1905933.png
 SKY:GB|NICKTOONS HD|http://51.158.145.100/picons/logos/UK/1905931.png
 SKY:GB|PREMIER SPORTS 1 FHD|http://51.158.145.100/picons/logos/UK/1905930.png
-SKY:GB|PREMIER SPORTS 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10a281011739d7b9.png
-SKY:GB|PREMIER SPORTS 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/257b95ab7f1de492.png
 SKY:GB|PREMIER SPORTS 2 HD|http://51.158.145.100/picons/logos/UK/1905925.png
 SKY:GB|SET SPORTS MAIN EVENT (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905924.png
 SKY:GB|SKY ACTION FHD|http://51.158.145.100/picons/logos/UK/1905923.png
 SKY:GB|SKY ACTION HD|http://51.158.145.100/picons/logos/UK/1905921.png
 SKY:GB|SKY ARTS 1 FHD|http://51.158.145.100/picons/logos/UK/1905920.png
 SKY:GB|SKY ARTS 1 HD|http://51.158.145.100/picons/logos/UK/1905918.png
-SKY:GB|SKY ATLANTIC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dba2ffa560897a03.png
-SKY:GB|SKY ATLANTIC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dba2ffa560897a03.png
 SKY:GB|SKY CINEMA PREMIERE FHD|http://51.158.145.100/picons/logos/UK/1905911.png
-SKY:GB|SKY CINEMA PREMIERE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4a667cc57330c12a.png
-SKY:GB|SKY COMEDY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/04408a31297e52df.png
 SKY:GB|SKY COMEDY HD|http://51.158.145.100/picons/logos/UK/1905906.png
-SKY:GB|SKY CRIME FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b43cc4df53759826.png
 SKY:GB|SKY CRIME HD|http://51.158.145.100/picons/logos/UK/1905903.png
-SKY:GB|SKY DOCUMENTARIES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3cc3abf15cd22b90.png
-SKY:GB|SKY DOCUMENTARIES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3cc3abf15cd22b90.png
 SKY:GB|SKY DRAMA FHD|http://51.158.145.100/picons/logos/UK/1905899.png
 SKY:GB|SKY DRAMA HD|http://51.158.145.100/picons/logos/UK/1905897.png
 SKY:GB|SKY GREATS FHD|http://51.158.145.100/picons/logos/UK/1905896.png
 SKY:GB|SKY GREATS HD|http://51.158.145.100/picons/logos/UK/1905894.png
 SKY:GB|SKY HISTORY FHD|http://51.158.145.100/picons/logos/UK/1905893.png
-SKY:GB|SKY HISTORY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4dd530c41e7dd923.png
 SKY:GB|SKY KIDS FHD|http://51.158.145.100/picons/logos/UK/1905890.png
-SKY:GB|SKY KIDS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7dcc102edf817801.png
-SKY:GB|SKY MAX FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6b23462bd2c9e8a6.png
 SKY:GB|SKY MAX HD|http://51.158.145.100/picons/logos/UK/1905885.png
-SKY:GB|SKY NATURE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3152831f3e466ed9.png
 SKY:GB|SKY NATURE HD|http://51.158.145.100/picons/logos/UK/1905882.png
 SKY:GB|SKY NEWS LIVE FHD|http://51.158.145.100/picons/logos/UK/1905881.png
 SKY:GB|SKY NEWS LIVE HD|http://51.158.145.100/picons/logos/UK/1905879.png
 SKY:GB|SKY SCFI/HOR FHD|http://51.158.145.100/picons/logos/UK/1905878.png
 SKY:GB|SKY SCFI/HOR HD|http://51.158.145.100/picons/logos/UK/1905876.png
-SKY:GB|SKY SHOWCASE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21eeab864ad4caa1.png
 SKY:GB|SKY SHOWCASE HD|http://51.158.145.100/picons/logos/UK/1905870.png
 SKY:GB|SKY SPORTS 1 (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905869.png
 SKY:GB|SKY SPORTS 2 (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905868.png
-SKY:GB|SKY SPORTS ACTION FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5ff7147a145f8c7.png
-SKY:GB|SKY SPORTS ACTION HD|http://51.158.145.100/picons/logos/UK/1905865.png
-SKY:GB|SKY SPORTS CRICKET FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e7066a08ad23d9f1.png
-SKY:GB|SKY SPORTS CRICKET HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e7066a08ad23d9f1.png
 SKY:GB|SKY SPORTS F1 (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905859.png
-SKY:GB|SKY SPORTS F1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7d8b29cd8e629562.png
-SKY:GB|SKY SPORTS FOOTBALL FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d6b1f5242e3de8fa.png
-SKY:GB|SKY SPORTS FOOTBALL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d6b1f5242e3de8fa.png
-SKY:GB|SKY SPORTS GOLF HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d05e3ec08add53cd.png
-SKY:GB|SKY SPORTS MAIN EVENT FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3ebd3d3e81c708a2.png
 SKY:GB|SKY SPORTS MAIN EVENT HD|http://51.158.145.100/picons/logos/UK/1905852.png
 SKY:GB|SKY SPORTS MAIN EVENT SD|http://51.158.145.100/picons/logos/UK/1905851.png
-SKY:GB|SKY SPORTS MIX FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aae7d20940e6f941.png
-SKY:GB|SKY SPORTS MIX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aae7d20940e6f941.png
 SKY:GB|SKY SPORTS NEWS HQ FHD|http://51.158.145.100/picons/logos/UK/1905847.png
 SKY:GB|SKY SPORTS NEWS HQ HD|http://51.158.145.100/picons/logos/UK/1905845.png
-SKY:GB|SKY SPORTS PREMIER LEAGUE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4bbb1bb24b37f68f.png
 SKY:GB|SKY SPORTS PREMIER LEAGUE HD|http://51.158.145.100/picons/logos/UK/1905842.png
-SKY:GB|SKY SPORTS RACING FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8a0d6379d0ae62ef.png
-SKY:GB|SKY SPORTS RACING HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8a0d6379d0ae62ef.png
-SKY:GB|SKY SPORTS TENNIS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e549e6933a666a02.png
-SKY:GB|SKY SPORTS TENNIS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e549e6933a666a02.png
 SKY:GB|SKY SPORTS+ FHD|http://51.158.145.100/picons/logos/UK/1905835.png
 SKY:GB|SKY SPORTS+ HD|http://51.158.145.100/picons/logos/UK/1905833.png
 SKY:GB|SKY THRILLER FHD|http://51.158.145.100/picons/logos/UK/1905832.png
 SKY:GB|SKY THRILLER HD|http://51.158.145.100/picons/logos/UK/1905830.png
-SKY:GB|SKY WITNESS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29bf071ad9d4e698.png
-SKY:GB|SKY WITNESS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29bf071ad9d4e698.png
 SKY:GB|SKYADVENTURE FHD|http://51.158.145.100/picons/logos/UK/1905826.png
 SKY:GB|SKYADVENTURE HD|http://51.158.145.100/picons/logos/UK/1905824.png
 SKY:GB|SKYANIMATION FHD|http://51.158.145.100/picons/logos/UK/1905823.png
@@ -5126,8 +4943,6 @@ SKY:GB|TNT SPORT 2 FHD|http://51.158.145.100/picons/logos/UK/1905816.png
 SKY:GB|TNT SPORT 2 HD|http://51.158.145.100/picons/logos/UK/1905814.png
 SKY:GB|TNT SPORT 3 FHD|http://51.158.145.100/picons/logos/UK/1905813.png
 SKY:GB|TNT SPORT 3 HD|http://51.158.145.100/picons/logos/UK/1905811.png
-SKY:GB|TNT SPORTS 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b7d43522f0273e0c.png
-SKY:GB|TNT SPORTS 4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b7d43522f0273e0c.png
 
 ##### US (aus Playlist) #####
 TVGUIDE:US|007: ROAD TO A MILLION ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
@@ -5654,7 +5469,6 @@ TVGUIDE:US|BUTTERFLY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/E
 TVGUIDE:US|BUZZR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e570e252b8ea26df.png
 TVGUIDE:US|BYU TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dc3dc79f49fc08ad.png
 TVGUIDE:US|C HOLLYWOOD PREMIERE 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/856109179a5c67c9.png
-TVGUIDE:US|C-SPAN 1 HD|http://51.158.145.100/picons/logos/USA/91952.png
 TVGUIDE:US|C-SPAN 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fee4da90de4f72d0.png
 TVGUIDE:US|C-SPAN 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/752a34362c881c2d.png
 TVGUIDE:US|CALL THE MIDWIFE FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -5846,7 +5660,6 @@ TVPASSPORT:US|CBS 9 WASHINGTON DC (WUSA)|https://raw.githubusercontent.com/babo2
 TVPASSPORT:US|CBS HARTFORD (WFSB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c945d82fbd925bd8.png
 TVGUIDE:US|CBS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/99e6f1fa522749a0.png
 TVGUIDE:US|CBS NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/206a192cd2b0acb9.png
-TVGUIDE:US|CBS PHILADELPHIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/63108aa4db7016f9.png
 TVGUIDE:US|CBS SPORTS GALAZO NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c9c211afb9cd4da4.png
 TVGUIDE:US|CBS SPORTS NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f989420ed24bc2d7.png
 TVGUIDE:US|CENTURIONS FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -5991,7 +5804,6 @@ TVGUIDE:US|CSI MIAMI FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 TVGUIDE:US|CSI: CRIME SCENE INVESTIGATION FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92e5c511b23c2d59.png
 TVGUIDE:US|CSI: NY FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|CSN BOSTON HD|http://51.158.145.100/picons/logos/USA/90945.png
-TVGUIDE:US|CSN PHILADELPHIA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/63108aa4db7016f9.png
 TVGUIDE:US|CSN PHILADELPHIA PLUS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b936034f0af7ce61.png
 TVGUIDE:US|CULPRITS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|CURB YOUR ENTHUSIASM FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fcccc1583219875c.png
@@ -6512,12 +6324,10 @@ TVGUIDE:US|GAVIN AND STACEY FHD|https://raw.githubusercontent.com/babo20094-rgb/
 TVGUIDE:US|GEN V ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8fca6871e50b57b7.png
 TVGUIDE:US|GET SMART FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/315a74400027346c.png
 TVGUIDE:US|GET TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/95fc40de55941fab.png
-TVGUIDE:US|GHOST ADVENTURES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c698270a42a031aa.png
 TVGUIDE:US|GHOST HUNTERS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1e0cd91a01fb5e84.png
 TVGUIDE:US|GILLIGANS ISLAND FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c219f4f3c81cf621.png
 TVGUIDE:US|GILMORE GIRLS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ac5fa4cfcfe9d53f.png
 TVGUIDE:US|GINNY AND GEORGIA ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|GINX ESPORTS HD|http://51.158.145.100/picons/logos/USA/91854.png
 TVGUIDE:US|GODFATHER OF HARLEM FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|GODLESS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|GOLD RUSH FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c436024efd1f295a.png
@@ -6872,7 +6682,6 @@ TVPASSPORT:US|NBC 14 EVANSVILLE IN (WFIE)|http://51.158.145.100/picons/logos/USA
 TVPASSPORT:US|NBC 15 MADISON WI (WMTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ae23b61254ed0401.png
 TVPASSPORT:US|NBC 15 MOBILE AL (WPMI)|http://51.158.145.100/picons/logos/USA/NBC.png
 TVPASSPORT:US|NBC 15 PARKERSBURG WV (WTAP)|http://51.158.145.100/picons/logos/USA/NBC.png
-TVPASSPORT:US|NBC 16 LAFAYETTE LA (WPBI)|http://51.158.145.100/picons/logos/USA/NBC.png
 TVPASSPORT:US|NBC 16 SAN ANGELO TX (KSAN)|http://51.158.145.100/picons/logos/USA/NBC.png
 TVPASSPORT:US|NBC 16 SOUTH BEND IN (WNDU)|http://51.158.145.100/picons/logos/USA/NBC.png
 TVPASSPORT:US|NBC 16 SPRINGFIELD OR (KMTR)|http://51.158.145.100/picons/logos/USA/1938482.png
@@ -7177,7 +6986,6 @@ TVGUIDE:US|OXYGEN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 TVGUIDE:US|OXYGEN WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a432bebccaf1af60.png
 TVGUIDE:US|OZARK ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/61c21052051b0f3d.png
 TVGUIDE:US|PAPER GIRLS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
-TVGUIDE:US|PARAMOUNT HD|http://51.158.145.100/picons/logos/USA/45500.png
 TVGUIDE:US|PARAMOUNT+ ORIGINAL 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7607f86b740cbb13.png
 TVGUIDE:US|PARAMOUNT+ ORIGINAL 10 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7607f86b740cbb13.png
 TVGUIDE:US|PARAMOUNT+ ORIGINAL 2 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7607f86b740cbb13.png
@@ -7214,13 +7022,11 @@ TVPASSPORT:US|PBS ENCORE KET2 (WKAS)|http://51.158.145.100/picons/logos/PPV/PBS.
 TVPASSPORT:US|PBS ENCORE KET2 (WKGB)|http://51.158.145.100/picons/logos/PPV/PBS.png
 TVPASSPORT:US|PBS ENCORE KET2 (WKLE)|http://51.158.145.100/picons/logos/PPV/PBS.png
 TVPASSPORT:US|PBS ENCORE KET2 (WKPC)|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVGUIDE:US|PBS HD|http://51.158.145.100/picons/logos/USA/45510.png
 TVGUIDE:US|PBS KIDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd873b9de5e68069.png
 TVPASSPORT:US|PBS KIDS (WTCI) CHATTANOOGA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/556097bab2c4a6d5.png
 US|PBS KY | KET LEXINGTON (WKLE)|Pbs Ky | Ket Lexington (Wkle) ᴸⁱᵛᵉ|
 US|PBS NJ | NEW JERSEY (WNJT)|Pbs Nj | New Jersey (Wnjt) ᴸⁱᵛᵉ|
 US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|
-US|PBS NY | PLAINVIEW (WLIW)|Pbs Ny | Plainview (Wliw) ᴸⁱᵛᵉ|
 TVPASSPORT:US|PBS PA Pittsburgh (WQED)|http://51.158.145.100/picons/logos/PPV/PBS.png
 TVPASSPORT:US|PBS PORTLAND (KOPB) OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aca99881d215f1b5.png
 TVGUIDE:US|PEACOCK ORIGINAL 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/116eaef5a8549899.png
@@ -7256,7 +7062,6 @@ TVGUIDE:US|RECIPE TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 TVGUIDE:US|RECORD OF RAGNAROK ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|RED BULL TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7121dc01dd501af6.png
 TVGUIDE:US|RED OAKS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
-TVGUIDE:US|REELZ HD|http://51.158.145.100/picons/logos/USA/45508.png
 TVGUIDE:US|RENEGADE NELL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|RETRO TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3e23f1d2294b7388.png
 TVGUIDE:US|RETROPLEX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/88bd6e22a36da693.png
@@ -7268,7 +7073,6 @@ TVGUIDE:US|RISING DAMP FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|RIVALS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|RIVERDALE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/55b83c742f9cde3e.png
 TVGUIDE:US|ROSEANNE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d9d264ec9af68382.png
-TVGUIDE:US|RT DOCUMENTARY HD|http://51.158.145.100/picons/logos/USA/233242.png
 TVGUIDE:US|RT NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0da8e523cb89029d.png
 TVGUIDE:US|RUGBYPASS EVENT 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
 TVGUIDE:US|RUGBYPASS EVENT 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
@@ -7318,7 +7122,6 @@ TVGUIDE:US|SO YUMMY!|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 TVGUIDE:US|SOLOS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|SONY MOVIE CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7a3c1c600f7ea09d.png
 TVGUIDE:US|SOUTH PARK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/656d9e7e0893b67e.png
-TVGUIDE:US|SPACE CITY HD|http://51.158.145.100/picons/logos/USA/1114426.png
 TVGUIDE:US|SPACE FORCE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|SPECTRUM BAY NEWS 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbe1b798533b461d.png
 TVGUIDE:US|SPECTRUM Bay NEWS 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbe1b798533b461d.png
@@ -7653,7 +7456,6 @@ TVGUIDE:US|TVG NETWORK 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 TVGUIDE:US|TWO AND A HALF MEN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b6096c7c1855a0d0.png
 TVGUIDE:US|TXA21 KTXA DALLAS|http://51.158.145.100/picons/logos/USA/1938498.png
 TVGUIDE:US|TYT NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3a725711b26c32e5.png
-TVGUIDE:US|UFC HD|http://51.158.145.100/picons/logos/USA/91949.png
 TVGUIDE:US|UNDONE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3c9395fdb6b1338e.png
 TVGUIDE:US|UNFORGOTTEN FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|UNTAMED ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
@@ -9514,8 +9316,6 @@ NAME:24/7 GEORDIE SHORE|
 NAME:24/7 GEORGE LOPEZ|
 NAME:24/7 GET EVEN|
 NAME:24/7 GETTING ON|
-NAME:24/7 GHOST ADVENTURES QUARANTINE|
-NAME:24/7 GHOST ADVENTURES SCREAMING ROOM|
 NAME:24/7 GHOST LOOP|
 NAME:24/7 GHOST NATION|
 NAME:24/7 GHOSTS|
@@ -11669,30 +11469,6 @@ NAME:Boxing 4 : MOSES vs HRGOVIC  4:00pm|
 NAME:Boxing 6|
 NAME:Boxing 7|
 NAME:Boxing 8|
-NAME:CHAMP | Birmingham City|
-NAME:CHAMP | Blackburn Rovers|
-NAME:CHAMP | Bolton Wanderers|
-NAME:CHAMP | Bristol City|
-NAME:CHAMP | Burnley|
-NAME:CHAMP | Cardiff City|
-NAME:CHAMP | Charlton Athletic|
-NAME:CHAMP | Derby County|
-NAME:CHAMP | Lincoln City|
-NAME:CHAMP | Middlesbrough|
-NAME:CHAMP | Millwall|
-NAME:CHAMP | Norwich City|
-NAME:CHAMP | Portsmouth|
-NAME:CHAMP | Preston North End|
-NAME:CHAMP | Queens Park Rangers|
-NAME:CHAMP | Sheffield United|
-NAME:CHAMP | Southampton|
-NAME:CHAMP | Stoke City|
-NAME:CHAMP | Swansea City|
-NAME:CHAMP | Watford|
-NAME:CHAMP | West Bromwich Albion|
-NAME:CHAMP | West Ham United|
-NAME:CHAMP | Wolverhampton Wanderers|
-NAME:CHAMP | Wrexham|
 NAME:Cedar Rapids Kernels vs Lake County Captains @ Aug 30 2:05 PM :Milb  31|
 NAME:Charlotte Knights vs Memphis Redbirds @ Aug 30 5:05 PM :Milb  52|
 NAME:Chattanooga Lookouts vs Columbus Clingstones @ Aug 30 1:00 PM :Milb  08|
@@ -12483,7 +12259,6 @@ NAME:DIRTVISION 02 : Huset's Speedway 7:25 PM|
 NAME:DIRTVISION 03 : Sheridan Speedway 8:15 PM|
 NAME:Daytona Tortugas vs St. Lucie Mets @ Aug 30 1:05 PM :Milb  13|
 NAME:Delmarva Shorebirds vs Fredericksburg Nationals @ Aug 30 2:05 PM :Milb  33|
-NAME:Dirtvision Now | 24/7|
 NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:00 PM :Milb  02|
 NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:05 PM :Milb  03|
 NAME:Durham Bulls vs Norfolk Tides @ Aug 30 1:05 PM :Milb  17|
@@ -12816,54 +12591,6 @@ NAME:Jacksonville Jumbo Shrimp vs Nashville Sounds @ Aug 30 2:05 PM :Milb  34|
 NAME:Jersey Shore BlueClaws vs Wilmington Blue Rocks @ Aug 30 1:05 PM :Milb  09|
 NAME:Jupiter Hammerheads vs Tampa Tarpons @ Aug 30 12:30 PM :Milb  06|
 NAME:KOTTER|
-NAME:L1 | AFC Wimbledon|
-NAME:L1 | Barnsley|
-NAME:L1 | Blackpool|
-NAME:L1 | Bradford City|
-NAME:L1 | Bromley|
-NAME:L1 | Burton Albion|
-NAME:L1 | Cambridge United|
-NAME:L1 | Doncaster Rovers|
-NAME:L1 | Huddersfield Town|
-NAME:L1 | Leicester City|
-NAME:L1 | Leyton Orient|
-NAME:L1 | Luton Town|
-NAME:L1 | MK Dons|
-NAME:L1 | Mansfield Town|
-NAME:L1 | Notts County|
-NAME:L1 | Oxford United|
-NAME:L1 | Peterborough United|
-NAME:L1 | Plymouth Argyle|
-NAME:L1 | Reading|
-NAME:L1 | Sheffield Wednesday|
-NAME:L1 | Stevenage|
-NAME:L1 | Stockport County|
-NAME:L1 | Wigan Athletic|
-NAME:L1 | Wycombe Wanderers|
-NAME:L2 | Accrington Stanley|
-NAME:L2 | Barnet|
-NAME:L2 | Bristol Rovers|
-NAME:L2 | Cheltenham Town|
-NAME:L2 | Chesterfield|
-NAME:L2 | Colchester United|
-NAME:L2 | Crawley Town|
-NAME:L2 | Crewe Alexandra|
-NAME:L2 | Exeter City|
-NAME:L2 | Fleetwood Town|
-NAME:L2 | Gillingham|
-NAME:L2 | Grimsby Town|
-NAME:L2 | Newport County|
-NAME:L2 | Northampton Town|
-NAME:L2 | Oldham Athletic|
-NAME:L2 | Port Vale|
-NAME:L2 | Rochdale|
-NAME:L2 | Rotherham United|
-NAME:L2 | Salford City|
-NAME:L2 | Shrewsbury Town|
-NAME:L2 | Swindon Town|
-NAME:L2 | Tranmere Rovers|
-NAME:L2 | Walsall|
-NAME:L2 | York City|
 NAME:LA LIGA| ALAVES|
 NAME:LA LIGA| ALMERÍA|
 NAME:LA LIGA| ATHLETIC BILBAO|
@@ -13585,8 +13312,6 @@ NAME:Super League Plus Event 1|
 NAME:Super League Plus Event 2|
 NAME:Super League Plus | Event 3 Toulouse Olympique vs Bradford Bulls // UK Sat 29 Aug 7:50pm // ET Sat 29 Aug 2:50pm|
 NAME:Super League Plus | Event 4 Warrington Wolves v Castleford Tigers | Round 5 | Betfred Super League // UK Sat 21 Mar 3:55pm // ET Sat 21 Mar 10:55am|
-NAME:Super League Plus | Event 5|
-NAME:Super League Plus | Event 6|
 NAME:Supercross 1|
 NAME:Supercross 2|
 NAME:Supercross 3|
@@ -13711,11 +13436,6 @@ NAME:TNT SPORTS | Event 6|
 NAME:TNT SPORTS | Event 7|
 NAME:TNT SPORTS | Event 8|
 NAME:TNT SPORTS | Event 9|
-NAME:TT RACES| EVENT 1|
-NAME:TT RACES| EVENT 2|
-NAME:TT RACES| EVENT 3|
-NAME:TT RACES| EVENT 4|
-NAME:TT RACES| EVENT 5|
 NAME:Tacoma Rainiers vs Salt Lake Bees @ Aug 30 4:35 PM :Milb  51|
 NAME:Tennis: Aleksandar Vukic vs Rei sakamoto @ Aug 31 19:30 PM :Tennis  25|
 NAME:Tennis: Alex Michelsen vs Federico cinà @ Aug 31 19:30 PM :Tennis  27|
