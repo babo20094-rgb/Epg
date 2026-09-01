@@ -1132,3 +1132,89 @@ committet/gepusht:
   HEVC/4K/8K, VOX-Bug, Nitro-Umbenennung, NAME:-Logos) wie erwartet
   wirken, ist zum Zeitpunkt dieses Eintrags noch nicht mit einem
   frischen Lauf verifiziert.
+
+## Logo-Recherche September 2026: Abdeckung von ~40% auf 90% gesteigert
+
+Nach dem Playlist-Vollimport hatten tausende Sender (v. a. die ~9.300
+`NAME:`-PPV-Kanaele) noch kein Logo oder eines, das auf den toten
+Picon-Host des Anbieters zeigte. In einer sehr langen Session wurde das
+systematisch aufgearbeitet - Endergebnis: **90% aller Sender (16.867
+von 18.715) haben jetzt ein funktionierendes, selbst gehostetes oder
+verifiziert erreichbares Logo.**
+
+- **Toter Picon-Host bestaetigt, nicht nur Sandbox-Problem:** Ein
+  eigens angelegter Workflow (`logos_nachladen.yml`, inzwischen wieder
+  entfernt) versuchte, die ~1.669 eindeutigen Bilder von
+  `103.176.90.95`/`51.158.145.100` ueber einen GitHub-Actions-Runner
+  mit vollem Internetzugriff herunterzuladen - lief nach 45 Minuten
+  auf reine `Connection timeout`-Fehler (0 von 1.669 erfolgreich). Der
+  Server ist also grundsaetzlich tot, nicht nur aus der Entwickler-
+  Sandbox heraus unerreichbar - dieser Weg wurde aufgegeben.
+- **Genutzte Logo-Quellen** (jeweils mit Namensabgleich + Stichproben-
+  Erreichbarkeitspruefung vor Uebernahme): eigene Referenzdateien
+  (`meine_logos.txt`/`alle_logos.txt`), die `logo.m3uassets.com`-CDN
+  (Namenskonvention direkt erraten und per HEAD-Request geprueft), die
+  oeffentliche iptv-org-Kanaldatenbank (`channels.json`/`logos.json`,
+  exakter Namensabgleich + streng gefilterter Fuzzy-Abgleich ≥90%
+  Aehnlichkeit), das GitHub-Projekt `tv-logo/tv-logos` (laenderweise
+  sortierte Logo-Sammlung), Wikimedia Commons (gezielt per Websuche pro
+  Titel gefunden, v. a. fuer die vielen Serien-/Film-"Kanaele" wie
+  "Ahsoka", "The Godfather", "Guardians Of The Galaxy"), TMDB (Website-
+  HTML-Scraping der Suchergebnisseite, kein API-Key noetig, liefert
+  Poster-Bilder ueber `media.themoviedb.org`) sowie Marken-Logos direkt
+  (Netflix/Disney+/Amazon Prime Video/HBO fuer alle "NETFLIX ..."-,
+  "DISNEY+ ..."-Kategoriekanaele usw.).
+- **Wichtigster Fund - die eigene externe EPG-Datenquelle des Nutzers**
+  (myepg.top, zwei grosse IPTVEditor-4-XMLTV-Dateien, ~32.000 Kanaele
+  gesamt): Der Nutzer bestand darauf, dass darin praktisch alle Logos
+  vorhanden sein muessten - und hatte recht. Der erste Abgleichsversuch
+  fand nur wenige hundert Treffer per exaktem Namensvergleich; das
+  eigentliche Problem war, dass myepg (wie die eigene Playlist) PPV-
+  Kanaele unter dem VOLLEN, sich staendig aendernden Live-Event-Namen
+  fuehrt (z. B. "- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: SPORT
+  DEUTSCHLAND PPV 19"), nicht unter dem stabilen Kern. Erst die
+  Anwendung derselben Kern-Extraktions-Logik wie beim eigenen
+  `m3u_playlist_abgleichen()` (siehe `kern_und_event_extrahieren()`/
+  `kern_vorne_und_event_extrahieren()` in `generate_epg.py`) auf die
+  myepg-Rohnamen brachte den Durchbruch: mehrere tausend zusaetzliche
+  Treffer in mehreren Nachbesserungsrunden, u. a. durch Beheben von:
+  - faelschlich abgeschnittenem Laender-Praefix (die Extraktion nahm
+    an, "US:" vor einem Kern sei immer ein reines Land-Kuerzel und
+    entfernte es - bei Kernen wie "US: ESPN+ PPV 376" ist der Praefix
+    aber Teil des eigentlichen, in `sender.txt` gespeicherten Kerns)
+  - Doppelpunkt-Suffix-Muster ganz ohne Pipe-Zeichen (z. B. "...
+    :Flo College 03")
+  - Kern-am-Zeilenanfang-Muster ohne Pipe (z. B. "CA: CHICAGO WOLVES")
+  - der Erkenntnis, dass die Kern-Extraktion nicht nur auf myepgs
+    Rohdaten angewendet werden muss, sondern auch auf die EIGENEN in
+    `sender.txt` gespeicherten `NAME:`-Werte, wenn diese selbst noch
+    unverarbeiteten Roh-Event-Text enthalten (ein Ueberbleibsel
+    fehlerhafter Kern-Erkennung beim urspruenglichen Playlist-Import)
+  - Marken-Fallback: hat mindestens eine Nummer einer nummerierten
+    PPV-Reihe (z. B. "SPORT DEUTSCHLAND PPV") ein funktionierendes
+    Logo gefunden, wird dasselbe Logo automatisch auch den anderen
+    Nummern derselben Reihe ohne eigenen Treffer zugewiesen
+- **Selbst-Hosting:** Alle neu gefundenen externen Bilder wurden
+  heruntergeladen, auf max. 300px/256 Farben optimiert (gleiche
+  Konvention wie `logos/playlist_import/`) und liegen jetzt unter
+  `logos/m3uassets_import/` bzw. `logos/externe_logos_import/` -
+  98% aller funktionierenden Logos sind mittlerweile selbst gehostet,
+  nur noch ~300 (v. a. Wikimedia, wegen aggressivem serverseitigem
+  Rate-Limiting bei vielen parallelen Downloads) haengen extern.
+- **Verbleibende ~1.850 Sender ohne Logo:** stichprobenartig direkt
+  gegen die myepg-Rohdaten verifiziert - dort entweder gar nicht als
+  eigener Kanal vorhanden oder selbst mit dem toten Picon-Host
+  verlinkt. Das duerfte nah am tatsaechlich erreichbaren Maximum sein.
+- **Wichtige Lehre:** Der Nutzer wusste aus eigener Erfahrung, dass
+  seine bezahlte externe EPG-Quelle vollstaendiger ist, als es der
+  erste (zu oberflaechliche) Abgleichsversuch nahelegte - sich
+  gegenueber dieser Einschaetzung nicht vorschnell mit "ist wohl nicht
+  da" zufriedengeben, sondern bei Unstimmigkeiten (Kanal laut Nutzer
+  vorhanden, aber kein Treffer) gezielt mit `grep`/Stichproben in den
+  Rohdaten nachschauen, ob die eigene Abgleichslogik (nicht die Quelle)
+  die Luecke ist - hier lag die Ursache dreimal hintereinander an neuen
+  Kern-Extraktions-Sonderfaellen, nicht an fehlenden Daten.
+- Die myepg.top-Download-URLs enthalten personenbezogene Zugangsdaten
+  des Nutzers (Auftragsnummer + Schluessel) und wurden wie die Playlist-
+  URL nirgends im Klartext dauerhaft festgehalten - nur temporaer im
+  Scratchpad verwendet und danach wieder geloescht.
