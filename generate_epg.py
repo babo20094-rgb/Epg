@@ -614,7 +614,7 @@ for zeile in zeilen:
         # Sender, deren exakter Playlist-Name per NAME:-Format
         # uebernommen wird.
         if event_titel is None:
-            event_titel = f"{kurzname} ᴸⁱᵛᵉ"
+            event_titel = f"{kanalname_normal_geschrieben(kurzname)} ᴸⁱᵛᵉ"
 
         sender_daten.append({
             "kanal": voller_name,

@@ -2251,6 +2251,10 @@ def sender_anzeigename(name):
 KANALNAME_ABKUERZUNGEN = {
     "DAZN", "HD", "FHD", "UHD", "SD", "HEVC", "TV", "ACL", "RAW", "4K", "8K",
     "ZDF", "ARD", "RTL", "MDR", "NDR", "WDR", "SWR", "BR", "HR", "SR", "RBB",
+    "PPV", "VIP", "UFC", "NFL", "NBA", "NHL", "MLB", "NCAA", "MLS", "EPL",
+    "DE", "US", "UK", "BA", "RS", "SI", "MK", "EXYU", "MO", "MNG", "CG",
+    "SPFL", "NA", "SK", "GO", "CITY", "EN", "IR", "LIGA", "JOYN", "PRIME",
+    "WOW", "TUBI",
 }
 
 
@@ -2273,7 +2277,7 @@ def kanalname_normal_geschrieben(name):
         while kern and kern[0] in "([":
             praefix += kern[0]
             kern = kern[1:]
-        while kern and kern[-1] in ")]":
+        while kern and kern[-1] in ")]:":
             suffix = kern[-1] + suffix
             kern = kern[:-1]
 
