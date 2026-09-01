@@ -1017,3 +1017,118 @@ bereits auf `main` committet/gepusht (Commit `42d635d`).
   NIRGENDS im Klartext wiederholt (weder im Chat noch in Dateien) -
   lokale Kopien der Playlist wurden nach jeder Analyse wieder aus dem
   Scratchpad geloescht.
+
+## Playlist-Vollimport: Nacharbeiten nach dem ersten echten Workflow-Lauf
+
+Nach dem ersten echten Workflow-Lauf auf `main` (mit vollem
+Internetzugriff, anders als die Entwickler-Sandbox beim Import selbst)
+kamen mehrere Nachbesserungen dazu - alle bereits auf `main`
+committet/gepusht:
+
+- **GitHub-100-MB-Limit gesprengt:** Die unkomprimierte
+  `Epg_365_Tage.xml` wuchs mit ~19.000 Sendern auf ueber 200 MB - der
+  automatische Commit im Workflow schlug fehl (`GH001: Large files
+  detected`). Fix: `generate_epg.py` schreibt zusaetzlich eine
+  gzip-komprimierte `Epg_365_Tage.xml.gz` (91,5 % kleiner, aktuell
+  ~15-18 MB), der Workflow committet nur noch diese; die
+  unkomprimierte Datei bleibt lokal bestehen, ist aber per
+  `.gitignore` nicht mehr versioniert. **Der Nutzer musste seine
+  Player-EPG-URL manuell von `.../Epg_365_Tage.xml` auf
+  `.../Epg_365_Tage.xml.gz` umstellen** - fast jeder IPTV-Player
+  (u.a. TiviMate) unterstuetzt gezippte XMLTV-Quellen direkt per URL.
+  Git LFS wurde bewusst NICHT gewaehlt (GitHubs kostenloses
+  LFS-Bandbreiten-Kontingent von 1 GB/Monat waere bei einer alle 3h
+  neu gepushten ~100+MB-Datei sofort aufgebraucht).
+- **260 doppelte Kanal-IDs:** Der urspruengliche Dedup-Check beim
+  Import verglich bei `SKY:`/`TELEMACH:`/`MAGENTA:`/`ARENA:`/`DAZN:`/
+  `FREEVIEW:`/`TVGUIDE:`/`TVPASSPORT:`-Zeilen OHNE expliziten
+  Display-Namen-Override nicht gegen die tatsaechliche, zur
+  Laufzeit gebaute Kanal-ID (z.B. `TELEMACH:BA|ARENA SPORT 1 HD|AUTO`
+  baut zur Laufzeit dieselbe ID wie eine neue, generische
+  `BA|ARENA SPORT 1 HD|...`-Zeile) - 246 neue Zeilen kollidierten
+  dadurch mit laengst bestehenden, echte Daten liefernden Eintraegen.
+  Weitere 20 Kollisionen kamen von neuen `DE|DYN PPV 1-20 HD`-Zeilen,
+  die zufaellig dieselbe ID wie die fest im Code verankerten
+  DYN-PPV-API-Kanaele (siehe oben, komplett getrennter Mechanismus)
+  erzeugten. Wenn zwei `<channel>`-Eintraege dieselbe ID haben,
+  entscheidet der Player selbst (unvorhersehbar) welchen er zeigt -
+  in den beobachteten Faellen wurde faelschlich der neue, echte-
+  Quelle-lose Eintrag angezeigt statt des alten funktionierenden.
+  Alle 260 ueberfluessigen neuen Zeilen wurden entfernt, die
+  bestehenden bleiben unangetastet.
+- **Fallback-Grossschreibung bei `NAME:`-Sendern:** Der Fallback-Text
+  ("<Kurzname> ᴸⁱᵛᵉ") fuer `NAME:`-Sender OHNE erkanntes
+  Anbietermuster (betrifft die meisten der ~9.000 neuen dynamischen
+  PPV-Kanaele) uebernahm den Kurznamen unveraendert komplett
+  grossgeschrieben (z.B. "24/7 ALL RISE ᴸⁱᵛᵉ" statt "24/7 All Rise
+  ᴸⁱᵛᵉ"), anders als bei den acht anderen Quellen-Praefixen. Nutzt
+  jetzt `kanalname_normal_geschrieben()` wie an anderen Stellen im
+  Skript. `KANALNAME_ABKUERZUNGEN` (epg_lib.py) um PPV/VIP/UFC/NFL/
+  NBA/NHL/MLB/NCAA/MLS/EPL sowie gaengige Land-/Kategorie-Codes
+  (DE/US/UK/BA/RS/SI/MK/EXYU/MO/MNG/CG/SPFL/NA/SK/GO/CITY/EN/IR/LIGA/
+  JOYN/PRIME/WOW/TUBI) erweitert, damit diese gross bleiben statt zu
+  "De"/"Us" zu werden. Doppelpunkt zusaetzlich als abtrennbares
+  Suffix-Zeichen ergaenzt (analog zu Klammern), damit z.B. "DE:" am
+  Wortanfang korrekt als Ganzes (nicht als "De:") erkannt wird.
+- **Logos fuer `NAME:`-Kanaele nachgetragen:** Der urspruengliche
+  Logo-Nachtrag beim Import deckte nur normale `Land|Sender`-Zeilen
+  ab, die ~9.221 `NAME:`-Kanaele wurden dabei versehentlich
+  uebersprungen (blieben ohne jedes Logo). Nachtraeglich per
+  Playlist-`tvg-logo`-Abgleich (exakter Kern-Treffer + Suffix-Index
+  fuer dynamische Eintraege, deren aktueller Rohname nicht mehr dem
+  Kern entspricht) 7.007 Logo-URLs ergaenzt, davon 125 heruntergeladen/
+  optimiert und selbst gehostet unter `logos/playlist_import/`. Rest
+  extern verlinkt (ueberwiegend vom in der Entwickler-Sandbox
+  blockierten Picon-Host des Anbieters) oder ganz ohne Logo (kein
+  Playlist-Treffer fuer den aktuellen Kernnamen, 2.058 Kanaele).
+- **HEVC/4K/8K als Suffix erkannt + VOX-Ambiguitaets-Bug:**
+  `normalisiere_sendername_kern()` (epg_lib.py) ignorierte bisher nur
+  HD/FHD/UHD/SD als Qualitaets-Suffix beim unscharfen Namensabgleich,
+  nicht aber HEVC/4K/8K - z.B. "RTL HEVC"/"VOX HEVC" fanden dadurch
+  keinen Treffer bei deswird.org, obwohl der Sender dort existiert.
+  Um HEVC/4K/8K erweitert. Zusaetzlich in `deswird_kanal_finden()`
+  einen echten Bug behoben: Kanaele, die deswird.org mehrfach mit nur
+  unterschiedlicher Gross-/Kleinschreibung der Kanal-ID fuehrt (z.B.
+  "VOX.de" vs. "Vox.de" - derselbe echte Sender, kein zweiter Kanal),
+  wurden faelschlich als "mehrdeutig" verworfen und komplett vom
+  Kern-Index ausgeschlossen. Case-insensitiver Vergleich vor der
+  Mehrdeutigkeits-Pruefung behebt das. **Wichtige Lehre dabei:** ein
+  erster, breiterer Loesungsversuch (zusaetzlicher unscharfer
+  Kern-gegen-Kern-Abgleich als letzter Fallback) wurde wieder
+  verworfen, weil er einen echten Fehltreffer erzeugte ("ProSieben
+  Maxx" wurde mit "ProSieben Fun" verwechselt, da beide denselben
+  langen "ProSieben"-Praefix teilen und der verkuerzte Kern-Vergleich
+  zu unspezifisch wurde) - nur die eng gefassten, gezielten Fixes
+  (weitere Suffix-Woerter, Gross-/Kleinschreibungs-Bug) wurden
+  behalten. Generelles Prinzip fuer kuenftige Matching-Verbesserungen:
+  einzelne, klar abgegrenzte Faelle gezielt fixen und jedes Mal gegen
+  mehrere andere Sender (insbesondere aehnlich benannte wie ProSieben
+  Maxx/Fun oder Sky Cinema Premiere/Special) gegentesten, statt die
+  Fuzzy-Suche pauschal zu lockern.
+- **RTL Nitro auf "Nitro" umbenannt:** Der Nutzer hat den Sender in
+  seiner eigenen IPTV-App (TiviMate) von "RTL Nitro" auf "Nitro"
+  umbenannt (seine eigene Vermutung: das wuerde das serverseitige
+  Matching verbessern - stimmt so pauschal NICHT, siehe unten). Da der
+  Nutzer aber bestaetigte, dass in seiner tatsaechlichen
+  Anbieter-Playlist "NITRO HEVC" bereits ohne "RTL"-Praefix gefuehrt
+  wird (waehrend "RTL NITRO FHD"/"RTL NITRO HD" als SEPARATE, echte
+  Playlist-Eintraege mit "RTL"-Praefix existieren, per direktem
+  Playlist-Abgleich bestaetigt), wurden `DE|RTL NITRO FHD` und
+  `DE|RTL NITRO HD` in `sender.txt` zu `DE|NITRO FHD`/`DE|NITRO HD`
+  umbenannt - das aendert auch die generierte `<channel>`-ID. Beide
+  matchen jetzt korrekt gegen deswird.org (vorher: kein Treffer, da
+  der "RTL"-Praefix den unscharfen Namensabgleich unter die
+  Aehnlichkeits-Schwelle drueckte). **Wichtig zu wissen:** Eine rein
+  lokale Umbenennung IM PLAYER (ohne zugehoerige Aenderung in
+  `sender.txt`) haette NICHTS gebracht - unser Matching laeuft
+  serverseitig gegen den rohen Namen aus `sender.txt`/der echten
+  Anbieter-Playlist, nicht gegen player-lokale Anzeigenamen.
+- **Stand:** Alle oben genannten Fixes sind auf `main` committet und
+  gepusht, aber der Nutzer hat ausdruecklich gebeten, den
+  Workflow-Lauf NICHT mehr automatisch/proaktiv zu starten (frueher
+  wurden dadurch teils parallel laufende, sich widersprechende Laeufe
+  ausgeloest) - **immer erst auf explizite Anweisung des Nutzers
+  hin** `run_workflow` aufrufen. Ob die neuesten Fixes (Grossschreibung,
+  HEVC/4K/8K, VOX-Bug, Nitro-Umbenennung, NAME:-Logos) wie erwartet
+  wirken, ist zum Zeitpunkt dieses Eintrags noch nicht mit einem
+  frischen Lauf verifiziert.
