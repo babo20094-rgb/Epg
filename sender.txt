@@ -86,16 +86,16 @@ BA|RTV SANA|Rtv Sana ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rg
 BA|RTV SLON ⱽᴵᴾ ᴿᴬᵂ|Rtv Slon ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/RTV-SLON.png
 BA|RTV TK ⱽᴵᴾ ᴿᴬᵂ|Rtv Tk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/02fb989942197c52.png
 BA|RTV USK ⱽᴵᴾ ᴿᴬᵂ|Rtv Usk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6600761b56e0cead.png
-BA|RTV VOGOSCA ⱽᴵᴾ ᴿᴬᵂ|Rtv Vogosca ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/RTV-VOGOSCA.png
+BA|RTV VOGOSCA ⱽᴵᴾ ᴿᴬᵂ|Rtv Vogosca ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/rtvvogosca.png
 BA|RTV ZENICA|Rtv Zenica ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab871164805deb6.png
 BA|RTV ZENICA ⱽᴵᴾ ᴿᴬᵂ|Rtv Zenica ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab871164805deb6.png
 BA|RTVHB|Rtvhb ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0bee7286fed84de0.png
 BA|RTVIS ⱽᴵᴾ ᴿᴬᵂ|Rtvis ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/958b355c1d63d13d.png
 BA|SEVDAH|Sevdah ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b41ce4a166a2587.png
-BA|SHOPTEL ⱽᴵᴾ ᴿᴬᵂ|Shoptel ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SHOPTEL.png
+BA|SHOPTEL ⱽᴵᴾ ᴿᴬᵂ|Shoptel ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/shoptel.png
 BA|SIMIC TV ⱽᴵᴾ ᴿᴬᵂ|Simic Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SIMIC.png
 BA|SUPER TV MEDIA TUZLA ⱽᴵᴾ ᴿᴬᵂ|Super Tv Media Tuzla ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SUPER-TV-MEDIA-TUZLA.png
-BA|TB1 ⱽᴵᴾ ᴿᴬᵂ|Tb1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/TB1.png
+BA|TB1 ⱽᴵᴾ ᴿᴬᵂ|Tb1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/tb1.png
 BA|TELEVIZIJA 5|Televizija 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d164430b0cad7d.png
 BA|TELEVIZIJA 5 HD|Televizija 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d164430b0cad7d.png
 BA|TK|Tk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/196963e6434c2913.png
@@ -364,12 +364,12 @@ DE|CURIOSITY CHANNEL HD|Curiosity Channel Hd ᴸⁱᵛᵉ|https://raw.githubuser
 DE|DAS ERSTE FHD|Das Erste Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c35f3b7672278a9f.png
 DE|DAS ERSTE HD|Das Erste Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c35f3b7672278a9f.png
 DE|DAS GIFT DER SEELE ᴿᴬᵂ|Das Gift Der Seele ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|DAZN 1 SD|Dazn 1 Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/DAZN.png
-DE|DAZN 1 ᴴᴰ|Dazn 1 ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/DAZN.png
-DE|DAZN 1 ᴿᴬᵂ|Dazn 1 ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/DAZN.png
-DE|DAZN 2 SD|Dazn 2 Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/DAZN.png
-DE|DAZN 2 ᴴᴰ|Dazn 2 ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/DAZN.png
-DE|DAZN 2 ᴿᴬᵂ|Dazn 2 ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/DAZN.png
+DE|DAZN 1 SD|Dazn 1 Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/dazn1.png
+DE|DAZN 1 ᴴᴰ|Dazn 1 ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/dazn1.png
+DE|DAZN 1 ᴿᴬᵂ|Dazn 1 ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/dazn1.png
+DE|DAZN 2 SD|Dazn 2 Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/dazn2.png
+DE|DAZN 2 ᴴᴰ|Dazn 2 ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/dazn2.png
+DE|DAZN 2 ᴿᴬᵂ|Dazn 2 ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/dazn2.png
 DE|DAZN BAR 1 FHD|Dazn Bar 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/975601a87446e2d6.png
 DE|DAZN BAR 1 FHD*|Dazn Bar 1 Fhd* ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f0912bca8e4d8571.png
 DE|DAZN BAR 1 HD|Dazn Bar 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a987995a7da03d98.png
@@ -409,16 +409,16 @@ DE|EURONEWS HD|Euronews Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20
 DE|EUROSPORT 1 FHD|Eurosport 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7c271616d66c43ca.png
 DE|EUROSPORT 1 HD|Eurosport 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7c271616d66c43ca.png
 DE|EUROSPORT 1 HEVC|Eurosport 1 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7c271616d66c43ca.png
-DE|EUROSPORT 1 SD|Eurosport 1 Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/EUROSPORT1.png
-DE|EUROSPORT 1 ᴴᴰ|Eurosport 1 ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/EUROSPORT1.png
-DE|EUROSPORT 1 ᴿᴬᵂ|Eurosport 1 ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/EUROSPORT1.png
+DE|EUROSPORT 1 SD|Eurosport 1 Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurosport1.png
+DE|EUROSPORT 1 ᴴᴰ|Eurosport 1 ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurosport1.png
+DE|EUROSPORT 1 ᴿᴬᵂ|Eurosport 1 ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurosport1.png
 DE|EUROSPORT 2 FHD|Eurosport 2 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb3d9e4e080c72ed.png
 DE|EUROSPORT 2 HD|Eurosport 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb3d9e4e080c72ed.png
 DE|EUROSPORT 2 HEVC|Eurosport 2 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb3d9e4e080c72ed.png
-DE|EUROSPORT 2 SD|Eurosport 2 Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/EUROSPORT2.png
+DE|EUROSPORT 2 SD|Eurosport 2 Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurosport2.png
 DE|EUROSPORT 2 XTRA HD|Eurosport 2 Xtra Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3658c6818a5087bd.png
-DE|EUROSPORT 2 ᴴᴰ|Eurosport 2 ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/EUROSPORT2.png
-DE|EUROSPORT 2 ᴿᴬᵂ|Eurosport 2 ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/EUROSPORT2.png
+DE|EUROSPORT 2 ᴴᴰ|Eurosport 2 ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurosport2.png
+DE|EUROSPORT 2 ᴿᴬᵂ|Eurosport 2 ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/eurosport2.png
 DE|EUROSPORT 2XTRA FHD|Eurosport 2Xtra Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3658c6818a5087bd.png
 DE|FALLOUT ᴿᴬᵂ|Fallout ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|FC BAYERN TV HD|Fc Bayern Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b0556d52cfcd7ed.png
@@ -474,7 +474,7 @@ DE|HYPER KNIFE ᴿᴬᵂ|Hyper Knife ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.10
 DE|JAMES BOND|James Bond ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|JASON STATHAM|Jason Statham ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|JUKEBOX FHD|Jukebox Fhd ᴸⁱᵛᵉ|https://logo.m3uassets.com/jukebox.png
-DE|K-TV HD|K-Tv Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/KTV.png
+DE|K-TV HD|K-Tv Hd ᴸⁱᵛᵉ|https://logo.m3uassets.com/ktv.png
 DE|KABEL 1 DOKU HEVC|Kabel 1 Doku Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/38a1dace36dd9754.png
 DE|KABEL 1 HEVC|Kabel 1 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4ea46e854a447a4c.png
 DE|KABEL EINS CLASSICS FHD|Kabel Eins Classics Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ac948d29f7464d3b.png
@@ -544,9 +544,9 @@ DE|MDR THÜRINGEN HD|Mdr Thüringen Hd ᴸⁱᵛᵉ|https://raw.githubuserconten
 DE|MELODIE TV FHD|Melodie Tv Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fce4196ea301433e.png
 DE|MINDHUNTER 2017 FHD|Mindhunter 2017 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4fb2b3d832534dd8.png
 DE|MISSION: IMPOSSIBLE|Mission: Impossible ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cc4daf037755c8d6.png
-DE|MLB NETWORK SD|Mlb Network Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/MLBNETWORK.png
-DE|MLB NETWORK ᴴᴰ|Mlb Network ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/MLBNETWORK.png
-DE|MLB NETWORK ᴿᴬᵂ|Mlb Network ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/MLBNETWORK.png
+DE|MLB NETWORK SD|Mlb Network Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/mlbnetwork.png
+DE|MLB NETWORK ᴴᴰ|Mlb Network ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/mlbnetwork.png
+DE|MLB NETWORK ᴿᴬᵂ|Mlb Network ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/mlbnetwork.png
 DE|MOON.KNIGHT ᴿᴬᵂ|Moon.Knight ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f7cf9462089a6e16.png
 DE|MORGAN FREEMAN|Morgan Freeman ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|MOTORHEADS ᴿᴬᵂ|Motorheads ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
@@ -595,7 +595,7 @@ DE|MYTEAM SPORT 6 HD|Myteam Sport 6 Hd ᴸⁱᵛᵉ|https://raw.githubuserconten
 DE|MYTEAM SPORT 7 HD|Myteam Sport 7 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b06728266bf287c5.png
 DE|MYTEAM SPORT 8 HD|Myteam Sport 8 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b06728266bf287c5.png
 DE|MYTEAM SPORT 9 HD|Myteam Sport 9 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b06728266bf287c5.png
-DE|N-TV HD|N-Tv Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/NTV.png
+DE|N-TV HD|N-Tv Hd ᴸⁱᵛᵉ|https://logo.m3uassets.com/ntv.png
 DE|N-TV HEVC|N-Tv Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e2022bbf09bf2d16.png
 DE|N24 DOKCU|N24 Dokcu ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/611eaa3b990556dd.png
 DE|NAT GEO FHD|Nat Geo Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/252a1614912fa7eb.png
@@ -606,9 +606,9 @@ DE|NDR HAMBURG HD|Ndr Hamburg Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/
 DE|NDR MECKLENBURG-VORPOMMERN HD|Ndr Mecklenburg-Vorpommern Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fe6e7a3f9ab6ba30.png
 DE|NDR NIEDERSACHSEN HD|Ndr Niedersachsen Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/eb9035a0c1ebd11b.png
 DE|NEWTOPIA ᴿᴬᵂ|Newtopia ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|NFL NETWORK SD|Nfl Network Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/NFLNETWORK.png
-DE|NFL NETWORK ᴴᴰ|Nfl Network ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/NFLNETWORK.png
-DE|NFL NETWORK ᴿᴬᵂ|Nfl Network ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/NFLNETWORK.png
+DE|NFL NETWORK SD|Nfl Network Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/nflnetwork.png
+DE|NFL NETWORK ᴴᴰ|Nfl Network ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/nflnetwork.png
+DE|NFL NETWORK ᴿᴬᵂ|Nfl Network ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/nflnetwork.png
 DE|NICE TO NOT MEET YOU ᴿᴬᵂ|Nice To Not Meet You ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|NICK JR. SD|Nick Jr. Sd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ac6b4d0ed49e391.png
 DE|NICKELODEON|Nickelodeon ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c97e53b327d00e46.png
@@ -639,9 +639,9 @@ DE|PROSIEBEN MAXX HEVC|Prosieben Maxx Hevc ᴸⁱᵛᵉ|https://raw.githubuserco
 DE|QVC ZWEI FHD|Qvc Zwei Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4b18a0f93deff08.png
 DE|RBB HD|Rbb Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a946073ca781ad7c.png
 DE|REACHER ᴿᴬᵂ|Reacher ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|RED BULL TV SD|Red Bull Tv Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/REDBULL.png
-DE|RED BULL TV ᴴᴰ|Red Bull Tv ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/REDBULL.png
-DE|RED BULL TV ᴿᴬᵂ|Red Bull Tv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/REDBULL.png
+DE|RED BULL TV SD|Red Bull Tv Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/redbulltv.png
+DE|RED BULL TV ᴴᴰ|Red Bull Tv ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/redbulltv.png
+DE|RED BULL TV ᴿᴬᵂ|Red Bull Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/redbulltv.png
 DE|REVENGE OF OTHERS  ᴿᴬᵂ|Revenge Of Others  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/REVENGEOFOTHERS.png
 DE|ROBERT DE NIRO|Robert De Niro ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|ROMANCE TV FHD|Romance Tv Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fb96e9ae1ecc8a08.png
@@ -746,8 +746,8 @@ DE|SKY CINEMA PREMIEREN +24 FHD*|Sky Cinema Premieren +24 Fhd* ᴸⁱᵛᵉ|http
 DE|SKY CINEMA PREMIEREN +24 HD|Sky Cinema Premieren +24 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
 DE|SKY CINEMA PREMIEREN +24 HEVC|Sky Cinema Premieren +24 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
 DE|SKY CINEMA PREMIEREN HEVC|Sky Cinema Premieren Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1972b5901a231c5.png
-DE|SKY CINEMA SPECIAL FHD|Sky Cinema Special Fhd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/SKYCINEMASPECIAL.png
-DE|SKY CINEMA SPECIAL HD|Sky Cinema Special Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/SKYCINEMASPECIAL.png
+DE|SKY CINEMA SPECIAL FHD|Sky Cinema Special Fhd ᴸⁱᵛᵉ|https://logo.m3uassets.com/skycinemaspecial.png
+DE|SKY CINEMA SPECIAL HD|Sky Cinema Special Hd ᴸⁱᵛᵉ|https://logo.m3uassets.com/skycinemaspecial.png
 DE|SKY CINEMA SPECIAL HEVC|Sky Cinema Special Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ba6a9dbfcf09cab.png
 DE|SKY CINEMA THRILLER FHD|Sky Cinema Thriller Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a424db1dd8ec8192.png
 DE|SKY CINEMA THRILLER HD|Sky Cinema Thriller Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a424db1dd8ec8192.png
@@ -935,9 +935,9 @@ DE|SPORT1 FHD|Sport1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 DE|SPORT1 HD|Sport1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24d455c3c9b45e5d.png
 DE|SPORT1+ FHD|Sport1+ Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24d455c3c9b45e5d.png
 DE|SPORTDIGITAL FUSSBALL FHD|Sportdigital Fussball Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10b432e8a58ae380.png
-DE|SPORTDIGITAL FUSSBALL SD|Sportdigital Fussball Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/SPORTDIGITALFUSSBALL.png
-DE|SPORTDIGITAL FUSSBALL ᴴᴰ|Sportdigital Fussball ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/SPORTDIGITALFUSSBALL.png
-DE|SPORTDIGITAL FUSSBALL ᴿᴬᵂ|Sportdigital Fussball ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/SPORTDIGITALFUSSBALL.png
+DE|SPORTDIGITAL FUSSBALL SD|Sportdigital Fussball Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/sportdigitalfussball.png
+DE|SPORTDIGITAL FUSSBALL ᴴᴰ|Sportdigital Fussball ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/sportdigitalfussball.png
+DE|SPORTDIGITAL FUSSBALL ᴿᴬᵂ|Sportdigital Fussball ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/sportdigitalfussball.png
 DE|SR HD|Sr Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6d3bcbf55e15cbe0.png
 DE|STAR WARS THE CLONE WARS ᴿᴬᵂ|Star Wars The Clone Wars ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/STARWARSTHECLONEWARS.png
 DE|STATION19 ᴿᴬᵂ|Station19 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8abe48b8cf60d350.png
@@ -1002,9 +1002,9 @@ DE|TOM HANKS FHD|Tom Hanks Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/ba
 DE|TOM HARDY FHD|Tom Hardy Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|TOM LANCYS JACK ᴿᴬᵂ|Tom Lancys Jack ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|TRACKER ᴿᴬᵂ|Tracker ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/TRACKER.png
-DE|UNBEATEN SD|Unbeaten Sd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/UNBEATEN.png
-DE|UNBEATEN ᴴᴰ|Unbeaten ᴴᴰ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/UNBEATEN.png
-DE|UNBEATEN ᴿᴬᵂ|Unbeaten ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/UNBEATEN.png
+DE|UNBEATEN SD|Unbeaten Sd ᴸⁱᵛᵉ|https://logo.m3uassets.com/unbeaten.png
+DE|UNBEATEN ᴴᴰ|Unbeaten ᴴᴰ ᴸⁱᵛᵉ|https://logo.m3uassets.com/unbeaten.png
+DE|UNBEATEN ᴿᴬᵂ|Unbeaten ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/unbeaten.png
 DE|UNBURIED ᴿᴬᵂ|Unburied ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|UNDER THE BANNER OF HEAVEN ᴿᴬᵂ|Under The Banner Of Heaven ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/UNDERTHEBANNEROFHEAVEN.png
 DE|UNDER THE BRIDGE  ᴿᴬᵂ|Under The Bridge  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/422ec1ea2012eb9e.png
@@ -1047,24 +1047,24 @@ DE|ZONE CINEMA ACTION FHD|Zone Cinema Action Fhd ᴸⁱᵛᵉ|https://raw.github
 ##### EN (aus Playlist) #####
 EN|24 4K|24 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976610.png
 EN|24/7 LAW AND ORDER|24/7 Law And Order ᴸⁱᵛᵉ|http://103.176.90.95/images/994884.png
-EN|30 ROCK 4K|30 Rock 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976611.png
+EN|30 ROCK 4K|30 Rock 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/30rock.png
 EN|A CHRISTMAS CAROL FHD|A Christmas Carol Fhd ᴸⁱᵛᵉ|http://103.176.90.95/images/1066683.png
 EN|ADAM 12|Adam 12 ᴸⁱᵛᵉ|http://103.176.90.95/images/1811978.png
-EN|ADAM SANDLER 4K|Adam Sandler 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976589.png
+EN|ADAM SANDLER 4K|Adam Sandler 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/adamsandler.png
 EN|AEW DYNAMITE 4K|Aew Dynamite 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/1034770.png
 EN|ALVIN|Alvin ᴸⁱᵛᵉ|http://103.176.90.95/images/1448706.png
 EN|AMC +|Amc + ᴸⁱᵛᵉ|https://logo.m3uassets.com/amc.png
-EN|AMERICAN HORROR STORY|American Horror Story ᴸⁱᵛᵉ|http://103.176.90.95/images/1787982.png
+EN|AMERICAN HORROR STORY|American Horror Story ᴸⁱᵛᵉ|https://logo.m3uassets.com/americanhorrorstory.png
 EN|ANT-MAN|Ant-Man ᴸⁱᵛᵉ|http://103.176.90.95/images/1448708.png
 EN|ARNOLD SCHWARZNEGGER 4K|Arnold Schwarznegger 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976590.png
-EN|ARRESTED DEVELOPMENT 4K|Arrested Development 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976612.png
-EN|ARROW 4k|Arrow 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976578.png
+EN|ARRESTED DEVELOPMENT 4K|Arrested Development 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/arresteddevelopment.png
+EN|ARROW 4k|Arrow 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/arrow.png
 EN|BAD BOYS 4K|Bad Boys 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976591.png
 EN|BATMAN 4K|Batman 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/978702.png
-EN|BET+|Bet+ ᴸⁱᵛᵉ|http://103.176.90.95/images/1387771.png
+EN|BET+|Bet+ ᴸⁱᵛᵉ|https://logo.m3uassets.com/bet.png
 EN|BETTER CALL SAUL 4K|Better Call Saul 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976613.png
 EN|BUFFY|Buffy ᴸⁱᵛᵉ|http://103.176.90.95/images/1049064.png
-EN|CALIFORNICATION 4k|Californication 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976579.png
+EN|CALIFORNICATION 4k|Californication 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/californication.png
 EN|CHAPPELLES SHOW 4K|Chappelles Show 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976614.png
 EN|CHUCK 4K|Chuck 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976580.png
 EN|CHUCKY|Chucky ᴸⁱᵛᵉ|http://103.176.90.95/images/1433531.png
@@ -1077,27 +1077,27 @@ EN|DISCOVERY+ DOC 1|Discovery+ Doc 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.
 EN|DISCOVERY+ DOC 2|Discovery+ Doc 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f068d2cb7058abac.png
 EN|DISCOVERY+ DOCUMENTARY 4K|Discovery+ Documentary 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/1034771.png
 EN|DISCOVERY+ IMAX|Discovery+ Imax ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f068d2cb7058abac.png
-EN|DRAGNET|Dragnet ᴸⁱᵛᵉ|http://103.176.90.95/images/1811976.png
+EN|DRAGNET|Dragnet ᴸⁱᵛᵉ|https://logo.m3uassets.com/dragnet.png
 EN|EPIX|Epix ᴸⁱᵛᵉ|https://logo.m3uassets.com/epix.png
 EN|EROS|Eros ᴸⁱᵛᵉ|
-EN|EVERYBODY LOVES RAYMOND 4K|Everybody Loves Raymond 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976552.png
+EN|EVERYBODY LOVES RAYMOND 4K|Everybody Loves Raymond 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/everybodylovesraymond.png
 EN|EXPLAINED|Explained ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/96ae733483e23f46.png
 EN|FAT ALBERT AND THE COSBY KIDS|Fat Albert And The Cosby Kids ᴸⁱᵛᵉ|http://103.176.90.95/images/1811975.png
 EN|FLING|Fling ᴸⁱᵛᵉ|
-EN|FRASIER 4K|Frasier 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976553.png
-EN|FRIENDS 4K|Friends 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976554.png
+EN|FRASIER 4K|Frasier 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/frasier.png
+EN|FRIENDS 4K|Friends 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/friends.png
 EN|GAME OF THRONES 4K|Game Of Thrones 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976532.png
 EN|GHOST WHISPERER|Ghost Whisperer ᴸⁱᵛᵉ|http://103.176.90.95/images/1041933.png
-EN|HARRY POTTER 4K|Harry Potter 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976592.png
+EN|HARRY POTTER 4K|Harry Potter 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/harrypotter.png
 EN|HBO CHANNEL 4K|Hbo Channel 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ceffbc8400e6167c.png
 EN|HOME ALONE|Home Alone ᴸⁱᵛᵉ|http://103.176.90.95/images/1433541.png
-EN|HOW I MET YOUR MOTHER 4K|How I Met Your Mother 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976555.png
+EN|HOW I MET YOUR MOTHER 4K|How I Met Your Mother 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/howimetyourmother.png
 EN|HOW TO TRAIN YOUR DRAGON|How To Train Your Dragon ᴸⁱᵛᵉ|http://103.176.90.95/images/1433540.png
 EN|ICE AGE|Ice Age ᴸⁱᵛᵉ|http://103.176.90.95/images/1433539.png
 EN|ICE AGE 4K|Ice Age 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976593.png
 EN|JASON BOURNE 4K|Jason Bourne 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976594.png
 EN|JET LI MOVIES|Jet Li Movies ᴸⁱᵛᵉ|http://103.176.90.95/images/1180209.png
-EN|JOHNNY DEPP 4K|Johnny Depp 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976595.png
+EN|JOHNNY DEPP 4K|Johnny Depp 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/johnnydepp.png
 EN|JUMANJI 4K|Jumanji 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976596.png
 EN|KARAOKE 6|Karaoke 6 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UKNEW/KARAOKE.png
 EN|KEVIN CAN WAIT 4K|Kevin Can Wait 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976533.png
@@ -1107,20 +1107,20 @@ EN|LAST MAN STANDING 4K|Last Man Standing 4K ᴸⁱᵛᵉ|http://103.176.90.95/i
 EN|LEAVE IT TO BEAVER|Leave It To Beaver ᴸⁱᵛᵉ|http://103.176.90.95/images/1041932.png
 EN|LIAM NESSON 4K|Liam Nesson 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976597.png
 EN|LIE TO ME 4K|Lie To Me 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976535.png
-EN|LIMITLESS 4K|Limitless 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976556.png
-EN|LOST 4K|Lost 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976557.png
+EN|LIMITLESS 4K|Limitless 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/limitless.png
+EN|LOST 4K|Lost 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/lost.png
 EN|LUCIFER 4K|Lucifer 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976558.png
-EN|MACGYVER 4K|Macgyver 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976559.png
+EN|MACGYVER 4K|Macgyver 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/macgyver.png
 EN|MADAGASCAR|Madagascar ᴸⁱᵛᵉ|http://103.176.90.95/images/1433537.png
 EN|MALCOLM IN THE MIDDLE 4k|Malcolm In The Middle 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976560.png
 EN|MANIFEST 4K|Manifest 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976536.png
-EN|MARRIED WITH CHILDREN|Married With Children ᴸⁱᵛᵉ|http://103.176.90.95/images/1811974.png
-EN|MIAMI VICE|Miami Vice ᴸⁱᵛᵉ|http://103.176.90.95/images/1060647.png
+EN|MARRIED WITH CHILDREN|Married With Children ᴸⁱᵛᵉ|https://logo.m3uassets.com/marriedwithchildren.png
+EN|MIAMI VICE|Miami Vice ᴸⁱᵛᵉ|https://logo.m3uassets.com/miamivice.png
 EN|MIKE AND MOLLY 4k|Mike And Molly 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976561.png
-EN|MISSION IMPOSSIBLE 4K|Mission Impossible 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976598.png
-EN|MODERN FAMILY|Modern Family ᴸⁱᵛᵉ|http://103.176.90.95/images/1041931.png
-EN|MODERN FAMILY 4k|Modern Family 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976562.png
-EN|MONEY HEIST 4K|Money Heist 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976537.png
+EN|MISSION IMPOSSIBLE 4K|Mission Impossible 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/missionimpossible.png
+EN|MODERN FAMILY|Modern Family ᴸⁱᵛᵉ|https://logo.m3uassets.com/modernfamily.png
+EN|MODERN FAMILY 4k|Modern Family 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/modernfamily.png
+EN|MONEY HEIST 4K|Money Heist 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/moneyheist.png
 EN|MUBI|Mubi ᴸⁱᵛᵉ|
 EN|NARCOS MEXICO 4K|Narcos Mexico 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976538.png
 EN|NETFLIX ACTION|Netflix Action ᴸⁱᵛᵉ|http://103.176.90.95/images/1414075.png
@@ -1129,14 +1129,14 @@ EN|NETFLIX ACTION 2|Netflix Action 2 ᴸⁱᵛᵉ|http://103.176.90.95/images/14
 EN|NETFLIX ADVENTURE|Netflix Adventure ᴸⁱᵛᵉ|http://103.176.90.95/images/1414079.png
 EN|NETFLIX ASIAN|Netflix Asian ᴸⁱᵛᵉ|http://103.176.90.95/images/1414081.png
 EN|NETFLIX CHANNEL 4K|Netflix Channel 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/1034768.png
-EN|NETFLIX COMEDY|Netflix Comedy ᴸⁱᵛᵉ|http://103.176.90.95/images/1503130.png
+EN|NETFLIX COMEDY|Netflix Comedy ᴸⁱᵛᵉ|https://logo.m3uassets.com/netflixcomedy.png
 EN|NETFLIX CRIME|Netflix Crime ᴸⁱᵛᵉ|http://103.176.90.95/images/1433175.png
 EN|NETFLIX DOCUMENTARY|Netflix Documentary ᴸⁱᵛᵉ|http://103.176.90.95/images/1503132.png
 EN|NETFLIX DRAMA|Netflix Drama ᴸⁱᵛᵉ|http://103.176.90.95/images/1414077.png
 EN|NETFLIX DUBBED|Netflix Dubbed ᴸⁱᵛᵉ|http://103.176.90.95/images/1414082.png
 EN|NETFLIX FAMILY|Netflix Family ᴸⁱᵛᵉ|http://103.176.90.95/images/1433174.png
 EN|NETFLIX HISTORY|Netflix History ᴸⁱᵛᵉ|http://103.176.90.95/images/1433173.png
-EN|NETFLIX HORROR|Netflix Horror ᴸⁱᵛᵉ|http://103.176.90.95/images/1414076.png
+EN|NETFLIX HORROR|Netflix Horror ᴸⁱᵛᵉ|https://logo.m3uassets.com/netflixhorror.png
 EN|NETFLIX KIDS|Netflix Kids ᴸⁱᵛᵉ|http://103.176.90.95/images/1414084.png
 EN|NETFLIX MUSIC|Netflix Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 EN|NETFLIX MYSTERY|Netflix Mystery ᴸⁱᵛᵉ|http://103.176.90.95/images/1433172.png
@@ -1274,54 +1274,54 @@ EN|ONEPLAY Zig Sharko ᴴᴰ|Oneplay Zig Sharko ᴴᴰ ᴸⁱᵛᵉ|https://raw.
 EN|PARKS AND RECREATION 4k|Parks And Recreation 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976563.png
 EN|PIRATES OF THE CARIBBEAN 4K|Pirates Of The Caribbean 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976599.png
 EN|PITCH PERFECT 4K|Pitch Perfect 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976600.png
-EN|PRISON BREAK 4k|Prison Break 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976564.png
+EN|PRISON BREAK 4k|Prison Break 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/prisonbreak.png
 EN|REBA|Reba ᴸⁱᵛᵉ|http://103.176.90.95/images/1060649.png
 EN|REVOLUTION 4k|Revolution 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2a86635cf0f03147.png
 EN|REVRY|Revry ᴸⁱᵛᵉ|https://logo.m3uassets.com/revry.png
 EN|ROCKY 4K|Rocky 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976601.png
-EN|ROSEANNE 4k|Roseanne 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976566.png
+EN|ROSEANNE 4k|Roseanne 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/roseanne.png
 EN|SANTA CLAUS FHD|Santa Claus Fhd ᴸⁱᵛᵉ|http://103.176.90.95/images/1066684.png
 EN|SAW|Saw ᴸⁱᵛᵉ|http://103.176.90.95/images/1433515.png
-EN|SCORPION 4k|Scorpion 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976567.png
+EN|SCORPION 4k|Scorpion 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/scorpion.png
 EN|SCREAM|Scream ᴸⁱᵛᵉ|http://103.176.90.95/images/1433513.png
-EN|SCRUBS 4k|Scrubs 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976568.png
-EN|SEINFELD 4k|Seinfeld 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976569.png
-EN|SHAMELESS  4K|Shameless  4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976539.png
+EN|SCRUBS 4k|Scrubs 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/scrubs.png
+EN|SEINFELD 4k|Seinfeld 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/seinfeld.png
+EN|SHAMELESS  4K|Shameless  4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/shameless.png
 EN|SHREK|Shrek ᴸⁱᵛᵉ|http://103.176.90.95/images/1433536.png
 EN|SILICON VALLEY 4K|Silicon Valley 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976540.png
 EN|SPIDER MAN|Spider Man ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d45cc19bcf9830af.png
 EN|STEP UP|Step Up ᴸⁱᵛᵉ|http://103.176.90.95/images/1433508.png
-EN|SUITS 4K|Suits 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976541.png
-EN|SUPERNATURAL|Supernatural ᴸⁱᵛᵉ|http://103.176.90.95/images/1811973.png
-EN|SUPERNATURAL 4K|Supernatural 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976542.png
+EN|SUITS 4K|Suits 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/suits.png
+EN|SUPERNATURAL|Supernatural ᴸⁱᵛᵉ|https://logo.m3uassets.com/supernatural.png
+EN|SUPERNATURAL 4K|Supernatural 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/supernatural.png
 EN|SYLVESTER STALLON 4K|Sylvester Stallon 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976602.png
-EN|THAT 70S SHOW 4k|That 70S Show 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976570.png
-EN|THE BIG BANG THEORY|The Big Bang Theory ᴸⁱᵛᵉ|http://103.176.90.95/images/1060650.png
-EN|THE BIG BANG THEORY 4k|The Big Bang Theory 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976644.png
-EN|THE BLACKLIST 4K|The Blacklist 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976544.png
+EN|THAT 70S SHOW 4k|That 70S Show 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/that70sshow.png
+EN|THE BIG BANG THEORY|The Big Bang Theory ᴸⁱᵛᵉ|https://logo.m3uassets.com/thebigbangtheory.png
+EN|THE BIG BANG THEORY 4k|The Big Bang Theory 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/thebigbangtheory.png
+EN|THE BLACKLIST 4K|The Blacklist 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/theblacklist.png
 EN|THE DUKES OF HAZZARD|The Dukes Of Hazzard ᴸⁱᵛᵉ|http://103.176.90.95/images/1041930.png
-EN|THE FRESH PRINCE OF BEL-AIR|The Fresh Prince Of Bel-Air ᴸⁱᵛᵉ|http://103.176.90.95/images/978676.png
+EN|THE FRESH PRINCE OF BEL-AIR|The Fresh Prince Of Bel-Air ᴸⁱᵛᵉ|https://logo.m3uassets.com/thefreshprinceofbelair.png
 EN|THE FRESH PTINCE OF BEL AIR 4k|The Fresh Ptince Of Bel Air 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976572.png
 EN|THE HOBBIT 4K|The Hobbit 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976604.png
 EN|THE INCREDIBLE HULK 4k|The Incredible Hulk 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976573.png
-EN|THE KING OF QUEENS 4K|The King Of Queens 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976545.png
+EN|THE KING OF QUEENS 4K|The King Of Queens 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/thekingofqueens.png
 EN|THE LORD OF THE RINGS 4K|The Lord Of The Rings 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976609.png
 EN|THE MENTALIST|The Mentalist ᴸⁱᵛᵉ|http://103.176.90.95/images/1060651.png
 EN|THE MUPPET SHOW 4k|The Muppet Show 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976574.png
-EN|THE NANNY 4k|The Nanny 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976647.png
-EN|THE OFFICE 4k|The Office 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976575.png
-EN|THE SIMPSONS 4K|The Simpsons 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/978711.png
+EN|THE NANNY 4k|The Nanny 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/thenanny.png
+EN|THE OFFICE 4k|The Office 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/theoffice.png
+EN|THE SIMPSONS 4K|The Simpsons 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/thesimpsons.png
 EN|THE TRANSPORTER 4K|The Transporter 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976608.png
 EN|THOR|Thor ᴸⁱᵛᵉ|http://103.176.90.95/images/1448723.png
 EN|TOP GEAR|Top Gear ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/11e4275a84c53952.png
 EN|TOY STORY|Toy Story ᴸⁱᵛᵉ|http://103.176.90.95/images/1433535.png
 EN|TRANSFORMERS 4K|Transformers 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976605.png
 EN|TWILIGHT 4K|Twilight 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976606.png
-EN|TWO AND A HALF MEN 4k|Two And A Half Men 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976576.png
-EN|VIKINGS 4k|Vikings 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976577.png
+EN|TWO AND A HALF MEN 4k|Two And A Half Men 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/twoandahalfmen.png
+EN|VIKINGS 4k|Vikings 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/vikings.png
 EN|WAR MOVIES 2 FHD|War Movies 2 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2dee55352eed9d6f.png
 EN|WHITE COLLAR 4K|White Collar 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976546.png
-EN|WILL FERRELL 4K|Will Ferrell 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976607.png
+EN|WILL FERRELL 4K|Will Ferrell 4K ᴸⁱᵛᵉ|https://logo.m3uassets.com/willferrell.png
 EN|WOLFOO|Wolfoo ᴸⁱᵛᵉ|http://103.176.90.95/images/1448724.png
 EN|X-MEN|X-Men ᴸⁱᵛᵉ|http://103.176.90.95/images/1433495.png
 
@@ -1481,7 +1481,7 @@ GO|HALLMARK CHANNEL|Hallmark Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.
 GO|HBO EAST|Hbo East ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8c0c45272aa1316.png
 GO|HBO LATINO|Hbo Latino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8c0c45272aa1316.png
 GO|HBO2 EAST|Hbo2 East ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/85ee5f7463042f3e.png
-GO|HEROES & ICONS|Heroes & Icons ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1931051.png
+GO|HEROES & ICONS|Heroes & Icons ᴸⁱᵛᵉ|https://logo.m3uassets.com/heroesicons.png
 GO|HERSPHERE|Hersphere ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1931050.png
 GO|HGTV|Hgtv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7dbb7c32c282d744.png
 GO|HISTORY|History ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/94856e2a9cf7898f.png
@@ -1519,7 +1519,7 @@ GO|MILLION DOLLAR LISTING VAULT|Million Dollar Listing Vault ᴸⁱᵛᵉ|http:/
 GO|MLB NETWORK|Mlb Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ef819899d2b58aa2.png
 GO|MLB NETWORK ALTERNATE|Mlb Network Alternate ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7efeef0c22328d8b.png
 GO|MNT-WWOR|Mnt-Wwor ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1931012.png
-GO|MODERN MARVELS|Modern Marvels ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1931011.png
+GO|MODERN MARVELS|Modern Marvels ᴸⁱᵛᵉ|https://logo.m3uassets.com/modernmarvels.png
 GO|MOTORTREND|Motortrend ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/75d8511b12b9a15d.png
 GO|MOVIE FAVORITES BY LIFETIME|Movie Favorites By Lifetime ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920075.png
 GO|MOVIESPHERE|Moviesphere ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6e0e4fae41fe14f2.png
@@ -1549,7 +1549,7 @@ GO|OXYGEN TRUE CRIME|Oxygen True Crime ᴸⁱᵛᵉ|https://raw.githubuserconten
 GO|OXYGEN TRUE CRIME ARCHIVES|Oxygen True Crime Archives ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/424d8bfc554cf004.png
 GO|PARAMOUNT TV|Paramount Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e50ba329e6ff87f6.png
 GO|PBS KIDS|Pbs Kids ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd873b9de5e68069.png
-GO|PBS-WNET|Pbs-Wnet ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1930976.png
+GO|PBS-WNET|Pbs-Wnet ᴸⁱᵛᵉ|https://logo.m3uassets.com/pbswnet.png
 GO|PBS-WNJN|Pbs-Wnjn ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1930975.png
 GO|PICKLEBALL TV|Pickleball Tv ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919986.png
 GO|POKERGO|Pokergo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6627d77bee18a998.png
@@ -1610,7 +1610,7 @@ GO|THE FIRST|The First ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-
 GO|THE JIM ROME SHOW|The Jim Rome Show ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919855.png
 GO|THE PET COLLECTIVE|The Pet Collective ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f51051d3d2b0378c.png
 GO|THE PRICE IS RIGHT: DREW CAREY|The Price Is Right: Drew Carey ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1930913.png
-GO|THE PRICE IS RIGHT: THE BARKER ERA|The Price Is Right: The Barker Era ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1930912.png
+GO|THE PRICE IS RIGHT: THE BARKER ERA|The Price Is Right: The Barker Era ᴸⁱᵛᵉ|https://logo.m3uassets.com/thepriceisrightthebarkerera.png
 GO|THE WEATHER CHANNEL|The Weather Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bc4b5e66e1980bd0.png
 GO|THEGRIO|Thegrio ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/49f6968ecd00b65f.png
 GO|TINY HOUSE NATION|Tiny House Nation ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f78176ba88bedcb3.png
@@ -1635,7 +1635,7 @@ GO|VICE|Vice ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 GO|WAYPOINT TV|Waypoint Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1ec15f8c6b74deb7.png
 GO|WE TV|We Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ca25a53309851381.png
 GO|WILLOW SPORTS|Willow Sports ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d81f0185c4c0e6b3.png
-GO|WLNY|Wlny ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1930881.png
+GO|WLNY|Wlny ᴸⁱᵛᵉ|https://logo.m3uassets.com/wlny.png
 GO|WOMEN'S SPORTS NETWORK|Women'S Sports Network ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1930880.png
 
 ##### HR (aus Playlist) #####
@@ -2047,7 +2047,7 @@ MK|KANAL 8|Kanal 8 ᴸⁱᵛᵉ|https://logo.m3uassets.com/kanal5.png
 MK|KOHA TV HD|Koha Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c96ffb9e4c84bd04.png
 MK|M-NET INFO|M-Net Info ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d9dec2c2ba5a58ed.png
 MK|M-NET KIDS|M-Net Kids ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c53202bfcd22f176.png
-MK|M1 FILM ⱽᴵᴾ ᴿᴬᵂ|M1 Film ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/M1-FILM.png
+MK|M1 FILM ⱽᴵᴾ ᴿᴬᵂ|M1 Film ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/m1film.png
 MK|M1 GOLD ⱽᴵᴾ ᴿᴬᵂ|M1 Gold ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f652cfec37e4a75.png
 MK|MAKEDONSKA TV|Makedonska Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3a5d65c58a07352c.png
 MK|MRT 1|Mrt 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/41d853a706b946ba.png
@@ -2161,7 +2161,7 @@ MO|B92|B92 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 MO|BABY TV|Baby Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f7dd11c9952fc56.png
 MO|BALKAN TRIP|Balkan Trip ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5e8cd503d3768e87.png
 MO|BBC EARTH|Bbc Earth ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a4ca690cd46f4785.png
-MO|BHT 1|Bht 1 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912877.png
+MO|BHT 1|Bht 1 ᴸⁱᵛᵉ|https://logo.m3uassets.com/bht1.png
 MO|BLOOMBERG ADRIA|Bloomberg Adria ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/78b471d1626b26cd.png
 MO|CARTOON NETWORK|Cartoon Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8fe0da36ca3a0588.png
 MO|CARTOONITO|Cartoonito ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d030a60de2fbf83a.png
@@ -2173,7 +2173,7 @@ MO|CINEMAX 2|Cinemax 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-
 MO|CITY PLAY|City Play ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ed03e66f5483d160.png
 MO|CMC|Cmc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8fe96dce2f28bd75.png
 MO|CNN|Cnn ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/046f50d9235eb679.png
-MO|CRIME&INVESTIGATION|Crime&Investigation ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/NETHERLAND/1912864.png
+MO|CRIME&INVESTIGATION|Crime&Investigation ᴸⁱᵛᵉ|https://logo.m3uassets.com/crimeinvestigation.png
 MO|DEUTSCHE WELLE|Deutsche Welle ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fb5c66e332e6627e.png
 MO|DISCOVERY|Discovery ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f068d2cb7058abac.png
 MO|DISNEY CHANNEL|Disney Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/925a988cfbf8e481.png
@@ -2210,12 +2210,12 @@ MO|HRT 3|Hrt 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 MO|INVESTIGATION DISCOVERY|Investigation Discovery ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/05e5ae41bec5fc41.png
 MO|JUGOTON|Jugoton ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/929d9107b35866a0.png
 MO|K ::CN SVET PLUS 3|K ::Cn Svet Plus 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6278ad3f052e5004.png
-MO|K::CN 1|K::Cn 1 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912818.png
+MO|K::CN 1|K::Cn 1 ᴸⁱᵛᵉ|https://logo.m3uassets.com/kcn1.png
 MO|K::CN MUSIC 2|K::Cn Music 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e9ca5f94d4c929d4.png
 MO|KITCHEN TV|Kitchen Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/82234ab55eab98cd.png
 MO|MINIMAX|Minimax ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/add88af262b46a9d.png
 MO|MTV|Mtv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
-MO|NARODNA TV|Narodna Tv ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912808.png
+MO|NARODNA TV|Narodna Tv ᴸⁱᵛᵉ|https://logo.m3uassets.com/narodnatv.png
 MO|NAT GEO WILD|Nat Geo Wild ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/44c1aac73fa723ce.png
 MO|NATIONAL GEOGRAPHIC|National Geographic ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2f7c0ee210405d0a.png
 MO|NAŠA TV|Naša Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/64f9786e3e521ba8.png
@@ -2234,7 +2234,7 @@ MO|PINK ACTION|Pink Action ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20
 MO|PINK BRAVO|Pink Bravo ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912789.png
 MO|PINK CLASSIC|Pink Classic ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7b764d19082e37a2.png
 MO|PINK COMEDY|Pink Comedy ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4717ea48fdaa7ed.png
-MO|PINK CRIME&MYSTERY|Pink Crime&Mystery ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912786.png
+MO|PINK CRIME&MYSTERY|Pink Crime&Mystery ᴸⁱᵛᵉ|https://logo.m3uassets.com/pinkcrimemystery.png
 MO|PINK EXTRA|Pink Extra ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/957d01188ad86085.png
 MO|PINK FAMILY|Pink Family ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/484ad465d88fcea8.png
 MO|PINK FASHION|Pink Fashion ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1890721d65d22814.png
@@ -2340,7 +2340,7 @@ PPV|EVENT 2 (BK)|Event 2 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/bab
 PPV|EVENT 3 (BK)|Event 3 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
 
 ##### PRIME (aus Playlist) #####
-PRIME|20/20 ᴿᴬᵂ|20/20 ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920531.png
+PRIME|20/20 ᴿᴬᵂ|20/20 ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/2020.png
 PRIME|365BLK ᴿᴬᵂ|365Blk ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920522.png
 PRIME|3SAT ᴿᴬᵂ|3Sat ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/83b5fe05e04d2640.png
 PRIME|4UV ᴿᴬᵂ|4Uv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920534.png
@@ -2370,7 +2370,7 @@ PRIME|ABC SEATTLE (KOMO) ᴿᴬᵂ|Abc Seattle (Komo) ᴿᴬᵂ ᴸⁱᵛᵉ|htt
 PRIME|ABC TAMPA NEWS (WFTS) ᴿᴬᵂ|Abc Tampa News (Wfts) ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0791a1c429ec8bfd.png
 PRIME|ABC TUCSON NEWS (KGUN) ᴿᴬᵂ|Abc Tucson News (Kgun) ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/ABC.png
 PRIME|ABC WACO NEWS (KXXV) ᴿᴬᵂ|Abc Waco News (Kxxv) ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0b4f92df1cade2ee.png
-PRIME|ABC WASHINGTON D.C. (WJLA) ᴿᴬᵂ|Abc Washington D.C. (Wjla) ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920490.png
+PRIME|ABC WASHINGTON D.C. (WJLA) ᴿᴬᵂ|Abc Washington D.C. (Wjla) ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/abcwashingtondcwjla.png
 PRIME|ABC30 FRESNO ᴿᴬᵂ|Abc30 Fresno ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92f96609f1ecd2e7.png
 PRIME|ABC7 LOS ANGELES ᴿᴬᵂ|Abc7 Los Angeles ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7a95f70c2a7ffd58.png
 PRIME|ACC DIGITAL NETWORK ᴿᴬᵂ|Acc Digital Network ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/85b2235206aa9933.png
@@ -2506,7 +2506,7 @@ PRIME|DISCOVERY SCIENCE ᴿᴬᵂ|Discovery Science ᴿᴬᵂ ᴸⁱᵛᵉ|https
 PRIME|DISCOVERY TURBO ᴿᴬᵂ|Discovery Turbo ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ac595457fc732af0.png
 PRIME|DIVORCE COURT ᴿᴬᵂ|Divorce Court ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/57cf0634da48a01b.png
 PRIME|DMAX ᴿᴬᵂ|Dmax ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d123513e2c063d88.png
-PRIME|DOVE TV ᴿᴬᵂ|Dove Tv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920304.png
+PRIME|DOVE TV ᴿᴬᵂ|Dove Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/dovetv.png
 PRIME|DP WORLD TOUR ᴿᴬᵂ|Dp World Tour ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UK/1920892.png
 PRIME|DR G MEDICAL EXAMINER ᴿᴬᵂ|Dr G Medical Examiner ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920300.png
 PRIME|DR. G: MEDICAL EXAMINER ᴿᴬᵂ|Dr. G: Medical Examiner ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920656.png
@@ -2624,7 +2624,7 @@ PRIME|ION PLUS ᴿᴬᵂ|Ion Plus ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuserc
 PRIME|ION ᴿᴬᵂ|Ion ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e3e5cb061452addb.png
 PRIME|IRONSIDE ᴿᴬᵂ|Ironside ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920633.png
 PRIME|JAIL ᴿᴬᵂ|Jail ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UK/1920864.png
-PRIME|JEWISH LIFE TELEVISION ᴿᴬᵂ|Jewish Life Television ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920149.png
+PRIME|JEWISH LIFE TELEVISION ᴿᴬᵂ|Jewish Life Television ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/jewishlifetelevision.png
 PRIME|JOEL OSTEEN CHANNEL ᴿᴬᵂ|Joel Osteen Channel ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920148.png
 PRIME|JOHNNY CARSON TV ᴿᴬᵂ|Johnny Carson Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d43f698f1648ee.png
 PRIME|JUDGE NOSEY ᴿᴬᵂ|Judge Nosey ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f73694532d439624.png
@@ -2692,7 +2692,7 @@ PRIME|NARUTO ᴿᴬᵂ|Naruto ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuserconte
 PRIME|NASCAR ᴿᴬᵂ|Nascar ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920059.png
 PRIME|NASHVILLE ᴿᴬᵂ|Nashville ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5282fa6653769188.png
 PRIME|NATIONAL LAMPOON ᴿᴬᵂ|National Lampoon ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920055.png
-PRIME|NATUR ᴿᴬᵂ|Natur ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920610.png
+PRIME|NATUR ᴿᴬᵂ|Natur ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/natur.png
 PRIME|NATURESCAPE ᴿᴬᵂ|Naturescape ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d1bef4d03f24adf5.png
 PRIME|NAUTICAL CHANNEL DE ᴿᴬᵂ|Nautical Channel De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21d10784cf5a487e.png
 PRIME|NBA ᴿᴬᵂ|Nba ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/89d8c27835b854c8.png
@@ -2722,9 +2722,9 @@ PRIME|NHRA ᴿᴬᵂ|Nhra ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.c
 PRIME|NORTHERN EXPOSURE ᴿᴬᵂ|Northern Exposure ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d5c089178f8eefdc.png
 PRIME|NOSEY ᴿᴬᵂ|Nosey ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0769aad03c95fb42.png
 PRIME|NOTICIAS TELEMUNDO AHORA ᴿᴬᵂ|Noticias Telemundo Ahora ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920016.png
-PRIME|NOW 70S ᴿᴬᵂ|Now 70S ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920601.png
-PRIME|NOW 80S ᴿᴬᵂ|Now 80S ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920600.png
-PRIME|NOW ROCK ᴿᴬᵂ|Now Rock ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920599.png
+PRIME|NOW 70S ᴿᴬᵂ|Now 70S ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/now70s.png
+PRIME|NOW 80S ᴿᴬᵂ|Now 80S ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/now80s.png
+PRIME|NOW ROCK ᴿᴬᵂ|Now Rock ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/nowrock.png
 PRIME|ONE CHAMPIONSHIP TV ᴿᴬᵂ|One Championship Tv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920012.png
 PRIME|ONE ᴿᴬᵂ|One ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a6d00267dbaacbe6.png
 PRIME|OUTERSPHERE ᴿᴬᵂ|Outersphere ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920186.png
@@ -2813,7 +2813,7 @@ PRIME|SWR FERNSEHEN RP ᴿᴬᵂ|Swr Fernsehen Rp ᴿᴬᵂ ᴸⁱᵛᵉ|https:/
 PRIME|T.D. JAKES ᴿᴬᵂ|T.D. Jakes ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919896.png
 PRIME|TAGESSCHAU24 ᴿᴬᵂ|Tagesschau24 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/247ce3f25b16240a.png
 PRIME|TALKSPORT ᴿᴬᵂ|Talksport ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c188ad4aeba70a2c.png
-PRIME|TALKTV ᴿᴬᵂ|Talktv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UK/1920833.png
+PRIME|TALKTV ᴿᴬᵂ|Talktv ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/talktv.png
 PRIME|TASTEMADE HOME ᴿᴬᵂ|Tastemade Home ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8f9b9ce1dc360eb.png
 PRIME|TASTEMADE TRAVEL ᴿᴬᵂ|Tastemade Travel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9da4f0cc68a70add.png
 PRIME|TASTEMADE ᴿᴬᵂ|Tastemade ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8f9b9ce1dc360eb.png
@@ -2834,7 +2834,7 @@ PRIME|TERRA MATER WILD ᴿᴬᵂ|Terra Mater Wild ᴿᴬᵂ ᴸⁱᵛᵉ|https:/
 PRIME|THE ASYLUM MOVIE CHANNEL ᴿᴬᵂ|The Asylum Movie Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aca31bd90979d994.png
 PRIME|THE BIGGEST LOSER ᴿᴬᵂ|The Biggest Loser ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UK/1920830.png
 PRIME|THE BOB ROSS CHANNEL ᴿᴬᵂ|The Bob Ross Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6c04f0b95b9e2d57.png
-PRIME|THE CAROL BURNETT SHOW ᴿᴬᵂ|The Carol Burnett Show ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919872.png
+PRIME|THE CAROL BURNETT SHOW ᴿᴬᵂ|The Carol Burnett Show ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/thecarolburnettshow.png
 PRIME|THE CHALLENGE ᴿᴬᵂ|The Challenge ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/70f2d5a74f3f4e50.png
 PRIME|THE DICK VAN DYKE SHOW ᴿᴬᵂ|The Dick Van Dyke Show ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 PRIME|THE ED SULLIVAN SHOW ᴿᴬᵂ|The Ed Sullivan Show ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919865.png
@@ -2845,7 +2845,7 @@ PRIME|THE JIM ROME SHOW ᴿᴬᵂ|The Jim Rome Show ᴿᴬᵂ ᴸⁱᵛᵉ|http:
 PRIME|THE PET COLLECTIVE ᴿᴬᵂ|The Pet Collective ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f51051d3d2b0378c.png
 PRIME|THE PRACTICE ᴿᴬᵂ|The Practice ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919845.png
 PRIME|THE PRICE IS RIGHT: DREW CAREY ᴿᴬᵂ|The Price Is Right: Drew Carey ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919844.png
-PRIME|THE PRICE IS RIGHT: THE BARKER ERA ᴿᴬᵂ|The Price Is Right: The Barker Era ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919843.png
+PRIME|THE PRICE IS RIGHT: THE BARKER ERA ᴿᴬᵂ|The Price Is Right: The Barker Era ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/thepriceisrightthebarkerera.png
 PRIME|THE REAL HOUSEWIVES ᴿᴬᵂ|The Real Housewives ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4e3d03d5a675a283.png
 PRIME|THE STAND-UP CHANNEL ᴿᴬᵂ|The Stand-Up Channel ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919838.png
 PRIME|THE WALKING DEAD UNIVERSE ᴿᴬᵂ|The Walking Dead Universe ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b9e1ac9469da78c2.png
@@ -2862,13 +2862,13 @@ PRIME|TNT SPORTS 2 ᴿᴬᵂ|Tnt Sports 2 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.git
 PRIME|TNT SPORTS 3 ᴿᴬᵂ|Tnt Sports 3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6652001898026a13.png
 PRIME|TNT SPORTS 4 ᴿᴬᵂ|Tnt Sports 4 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b7d43522f0273e0c.png
 PRIME|TOP CHEF VAULT ᴿᴬᵂ|Top Chef Vault ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919823.png
-PRIME|TOP CHEF ᴿᴬᵂ|Top Chef ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920563.png
+PRIME|TOP CHEF ᴿᴬᵂ|Top Chef ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/topchef.png
 PRIME|TOP FILME ᴿᴬᵂ|Top Filme ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1c62d622d561d182.png
 PRIME|TOP GEAR ᴿᴬᵂ|Top Gear ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/11e4275a84c53952.png
 PRIME|TOP SCI-FI ᴿᴬᵂ|Top Sci-Fi ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929330.png
 PRIME|TOP TRUE CRIME ᴿᴬᵂ|Top True Crime ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e46fe94c9e17565.png
 PRIME|TORQUE ᴿᴬᵂ|Torque ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919821.png
-PRIME|TRAILER PARK BOYS ᴿᴬᵂ|Trailer Park Boys ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919820.png
+PRIME|TRAILER PARK BOYS ᴿᴬᵂ|Trailer Park Boys ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/trailerparkboys.png
 PRIME|TRANSFORMERS ᴿᴬᵂ|Transformers ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919819.png
 PRIME|TRITON POKER ᴿᴬᵂ|Triton Poker ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919816.png
 PRIME|TRUE CRIME & SCANDALS ᴿᴬᵂ|True Crime & Scandals ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919814.png
@@ -2883,7 +2883,7 @@ PRIME|U&LAUGHS ᴿᴬᵂ|U&Laughs ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/p
 PRIME|U&REAL HEROES ᴿᴬᵂ|U&Real Heroes ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UK/1920814.png
 PRIME|U&THE PAST ᴿᴬᵂ|U&The Past ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UK/1920813.png
 PRIME|U&TRANSPORT ᴿᴬᵂ|U&Transport ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UK/1920812.png
-PRIME|UNBEATEN ᴿᴬᵂ|Unbeaten ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919799.png
+PRIME|UNBEATEN ᴿᴬᵂ|Unbeaten ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/unbeaten.png
 PRIME|UNIQUE LIVES ᴿᴬᵂ|Unique Lives ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919798.png
 PRIME|UNIVERSAL CRIME ᴿᴬᵂ|Universal Crime ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0542ba91b2efba87.png
 PRIME|UNIVERSAL MOVIES ᴿᴬᵂ|Universal Movies ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31cae0e95fcabab0.png
@@ -3115,7 +3115,7 @@ RS|NICKTOONS|Nicktoons ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-
 RS|NOVA M FHD|Nova M Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80afecf8d46afe94.png
 RS|NOVA S|Nova S ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80afecf8d46afe94.png
 RS|NOVA S HD|Nova S Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80afecf8d46afe94.png
-RS|NOVA SPORT|Nova Sport ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EXYU/NOVASPORT.png
+RS|NOVA SPORT|Nova Sport ᴸⁱᵛᵉ|https://logo.m3uassets.com/novasport.png
 RS|NOVI PAZAR|Novi Pazar ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/65de1b84c7b0934f.png
 RS|NOVOSADSKA TV ⱽᴵᴾ ᴿᴬᵂ|Novosadska Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8835c356c830541.png
 RS|PALMA PLUS|Palma Plus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ef2fd4211fcc42cb.png
@@ -3317,7 +3317,7 @@ RS|TV LAV PLUS ⱽᴵᴾ ᴿᴬᵂ|Tv Lav Plus ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|
 RS|TV LESKOVAC|Tv Leskovac ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bdec67268f6738a5.png
 RS|TV MOST ⱽᴵᴾ ᴿᴬᵂ|Tv Most ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/81facbfbb7ac15c9.png
 RS|TV PALMA PLUS ⱽᴵᴾ ᴿᴬᵂ|Tv Palma Plus ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b638bfd84158e704.png
-RS|TV PARTIZAN ⱽᴵᴾ ᴿᴬᵂ|Tv Partizan ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/PARTIZAN.png
+RS|TV PARTIZAN ⱽᴵᴾ ᴿᴬᵂ|Tv Partizan ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/tvpartizan.png
 RS|TV TANJUG ⱽᴵᴾ ᴿᴬᵂ|Tv Tanjug ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f878efb83063f84a.png
 RS|TV TRSTENIK ⱽᴵᴾ ᴿᴬᵂ|Tv Trstenik ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8bbbb855569d88f0.png
 RS|TV1000|Tv1000 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/750e0a679ebb908d.png
@@ -3503,19 +3503,19 @@ TUBI|REELZ FAMOUS & INFAMOUS ᴿᴬᵂ|Reelz Famous & Infamous ᴿᴬᵂ ᴸⁱ�
 TUBI|SCRIPPS NEWS ᴿᴬᵂ|Scripps News ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/323553b064403bfb.png
 TUBI|SWEET ESCAPES ᴿᴬᵂ|Sweet Escapes ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919898.png
 TUBI|THE BOB ROSS CHANNEL ᴿᴬᵂ|The Bob Ross Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6c04f0b95b9e2d57.png
-TUBI|THE CAROL BURNETT SHOW ᴿᴬᵂ|The Carol Burnett Show ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924228.png
+TUBI|THE CAROL BURNETT SHOW ᴿᴬᵂ|The Carol Burnett Show ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/thecarolburnettshow.png
 TUBI|THE JACK HANNA CHANNEL ᴿᴬᵂ|The Jack Hanna Channel ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924224.png
 TUBI|THE JOHNNY CARSON SHOW ᴿᴬᵂ|The Johnny Carson Show ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d43f698f1648ee.png
 TUBI|THE MASKED SINGER ᴿᴬᵂ|The Masked Singer ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9e8a1dc365788698.png
 TUBI|THEGRIO ᴿᴬᵂ|Thegrio ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/49f6968ecd00b65f.png
 TUBI|TMZ ᴿᴬᵂ|Tmz ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f31a69ae5b88b19.png
-TUBI|TODAY ALL DAY ᴿᴬᵂ|Today All Day ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924219.png
-TUBI|TOP GEAR ᴿᴬᵂ|Top Gear ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924218.png
+TUBI|TODAY ALL DAY ᴿᴬᵂ|Today All Day ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/todayallday.png
+TUBI|TOP GEAR ᴿᴬᵂ|Top Gear ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/topgear.png
 TUBI|TORQUE ᴿᴬᵂ|Torque ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924217.png
 TUBI|TOTAL CRIME ᴿᴬᵂ|Total Crime ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0542ba91b2efba87.png
-TUBI|TRAVEL + ADVENTURE ᴿᴬᵂ|Travel + Adventure ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924215.png
+TUBI|TRAVEL + ADVENTURE ᴿᴬᵂ|Travel + Adventure ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/traveladventure.png
 TUBI|TV ONE CRIME & JUSTICE ᴿᴬᵂ|Tv One Crime & Justice ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924213.png
-TUBI|UFC ᴿᴬᵂ|Ufc ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924212.png
+TUBI|UFC ᴿᴬᵂ|Ufc ᴿᴬᵂ ᴸⁱᵛᵉ|https://logo.m3uassets.com/ufc.png
 TUBI|UNIQUE LIVES ᴿᴬᵂ|Unique Lives ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1924211.png
 TUBI|UNSOLVED MYSTERIES ᴿᴬᵂ|Unsolved Mysteries ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a630c8e147b63bbf.png
 TUBI|UNXPLAINED ZONE ᴿᴬᵂ|Unxplained Zone ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/96ae733483e23f46.png
@@ -3544,12 +3544,12 @@ FREEVIEW:GB|24/7  MR BEAN|http://103.176.90.95/images/559543.png
 FREEVIEW:GB|24/7  THRILLER MOVIES|http://103.176.90.95/images/559549.png
 FREEVIEW:GB|24/7 AL PACINO|http://103.176.90.95/images/478576.png
 FREEVIEW:GB|24/7 ARCHER|http://103.176.90.95/images/559558.png
-FREEVIEW:GB|24/7 ARNOLD SCHWARZENEGGER|http://103.176.90.95/images/478577.png
-FREEVIEW:GB|24/7 BACK TO THE FUTURE|http://103.176.90.95/images/559561.png
+FREEVIEW:GB|24/7 ARNOLD SCHWARZENEGGER|https://logo.m3uassets.com/247arnoldschwarzenegger.png
+FREEVIEW:GB|24/7 BACK TO THE FUTURE|https://logo.m3uassets.com/247backtothefuture.png
 FREEVIEW:GB|24/7 BATMAN MOVIES|http://103.176.90.95/images/478579.png
 FREEVIEW:GB|24/7 BILLY THE EXTERMINATOR|http://103.176.90.95/images/478592.png
 FREEVIEW:GB|24/7 BLADE MOVIES|http://103.176.90.95/images/559562.png
-FREEVIEW:GB|24/7 BONANZA|http://103.176.90.95/images/478595.png
+FREEVIEW:GB|24/7 BONANZA|https://logo.m3uassets.com/247bonanza.png
 FREEVIEW:GB|24/7 BRUCE LEE MOVIES|http://103.176.90.95/images/559547.png
 FREEVIEW:GB|24/7 CHAPPELLE'S SHOW|http://103.176.90.95/images/478603.png
 FREEVIEW:GB|24/7 CRIME MOVIES|http://103.176.90.95/images/559552.png
@@ -3558,50 +3558,50 @@ FREEVIEW:GB|24/7 DEGRASSI JUNIOR HIGH|http://103.176.90.95/images/478571.png
 FREEVIEW:GB|24/7 DIE HARD|http://103.176.90.95/images/559587.png
 FREEVIEW:GB|24/7 FAMILY MOVIES|http://103.176.90.95/images/559550.png
 FREEVIEW:GB|24/7 FIFTY SHADES|http://103.176.90.95/images/559563.png
-FREEVIEW:GB|24/7 FRIDAY THE 13TH|http://103.176.90.95/images/559569.png
+FREEVIEW:GB|24/7 FRIDAY THE 13TH|https://logo.m3uassets.com/247fridaythe13th.png
 FREEVIEW:GB|24/7 GREASE|http://103.176.90.95/images/559564.png
-FREEVIEW:GB|24/7 HARRY POTTER|http://103.176.90.95/images/559565.png
+FREEVIEW:GB|24/7 HARRY POTTER|https://logo.m3uassets.com/247harrypotter.png
 FREEVIEW:GB|24/7 HORROR MOVIES|http://103.176.90.95/images/559553.png
 FREEVIEW:GB|24/7 INDIANA JONES|http://103.176.90.95/images/559566.png
 FREEVIEW:GB|24/7 JAMES BOND|http://103.176.90.95/images/559542.png
 FREEVIEW:GB|24/7 JASON BOURNE|http://103.176.90.95/images/559544.png
 FREEVIEW:GB|24/7 JCVD MOVIES|http://103.176.90.95/images/559567.png
 FREEVIEW:GB|24/7 JIM CARREY|http://103.176.90.95/images/559545.png
-FREEVIEW:GB|24/7 JURASSIC PARK|http://103.176.90.95/images/559568.png
+FREEVIEW:GB|24/7 JURASSIC PARK|https://logo.m3uassets.com/247jurassicpark.png
 FREEVIEW:GB|24/7 KING OF THE HILL|http://103.176.90.95/images/559560.png
 FREEVIEW:GB|24/7 LETTERKENNY|http://103.176.90.95/images/559557.png
 FREEVIEW:GB|24/7 LORD OF THE RINGS|http://103.176.90.95/images/559570.png
 FREEVIEW:GB|24/7 MATRIX|http://103.176.90.95/images/559571.png
 FREEVIEW:GB|24/7 MEN IN BLACK|http://103.176.90.95/images/559572.png
-FREEVIEW:GB|24/7 NIGHT COURT|http://103.176.90.95/images/559555.png
-FREEVIEW:GB|24/7 PIRATES OF THE CARIBBEAN|http://103.176.90.95/images/559574.png
+FREEVIEW:GB|24/7 NIGHT COURT|https://logo.m3uassets.com/247nightcourt.png
+FREEVIEW:GB|24/7 PIRATES OF THE CARIBBEAN|https://logo.m3uassets.com/247piratesofthecaribbean.png
 FREEVIEW:GB|24/7 PLANET OF THE APES|http://103.176.90.95/images/559575.png
 FREEVIEW:GB|24/7 POLICE ACADEMY|http://103.176.90.95/images/559577.png
 FREEVIEW:GB|24/7 PREDATOR/ALIEN MOVIES|http://103.176.90.95/images/559576.png
 FREEVIEW:GB|24/7 QUENTIN TARANTINO MOVIES|http://103.176.90.95/images/559582.png
 FREEVIEW:GB|24/7 RAMBO|http://103.176.90.95/images/559546.png
-FREEVIEW:GB|24/7 RICK AND MORTY|http://103.176.90.95/images/559559.png
+FREEVIEW:GB|24/7 RICK AND MORTY|https://logo.m3uassets.com/247rickandmorty.png
 FREEVIEW:GB|24/7 ROCKY|http://103.176.90.95/images/559578.png
 FREEVIEW:GB|24/7 ROMANCE MOVIES|http://103.176.90.95/images/559579.png
-FREEVIEW:GB|24/7 ROSEANNE|http://103.176.90.95/images/559556.png
+FREEVIEW:GB|24/7 ROSEANNE|https://logo.m3uassets.com/247roseanne.png
 FREEVIEW:GB|24/7 RUSH HOUR|http://103.176.90.95/images/559580.png
 FREEVIEW:GB|24/7 SCIFI MOVIES|http://103.176.90.95/images/559581.png
 FREEVIEW:GB|24/7 SHE-RA: PRINCESS OF POWER|http://103.176.90.95/images/478533.png
 FREEVIEW:GB|24/7 SIMPSONS|http://103.176.90.95/images/478535.png
 FREEVIEW:GB|24/7 SIX MILLION DOLLAR MAN|http://103.176.90.95/images/478536.png
-FREEVIEW:GB|24/7 SPONGEBOB SQUAREPANTS|http://103.176.90.95/images/559554.png
+FREEVIEW:GB|24/7 SPONGEBOB SQUAREPANTS|https://logo.m3uassets.com/247spongebobsquarepants.png
 FREEVIEW:GB|24/7 SPORTS MOVIES|http://103.176.90.95/images/559583.png
 FREEVIEW:GB|24/7 STAR TREK MOVIES|http://103.176.90.95/images/559584.png
-FREEVIEW:GB|24/7 STAR WARS|http://103.176.90.95/images/559585.png
+FREEVIEW:GB|24/7 STAR WARS|https://logo.m3uassets.com/247starwars.png
 FREEVIEW:GB|24/7 STEVEN SEAGAL|http://103.176.90.95/images/478620.png
 FREEVIEW:GB|24/7 TEXAS CHAINSAW MOVIES|http://103.176.90.95/images/559573.png
-FREEVIEW:GB|24/7 THE ANDY GRIFFITH SHOW|http://103.176.90.95/images/478549.png
+FREEVIEW:GB|24/7 THE ANDY GRIFFITH SHOW|https://logo.m3uassets.com/247theandygriffithshow.png
 FREEVIEW:GB|24/7 THE BEVERLY HILLBILLIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4a62a0328639e635.png
 FREEVIEW:GB|24/7 THE BIONIC WOMAN|http://103.176.90.95/images/478552.png
 FREEVIEW:GB|24/7 THE BOB NEWHART SHOW|http://103.176.90.95/images/478554.png
 FREEVIEW:GB|24/7 THE CAROL BURNETT SHOW|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6847b63246d085c3.png
 FREEVIEW:GB|24/7 THE LOVE BOAT|http://103.176.90.95/images/478563.png
-FREEVIEW:GB|24/7 THE NANNY|http://103.176.90.95/images/478565.png
+FREEVIEW:GB|24/7 THE NANNY|https://logo.m3uassets.com/247thenanny.png
 FREEVIEW:GB|24/7 WILL FERRELL MOVIES|http://103.176.90.95/images/478627.png
 FREEVIEW:GB|5 ACTION HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4eecb027d254b7c8.png
 FREEVIEW:GB|5 SELECT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1e331820e707374.png
@@ -3668,7 +3668,7 @@ FREEVIEW:GB|AMAZON UK EVENT 6|
 FREEVIEW:GB|AMAZON UK EVENT 7|
 FREEVIEW:GB|AMAZON UK EVENT 8|
 FREEVIEW:GB|AMAZON UK EVENT 9|
-FREEVIEW:GB|AMC FHD|http://51.158.145.100/picons/logos/UK/30583.png
+FREEVIEW:GB|AMC FHD|https://logo.m3uassets.com/amc.png
 FREEVIEW:GB|ANIMAL PLANET FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 FREEVIEW:GB|ANIMAL PLNT +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/586cb7a91d353622.png
 FREEVIEW:GB|APPLE TV+ SERIES 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5b7b87291ec4a71.png
@@ -3694,15 +3694,15 @@ FREEVIEW:GB|BBC 1 HEVC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 FREEVIEW:GB|BBC 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f26c314ec2cc1996.png
 FREEVIEW:GB|BBC 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f26c314ec2cc1996.png
 FREEVIEW:GB|BBC 2 HEVC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f26c314ec2cc1996.png
-FREEVIEW:GB|BBC 3 / CBBC HD|http://51.158.145.100/picons/logos/UK/45336.png
-FREEVIEW:GB|BBC 3 / CBBC HEVC|http://51.158.145.100/picons/logos/UK/111550.png
+FREEVIEW:GB|BBC 3 / CBBC HD|https://logo.m3uassets.com/bbc3cbbc.png
+FREEVIEW:GB|BBC 3 / CBBC HEVC|https://logo.m3uassets.com/bbc3cbbc.png
 FREEVIEW:GB|BBC 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f2b09c6b73021d1.png
 FREEVIEW:GB|BBC 4 / CBEEBIES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d254711e6bd1cc7.png
 FREEVIEW:GB|BBC 4 / CBEEBIES HEVC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d254711e6bd1cc7.png
 FREEVIEW:GB|BBC BBC WORLD SERVICE|http://103.176.90.95/images/735291.png
-FREEVIEW:GB|BBC BRIT|http://51.158.145.100/picons/logos/UK/1781183.png
-FREEVIEW:GB|BBC EARTH HD|http://51.158.145.100/picons/logos/UK/1556637.png
-FREEVIEW:GB|BBC LIFESTYLE HD|http://51.158.145.100/picons/logos/UK/1885546.png
+FREEVIEW:GB|BBC BRIT|https://logo.m3uassets.com/bbcbrit.png
+FREEVIEW:GB|BBC EARTH HD|https://logo.m3uassets.com/bbcearth.png
+FREEVIEW:GB|BBC LIFESTYLE HD|https://logo.m3uassets.com/bbclifestyle.png
 FREEVIEW:GB|BBC NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ae5740abd8bdde5b.png
 FREEVIEW:GB|BBC NEWS HEVC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ae5740abd8bdde5b.png
 FREEVIEW:GB|BBC NEWS HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ae5740abd8bdde5b.png
@@ -3732,14 +3732,14 @@ FREEVIEW:GB|BBC ONE YK LI|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 FREEVIEW:GB|BBC ONE YORKS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/88ba55457bd90dd2.png
 FREEVIEW:GB|BBC ONE YORKSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ca9f49008318dae7.png
 FREEVIEW:GB|BBC PARLIAMENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5a1c09e1785d1079.png
-FREEVIEW:GB|BBC RADIO 1|http://103.176.90.95/images/735281.png
-FREEVIEW:GB|BBC RADIO 1XTRA|http://103.176.90.95/images/735288.png
-FREEVIEW:GB|BBC RADIO 2|http://103.176.90.95/images/735282.png
-FREEVIEW:GB|BBC RADIO 3|http://103.176.90.95/images/735283.png
-FREEVIEW:GB|BBC RADIO 4|http://103.176.90.95/images/735284.png
-FREEVIEW:GB|BBC RADIO 4 EXTRA|http://103.176.90.95/images/735289.png
+FREEVIEW:GB|BBC RADIO 1|https://logo.m3uassets.com/bbcradio1.png
+FREEVIEW:GB|BBC RADIO 1XTRA|https://logo.m3uassets.com/bbcradio1xtra.png
+FREEVIEW:GB|BBC RADIO 2|https://logo.m3uassets.com/bbcradio2.png
+FREEVIEW:GB|BBC RADIO 3|https://logo.m3uassets.com/bbcradio3.png
+FREEVIEW:GB|BBC RADIO 4|https://logo.m3uassets.com/bbcradio4.png
+FREEVIEW:GB|BBC RADIO 4 EXTRA|https://logo.m3uassets.com/bbcradio4extra.png
 FREEVIEW:GB|BBC RADIO 5 LIVE (NON-UK)|http://103.176.90.95/images/735286.png
-FREEVIEW:GB|BBC RADIO 6 MUSIC|http://103.176.90.95/images/735287.png
+FREEVIEW:GB|BBC RADIO 6 MUSIC|https://logo.m3uassets.com/bbcradio6music.png
 FREEVIEW:GB|BBC SCOTLAND HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b139c52fe4e8d8d.png
 FREEVIEW:GB|BBC SCOTLAND HEVC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b139c52fe4e8d8d.png
 FREEVIEW:GB|BBC STREAM 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c926a228affa860d.png
@@ -3841,13 +3841,13 @@ FREEVIEW:GB|CHANNEL 4 +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|CHANNEL 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 4 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 4 LONDON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
-FREEVIEW:GB|CHANNEL 4 MIDLANDS|http://51.158.145.100/picons/logos/UK/229498.png
+FREEVIEW:GB|CHANNEL 4 MIDLANDS|https://logo.m3uassets.com/channel4midlands.png
 FREEVIEW:GB|CHANNEL 4 SOUTH & EAST|http://51.158.145.100/picons/logos/UK/229495.png
 FREEVIEW:GB|CHANNEL 4SEVEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 5 +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2acf59375003fb59.png
 FREEVIEW:GB|CHANNEL 5 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2acf59375003fb59.png
 FREEVIEW:GB|CHANNEL 5 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2acf59375003fb59.png
-FREEVIEW:GB|CHELSEA TV HD|http://51.158.145.100/picons/logos/UKNEW/CHELSEA.png
+FREEVIEW:GB|CHELSEA TV HD|https://logo.m3uassets.com/chelseatv.png
 FREEVIEW:GB|CHU CHU TV 1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
 FREEVIEW:GB|CHU CHU TV 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
 FREEVIEW:GB|CHU CHU TV 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
@@ -3859,7 +3859,7 @@ FREEVIEW:GB|CHU CHU TV 7 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 FREEVIEW:GB|CHU CHU TV 8 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
 FREEVIEW:GB|CHU CHU TV 9 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4336807100fb1d8d.png
 FREEVIEW:GB|CITV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/40e2ffcc4d984973.png
-FREEVIEW:GB|CLASSIC FM|http://103.176.90.95/images/735292.png
+FREEVIEW:GB|CLASSIC FM|https://logo.m3uassets.com/classicfm.png
 FREEVIEW:GB|CLUBLAND TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4642f8e5f24b6c4c.png
 FREEVIEW:GB|CNBC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/865c56b6a660870a.png
 FREEVIEW:GB|CNN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/046f50d9235eb679.png
@@ -4081,8 +4081,8 @@ FREEVIEW:GB|HISTORY 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 FREEVIEW:GB|HISTORY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/94856e2a9cf7898f.png
 FREEVIEW:GB|HIT LIST - DIRECT ᴴᴰ|http://51.158.145.100/picons/logos/UK/1921459.png
 FREEVIEW:GB|HOBBY MAKER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fed9c5a03d4e269d.png
-FREEVIEW:GB|HORROR CHANNEL|http://51.158.145.100/picons/logos/UK/45272.png
-FREEVIEW:GB|HORROR CHANNEL +1|http://51.158.145.100/picons/logos/UK/45271.png
+FREEVIEW:GB|HORROR CHANNEL|https://logo.m3uassets.com/horrorchannel.png
+FREEVIEW:GB|HORROR CHANNEL +1|https://logo.m3uassets.com/horrorchannel1.png
 FREEVIEW:GB|HORROR XTRA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/172a53f56536a64e.png
 FREEVIEW:GB|HORROR XTRA +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/172a53f56536a64e.png
 FREEVIEW:GB|HUB PREMIER 1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c4387a621bfa28dd.png
@@ -4182,7 +4182,7 @@ FREEVIEW:GB|MATCHROOM EVENTS 13:|https://raw.githubusercontent.com/babo20094-rgb
 FREEVIEW:GB|MATCHROOM EVENTS 14:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09c3b3ba4b359abe.png
 FREEVIEW:GB|MATCHROOM EVENTS 15:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09c3b3ba4b359abe.png
 FREEVIEW:GB|MC-TEEN BEATS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1e0c33ab17e96bcd.png
-FREEVIEW:GB|MC-THROWBACK JAMS|http://51.158.145.100/picons/logos/UKNEW/musicchoice.png
+FREEVIEW:GB|MC-THROWBACK JAMS|https://logo.m3uassets.com/mcthrowbackjams.png
 FREEVIEW:GB|MIRCHI RADIO|http://103.176.90.95/images/656285.png
 FREEVIEW:GB|MORE 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/01f725aab2704076.png
 FREEVIEW:GB|MORE 4 +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/01f725aab2704076.png
@@ -4193,11 +4193,11 @@ FREEVIEW:GB|MORE4 HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 FREEVIEW:GB|MOVIES 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2dee55352eed9d6f.png
 FREEVIEW:GB|MOVIES 24 +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09e2fb91029f7a4a.png
 FREEVIEW:GB|MTV 90S|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/12282cd7b2d1f0eb.png
-FREEVIEW:GB|MTV BASE|http://51.158.145.100/picons/logos/UKNEW/MTVBASE.png
+FREEVIEW:GB|MTV BASE|https://logo.m3uassets.com/mtvbase.png
 FREEVIEW:GB|MTV CLASSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6946beb1faa7ec18.png
 FREEVIEW:GB|MTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
 FREEVIEW:GB|MTV HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
-FREEVIEW:GB|MTV LIVE FHD|http://51.158.145.100/picons/logos/UKNEW/MTVLIVE.png
+FREEVIEW:GB|MTV LIVE FHD|https://logo.m3uassets.com/mtvlive.png
 FREEVIEW:GB|MUSIC CHOICE MAX - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09272c174aae9ed8.png
 FREEVIEW:GB|MUSICA URBANA - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f0d2ac33e5d13932.png
 FREEVIEW:GB|MUTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fe369cfe84a82817.png
@@ -4296,7 +4296,7 @@ FREEVIEW:GB|PRAISE TV NETWORK|http://51.158.145.100/picons/logos/UK/1093281.png
 FREEVIEW:GB|PREMIER SPORT 1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10a281011739d7b9.png
 FREEVIEW:GB|PREMIER SPORT 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10a281011739d7b9.png
 FREEVIEW:GB|PREMIER SPORT LALIGA TV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/75957a6c263e4696.png
-FREEVIEW:GB|PREMIER SPORT LALIGA TV HD|http://51.158.145.100/picons/logos/UKNEW/PREMIERSPORTLALIGA.png
+FREEVIEW:GB|PREMIER SPORT LALIGA TV HD|https://logo.m3uassets.com/premiersportlaligatv.png
 FREEVIEW:GB|PREMIER SPORTS 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10a281011739d7b9.png
 FREEVIEW:GB|PREMIER SPORTS 1 IRELAND HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10a281011739d7b9.png
 FREEVIEW:GB|PREMIER SPORTS 1 IRELAND HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10a281011739d7b9.png
@@ -4363,7 +4363,7 @@ FREEVIEW:GB|REWOUND RADIO|http://103.176.90.95/images/735298.png
 FREEVIEW:GB|RT AMERICA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/257315be6ce948df.png
 FREEVIEW:GB|RT NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0da8e523cb89029d.png
 FREEVIEW:GB|RTE JR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8452fbcdedef37a.png
-FREEVIEW:GB|RTE ONE HD|http://51.158.145.100/picons/logos/UK/1014308.png
+FREEVIEW:GB|RTE ONE HD|https://logo.m3uassets.com/rteone.png
 FREEVIEW:GB|S4C|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/34a31131569088cf.png
 FREEVIEW:GB|SABRAS RADION LONDON|http://103.176.90.95/images/656284.png
 FREEVIEW:GB|SERIEA HIGHLIGHTS ᴴᴰ|http://51.158.145.100/picons/logos/UK/1694248.png
@@ -4476,7 +4476,7 @@ SKY:GB|SKY SPORTS + FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 SKY:GB|SKY SPORTS + HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cc29f90e41222b3c.png
 SKY:GB|SKY SPORTS ACTION|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5ff7147a145f8c7.png
 SKY:GB|SKY SPORTS ACTION FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5ff7147a145f8c7.png
-SKY:GB|SKY SPORTS ACTION HD|http://51.158.145.100/picons/logos/UK/1905865.png
+SKY:GB|SKY SPORTS ACTION HD|https://logo.m3uassets.com/skysportsaction.png
 SKY:GB|SKY SPORTS ACTION HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5ff7147a145f8c7.png
 SKY:GB|SKY SPORTS ACTION HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5ff7147a145f8c7.png
 SKY:GB|SKY SPORTS ARENA HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cc29f90e41222b3c.png
@@ -4627,7 +4627,7 @@ SKY:GB|SKYMIX SERIES INFO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 FREEVIEW:GB|SOFT ROCK - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c779520bb52c9386.png
 FREEVIEW:GB|SONY CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5aa294634bd005cb.png
 FREEVIEW:GB|SONY LIFE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bbaf54bdf5ee0e41.png
-FREEVIEW:GB|SONY MOVIES ACTION|http://51.158.145.100/picons/logos/UKNEW/SONYMOVIESACTION.png
+FREEVIEW:GB|SONY MOVIES ACTION|https://logo.m3uassets.com/sonymoviesaction.png
 FREEVIEW:GB|SPFL 1 CELTIC TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21fb198ac807490a.png
 FREEVIEW:GB|SPFL 10 DUNDEE UTD TV|http://51.158.145.100/picons/logos/UKNEW/DUNDEEUTD.png
 FREEVIEW:GB|SPFL 12 HAMILTON TV|http://51.158.145.100/picons/logos/UKNEW/HAMILTON.png
@@ -4671,7 +4671,7 @@ FREEVIEW:GB|SYFY HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|TALKING PICTURES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd4e4282294c911e.png
 FREEVIEW:GB|TEEN BEATS - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/34d4cba57808b632.png
 FREEVIEW:GB|TG4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a8898613204ae8e3.png
-FREEVIEW:GB|THAT'S TV|http://51.158.145.100/picons/logos/UK/1013289.png
+FREEVIEW:GB|THAT'S TV|https://logo.m3uassets.com/thatstv.png
 FREEVIEW:GB|THATS TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebdde02168decad5.png
 FREEVIEW:GB|THROWBACK JAMZ - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ac884088bc2e5037.png
 FREEVIEW:GB|TIMES RADIO|http://103.176.90.95/images/1128482.png
@@ -4711,7 +4711,7 @@ FREEVIEW:GB|TODAY'S COUNTRY: CMA AWARDS - DIRECT ᴴᴰ|http://51.158.145.100/pi
 FREEVIEW:GB|TODDLER TUNES - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/62645b404c7e1810.png
 FREEVIEW:GB|TOGETHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1180ad944889a05.png
 FREEVIEW:GB|TRACE URBAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e0d34f2187fdcb1.png
-FREEVIEW:GB|TRAVEL CHANNEL|http://51.158.145.100/picons/logos/UK/79718.png
+FREEVIEW:GB|TRAVEL CHANNEL|https://logo.m3uassets.com/travelchannel.png
 FREEVIEW:GB|TROPICALES - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4680206124c5f6af.png
 FREEVIEW:GB|TRT WORLD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a81964f397ce44f6.png
 FREEVIEW:GB|TRUE CRIME|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/047d96c1033bb1f4.png
@@ -4723,13 +4723,13 @@ FREEVIEW:GB|U&W HD|http://51.158.145.100/picons/logos/UK/1014331.png
 FREEVIEW:GB|UFC TV (Events2)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
 UK|UK| BEIN SPORTS ASIA 2|Uk| Bein Sports Asia 2 ᴸⁱᵛᵉ|
 FREEVIEW:GB|UTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a6801908317cbdfc.png
-FREEVIEW:GB|VH1|http://51.158.145.100/picons/logos/UKNEW/VH1.png
+FREEVIEW:GB|VH1|https://logo.m3uassets.com/vh1.png
 FREEVIEW:GB|VIAPLAY 1 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
 FREEVIEW:GB|VIAPLAY 1 HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
 FREEVIEW:GB|VIAPLAY 2 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
 FREEVIEW:GB|VIAPLAY 2 HEVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
 FREEVIEW:GB|VIAPLAY XTRA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
-FREEVIEW:GB|VIRGIN 1 HEVC FHD|http://51.158.145.100/picons/logos/UK/1458553.png
+FREEVIEW:GB|VIRGIN 1 HEVC FHD|https://logo.m3uassets.com/virgin1.png
 FREEVIEW:GB|VIRGIN 2 HEVC FHD|http://51.158.145.100/picons/logos/UK/1458554.png
 FREEVIEW:GB|W HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/78fb161961433b9a.png
 FREEVIEW:GB|W! - WATCH FHD|http://51.158.145.100/picons/logos/UK/894387.png
@@ -4792,19 +4792,19 @@ FREEVIEW:GB|YESTERDAY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 FREEVIEW:GB|YESTERDAY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/069c760118b29aae.png
 
 ##### UK-BBCI (aus Playlist) #####
-FREEVIEW:GB|BBC ALBA|http://51.158.145.100/picons/logos/UK/1906073.png
-FREEVIEW:GB|BBC FOUR|http://51.158.145.100/picons/logos/UK/1906072.png
-FREEVIEW:GB|BBC NEWS|http://51.158.145.100/picons/logos/UK/1906071.png
-FREEVIEW:GB|BBC ONE CHANNEL ISLANDS|http://51.158.145.100/picons/logos/UK/1906070.png
+FREEVIEW:GB|BBC ALBA|https://logo.m3uassets.com/bbcalba.png
+FREEVIEW:GB|BBC FOUR|https://logo.m3uassets.com/bbcfour.png
+FREEVIEW:GB|BBC NEWS|https://logo.m3uassets.com/bbcnews.png
+FREEVIEW:GB|BBC ONE CHANNEL ISLANDS|https://logo.m3uassets.com/bbconechannelislands.png
 FREEVIEW:GB|BBC ONE EAST YORKSHIRE & LINCOLNSHIRE|http://51.158.145.100/picons/logos/UK/1906067.png
-FREEVIEW:GB|BBC ONE NI|http://51.158.145.100/picons/logos/UK/1906065.png
+FREEVIEW:GB|BBC ONE NI|https://logo.m3uassets.com/bbconeni.png
 FREEVIEW:GB|BBC ONE NORTH EAST & CUMBRIA|http://51.158.145.100/picons/logos/UK/1906064.png
-FREEVIEW:GB|BBC ONE SCOTLAND|http://51.158.145.100/picons/logos/UK/1906062.png
-FREEVIEW:GB|BBC ONE SOUTH|http://51.158.145.100/picons/logos/UK/1906061.png
+FREEVIEW:GB|BBC ONE SCOTLAND|https://logo.m3uassets.com/bbconescotland.png
+FREEVIEW:GB|BBC ONE SOUTH|https://logo.m3uassets.com/bbconesouth.png
 FREEVIEW:GB|BBC RADIO 1 DANCE|http://51.158.145.100/picons/logos/UK/1906051.png
 FREEVIEW:GB|BBC RADIO 3 UNWIND|http://51.158.145.100/picons/logos/UK/1906047.png
-FREEVIEW:GB|BBC RADIO 5 LIVE|http://51.158.145.100/picons/logos/UK/1906044.png
-FREEVIEW:GB|BBC RADIO 5 LIVE SPORTS EXTRA|http://51.158.145.100/picons/logos/UK/1906043.png
+FREEVIEW:GB|BBC RADIO 5 LIVE|https://logo.m3uassets.com/bbcradio5live.png
+FREEVIEW:GB|BBC RADIO 5 LIVE SPORTS EXTRA|https://logo.m3uassets.com/bbcradio5livesportsextra.png
 FREEVIEW:GB|BBC RADIO ASIAN NETWORK|http://51.158.145.100/picons/logos/UK/1906041.png
 FREEVIEW:GB|BBC RADIO BERKSHIRE|http://51.158.145.100/picons/logos/UK/1906040.png
 FREEVIEW:GB|BBC RADIO BRISTOL|http://51.158.145.100/picons/logos/UK/1906039.png
@@ -4812,7 +4812,7 @@ FREEVIEW:GB|BBC RADIO CAMBRIDGE|http://51.158.145.100/picons/logos/UK/1906038.pn
 FREEVIEW:GB|BBC RADIO CORNWALL|http://51.158.145.100/picons/logos/UK/1906037.png
 FREEVIEW:GB|BBC RADIO COVENTRY & WARWICKSHIRE (CWR)|http://51.158.145.100/picons/logos/UK/1906036.png
 FREEVIEW:GB|BBC RADIO CUMBRIA|http://51.158.145.100/picons/logos/UK/1906035.png
-FREEVIEW:GB|BBC RADIO CYMRU|http://51.158.145.100/picons/logos/UK/1906034.png
+FREEVIEW:GB|BBC RADIO CYMRU|https://logo.m3uassets.com/bbcradiocymru.png
 FREEVIEW:GB|BBC RADIO CYMRU 2|http://51.158.145.100/picons/logos/UK/1906033.png
 FREEVIEW:GB|BBC RADIO DERBY|http://51.158.145.100/picons/logos/UK/1906032.png
 FREEVIEW:GB|BBC RADIO DEVON|http://51.158.145.100/picons/logos/UK/1906031.png
@@ -4828,10 +4828,10 @@ FREEVIEW:GB|BBC RADIO LANCASHIRE|http://51.158.145.100/picons/logos/UK/1906022.p
 FREEVIEW:GB|BBC RADIO LEEDS|http://51.158.145.100/picons/logos/UK/1906021.png
 FREEVIEW:GB|BBC RADIO LEICESTER|http://51.158.145.100/picons/logos/UK/1906020.png
 FREEVIEW:GB|BBC RADIO LINCOLNSHIRE|http://51.158.145.100/picons/logos/UK/1906019.png
-FREEVIEW:GB|BBC RADIO LONDON|http://51.158.145.100/picons/logos/UK/1906018.png
+FREEVIEW:GB|BBC RADIO LONDON|https://logo.m3uassets.com/bbcradiolondon.png
 FREEVIEW:GB|BBC RADIO MANCHESTER|http://51.158.145.100/picons/logos/UK/1906017.png
 FREEVIEW:GB|BBC RADIO MERSEYSIDE|http://51.158.145.100/picons/logos/UK/1906016.png
-FREEVIEW:GB|BBC RADIO NAN GAIDHEAL|http://51.158.145.100/picons/logos/UK/1906015.png
+FREEVIEW:GB|BBC RADIO NAN GAIDHEAL|https://logo.m3uassets.com/bbcradionangaidheal.png
 FREEVIEW:GB|BBC RADIO NEWCASTLE|http://51.158.145.100/picons/logos/UK/1906014.png
 FREEVIEW:GB|BBC RADIO NOTTINGHAM|http://51.158.145.100/picons/logos/UK/1906011.png
 FREEVIEW:GB|BBC RADIO ORKNEY|http://51.158.145.100/picons/logos/UK/1906010.png
@@ -4849,93 +4849,93 @@ FREEVIEW:GB|BBC RADIO SURREY|http://51.158.145.100/picons/logos/UK/1905999.png
 FREEVIEW:GB|BBC RADIO SUSSEX|http://51.158.145.100/picons/logos/UK/1905998.png
 FREEVIEW:GB|BBC RADIO TEES|http://51.158.145.100/picons/logos/UK/1905997.png
 FREEVIEW:GB|BBC RADIO THREE COUNTIES|http://51.158.145.100/picons/logos/UK/1905996.png
-FREEVIEW:GB|BBC RADIO ULSTER|http://51.158.145.100/picons/logos/UK/1905995.png
-FREEVIEW:GB|BBC RADIO WALES|http://51.158.145.100/picons/logos/UK/1905994.png
+FREEVIEW:GB|BBC RADIO ULSTER|https://logo.m3uassets.com/bbcradioulster.png
+FREEVIEW:GB|BBC RADIO WALES|https://logo.m3uassets.com/bbcradiowales.png
 FREEVIEW:GB|BBC RADIO WILTSHIRE|http://51.158.145.100/picons/logos/UK/1905993.png
 FREEVIEW:GB|BBC RADIO WM|http://51.158.145.100/picons/logos/UK/1905992.png
 FREEVIEW:GB|BBC RADIO WORLD SERVICE|http://51.158.145.100/picons/logos/UK/1905991.png
 FREEVIEW:GB|BBC RADIO YORK|http://51.158.145.100/picons/logos/UK/1905990.png
-FREEVIEW:GB|BBC RED BUTTON|http://51.158.145.100/picons/logos/UK/1905989.png
-FREEVIEW:GB|BBC RED BUTTON 1|http://51.158.145.100/picons/logos/UK/1905988.png
-FREEVIEW:GB|BBC RED BUTTON 10|http://51.158.145.100/picons/logos/UK/1905987.png
-FREEVIEW:GB|BBC RED BUTTON 11|http://51.158.145.100/picons/logos/UK/1905986.png
-FREEVIEW:GB|BBC RED BUTTON 12|http://51.158.145.100/picons/logos/UK/1905985.png
-FREEVIEW:GB|BBC RED BUTTON 13|http://51.158.145.100/picons/logos/UK/1905984.png
-FREEVIEW:GB|BBC RED BUTTON 14|http://51.158.145.100/picons/logos/UK/1905983.png
-FREEVIEW:GB|BBC RED BUTTON 15|http://51.158.145.100/picons/logos/UK/1905982.png
-FREEVIEW:GB|BBC RED BUTTON 16|http://51.158.145.100/picons/logos/UK/1905981.png
-FREEVIEW:GB|BBC RED BUTTON 17|http://51.158.145.100/picons/logos/UK/1905980.png
-FREEVIEW:GB|BBC RED BUTTON 18|http://51.158.145.100/picons/logos/UK/1905979.png
-FREEVIEW:GB|BBC RED BUTTON 19|http://51.158.145.100/picons/logos/UK/1905978.png
-FREEVIEW:GB|BBC RED BUTTON 2|http://51.158.145.100/picons/logos/UK/1905977.png
-FREEVIEW:GB|BBC RED BUTTON 20|http://51.158.145.100/picons/logos/UK/1905976.png
-FREEVIEW:GB|BBC RED BUTTON 21|http://51.158.145.100/picons/logos/UK/1905975.png
-FREEVIEW:GB|BBC RED BUTTON 22|http://51.158.145.100/picons/logos/UK/1905974.png
-FREEVIEW:GB|BBC RED BUTTON 23|http://51.158.145.100/picons/logos/UK/1905973.png
-FREEVIEW:GB|BBC RED BUTTON 24|http://51.158.145.100/picons/logos/UK/1905972.png
-FREEVIEW:GB|BBC RED BUTTON 3|http://51.158.145.100/picons/logos/UK/1905971.png
-FREEVIEW:GB|BBC RED BUTTON 4|http://51.158.145.100/picons/logos/UK/1905970.png
-FREEVIEW:GB|BBC RED BUTTON 5|http://51.158.145.100/picons/logos/UK/1905969.png
-FREEVIEW:GB|BBC RED BUTTON 6|http://51.158.145.100/picons/logos/UK/1905968.png
-FREEVIEW:GB|BBC RED BUTTON 7|http://51.158.145.100/picons/logos/UK/1905967.png
-FREEVIEW:GB|BBC RED BUTTON 8|http://51.158.145.100/picons/logos/UK/1905966.png
-FREEVIEW:GB|BBC RED BUTTON 9|http://51.158.145.100/picons/logos/UK/1905965.png
-FREEVIEW:GB|BBC SCOTLAND|http://51.158.145.100/picons/logos/UK/1905964.png
-FREEVIEW:GB|BBC THREE|http://51.158.145.100/picons/logos/UK/1905963.png
-FREEVIEW:GB|BBC TWO ENGLAND|http://51.158.145.100/picons/logos/UK/1905962.png
-FREEVIEW:GB|BBC TWO NI|http://51.158.145.100/picons/logos/UK/1905961.png
-FREEVIEW:GB|CBBC|http://51.158.145.100/picons/logos/UK/1905959.png
-FREEVIEW:GB|CBEEBIES|http://51.158.145.100/picons/logos/UK/1905958.png
+FREEVIEW:GB|BBC RED BUTTON|https://logo.m3uassets.com/bbcredbutton.png
+FREEVIEW:GB|BBC RED BUTTON 1|https://logo.m3uassets.com/bbcredbutton1.png
+FREEVIEW:GB|BBC RED BUTTON 10|https://logo.m3uassets.com/bbcredbutton10.png
+FREEVIEW:GB|BBC RED BUTTON 11|https://logo.m3uassets.com/bbcredbutton11.png
+FREEVIEW:GB|BBC RED BUTTON 12|https://logo.m3uassets.com/bbcredbutton12.png
+FREEVIEW:GB|BBC RED BUTTON 13|https://logo.m3uassets.com/bbcredbutton13.png
+FREEVIEW:GB|BBC RED BUTTON 14|https://logo.m3uassets.com/bbcredbutton14.png
+FREEVIEW:GB|BBC RED BUTTON 15|https://logo.m3uassets.com/bbcredbutton15.png
+FREEVIEW:GB|BBC RED BUTTON 16|https://logo.m3uassets.com/bbcredbutton16.png
+FREEVIEW:GB|BBC RED BUTTON 17|https://logo.m3uassets.com/bbcredbutton17.png
+FREEVIEW:GB|BBC RED BUTTON 18|https://logo.m3uassets.com/bbcredbutton18.png
+FREEVIEW:GB|BBC RED BUTTON 19|https://logo.m3uassets.com/bbcredbutton19.png
+FREEVIEW:GB|BBC RED BUTTON 2|https://logo.m3uassets.com/bbcredbutton2.png
+FREEVIEW:GB|BBC RED BUTTON 20|https://logo.m3uassets.com/bbcredbutton20.png
+FREEVIEW:GB|BBC RED BUTTON 21|https://logo.m3uassets.com/bbcredbutton21.png
+FREEVIEW:GB|BBC RED BUTTON 22|https://logo.m3uassets.com/bbcredbutton22.png
+FREEVIEW:GB|BBC RED BUTTON 23|https://logo.m3uassets.com/bbcredbutton23.png
+FREEVIEW:GB|BBC RED BUTTON 24|https://logo.m3uassets.com/bbcredbutton24.png
+FREEVIEW:GB|BBC RED BUTTON 3|https://logo.m3uassets.com/bbcredbutton3.png
+FREEVIEW:GB|BBC RED BUTTON 4|https://logo.m3uassets.com/bbcredbutton4.png
+FREEVIEW:GB|BBC RED BUTTON 5|https://logo.m3uassets.com/bbcredbutton5.png
+FREEVIEW:GB|BBC RED BUTTON 6|https://logo.m3uassets.com/bbcredbutton6.png
+FREEVIEW:GB|BBC RED BUTTON 7|https://logo.m3uassets.com/bbcredbutton7.png
+FREEVIEW:GB|BBC RED BUTTON 8|https://logo.m3uassets.com/bbcredbutton8.png
+FREEVIEW:GB|BBC RED BUTTON 9|https://logo.m3uassets.com/bbcredbutton9.png
+FREEVIEW:GB|BBC SCOTLAND|https://logo.m3uassets.com/bbcscotland.png
+FREEVIEW:GB|BBC THREE|https://logo.m3uassets.com/bbcthree.png
+FREEVIEW:GB|BBC TWO ENGLAND|https://logo.m3uassets.com/bbctwoengland.png
+FREEVIEW:GB|BBC TWO NI|https://logo.m3uassets.com/bbctwoni.png
+FREEVIEW:GB|CBBC|https://logo.m3uassets.com/cbbc.png
+FREEVIEW:GB|CBEEBIES|https://logo.m3uassets.com/cbeebies.png
 
 ##### UK-NOWTV (aus Playlist) #####
-SKY:GB|ALIBI HD|http://51.158.145.100/picons/logos/UK/1905956.png
-SKY:GB|ALIBI SD|http://51.158.145.100/picons/logos/UK/1905955.png
-SKY:GB|BOOMERANG HD|http://51.158.145.100/picons/logos/UK/1905952.png
-SKY:GB|CARTOON NETWORK HD|http://51.158.145.100/picons/logos/UK/1905949.png
-SKY:GB|COMEDY CENTRAL HD|http://51.158.145.100/picons/logos/UK/1905946.png
-SKY:GB|GOLD HD|http://51.158.145.100/picons/logos/UK/1905943.png
-SKY:GB|MTV HD|http://51.158.145.100/picons/logos/UK/1905940.png
-SKY:GB|NICKTOONS FHD|http://51.158.145.100/picons/logos/UK/1905933.png
-SKY:GB|NICKTOONS HD|http://51.158.145.100/picons/logos/UK/1905931.png
-SKY:GB|PREMIER SPORTS 1 FHD|http://51.158.145.100/picons/logos/UK/1905930.png
-SKY:GB|PREMIER SPORTS 2 HD|http://51.158.145.100/picons/logos/UK/1905925.png
+SKY:GB|ALIBI HD|https://logo.m3uassets.com/alibi.png
+SKY:GB|ALIBI SD|https://logo.m3uassets.com/alibi.png
+SKY:GB|BOOMERANG HD|https://logo.m3uassets.com/boomerang.png
+SKY:GB|CARTOON NETWORK HD|https://logo.m3uassets.com/cartoonnetwork.png
+SKY:GB|COMEDY CENTRAL HD|https://logo.m3uassets.com/comedycentral.png
+SKY:GB|GOLD HD|https://logo.m3uassets.com/gold.png
+SKY:GB|MTV HD|https://logo.m3uassets.com/mtv.png
+SKY:GB|NICKTOONS FHD|https://logo.m3uassets.com/nicktoons.png
+SKY:GB|NICKTOONS HD|https://logo.m3uassets.com/nicktoons.png
+SKY:GB|PREMIER SPORTS 1 FHD|https://logo.m3uassets.com/premiersports1.png
+SKY:GB|PREMIER SPORTS 2 HD|https://logo.m3uassets.com/premiersports2.png
 SKY:GB|SET SPORTS MAIN EVENT (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905924.png
-SKY:GB|SKY ACTION FHD|http://51.158.145.100/picons/logos/UK/1905923.png
-SKY:GB|SKY ACTION HD|http://51.158.145.100/picons/logos/UK/1905921.png
-SKY:GB|SKY ARTS 1 FHD|http://51.158.145.100/picons/logos/UK/1905920.png
-SKY:GB|SKY ARTS 1 HD|http://51.158.145.100/picons/logos/UK/1905918.png
-SKY:GB|SKY CINEMA PREMIERE FHD|http://51.158.145.100/picons/logos/UK/1905911.png
-SKY:GB|SKY COMEDY HD|http://51.158.145.100/picons/logos/UK/1905906.png
-SKY:GB|SKY CRIME HD|http://51.158.145.100/picons/logos/UK/1905903.png
-SKY:GB|SKY DRAMA FHD|http://51.158.145.100/picons/logos/UK/1905899.png
-SKY:GB|SKY DRAMA HD|http://51.158.145.100/picons/logos/UK/1905897.png
-SKY:GB|SKY GREATS FHD|http://51.158.145.100/picons/logos/UK/1905896.png
-SKY:GB|SKY GREATS HD|http://51.158.145.100/picons/logos/UK/1905894.png
-SKY:GB|SKY HISTORY FHD|http://51.158.145.100/picons/logos/UK/1905893.png
-SKY:GB|SKY KIDS FHD|http://51.158.145.100/picons/logos/UK/1905890.png
-SKY:GB|SKY MAX HD|http://51.158.145.100/picons/logos/UK/1905885.png
-SKY:GB|SKY NATURE HD|http://51.158.145.100/picons/logos/UK/1905882.png
+SKY:GB|SKY ACTION FHD|https://logo.m3uassets.com/skyaction.png
+SKY:GB|SKY ACTION HD|https://logo.m3uassets.com/skyaction.png
+SKY:GB|SKY ARTS 1 FHD|https://logo.m3uassets.com/skyarts1.png
+SKY:GB|SKY ARTS 1 HD|https://logo.m3uassets.com/skyarts1.png
+SKY:GB|SKY CINEMA PREMIERE FHD|https://logo.m3uassets.com/skycinemapremiere.png
+SKY:GB|SKY COMEDY HD|https://logo.m3uassets.com/skycomedy.png
+SKY:GB|SKY CRIME HD|https://logo.m3uassets.com/skycrime.png
+SKY:GB|SKY DRAMA FHD|https://logo.m3uassets.com/skydrama.png
+SKY:GB|SKY DRAMA HD|https://logo.m3uassets.com/skydrama.png
+SKY:GB|SKY GREATS FHD|https://logo.m3uassets.com/skygreats.png
+SKY:GB|SKY GREATS HD|https://logo.m3uassets.com/skygreats.png
+SKY:GB|SKY HISTORY FHD|https://logo.m3uassets.com/skyhistory.png
+SKY:GB|SKY KIDS FHD|https://logo.m3uassets.com/skykids.png
+SKY:GB|SKY MAX HD|https://logo.m3uassets.com/skymax.png
+SKY:GB|SKY NATURE HD|https://logo.m3uassets.com/skynature.png
 SKY:GB|SKY NEWS LIVE FHD|http://51.158.145.100/picons/logos/UK/1905881.png
 SKY:GB|SKY NEWS LIVE HD|http://51.158.145.100/picons/logos/UK/1905879.png
-SKY:GB|SKY SCFI/HOR FHD|http://51.158.145.100/picons/logos/UK/1905878.png
-SKY:GB|SKY SCFI/HOR HD|http://51.158.145.100/picons/logos/UK/1905876.png
-SKY:GB|SKY SHOWCASE HD|http://51.158.145.100/picons/logos/UK/1905870.png
-SKY:GB|SKY SPORTS 1 (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905869.png
-SKY:GB|SKY SPORTS 2 (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905868.png
-SKY:GB|SKY SPORTS F1 (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905859.png
-SKY:GB|SKY SPORTS MAIN EVENT HD|http://51.158.145.100/picons/logos/UK/1905852.png
-SKY:GB|SKY SPORTS MAIN EVENT SD|http://51.158.145.100/picons/logos/UK/1905851.png
-SKY:GB|SKY SPORTS NEWS HQ FHD|http://51.158.145.100/picons/logos/UK/1905847.png
-SKY:GB|SKY SPORTS NEWS HQ HD|http://51.158.145.100/picons/logos/UK/1905845.png
-SKY:GB|SKY SPORTS PREMIER LEAGUE HD|http://51.158.145.100/picons/logos/UK/1905842.png
-SKY:GB|SKY SPORTS+ FHD|http://51.158.145.100/picons/logos/UK/1905835.png
-SKY:GB|SKY SPORTS+ HD|http://51.158.145.100/picons/logos/UK/1905833.png
-SKY:GB|SKY THRILLER FHD|http://51.158.145.100/picons/logos/UK/1905832.png
-SKY:GB|SKY THRILLER HD|http://51.158.145.100/picons/logos/UK/1905830.png
+SKY:GB|SKY SCFI/HOR FHD|https://logo.m3uassets.com/skyscfihor.png
+SKY:GB|SKY SCFI/HOR HD|https://logo.m3uassets.com/skyscfihor.png
+SKY:GB|SKY SHOWCASE HD|https://logo.m3uassets.com/skyshowcase.png
+SKY:GB|SKY SPORTS 1 (UHD/4K)|https://logo.m3uassets.com/skysports1.png
+SKY:GB|SKY SPORTS 2 (UHD/4K)|https://logo.m3uassets.com/skysports2.png
+SKY:GB|SKY SPORTS F1 (UHD/4K)|https://logo.m3uassets.com/skysportsf1.png
+SKY:GB|SKY SPORTS MAIN EVENT HD|https://logo.m3uassets.com/skysportsmainevent.png
+SKY:GB|SKY SPORTS MAIN EVENT SD|https://logo.m3uassets.com/skysportsmainevent.png
+SKY:GB|SKY SPORTS NEWS HQ FHD|https://logo.m3uassets.com/skysportsnewshq.png
+SKY:GB|SKY SPORTS NEWS HQ HD|https://logo.m3uassets.com/skysportsnewshq.png
+SKY:GB|SKY SPORTS PREMIER LEAGUE HD|https://logo.m3uassets.com/skysportspremierleague.png
+SKY:GB|SKY SPORTS+ FHD|https://logo.m3uassets.com/skysports.png
+SKY:GB|SKY SPORTS+ HD|https://logo.m3uassets.com/skysports.png
+SKY:GB|SKY THRILLER FHD|https://logo.m3uassets.com/skythriller.png
+SKY:GB|SKY THRILLER HD|https://logo.m3uassets.com/skythriller.png
 SKY:GB|SKYADVENTURE FHD|http://51.158.145.100/picons/logos/UK/1905826.png
 SKY:GB|SKYADVENTURE HD|http://51.158.145.100/picons/logos/UK/1905824.png
-SKY:GB|SKYANIMATION FHD|http://51.158.145.100/picons/logos/UK/1905823.png
-SKY:GB|SKYANIMATION HD|http://51.158.145.100/picons/logos/UK/1905821.png
+SKY:GB|SKYANIMATION FHD|https://logo.m3uassets.com/skyanimation.png
+SKY:GB|SKYANIMATION HD|https://logo.m3uassets.com/skyanimation.png
 SKY:GB|TNT SPORT (UHD/4K)|http://51.158.145.100/picons/logos/UK/1905820.png
 SKY:GB|TNT SPORT 1 FHD|http://51.158.145.100/picons/logos/UK/1905819.png
 SKY:GB|TNT SPORT 1 HD|http://51.158.145.100/picons/logos/UK/1905817.png
@@ -5120,7 +5120,7 @@ TVGUIDE:US|30 ROCK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 TVGUIDE:US|3ABN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/22905372d2e50a6e.png
 TVGUIDE:US|3ABN DARE TO DREAM NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/624cd4b4a68341a7.png
 TVGUIDE:US|3ABN INTERNATIONAL NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e75c28af5e955d3.png
-TVGUIDE:US|3ABN KIDS NETWORK|http://51.158.145.100/picons/logos/USA/507042.png
+TVGUIDE:US|3ABN KIDS NETWORK|https://logo.m3uassets.com/3abnkidsnetwork.png
 TVGUIDE:US|3ABN PROCLAIM! NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4d02b6e10a4e5cf4.png
 TVGUIDE:US|3RD ROCK FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|60 DAYS IN FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -5128,7 +5128,7 @@ TVPASSPORT:US|69 NEWS (WFMZ) PHILADELPHIA|https://raw.githubusercontent.com/babo
 TVPASSPORT:US|7NEWS BOSTON (WHDH)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/93c3298599624ae8.png
 TVGUIDE:US|7TH HEAVEN FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|8 SIMPLE RULES FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
-TVGUIDE:US|90210|http://51.158.145.100/picons/logos/PPV/Pluto.png
+TVGUIDE:US|90210|https://logo.m3uassets.com/90210.png
 TVGUIDE:US|90210 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/55088c5f89e9473a.png
 TVGUIDE:US|A DIFFERENT WORLD FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|A HAUNTING FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -5343,7 +5343,7 @@ TVGUIDE:US|AMERICAN PRIMEVAL ᴿᴬᵂ|https://raw.githubusercontent.com/babo200
 TVGUIDE:US|ANCIENT ALIENS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/36f469bba856326f.png
 TVGUIDE:US|ANDOR ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|ANGEL FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c7f832c05b2d8c31.png
-TVGUIDE:US|ANIMAL KINGDOM FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
+TVGUIDE:US|ANIMAL KINGDOM FHD|https://logo.m3uassets.com/animalkingdom.png
 TVGUIDE:US|ANIMAL PLANET HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 TVGUIDE:US|ANIMAL PLANET WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6527bfa3572b4dc7.png
 TVGUIDE:US|ANNE WITH AN E FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -5356,7 +5356,7 @@ TVGUIDE:US|ARE YOU AFRAID OF THE DARK FHD|https://raw.githubusercontent.com/babo
 TVGUIDE:US|ARRESTED DEVELOPMENT FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8aa45a36384c89d4.png
 TVGUIDE:US|ARROW FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/895810ef2fd441b3.png
 TVGUIDE:US|ASPIRE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1cc054eca8fc10f3.png
-TVGUIDE:US|AT&T SPORTSNET ROCKY MOUNTAIN HD|http://51.158.145.100/picons/logos/USA/272826.png
+TVGUIDE:US|AT&T SPORTSNET ROCKY MOUNTAIN HD|https://logo.m3uassets.com/attsportsnetrockymountain.png
 TVGUIDE:US|ATYPICAL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|AVATA THE LAST AIRBENDER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f15f561b1a16513.png
 TVGUIDE:US|AVATAR THE LAST AIRBENDER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f15f561b1a16513.png
@@ -5391,7 +5391,7 @@ TVGUIDE:US|BATMAN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 TVGUIDE:US|BATMAN THE ANIMATED SERIES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1afa27e1400288f3.png
 TVGUIDE:US|BATMAN THE BRAVE AND THE-BOLD FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|BAYMAX ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
-TVGUIDE:US|BAYWATCH|http://51.158.145.100/picons/logos/PPV/Pluto.png
+TVGUIDE:US|BAYWATCH|https://logo.m3uassets.com/baywatch.png
 TVGUIDE:US|BAYWATCH FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9be1df4319a4bc69.png
 TVGUIDE:US|BBC AMERICA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b3cf00bdb2dc96cb.png
 TVGUIDE:US|BBC WORLD NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/817bc74452daceb1.png
@@ -5434,7 +5434,7 @@ TVGUIDE:US|BLAZE AND THE MONSTER MACHINES FHD|http://51.158.145.100/picons/logos
 TVGUIDE:US|BLAZE TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9964ef08e519fc21.png
 TVGUIDE:US|BLOOD OF ZEUS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|BLOOMBERG HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b2e5194ade106bb6.png
-TVGUIDE:US|BLOOMBERG QUICKTAKE|http://51.158.145.100/picons/logos/USA/1453860.png
+TVGUIDE:US|BLOOMBERG QUICKTAKE|https://logo.m3uassets.com/bloombergquicktake.png
 TVGUIDE:US|BLUE BLOODS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/69e0c5b4886d591f.png
 TVGUIDE:US|BLUE EYE SAMURAI ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|BLUES CLUES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c14e930f45a0b06e.png
@@ -5668,7 +5668,7 @@ TVGUIDE:US|CHARGE!|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 TVGUIDE:US|CHARMED FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0865b403a0898930.png
 TVGUIDE:US|CHEDDAR BUSINESS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/93c107ea2597cd84.png
 TVGUIDE:US|CHEDDAR NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/084798ebfeffe8eb.png
-TVGUIDE:US|CHEERS|http://51.158.145.100/picons/logos/PPV/Pluto.png
+TVGUIDE:US|CHEERS|https://logo.m3uassets.com/cheers.png
 TVGUIDE:US|CHEERS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/933bcbed859151e8.png
 TVGUIDE:US|CHICAGO FIRE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/68dbdb4fab4ca97d.png
 TVGUIDE:US|CHICAGO MED FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d61a026699e7dd9f.png
@@ -5731,7 +5731,7 @@ TVGUIDE:US|CINEMANIA HOLLYWOOD 9 FHD|https://raw.githubusercontent.com/babo20094
 TVGUIDE:US|CINEMAX ACTION EAST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/deed07b9105c1dc9.png
 TVGUIDE:US|CINEMAX EAST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce17680885b1af00.png
 TVGUIDE:US|CINEMAX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce17680885b1af00.png
-TVGUIDE:US|CINEMAX MOREMAX HD|http://51.158.145.100/picons/logos/USA/45596.png
+TVGUIDE:US|CINEMAX MOREMAX HD|https://logo.m3uassets.com/cinemaxmoremax.png
 TVGUIDE:US|CINEMAX WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0156a90c048f5784.png
 TVGUIDE:US|CITADEL DIANA ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|CITADEL HONEY BUNNY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
@@ -5791,9 +5791,9 @@ TVGUIDE:US|COUGAR TOWN FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|COUNTDOWN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c6549c224fd2a0ff.png
 TVGUIDE:US|COURT TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d1a85dba0ecb195.png
 TVGUIDE:US|COWBOY CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f34f5a06624c8618.png
-TVGUIDE:US|COWBOY WAY|http://51.158.145.100/picons/logos/USA/1570184.png
+TVGUIDE:US|COWBOY WAY|https://logo.m3uassets.com/cowboyway.png
 TVGUIDE:US|COZI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6ba0a686b330ceaf.png
-TVGUIDE:US|CRIME & INVESTIGATION HD|http://51.158.145.100/picons/logos/USA/90938.png
+TVGUIDE:US|CRIME & INVESTIGATION HD|https://logo.m3uassets.com/crimeinvestigation.png
 TVGUIDE:US|CRIMINAL MINDS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ca4f820e4e71aaa3.png
 TVGUIDE:US|CRISIS IN SIX SCENES ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|CROSS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/87697209ec4cdf70.png
@@ -5803,7 +5803,7 @@ TVGUIDE:US|CSI CYBER FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|CSI MIAMI FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/effdaad8f9aebc7e.png
 TVGUIDE:US|CSI: CRIME SCENE INVESTIGATION FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92e5c511b23c2d59.png
 TVGUIDE:US|CSI: NY FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
-TVGUIDE:US|CSN BOSTON HD|http://51.158.145.100/picons/logos/USA/90945.png
+TVGUIDE:US|CSN BOSTON HD|https://logo.m3uassets.com/csnboston.png
 TVGUIDE:US|CSN PHILADELPHIA PLUS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b936034f0af7ce61.png
 TVGUIDE:US|CULPRITS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|CURB YOUR ENTHUSIASM FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fcccc1583219875c.png
@@ -5859,7 +5859,7 @@ TVGUIDE:US|CW CHICAGO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 TVGUIDE:US|CW PHILADELPHIA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/00086e085724f342.png
 TVGUIDE:US|CW PITTSBURGH|http://51.158.145.100/picons/logos/USA/90953.png
 TVPASSPORT:US|CW PIX11 (WPIX) NEW YORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b621a2a3a32d4465.png
-TVGUIDE:US|CW SACRAMENTO HD|http://51.158.145.100/picons/logos/USA/90952.png
+TVGUIDE:US|CW SACRAMENTO HD|https://logo.m3uassets.com/cwsacramento.png
 TVGUIDE:US|CW SAN FRANCISCO HD|http://51.158.145.100/picons/logos/USA/90949.png
 TVGUIDE:US|CW TAMPA BAY HD|http://51.158.145.100/picons/logos/USA/90951.png
 TVGUIDE:US|CYBERPUNK EDGERUNNERS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
@@ -6189,7 +6189,7 @@ TVPASSPORT:US|FOX 33 SHREVEPORT LA (KMSS)|https://raw.githubusercontent.com/babo
 TVPASSPORT:US|FOX 33 UTICA NY (WFXV)|http://51.158.145.100/picons/logos/PPV/FOX.png
 TVPASSPORT:US|FOX 33 WAUSAU WI (WZAW)|http://51.158.145.100/picons/logos/PPV/FOX.png
 TVPASSPORT:US|FOX 34 DOTHAN AL (WDFX)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ee2cd75fecf2b5f9.png
-TVPASSPORT:US|FOX 34 EUGENE OR (KLSR)|http://51.158.145.100/picons/logos/USA/1938531.png
+TVPASSPORT:US|FOX 34 EUGENE OR (KLSR)|https://logo.m3uassets.com/fox34eugeneorklsr.png
 TVPASSPORT:US|FOX 34 LUBBOCK TX (KJTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c360b3f87105bc1d.png
 TVPASSPORT:US|FOX 35 ORLANDO FL (WOFL)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd2116a6d3b53cb1.png
 TVPASSPORT:US|FOX 35 RICHMOND VA (WRLH)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f538f7e4d3f2b77.png
@@ -6392,7 +6392,7 @@ TVGUIDE:US|HELL ON WHEELS FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.p
 TVGUIDE:US|HELLS KITCHEN FHD|https://logo.m3uassets.com/hell&apos;skitchen.png
 TVGUIDE:US|HENRY DANGER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/276ad335aeca2601.png
 TVGUIDE:US|HERCULES FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
-TVGUIDE:US|HEROES & ICONS|http://51.158.145.100/picons/logos/USA/150351.png
+TVGUIDE:US|HEROES & ICONS|https://logo.m3uassets.com/heroesicons.png
 TVGUIDE:US|HGTV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7dbb7c32c282d744.png
 TVGUIDE:US|HGTV WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7b953b08f2946927.png
 TVGUIDE:US|HI-DE-HI! FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -6591,7 +6591,7 @@ TVGUIDE:US|MTV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 TVGUIDE:US|MTV LIVE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cb67a59c37a8d65f.png
 TVGUIDE:US|MUPPET BABIES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/248a5feeb67e9260.png
 TVGUIDE:US|MUSIC CHOICE  MAX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09272c174aae9ed8.png
-TVGUIDE:US|MUSIC CHOICE '70's|http://51.158.145.100/picons/logos/USA/991608.png
+TVGUIDE:US|MUSIC CHOICE '70's|https://logo.m3uassets.com/musicchoice70s.png
 TVGUIDE:US|MUSIC CHOICE CLASSIC COUNTRY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b0c7454074b1c91e.png
 TVGUIDE:US|MUSIC CHOICE HIP-HOP AND R&B|http://51.158.145.100/picons/logos/USA/991602.png
 TVGUIDE:US|MUSIC CHOICE JAZZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ba5e75c41df0c4ed.png
@@ -6805,7 +6805,7 @@ TVPASSPORT:US|NBC 6 TEMPLE TX (KCEN)|http://51.158.145.100/picons/logos/USA/NBC.
 TVPASSPORT:US|NBC 6 WILMINGTON NC (WECT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8f2a8f0a45e9cdb3.png
 TVPASSPORT:US|NBC 7 BOISE ID (KTVB)|http://51.158.145.100/picons/logos/USA/NBC.png
 TVPASSPORT:US|NBC 7 HATTIESBURG MS (WDAM)|http://51.158.145.100/picons/logos/USA/NBC.png
-TVPASSPORT:US|NBC 7 LAKE CHARLES LA (KPLC)|http://51.158.145.100/picons/logos/USA/1938554.png
+TVPASSPORT:US|NBC 7 LAKE CHARLES LA (KPLC)|https://logo.m3uassets.com/nbc7lakecharleslakplc.png
 TVPASSPORT:US|NBC 7 PANAMA CITY FL (WJHG)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8c4109454515d55e.png
 TVPASSPORT:US|NBC 7 RENO NV (KRNV)|http://51.158.145.100/picons/logos/USA/NBC.png
 TVPASSPORT:US|NBC 7 TRAVERSE CITY MI (WPBN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d81a27fbaa3e3925.png
@@ -6827,7 +6827,7 @@ TVPASSPORT:US|NBC 9 GAINESVILLE FL (WNBW)|https://raw.githubusercontent.com/babo
 TVPASSPORT:US|NBC 9 ODESSA TX (KWES)|http://51.158.145.100/picons/logos/USA/NBC.png
 TVPASSPORT:US|NBC 9 STEUBENVILLE OH (WTOV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/890e598f2e683746.png
 TVPASSPORT:US|NBC 9 TUPELO MS (WTVA)|http://51.158.145.100/picons/logos/USA/NBC.png
-TVGUIDE:US|NBC BAY AREA HD|http://51.158.145.100/picons/logos/USA/91893.png
+TVGUIDE:US|NBC BAY AREA HD|https://logo.m3uassets.com/nbcbayarea.png
 TVGUIDE:US|NBC DATELINE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/906dea7dae03b81a.png
 TVGUIDE:US|NBC LOS ANGELES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f1da76b8a129c877.png
 TVGUIDE:US|NBC PHILADELPHIA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8b655b3313e00502.png
@@ -6840,7 +6840,7 @@ TVGUIDE:US|NBC SPORTS CHICAGO PLUS|https://raw.githubusercontent.com/babo20094-r
 TVGUIDE:US|NBC SPORTS NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/416652e3fff0e22a.png
 TVGUIDE:US|NBC SPORTS PHILADELFIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/60cef775971a0f5e.png
 TVGUIDE:US|NBC SPORTS UHD/4K|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c9fa39f4bb4b1666.png
-TVGUIDE:US|NCIS: FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
+TVGUIDE:US|NCIS: FHD|https://logo.m3uassets.com/ncis.png
 TVGUIDE:US|NCIS: LOS ANGELES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7a95f70c2a7ffd58.png
 TVGUIDE:US|NCIS: NEW ORLEANS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/20c7680402b3b68b.png
 TVGUIDE:US|NECN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6d810820b094b0fb.png
@@ -7055,7 +7055,7 @@ TVGUIDE:US|PURSUIT CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Ep
 TVGUIDE:US|QUEEN CHARLOTTE A BRIDGERTON STORY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|QVC 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4c5e4fd6941b4729.png
 TVGUIDE:US|QVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd5c45feed0b917c.png
-TVGUIDE:US|REAL AMERICA'S VOICE|http://51.158.145.100/picons/logos/USA/1932190.png
+TVGUIDE:US|REAL AMERICA'S VOICE|https://logo.m3uassets.com/realamericasvoice.png
 TVGUIDE:US|REAL AMERICAN VOICE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/39f8924f7a0004b5.png
 TVGUIDE:US|REATCHER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|RECIPE TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b9aeeaa96d6a8272.png
@@ -7193,7 +7193,7 @@ TVGUIDE:US|SPORTSNET NEW YORK HD|https://raw.githubusercontent.com/babo20094-rgb
 TVGUIDE:US|SPORTSNET PITTSBURGH HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7f49e5e0a4fb35f5.png
 TVGUIDE:US|SQUID GAME ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|STADIUM HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0064faf2e8e9e7f9.png
-TVGUIDE:US|STAR LIFE|http://51.158.145.100/picons/logos/USA/1478615.png
+TVGUIDE:US|STAR LIFE|https://logo.m3uassets.com/starlife.png
 TVGUIDE:US|STAR WARS SKELETON CREW ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|STAR WARS TALES OF THE EMPIRE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|STAR WARS THE BAD BATCH ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
@@ -7218,7 +7218,7 @@ TVGUIDE:US|STARZ ENCORE WEST HD|https://raw.githubusercontent.com/babo20094-rgb/
 TVGUIDE:US|STARZ ENCORE WESTERNS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7aef293c507fed14.png
 TVGUIDE:US|STARZ FAMILY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c3d447272acb4ad6.png
 TVGUIDE:US|STARZ HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/45410fdbaa2eca2b.png
-TVGUIDE:US|STARZ KIDS & FAMILY HD|http://51.158.145.100/picons/logos/USA/45479.png
+TVGUIDE:US|STARZ KIDS & FAMILY HD|https://logo.m3uassets.com/starzkidsfamily.png
 TVGUIDE:US|STARZ WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0c5cce947c6c8eab.png
 TVGUIDE:US|STEPTOE AND SON FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|STORY TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d520ce692155f05.png
@@ -7309,7 +7309,7 @@ TVGUIDE:US|TENNIS CHANNEL PLUS 1|https://raw.githubusercontent.com/babo20094-rgb
 TVGUIDE:US|TENNIS CHANNEL PLUS 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5459cfe9ba2df2be.png
 TVGUIDE:US|TENNIS CHANNEL PLUS 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5459cfe9ba2df2be.png
 TVGUIDE:US|TENNIS CHANNEL PLUS 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5459cfe9ba2df2be.png
-TVGUIDE:US|TENNIS HD|http://51.158.145.100/picons/logos/USA/45474.png
+TVGUIDE:US|TENNIS HD|https://logo.m3uassets.com/tennis.png
 TVGUIDE:US|TERRITORY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|THAT 90S SHOW ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd40c0854d5be60e.png
 TVGUIDE:US|THAT GIRL FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -7325,7 +7325,7 @@ TVGUIDE:US|THE BOOK OF BOBA FETT ᴿᴬᵂ|https://raw.githubusercontent.com/bab
 TVGUIDE:US|THE BOYS PRESENTS DIABOLICAL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE BOYS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dae8f90f2dac472f.png
 TVGUIDE:US|THE BRESLAU MURDERS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
-TVGUIDE:US|THE CAROL BURNETT SHOW|http://51.158.145.100/picons/logos/PPV/Pluto.png
+TVGUIDE:US|THE CAROL BURNETT SHOW|https://logo.m3uassets.com/thecarolburnettshow.png
 TVGUIDE:US|THE CHOSEN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE CLEARING ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|THE CONSULTANT ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
@@ -7425,7 +7425,7 @@ TVGUIDE:US|THE WITCHER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb
 TVGUIDE:US|THE WONDER YEARS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ba454fb77a47b6f4.png
 TVGUIDE:US|THEM ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THREE PINES ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
-TVGUIDE:US|THREE'S COMPANY FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
+TVGUIDE:US|THREE'S COMPANY FHD|https://logo.m3uassets.com/threescompany.png
 TVGUIDE:US|THUNDERCATS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/841919a0d094d702.png
 TVGUIDE:US|TIMELESS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/039097a416c0af51.png
 TVGUIDE:US|TITANS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ae9aec0242c901aa.png
@@ -7445,7 +7445,7 @@ TVGUIDE:US|TRAVEL CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 TVGUIDE:US|TRAVEL CHANNEL WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/33f1f30b514544f9.png
 TVGUIDE:US|TRAVEL MAN 48 HOUR IN FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|TRIGGER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d764c73bc99c7fd6.png
-TVGUIDE:US|TRINITY TV|http://51.158.145.100/picons/logos/USA/TRINITY.png
+TVGUIDE:US|TRINITY TV|https://logo.m3uassets.com/trinitytv.png
 TVGUIDE:US|TROLLHUNTERS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/72b6581abdeab78d.png
 TVGUIDE:US|TRUTV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f6e535094e90444d.png
 TVGUIDE:US|TRUTV WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0441380915fd8ba9.png
@@ -7515,7 +7515,7 @@ TVGUIDE:US|ZORRO ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 ##### WOW (aus Playlist) #####
 WOW|13TH STREET ᴴᴰ ◉|13Th Street ᴴᴰ ◉ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/73f1311c212e64f3.png
 WOW|CARTOONITO ᴴᴰ ◉|Cartoonito ᴴᴰ ◉ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d030a60de2fbf83a.png
-WOW|CRIME & INVESTIGATION ᴴᴰ ◉|Crime & Investigation ᴴᴰ ◉ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1964111.png
+WOW|CRIME & INVESTIGATION ᴴᴰ ◉|Crime & Investigation ᴴᴰ ◉ ᴸⁱᵛᵉ|https://logo.m3uassets.com/crimeinvestigation.png
 WOW|HISTORY ᴴᴰ ◉|History ᴴᴰ ◉ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/94856e2a9cf7898f.png
 WOW|NICK JR ᴴᴰ ◉|Nick Jr ᴴᴰ ◉ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ac6b4d0ed49e391.png
 WOW|NICKTOONS ᴴᴰ ◉|Nicktoons ᴴᴰ ◉ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aba9092d8aa9ef08.png
@@ -11494,18 +11494,18 @@ NAME:Clubber TV | Event 8|http://103.176.90.95/images/1385582.png
 NAME:Clubber TV | Event 9|http://103.176.90.95/images/1385583.png
 NAME:Columbia Fireflies vs Charleston RiverDogs @ Aug 30 5:05 PM :Milb  55|http://51.158.145.100/picons/logos/USA/MLIB.png
 NAME:Columbus Crew vs New England Revolution @ Aug 30 4:30 PM :MLS  01|http://51.158.145.100/picons/logos/PPV/MLB.png
-NAME:D+| ANIMAL PLANET FHD|http://51.158.145.100/picons/logos/UKNEW/ANIMALPLANET.png
-NAME:D+| DISCOVERY HISTORY|http://51.158.145.100/picons/logos/UKNEW/DISCOVERYHISTORY.png
-NAME:D+| DISCOVERY SCIENCE|http://51.158.145.100/picons/logos/UKNEW/DISCOVERYSCIENCE.png
-NAME:D+| DISCOVERY TURBO|http://51.158.145.100/picons/logos/UKNEW/DISCOVERYTURBO.png
-NAME:D+| DMAX|http://51.158.145.100/picons/logos/UKNEW/DMAX.png
-NAME:D+| FOOD NETWORK|http://51.158.145.100/picons/logos/UKNEW/FOODNETWORK.png
-NAME:D+| HGTV|http://51.158.145.100/picons/logos/UKNEW/HGTV.png
+NAME:D+| ANIMAL PLANET FHD|https://logo.m3uassets.com/animalplanet.png
+NAME:D+| DISCOVERY HISTORY|https://logo.m3uassets.com/discoveryhistory.png
+NAME:D+| DISCOVERY SCIENCE|https://logo.m3uassets.com/discoveryscience.png
+NAME:D+| DISCOVERY TURBO|https://logo.m3uassets.com/discoveryturbo.png
+NAME:D+| DMAX|https://logo.m3uassets.com/dmax.png
+NAME:D+| FOOD NETWORK|https://logo.m3uassets.com/foodnetwork.png
+NAME:D+| HGTV|https://logo.m3uassets.com/hgtv.png
 NAME:D+| ID|http://51.158.145.100/picons/logos/UKNEW/ID.png
-NAME:D+| QUEST HD|http://51.158.145.100/picons/logos/UKNEW/QUEST.png
-NAME:D+| QUEST RED HD|http://51.158.145.100/picons/logos/UKNEW/QUESTRED.png
-NAME:D+| REALLY|http://51.158.145.100/picons/logos/UKNEW/REALLY.png
-NAME:D+| TLC FHD|http://51.158.145.100/picons/logos/UKNEW/TLC.png
+NAME:D+| QUEST HD|https://logo.m3uassets.com/quest.png
+NAME:D+| QUEST RED HD|https://logo.m3uassets.com/questred.png
+NAME:D+| REALLY|https://logo.m3uassets.com/really.png
+NAME:D+| TLC FHD|https://logo.m3uassets.com/tlc.png
 NAME:DE: D+ PPV 6|
 NAME:DE: DAZN PPV 1|http://51.158.145.100/picons/logos/PPV/DAZN.png
 NAME:DE: DAZN PPV 10|http://51.158.145.100/picons/logos/PPV/DAZN.png
@@ -12664,7 +12664,7 @@ NAME:Ligue 1 | Match 1|http://103.176.90.95/images/1688044.png
 NAME:Ligue 1 | Match 10|http://103.176.90.95/images/1688035.png
 NAME:Ligue 1 | Match 2|http://103.176.90.95/images/1688043.png
 NAME:Ligue 1 | Match 3|http://103.176.90.95/images/1688042.png
-NAME:Ligue 1 | Match 4|http://103.176.90.95/images/1688041.png
+NAME:Ligue 1 | Match 4|https://logo.m3uassets.com/match4.png
 NAME:Ligue 1 | Match 5|http://103.176.90.95/images/1688040.png
 NAME:Ligue 1 | Match 6|http://103.176.90.95/images/1688039.png
 NAME:Ligue 1 | Match 7|http://103.176.90.95/images/1688038.png
@@ -12838,36 +12838,36 @@ NAME:NBA Summer League Mavericks vs. Thunder Jul 16 :NBA 01|http://51.158.145.10
 NAME:NBA Summer League Nets vs. Rockets jul 16 :NBA 02|http://51.158.145.100/picons/logos/USA/nba-nba.png
 NAME:NBA Summer League Raptors vs. Heat jul 17 :NBA 05|http://51.158.145.100/picons/logos/USA/nba-nba.png
 NAME:NBA Summer League Warriors vs. Knicks jul 16 :NBA 04|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| ATLANTA HAWKS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| BOSTON CELTICS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| BROOKLYN NETS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| CHARLOTTE HORNETS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| CHICAGO BULLS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| CLEVELAND CAVALIERS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| DALLAS MAVERICKS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| DENVER NUGGETS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| DETROIT PISTONS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| GOLDEN STATE WARRIORS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| HOUSTON ROCKETS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| INDIANA PACERS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| LOS ANGELES CLIPPERS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| LOS ANGELES LAKERS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| MEMPHIS GRIZZLIES|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| MIAMI HEAT|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| MILWAUKEE BUCKS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| MINNESOTA TIMBERWOLVES|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| NEW ORLEANS PELICANS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| NEW YORK KNICKS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| OKLAHOMA CITY THUNDER|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| ORLANDO MAGIC|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| PHILADELPHIA 76ERS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| PHOENIX SUNS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| PORTLAND TRAIL BLAZERS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| SACRAMENTO KINGS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| SAN ANTONIO SPURS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| TORONTO RAPTORS|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| UTAH JAZZ|http://51.158.145.100/picons/logos/USA/nba-nba.png
-NAME:NBA TEAM| WASHINGTON WIZARDS|http://51.158.145.100/picons/logos/USA/nba-nba.png
+NAME:NBA TEAM| ATLANTA HAWKS|https://logo.m3uassets.com/atlantahawks.png
+NAME:NBA TEAM| BOSTON CELTICS|https://logo.m3uassets.com/bostonceltics.png
+NAME:NBA TEAM| BROOKLYN NETS|https://logo.m3uassets.com/brooklynnets.png
+NAME:NBA TEAM| CHARLOTTE HORNETS|https://logo.m3uassets.com/charlottehornets.png
+NAME:NBA TEAM| CHICAGO BULLS|https://logo.m3uassets.com/chicagobulls.png
+NAME:NBA TEAM| CLEVELAND CAVALIERS|https://logo.m3uassets.com/clevelandcavaliers.png
+NAME:NBA TEAM| DALLAS MAVERICKS|https://logo.m3uassets.com/dallasmavericks.png
+NAME:NBA TEAM| DENVER NUGGETS|https://logo.m3uassets.com/denvernuggets.png
+NAME:NBA TEAM| DETROIT PISTONS|https://logo.m3uassets.com/detroitpistons.png
+NAME:NBA TEAM| GOLDEN STATE WARRIORS|https://logo.m3uassets.com/goldenstatewarriors.png
+NAME:NBA TEAM| HOUSTON ROCKETS|https://logo.m3uassets.com/houstonrockets.png
+NAME:NBA TEAM| INDIANA PACERS|https://logo.m3uassets.com/indianapacers.png
+NAME:NBA TEAM| LOS ANGELES CLIPPERS|https://logo.m3uassets.com/losangelesclippers.png
+NAME:NBA TEAM| LOS ANGELES LAKERS|https://logo.m3uassets.com/losangeleslakers.png
+NAME:NBA TEAM| MEMPHIS GRIZZLIES|https://logo.m3uassets.com/memphisgrizzlies.png
+NAME:NBA TEAM| MIAMI HEAT|https://logo.m3uassets.com/miamiheat.png
+NAME:NBA TEAM| MILWAUKEE BUCKS|https://logo.m3uassets.com/milwaukeebucks.png
+NAME:NBA TEAM| MINNESOTA TIMBERWOLVES|https://logo.m3uassets.com/minnesotatimberwolves.png
+NAME:NBA TEAM| NEW ORLEANS PELICANS|https://logo.m3uassets.com/neworleanspelicans.png
+NAME:NBA TEAM| NEW YORK KNICKS|https://logo.m3uassets.com/newyorkknicks.png
+NAME:NBA TEAM| OKLAHOMA CITY THUNDER|https://logo.m3uassets.com/oklahomacitythunder.png
+NAME:NBA TEAM| ORLANDO MAGIC|https://logo.m3uassets.com/orlandomagic.png
+NAME:NBA TEAM| PHILADELPHIA 76ERS|https://logo.m3uassets.com/philadelphia76ers.png
+NAME:NBA TEAM| PHOENIX SUNS|https://logo.m3uassets.com/phoenixsuns.png
+NAME:NBA TEAM| PORTLAND TRAIL BLAZERS|https://logo.m3uassets.com/portlandtrailblazers.png
+NAME:NBA TEAM| SACRAMENTO KINGS|https://logo.m3uassets.com/sacramentokings.png
+NAME:NBA TEAM| SAN ANTONIO SPURS|https://logo.m3uassets.com/sanantoniospurs.png
+NAME:NBA TEAM| TORONTO RAPTORS|https://logo.m3uassets.com/torontoraptors.png
+NAME:NBA TEAM| UTAH JAZZ|https://logo.m3uassets.com/utahjazz.png
+NAME:NBA TEAM| WASHINGTON WIZARDS|https://logo.m3uassets.com/washingtonwizards.png
 NAME:NCAAF 01|
 NAME:NCAAF 02|
 NAME:NCAAF 03|
@@ -14349,7 +14349,7 @@ NAME:US (Flo 394) | [Volleyball|2025 Brandeis vs Salve Regina _ Women`s] (2025-1
 NAME:US (Flo 395) | [FC|2025 Smith College vs Coast Guard Academy _ Women`s] (2025-11-01 15:00:50)|http://51.158.145.100/picons/logos/USA/flo.png
 NAME:US (Flo 396) | [FC|2025 Salve Regina vs WPI _ Men`s] (2025-11-01 15:00:55)|http://51.158.145.100/picons/logos/USA/flo.png
 NAME:US (Flo 397) | [FC|2025 Wingate vs Emory & Henry _ Women`s] (2025-11-01 15:01:00)|http://51.158.145.100/picons/logos/USA/flo.png
-NAME:US (Flo 398) | [Football|2025 Lenoir_Rhyne vs Wingate] (2025-11-01 15:01:05)|http://51.158.145.100/picons/logos/USA/flo.png
+NAME:US (Flo 398) | [Football|2025 Lenoir_Rhyne vs Wingate] (2025-11-01 15:01:05)|https://logo.m3uassets.com/football.png
 NAME:US (Flo 399) | [Volleyball|2025 Otterbein vs Case Western Reserve _ Women`s] (2025-11-01 15:01:10)|http://51.158.145.100/picons/logos/USA/flo.png
 NAME:US (Flo 400) | [Volleyball|2025 West Texas A&M vs Angelo State _ Women`s] (2025-11-01 15:01:15)|http://51.158.145.100/picons/logos/USA/flo.png
 NAME:US (Flo 771) | [Hockey|2025 Powell River Kings vs Chilliwack Chiefs Away] (2025-11-01 21:02:00)|http://51.158.145.100/picons/logos/USA/flo.png
