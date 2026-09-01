@@ -295,13 +295,13 @@ DE|3SAT HD|3Sat Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/
 DE|9.1.1.LONE.STAR ᴿᴬᵂ|9.1.1.Lone.Star ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ccfd99b6ffa429c0.png
 DE|A.TEACHER ᴿᴬᵂ|A.Teacher ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c5d1e1339cc44777.png
 DE|A.TV FHD|A.Tv Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7d647d978dbb2da8.png
-DE|AGATHA ALL ALONG  ᴿᴬᵂ|Agatha All Along  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/AGATHAALLALONG.png
+DE|AGATHA ALL ALONG  ᴿᴬᵂ|Agatha All Along  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ddc1e2ee7cb1030a40fd5b30ea891328f96e13c1.png
 DE|AGENTS OF S.H.I.E.L.D  ᴿᴬᵂ|Agents Of S.H.I.E.L.D  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a9cb1b8c87ce354d15b976becd0714fa3f8b05db.png
-DE|AHSOKA  ᴿᴬᵂ|Ahsoka  ᴿᴬᵂ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/c/c3/Star_Wars_Ahsoka_Logo.png
+DE|AHSOKA  ᴿᴬᵂ|Ahsoka  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/163ab6865db619bfcffe460e870c3cf47db4b6dc.png
 DE|ALIAS ᴿᴬᵂ|Alias ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3103753274b932d6.png
 DE|ALLS FAIR ᴿᴬᵂ|Alls Fair ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e2ab1bedac5731ce5e58af54930d77406a2c8006.png
 DE|ALPACINO|Alpacino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
-DE|AMERICAN BORN CHINESE  ᴿᴬᵂ|American Born Chinese  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/AMERICANBORNCHINESE.png
+DE|AMERICAN BORN CHINESE  ᴿᴬᵂ|American Born Chinese  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ddc1e2ee7cb1030a40fd5b30ea891328f96e13c1.png
 DE|AMERICAN DAD ᴿᴬᵂ|American Dad ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c942ed132337ca21.png
 DE|AMERICAN HORROR ᴿᴬᵂ|American Horror ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e063fa1fec3df059.png
 DE|ANDOR ᴿᴬᵂ|Andor ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/00e7d21a585ee660fd904a7fc057b7a2b604b7b0.png
@@ -470,7 +470,7 @@ DE|HOMELAND ᴿᴬᵂ|Homeland ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercont
 DE|HOUSE OF DAVID ᴿᴬᵂ|House Of David ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|HSE FHD|Hse Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/579d9b3fe67a5fd8.png
 DE|HUNTERS ᴿᴬᵂ|Hunters ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|HYPER KNIFE ᴿᴬᵂ|Hyper Knife ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/HYPERKNIFE.png
+DE|HYPER KNIFE ᴿᴬᵂ|Hyper Knife ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ddc1e2ee7cb1030a40fd5b30ea891328f96e13c1.png
 DE|JAMES BOND|James Bond ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|JASON STATHAM|Jason Statham ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|JUKEBOX FHD|Jukebox Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/61f57e920ae5b423d545b0b05be97d221491ce3c.png
@@ -1046,7 +1046,7 @@ DE|ZONE CINEMA ACTION FHD|Zone Cinema Action Fhd ᴸⁱᵛᵉ|https://raw.github
 
 ##### EN (aus Playlist) #####
 EN|24 4K|24 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976610.png
-EN|24/7 LAW AND ORDER|24/7 Law And Order ᴸⁱᵛᵉ|https://logos.myepg.top/Movies/movies1.png
+EN|24/7 LAW AND ORDER|24/7 Law And Order ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 EN|30 ROCK 4K|30 Rock 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/560969694b24ba7e5d2a9c3d8e2150532a8faea2.png
 EN|A CHRISTMAS CAROL FHD|A Christmas Carol Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0fc5eaae07b60507b017935a793602a321504572.png
 EN|ADAM 12|Adam 12 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02545d7af41d923bb98dbf68801438b201f4e74a.png
@@ -1099,7 +1099,7 @@ EN|JASON BOURNE 4K|Jason Bourne 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 EN|JET LI MOVIES|Jet Li Movies ᴸⁱᵛᵉ|http://103.176.90.95/images/1180209.png
 EN|JOHNNY DEPP 4K|Johnny Depp 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b80445fcdfb6359763e42fa7f804c454769224aa.png
 EN|JUMANJI 4K|Jumanji 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a7268722d0eb150abc11332498530828f00df365.png
-EN|KARAOKE 6|Karaoke 6 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/UKNEW/KARAOKE.png
+EN|KARAOKE 6|Karaoke 6 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3a8b96c33de04791f7165f9d0cdcd78c2443ef91.png
 EN|KEVIN CAN WAIT 4K|Kevin Can Wait 4K ᴸⁱᵛᵉ|http://103.176.90.95/images/976533.png
 EN|KUNG FU PANDA|Kung Fu Panda ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7a3d48110112fb7b10374b10e96de09c368904ea.png
 EN|LAST MAN STANDING|Last Man Standing ᴸⁱᵛᵉ|http://103.176.90.95/images/1049066.png
@@ -1266,7 +1266,7 @@ EN|ONEPLAY SuperWings ᴴᴰ|Oneplay Superwings ᴴᴰ ᴸⁱᵛᵉ|https://raw.
 EN|ONEPLAY THRILLER ᴴᴰ|Oneplay Thriller ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/704c25d7b2f08577.png
 EN|ONEPLAY Tom&Jerry ᴴᴰ|Oneplay Tom&Jerry ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7640cb106e58503c.png
 EN|ONEPLAY Vlad&Niki ᴴᴰ|Oneplay Vlad&Niki ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7640cb106e58503c.png
-EN|ONEPLAY Vlad-Challenge ᴴᴰ|Oneplay Vlad-Challenge ᴴᴰ ᴸⁱᵛᵉ|
+EN|ONEPLAY Vlad-Challenge ᴴᴰ|Oneplay Vlad-Challenge ᴴᴰ ᴸⁱᵛᵉ|https://iili.io/Jl7UoT7.md.png
 EN|ONEPLAY WARZONE ᴴᴰ|Oneplay Warzone ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f21f094c45b4be9d.png
 EN|ONEPLAY WESTERN ᴴᴰ|Oneplay Western ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbfb9fb6cc427979.png
 EN|ONEPLAY Wolfo ᴴᴰ|Oneplay Wolfo ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c9da6623cb599323.png
@@ -1367,7 +1367,7 @@ GO|ALWAYS FUNNY|Always Funny ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo
 GO|AMC|Amc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/66c99f973d2327b4.png
 GO|AMERICA'S GOT TALENT|America'S Got Talent ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ddd81cd51a375f784e16e57336a12f79f61230fd.png
 GO|AMERICA'S TEST KITCHEN|America'S Test Kitchen ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/255a5b2cb52d3ab5f7f20943d18ab0ab46b1bbb0.png
-GO|AMERICAN CRIMES|American Crimes ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/4/4b/NBC_American_Crimes.png
+GO|AMERICAN CRIMES|American Crimes ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f811b338b6ba2fde808befc62abf70e0d34f5167.png
 GO|AMERICAN HEROES|American Heroes ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/22c9402ff627c182.png
 GO|ANGER MANAGEMENT|Anger Management ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5d78fd2b310884bd.png
 GO|ANIMAL PLANET|Animal Planet ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
@@ -2331,7 +2331,7 @@ MO|VIKOM TV|Vikom Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rg
 MO|ZDRAVA TV|Zdrava Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8635ed78d6268ea7.png
 
 ##### NA (aus Playlist) #####
-NA|BRIDGEPORT ISLANDERS|Bridgeport Islanders ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/HOCKEYLEAGUE.png
+NA|BRIDGEPORT ISLANDERS|Bridgeport Islanders ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA|SHERBROOKE PHŒNIX|Sherbrooke Phœnix ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/HOCKEYLEAGUE.png
 
 ##### PPV (aus Playlist) #####
@@ -3541,7 +3541,7 @@ FREEVIEW:GB|192 RADIO|http://103.176.90.95/images/784411.png
 FREEVIEW:GB|24/7  COMEDY MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/12ce8d9a2667af99605404579b83c29ef76a4376.png
 FREEVIEW:GB|24/7  EDDY MURPHY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/83af7f733c7a66f0f82e42f3e7f3a1e25853a051.png
 FREEVIEW:GB|24/7  MR BEAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/239b746898059978b14d016349b4fd0a96ebabb2.png
-FREEVIEW:GB|24/7  THRILLER MOVIES|http://103.176.90.95/images/559549.png
+FREEVIEW:GB|24/7  THRILLER MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ce15a1c1249c41211a2618ce263f310025ee004d.png
 FREEVIEW:GB|24/7 AL PACINO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 FREEVIEW:GB|24/7 ARCHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d0e1e4831b4b23c7a1190f5765e9e397b04bb3f1.png
 FREEVIEW:GB|24/7 ARNOLD SCHWARZENEGGER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f6cc834b6d421133908072cb63aab5a2a0519570.png
@@ -3550,9 +3550,9 @@ FREEVIEW:GB|24/7 BATMAN MOVIES|http://103.176.90.95/images/478579.png
 FREEVIEW:GB|24/7 BILLY THE EXTERMINATOR|http://103.176.90.95/images/478592.png
 FREEVIEW:GB|24/7 BLADE MOVIES|http://103.176.90.95/images/559562.png
 FREEVIEW:GB|24/7 BONANZA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d61f4aa1bacea2e367181aea8df491934ea6a934.png
-FREEVIEW:GB|24/7 BRUCE LEE MOVIES|http://103.176.90.95/images/559547.png
+FREEVIEW:GB|24/7 BRUCE LEE MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6a3acd4b0f616b99407dcc7cd7d15fcbd5cdbdea.png
 FREEVIEW:GB|24/7 CHAPPELLE'S SHOW|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7e7e4f863d4dc5117ec860404f4d2becaca6145a.png
-FREEVIEW:GB|24/7 CRIME MOVIES|http://103.176.90.95/images/559552.png
+FREEVIEW:GB|24/7 CRIME MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1cb667d3bb91d94dc1e3a134766bd1d88ca64655.png
 FREEVIEW:GB|24/7 DEADLIEST CATCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 FREEVIEW:GB|24/7 DEGRASSI JUNIOR HIGH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 FREEVIEW:GB|24/7 DIE HARD|http://103.176.90.95/images/559587.png
@@ -3561,8 +3561,8 @@ FREEVIEW:GB|24/7 FIFTY SHADES|http://103.176.90.95/images/559563.png
 FREEVIEW:GB|24/7 FRIDAY THE 13TH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/81de8a1af4105ce804f4eebdea84af0037472d66.png
 FREEVIEW:GB|24/7 GREASE|http://103.176.90.95/images/559564.png
 FREEVIEW:GB|24/7 HARRY POTTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8acee73c8e6f8049b3f079dcf29b8ca4076eeb11.png
-FREEVIEW:GB|24/7 HORROR MOVIES|http://103.176.90.95/images/559553.png
-FREEVIEW:GB|24/7 INDIANA JONES|http://103.176.90.95/images/559566.png
+FREEVIEW:GB|24/7 HORROR MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/05b325daed7574422c685204b5be05c3c5cc1892.png
+FREEVIEW:GB|24/7 INDIANA JONES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1857bd32d98fba5a40dc3c04f59dabff039b97a5.png
 FREEVIEW:GB|24/7 JAMES BOND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/62b03a7ab8b1d89f35a5e123a4b4287acf510a17.png
 FREEVIEW:GB|24/7 JASON BOURNE|http://103.176.90.95/images/559544.png
 FREEVIEW:GB|24/7 JCVD MOVIES|http://103.176.90.95/images/559567.png
@@ -3576,19 +3576,19 @@ FREEVIEW:GB|24/7 MEN IN BLACK|http://103.176.90.95/images/559572.png
 FREEVIEW:GB|24/7 NIGHT COURT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fc7ec57d19682baf7d5e69708e56afb51eedd26a.png
 FREEVIEW:GB|24/7 PIRATES OF THE CARIBBEAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d6258e04dfbcc18803c2bafed84ad3ed89fb9ff8.png
 FREEVIEW:GB|24/7 PLANET OF THE APES|http://103.176.90.95/images/559575.png
-FREEVIEW:GB|24/7 POLICE ACADEMY|http://103.176.90.95/images/559577.png
+FREEVIEW:GB|24/7 POLICE ACADEMY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a63861bc6f21aea43cfe7bc19e2045d29b9cbf8e.png
 FREEVIEW:GB|24/7 PREDATOR/ALIEN MOVIES|http://103.176.90.95/images/559576.png
 FREEVIEW:GB|24/7 QUENTIN TARANTINO MOVIES|http://103.176.90.95/images/559582.png
 FREEVIEW:GB|24/7 RAMBO|http://103.176.90.95/images/559546.png
 FREEVIEW:GB|24/7 RICK AND MORTY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bebc643242364015b7cdf967dd9fe9b241992494.png
 FREEVIEW:GB|24/7 ROCKY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1cc5ddf49a0a9b94baf2e9ddb93608ec013ad477.png
-FREEVIEW:GB|24/7 ROMANCE MOVIES|http://103.176.90.95/images/559579.png
+FREEVIEW:GB|24/7 ROMANCE MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4417c8f4ae0e4f7b7d8fcf052f7ec76a1950273b.png
 FREEVIEW:GB|24/7 ROSEANNE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/dfb8d374930b470ac3915d8c94aeccc237bf0e0b.png
 FREEVIEW:GB|24/7 RUSH HOUR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 FREEVIEW:GB|24/7 SCIFI MOVIES|http://103.176.90.95/images/559581.png
 FREEVIEW:GB|24/7 SHE-RA: PRINCESS OF POWER|http://103.176.90.95/images/478533.png
-FREEVIEW:GB|24/7 SIMPSONS|http://103.176.90.95/images/478535.png
-FREEVIEW:GB|24/7 SIX MILLION DOLLAR MAN|http://103.176.90.95/images/478536.png
+FREEVIEW:GB|24/7 SIMPSONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a97a623e84e465d119a2b0c5dd1e67ffed165a11.png
+FREEVIEW:GB|24/7 SIX MILLION DOLLAR MAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/06e198c83e090aa3dcb7e6a6718126b772e4578e.png
 FREEVIEW:GB|24/7 SPONGEBOB SQUAREPANTS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f346b5c4321aca31309233dabee0f3e2d429b3a0.png
 FREEVIEW:GB|24/7 SPORTS MOVIES|http://103.176.90.95/images/559583.png
 FREEVIEW:GB|24/7 STAR TREK MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d2cc5386699683ec0cea99235780d977525584e4.png
@@ -3610,8 +3610,8 @@ FREEVIEW:GB|5 STAR+1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 FREEVIEW:GB|5 USA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3978998d8a0306b7.png
 FREEVIEW:GB|5 USA +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3978998d8a0306b7.png
 FREEVIEW:GB|5ACTION HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4eecb027d254b7c8.png
-FREEVIEW:GB|80'S - DIRECT ᴴᴰ|http://51.158.145.100/picons/logos/UK/1921465.png
-FREEVIEW:GB|90'S - DIRECT ᴴᴰ|http://51.158.145.100/picons/logos/UK/1921464.png
+FREEVIEW:GB|80'S - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/042bcbe98fb8ab514968e3264c4abc5546fd805d.png
+FREEVIEW:GB|90'S - DIRECT ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/042bcbe98fb8ab514968e3264c4abc5546fd805d.png
 FREEVIEW:GB|AL JAZEERA EN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d800dbb1f24969.png
 FREEVIEW:GB|ALIBI +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/abb7e1eace07b26d.png
 FREEVIEW:GB|ALIBI FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/abb7e1eace07b26d.png
@@ -3714,7 +3714,7 @@ FREEVIEW:GB|BBC ONE EAST W|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 FREEVIEW:GB|BBC ONE LONDON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a54eaf37a584a65b.png
 FREEVIEW:GB|BBC ONE NI HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e01df24c75eea74.png
 FREEVIEW:GB|BBC ONE NI HEVC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e01df24c75eea74.png
-FREEVIEW:GB|BBC ONE NORTH EAST& CAM|http://51.158.145.100/picons/logos/UK/229776.png
+FREEVIEW:GB|BBC ONE NORTH EAST& CAM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/882b1616861b52705aae98beab30da695ee3ce58.png
 FREEVIEW:GB|BBC ONE NORTH WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9a5aaedec586bf1e.png
 FREEVIEW:GB|BBC ONE NORTHERN IRELAND FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e01df24c75eea74.png
 FREEVIEW:GB|BBC ONE SCOT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d169e61f03d8375f.png
@@ -3796,7 +3796,7 @@ FREEVIEW:GB|BEIN SPORTS 4 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 FREEVIEW:GB|BEIN SPORTS 5 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5ac65b84b9195602.png
 FREEVIEW:GB|BEIN SPORTS 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9050bedf85a0995b.png
 FREEVIEW:GB|BEIN SPORTS 7 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3c6f6ce8a612ee52.png
-FREEVIEW:GB|BEIN SPORTS ASIA 1|http://51.158.145.100/picons/logos/UKNEW/BEINSPORTS1.png
+FREEVIEW:GB|BEIN SPORTS ASIA 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6722a713059b23a66e54ecad8552619a8508c623.png
 FREEVIEW:GB|BEIN SPORTS AU 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/edd48b7aac2a180f.png
 FREEVIEW:GB|BEIN SPORTS AU 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/edd48b7aac2a180f.png
 FREEVIEW:GB|BEIN SPORTS AU 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/edd48b7aac2a180f.png
@@ -3842,7 +3842,7 @@ FREEVIEW:GB|CHANNEL 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 FREEVIEW:GB|CHANNEL 4 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 4 LONDON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 4 MIDLANDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b33a5bee9d2d5f0d53f47a2670733161a6b2725a.png
-FREEVIEW:GB|CHANNEL 4 SOUTH & EAST|http://51.158.145.100/picons/logos/UK/229495.png
+FREEVIEW:GB|CHANNEL 4 SOUTH & EAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5ebc9524b58710eeda6690e72ac94cb1c4cecb42.png
 FREEVIEW:GB|CHANNEL 4SEVEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 5 +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2acf59375003fb59.png
 FREEVIEW:GB|CHANNEL 5 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2acf59375003fb59.png
@@ -4796,65 +4796,65 @@ FREEVIEW:GB|BBC ALBA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 FREEVIEW:GB|BBC FOUR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/53f0c24def4e0b49cee3d0e1e979e8fe518cefb8.png
 FREEVIEW:GB|BBC NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ae5740abd8bdde5b8a293efb26ca8579499e6371.png
 FREEVIEW:GB|BBC ONE CHANNEL ISLANDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/749499786c4eb14382278bf10a156610a1a9414c.png
-FREEVIEW:GB|BBC ONE EAST YORKSHIRE & LINCOLNSHIRE|http://51.158.145.100/picons/logos/UK/1906067.png
+FREEVIEW:GB|BBC ONE EAST YORKSHIRE & LINCOLNSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/00050e2432535d50f81edfd012d11bf7227bb207.png
 FREEVIEW:GB|BBC ONE NI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ed08c4f57d1775a4a74307843a1c87c29921c0bf.png
-FREEVIEW:GB|BBC ONE NORTH EAST & CUMBRIA|http://51.158.145.100/picons/logos/UK/1906064.png
+FREEVIEW:GB|BBC ONE NORTH EAST & CUMBRIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/882b1616861b52705aae98beab30da695ee3ce58.png
 FREEVIEW:GB|BBC ONE SCOTLAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a87e351e39adf629e7a849870d139b557ea08557.png
 FREEVIEW:GB|BBC ONE SOUTH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc2fec7389af391ee312b123b86f6ed68addf375.png
-FREEVIEW:GB|BBC RADIO 1 DANCE|http://51.158.145.100/picons/logos/UK/1906051.png
-FREEVIEW:GB|BBC RADIO 3 UNWIND|http://51.158.145.100/picons/logos/UK/1906047.png
+FREEVIEW:GB|BBC RADIO 1 DANCE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO 3 UNWIND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38a612bb2c24b3b52bae0c8dade45fda5b7e3449.png
 FREEVIEW:GB|BBC RADIO 5 LIVE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0d5536be1ac1758c1933243a9ca362090b076717.png
 FREEVIEW:GB|BBC RADIO 5 LIVE SPORTS EXTRA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f22106ff0dd63e0a14d54f773169bfa1eb1fd784.png
-FREEVIEW:GB|BBC RADIO ASIAN NETWORK|http://51.158.145.100/picons/logos/UK/1906041.png
-FREEVIEW:GB|BBC RADIO BERKSHIRE|http://51.158.145.100/picons/logos/UK/1906040.png
-FREEVIEW:GB|BBC RADIO BRISTOL|http://51.158.145.100/picons/logos/UK/1906039.png
-FREEVIEW:GB|BBC RADIO CAMBRIDGE|http://51.158.145.100/picons/logos/UK/1906038.png
-FREEVIEW:GB|BBC RADIO CORNWALL|http://51.158.145.100/picons/logos/UK/1906037.png
-FREEVIEW:GB|BBC RADIO COVENTRY & WARWICKSHIRE (CWR)|http://51.158.145.100/picons/logos/UK/1906036.png
-FREEVIEW:GB|BBC RADIO CUMBRIA|http://51.158.145.100/picons/logos/UK/1906035.png
+FREEVIEW:GB|BBC RADIO ASIAN NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/30af7a62253f75650ff3b7f69d71997a73d7efb0.png
+FREEVIEW:GB|BBC RADIO BERKSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO BRISTOL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO CAMBRIDGE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO CORNWALL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO COVENTRY & WARWICKSHIRE (CWR)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO CUMBRIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
 FREEVIEW:GB|BBC RADIO CYMRU|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ec06d4ee3b8f288f1426e9990aa3960f110a05e2.png
 FREEVIEW:GB|BBC RADIO CYMRU 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ec06d4ee3b8f288f1426e9990aa3960f110a05e2.png
-FREEVIEW:GB|BBC RADIO DERBY|http://51.158.145.100/picons/logos/UK/1906032.png
-FREEVIEW:GB|BBC RADIO DEVON|http://51.158.145.100/picons/logos/UK/1906031.png
-FREEVIEW:GB|BBC RADIO ESSEX|http://51.158.145.100/picons/logos/UK/1906030.png
+FREEVIEW:GB|BBC RADIO DERBY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO DEVON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO ESSEX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
 FREEVIEW:GB|BBC RADIO FOYLE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
-FREEVIEW:GB|BBC RADIO GLOUCESTERSHIRE|http://51.158.145.100/picons/logos/UK/1906028.png
-FREEVIEW:GB|BBC RADIO GUERNSEY|http://51.158.145.100/picons/logos/UK/1906027.png
-FREEVIEW:GB|BBC RADIO HEREFORD & WORCESTER|http://51.158.145.100/picons/logos/UK/1906026.png
-FREEVIEW:GB|BBC RADIO HUMBERSIDE|http://51.158.145.100/picons/logos/UK/1906025.png
-FREEVIEW:GB|BBC RADIO JERSEY|http://51.158.145.100/picons/logos/UK/1906024.png
-FREEVIEW:GB|BBC RADIO KENT|http://51.158.145.100/picons/logos/UK/1906023.png
-FREEVIEW:GB|BBC RADIO LANCASHIRE|http://51.158.145.100/picons/logos/UK/1906022.png
-FREEVIEW:GB|BBC RADIO LEEDS|http://51.158.145.100/picons/logos/UK/1906021.png
-FREEVIEW:GB|BBC RADIO LEICESTER|http://51.158.145.100/picons/logos/UK/1906020.png
-FREEVIEW:GB|BBC RADIO LINCOLNSHIRE|http://51.158.145.100/picons/logos/UK/1906019.png
+FREEVIEW:GB|BBC RADIO GLOUCESTERSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO GUERNSEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO HEREFORD & WORCESTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO HUMBERSIDE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO JERSEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO KENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO LANCASHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO LEEDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO LEICESTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO LINCOLNSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
 FREEVIEW:GB|BBC RADIO LONDON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/958bf01cad4f0c585e8e3c135a30ea413c34f24e.png
-FREEVIEW:GB|BBC RADIO MANCHESTER|http://51.158.145.100/picons/logos/UK/1906017.png
-FREEVIEW:GB|BBC RADIO MERSEYSIDE|http://51.158.145.100/picons/logos/UK/1906016.png
+FREEVIEW:GB|BBC RADIO MANCHESTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO MERSEYSIDE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
 FREEVIEW:GB|BBC RADIO NAN GAIDHEAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2e799117cc97e0c28798195f2d93e89a12510bc9.png
-FREEVIEW:GB|BBC RADIO NEWCASTLE|http://51.158.145.100/picons/logos/UK/1906014.png
-FREEVIEW:GB|BBC RADIO NOTTINGHAM|http://51.158.145.100/picons/logos/UK/1906011.png
-FREEVIEW:GB|BBC RADIO ORKNEY|http://51.158.145.100/picons/logos/UK/1906010.png
-FREEVIEW:GB|BBC RADIO OXFORD|http://51.158.145.100/picons/logos/UK/1906009.png
-FREEVIEW:GB|BBC RADIO SCOTLAND EXTRA|http://51.158.145.100/picons/logos/UK/1906008.png
-FREEVIEW:GB|BBC RADIO SCOTLAND FM|http://51.158.145.100/picons/logos/UK/1906007.png
-FREEVIEW:GB|BBC RADIO SHEFFIELD|http://51.158.145.100/picons/logos/UK/1906006.png
-FREEVIEW:GB|BBC RADIO SHROPSHIRE|http://51.158.145.100/picons/logos/UK/1906005.png
-FREEVIEW:GB|BBC RADIO SOLENT|http://51.158.145.100/picons/logos/UK/1906004.png
-FREEVIEW:GB|BBC RADIO SOLENT WEST DORSET|http://51.158.145.100/picons/logos/UK/1906003.png
-FREEVIEW:GB|BBC RADIO SOMERSET|http://51.158.145.100/picons/logos/UK/1906002.png
-FREEVIEW:GB|BBC RADIO STOKE|http://51.158.145.100/picons/logos/UK/1906001.png
-FREEVIEW:GB|BBC RADIO SUFFOLK|http://51.158.145.100/picons/logos/UK/1906000.png
-FREEVIEW:GB|BBC RADIO SURREY|http://51.158.145.100/picons/logos/UK/1905999.png
+FREEVIEW:GB|BBC RADIO NEWCASTLE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO NOTTINGHAM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO ORKNEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO OXFORD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO SCOTLAND EXTRA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6db74b06adfef13d7239204a5d4b6381d3f2c837.png
+FREEVIEW:GB|BBC RADIO SCOTLAND FM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6db74b06adfef13d7239204a5d4b6381d3f2c837.png
+FREEVIEW:GB|BBC RADIO SHEFFIELD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO SHROPSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO SOLENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO SOLENT WEST DORSET|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO SOMERSET|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO STOKE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO SUFFOLK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO SURREY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
 FREEVIEW:GB|BBC RADIO SUSSEX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
-FREEVIEW:GB|BBC RADIO TEES|http://51.158.145.100/picons/logos/UK/1905997.png
-FREEVIEW:GB|BBC RADIO THREE COUNTIES|http://51.158.145.100/picons/logos/UK/1905996.png
+FREEVIEW:GB|BBC RADIO TEES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO THREE COUNTIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
 FREEVIEW:GB|BBC RADIO ULSTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e96e7bc4804a91ce8f5031831c01ae3619f32eca.png
 FREEVIEW:GB|BBC RADIO WALES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/210695e041e821269e3cf210d539ff11ab9abbdc.png
-FREEVIEW:GB|BBC RADIO WILTSHIRE|http://51.158.145.100/picons/logos/UK/1905993.png
-FREEVIEW:GB|BBC RADIO WM|http://51.158.145.100/picons/logos/UK/1905992.png
-FREEVIEW:GB|BBC RADIO WORLD SERVICE|http://51.158.145.100/picons/logos/UK/1905991.png
-FREEVIEW:GB|BBC RADIO YORK|http://51.158.145.100/picons/logos/UK/1905990.png
+FREEVIEW:GB|BBC RADIO WILTSHIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c926a228affa860dfd39206fcd511faac9ee4711.png
+FREEVIEW:GB|BBC RADIO WM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
+FREEVIEW:GB|BBC RADIO WORLD SERVICE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b17634cdd22bafac9bef76694c2189444af0bf16.png
+FREEVIEW:GB|BBC RADIO YORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0f3bf872a6f52327edc4d64ab050cb161e56957.png
 FREEVIEW:GB|BBC RED BUTTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/68d2a5965c113a2b9b7b8ed260ab2b46786903a2.png
 FREEVIEW:GB|BBC RED BUTTON 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1f7f377b3f6e5129b95ee709ae84bc0d03b6b8d4.png
 FREEVIEW:GB|BBC RED BUTTON 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6cd5c5e257577d50fb2415d0c84df54ca0f69651.png
@@ -4915,8 +4915,8 @@ SKY:GB|SKY HISTORY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 SKY:GB|SKY KIDS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7dcc102edf8178010524917fcdfd9476ee216bd6.png
 SKY:GB|SKY MAX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6b23462bd2c9e8a6182b021cd45201b6ab3ac97a.png
 SKY:GB|SKY NATURE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3152831f3e466ed9783afe4148c2e4f317399b5f.png
-SKY:GB|SKY NEWS LIVE FHD|http://51.158.145.100/picons/logos/UK/1905881.png
-SKY:GB|SKY NEWS LIVE HD|http://51.158.145.100/picons/logos/UK/1905879.png
+SKY:GB|SKY NEWS LIVE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ea0dc949668a996d01810b14dba66a87fa1f0498.png
+SKY:GB|SKY NEWS LIVE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ea0dc949668a996d01810b14dba66a87fa1f0498.png
 SKY:GB|SKY SCFI/HOR FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f4b5f8f4789686c3acd8fceb6c66acc417a96d7.png
 SKY:GB|SKY SCFI/HOR HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f4b5f8f4789686c3acd8fceb6c66acc417a96d7.png
 SKY:GB|SKY SHOWCASE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/21eeab864ad4caa1c4f926eb12c1e0fc1d3f3556.png
@@ -4932,13 +4932,13 @@ SKY:GB|SKY SPORTS+ FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 SKY:GB|SKY SPORTS+ HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc29f90e41222b3c77291fab35dd5399b9bd8771.png
 SKY:GB|SKY THRILLER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/408ccb601bd45831e18487eb14d522c1bbc6839c.png
 SKY:GB|SKY THRILLER HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/408ccb601bd45831e18487eb14d522c1bbc6839c.png
-SKY:GB|SKYADVENTURE FHD|http://51.158.145.100/picons/logos/UK/1905826.png
-SKY:GB|SKYADVENTURE HD|http://51.158.145.100/picons/logos/UK/1905824.png
+SKY:GB|SKYADVENTURE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c698270a42a031aaecf82ea34676b3626506969e.png
+SKY:GB|SKYADVENTURE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c698270a42a031aaecf82ea34676b3626506969e.png
 SKY:GB|SKYANIMATION FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9eadd28e549c156c41d092550b31fcf8e63a7b24.png
 SKY:GB|SKYANIMATION HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9eadd28e549c156c41d092550b31fcf8e63a7b24.png
 SKY:GB|TNT SPORT (UHD/4K)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/05f7596f018d3ae23598b40945c5a626ec427f67.png
-SKY:GB|TNT SPORT 1 FHD|http://51.158.145.100/picons/logos/UK/1905819.png
-SKY:GB|TNT SPORT 1 HD|http://51.158.145.100/picons/logos/UK/1905817.png
+SKY:GB|TNT SPORT 1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
+SKY:GB|TNT SPORT 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
 SKY:GB|TNT SPORT 2 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95cbe05499ac401a2dd01add2ff1a4c01cbe7c92.png
 SKY:GB|TNT SPORT 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95cbe05499ac401a2dd01add2ff1a4c01cbe7c92.png
 SKY:GB|TNT SPORT 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1a00fff844d5b48658aeb515a85575b176107d13.png
@@ -5860,7 +5860,7 @@ TVGUIDE:US|CW PHILADELPHIA HD|https://raw.githubusercontent.com/babo20094-rgb/Ep
 TVGUIDE:US|CW PITTSBURGH|http://51.158.145.100/picons/logos/USA/90953.png
 TVPASSPORT:US|CW PIX11 (WPIX) NEW YORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b621a2a3a32d4465.png
 TVGUIDE:US|CW SACRAMENTO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/899aeb742d02d59561ec127ae07c94be8ce89835.png
-TVGUIDE:US|CW SAN FRANCISCO HD|http://51.158.145.100/picons/logos/USA/90949.png
+TVGUIDE:US|CW SAN FRANCISCO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a9832916a72e59bf927424a6104d34cfeaad3330.png
 TVGUIDE:US|CW TAMPA BAY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/80d12a5fd72435f4d6f2bc5956a9aa2918998672.png
 TVGUIDE:US|CYBERPUNK EDGERUNNERS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|DABL TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f87c537266089f9.png
@@ -8694,8 +8694,8 @@ NAME:(Victory+ 097)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:(Victory+ 098)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/537d041b7b9877feaf225a6e37eb6856d795ca62.png
 NAME:(Victory+ 099)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/537d041b7b9877feaf225a6e37eb6856d795ca62.png
 NAME:(Victory+ 100)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/537d041b7b9877feaf225a6e37eb6856d795ca62.png
-NAME:2026 US Open Tennis: Early Round Coverage Day #2 vs Primetime @ Aug 31 19:00 :Tennis  03|
-NAME:2026 US Open Tennis: Early Round Coverage Day #3 @ Sep 1 11:00 :Tennis  06|
+NAME:2026 US Open Tennis: Early Round Coverage Day #2 vs Primetime @ Aug 31 19:00 :Tennis  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:2026 US Open Tennis: Early Round Coverage Day #3 @ Sep 1 11:00 :Tennis  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:24/7 100 PERCENT HOTTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 12 OZ MOUSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9c688d1d99f9c78cddc56681e9046d17e975b330.png
@@ -10964,102 +10964,102 @@ NAME:24/7 ZEKE AND LUTHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 NAME:24/7 ZENIMATION|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/53d663da6532d9bc142e67355270cd3f2f70a3f1.png
 NAME:24/7 ZOEY 101|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 ZOMBIE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8785b1c8e545763fc72d066422b43aa7a5836b70.png
-NAME::Flo College  03|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  04|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  05|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  06|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  07|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  08|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  09|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  10|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
+NAME::Flo College  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME::Flo College  100|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
-NAME::Flo College  11|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  12|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  13|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  14|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  15|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  16|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  17|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  18|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  19|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  20|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  21|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  22|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  23|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  24|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  25|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  26|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  27|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  28|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  29|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  30|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  31|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  32|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  33|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  34|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  35|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  36|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  37|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  38|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  39|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  40|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  41|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  42|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  43|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  44|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  45|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  46|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  47|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  48|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  49|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  50|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  51|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  52|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  53|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  54|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  55|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  56|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  57|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  58|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  59|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  60|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  61|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  62|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  63|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  64|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  65|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  66|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  67|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  68|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  69|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  70|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  71|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  72|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  73|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  74|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  75|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  76|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  77|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  78|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  79|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  80|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  81|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  82|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  83|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  84|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  85|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  86|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  87|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  88|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  89|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  90|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  91|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  92|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  93|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  94|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  95|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  96|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
-NAME::Flo College  97|https://upload.wikimedia.org/wikipedia/commons/3/30/FloSports_logo.png
+NAME::Flo College  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  39|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  51|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  52|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  53|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  54|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  55|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  56|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  61|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  63|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  64|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  65|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  66|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  67|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  68|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  69|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  70|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  71|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  72|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  73|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  74|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  75|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  76|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  77|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  78|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  79|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  80|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  81|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  82|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  83|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  84|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  85|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  86|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  87|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  88|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  89|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  90|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  91|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  92|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  93|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  94|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  95|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME::Flo College  98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME::Flo College  99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME::Flo Racing  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
@@ -11217,13 +11217,13 @@ NAME::NCAAB  96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m
 NAME::NCAAB  97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9405fcb955e2e99cc955fd58df9667f76456dc04.png
 NAME::NCAAB  98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9405fcb955e2e99cc955fd58df9667f76456dc04.png
 NAME::NCAAB  99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9405fcb955e2e99cc955fd58df9667f76456dc04.png
-NAME::Paramount+  03|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
-NAME::Paramount+  04|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
-NAME::Paramount+  05|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
-NAME::Paramount+  06|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
-NAME::Paramount+  07|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
-NAME::Paramount+  08|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
-NAME::Paramount+  09|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
+NAME::Paramount+  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
+NAME::Paramount+  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
+NAME::Paramount+  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
+NAME::Paramount+  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
+NAME::Paramount+  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
+NAME::Paramount+  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
+NAME::Paramount+  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME::Paramount+  100|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME::Paramount+  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME::Paramount+  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
@@ -11306,7 +11306,7 @@ NAME::Paramount+  97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME::Paramount+  98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME::Paramount+  99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:AMERICA'S GOT TALENT: THE CHAMPIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:AR: DAZN PPV 1|
+NAME:AR: DAZN PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:AU (STAN 01) | Jacquemot v Bouzkova  Women`s Singles R1 US Open 2026 (2026-09-01 01:00:29)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
 NAME:AU (STAN 02) | Kraus v Muchova  Women`s Singles R1 US Open 2026 (2026-09-01 01:00:34)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
 NAME:AU (STAN 03) | Tsitsipas v Fils  Men`s Singles R1 US Open 2026 (2026-09-01 01:00:39)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
@@ -11407,9 +11407,9 @@ NAME:AU (STAN 96) | Practice 2: Grand Prix of Laguna Seca  Indycar 2026 (2026-09
 NAME:AU (STAN 97) | PL Saturday Wrap: Matchweek 3  Sep 6 (2026-09-06 05:00:29)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
 NAME:AU (STAN 98) | Qualifying: Lone Star Le Mans  WEC 2026 (2026-09-06 05:50:29)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
 NAME:AU (STAN 99) | Argentina v Australia  Men`s International 2026 (2026-09-06 06:30:29)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
-NAME:Altoona Curve vs Erie SeaWolves @ Aug 30 6:00 PM :Milb  57|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Amarillo Sod Poodles vs Corpus Christi Hooks @ Aug 30 2:05 PM :Milb  36|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Augusta GreenJackets vs Myrtle Beach Pelicans @ Aug 30 5:05 PM :Milb  53|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Altoona Curve vs Erie SeaWolves @ Aug 30 6:00 PM :Milb  57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Amarillo Sod Poodles vs Corpus Christi Hooks @ Aug 30 2:05 PM :Milb  36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Augusta GreenJackets vs Myrtle Beach Pelicans @ Aug 30 5:05 PM :Milb  53|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:BTN+ 1 HD (D): B1G+ | Field Hockey | Ball State at Michigan State | Tue 14 Oct 13:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 10 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 11 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
@@ -11460,29 +11460,29 @@ NAME:BTN+ 6 HD (D): B1G+ | Ice Hockey (M) | Robert Morris at #9 Michigan | Thu 1
 NAME:BTN+ 7 HD (D): B1G+ | Soccer (W) | Illinois at Northwestern | Thu 16 Oct 19:30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 8 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 9 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:Biloxi Shuckers vs Knoxville Smokies @ Aug 30 6:05 PM :Milb  58|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Birmingham Barons vs Rocket City Trash Pandas @ Aug 30 3:05 PM :Milb  43|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Biloxi Shuckers vs Knoxville Smokies @ Aug 30 6:05 PM :Milb  58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Birmingham Barons vs Rocket City Trash Pandas @ Aug 30 3:05 PM :Milb  43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Boxing  05  :  FURY vs HALL  6PM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:Boxing 1 : MOSES vs HRGOVIC  4:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:Boxing 2 : MOSES vs HRGOVIC  4:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:Boxing 4 : MOSES vs HRGOVIC  4:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
-NAME:Boxing 6|
-NAME:Boxing 7|
-NAME:Boxing 8|
-NAME:Cedar Rapids Kernels vs Lake County Captains @ Aug 30 2:05 PM :Milb  31|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Charlotte Knights vs Memphis Redbirds @ Aug 30 5:05 PM :Milb  52|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Chattanooga Lookouts vs Columbus Clingstones @ Aug 30 1:00 PM :Milb  08|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Clubber 10|
-NAME:Clubber 11|
-NAME:Clubber 12|
-NAME:Clubber 13|
-NAME:Clubber 14|
-NAME:Clubber 15|
-NAME:Clubber 16|
-NAME:Clubber 17|
-NAME:Clubber 18|
-NAME:Clubber 19|
-NAME:Clubber 20|
+NAME:Boxing 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
+NAME:Boxing 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
+NAME:Boxing 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
+NAME:Cedar Rapids Kernels vs Lake County Captains @ Aug 30 2:05 PM :Milb  31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Charlotte Knights vs Memphis Redbirds @ Aug 30 5:05 PM :Milb  52|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Chattanooga Lookouts vs Columbus Clingstones @ Aug 30 1:00 PM :Milb  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Clubber 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d6ee116e0b4cce38cd9b4789c7a8ddb45467e670.png
+NAME:Clubber 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/90a91b86c2155aa22b8aaf00e2ab4aaa6fc0470a.png
+NAME:Clubber 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d339cbbc9dad91093fb7586b5b677c12d6b8642e.png
+NAME:Clubber 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4bab76caed1557dd4db9aff3badf5c3e6d8ea091.png
+NAME:Clubber 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a42532640c520d2b12e2dfa590ac204c49bd9137.png
+NAME:Clubber 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/44df39b7df01f29c3f988ea731035af0153cfb41.png
+NAME:Clubber 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7abf1a9c49f66d22b0afc64edca3cee80b727e57.png
+NAME:Clubber 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/36fc56a9ec21a5cfee6fc52d597a1305c650f5bb.png
+NAME:Clubber 18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/eaab6f33dcc0f065979462863f1898ef786d6a32.png
+NAME:Clubber 19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/07600ddec4541a6f2b9749c1a2d3409c57c2b76b.png
+NAME:Clubber 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/85d2e232852f844a0a5e5b40b97d1760d7f4b9ba.png
 NAME:Clubber TV | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
 NAME:Clubber TV | Event 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
 NAME:Clubber TV | Event 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
@@ -11492,7 +11492,7 @@ NAME:Clubber TV | Event 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 NAME:Clubber TV | Event 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
 NAME:Clubber TV | Event 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
 NAME:Clubber TV | Event 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
-NAME:Columbia Fireflies vs Charleston RiverDogs @ Aug 30 5:05 PM :Milb  55|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Columbia Fireflies vs Charleston RiverDogs @ Aug 30 5:05 PM :Milb  55|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Columbus Crew vs New England Revolution @ Aug 30 4:30 PM :MLS  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:D+| ANIMAL PLANET FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b80d7240675959483ec65900bdb14ec8ed76178a.png
 NAME:D+| DISCOVERY HISTORY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/627da46d2f20b5f6d2bfc59eb8b30a816e5b1630.png
@@ -11755,56 +11755,56 @@ NAME:DE: DPLUS PPV 96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 NAME:DE: DPLUS PPV 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/31dfbd2ea2c21addf4d0da33de1f4af165b95839.png
 NAME:DE: DPLUS PPV 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/31dfbd2ea2c21addf4d0da33de1f4af165b95839.png
 NAME:DE: DPLUS PPV 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/31dfbd2ea2c21addf4d0da33de1f4af165b95839.png
-NAME:DE: DYN PPV 1|http://103.176.90.95/images/1648304.png
-NAME:DE: DYN PPV 10|http://103.176.90.95/images/1648295.png
-NAME:DE: DYN PPV 11|http://103.176.90.95/images/1648294.png
-NAME:DE: DYN PPV 12|http://103.176.90.95/images/1648293.png
-NAME:DE: DYN PPV 13|http://103.176.90.95/images/1648292.png
-NAME:DE: DYN PPV 14|http://103.176.90.95/images/1648291.png
-NAME:DE: DYN PPV 15|http://103.176.90.95/images/1648290.png
-NAME:DE: DYN PPV 16|http://103.176.90.95/images/1648289.png
-NAME:DE: DYN PPV 17|http://103.176.90.95/images/1648288.png
-NAME:DE: DYN PPV 18|http://103.176.90.95/images/1648287.png
-NAME:DE: DYN PPV 19|http://103.176.90.95/images/1648286.png
-NAME:DE: DYN PPV 2|http://103.176.90.95/images/1648303.png
-NAME:DE: DYN PPV 20|http://103.176.90.95/images/1648285.png
-NAME:DE: DYN PPV 21|http://103.176.90.95/images/1648284.png
-NAME:DE: DYN PPV 22|http://103.176.90.95/images/1648283.png
-NAME:DE: DYN PPV 23|http://103.176.90.95/images/1648282.png
-NAME:DE: DYN PPV 24|http://103.176.90.95/images/1648281.png
-NAME:DE: DYN PPV 25|http://103.176.90.95/images/1648280.png
-NAME:DE: DYN PPV 26|http://103.176.90.95/images/1648279.png
-NAME:DE: DYN PPV 27|http://103.176.90.95/images/1648278.png
-NAME:DE: DYN PPV 28|http://103.176.90.95/images/1648277.png
-NAME:DE: DYN PPV 29|http://103.176.90.95/images/1648276.png
-NAME:DE: DYN PPV 3|http://103.176.90.95/images/1648302.png
-NAME:DE: DYN PPV 30|http://103.176.90.95/images/1648275.png
-NAME:DE: DYN PPV 31|http://103.176.90.95/images/1648274.png
-NAME:DE: DYN PPV 32|http://103.176.90.95/images/1648273.png
-NAME:DE: DYN PPV 33|http://103.176.90.95/images/1648272.png
-NAME:DE: DYN PPV 34|http://103.176.90.95/images/1648271.png
-NAME:DE: DYN PPV 35|http://103.176.90.95/images/1648270.png
-NAME:DE: DYN PPV 36|http://103.176.90.95/images/1648269.png
-NAME:DE: DYN PPV 37|http://103.176.90.95/images/1648268.png
-NAME:DE: DYN PPV 38|http://103.176.90.95/images/1648267.png
-NAME:DE: DYN PPV 39|http://103.176.90.95/images/1648266.png
-NAME:DE: DYN PPV 4|http://103.176.90.95/images/1648301.png
-NAME:DE: DYN PPV 40|http://103.176.90.95/images/1648265.png
-NAME:DE: DYN PPV 41|http://103.176.90.95/images/1648264.png
-NAME:DE: DYN PPV 42|http://103.176.90.95/images/1648263.png
-NAME:DE: DYN PPV 43|http://103.176.90.95/images/1648262.png
-NAME:DE: DYN PPV 44|http://103.176.90.95/images/1648261.png
-NAME:DE: DYN PPV 45|http://103.176.90.95/images/1648260.png
-NAME:DE: DYN PPV 46|http://103.176.90.95/images/1648259.png
-NAME:DE: DYN PPV 47|http://103.176.90.95/images/1648258.png
-NAME:DE: DYN PPV 48|http://103.176.90.95/images/1648257.png
-NAME:DE: DYN PPV 49|http://103.176.90.95/images/1648256.png
-NAME:DE: DYN PPV 5|http://103.176.90.95/images/1648300.png
-NAME:DE: DYN PPV 50|http://103.176.90.95/images/1648255.png
-NAME:DE: DYN PPV 6|http://103.176.90.95/images/1648299.png
-NAME:DE: DYN PPV 7|http://103.176.90.95/images/1648298.png
-NAME:DE: DYN PPV 8|http://103.176.90.95/images/1648297.png
-NAME:DE: DYN PPV 9|http://103.176.90.95/images/1648296.png
+NAME:DE: DYN PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2656e58cc452409c43797ab12c124b76d6a365cd.png
+NAME:DE: DYN PPV 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ab91c5aea879f9d66be3c5ca897e41c17fc78d03.png
+NAME:DE: DYN PPV 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/44345b749527369f1429f07d3375a1b335f1dd48.png
+NAME:DE: DYN PPV 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5bb4c7ebea39b7d4f3cb2b09978d4948bbc1184c.png
+NAME:DE: DYN PPV 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1b2bebf64e755aef2b85f97ee74326d33f1e8da1.png
+NAME:DE: DYN PPV 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9be0de81e3f039f768870e2361553d307b44175a.png
+NAME:DE: DYN PPV 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8a0c6336e57b2e22b3e7548aea63e451b48368b.png
+NAME:DE: DYN PPV 18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c9b4ccaa4d4eb2505bf32f5eea488810baa46140.png
+NAME:DE: DYN PPV 19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4fcd8f91ed02178b9b85aa984ca9721e1c26b524.png
+NAME:DE: DYN PPV 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a92eb861280ace3e9a11d182e82a08210fc75b64.png
+NAME:DE: DYN PPV 21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 39|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
+NAME:DE: DYN PPV 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab3f1a97f504479c6c898d0edc8bbb8ca499a50.png
 NAME:DE: LEAGUES FOOTBALL PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
 NAME:DE: LEAGUES FOOTBALL PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
 NAME:DE: LEAGUES FOOTBALL PPV 100|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
@@ -12257,11 +12257,11 @@ NAME:DIRTVISION  08|
 NAME:DIRTVISION 01 : Nodak Speedway 7:15 PM|
 NAME:DIRTVISION 02 : Huset's Speedway 7:25 PM|
 NAME:DIRTVISION 03 : Sheridan Speedway 8:15 PM|
-NAME:Daytona Tortugas vs St. Lucie Mets @ Aug 30 1:05 PM :Milb  13|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Delmarva Shorebirds vs Fredericksburg Nationals @ Aug 30 2:05 PM :Milb  33|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:00 PM :Milb  02|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:05 PM :Milb  03|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Durham Bulls vs Norfolk Tides @ Aug 30 1:05 PM :Milb  17|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Daytona Tortugas vs St. Lucie Mets @ Aug 30 1:05 PM :Milb  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Delmarva Shorebirds vs Fredericksburg Nationals @ Aug 30 2:05 PM :Milb  33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:00 PM :Milb  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:05 PM :Milb  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Durham Bulls vs Norfolk Tides @ Aug 30 1:05 PM :Milb  17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:ESPN PLUS 00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8b4ee897eb321f74f91ff21608e977e0027ce586.png
 NAME:ESPN PLUS 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fb91df430b669c6aa523115695e981f78853e088.png
 NAME:ESPN PLUS 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5ef79978386a04e228bc83a9024cdaaa3abdb167.png
@@ -12270,7 +12270,7 @@ NAME:ESPN PLUS 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:ESPN PLUS 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b09ef31a380dc227a793490422beca6bc2c60888.png
 NAME:ESPN PLUS 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/465c4328d116262ec399bb2e99d84d4b296247bb.png
 NAME:ESPN PLUS 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/00a85036b516ed8983369f8e54edb699fdffcb39.png
-NAME:ESPN PLUS 08|
+NAME:ESPN PLUS 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
 NAME:ESPN PLUS 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f2487575ca5c0370afdebc2357831c83a590dce3.png
 NAME:ESPN PLUS 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2c84b49d130961d74d9f7acc6478a150a26f7fd7.png
 NAME:ESPN PLUS 100|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/90f8743ed0f4b7835134bea59feb03d31d9a26dd.png
@@ -12297,18 +12297,18 @@ NAME:ESPN PLUS 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:ESPN PLUS 21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ba973c6cda6082042f2dd9bbf8b683f70252b151.png
 NAME:ESPN PLUS 22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/725a08ddebe6e0b57e5ad007a308fbb692ead0cd.png
 NAME:ESPN PLUS 23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/14cbbf222a74450ecebebbfc67aac0f809b84915.png
-NAME:ESPN PLUS 24|
-NAME:ESPN PLUS 25|
-NAME:ESPN PLUS 26|
-NAME:ESPN PLUS 27|
-NAME:ESPN PLUS 28|
-NAME:ESPN PLUS 29|
-NAME:ESPN PLUS 30|
-NAME:ESPN PLUS 31|
+NAME:ESPN PLUS 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
+NAME:ESPN PLUS 25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
+NAME:ESPN PLUS 26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
+NAME:ESPN PLUS 27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
+NAME:ESPN PLUS 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
+NAME:ESPN PLUS 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
+NAME:ESPN PLUS 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
+NAME:ESPN PLUS 31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
 NAME:ESPN PLUS 32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4415c083ebbf604c3ea7c6498d8a772f310646f9.png
 NAME:ESPN PLUS 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c40430abf35d2475a7553e1ee885621d30414a98.png
 NAME:ESPN PLUS 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0960a33b5c811e8426d6ae831c1cfe8e068ea3d2.png
-NAME:ESPN PLUS 35|
+NAME:ESPN PLUS 35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
 NAME:ESPN PLUS 36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bab98150006a1ee176598d97373db5e58cedda58.png
 NAME:ESPN PLUS 37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/11ca4c52e5ce76da3bc00b6c3e4d1880681431e6.png
 NAME:ESPN PLUS 38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fe3cc7eb5bebdb0b69c231ae05d70298fe994639.png
@@ -12350,7 +12350,7 @@ NAME:ESPN PLUS 73|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:ESPN PLUS 74|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b9ff984eb6c1fcca1514d79de41386e9ea48f31e.png
 NAME:ESPN PLUS 75|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1322cf0bc30b0f55239060f38d29bfcff3978007.png
 NAME:ESPN PLUS 76|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a89d0df2526c9033ffadaa624e637685a9b0b259.png
-NAME:ESPN PLUS 77|
+NAME:ESPN PLUS 77|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
 NAME:ESPN PLUS 78|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/aedc2898cb4a5c2bd99158e03d698bd8cd392d84.png
 NAME:ESPN PLUS 79|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/831f83de8eb0d83382866b394797112c9edf3625.png
 NAME:ESPN PLUS 80|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/15f49a779b0c927cc7b92bfd3aa55f0815697875.png
@@ -12373,7 +12373,7 @@ NAME:ESPN PLUS 96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:ESPN PLUS 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d66d2e325da2b0a0ba2466b76866372783a90bcd.png
 NAME:ESPN PLUS 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3b588ef198fe6edbac9a9f76085021fe7616a5cb.png
 NAME:ESPN PLUS 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9580f13ee139f8a1a42fd2fa1b0c9c73ee6c36ae.png
-NAME:Everett AquaSox vs Eugene Emeralds @ Aug 30 7:05 PM :Milb  59|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Everett AquaSox vs Eugene Emeralds @ Aug 30 7:05 PM :Milb  59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:FA Player 01 : Chelsea vs Manchester United // UK Sun 18 May 1:30pm // ET Sun 18 May 8:30am|http://103.176.90.95/images/1429570.png
 NAME:FA Player 02 : Chelsea vs Crystal Palace // UK Sun 9 Mar 3:30pm // ET Sun 9 Mar 10:30am|http://103.176.90.95/images/1429579.png
 NAME:FA Player 03 : Arsenal vs Liverpool // UK Sun 9 Mar 3:30pm // ET Sun 9 Mar 10:30am|http://103.176.90.95/images/1429578.png
@@ -12381,8 +12381,8 @@ NAME:FA Player 04 : Manchester City vs Leicester City // UK Sun 9 Feb 3:00pm // 
 NAME:FA Player 05 : Arsenal vs London City Lionesses // UK Sun 9 Feb 3:00pm // ET Sun 9 Feb 10:00am|http://103.176.90.95/images/1429576.png
 NAME:FA Player 06 : Portsmouth vs Sunderland // UK Sun 9 Feb 3:00pm // ET Sun 9 Feb 10:00am|http://103.176.90.95/images/1429575.png
 NAME:FA Player 07 : Arsenal vs Bristol City // UK Sun 12 Jan 4:00pm // ET Sun 12 Jan 11:00am|http://103.176.90.95/images/1429574.png
-NAME:Fayetteville Woodpeckers vs Salem RidgeYaks @ Aug 30 2:00 PM :Milb  29|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Fayetteville Woodpeckers vs Salem RidgeYaks @ Aug 30 2:05 PM :Milb  38|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Fayetteville Woodpeckers vs Salem RidgeYaks @ Aug 30 2:00 PM :Milb  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Fayetteville Woodpeckers vs Salem RidgeYaks @ Aug 30 2:05 PM :Milb  38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Fite TV 1 HD (D): TrillerTV-Willow Sports International Women Cricket: England vs India, 3rd ODI - Tue,22 Jul 07:50 ET|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
 NAME:Fite TV 1 SD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
 NAME:Fite TV 10 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
@@ -12431,11 +12431,11 @@ NAME:Florugby 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME:Florugby 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Florugby 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Florugby 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
-NAME:Fort Myers Mighty Mussels vs Bradenton Marauders @ Aug 30 12:05 PM :Milb  04|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Fort Myers Mighty Mussels vs Bradenton Marauders @ Aug 30 12:10 PM :Milb  05|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Fort Wayne TinCaps vs Dayton Dragons @ Aug 30 1:05 PM :Milb  18|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Frederick Keys vs Asheville Tourists @ Aug 30 2:00 PM :Milb  28|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Frederick Keys vs Asheville Tourists @ Aug 30 2:05 PM :Milb  37|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Fort Myers Mighty Mussels vs Bradenton Marauders @ Aug 30 12:05 PM :Milb  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Fort Myers Mighty Mussels vs Bradenton Marauders @ Aug 30 12:10 PM :Milb  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Fort Wayne TinCaps vs Dayton Dragons @ Aug 30 1:05 PM :Milb  18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Frederick Keys vs Asheville Tourists @ Aug 30 2:00 PM :Milb  28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Frederick Keys vs Asheville Tourists @ Aug 30 2:05 PM :Milb  37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:GB: DAZN PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:GB: DAZN PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:GB: DAZN PPV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
@@ -12535,8 +12535,8 @@ NAME:GB: DAZN PPV 96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME:GB: DAZN PPV 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:GB: DAZN PPV 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:GB: DAZN PPV 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
-NAME:GaaGo 04|
-NAME:GaaGo 05|
+NAME:GaaGo 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
+NAME:GaaGo 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
 NAME:GaaGo 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
 NAME:GaaGo | 07 Sun 18:30 | Down: Carryduff v Kilcoo|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
 NAME:GaaGo | 08 23 Aug | Galway: Athenry v Ardrahan - Forvis Mazars Senior Hurling Championship Group 4 Round 2 | 17:15 GMT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
@@ -12546,9 +12546,9 @@ NAME:GaaGo |Event  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 NAME:Gaago 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/806ea63a4246b5e19f10e60a669955c9537e041c.png
 NAME:Gaago 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a5b6fe3b723bfd0c27c16bed51bb1eabc57ea6fa.png
 NAME:Gaago 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0fffd08593fd8c8da5378a87a75a2db4fa7c23dd.png
-NAME:Great Lakes Loons vs Lansing Lugnuts @ Aug 30 1:05 PM :Milb  12|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Greensboro Grasshoppers vs Hub City Spartanburgers @ Aug 30 2:00 PM :Milb  27|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Greenville Drive vs Rome Emperors @ Aug 30 3:05 PM :Milb  42|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Great Lakes Loons vs Lansing Lugnuts @ Aug 30 1:05 PM :Milb  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Greensboro Grasshoppers vs Hub City Spartanburgers @ Aug 30 2:00 PM :Milb  27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Greenville Drive vs Rome Emperors @ Aug 30 3:05 PM :Milb  42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:HBO Max UK | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/094384472af27965827c19331cb0be86efc312ce.png
 NAME:HBO Max UK | Event 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/094384472af27965827c19331cb0be86efc312ce.png
 NAME:HBO Max UK | Event 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/094384472af27965827c19331cb0be86efc312ce.png
@@ -12579,17 +12579,17 @@ NAME:HBO Max | Event 27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 NAME:HBO Max | Event 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:HBO Max | Event 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:HBO Max | Event 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
-NAME:Harrisburg Senators vs Chesapeake Baysox @ Aug 30 1:00 PM :Milb  07|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:High Limit Racing at Douglas Co :Flo Racing  04|http://51.158.145.100/picons/logos/EUROPE/FLOSPORTS.png
-NAME:Hill City Howlers vs Kannapolis Cannon Ballers @ Aug 30 2:00 PM :Milb  23|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Hillsboro Hops vs Tri-City Dust Devils @ Aug 30 4:05 PM :Milb  47|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Hudson Valley Renegades vs Brooklyn Cyclones @ Aug 30 2:05 PM :Milb  32|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Indianapolis Indians vs Columbus Clippers @ Aug 30 1:35 PM :Milb  21|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Inland Empire 66ers vs Fresno Grizzlies @ Aug 30 8:35 PM :Milb  63|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Iowa Cubs vs Omaha Storm Chasers @ Aug 30 2:08 PM :Milb  39|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Jacksonville Jumbo Shrimp vs Nashville Sounds @ Aug 30 2:05 PM :Milb  34|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Jersey Shore BlueClaws vs Wilmington Blue Rocks @ Aug 30 1:05 PM :Milb  09|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Jupiter Hammerheads vs Tampa Tarpons @ Aug 30 12:30 PM :Milb  06|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Harrisburg Senators vs Chesapeake Baysox @ Aug 30 1:00 PM :Milb  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:High Limit Racing at Douglas Co :Flo Racing  04|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
+NAME:Hill City Howlers vs Kannapolis Cannon Ballers @ Aug 30 2:00 PM :Milb  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Hillsboro Hops vs Tri-City Dust Devils @ Aug 30 4:05 PM :Milb  47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Hudson Valley Renegades vs Brooklyn Cyclones @ Aug 30 2:05 PM :Milb  32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Indianapolis Indians vs Columbus Clippers @ Aug 30 1:35 PM :Milb  21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Inland Empire 66ers vs Fresno Grizzlies @ Aug 30 8:35 PM :Milb  63|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Iowa Cubs vs Omaha Storm Chasers @ Aug 30 2:08 PM :Milb  39|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Jacksonville Jumbo Shrimp vs Nashville Sounds @ Aug 30 2:05 PM :Milb  34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Jersey Shore BlueClaws vs Wilmington Blue Rocks @ Aug 30 1:05 PM :Milb  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Jupiter Hammerheads vs Tampa Tarpons @ Aug 30 12:30 PM :Milb  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:KOTTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:LA LIGA| ALAVES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/217b88ec76b0ec10938b09be678f381a0a628a63.png
 NAME:LA LIGA| ALMERÍA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/217b88ec76b0ec10938b09be678f381a0a628a63.png
@@ -12651,15 +12651,15 @@ NAME:LOI 06 : Athlone Town v Bray Wanderers  start: 2026-08-28 19:35:00  stop: 2
 NAME:LOI 07 : Cobh Ramblers v Longford Town  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 08 : Kerry v Treaty United  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 09 : UCD v Finn Harps  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 10|
+NAME:LOI 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 11||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 14 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 15||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:Lakeland Flying Tigers vs Clearwater Threshers @ Aug 30 12:00 PM :Milb  01|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Las Vegas Aviators vs Sugar Land Space Cowboys @ Aug 30 9:05 PM :Milb  64|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Lehigh Valley IronPigs vs Syracuse Mets @ Aug 30 1:15 PM :Milb  20|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Lewis vs UW Parkside @ Aug 31 8:00 PM :Flo College  02|http://51.158.145.100/picons/logos/EUROPE/FLOSPORTS.png
+NAME:Lakeland Flying Tigers vs Clearwater Threshers @ Aug 30 12:00 PM :Milb  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Las Vegas Aviators vs Sugar Land Space Cowboys @ Aug 30 9:05 PM :Milb  64|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Lehigh Valley IronPigs vs Syracuse Mets @ Aug 30 1:15 PM :Milb  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Lewis vs UW Parkside @ Aug 31 8:00 PM :Flo College  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME:Ligue 1 | Match 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
 NAME:Ligue 1 | Match 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/69be362b8cd63edc59d1f9642214d3a60270dac0.png
 NAME:Ligue 1 | Match 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
@@ -12670,19 +12670,19 @@ NAME:Ligue 1 | Match 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:Ligue 1 | Match 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
 NAME:Ligue 1 | Match 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
 NAME:Ligue 1 | Match 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
-NAME:Live Football 01|
+NAME:Live Football 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
 NAME:Live Football 01 -  Birmingham 15:00 Nottingham Forest 02/08|http://51.158.145.100/picons/logos/PPV/PPVLIVE.png
-NAME:Live Football 02|
-NAME:Live Football 03|
-NAME:Live Football 04|
+NAME:Live Football 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
+NAME:Live Football 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
+NAME:Live Football 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
 NAME:Live Football 05 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
-NAME:Live From Arthur Ashe Stadium (Intended Order of Play):​ Aryna Sabalenka [1] vs Camila Osorio (COL) Roman Safiullin vs Carlos Alcaraz (ESP) [2] Ben Shelton (USA) [8] vs Tallon Griekspoor (NED) Naomi Osaka (JPN) [13] vs Anastasia Zakharova @ Aug 31 :Tennis  04|
+NAME:Live From Arthur Ashe Stadium (Intended Order of Play):​ Aryna Sabalenka [1] vs Camila Osorio (COL) Roman Safiullin vs Carlos Alcaraz (ESP) [2] Ben Shelton (USA) [8] vs Tallon Griekspoor (NED) Naomi Osaka (JPN) [13] vs Anastasia Zakharova @ Aug 31 :Tennis  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:LoiTV event 1 : Treaty United v Bohemians start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LoiTV event 2 : Shamrock Rovers v Athlone Town start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LoiTV event 3 : DLR Waves v Peamount United start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LoiTV event 4 : Galway United v Cork City start: 2026-08-29 16:45:00 stop: 2026-08-29 19:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e33f3d47c74f0da949d467572b84e0a1db494cdd.png
 NAME:LoiTV event 5 : Sligo Rovers v Waterford start: 2026-08-29 16:45:00 stop: 2026-08-29 19:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:Louisville Bats vs Gwinnett Stripers @ Aug 30 1:05 PM :Milb  10|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Louisville Bats vs Gwinnett Stripers @ Aug 30 1:05 PM :Milb  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:MISFITS MANIA: Fight Night|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:MLB 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
 NAME:MLB 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
@@ -12748,16 +12748,16 @@ NAME:Matchroom Event 12|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom
 NAME:Matchroom Event 13|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 14|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 15|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 16|
-NAME:Matchroom Event 17|
-NAME:Matchroom Event 18|
-NAME:Matchroom Event 19|
+NAME:Matchroom Event 16|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
+NAME:Matchroom Event 17|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
+NAME:Matchroom Event 18|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
+NAME:Matchroom Event 19|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 20|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 21|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 22|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 23|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 24 | No Event Scheduled|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Midland RockHounds vs Tulsa Drillers @ Aug 30 2:00 PM :Milb  22|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Midland RockHounds vs Tulsa Drillers @ Aug 30 2:00 PM :Milb  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Mola Event 00 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
 NAME:Mola Event 01 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
 NAME:Mola Event 02 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
@@ -12803,7 +12803,7 @@ NAME:MonoMax | Event 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:MonoMax | Event 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d22a17604566de5d08eaf9a21a5d58ddfe8dc12c.png
 NAME:MonoMax | Event 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d22a17604566de5d08eaf9a21a5d58ddfe8dc12c.png
 NAME:MonoMax | Event 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d22a17604566de5d08eaf9a21a5d58ddfe8dc12c.png
-NAME:Montgomery Biscuits vs Pensacola Blue Wahoos @ Aug 30 4:33 PM :Milb  50|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Montgomery Biscuits vs Pensacola Blue Wahoos @ Aug 30 4:33 PM :Milb  50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:NBA 06 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
 NAME:NBA 07 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
 NAME:NBA 08 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
@@ -12913,31 +12913,31 @@ NAME:NCAAF 42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3u
 NAME:NCAAF 43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/97747d1e544a5522de71cd61e8803b78431312ab.png
 NAME:NCAAF 44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/63e452c1240a0f9bc683afec503bed4c3b40ddef.png
 NAME:NCAAF 45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/585ed65acbc2ca4c0645ebd84485635b7df47d45.png
-NAME:NCAAF 46|
-NAME:NCAAF 47|
-NAME:NCAAF 48|
-NAME:NCAAF 49|
-NAME:NCAAF 50|
-NAME:NCAAF 51|
-NAME:NCAAF 52|
-NAME:NCAAF 53|
-NAME:NCAAF 54|
-NAME:NCAAF 55|
-NAME:NCAAF 56|
-NAME:NCAAF 57|
-NAME:NCAAF 58|
-NAME:NCAAF 59|
-NAME:NCAAF 60|
-NAME:NCAAF 61|
-NAME:NCAAF 62|
-NAME:NCAAF 63|
-NAME:NCAAF 64|
-NAME:NCAAF 65|
-NAME:NCAAF 66|
-NAME:NCAAF 67|
-NAME:NCAAF 68|
-NAME:NCAAF 69|
-NAME:NCAAF 70|
+NAME:NCAAF 46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 51|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 52|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 53|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 54|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 55|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 56|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 61|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 63|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 64|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 65|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 66|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 67|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 68|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 69|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
+NAME:NCAAF 70|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
 NAME:NFL  | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL  | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL  | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
@@ -13119,8 +13119,8 @@ NAME:National League | Event 35|https://raw.githubusercontent.com/babo20094-rgb/
 NAME:National League | Event 36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
 NAME:National League | Event 37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
 NAME:National League | Event 38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
-NAME:New Hampshire Fisher Cats vs Hartford Yard Goats @ Aug 30 1:05 PM :Milb  16|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Northwest Arkansas Naturals vs Frisco RoughRiders @ Aug 30 3:05 PM :Milb  44|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:New Hampshire Fisher Cats vs Hartford Yard Goats @ Aug 30 1:05 PM :Milb  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Northwest Arkansas Naturals vs Frisco RoughRiders @ Aug 30 3:05 PM :Milb  44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:OHL  01 : 6:00 PM Kitchener Rangers @ Barrie Colts|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 02 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 03 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
@@ -13133,7 +13133,7 @@ NAME:OHL 09 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ext
 NAME:OHL 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
-NAME:Oklahoma City Comets vs El Paso Chihuahuas @ Aug 30 7:05 PM :Milb  60|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Oklahoma City Comets vs El Paso Chihuahuas @ Aug 30 7:05 PM :Milb  60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:PBR RidePass :Flo Racing  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
 NAME:PDC Board 06|http://103.176.90.95/images/1556645.png
 NAME:PDC Board 07|http://103.176.90.95/images/1556646.png
@@ -13144,20 +13144,20 @@ NAME:PDCTV 3|
 NAME:PDCTV 4|
 NAME:PDCTV 5|
 NAME:PSF 09 | Match 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
-NAME:PSF01|
-NAME:PSF02|
-NAME:PSF03|
-NAME:PSF04|
-NAME:PSF05|
-NAME:PSF06|
-NAME:PSF07|
-NAME:PSF08|
-NAME:PSF10|
-NAME:PSF11|
-NAME:PSF12|
-NAME:PSF13|
-NAME:PSF14|
-NAME:PSF15|
+NAME:PSF01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
+NAME:PSF15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
 NAME:Paramount+ 20 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:Paramount+ 25 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:Paramount+ 31 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
@@ -13187,29 +13187,29 @@ NAME:Pay Per View 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:Pay Per View 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3a0536a1cc55316f001cc76121f4317c7ef05d37.png
 NAME:Pay Per View 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3a0536a1cc55316f001cc76121f4317c7ef05d37.png
 NAME:Pay Per View 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3a0536a1cc55316f001cc76121f4317c7ef05d37.png
-NAME:Quad Cities River Bandits vs Beloit Sky Carp @ Aug 30 2:00 PM :Milb  24|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Rancho Cucamonga Quakes vs Lake Elsinore Storm @ Aug 30 8:00 PM :Milb  61|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Reading Fightin Phils vs Binghamton Rumble Ponies @ Aug 30 5:15 PM :Milb  56|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Reno Aces vs Sacramento River Cats @ Aug 30 4:05 PM :Milb  49|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Richmond Flying Squirrels vs Portland Sea Dogs @ Aug 30 5:05 PM :Milb  54|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Rochester Red Wings vs Buffalo Bisons @ Aug 30 1:05 PM :Milb  15|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Round Rock Express vs Albuquerque Isotopes @ Aug 30 2:05 PM :Milb  30|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Rugby 1|
-NAME:Rugby 10|
-NAME:Rugby 11|
-NAME:Rugby 12|
+NAME:Quad Cities River Bandits vs Beloit Sky Carp @ Aug 30 2:00 PM :Milb  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Rancho Cucamonga Quakes vs Lake Elsinore Storm @ Aug 30 8:00 PM :Milb  61|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Reading Fightin Phils vs Binghamton Rumble Ponies @ Aug 30 5:15 PM :Milb  56|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Reno Aces vs Sacramento River Cats @ Aug 30 4:05 PM :Milb  49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Richmond Flying Squirrels vs Portland Sea Dogs @ Aug 30 5:05 PM :Milb  54|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Rochester Red Wings vs Buffalo Bisons @ Aug 30 1:05 PM :Milb  15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Round Rock Express vs Albuquerque Isotopes @ Aug 30 2:05 PM :Milb  30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Rugby 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 13 : Dolphins vs Raiders 5:00am Sun|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
-NAME:Rugby 14|
-NAME:Rugby 15|
-NAME:Rugby 16|
+NAME:Rugby 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 2 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
-NAME:Rugby 3|
-NAME:Rugby 4|
-NAME:Rugby 5|
+NAME:Rugby 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 6 : Canada vs Spain 2:00 am|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
-NAME:Rugby 7|
-NAME:Rugby 8|
-NAME:Rugby 9|
+NAME:Rugby 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:SERIE A| AC MILAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e7cc5cc627aeca443425506fbf9caa50a94ce9b0.png
 NAME:SERIE A| ATALANTA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e7cc5cc627aeca443425506fbf9caa50a94ce9b0.png
 NAME:SERIE A| BOLOGNa|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e1a53d2a06d1e8c0e2a5302a78e2eea1cf918b76.png
@@ -13230,7 +13230,7 @@ NAME:SERIE A| SASSUOLO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:SERIE A| TORINO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e7cc5cc627aeca443425506fbf9caa50a94ce9b0.png
 NAME:SERIE A| UDINESE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e7cc5cc627aeca443425506fbf9caa50a94ce9b0.png
 NAME:SERIE A| VERONA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/78b5d7d977834c73a8641c0efbefd689feb8d1f3.png
-NAME:San Jose Giants vs Visalia Rawhide @ Aug 30 4:00 PM :Milb  46|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:San Jose Giants vs Visalia Rawhide @ Aug 30 4:00 PM :Milb  46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Serie A: Atalanta vs Bologna @ Aug 31 2:30 PM :Paramount+  02|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
 NAME:Serie A: Lecce vs Roma @ Aug 31 12:20 PM :Paramount+  01|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
 NAME:Setanta | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c21e84ffba5c9df024f6637569e973e83e873f49.png
@@ -13303,11 +13303,11 @@ NAME:Sky Sport+ 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:Sky Sport+ 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc29f90e41222b3c77291fab35dd5399b9bd8771.png
 NAME:Sky Sport+ 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc29f90e41222b3c77291fab35dd5399b9bd8771.png
 NAME:Sky Sport+ 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc29f90e41222b3c77291fab35dd5399b9bd8771.png
-NAME:Somerset Patriots vs Akron RubberDucks @ Aug 30 1:05 PM :Milb  19|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Springfield Cardinals vs San Antonio Missions @ Aug 30 2:15 PM :Milb  41|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Somerset Patriots vs Akron RubberDucks @ Aug 30 1:05 PM :Milb  19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Springfield Cardinals vs San Antonio Missions @ Aug 30 2:15 PM :Milb  41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:St Louis CITY SC vs FC Dallas @ Aug 30 6:30 PM :MLS  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
-NAME:St. Paul Saints vs Toledo Mud Hens @ Aug 30 3:07 PM :Milb  45|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Stockton Ports vs Ontario Tower Buzzers @ Aug 30 8:00 PM :Milb  62|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:St. Paul Saints vs Toledo Mud Hens @ Aug 30 3:07 PM :Milb  45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Stockton Ports vs Ontario Tower Buzzers @ Aug 30 8:00 PM :Milb  62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Super League Plus Event 1|
 NAME:Super League Plus Event 2|
 NAME:Super League Plus | Event 3 Toulouse Olympique vs Bradford Bulls // UK Sat 29 Aug 7:50pm // ET Sat 29 Aug 2:50pm|http://103.176.90.95/images/1455579.png
@@ -13315,7 +13315,7 @@ NAME:Super League Plus | Event 4 Warrington Wolves v Castleford Tigers | Round 5
 NAME:Supercross 1|
 NAME:Supercross 2|
 NAME:Supercross 3|
-NAME:TAMIU vs West Alabama @ Aug 31 5:00 PM :Flo College  01|http://51.158.145.100/picons/logos/EUROPE/FLOSPORTS.png
+NAME:TAMIU vs West Alabama @ Aug 31 5:00 PM :Flo College  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME:TC+ 1|
 NAME:TC+ 10|
 NAME:TC+ 100|
@@ -13436,30 +13436,30 @@ NAME:TNT SPORTS | Event 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 NAME:TNT SPORTS | Event 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
 NAME:TNT SPORTS | Event 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
 NAME:TNT SPORTS | Event 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
-NAME:Tacoma Rainiers vs Salt Lake Bees @ Aug 30 4:35 PM :Milb  51|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Tennis: Aleksandar Vukic vs Rei sakamoto @ Aug 31 19:30 PM :Tennis  25|
-NAME:Tennis: Alex Michelsen vs Federico cinà @ Aug 31 19:30 PM :Tennis  27|
-NAME:Tennis: Anhelina Kalinina vs Himeno Sakatsume @ Aug 31 17:00 PM :Tennis  17|
-NAME:Tennis: Anna Blinkova vs Anna Kalinskaya @ Aug 31 19:30 PM :Tennis  29|
-NAME:Tennis: Aoi Ito vs Oksana Selekhmeteva @ Aug 31 19:30 PM :Tennis  28|
-NAME:Tennis: Aryna Sabalenka vs Camila Osorio @ Aug 31 17:30 PM :Tennis  19|
-NAME:Tennis: Ashlyn Krueger vs Amanda Anisimova @ Aug 31 19:30 PM :Tennis  30|
-NAME:Tennis: Elsa Jacquemot vs Marie Bouzková @ Aug 31 17:00 PM :Tennis  11|
-NAME:Tennis: Emma Navarro vs Loïs Boisson @ Aug 31 19:30 PM :Tennis  26|
-NAME:Tennis: Harriet Dart vs Peyton Stearns @ Aug 31 17:00 PM :Tennis  16|
-NAME:Tennis: Kimberly Birrell @ Aug 31 19:30 PM :Tennis  22|
-NAME:Tennis: Lilli Tagger vs Tamara Korpatsch @ Aug 31 17:00 PM :Tennis  15|
-NAME:Tennis: Mananchaya Sawangkaew vs Panna Udvardy @ Aug 31 17:00 PM :Tennis  12|
-NAME:Tennis: Matteo Arnaldi vs James Duckworth @ Aug 31 19:30 PM :Tennis  21|
-NAME:Tennis: Otto Virtanen vs Andrey Rublev @ Aug 31 17:00 PM :Tennis  18|
-NAME:Tennis: Qinwen Zheng vs Kristina Liutova @ Aug 31 17:00 PM :Tennis  10|
-NAME:Tennis: Raphaël collignon @ Aug 31 19:30 PM :Tennis  23|
-NAME:Tennis: Sinja Kraus vs Karolína Muchová @ Aug 31 17:00 PM :Tennis  09|
-NAME:Tennis: Stefanos Tsitsipas vs Arthur Fils @ Aug 31 17:00 PM :Tennis  08|
-NAME:Tennis: Sára Bejlek vs Cristina Bucsa @ Aug 31 17:00 PM :Tennis  14|
-NAME:Tennis: Tamara Zidansek vs Maria Timofeeva @ Aug 31 19:00 PM :Tennis  20|
-NAME:Tennis: Thiago Tirante vs Adrian Mannarino @ Aug 31 19:30 PM :Tennis  24|
-NAME:Tennis: Valentin Vacherot vs Aleksandar Kovacevic @ Aug 31 17:00 PM :Tennis  13|
+NAME:Tacoma Rainiers vs Salt Lake Bees @ Aug 30 4:35 PM :Milb  51|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Tennis: Aleksandar Vukic vs Rei sakamoto @ Aug 31 19:30 PM :Tennis  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Alex Michelsen vs Federico cinà @ Aug 31 19:30 PM :Tennis  27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Anhelina Kalinina vs Himeno Sakatsume @ Aug 31 17:00 PM :Tennis  17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Anna Blinkova vs Anna Kalinskaya @ Aug 31 19:30 PM :Tennis  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Aoi Ito vs Oksana Selekhmeteva @ Aug 31 19:30 PM :Tennis  28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Aryna Sabalenka vs Camila Osorio @ Aug 31 17:30 PM :Tennis  19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Ashlyn Krueger vs Amanda Anisimova @ Aug 31 19:30 PM :Tennis  30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Elsa Jacquemot vs Marie Bouzková @ Aug 31 17:00 PM :Tennis  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Emma Navarro vs Loïs Boisson @ Aug 31 19:30 PM :Tennis  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Harriet Dart vs Peyton Stearns @ Aug 31 17:00 PM :Tennis  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Kimberly Birrell @ Aug 31 19:30 PM :Tennis  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Lilli Tagger vs Tamara Korpatsch @ Aug 31 17:00 PM :Tennis  15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Mananchaya Sawangkaew vs Panna Udvardy @ Aug 31 17:00 PM :Tennis  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Matteo Arnaldi vs James Duckworth @ Aug 31 19:30 PM :Tennis  21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Otto Virtanen vs Andrey Rublev @ Aug 31 17:00 PM :Tennis  18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Qinwen Zheng vs Kristina Liutova @ Aug 31 17:00 PM :Tennis  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Raphaël collignon @ Aug 31 19:30 PM :Tennis  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Sinja Kraus vs Karolína Muchová @ Aug 31 17:00 PM :Tennis  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Stefanos Tsitsipas vs Arthur Fils @ Aug 31 17:00 PM :Tennis  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Sára Bejlek vs Cristina Bucsa @ Aug 31 17:00 PM :Tennis  14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Tamara Zidansek vs Maria Timofeeva @ Aug 31 19:00 PM :Tennis  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Thiago Tirante vs Adrian Mannarino @ Aug 31 19:30 PM :Tennis  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:Tennis: Valentin Vacherot vs Aleksandar Kovacevic @ Aug 31 17:00 PM :Tennis  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:Tunisie Vs France - 30-11-22|https://upload.wikimedia.org/wikipedia/fr/thumb/e/e3/2022_FIFA_World_Cup.svg/1713px-2022_FIFA_World_Cup.svg.png
 NAME:UEFA  | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA  | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
@@ -13504,7 +13504,7 @@ NAME:UEFA | 30 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME:UEFA | 31 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2885d71e4a63f38488697cb66c08b1bd66dac90b.png
 NAME:UEFA | 32 - ARSENAL - ATHLETIC CLUB BILBAO | Sat 09 Aug 15:45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA |10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/15fc5ed5a5bdaf69c31a72676b93952dd82c25d5.png
-NAME:UFC 00|
+NAME:UFC 00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 02 : ANTHONY PETTIS FC 25 start:2026-08-31 01:55:00 stop:2026-08-31 05:00:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 03 : UFC 330: MAKHACHEV VS MACHADO GARRY start:2026-08-16 02:55:00 stop:2026-08-16 06:00:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 04 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
@@ -13512,9 +13512,9 @@ NAME:UFC 05 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3u
 NAME:UFC 06 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 07 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 08 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
-NAME:UFC 09|
-NAME:UFC 10|
-NAME:UFC 294|
+NAME:UFC 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
+NAME:UFC 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
+NAME:UFC 294|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3a0536a1cc55316f001cc76121f4317c7ef05d37.png
 NAME:UK: APPLE TV F1 PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/07315e2e3712f389ea093c578851d04f94a2006d.png
 NAME:UK: APPLE TV F1 PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/07315e2e3712f389ea093c578851d04f94a2006d.png
 NAME:UK: APPLE TV F1 PPV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/07315e2e3712f389ea093c578851d04f94a2006d.png
@@ -13634,7 +13634,7 @@ NAME:UK: MAX PPV 96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:UK: MAX PPV 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:UK: MAX PPV 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:UK: MAX PPV 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
-NAME:UK: MXGP PPV 1|
+NAME:UK: MXGP PPV 1|https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Logo_MXGP.svg/960px-Logo_MXGP.svg.png
 NAME:UK: MXGP PPV 10|https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Logo_MXGP.svg/960px-Logo_MXGP.svg.png
 NAME:UK: MXGP PPV 11|https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Logo_MXGP.svg/960px-Logo_MXGP.svg.png
 NAME:UK: MXGP PPV 12|https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Logo_MXGP.svg/960px-Logo_MXGP.svg.png
@@ -13694,7 +13694,7 @@ NAME:UK: RALLY PPV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME:UK: RALLY PPV 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/520f0671d84b4304528af375042008085e6059eb.png
 NAME:UK: RALLY PPV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/520f0671d84b4304528af375042008085e6059eb.png
 NAME:UK: RALLY PPV 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/520f0671d84b4304528af375042008085e6059eb.png
-NAME:UK: ULTIMATE POOL PPV 1|
+NAME:UK: ULTIMATE POOL PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4a83ee7de78317e67223b0e13e038ade24feabac.png
 NAME:UK: ULTIMATE POOL PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4a83ee7de78317e67223b0e13e038ade24feabac.png
 NAME:UK: ULTIMATE POOL PPV 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4a83ee7de78317e67223b0e13e038ade24feabac.png
 NAME:UK: ULTIMATE POOL PPV 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4a83ee7de78317e67223b0e13e038ade24feabac.png
@@ -14842,10 +14842,10 @@ NAME:US (Peacock 097) | Cowboys vs. Packers (2026-10-18 19:00:00)|https://raw.gi
 NAME:US (Peacock 098) | Celtics vs. Pistons (2026-10-20 14:50:00)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/116eaef5a8549899de6760f7d6fdc13c2354629a.png
 NAME:US (Peacock 099) | 76ers vs. Knicks (2026-10-20 18:30:00)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/116eaef5a8549899de6760f7d6fdc13c2354629a.png
 NAME:US (Peacock 100) | Performance View: PHI vs. NYK (2026-10-20 18:30:05)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/116eaef5a8549899de6760f7d6fdc13c2354629a.png
-NAME:US Open: Day #2 vs Court TBD A @ Aug 31 11:00 :Tennis  01|
-NAME:US Open: Day #2 vs Court TBD B @ Aug 31 11:30 :Tennis  05|
-NAME:US Open: Day #2 vs RedZone at the US Open @ Aug 31 11:00 :Tennis  02|
-NAME:US Open: Day #3 vs Court TBD B @ Sep 1 11:30 :Tennis  07|
+NAME:US Open: Day #2 vs Court TBD A @ Aug 31 11:00 :Tennis  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:US Open: Day #2 vs Court TBD B @ Aug 31 11:30 :Tennis  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:US Open: Day #2 vs RedZone at the US Open @ Aug 31 11:00 :Tennis  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:US Open: Day #3 vs Court TBD B @ Sep 1 11:30 :Tennis  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:US P+ 105 (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US P+ 126 (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US P+ 147 (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
@@ -16482,7 +16482,7 @@ NAME:US: VIAPLAY PPV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:US: VIAPLAY PPV 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:US: VIAPLAY PPV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:US: VIAPLAY PPV 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
-NAME:Vancouver Canadians vs Spokane Indians @ Aug 30 4:05 PM :Milb  48|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:Vancouver Canadians vs Spokane Indians @ Aug 30 4:05 PM :Milb  48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Vidio EPL 1 ||http://103.176.90.95/images/1387256.png
 NAME:Vidio EPL 10 ||http://103.176.90.95/images/1387247.png
 NAME:Vidio EPL 11 ||http://103.176.90.95/images/1387246.png
@@ -16606,13 +16606,13 @@ NAME:WORLD CUP 2026 REPLAY 8 ᴴᴰ|http://51.158.145.100/picons/logos/logos/WOR
 NAME:WORLD CUP 2026 REPLAY 9 ᴴᴰ|http://51.158.145.100/picons/logos/logos/WORLDCUP2026REPLAY.png
 NAME:WORLD CUP 2026 REPLAY INFO ᴴᴰ|http://51.158.145.100/picons/logos/logos/WORLDCUP2026REPLAY.png
 NAME:WWE Summerslam|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/db8902005c245bdca3b6c8cadb6e8fd30f23c728.png
-NAME:West Michigan Whitecaps vs Peoria Chiefs @ Aug 30 2:00 PM :Milb  25|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Wichita Wind Surge vs Arkansas Travelers @ Aug 30 2:05 PM :Milb  35|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Wild Thing Kart Series at Stafford @ Aug 31 6:15 PM :Flo Racing  03|http://51.158.145.100/picons/logos/EUROPE/FLOSPORTS.png
-NAME:Wilson Warbirds vs Hickory Crawdads @ Aug 30 1:05 PM :Milb  11|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Winston-Salem Dash vs Bowling Green Hot Rods @ Aug 30 2:00 PM :Milb  26|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Wisconsin Timber Rattlers vs South Bend Cubs @ Aug 30 2:10 PM :Milb  40|http://51.158.145.100/picons/logos/USA/MLIB.png
-NAME:Worcester Red Sox vs Scranton-Wilkes-Barre RailRiders @ Aug 30 1:05 PM :Milb  14|http://51.158.145.100/picons/logos/USA/MLIB.png
+NAME:West Michigan Whitecaps vs Peoria Chiefs @ Aug 30 2:00 PM :Milb  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Wichita Wind Surge vs Arkansas Travelers @ Aug 30 2:05 PM :Milb  35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Wild Thing Kart Series at Stafford @ Aug 31 6:15 PM :Flo Racing  03|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
+NAME:Wilson Warbirds vs Hickory Crawdads @ Aug 30 1:05 PM :Milb  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Winston-Salem Dash vs Bowling Green Hot Rods @ Aug 30 2:00 PM :Milb  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Wisconsin Timber Rattlers vs South Bend Cubs @ Aug 30 2:10 PM :Milb  40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME:Worcester Red Sox vs Scranton-Wilkes-Barre RailRiders @ Aug 30 1:05 PM :Milb  14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 
 SKY:DE|Sky Cinema Feelgood HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_feelgood/sky_cinema_feelgood.png|DE| SKY CINEMA FEELGOOD HD
 SKY:DE|Sky Cinema Feelgood HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_feelgood/sky_cinema_feelgood.png|DE| SKY CINEMA FEELGOOD FHD
@@ -17100,39 +17100,39 @@ UK| MTV XMAS||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3u
 US| HBCU GO||AUTO
 NAME:##### AMERICAN HOCKEY LEAGUE #####|AMERICAN HOCKEY LEAGUE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/61a5798c4f78dbc0bd75286da95acb9dcd263eaf.png
 UK| KARAOKE 1|Karaoke (1) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fb998237e976be4fc509ec9a9026416b36abee33.png
-UK| KARAOKE 2|Karaoke (2) ᴸⁱᵛᵉ|Auto
-UK| KARAOKE 3|Karaoke (3) ᴸⁱᵛᵉ|Auto
+UK| KARAOKE 2|Karaoke (2) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3a8b96c33de04791f7165f9d0cdcd78c2443ef91.png
+UK| KARAOKE 3|Karaoke (3) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3a8b96c33de04791f7165f9d0cdcd78c2443ef91.png
 UK| KARAOKE 4|Karaoke (4) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1a79e75ced98d54faa47d5b1b6e00c0883b8e1ad.png
-UK| KARAOKE 5|Karaoke (5) ᴸⁱᵛᵉ|Auto
-UK| KARAOKE 6|Karaoke (6) ᴸⁱᵛᵉ|Auto
+UK| KARAOKE 5|Karaoke (5) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3a8b96c33de04791f7165f9d0cdcd78c2443ef91.png
+UK| KARAOKE 6|Karaoke (6) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3a8b96c33de04791f7165f9d0cdcd78c2443ef91.png
 UK| KARAOKE 7|Karaoke (7) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fb998237e976be4fc509ec9a9026416b36abee33.png
 UK| KARAOKE 8|Karaoke (8) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fb998237e976be4fc509ec9a9026416b36abee33.png
 #NA| HOCKEY LEAGUE
-NA| Bakersfield Condors|Bakersfield Condors ᴸⁱᵛᵉ|Auto
-NA| Belleville Senators|Belleville Senators ᴸⁱᵛᵉ|Auto
-NA| Bridgeport Islanders|Bridgeport Islanders ᴸⁱᵛᵉ|Auto
-NA| Chicago Wolves|Chicago Wolves ᴸⁱᵛᵉ|Auto
-NA| Cleveland Monsters|Cleveland Monsters ᴸⁱᵛᵉ|Auto
-NA| Colorado Eagles|Colorado Eagles ᴸⁱᵛᵉ|Auto
-NA| Grand Rapids Griffins|Grand Rapids Griffins ᴸⁱᵛᵉ|Auto
-NA| Hartford Wolf Pack|Hartford Wolf Pack ᴸⁱᵛᵉ|Auto
-NA| Henderson Silver Knights|Henderson Silver Knights ᴸⁱᵛᵉ|Auto
-NA| Hershey Bears|Hershey Bears ᴸⁱᵛᵉ|Auto
-NA| Iowa Wild|Iowa Wild ᴸⁱᵛᵉ|Auto
-NA| Laval Rocket|Laval Rocket ᴸⁱᵛᵉ|Auto
-NA| Lehigh Valley Phantoms|Lehigh Valley Phantoms ᴸⁱᵛᵉ|Auto
-NA| Manitoba Moose|Manitoba Moose ᴸⁱᵛᵉ|Auto
-NA| Ontario Reign|Ontario Reign ᴸⁱᵛᵉ|Auto
-NA| Providence Bruins|Providence Bruins ᴸⁱᵛᵉ|Auto
-NA| Rochester Americans|Rochester Americans ᴸⁱᵛᵉ|Auto
-NA| Rockford IceHogs|Rockford Icehogs ᴸⁱᵛᵉ|Auto
-NA| San Diego Gulls|San Diego Gulls ᴸⁱᵛᵉ|Auto
-NA| San Jose Barracuda|San Jose Barracuda ᴸⁱᵛᵉ|Auto
-NA| Syracuse Crunch|Syracuse Crunch ᴸⁱᵛᵉ|Auto
-NA| Texas Stars|Texas Stars ᴸⁱᵛᵉ|Auto
-NA| Toronto Marlies|Toronto Marlies ᴸⁱᵛᵉ|Auto
-NA| Tucson Roadrunners|Tucson Roadrunners ᴸⁱᵛᵉ|Auto
-NA| Utica Comets|Utica Comets ᴸⁱᵛᵉ|Auto
+NA| Bakersfield Condors|Bakersfield Condors ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Belleville Senators|Belleville Senators ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Bridgeport Islanders|Bridgeport Islanders ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Chicago Wolves|Chicago Wolves ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Cleveland Monsters|Cleveland Monsters ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Colorado Eagles|Colorado Eagles ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Grand Rapids Griffins|Grand Rapids Griffins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Hartford Wolf Pack|Hartford Wolf Pack ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Henderson Silver Knights|Henderson Silver Knights ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Hershey Bears|Hershey Bears ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Iowa Wild|Iowa Wild ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Laval Rocket|Laval Rocket ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Lehigh Valley Phantoms|Lehigh Valley Phantoms ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Manitoba Moose|Manitoba Moose ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Ontario Reign|Ontario Reign ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Providence Bruins|Providence Bruins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Rochester Americans|Rochester Americans ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/22c9402ff627c182160fce3697759a068ea28d7c.png
+NA| Rockford IceHogs|Rockford Icehogs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| San Diego Gulls|San Diego Gulls ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| San Jose Barracuda|San Jose Barracuda ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Syracuse Crunch|Syracuse Crunch ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Texas Stars|Texas Stars ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Toronto Marlies|Toronto Marlies ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Tucson Roadrunners|Tucson Roadrunners ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Utica Comets|Utica Comets ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| W-B/Scranton Penguins|W-B/scranton Penguins ᴸⁱᵛᵉ|Auto
 NA| Victoriaville Tigres|Victoriaville Tigres ᴸⁱᵛᵉ|Auto
 NA| Sherbrooke Phoenix|Sherbrooke Phoenix ᴸⁱᵛᵉ|Auto
@@ -17152,7 +17152,7 @@ NA| Blainville-Boisbriand Armada|Blainville-Boisbriand Armada ᴸⁱᵛᵉ|Auto
 NA| Cape Breton Eagles|Cape Breton Eagles ᴸⁱᵛᵉ|Auto
 NA| Baie-Comeau Drakkar|Baie-Comeau Drakkar ᴸⁱᵛᵉ|Auto
 NA| Acadie-Bathurst Titan|Acadie-Bathurst Titan ᴸⁱᵛᵉ|Auto
-NA| Calgary Wranglers|Calgary Wranglers ᴸⁱᵛᵉ|Auto
+NA| Calgary Wranglers|Calgary Wranglers ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 US| REALITY||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/91719ca116990c9312f5fcd377686f6c1b390d7f.png
 US| YOGA EXERCISE||Auto
 DE| BILD+ EVENT FAME FIGHTING||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bild_fame_fighting/bild_fame_fighting.png
@@ -17713,7 +17713,7 @@ TUBU|NBA FAST CHANNEL RAW|Nba Fast Channel ᴸⁱᵛᵉ|
 US|ABC 28 KAMC LUBBOCK TX|Abc 28 Kamc Lubbock Tx ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/851ce5e5be9b95c270f1e92e066e73a51e032339.png
 US|ABC 33 SPRINGFIELD MO KSPR|Abc 33 Springfield Mo Kspr ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b138096b838f55db339c1583f29a3bcd393788f0.png
 US|CBS 30 FARGO ND KXJB|Cbs 30 Fargo Nd Kxjb ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/KXJB-LD2_2024.webp/250px-KXJB-LD2_2024.webp.png
-US|CBS 7 BEND OR KBNZ|Cbs 7 Bend Or Kbnz ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/KBNZ-LD_%282011%29.svg/250px-KBNZ-LD_%282011%29.svg.png
+US|CBS 7 BEND OR KBNZ|Cbs 7 Bend Or Kbnz ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b3b3fbe95306d17e178dbc9361ef726e38260973.png
 US|FOX 17 SIOUX FALLS SD KTTW|Fox 17 Sioux Falls SD Kttw ᴸⁱᵛᵉ|
 US|FOX 67 BROWNSVILLE TX KXFX|Fox 67 Brownsville Tx Kxfx ᴸⁱᵛᵉ|
 US|FOX 41 YAKIMA WA KCYU|Fox 41 Yakima Wa Kcyu ᴸⁱᵛᵉ|
@@ -18074,7 +18074,7 @@ NAME:DIRTVISION 08:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:Dirtvision Now | 24/7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd3544412c64f092.png
 #US| FLO RACING
 NAME:Flo Racing 01 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 02 :|Auto
+NAME:Flo Racing 02 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
 NAME:Flo Racing 03 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
 NAME:Flo Racing 04 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
 NAME:Flo Racing 05 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
