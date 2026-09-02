@@ -46,6 +46,20 @@ EPG-Projekt nichts zu tun und wird dem Nutzer NICHT als eigener
 Schritt gemeldet oder erklärt - nur bei einem tatsächlichen Fehler
 dabei kurz erwähnen.
 
+**Zur wiederkehrenden Stop-Hook-Meldung ("There are uncommitted
+changes..."):** Dieser Hook (`~/.claude/stop-hook-git-check.sh`) ist
+KEIN Projekt-/Nutzer-Setting, sondern feste Infrastruktur der jeweiligen
+Remote-Sitzungsumgebung selbst (liegt in `~/.claude/launcher-settings.json`,
+root-eigen, nicht editierbar/deaktivierbar) - er verhindert, dass beim
+Zuruecksetzen des Sitzungscontainers unbemerkt Arbeit verloren geht,
+solange noch uncommittete/ungepushte Aenderungen im Arbeitsverzeichnis
+liegen. Er hat NICHTS mit der Commit/Push-Bestaetigungspflicht oben zu
+tun (die bleibt unveraendert reine Chat-Verhaltensregel) und meldet sich
+schlicht immer dann, wenn zwischen zwei "ja, committen und pushen"-
+Freigaben Aenderungen offen im Arbeitsverzeichnis liegen - das ist
+normal/erwartet bei diesem Workflow und keine Fehlfunktion. Nicht
+versuchen, ihn zu deaktivieren oder zu umgehen.
+
 ## Workflow manuell starten
 
 Der GitHub-Actions-Workflow "Update EPG"
@@ -1218,3 +1232,129 @@ verifiziert erreichbares Logo.**
   des Nutzers (Auftragsnummer + Schluessel) und wurden wie die Playlist-
   URL nirgends im Klartext dauerhaft festgehalten - nur temporaer im
   Scratchpad verwendet und danach wieder geloescht.
+
+## TiviMate-Automatik-Zuordnung fuer NAME:-Sender (September 2026, grosse Untersuchung)
+
+Der Nutzer meldete, dass TiviMate nach einem kompletten Neu-Laden der
+EPG-Quelle (Loeschen + neu Anlegen) nur noch einen Bruchteil der
+`NAME:`-Sender (DYN/SOCCER/DAZN/ESPN+ PPV usw. - dynamische
+Live-Event-Kanaele) automatisch zuordnete (18.952 -> 12.865 von
+~19.000, spaeter Fehlversuche zwischendurch bis knapp ueber 12.000).
+Nach vielen Sackgassen (Leerzeichen-Varianten, Laender-Kollisionen im
+internen Index, DE-Bug bei DYN PPV) war die Kernursache: TiviMate
+matcht Playlist-Kanaele gegen EPG-`<channel>` primaer per **exaktem
+Namensvergleich** - `tvg-id` ist in der Playlist des Nutzers praktisch
+immer leer (`tvg-id=""`), Matching laeuft also ausschliesslich ueber
+den sichtbaren Namen. Unsere `<channel id>`/`display-name` fuer
+`NAME:`-Sender war bis dahin immer der FESTE Kern (z.B.
+"US: ESPN+ PPV 1"), waehrend die Playlist selbst den KOMPLETTEN,
+staendig wechselnden Live-Event-Text zeigt (z.B. "NEXT | Fairways of
+Life... | US: ESPN+ PPV 1") - diese beiden Texte sind fast nie
+identisch, die Namens-Zuordnung konnte darum strukturell nie
+zuverlaessig greifen. Bestaetigt durch direkten Playlist-Abgleich
+(Playlist-URL vom Nutzer erhalten, temporaer heruntergeladen,
+analysiert, sofort wieder geloescht - wie bei den myepg-URLs oben).
+
+**Umgesetzte Loesung** (nach dem Vorbild des frueher genutzten
+externen Anbieters myepg.top, bei dem automatische Zuordnung
+nachweislich funktioniert hat): `generate_epg.py`,
+`m3u_playlist_abgleichen()` setzt bei jedem per Kernname gefundenen
+Live-Playlist-Treffer `real_daten["kanal"]` jetzt DIREKT auf den
+kompletten aktuellen Rohnamen aus der Playlist (nicht mehr nur den
+stabilen Kern, und nicht nur als zusaetzlicher Alias-`display-name`
+wie in einer Zwischenversion) - unabhaengig davon, ob gerade ein
+echtes Event laeuft oder Leerlauf ist. Die `<channel>`-Erzeugung
+(Schleife `for daten in sender_daten:`) laeuft deshalb bewusst ERST
+NACH dem Live-Playlist-Abgleich, nicht mehr davor. **Bewusster
+Trade-off:** eine einmal in TiviMate manuell gesetzte Zuordnung kann
+bei einem Lauf mit geaendertem Live-Namen verloren gehen (die ID
+aendert sich mit) - automatische Zuordnung hat hier auf Nutzerwunsch
+Prioritaet.
+
+Ergebnis nach diesem Fix (naechster Lauf): 17.287 von ~19.000 Kanaelen
+automatisch zugeordnet - deutliche Verbesserung, aber noch nicht
+vollstaendig.
+
+**Zwei zusaetzliche, kleinere Fixes im selben Zuge:**
+- `kern_und_event_extrahieren()`: Laender-Praefix ("DE:", "US:", ...)
+  bleibt jetzt NUR bei DYN PPV/FLO RACING (deren historischer
+  Sonderkonvention ohne Land) aus dem internen Live-Event-Index-
+  Schluessel entfernt - bei allen anderen NAME:-Sendern (SOCCER PPV,
+  DAZN PPV, ESPN+ PPV, ...) bleibt das Land Teil des Schluessels.
+  Vorher kollidierten z.B. "DE: SOCCER PPV 43" und "US: SOCCER PPV 43"
+  auf denselben Schluessel und ueberschrieben sich im Index gegenseitig
+  (nur einer der beiden Laender bekam je Lauf ein Live-Event).
+- `kanal_id_varianten()` (neue Funktion): fuer Kanal-IDs im
+  "Land|Sender"-Muster (z.B. "UK| AMAZON UK EVENT 0" vs.
+  "UK|AMAZON UK EVENT 0") werden jetzt BEIDE Leerzeichen-Schreibweisen
+  als `<channel>`/`<programme>` ausgegeben - bestaetigt per Playlist-
+  Abgleich, dass verschiedene Sender-Gruppen in derselben Playlist des
+  Nutzers uneinheitlich mal mit, mal ohne Leerzeichen nach dem Pipe
+  schreiben. Betrifft normale `Land|Sender|...`-Zeilen sowie
+  TELEMACH:/SKY:/ARENA:/DAZN:/FREEVIEW:/TVGUIDE:/TVPASSPORT:-Sender
+  und die 20 fest kodierten "DE| DYN PPV N HD"-API-Kanaele (deren
+  `display-name` zusaetzlich von nur "DYN PPV N HD" auf "DE| DYN PPV N
+  HD" korrigiert wurde - der echte Playlist-Name hat das Laenderkuerzel,
+  vorher fehlte es nur im display-name, nicht in der ID).
+
+**sender.txt-Datenmuell entdeckt und teilweise bereinigt:** Beim
+Debuggen von "US| ESPN PLUS" (Format "US (ESPN+ 001)") fiel auf, dass
+919 `NAME:`-Zeilen (500 bei "US (ESPN+ NNN)", 419 bei aehnlichen
+Gruppen wie "AU (STAN NNN)") noch den kompletten alten Rohtext vom
+urspruenglichen Playlist-Import (31. August) im Kernnamen stehen
+hatten statt nur des sauberen Kerns, z.B.
+`NAME:US (ESPN+ 001) | Soccer: Washington vs. Bay FC (ESP)
+(2026-08-31 09:00:00)|<Logo>` statt `NAME:US (ESPN+ 001)|<Logo>`. Da
+dieser Wert selbst ein Pipe-Zeichen enthielt, griff beim Einlesen die
+Pipe-Zweig-Logik in `kern_und_event_extrahieren()` und nahm
+faelschlich den alten Event-Text als Kern - der Live-Playlist-Abgleich
+fand diese Sender dadurch nie. Auf reine Kernnamen reduziert (per
+Skript, `NAME:(Land \([^)]+\)) \| .*?\|(Logo)` -> `NAME:\1|\2`).
+
+**Offen/noch NICHT bereinigt:** ~500 weitere `NAME:`-Zeilen mit
+aehnlichem, aber UNEINHEITLICHEM Datenmuell (unterschiedliche rohe
+Restfragmente bei UEFA-, NFL-/NHL-/NBA-Team-Kanaelen, Setanta, HBO Max
+UK, National League, Serie A, TNT Sports, Ligue N, Clubber TV, GaaGo,
+u.a. - siehe `grep -cP '^NAME:[A-Z]{2,4} \([^)]+\)[^|]*\| ' sender.txt`
+als Ausgangspunkt, aber die Formate variieren zu stark fuer eine
+einzige sichere Regex-Korrektur wie beim ESPN+/STAN-Fix). Diese
+koennten einen Teil der nach dem 17.287-Fix weiterhin fehlenden ~1.000
+bis 2.000 Sender erklaeren - noch nicht mit einem frischen Lauf
+verifiziert, ob nach den ESPN+/STAN-Fixes noch was fehlt und woran es
+dann liegt. Bei kuenftigen "Sender X wird nicht automatisch zugeordnet"
+Meldungen: ZUERST `grep "^NAME:.*<Sendername>" sender.txt` pruefen, ob
+der Kernname sauber ist (kein eingebetteter alter Event-Text), BEVOR
+an der generate_epg.py-Logik gesucht wird - das war in dieser Session
+oft die eigentliche Ursache, nicht ein Code-Bug.
+
+**Wichtige Lehren fuer kuenftige Debugging-Sessions zu diesem Thema:**
+- TiviMates automatische Kanalzuordnung ist eine reine Client-Logik,
+  die von hier aus nicht direkt einsehbar ist - Verifikation lief
+  ausschliesslich ueber (a) die generierte XML-Datei direkt pruefen
+  (`gunzip -c Epg_365_Tage.xml.gz`, nach `<channel id=` und
+  `<programme ... channel=` grep-en) und (b) den Nutzer Screenshots
+  aus TiviMate zeigen zu lassen (v.a. der "Sendernamen-Editor", der den
+  ROHEN aktuellen Playlist-Namen zeigt - sehr nuetzlich zum Vergleich
+  gegen unsere generierte ID).
+  - Zwischenzeitlich wurde ein bereits gepushter Fix (Laender-Praefix
+    beim Kern entfernen) auf Nutzerwunsch komplett zurueckgesetzt, weil
+    zunaechst der falsche Verdacht bestand, er sei fuer den
+    TiviMate-Einbruch verantwortlich - spaeter per Log-Vergleich zweier
+    Workflow-Laeufe widerlegt (der fragliche Lauf hatte davor UND
+    danach denselben Live-Match-Mechanismus, nur mit 0 vs. echten
+    Treffern - TiviMates Zuordnungszahl war in beiden Faellen aehnlich
+    hoch/niedrig, unabhaengig vom Fix). Der Fix wurde in einer
+    Folge-Session wieder eingebaut, diesmal korrekt mit Laender-
+    Kollisions-Schutz. Lehre: Bei Verdacht "mein letzter Commit hat X
+    kaputt gemacht" IMMER zuerst per `git diff <alter-commit> --
+    <datei>` und Workflow-Logs (`gh`/GitHub-MCP-Tools,
+    `get_workflow_run_logs_url` + Log-Text durchsuchen) verifizieren,
+    ob der Verdacht wirklich stimmt, bevor zurueckgesetzt wird -
+    spart ggf. eine komplette Neuentwicklung.
+- Playlist-URL des Nutzers wurde in dieser Session mehrfach direkt
+  angefragt (temporaerer Download nach `/scratchpad`, sofort nach
+  Auswertung wieder geloescht, niemals im Chat wiederholt) - sehr
+  nuetzlich, um TiviMate-Verhalten mit echten Rohdaten statt Vermutungen
+  zu erklaeren. Bei aehnlichen Debugging-Faellen (Kanal X wird nicht
+  erkannt) ist ein gezielter `grep` in der frisch heruntergeladenen
+  Playlist nach dem Kanalnamen oft der schnellste Weg zur Diagnose.
