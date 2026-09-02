@@ -11,9 +11,9 @@ BA|ARENA SPORT 4 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 4 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ
 BA|ARENA SPORT 5 PREMIER LIGA|Arena Sport 5 Premier Liga ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EXYU/ARENASPORT5.png
 BA|ARENA SPORT 5 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 5 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/215cf783d40956e3.png
 BA|ARENA SPORT 6 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 6 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f017d5939dd74668.png
-BA|ARENA SPORT PREMIUM 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
-BA|ARENA SPORT PREMIUM 2 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
-BA|ARENA SPORT PREMIUM 3 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
+BA|ARENA SPORT PREMIUM 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dbb6b402649ea86cd75aef2bd8c414ffd7c39422.png
+BA|ARENA SPORT PREMIUM 2 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9a9b465f6023c6192214a29cc123ced5b7a38c7f.png
+BA|ARENA SPORT PREMIUM 3 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6f72dc4e4c0d8418c54546fce7c92ee5a438762e.png
 BA|ATV BANJA LUKA|Atv Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2cb7cd4b4e070592.png
 BA|BHT|Bht ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d2a566874088cf02.png
 BA|BHT1 ⱽᴵᴾ ᴿᴬᵂ|Bht1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d2a566874088cf02.png
@@ -2944,22 +2944,22 @@ RS|ARENA SPORT 1|Arena Sport 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/ba
 RS|ARENA SPORT 1 FHD|Arena Sport 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 RS|ARENA SPORT 1 FHD (BK)|Arena Sport 1 Fhd (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 RS|ARENA SPORT 1 HD|Arena Sport 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
-RS|ARENA SPORT 1 PREMIUM|Arena Sport 1 Premium ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
-RS|ARENA SPORT 1 PREMIUM HD|Arena Sport 1 Premium Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
+RS|ARENA SPORT 1 PREMIUM|Arena Sport 1 Premium ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_sport_rs_premium/1.png
+RS|ARENA SPORT 1 PREMIUM HD|Arena Sport 1 Premium Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_sport_rs_premium/1.png
 RS|ARENA SPORT 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 RS|ARENA SPORT 10|Arena Sport 10 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
 RS|ARENA SPORT 10 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 10 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
 RS|ARENA SPORT 1x2 HD|Arena Sport 1X2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/33ccf781e173e648.png
 RS|ARENA SPORT 2|Arena Sport 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
 RS|ARENA SPORT 2 HD|Arena Sport 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
-RS|ARENA SPORT 2 PREMIUM|Arena Sport 2 Premium ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
-RS|ARENA SPORT 2 PREMIUM HD|Arena Sport 2 Premium Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
+RS|ARENA SPORT 2 PREMIUM|Arena Sport 2 Premium ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_sport_rs_premium/2.png
+RS|ARENA SPORT 2 PREMIUM HD|Arena Sport 2 Premium Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_sport_rs_premium/2.png
 RS|ARENA SPORT 2 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
 RS|ARENA SPORT 3|Arena Sport 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ce3562be9a2f63d.png
 RS|ARENA SPORT 3 FHD|Arena Sport 3 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ce3562be9a2f63d.png
 RS|ARENA SPORT 3 HD|Arena Sport 3 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ce3562be9a2f63d.png
-RS|ARENA SPORT 3 PREMIUM|Arena Sport 3 Premium ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
-RS|ARENA SPORT 3 PREMIUM HD|Arena Sport 3 Premium Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d4c2a7b24fa27d7b.png
+RS|ARENA SPORT 3 PREMIUM|Arena Sport 3 Premium ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_sport_rs_premium/3.png
+RS|ARENA SPORT 3 PREMIUM HD|Arena Sport 3 Premium Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_sport_rs_premium/3.png
 RS|ARENA SPORT 3 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ce3562be9a2f63d.png
 RS|ARENA SPORT 4|Arena Sport 4 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf62f976cf7f1d6a.png
 RS|ARENA SPORT 4 FHD|Arena Sport 4 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf62f976cf7f1d6a.png
@@ -18181,7 +18181,7 @@ HR| DISCOVERY VIP RAW||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 HR| NICK JUNIOR||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/386cb493fb1aec1cf3d3a83624eb925a08c805ef.png
 HR|KREATOR HD|Kreator HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3f409abb130fb0ea4e519c89573f19c7c1e5b44b.png
 HR|GINIX|Ginix ᴸⁱᵛᵉ|
-HR|HAJDUK TV|Hajduk TV ᴸⁱᵛᵉ|
+HR|HAJDUK TV|Hajduk TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hajduk_tv/hajduk_tv.png
 HR|TREND AND KARLOVAC|Trend And Karlovac ᴸⁱᵛᵉ|
 HR|TREND TV HD|Trend TV HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38f7b3c59ac5138c76062eca111f054fd35945bb.png
 HR|HRT INT|Hrt Int ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/aa4f39810acd36bd80b4aa5952ce7f4a7a10cfa5.png

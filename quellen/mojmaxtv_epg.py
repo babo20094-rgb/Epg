@@ -28,6 +28,7 @@ from datetime import datetime, timedelta, timezone
 
 import difflib
 import hashlib
+import re
 import time
 import uuid
 
@@ -140,6 +141,19 @@ def mojmaxtv_kanal_finden(kanalname):
     kanaele = mojmaxtv_hole_kanalliste()
     if not kanaele:
         return None
+
+    # "SK 1".."SK 10" (eigene Playlist-Abkuerzung in sender.txt, z.B.
+    # "HR|SK 1") vs. "Sport Klub 1" (voller Name bei MojMaxTV): die
+    # normalisierten Schluessel "SK1" vs. "SPORTKLUB1" liegen bei so
+    # kurzen Strings weit unter der difflib-Aehnlichkeits-Schwelle
+    # (0.72) - der Sender wurde deshalb NIE automatisch gefunden, obwohl
+    # MojMaxTV die echten Programmdaten dafuer hat (Bug September 2026
+    # behoben). Nur dieses eine bekannte Abkuerzungsmuster wird gezielt
+    # aufgeloest, kein globales "SK"-Alias (zu hohes Fehltreffer-Risiko
+    # bei anderen Sendern/Laendercodes).
+    sk_match = re.match(r"^SK\s*0*(\d+)$", kanalname.strip(), re.IGNORECASE)
+    if sk_match:
+        kanalname = f"Sport Klub {sk_match.group(1)}"
 
     ziel_schluessel = normalisiere_sendername(kanalname)
     if not ziel_schluessel:
