@@ -1639,9 +1639,18 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
         i,
         f"https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/dyn_ppv/dyn_ppv_{i}.png",
     )
-    xml_teile.append(
-        f' <channel id="{escape(kanal)}"> <display-name>DYN PPV {i} HD</display-name> <icon src="{escape(logo_fuer_kanal)}"/> </channel> '
-    )
+    # display-name zeigt jetzt "DE| " wie die echte ID und wie der
+    # tatsaechliche Name in der Playlist des Nutzers (bestaetigt per
+    # Playlist-Check: tvg-name="DE| DYN PPV 4 HD") - vorher fehlte das
+    # Laenderkuerzel im display-name, obwohl ID und Playlist-Name es
+    # beide hatten. Falls TiviMate beim automatischen Zuordnen den
+    # display-name statt der ID heranzieht, verhinderte genau diese
+    # Abweichung die Zuordnung trotz technisch passender ID (Bug
+    # September 2026 behoben).
+    for kanal_id in kanal_id_varianten(kanal):
+        xml_teile.append(
+            f' <channel id="{escape(kanal_id)}"> <display-name>DE| DYN PPV {i} HD</display-name> <icon src="{escape(logo_fuer_kanal)}"/> </channel> '
+        )
 
 # ==========================================================
 # DYN LIVE EVENTS
@@ -1730,10 +1739,11 @@ try:
 
                 kanal = f"DE| DYN PPV {kanal_nummer} HD"
 
-                xml_teile.append(
-                    f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal)}">'
-                    f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
-                )
+                for kanal_id in kanal_id_varianten(kanal):
+                    xml_teile.append(
+                        f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal_id)}">'
+                        f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
+                    )
 
                 dyn_synth_api_fenster.setdefault(kanal_nummer, []).append(
                     (start_dt, ende_dt)
@@ -1806,10 +1816,11 @@ for competition_id, competition_name in DYN_BASKETBALL_COMPETITION_IDS.items():
         endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
         kanal = f"DE| DYN PPV {basketball_kanal_nummer} HD"
 
-        xml_teile.append(
-            f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal)}">'
-            f' <title>{escape(titel)}</title> <desc>{escape(titel)}</desc> </programme> '
-        )
+        for kanal_id in kanal_id_varianten(kanal):
+            xml_teile.append(
+                f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal_id)}">'
+                f' <title>{escape(titel)}</title> <desc>{escape(titel)}</desc> </programme> '
+            )
 
         dyn_synth_api_fenster.setdefault(basketball_kanal_nummer, []).append(
             (start_dt, ende_dt)
@@ -2772,6 +2783,7 @@ jetzt = datetime.now(timezone.utc).replace(
 
 for i in range(1, DYN_PPV_ANZAHL + 1):
     kanal = f"DE| DYN PPV {i} HD"
+    kanal_ids = kanal_id_varianten(kanal)
     api_fenster = dyn_synth_api_fenster.get(i, [])
 
     for stunde in range(24 * DYN_LEERZEIT_TAGE):
@@ -2786,11 +2798,12 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
             start_str = start.strftime("%Y%m%d%H%M%S +0000")
             ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
-            xml_teile.append(
-                f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal)}">'
-                f' <title>Im Moment keine Live Events, bleib dran</title>'
-                f' <desc>Im Moment keine Live Events, bleib dran.</desc> </programme> '
-            )
+            for kanal_id in kanal_ids:
+                xml_teile.append(
+                    f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal_id)}">'
+                    f' <title>Im Moment keine Live Events, bleib dran</title>'
+                    f' <desc>Im Moment keine Live Events, bleib dran.</desc> </programme> '
+                )
 
 # ==========================================================
 # XML ABSCHLIESSEN
