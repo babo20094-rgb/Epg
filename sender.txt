@@ -13451,14 +13451,12 @@ NAME:Tennis: Valentin Vacherot vs Aleksandar Kovacevic @ Aug 31 17:00 PM :Tennis
 NAME:Tunisie Vs France - 30-11-22|https://upload.wikimedia.org/wikipedia/fr/thumb/e/e3/2022_FIFA_World_Cup.svg/1713px-2022_FIFA_World_Cup.svg.png
 NAME:UEFA  | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA  | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
-NAME:UEFA  | 02 - Brighton vs Tromps 8:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
-NAME:UEFA  | 03 - Olympique Lyonnais vs Fenerbahçe 8:00 pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
+NAME:UEFA  | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA  | 04  - Viking v Dinamo Zagreb 8:00 pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
-NAME:UEFA  | 05 - hearts vs rapid wien 5:45 pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
+NAME:UEFA  | 05 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA  | 08 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA  | 16 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0a861428a5e03290e579c986fba6cd2aa9436b40.png
 NAME:UEFA  | 19 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
-NAME:UEFA  | 19 - Ballkani vs Astana 17.45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 01-  EUROPA CONFERENCE & LEAGUE DRAWS 6:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 04 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
@@ -13470,15 +13468,11 @@ NAME:UEFA | 09 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME:UEFA | 11 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0b7de8b808afe966c65baf91ff06fb0b656d9407.png
 NAME:UEFA | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/395841d4b06e3d4824d9392215fc93b9f995f337.png
 NAME:UEFA | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ec908a81afc453442bb6004e6f0937638e8bfadb.png
-NAME:UEFA | 13 - Sheriff Tiraspol vs Servette 20.00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/540a8e2d4a75c27b40537f1d584016a7d1b0088e.png
-NAME:UEFA | 14 - Molde vs Häcken 17.45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 17 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 18 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/022021e6d4233ff3cc881159145422b20134d7f1.png
-NAME:UEFA | 18 - KAA Gent vs Breidablik 17.45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 20 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2a563defaead5c69f09d9bb6f50f132924557d62.png
-NAME:UEFA | 20 - Dinamo Zagreb vs Viktoria Plzen 20.00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 21 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/867268a8c949ac9a504778e02ae3cbe517ddd559.png
 NAME:UEFA | 22 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA | 23 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/edd0e966b71e3914f882cbc7cbfefcbe0628a16c.png
