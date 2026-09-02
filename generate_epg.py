@@ -1623,8 +1623,61 @@ for daten in logo_only_channels:
 # DYN PPV CHANNELS
 # ==========================================================
 
+# Die ID/Anzeigename der 20 fest kodierten API-Kanaele war bisher immer
+# der hartcodierte String "DE| DYN PPV {i} HD" - anders als bei den
+# NAME:-Sendern (ESPN+/SOCCER/DAZN PPV usw.), deren ID seit September
+# 2026 direkt aus dem LIVE-Playlist-Namen des Nutzers uebernommen wird.
+# Weicht der tatsaechliche Playlist-Name auch nur minimal ab (ein
+# unsichtbares Zeichen, andere Leerzeichen-Stellung), matcht TiviMates
+# automatische Zuordnung nicht, obwohl der Name auf den ersten Blick
+# identisch aussieht - genau dieses Symptom wurde fuer die Kanaele 14-20
+# beobachtet (manuelle Zuordnung funktioniert und bleibt bestehen,
+# automatische nicht). Hier wird deshalb - analog zum NAME:-Mechanismus -
+# einmalig die eigene Playlist nach den 20 "DE| DYN PPV N HD"-Kanaelen
+# durchsucht und bei Treffer der exakte rohe Playlist-Name uebernommen;
+# ohne PROVIDER-Secret oder bei jedem Fehler (Netzwerk, kein Treffer)
+# bleibt der bisherige hartcodierte String als Fallback stehen - keine
+# Verhaltensaenderung fuer Nutzer ohne diese spezielle Playlist-Abweichung.
+dyn_ppv_api_playlist_namen = {}
+_m3u_url_fuer_dyn_ppv = os.environ.get("PROVIDER")
+if _m3u_url_fuer_dyn_ppv:
+    try:
+        _antwort = requests.get(_m3u_url_fuer_dyn_ppv, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
+        _antwort.raise_for_status()
+        _gepuffert = ""
+        for _chunk in _antwort.iter_content(chunk_size=65536):
+            _gepuffert += _chunk.decode("utf-8", errors="ignore")
+            if len(_gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
+                break
+        _antwort.close()
+
+        for _zeile in _gepuffert.splitlines():
+            _zeile = _zeile.strip()
+            if not _zeile.startswith("#EXTINF") or "," not in _zeile:
+                continue
+            # Gleiche Trennlogik wie in m3u_playlist_abgleichen() (siehe
+            # dortiger Kommentar): erstes Komma NACH dem letzten
+            # Anfuehrungszeichen, nicht das letzte Komma der Zeile.
+            _letztes_anfuehrungszeichen = _zeile.rfind('"')
+            _such_start = _letztes_anfuehrungszeichen if _letztes_anfuehrungszeichen != -1 else 0
+            _komma_pos = _zeile.find(",", _such_start)
+            _voller_name = (_zeile[_komma_pos + 1:] if _komma_pos != -1 else _zeile.rsplit(",", 1)[-1]).strip()
+            _dyn_ppv_match = re.match(r"^DE\|\s*DYN\s*PPV\s*0*(\d{1,2})\s*HD$", _voller_name, re.IGNORECASE)
+            if _dyn_ppv_match:
+                _nummer = int(_dyn_ppv_match.group(1))
+                if 1 <= _nummer <= DYN_PPV_ANZAHL:
+                    dyn_ppv_api_playlist_namen[_nummer] = _voller_name
+
+        if dyn_ppv_api_playlist_namen:
+            print(
+                f"DYN-PPV-API-Kanalnamen: {len(dyn_ppv_api_playlist_namen)} von "
+                f"{DYN_PPV_ANZAHL} Kanaelen mit exaktem Playlist-Namen abgeglichen"
+            )
+    except Exception as e:
+        print("DYN-PPV-API-Kanalnamen-Abgleich Fehler:", e)
+
 for i in range(1, DYN_PPV_ANZAHL + 1):
-    kanal = f"DE| DYN PPV {i} HD"
+    kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
     logo_fuer_kanal = dyn_ppv_logo_overrides.get(
         i,
         f"https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/dyn_ppv/dyn_ppv_{i}.png",
@@ -1639,7 +1692,7 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
     # September 2026 behoben).
     for kanal_id in kanal_id_varianten(kanal):
         xml_teile.append(
-            f' <channel id="{escape(kanal_id)}"> <display-name>DE| DYN PPV {i} HD</display-name> <icon src="{escape(logo_fuer_kanal)}"/> </channel> '
+            f' <channel id="{escape(kanal_id)}"> <display-name>{escape(kanal)}</display-name> <icon src="{escape(logo_fuer_kanal)}"/> </channel> '
         )
 
 # ==========================================================
@@ -1727,7 +1780,7 @@ try:
                 startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
                 endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
 
-                kanal = f"DE| DYN PPV {kanal_nummer} HD"
+                kanal = dyn_ppv_api_playlist_namen.get(kanal_nummer, f"DE| DYN PPV {kanal_nummer} HD")
 
                 for kanal_id in kanal_id_varianten(kanal):
                     xml_teile.append(
@@ -1804,7 +1857,7 @@ for competition_id, competition_name in DYN_BASKETBALL_COMPETITION_IDS.items():
 
         startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
         endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
-        kanal = f"DE| DYN PPV {basketball_kanal_nummer} HD"
+        kanal = dyn_ppv_api_playlist_namen.get(basketball_kanal_nummer, f"DE| DYN PPV {basketball_kanal_nummer} HD")
 
         for kanal_id in kanal_id_varianten(kanal):
             xml_teile.append(
@@ -1958,7 +2011,20 @@ def m3u_playlist_abgleichen(url, quelle_name):
         if not zeile.startswith("#EXTINF") or "," not in zeile:
             continue
 
-        voller_name = zeile.rsplit(",", 1)[-1].strip()
+        # Trennung von Attributen und Anzeigename NICHT am letzten Komma
+        # der Zeile (rsplit) vornehmen - manche Anbieter haben selbst ein
+        # Komma im rohen Live-Event-Namen eingebettet (z.B. "NEXT | WED,
+        # 9/2 - THE RICH EISEN SHOW | ... | US: ESPN+ PPV 4"), wodurch
+        # rsplit(",", 1) faelschlich den Namen ab dem eingebetteten Komma
+        # abschnitt statt ab dem echten Attribute/Name-Trenner. Alle
+        # #EXTINF-Attribute (tvg-id="...", group-title="...", ...) enden
+        # in einem schliessenden Anfuehrungszeichen - das erste Komma NACH
+        # dem letzten Anfuehrungszeichen ist daher der zuverlaessige
+        # Trenner, unabhaengig davon, ob der Name selbst Kommas enthaelt.
+        letztes_anfuehrungszeichen = zeile.rfind('"')
+        such_start = letztes_anfuehrungszeichen if letztes_anfuehrungszeichen != -1 else 0
+        komma_pos = zeile.find(",", such_start)
+        voller_name = (zeile[komma_pos + 1:] if komma_pos != -1 else zeile.rsplit(",", 1)[-1]).strip()
         normalisierter_kern, real_daten, kurzname, event_teil = _kern_und_event_aus_rohname(voller_name)
         if real_daten is None:
             continue
@@ -2830,7 +2896,7 @@ jetzt = datetime.now(timezone.utc).replace(
 )
 
 for i in range(1, DYN_PPV_ANZAHL + 1):
-    kanal = f"DE| DYN PPV {i} HD"
+    kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
     kanal_ids = kanal_id_varianten(kanal)
     api_fenster = dyn_synth_api_fenster.get(i, [])
 
@@ -2846,11 +2912,15 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
             start_str = start.strftime("%Y%m%d%H%M%S +0000")
             ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
 
+            # Gleiche Leerlauf-Konvention wie bei den Playlist-basierten
+            # DYN PPV 1-50-Sendern ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ") statt eines
+            # eigenen, abweichenden Textes - auf Nutzerwunsch vereinheitlicht.
+            leerlauf_text = f"Dyn Sport ({i}) ᴺᵒ ᴸⁱᵛᵉ"
             for kanal_id in kanal_ids:
                 xml_teile.append(
                     f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal_id)}">'
-                    f' <title>Im Moment keine Live Events, bleib dran</title>'
-                    f' <desc>Im Moment keine Live Events, bleib dran.</desc> </programme> '
+                    f' <title>{escape(leerlauf_text)}</title>'
+                    f' <desc>{escape(leerlauf_text)}</desc> </programme> '
                 )
 
 # ==========================================================
