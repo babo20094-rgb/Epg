@@ -1963,18 +1963,20 @@ def m3u_playlist_abgleichen(url, quelle_name):
         if real_daten is None:
             continue
 
-        # Den kompletten aktuellen Rohnamen aus der Playlist als
-        # zusaetzlichen Anzeigenamen (<display-name>) merken - egal ob
-        # gerade ein Event laeuft oder Leerlauf ist. XMLTV erlaubt
-        # MEHRERE <display-name>-Eintraege pro Kanal, genau fuer diesen
-        # Zweck (Alias-Namen). Die eigentliche <channel id> bleibt der
-        # stabile Kern (wichtig, damit eine einmal manuell in TiviMate
-        # gesetzte Zuordnung nicht bei jedem Lauf verloren geht - siehe
-        # Diskussion September 2026), aber TiviMates automatischer
-        # Abgleich bekommt so zusaetzlich den exakten, aktuell in der
-        # Playlist des Nutzers sichtbaren Namen als Vergleichs-
-        # Kandidaten, auch wenn der sich mit jedem Live-Event aendert.
-        real_daten["playlist_alias"] = voller_name
+        # Die <channel id>/den Anzeigenamen direkt auf den kompletten
+        # aktuellen Rohnamen aus der Playlist setzen (egal ob gerade
+        # ein Event laeuft oder Leerlauf ist) - GENAU wie es der
+        # frueher genutzte externe EPG-Anbieter (myepg.top) gemacht
+        # hat, der fuer diese Kanaele nachweislich zuverlaessig
+        # automatisch zugeordnet wurde. Der stabile Kern bleibt nur
+        # als Fallback stehen, falls die eigene Playlist gerade nicht
+        # erreichbar ist oder der Sender darin fehlt (dann behaelt
+        # "kanal" seinen urspruenglichen sender.txt-Wert). Bewusster
+        # Trade-off (September 2026 auf Nutzerwunsch so entschieden):
+        # eine einmal in TiviMate manuell gesetzte Zuordnung ueberlebt
+        # dadurch nicht zwingend jeden Lauf, dafuer funktioniert die
+        # AUTOMATISCHE Zuordnung zuverlaessiger, was hier Prioritaet hat.
+        real_daten["kanal"] = voller_name
 
         if _live_event_uebernehmen(kurzname, event_teil, real_daten):
             erledigte_keys.add(normalisierter_kern)
@@ -2004,9 +2006,9 @@ if name_pipe_kanal_index:
 # überschriebenem Logo aus logo_only.txt)
 #
 # Bewusst ERST HIER (nach dem Live-Kanalabgleich oben), damit fuer
-# NAME:-Sender bereits der aktuelle "playlist_alias" (siehe
-# m3u_playlist_abgleichen()) zur Verfuegung steht und als zusaetzlicher
-# <display-name> mit ausgegeben werden kann.
+# NAME:-Sender bereits die per Live-Playlist-Abgleich ggf.
+# ueberschriebene "kanal" (siehe m3u_playlist_abgleichen()) verwendet
+# wird - nicht mehr der urspruengliche statische Kern.
 # ==========================================================
 
 for daten in sender_daten:
@@ -2016,26 +2018,14 @@ for daten in sender_daten:
     # automatische Sender-Zuordnung in TiviMate.
     # Ausnahme: Einträge mit "exakter_name" (aus NAME:-Zeilen in
     # sender.txt) haben ihren kompletten, echten Playlist-Namen
-    # bereits direkt in "kanal" stehen - hier NICHT aus Land+Sender
-    # neu zusammenbauen, sonst geht der Name kaputt.
+    # bereits direkt in "kanal" stehen (bei erfolgreichem Live-
+    # Abgleich sogar den AKTUELLEN Live-Namen, siehe oben) - hier
+    # NICHT aus Land+Sender neu zusammenbauen, sonst geht der Name
+    # kaputt.
     if daten.get("exakter_name"):
         playlist_name = daten["kanal"]
     else:
         playlist_name = f"{daten['land']}| {daten['sender']}"
-
-    # Zusaetzlicher Alias-Anzeigename: der tatsaechliche, aktuelle
-    # Rohname aus der eigenen IPTV-Playlist des Nutzers (siehe
-    # playlist_alias oben) - deckt Sender ab, deren Name sich mit
-    # jedem Live-Event komplett aendert (DYN/ESPN+/SOCCER/DAZN PPV
-    # usw.), OHNE die stabile <channel id> selbst zu veraendern (das
-    # wuerde jede einmal in TiviMate manuell gesetzte Zuordnung bei
-    # jedem Lauf wieder zerstoeren). Nur hinzufuegen, wenn er sich
-    # ueberhaupt vom Haupt-Anzeigenamen unterscheidet, sonst gaebe es
-    # unnoetig doppelte identische <display-name>-Tags.
-    playlist_alias = daten.get("playlist_alias")
-    zusatz_namen = (
-        [playlist_alias] if playlist_alias and playlist_alias != playlist_name else []
-    )
 
     # Fuer jede Kanal-ID-Variante (mit/ohne Leerzeichen nach dem Pipe-
     # Zeichen, siehe kanal_id_varianten()) einen eigenen <channel>-
@@ -2046,9 +2036,6 @@ for daten in sender_daten:
         xml_teile.append(
             f' <channel id="{escape(kanal_id)}"> <display-name>{escape(playlist_name)}</display-name>'
         )
-
-        for name in zusatz_namen:
-            xml_teile.append(f' <display-name>{escape(name)}</display-name>')
 
         # Icon wird NUR erzeugt, wenn ein Logo angegeben ist
         # (aus sender.txt oder als Override aus logo_only.txt)
