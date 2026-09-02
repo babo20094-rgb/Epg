@@ -1463,3 +1463,14 @@ Bereich (1 bis N) tatsaechlich eine eigene `NAME:`-Zeile existiert
 (`for n in range(1,N+1): ...` gegen die Zeilen abgleichen), nicht nur
 die Logo-Dateien selbst - eine fehlende Zeile faellt beim reinen
 Datei-Check nicht auf.
+
+**Offene Frage (noch nicht verifiziert):** Der Nutzer fragte, ob die
+fehlende Nummer 8 der Grund war, warum in TiviMate auch mehrere ANDERE
+Nummern derselben Gruppe keine Logos zeigten - technisch unwahrscheinlich,
+da jeder `<channel>`/`<programme>`-Block in der generierten XML
+unabhaengig ist und ein fehlender Block fuer Nummer 8 keinen Einfluss
+auf das Parsen/Anzeigen der Bloecke fuer 1-7/9-200 haben sollte. Falls
+nach dem naechsten Lauf weiterhin einzelne andere Nummern fehlen,
+liegt die Ursache vermutlich woanders (z.B. dasselbe TiviMate-
+Auto-Matching-Verhalten wie bei DYN PPV 1-20/ESPN+) - noch nicht mit
+echten Daten gegengeprueft.
