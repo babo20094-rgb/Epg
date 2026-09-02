@@ -210,7 +210,22 @@ def kern_und_event_extrahieren(voller_name):
             kurzname = kurzname_match.group(0)
             event_teil = voller_name[:kurzname_match.start()].strip(" :").strip()
         else:
-            kurzname = voller_name
+            # Wie im Pipe-Zweig oben (kern_roh) muss ein fuehrendes
+            # Laender-Kuerzel ("DE: ", "US: ", ...) entfernt werden, sonst
+            # landet der Kern beim Einlesen einer NAME:-Zeile OHNE Pipe
+            # (z.B. "NAME:DE: SOCCER PPV 43|...") mit Praefix ("DE: SOCCER
+            # PPV 43") im Index, waehrend derselbe Kanal beim Live-
+            # Playlist-Abgleich (Pipe-Zweig, IMMER ohne Praefix) als
+            # "SOCCER PPV 43" gesucht wird - das Matching schlaegt dann
+            # fuer JEDEN NAME:-Sender im "Land: Name PPV N"-Format ausser
+            # den hartcodierten Sonderfaellen DYN PPV/FLO RACING oben
+            # komplett fehl (Bug September 2026 behoben: betraf u.a. alle
+            # "DE: SOCCER PPV"/"DE: DAZN PPV"-Kanaele - deren Live-Events
+            # wurden nie erkannt, es blieb immer beim generischen
+            # Platzhaltertext).
+            kurzname = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", voller_name).strip()
+            if not kurzname:
+                kurzname = voller_name
             event_teil = ""
     return kurzname, event_teil
 
