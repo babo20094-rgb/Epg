@@ -225,8 +225,21 @@ def kern_und_event_extrahieren(voller_name):
         # sind immer deutlich laenger (Teamnamen, Uhrzeiten usw.).
         if re.fullmatch(r"[A-Za-z]{2,4}", event_teil):
             event_teil = ""
-        kurzname = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", kern_roh).strip()
-        if not kurzname:
+        # Laender-Praefix ("DE: ", "US: ", ...) NUR bei DYN PPV/FLO
+        # RACING entfernen - das ist die historische Sonderkonvention
+        # dieser beiden Anbieter, deren sender.txt-Kernname schon immer
+        # OHNE Land gefuehrt wurde (siehe Sonderfall unten im
+        # No-Pipe-Zweig). Bei allen anderen "Land: Name N"-Sendern
+        # (SOCCER PPV, DAZN PPV, ESPN+ PPV, ...) bleibt das Land Teil
+        # des Kerns - sonst wuerden z.B. "DE: SOCCER PPV 43" und
+        # "US: SOCCER PPV 43" (zwei echte, aber verschiedene Kanaele
+        # unterschiedlicher Laender) auf denselben Index-Schluessel
+        # kollidieren und sich beim Live-Abgleich gegenseitig
+        # ueberschreiben (Bug September 2026 behoben).
+        kern_ohne_land = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", kern_roh).strip()
+        if re.fullmatch(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", kern_ohne_land, re.IGNORECASE):
+            kurzname = kern_ohne_land
+        else:
             kurzname = kern_roh
     else:
         kurzname_match = re.search(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", voller_name, re.IGNORECASE)
@@ -241,7 +254,20 @@ def kern_und_event_extrahieren(voller_name):
             # und einmal nur der reine Kern normalisiert wuerde.
             kurzname = kurzname_match.group(0)
             event_teil = voller_name[:kurzname_match.start()].strip(" :").strip()
+            # Wie im Pipe-Zweig oben: bleibt nach dem Abschneiden nur ein
+            # reines 2-4-Buchstaben-Laenderkuerzel uebrig (z.B. "DE" aus
+            # "DE: DYN PPV 6"), ist das kein echter Event-Text, sondern
+            # nur das Laenderkuerzel vor dem Kern.
+            if re.fullmatch(r"[A-Za-z]{2,4}", event_teil):
+                event_teil = ""
         else:
+            # Laender-Praefix bleibt hier bewusst Teil des Kerns (siehe
+            # Pipe-Zweig oben: nur DYN PPV/FLO RACING sind die
+            # Sonderfaelle ohne Land) - der Pipe-Zweig verwendet
+            # dieselbe Regel, damit z.B. "US: ESPN+ PPV 1" (sender.txt-
+            # Kernname) und der beim Live-Playlist-Abgleich aus
+            # "... | US: ESPN+ PPV 1" extrahierte Kern exakt
+            # uebereinstimmen, OHNE mit "DE: ESPN+ PPV 1" zu kollidieren.
             kurzname = voller_name
             event_teil = ""
     return kurzname, event_teil
@@ -1574,42 +1600,6 @@ if LOGO_AUTO_SUCHE_AKTIV and any(
         )
 
 # ==========================================================
-# <channel>-Blöcke schreiben (sender.txt, mit ggf.
-# überschriebenem Logo aus logo_only.txt)
-# ==========================================================
-
-for daten in sender_daten:
-
-    # So wie er in der Playlist als tvg-name steht (z.B. "DE| RTL"),
-    # unverändert übernommen - das ist entscheidend für die
-    # automatische Sender-Zuordnung in TiviMate.
-    # Ausnahme: Einträge mit "exakter_name" (aus NAME:-Zeilen in
-    # sender.txt) haben ihren kompletten, echten Playlist-Namen
-    # bereits direkt in "kanal" stehen - hier NICHT aus Land+Sender
-    # neu zusammenbauen, sonst geht der Name kaputt.
-    if daten.get("exakter_name"):
-        playlist_name = daten["kanal"]
-    else:
-        playlist_name = f"{daten['land']}| {daten['sender']}"
-
-    # Fuer jede Kanal-ID-Variante (mit/ohne Leerzeichen nach dem Pipe-
-    # Zeichen, siehe kanal_id_varianten()) einen eigenen <channel>-
-    # Block schreiben, damit TiviMate unabhaengig von der in der
-    # jeweiligen Playlist-Gruppe genutzten Schreibweise automatisch
-    # zuordnen kann.
-    for kanal_id in kanal_id_varianten(daten["kanal"]):
-        xml_teile.append(
-            f' <channel id="{escape(kanal_id)}"> <display-name>{escape(playlist_name)}</display-name> '
-        )
-
-        # Icon wird NUR erzeugt, wenn ein Logo angegeben ist
-        # (aus sender.txt oder als Override aus logo_only.txt)
-        if daten["logo"]:
-            xml_teile.append(f' <icon src="{escape(daten["logo"])}"/>\n')
-
-        xml_teile.append("</channel>\n")
-
-# ==========================================================
 # <channel>-Blöcke für reine Logo-Einträge (kein Sender in
 # sender.txt) - nur Icon, keine Programme
 # ==========================================================
@@ -1973,6 +1963,19 @@ def m3u_playlist_abgleichen(url, quelle_name):
         if real_daten is None:
             continue
 
+        # Den kompletten aktuellen Rohnamen aus der Playlist als
+        # zusaetzlichen Anzeigenamen (<display-name>) merken - egal ob
+        # gerade ein Event laeuft oder Leerlauf ist. XMLTV erlaubt
+        # MEHRERE <display-name>-Eintraege pro Kanal, genau fuer diesen
+        # Zweck (Alias-Namen). Die eigentliche <channel id> bleibt der
+        # stabile Kern (wichtig, damit eine einmal manuell in TiviMate
+        # gesetzte Zuordnung nicht bei jedem Lauf verloren geht - siehe
+        # Diskussion September 2026), aber TiviMates automatischer
+        # Abgleich bekommt so zusaetzlich den exakten, aktuell in der
+        # Playlist des Nutzers sichtbaren Namen als Vergleichs-
+        # Kandidaten, auch wenn der sich mit jedem Live-Event aendert.
+        real_daten["playlist_alias"] = voller_name
+
         if _live_event_uebernehmen(kurzname, event_teil, real_daten):
             erledigte_keys.add(normalisierter_kern)
             aktualisierte_sender.append(real_daten["sender"])
@@ -1995,6 +1998,64 @@ if name_pipe_kanal_index:
             )
         except Exception as e:
             print("Live-Kanalabgleich Fehler:", e)
+
+# ==========================================================
+# <channel>-Blöcke schreiben (sender.txt, mit ggf.
+# überschriebenem Logo aus logo_only.txt)
+#
+# Bewusst ERST HIER (nach dem Live-Kanalabgleich oben), damit fuer
+# NAME:-Sender bereits der aktuelle "playlist_alias" (siehe
+# m3u_playlist_abgleichen()) zur Verfuegung steht und als zusaetzlicher
+# <display-name> mit ausgegeben werden kann.
+# ==========================================================
+
+for daten in sender_daten:
+
+    # So wie er in der Playlist als tvg-name steht (z.B. "DE| RTL"),
+    # unverändert übernommen - das ist entscheidend für die
+    # automatische Sender-Zuordnung in TiviMate.
+    # Ausnahme: Einträge mit "exakter_name" (aus NAME:-Zeilen in
+    # sender.txt) haben ihren kompletten, echten Playlist-Namen
+    # bereits direkt in "kanal" stehen - hier NICHT aus Land+Sender
+    # neu zusammenbauen, sonst geht der Name kaputt.
+    if daten.get("exakter_name"):
+        playlist_name = daten["kanal"]
+    else:
+        playlist_name = f"{daten['land']}| {daten['sender']}"
+
+    # Zusaetzlicher Alias-Anzeigename: der tatsaechliche, aktuelle
+    # Rohname aus der eigenen IPTV-Playlist des Nutzers (siehe
+    # playlist_alias oben) - deckt Sender ab, deren Name sich mit
+    # jedem Live-Event komplett aendert (DYN/ESPN+/SOCCER/DAZN PPV
+    # usw.), OHNE die stabile <channel id> selbst zu veraendern (das
+    # wuerde jede einmal in TiviMate manuell gesetzte Zuordnung bei
+    # jedem Lauf wieder zerstoeren). Nur hinzufuegen, wenn er sich
+    # ueberhaupt vom Haupt-Anzeigenamen unterscheidet, sonst gaebe es
+    # unnoetig doppelte identische <display-name>-Tags.
+    playlist_alias = daten.get("playlist_alias")
+    zusatz_namen = (
+        [playlist_alias] if playlist_alias and playlist_alias != playlist_name else []
+    )
+
+    # Fuer jede Kanal-ID-Variante (mit/ohne Leerzeichen nach dem Pipe-
+    # Zeichen, siehe kanal_id_varianten()) einen eigenen <channel>-
+    # Block schreiben, damit TiviMate unabhaengig von der in der
+    # jeweiligen Playlist-Gruppe genutzten Schreibweise automatisch
+    # zuordnen kann.
+    for kanal_id in kanal_id_varianten(daten["kanal"]):
+        xml_teile.append(
+            f' <channel id="{escape(kanal_id)}"> <display-name>{escape(playlist_name)}</display-name>'
+        )
+
+        for name in zusatz_namen:
+            xml_teile.append(f' <display-name>{escape(name)}</display-name>')
+
+        # Icon wird NUR erzeugt, wenn ein Logo angegeben ist
+        # (aus sender.txt oder als Override aus logo_only.txt)
+        if daten["logo"]:
+            xml_teile.append(f' <icon src="{escape(daten["logo"])}"/>\n')
+
+        xml_teile.append(" </channel>\n")
 
 # Hinweis Clubber-PPV (Irland, GAA-Club-Spiele): laeuft ueber denselben
 # generischen Playlist-Namensabgleich wie DYN PPV - der Anbieter fuehrt
