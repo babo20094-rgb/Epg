@@ -35,9 +35,9 @@ BA|FEDERALNA TV HD|Federalna Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 BA|FTV ⱽᴵᴾ ᴿᴬᵂ|Ftv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b414893e2efc49ed.png
 BA|HAHA TV|Haha Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/75bd6a5632cfd372.png
 BA|HAYAT HD|Hayat Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c7bf0238d18df044.png
-BA|HAYAT LOVE BOX ⱽᴵᴾ ᴿᴬᵂ|Hayat Love Box ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/HAYAT-LOVE-BOX.png
+BA|HAYAT LOVE BOX ⱽᴵᴾ ᴿᴬᵂ|Hayat Love Box ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b9b657b595a4ff35d81dfcd220964cd86257ee0a.png
 BA|HAYAT PLUS ⱽᴵᴾ ᴿᴬᵂ|Hayat Plus ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d80f68729d88c10f.png
-BA|HAYAT STIL I ZIVOT ⱽᴵᴾ ᴿᴬᵂ|Hayat Stil I Zivot ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/HAYAT-STIL-I-ZIVOT.png
+BA|HAYAT STIL I ZIVOT ⱽᴵᴾ ᴿᴬᵂ|Hayat Stil I Zivot ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/41b73ea428289c3da2f9c489fd9ca4a784c96596.png
 BA|HAYAT TV|Hayat Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f289ed75e6c7a7f5.png
 BA|HAYAT ⱽᴵᴾ ᴿᴬᵂ|Hayat ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c7bf0238d18df044.png
 BA|HEMA TV|Hema Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07ce83a961c8a081.png
@@ -322,7 +322,7 @@ DE|BON GUSTO HD|Bon Gusto Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo
 DE|BONES ᴿᴬᵂ|Bones ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|BOOMERANG|Boomerang ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d16e93a0ef12b4ea.png
 DE|BOSCH.LEGACY ᴿᴬᵂ|Bosch.Legacy ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|BR HD|Br Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/BR.png
+DE|BR HD|Br Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br/br.png
 DE|BREAKING BAD|Breaking Bad ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/37fc26f980ac5ed0.png
 DE|BREAKING BAD S01 4k|Breaking Bad S01 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/37fc26f980ac5ed0.png
 DE|BREAKING BAD S02 4k|Breaking Bad S02 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/37fc26f980ac5ed0.png
@@ -12120,6 +12120,7 @@ NAME:DE: SOCCER PPV 76|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:DE: SOCCER PPV 77|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/soccer_ppv/soccer_ppv_77.png
 NAME:DE: SOCCER PPV 78|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/soccer_ppv/soccer_ppv_78.png
 NAME:DE: SOCCER PPV 79|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/soccer_ppv/soccer_ppv_79.png
+NAME:DE: SOCCER PPV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/soccer_ppv/soccer_ppv_8.png
 NAME:DE: SOCCER PPV 80|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/soccer_ppv/soccer_ppv_80.png
 NAME:DE: SOCCER PPV 81|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/soccer_ppv/soccer_ppv_81.png
 NAME:DE: SOCCER PPV 82|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/soccer_ppv/soccer_ppv_82.png

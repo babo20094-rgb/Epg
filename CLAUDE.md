@@ -1358,3 +1358,108 @@ oft die eigentliche Ursache, nicht ein Code-Bug.
   zu erklaeren. Bei aehnlichen Debugging-Faellen (Kanal X wird nicht
   erkannt) ist ein gezielter `grep` in der frisch heruntergeladenen
   Playlist nach dem Kanalnamen oft der schnellste Weg zur Diagnose.
+
+## September 2026: Komma-Bug im Playlist-Parser + DYN-PPV-1-20-Playlist-Abgleich
+
+Nach dem TiviMate-Zuordnungs-Fix (17.287 Kanaele) meldete der Nutzer per
+Screenshot zwei einzelne Sender ("Rich Eisen Show"/"US: ESPN+ PPV 4",
+"ESPN FC"/"US: ESPN+ PPV 7"), die trotzdem "Keine Information" zeigten.
+
+- **Ursache:** `m3u_playlist_abgleichen()` trennte den #EXTINF-
+  Anzeigenamen bisher am LETZTEN Komma der gesamten Zeile
+  (`zeile.rsplit(",", 1)`). Enthaelt der rohe Live-Event-Name selbst ein
+  Komma (z.B. "NEXT | WED, 9/2 - THE RICH EISEN SHOW | ... | US: ESPN+
+  PPV 4" - das Komma steckt in "WED, 9/2"), schnitt das faelschlich den
+  Anfang ab ("NEXT | WED" ging verloren) - die erzeugte Kanal-ID
+  entsprach dann nicht mehr dem echten Playlist-Namen. Fix: Trenner ist
+  jetzt das erste Komma NACH dem letzten Anfuehrungszeichen der Zeile
+  (Ende des letzten #EXTINF-Attributs wie `group-title="..."`) -
+  funktioniert unabhaengig davon, ob der Name selbst Kommas enthaelt.
+  Im gesamten generierten XML gab es zum Pruefzeitpunkt nur genau diese
+  zwei betroffenen Kanaele.
+- **DYN PPV 1-20 (API-Kanaele, siehe Abschnitt oben) ebenfalls
+  betroffen:** Kanal 14-20 zeigten "Keine Information", obwohl die
+  Sendungsdaten (Leerzeiten-Platzhalter, echte API-Events) im XML
+  nachweislich vorhanden waren - reines TiviMate-Zuordnungsproblem,
+  keine Datenluecke. Ursache vermutlich: anders als die NAME:-Sender
+  nutzte diese Gruppe bisher IMMER einen hartcodierten String
+  ("DE| DYN PPV {i} HD") als Kanal-ID, nie den tatsaechlichen Playlist-
+  Namen - eine minimale, unsichtbare Abweichung dort wuerde das
+  automatische Matching verhindern, obwohl der Name auf den ersten
+  Blick identisch aussieht (bestaetigt: manuelle Zuordnung durch den
+  Nutzer funktionierte und blieb nach Refresh bestehen, automatische
+  nicht). Fix: Vor der Kanal-Definition wird jetzt einmalig die eigene
+  Playlist nach den 20 "DE| DYN PPV N HD"-Kanaelen durchsucht (gleiche
+  Komma-Trennlogik wie oben) und bei Treffer der exakte rohe Playlist-
+  Name fuer ID/display-name UND alle zugehoerigen `<programme>`-
+  Eintraege (Live-Events, Basketball, Leerzeiten) verwendet - ohne
+  PROVIDER-Secret oder bei Fehler bleibt der bisherige hartcodierte
+  String als Fallback. Noch nicht mit einem frischen Lauf verifiziert,
+  ob das die Kanaele 14-20 tatsaechlich behebt.
+- **Leerlauf-Text der DYN-PPV-1-20-API-Kanaele vereinheitlicht:** zeigte
+  bisher "Im Moment keine Live Events, bleib dran" - auf Nutzerwunsch
+  jetzt "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ", identisch zur DYN-PPV-1-50-Konvention.
+
+## Logo-Regel: IMMER selbst hosten, nie extern verlinken (bestaetigt September 2026)
+
+Der Nutzer hat ausdruecklich bestaetigt: JEDES neu gefundene/gepruefte
+Logo wird IMMER heruntergeladen, optimiert (max. 300px Kantenlaenge,
+256-Farben-Palette, siehe "Logo-Groesse"-Abschnitt oben) und unter
+`logos/<name>/` im eigenen Repo abgelegt - niemals eine externe URL
+direkt in `sender.txt` eintragen, auch nicht bei "seriösen" Quellen wie
+Logopedia/Fandom oder offiziellen Sender-Webseiten. Grund: Kontrolle
+ueber Erreichbarkeit/Ladezeit/Persistenz behalten ("safe sein"), statt
+von Drittanbieter-Hosts abhaengig zu sein (die immer wieder ausfallen,
+siehe die toten Picon-Hosts 103.176.90.95/51.158.145.100). Diese Regel
+gilt fuer JEDE zukuenftige Logo-Recherche, nicht nur fuer die in dieser
+Session gefundenen Faelle.
+
+### Konkrete Logo-Funde dieser Session
+
+- **BR HD** (`DE|BR HD`): totem Picon-Host-Link ersetzt durch aus
+  `tv-logo/tv-logos` (GitHub, oeffentliches Logo-Repo, `countries/
+  germany/br-de.png`) heruntergeladenes, selbst gehostetes Logo unter
+  `logos/br/br.png`.
+- **Hajduk TV** (`HR|HAJDUK TV`): das bisherige Logo
+  (`logos/hajduk_tv/hajduk_tv.png`, urspruenglich "von tvprofil.com")
+  stellte sich als falsch heraus - nur ein generisches "HD"-
+  Platzhaltersymbol, kein echtes Senderlogo. Durch vom Nutzer
+  bereitgestelltes echtes Logo (rot-blaue Vereinsfarben, "H" +
+  Play-Symbol) ersetzt, unter derselben Datei/URL.
+- **Hayat Love Box** und **Hayat Stil i Zivot** (beide `BA|...  ⱽᴵᴾ
+  ᴿᴬᵂ`): hatten noch den toten Picon-Host - echte Logos gefunden ueber
+  die MediaWiki-API von logopedia.fandom.com
+  (`Category:Television_channels_in_Bosnia_and_Herzegovina`, per
+  `action=query&list=categorymembers` + `prop=pageimages`, da die
+  normale Wiki-Seite hinter einer Cloudflare-Challenge haengt). Beide
+  Logos lagen zufaellig schon identisch unter `logos/externe_logos_import/`
+  (fuer die "VIP RAW"-Varianten) - kein neuer Download noetig, nur die
+  bestehenden URLs in den betroffenen Zeilen nachgetragen.
+- **Recherchierte, aber KEIN Treffer:** `tv-logo/tv-logos` deckt weder
+  Bosnien noch Nordmazedonien als eigene Laender ab (nur Kroatien/
+  Serbien u.a.) - gegen unsere ~224 logolosen Sender und ~923 Sender mit
+  totem Picon-Host kaum Ueberschneidung (nur BR HD als echter Treffer).
+  Logopedia deckt bei Bosnien nur ~104 groessere/nationale Kanaele ab,
+  keine lokalen Sender wie Doboj TV/Simic TV/RTV Herceg Bosne/Super TV
+  Media Tuzla/TV Sandzak/Hit Televizija Brcko/Blagovijesti TV - fuer
+  diese bleibt weiterhin keine verlaessliche Logo-Quelle bekannt.
+  `hrvatskitelekom.hr/televizija/programski-paketi` ist login-geschuetzt
+  (SSO/OIDC, "login_required") und ohne Kundenzugang nicht abrufbar.
+
+## DE: SOCCER PPV 1-200: fehlender Sender-Eintrag behoben
+
+Bei einer Ueberpruefung auf Nutzerwunsch ("nicht alle Logos werden
+angezeigt") stellte sich heraus: Alle 200 Logo-Dateien
+(`logos/soccer_ppv/soccer_ppv_1.png` bis `_200.png`) waren vorhanden,
+korrekt benannt und live erreichbar, und alle 199 vorhandenen
+`NAME:DE: SOCCER PPV N`-Zeilen zeigten korrekt auf ihre jeweilige
+Nummer - ABER die Zeile fuer Nummer 8 fehlte komplett in `sender.txt`
+(reines Datenluecken-Problem beim urspruenglichen Playlist-Import, kein
+Logik-Fehler). Ergaenzt an der alphabetisch richtigen Stelle (zwischen
+"PPV 79" und "PPV 80", da die Datei nicht numerisch sortiert ist).
+Bei aehnlichen "manche Logos fehlen"-Meldungen bei nummerierten
+NAME:-Gruppen: IMMER zuerst pruefen, ob fuer JEDE Nummer im erwarteten
+Bereich (1 bis N) tatsaechlich eine eigene `NAME:`-Zeile existiert
+(`for n in range(1,N+1): ...` gegen die Zeilen abgleichen), nicht nur
+die Logo-Dateien selbst - eine fehlende Zeile faellt beim reinen
+Datei-Check nicht auf.
