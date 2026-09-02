@@ -39,6 +39,36 @@ from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 
 
+def kanal_id_varianten(kanal):
+    """Gibt fuer eine Kanal-ID im "Land|Sender"-Muster (z.B. "UK|
+    AMAZON UK EVENT 0" oder "UK|AMAZON UK EVENT 0") BEIDE moeglichen
+    Schreibweisen zurueck - mit UND ohne Leerzeichen direkt nach dem
+    Pipe-Zeichen. Grund: TiviMate matcht EPG-Kanaele beim automatischen
+    Zuordnen offenbar (auch) nach exaktem Namensvergleich mit der
+    eigenen Playlist - und in derselben Playlist schreiben
+    unterschiedliche Sender-Gruppen das uneinheitlich (manche
+    "DE| Sender", andere "DE|Sender", ohne erkennbares Muster). Damit
+    die automatische Zuordnung unabhaengig von der jeweils genutzten
+    Schreibweise funktioniert, wird derselbe Kanal/dieselbe Sendung
+    unter BEIDEN Varianten im EPG ausgegeben (Bug September 2026
+    behoben: einzelne Sender-Gruppen wie "UK|AMAZON UK EVENT" wurden
+    nie automatisch zugeordnet, weil unsere generierte ID immer das
+    Leerzeichen hatte, die Playlist des Nutzers dort aber keins).
+    Kanal-IDs ohne dieses "XX|..."-Muster (z.B. NAME:-Sender wie
+    "24/7 ALL RISE" oder "DE: DYN PPV 1" mit Doppelpunkt statt Pipe)
+    bleiben unveraendert - dort gibt es keine sinnvolle Alternativ-
+    Schreibweise."""
+    match = re.match(r"^([A-Za-z]{2,4})\|(\s*)(.+)$", kanal)
+    if not match:
+        return [kanal]
+    land, _leerzeichen, rest = match.groups()
+    ohne = f"{land}|{rest}"
+    mit = f"{land}| {rest}"
+    if ohne == mit:
+        return [kanal]
+    return [ohne, mit]
+
+
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
     """Schneidet aus [seg_start, seg_ende) alle ueberlappenden Fenster
     heraus und liefert die verbleibenden (ggf. mehreren) Teilstuecke
@@ -92,15 +122,17 @@ def schreibe_programme_segmente(
         if beschr_escaped != titel_text else ""
     )
 
+    kanal_ids = kanal_id_varianten(kanal)
     for seg_start, seg_ende in segmente:
         seg_start_str = seg_start.strftime("%Y%m%d%H%M%S +0000")
         seg_ende_str = seg_ende.strftime("%Y%m%d%H%M%S +0000")
-        xml_teile.append(
-            f' <programme start="{seg_start_str}" stop="{seg_ende_str}" channel="{escape(kanal)}">'
-            f' <title lang="{lang_code}">{titel_text}</title>'
-            f'{sub_title_tag}'
-            f'{desc_tag}{category_tags}{rating_tag} </programme> '
-        )
+        for kanal_id in kanal_ids:
+            xml_teile.append(
+                f' <programme start="{seg_start_str}" stop="{seg_ende_str}" channel="{escape(kanal_id)}">'
+                f' <title lang="{lang_code}">{titel_text}</title>'
+                f'{sub_title_tag}'
+                f'{desc_tag}{category_tags}{rating_tag} </programme> '
+            )
 
 
 def ueberlappt_intervall(intervalle, start, ende):
@@ -1560,16 +1592,22 @@ for daten in sender_daten:
     else:
         playlist_name = f"{daten['land']}| {daten['sender']}"
 
-    xml_teile.append(
-        f' <channel id="{escape(daten["kanal"])}"> <display-name>{escape(playlist_name)}</display-name> '
-    )
+    # Fuer jede Kanal-ID-Variante (mit/ohne Leerzeichen nach dem Pipe-
+    # Zeichen, siehe kanal_id_varianten()) einen eigenen <channel>-
+    # Block schreiben, damit TiviMate unabhaengig von der in der
+    # jeweiligen Playlist-Gruppe genutzten Schreibweise automatisch
+    # zuordnen kann.
+    for kanal_id in kanal_id_varianten(daten["kanal"]):
+        xml_teile.append(
+            f' <channel id="{escape(kanal_id)}"> <display-name>{escape(playlist_name)}</display-name> '
+        )
 
-    # Icon wird NUR erzeugt, wenn ein Logo angegeben ist
-    # (aus sender.txt oder als Override aus logo_only.txt)
-    if daten["logo"]:
-        xml_teile.append(f' <icon src="{escape(daten["logo"])}"/>\n')
+        # Icon wird NUR erzeugt, wenn ein Logo angegeben ist
+        # (aus sender.txt oder als Override aus logo_only.txt)
+        if daten["logo"]:
+            xml_teile.append(f' <icon src="{escape(daten["logo"])}"/>\n')
 
-    xml_teile.append("</channel>\n")
+        xml_teile.append("</channel>\n")
 
 # ==========================================================
 # <channel>-Blöcke für reine Logo-Einträge (kein Sender in
@@ -2058,6 +2096,7 @@ def _schreibe_echte_programme(daten, programme):
     """Haengt die uebergebenen echten Programmdaten (Telemach ODER
     mtel.ba, gleiches dict-Format) als <programme>-Eintraege an
     xml_teile an."""
+    kanal_ids = kanal_id_varianten(daten["kanal"])
     for p in programme:
         start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
         stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
@@ -2071,11 +2110,12 @@ def _schreibe_echte_programme(daten, programme):
         # sein - die volle Beschreibung bleibt im <desc>-Feld erhalten
         # und ist ueber die Detailansicht weiterhin abrufbar.
         icon_tag = f' <icon src="{escape(p["bild"])}"/>' if p.get("bild") else ""
-        xml_teile.append(
-            f' <programme start="{start_str}" stop="{stop_str}" channel="{escape(daten["kanal"])}">'
-            f' <title lang="de">{titel_escaped}</title>'
-            f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
-        )
+        for kanal_id in kanal_ids:
+            xml_teile.append(
+                f' <programme start="{start_str}" stop="{stop_str}" channel="{escape(kanal_id)}">'
+                f' <title lang="de">{titel_escaped}</title>'
+                f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
+            )
 
 
 for daten in telemach_sender:
