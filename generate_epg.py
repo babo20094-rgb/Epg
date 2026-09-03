@@ -352,9 +352,12 @@ LEERLAUF_MARKER = ["no event", "kein event", "nema eventa", "ni dogodka"]
 EVENT_MARKER_NEXT = ["next"]
 EVENT_MARKER_LIVE = ["live"]
 EVENT_MARKER_ENDE = ["end", "ended", "endet"]
-EVENT_ENDE_TEXT = (
-    "Spiel ist beendet, danke, dass Sie zugeschaut haben. Ihr DYN Sport Team"
-)
+# Bewusst anbieterneutral formuliert (kein Marken-Signatur wie "Ihr DYN
+# Sport Team") - formatiere_event_text() wird generisch fuer ALLE
+# NAME:-Sendergruppen verwendet (ESPN+/SOCCER/DAZN PPV usw.), nicht nur
+# fuer DYN PPV. Eine DYN-spezifische Signatur zeigte sich faelschlich
+# auch bei Sendern anderer Anbieter (Bug September 2026 behoben).
+EVENT_ENDE_TEXT = "Spiel ist beendet, danke, dass Sie zugeschaut haben."
 
 
 def normalisiere_grossschreibung(text):
