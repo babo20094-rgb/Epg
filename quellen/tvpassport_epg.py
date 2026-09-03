@@ -39,6 +39,7 @@ bringen.
 
 import difflib
 import os
+import re
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -130,6 +131,56 @@ def tvpassport_kanal_finden(kanalname):
         return name_index[aehnliche[0]]
 
     return None
+
+
+# Erkennt eine US-Call-Sign in einem Sendernamen (z.B. "ABC KATC BROOKLYN"
+# -> "KATC") - beginnt immer mit K oder W, gefolgt von 2-4 Buchstaben/
+# Ziffern, als eigenes Wort.
+_CALLSIGN_PATTERN = re.compile(r"\b([KW][A-Z0-9]{2,4})\b")
+
+
+def _callsign_aus_sendername(kanalname):
+    """Extrahiert die erste erkennbare US-Call-Sign aus einem Sendernamen,
+    oder None wenn keine gefunden wird."""
+    treffer = _CALLSIGN_PATTERN.search(kanalname.upper())
+    return treffer.group(1) if treffer else None
+
+
+def tvpassport_kanal_finden_callsign(kanalname):
+    """Sucht den TVPassport-Kanal ausschliesslich ueber einen EXAKTEN
+    Call-Sign-Abgleich (kein Fuzzy-Abgleich wie bei
+    tvpassport_kanal_finden()) - fuer die "CITY|"-Sendergruppe, deren
+    sender.txt-Namen (z.B. "ABC KATC BROOKLYN") oft eine falsche/generische
+    Stadtangabe tragen und daher gegen den vollen tvpassport-Namen
+    ("ABC (KATC) Lafayette, LA") per Fuzzy-Vergleich faelschlich matchen
+    oder gar nicht matchen wuerden.
+
+    Ein Treffer erfordert einen tvpassport-Kanalnamen mit der Call-Sign
+    EXAKT in Klammern OHNE Zusatz (z.B. "(KATC)", nicht "(KATC2)"/
+    "(KATC-DT2)") - das ist bei tvpassport.com immer der Haupt-Affiliate-
+    Kanal, waehrend Zahlen-/Bindestrich-Suffixe eigene Subkanaele mit
+    komplett anderem Programm sind (z.B. "Grit TV (KATC3)"). Kein
+    Fehltreffer-Risiko: nur exakter Klammer-Text-Vergleich."""
+    callsign = _callsign_aus_sendername(kanalname)
+    if not callsign:
+        return None
+
+    kanaele = tvpassport_hole_kanalliste()
+    if not kanaele:
+        return None
+
+    klammer_muster = re.compile(r"\(" + re.escape(callsign) + r"\)", re.IGNORECASE)
+
+    treffer_hd = None
+    treffer_normal = None
+    for kanal in kanaele:
+        if klammer_muster.search(kanal["name"]):
+            if "HD" in kanal["name"].upper():
+                treffer_hd = treffer_hd or kanal["site_id"]
+            else:
+                treffer_normal = treffer_normal or kanal["site_id"]
+
+    return treffer_normal or treffer_hd
 
 
 def _timezone_aus_seite(soup):

@@ -32,7 +32,7 @@ from quellen.arena_epg import arena_kanal_finden, arena_hole_programme
 from quellen.dazn_epg import dazn_kanal_finden, dazn_hole_programme
 from quellen.freeview_epg import freeview_kanal_finden, freeview_hole_programme
 from quellen.tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
-from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
+from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme, tvpassport_kanal_finden_callsign
 from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
 from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
@@ -165,6 +165,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "freeview": ["freeview_intervalle"],
     "tvguide": ["tvguide_intervalle"],
     "tvpassport": ["tvpassport_intervalle"],
+    "tvpassport_callsign": ["tvpassport_intervalle"],
     "mts": ["mts_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
@@ -1410,6 +1411,14 @@ for zeile in zeilen:
     # generische Playlist-Kategorie ohne Bezug zu einem einzelnen Land).
     if land.strip().upper() == "EXYU" and re.match(r"^ARENA\s*ADRENALIN\b", eintrag["sender"], re.IGNORECASE):
         eintrag["mts"] = True
+    # Automatischer Call-Sign-Abgleich fuer "CITY|"-Sender (lokale US-
+    # Sender mit Call-Sign im Namen, z.B. "ABC KATC BROOKLYN") gegen
+    # tvpassport.com - siehe tvpassport_kanal_finden_callsign() in
+    # tvpassport_epg.py. Bewusst eine eigene, exakte Call-Sign-Suche statt
+    # des normalen Fuzzy-Abgleichs von tvpassport_kanal_finden(), da die
+    # Stadtangaben in dieser sender.txt-Gruppe oft falsch/generisch sind.
+    if land.strip().upper() == "CITY":
+        eintrag["tvpassport_callsign"] = True
     # "PRIME" laeuft zusaetzlich zu Tubi (siehe unten) auch durch die
     # deutsche Kaskade (deswird.org/Pluto TV/tvmovie.de/hoerzu.de/
     # Samsung TV Plus) - der PRIME-Bereich der Playlist enthaelt neben
@@ -2254,6 +2263,7 @@ dazn_sender = [d for d in sender_daten if d.get("dazn")]
 freeview_sender = [d for d in sender_daten if d.get("freeview")]
 tvguide_sender = [d for d in sender_daten if d.get("tvguide")]
 tvpassport_sender = [d for d in sender_daten if d.get("tvpassport")]
+tvpassport_callsign_sender = [d for d in sender_daten if d.get("tvpassport_callsign")]
 mts_sender = [d for d in sender_daten if d.get("mts")]
 mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
 siol_sender = [d for d in sender_daten if d.get("siol")]
@@ -2645,6 +2655,36 @@ for daten in tvpassport_sender:
 
     if programme:
         _echte_quelle_zaehlen("TVPassport")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVPASSPORT (Call-Sign): automatischer Abgleich fuer alle "CITY|"-
+# Sender (lokale US-Sender mit Call-Sign im Namen, siehe
+# tvpassport_kanal_finden_callsign() in tvpassport_epg.py). Kein
+# eigenes Praefix noetig. Ohne jegliche CITY|-Zeile in sender.txt
+# passiert hier gar nichts.
+# ==========================================================
+
+for daten in tvpassport_callsign_sender:
+    programme = []
+    try:
+        site_id = tvpassport_kanal_finden_callsign(daten["sender"])
+        if site_id is not None:
+            programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["tvpassport_intervalle"] = daten.get("tvpassport_intervalle", []) + [
+        (p["start"], p["stop"]) for p in programme
+    ]
+
+    if programme:
+        _echte_quelle_zaehlen("TVPassport-CallSign")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

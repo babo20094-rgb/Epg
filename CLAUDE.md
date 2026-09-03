@@ -1907,6 +1907,43 @@ DYN-PPV-Block verschoben (Abschnittskommentar mit verschoben), keine
 doppelte Definition mehr noetig, da `m3u_playlist_abgleichen()` weiter
 unten dieselben (jetzt frueher definierten) Konstanten mitverwendet.
 
+## CITY|-Sender (lokale US-Sender mit Call-Sign): automatischer Call-Sign-Abgleich gegen tvpassport.com
+
+Auf Nutzerwunsch ("mach mit Option 1 weiter" nach der blockierten
+Mazedonien-Recherche) wurde die Landgruppe `CITY` (175 Sender, lokale
+US-Affiliates mit Call-Sign im Namen, z.B. `CITY|ABC KATC BROOKLYN`)
+untersucht - tvpassport.com (bereits als `TVPASSPORT:`-Opt-in-Quelle im
+Repo vorhanden) fuehrt genau diese Art Sender.
+
+**Warum kein normaler Fuzzy-Abgleich:** Die Stadtangaben in dieser
+sender.txt-Gruppe sind oft falsch/generisch (z.B. "KATC" steht bei
+tvpassport.com fuer Lafayette, LA, bei uns aber fuer "Brooklyn") und
+das Format weicht stark ab ("ABC KATC BROOKLYN" vs. "ABC (KATC)
+Lafayette, LA") - der bestehende `tvpassport_kanal_finden()`
+(Fuzzy-Abgleich auf den kompletten Namen) haette hier mit hohem
+Fehltreffer-Risiko gearbeitet (das immer wiederkehrende Fuzzy-Match-
+Bug-Muster dieser Session).
+
+**Loesung:** Neue Funktion `tvpassport_kanal_finden_callsign()`
+(`quellen/tvpassport_epg.py`) extrahiert per Regex (`\b[KW][A-Z0-9]{2,4}\b`)
+die US-Call-Sign aus dem sender.txt-Namen (z.B. "KATC") und sucht in
+der statischen tvpassport-Kanalliste NUR nach einem Eintrag mit der
+Call-Sign EXAKT in Klammern OHNE Zusatz (z.B. "(KATC)", nicht
+"(KATC2)"/"(KATC-DT2)") - bei tvpassport.com ist das immer der
+Haupt-Affiliate-Kanal, waehrend Zahlen-/Bindestrich-Suffixe eigene
+Subkanaele mit komplett anderem Programm sind (z.B. "Grit TV
+(KATC3)"). Kein Fehltreffer-Risiko: nur exakter Klammer-Text-
+Vergleich, kein Fuzzy-Anteil. In `generate_epg.py` automatisch fuer
+JEDEN `CITY|`-Sender aktiviert (`eintrag["tvpassport_callsign"] = True`
+bei Land "CITY", eigener Verarbeitungsblock nach dem normalen
+TVPASSPORT:-Block, gleiche `tvpassport_intervalle`-Lueckenfuellung).
+Kein eigenes Praefix noetig, keine sender.txt-Aenderung noetig.
+Live verifiziert: 157 von 175 Sendern (90%) finden einen Treffer mit
+echten Programmdaten; die restlichen 18 haben schlicht keinen
+Haupt-Affiliate-Eintrag in der statischen tvpassport-Kanalliste (z.B.
+"KICU SAN FRANCISCO", einige CW/IND/MNT-Subkanaele) - degradiert dort
+graceful auf die normale generische Beschreibung.
+
 ## Workflow-Log entrümpelt: keine Sender-Einzelauflistung mehr
 
 Der Nutzer wollte im GitHub-Actions-Log nicht mehr fuer JEDEN

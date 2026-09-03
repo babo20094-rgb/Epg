@@ -1792,6 +1792,25 @@ def test_tvpassport_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck()
         assert tvpassport_epg.tvpassport_hole_programme("fox-kffx-yakima-wa/2141", tage=2) == []
 
 
+def test_tvpassport_callsign_findet_exakten_hauptkanal_nicht_subkanal():
+    """tvpassport_kanal_finden_callsign() muss ueber die Call-Sign in
+    "ABC KATC BROOKLYN" (falsche/generische sender.txt-Stadtangabe) den
+    tvpassport-Hauptaffiliate "ABC (KATC) Lafayette, LA" finden - NICHT
+    einen der aehnlich benannten Subkanaele mit anderer Programmquelle
+    (z.B. "Grit TV (KATC3)"/"CW (KATC2)"), da nur die exakte Klammer
+    "(KATC)" ohne Zahlen-/Bindestrich-Suffix als Treffer zaehlen darf."""
+    site_id = tvpassport_epg.tvpassport_kanal_finden_callsign("ABC KATC BROOKLYN ᴿᴬᵂ")
+    assert site_id is not None
+    assert "katc" in site_id.lower()
+    assert "katc2" not in site_id.lower() and "katc3" not in site_id.lower() and "katc4" not in site_id.lower()
+
+
+def test_tvpassport_callsign_ohne_erkennbare_callsign_gibt_none():
+    """Ohne eine erkennbare Call-Sign (kein K/W-Wort) darf kein
+    Zufallstreffer entstehen."""
+    assert tvpassport_epg.tvpassport_kanal_finden_callsign("Nur Ein Generischer Name") is None
+
+
 def test_tvpassport_ohne_tvpassport_zeilen_werden_keine_requests_ausgeloest():
     """sender.txt ganz ohne TVPASSPORT:-Zeilen darf tvpassport_epg's
     Schedule-Request-Funktion ueberhaupt nicht kontaktieren (Zero-Risk-
