@@ -2861,9 +2861,30 @@ for daten in plutotv_sender:
             _schreibe_echte_programme(daten, programme)
         continue
 
+    # ARD-Regionalsender-Alias: deswird.org/tvmovie.de/hoerzu.de fuehren
+    # WDR/NDR/MDR/SWR/RBB/BR/HR nur als EINEN nationalen Sammelkanal,
+    # nicht die einzelnen sender.txt-Regional-/Studio-Varianten (z.B.
+    # "WDR DORTMUND HD"/"NDR MECKLENBURG-VORPOMMERN HD") - der normale
+    # Namensabgleich fand dafuer nie einen Treffer, obwohl der jeweilige
+    # Sender selbst (nur ohne Regionalfenster) real existiert. Fuer
+    # GENAU diese festen ARD-Kuerzel wird bei fehlendem Direkttreffer
+    # zusaetzlich der blosse Sender-Kern (ohne Regional-/Studioname)
+    # als zweiter Suchbegriff probiert - kein Fehltreffer-Risiko, da nur
+    # dieser feste, kurze Kuerzel-Satz betroffen ist.
+    _ard_regional_treffer = re.match(
+        r"^(WDR|NDR|MDR|SWR|RBB|BR|HR)\b", daten["sender"], re.IGNORECASE
+    )
+    _deswird_suchbegriffe = [daten["sender"]]
+    if _ard_regional_treffer and _ard_regional_treffer.group(0) != daten["sender"]:
+        _deswird_suchbegriffe.append(_ard_regional_treffer.group(1))
+
     programme = []
     try:
-        site_id = deswird_kanal_finden(daten["sender"])
+        site_id = None
+        for _suchbegriff in _deswird_suchbegriffe:
+            site_id = deswird_kanal_finden(_suchbegriff)
+            if site_id is not None:
+                break
         if site_id is not None:
             programme = deswird_hole_programme(site_id, DESWIRD_TAGE)
         else:

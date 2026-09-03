@@ -1944,6 +1944,69 @@ Haupt-Affiliate-Eintrag in der statischen tvpassport-Kanalliste (z.B.
 "KICU SAN FRANCISCO", einige CW/IND/MNT-Subkanaele) - degradiert dort
 graceful auf die normale generische Beschreibung.
 
+## Bug behoben: fehlgeschlagener Download bei deswird/PlutoTV/SamsungTV/SportKlub/Magenta-myTeamTV wurde NICHT gecacht
+
+Beim Aufbau einer "welche DE-Sender haben keine echte Quelle"-
+Auswertung (auf Nutzerwunsch, siehe naechster Abschnitt) fiel ein
+echter Performance-/Zuverlaessigkeits-Bug auf: `_xml_laden()` (bzw.
+das Aequivalent) in `deswird_epg.py`, `plutotv_epg.py`,
+`samsungtv_epg.py`, `sportklub_epg.py` und `magenta_myteam_epg.py`
+setzte den Modul-Cache bei einem Fehlschlag (Netzwerk, HTTP-Fehler,
+kaputtes Gzip/XML) auf `None` statt auf ein leeres Ergebnis - der
+Cache-Treffer-Check (`if _daten_cache is not None: return`) griff
+dadurch NIE, jeder einzelne Sender dieser Quelle loeste bei einem
+andauernden Fehler (z.B. Host down) einen komplett neuen, ebenfalls
+fehlschlagenden Download aus statt sich den einen Fehlschlag zu
+merken. Bei ~1.200 DE/JOYN/WOW/PRIME-Sendern haette ein toter Host
+also potenziell 1.200 unnoetige, langsame Fehlversuche pro Lauf
+verursacht statt EINEM. (tvmovie_epg.py/hoerzu_epg.py/tvpassport_epg.py
+waren bereits korrekt, da sie im Fehlerfall `[]` statt `None`
+cachen - `[]` ist ebenfalls "not None" und wird daher korrekt aus dem
+Cache zurueckgegeben.)
+**Fix:** Alle fuenf betroffenen Module cachen einen Fehlschlag jetzt
+als `{"kanaele": [], "programme": {}}` (statt `None`) - wird beim
+naechsten Aufruf sofort aus dem Cache zurueckgegeben, kein erneuter
+Download-Versuch. Verhalten fuer den Sender selbst unveraendert (bleibt
+weiterhin ein sauberer Fehlschlag -> generische Generierung).
+
+## DE-Sender-Abdeckungs-Check + ARD-Regionalsender-Alias (WDR/NDR/MDR/SWR/RBB/BR)
+
+Auf Nutzerwunsch ("suche nach weiteren es gibt auch deutsche sender
+ohne echte Programmdaten", direkt nach der CITY|-tvpassport-Erweiterung)
+wurden alle ~2.170 DE/JOYN/WOW/PRIME-Sender lokal gegen alle sechs
+DE-Kaskaden-Quellen (deswird.org/PlutoTV/tvmovie.de/hoerzu.de/
+Samsung TV Plus/Magenta-myTeamTV) geprueft. PlutoTV und Samsung TV
+Plus waren aus dieser Sandbox-Umgebung NICHT erreichbar (403 bei
+github.com selbst, nicht nur beim Zielhost - vermutlich dieselbe
+Netzwerk-Policy-Einschraenkung wie beim Mazedonien-Versuch), daher ist
+die reine Trefferzahl aus dieser Session nicht 1:1 auf den echten
+GitHub-Actions-Workflow-Lauf uebertragbar (dort ist i.d.R. mehr
+erreichbar) - als reine Stichprobe aber trotzdem nuetzlich.
+Grösster Teil der ~1.510 verbleibenden Nicht-Treffer sind erwartbar
+ohne echte Quelle (VOD-artige 24/7-Serien-/Film-Einzelkanaele, Sky-
+Subkanaele ohne SKY:-Praefix, US-Lokalsender faelschlich unter Land
+"DE" statt "CITY"/"TVPASSPORT:") - kein Massenpotenzial gefunden.
+
+**Eine echte, konkrete Luecke gefunden und behoben:** Die 9 ARD-
+Regionalsender-Zeilen (`WDR DORTMUND HD`, `NDR MECKLENBURG-
+VORPOMMERN HD`, `NDR NIEDERSACHSEN HD`, `NDR HAMBURG HD`, `MDR
+THÜRINGEN HD`, `SWR BW HD`, `RBB HD`, `BR HD`, `WDR HD Köln HD`)
+hatten NIE einen Treffer bei deswird.org, obwohl der jeweilige Sender
+dort echt existiert - deswird.org fuehrt WDR/NDR/MDR/SWR/RBB/BR nur
+als EINEN nationalen Sammelkanal (kein Regionalfenster pro Bundesland/
+Stadt), der normale Namensabgleich verglich aber den KOMPLETTEN
+Regional-/Studio-Namen und fand deshalb nie einen Treffer.
+`generate_epg.py` (deswird-Verarbeitungsblock) probiert jetzt bei
+diesen sieben festen ARD-Kuerzeln (`WDR|NDR|MDR|SWR|RBB|BR|HR`
++ Wortgrenze am Anfang) zusaetzlich den blossen Kern OHNE Regional-/
+Studioname als zweiten Suchbegriff, falls der volle Name keinen
+Treffer findet - kein Fehltreffer-Risiko (nur dieser feste, kurze
+Kuerzel-Satz betroffen). Live verifiziert: alle 9 Zeilen liefern jetzt
+echte Sendungen (z.B. RBB HD: 99 Sendungen/Tag). Bewusster Trade-off:
+liefert das bundesweite ARD-Hauptprogramm dieses Senders, nicht das
+tatsaechliche Regionalfenster (deswird.org hat dafuer keine Daten) -
+trotzdem naeher an echt als der bisherige generische Platzhaltertext.
+
 ## Workflow-Log entrümpelt: keine Sender-Einzelauflistung mehr
 
 Der Nutzer wollte im GitHub-Actions-Log nicht mehr fuer JEDEN

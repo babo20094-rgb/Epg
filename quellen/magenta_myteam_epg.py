@@ -139,8 +139,12 @@ def _xml_laden():
         return daten
     except Exception as e:
         print(f"Magenta-myTeamTV-EPG: Laden/Parsen fehlgeschlagen ({e}), ueberspringe.")
-        _daten_cache = None
-        return None
+        # Fehlschlag wird ebenfalls gecacht (leeres, aber nicht-None
+        # Dict statt None) - verhindert, dass bei einem dauerhaften Fehler
+        # (Netzwerk down, Host tot) JEDER einzelne Sender in generate_epg.py
+        # denselben fehlschlagenden Download erneut versucht.
+        _daten_cache = {"kanaele": [], "programme": {}}
+        return _daten_cache
 
 
 def _xmltv_zeit_parsen(text):
