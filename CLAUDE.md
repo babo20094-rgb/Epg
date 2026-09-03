@@ -1865,3 +1865,23 @@ Score-Vergleich, einfach der oberste Suchtreffer), da eine manuelle
 Pruefung bei 1.405 Treffern nicht praktikabel war. Bei einer kuenftigen
 Meldung "falsches Logo bei 24/7 X" zuerst pruefen, ob TMDB fuer genau
 diesen Titel mehrere sehr aehnliche Ergebnisse listet.
+
+## logos_bei_bedarf/kategorien.txt: Sendername-zu-Playlist-Kategorie-Referenz
+
+Auf Nutzerwunsch angelegt, damit Claude bei einer Nutzer-Nachricht wie
+"die DRAMA-Sender" oder "die 24/7 COMEDY VIP-Sender" sofort weiss,
+welche konkreten sender.txt-Zeilen gemeint sind, ohne jedes Mal
+erneut die Playlist abfragen zu muessen. Format `Sendername|Kategorie`
+(exakter `group-title`-Wert aus der Playlist des Nutzers), 22.451
+Zeilen, 235 unterschiedliche Kategorien (z.B. "24/7 SHOWS VIP" 659,
+"24/7 COMEDY VIP" 426, "24/7 DRAMA VIP" 408, "ESPN+ PPV VIP" 1001,
+"SOCCER PPV" 402 usw.). Deckt ALLE Live-Kategorien ab (nicht nur
+24/7) - reine Namens-/Kategoriereferenz, keine Logos/Programmdaten,
+NICHT mit generate_epg.py verknuepft.
+**Wichtig:** anders als bei `meine_logos.txt`/`alle_logos.txt`/
+`ppv_kernnamen.txt` (Sommer 2026, spaeter wieder entfernt, da nicht
+mehr benoetigt) wurde bei dieser Datei die VOD-Ausschlussliste (siehe
+"Playlist-Vollimport"-Abschnitt oben, 11 bekannte reine Filmkatalog-
+Gruppen wie "NETFLIX MOVIES") NICHT angewendet - sie enthaelt
+zusaetzlich auch diese VOD-Kategorien, da der Zweck hier reine
+Namens-/Kategoriezuordnung ist, nicht der Sender-Import selbst.
