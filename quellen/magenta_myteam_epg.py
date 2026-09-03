@@ -194,8 +194,19 @@ def magenta_myteam_hole_programme(site_id, tage=2):
     heute = datetime.now(timezone.utc).date()
     erlaubte_tage = {heute + timedelta(days=i) for i in range(tage)}
 
+    # Eigenes, selbst gehostetes Logo statt keines - epgshare01.online
+    # liefert fuer diese Kanaele kein <icon>, daher wird hier zusaetzlich
+    # (zur Sicherheit/Redundanz) dasselbe Logo wie bei den "MAGENTA SPORT
+    # PPV N"-sender.txt-Zeilen als Sendungsbild gesetzt.
+    nummer_treffer = re.search(r"Sport\.(\d+)\.", site_id)
+    bild = (
+        f"https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/{nummer_treffer.group(1)}.png"
+        if nummer_treffer else None
+    )
+
     return [
-        p for p in eintraege
+        {**p, "bild": bild}
+        for p in eintraege
         if (p["start"].date() in erlaubte_tage or p["stop"].date() in erlaubte_tage)
         and "kein Programm" not in p["title"]
     ]
