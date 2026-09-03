@@ -1295,22 +1295,24 @@ for zeile in zeilen:
     if land.strip().upper() in TELEMACH_LAND_ALIAS:
         eintrag["telemach"] = {"country": TELEMACH_LAND_ALIAS[land.strip().upper()]}
 
-    # Automatischer Abgleich fuer RS/HR/SI-Sender: analog zum BA/ME-
+    # Automatischer Abgleich fuer RS/HR/SI/MK-Sender: analog zum BA/ME-
     # Telemach-Autoabgleich oben - kein eigenes Praefix noetig, jeder
-    # ganz normal eingetragene Sender mit Land "RS"/"HR"/"SI" wird beim
-    # Generieren zusaetzlich per Name gegen die jeweilige Kanalliste
+    # ganz normal eingetragene Sender mit Land "RS"/"HR"/"SI"/"MK" wird
+    # beim Generieren zusaetzlich per Name gegen die jeweilige Kanalliste
     # geprueft (mts.rs/MojMaxTV/tv-spored.siol.net, siehe die
     # Verarbeitungsbloecke bei "mts_sender"/"mojmaxtv_sender"/
     # "siol_sender" weiter unten). Bei Treffer werden echte Sendungen
     # eingetragen, sonst faellt der Sender unveraendert auf die normale
-    # generische Beschreibung zurueck - drei unabhaengige, sich
-    # gegenseitig ausschliessende Zusatzanreicherungen ohne Risiko fuer
-    # bestehende Sender.
+    # generische Beschreibung zurueck - unabhaengige, sich gegenseitig
+    # ausschliessende Zusatzanreicherungen ohne Risiko fuer bestehende
+    # Sender. MK laeuft ueber dieselbe siol.net-Quelle wie SI (siol.net
+    # fuehrt eine kleine Zahl mazedonischer Sender wie Alfa TV/Alsat
+    # Macedonia/TV Sitel/MTV 1-3 zusaetzlich zu den slowenischen).
     if land.strip().upper() == "RS":
         eintrag["mts"] = True
     if land.strip().upper() == "HR":
         eintrag["mojmaxtv"] = True
-    if land.strip().upper() == "SI":
+    if land.strip().upper() in ("SI", "MK"):
         eintrag["siol"] = True
     # "PRIME" laeuft zusaetzlich zu Tubi (siehe unten) auch durch die
     # deutsche Kaskade (deswird.org/Pluto TV/tvmovie.de/hoerzu.de/
@@ -2603,10 +2605,10 @@ for daten in mojmaxtv_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# SIOL: automatischer Abgleich fuer alle SI-Sender (siehe siol_epg.py -
-# HTML-Scraping, fragiler als die anderen Quellen). Kein eigenes
-# Praefix noetig. Ohne jegliche SI-Zeile in sender.txt passiert hier
-# gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# SIOL: automatischer Abgleich fuer alle SI- UND MK-Sender (siehe
+# siol_epg.py - HTML-Scraping, fragiler als die anderen Quellen). Kein
+# eigenes Praefix noetig. Ohne jegliche SI-/MK-Zeile in sender.txt
+# passiert hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
 for daten in siol_sender:

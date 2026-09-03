@@ -1334,93 +1334,90 @@ def _siol_cache_zuruecksetzen():
     siol_epg._programm_cache = {}
 
 
-def _siol_next_f_html(payload_dict, praefix="1"):
-    """Baut ein minimales HTML-Fixture mit einem echten
-    self.__next_f.push([1, "..."])-Aufruf, wie ihn siol_epg._extrahiere_
-    schluessel_aus_html() parsen koennen muss."""
-    roh_json = json.dumps(payload_dict)
-    gepusht_string = f"{praefix}:{roh_json}"
-    # Wie im echten Next.js-Output: der gepushte Wert ist selbst ein
-    # JSON-String-Literal (also nochmal escaped) innerhalb des
-    # push()-Aufrufs.
-    js_string_literal = json.dumps(gepusht_string)[1:-1]
-    return (
-        "<html><body>"
-        f'<script>self.__next_f.push([1,"{js_string_literal}"])</script>'
-        "</body></html>"
-    )
+def _siol_kanalliste_html(kanaele):
+    """Baut ein minimales HTML-Fixture der siol.net-Kanaluebersichtsseite
+    (/kanali), wie es siol_hole_kanalliste() per BeautifulSoup parsen
+    koennen muss: ein <a href="/kanal/<slug>" target="_self"> mit
+    verschachteltem <img alt="<Name>">."""
+    teile = []
+    for slug, name in kanaele:
+        teile.append(
+            f'<div><a href="/kanal/{slug}" target="_self">'
+            f'<img alt="{name}" src="/slika/kanal/{slug}"/></a></div>'
+        )
+    return "<html><body>" + "".join(teile) + "</body></html>"
 
 
-def test_siol_extrahiert_channelsasjson_aus_next_f_push_fixture(_siol_cache_zuruecksetzen):
-    """Exercised die echte HTML/Script-Tag-Extraktionslogik (kein
-    Mocken der Parse-Funktion selbst) mit einem handgebauten Next.js-
-    Streaming-Fixture."""
-    html = _siol_next_f_html({
-        "irrelevant": "wert",
-        "verschachtelt": {
-            "channelsAsJson": [
-                {
-                    "events": [
-                        {
-                            "title": "Poročila",
-                            "category": "Novice",
-                            "startDateTime": "2026-08-10T19:00:00",
-                            "stopDateTime": "2026-08-10T19:30:00",
-                        }
-                    ]
-                }
-            ]
-        },
-    })
-
-    treffer = siol_epg._extrahiere_schluessel_aus_html(html, "channelsAsJson")
-    assert isinstance(treffer, list)
-    assert treffer[0]["events"][0]["title"] == "Poročila"
+def _siol_programm_html(site_id, sendungen, datum="20260810"):
+    """Baut ein minimales HTML-Fixture einer siol.net-Kanal/Tag-Seite
+    (/kanal/<site_id>/datum/<datum>), wie es _hole_events_fuer_kanal_
+    und_tag() per BeautifulSoup parsen koennen muss: pro Sendung ein
+    <a href=".../oddaja/..."> mit Zeit-, Titel- und Kategorie-Divs."""
+    teile = []
+    for i, (zeit, titel, kategorie) in enumerate(sendungen):
+        teile.append(
+            f'<a href="/kanal/{site_id}/oddaja/sendung-{i}/{i}/datum/{datum}">'
+            f'<div class="w-[70px] text-center flex-none">{zeit}</div>'
+            '<div class="flex-initial">'
+            f'<div class="font-extrabold" title="{titel}">{titel}</div>'
+            f'<div class="desktop:order-last">{kategorie}</div>'
+            "</div></a>"
+        )
+    return "<html><body>" + "".join(teile) + "</body></html>"
 
 
-def test_siol_extrahiert_tvchannelsasjson_aus_next_f_push_fixture(_siol_cache_zuruecksetzen):
-    html = _siol_next_f_html({
-        "tvChannelsAsJson": [
-            {"name": "RTV SLO 1", "externalId": "RTV1"},
-        ]
-    })
+def test_siol_kanalliste_wird_aus_html_geparst(_siol_cache_zuruecksetzen):
+    """Exercised die echte HTML-Extraktionslogik (kein Mocken der
+    Parse-Funktion selbst) mit einem handgebauten Kanalliste-Fixture."""
+    html = _siol_kanalliste_html([("rtv1", "RTV SLO 1"), ("alsatm", "Alsat Macedonia")])
 
-    treffer = siol_epg._extrahiere_schluessel_aus_html(html, "tvChannelsAsJson")
-    assert treffer == [{"name": "RTV SLO 1", "externalId": "RTV1"}]
+    response = MagicMock()
+    response.text = html
+    response.raise_for_status.return_value = None
+
+    with patch("quellen.siol_epg.requests.get", return_value=response):
+        kanaele = siol_epg.siol_hole_kanalliste()
+
+    assert kanaele == [
+        {"site_id": "rtv1", "name": "RTV SLO 1"},
+        {"site_id": "alsatm", "name": "Alsat Macedonia"},
+    ]
 
 
-def test_siol_kaputte_html_struktur_gibt_none_statt_exception(_siol_cache_zuruecksetzen):
-    """Fehlt der erwartete Schluessel komplett oder ist das Skript-Tag
-    kaputt/leer, muss die Extraktion still None liefern statt zu
-    werfen - dieser Parsing-Pfad ist bewusst fragil."""
-    assert siol_epg._extrahiere_schluessel_aus_html("<html></html>", "channelsAsJson") is None
-    assert siol_epg._extrahiere_schluessel_aus_html(
-        '<script>self.__next_f.push([1,"kein json hier {{{"])</script>',
-        "channelsAsJson",
-    ) is None
-    assert siol_epg._extrahiere_schluessel_aus_html(
-        _siol_next_f_html({"anderer_schluessel": []}), "channelsAsJson"
-    ) is None
+def test_siol_programm_html_wird_geparst_und_endzeit_berechnet(_siol_cache_zuruecksetzen):
+    """Die Seite liefert keine Endzeiten - die Endzeit einer Sendung
+    muss aus der Startzeit der naechsten Sendung berechnet werden."""
+    html = _siol_programm_html("rtv1", [("19.00", "Dnevnik", "Informativno"), ("19.30", "Vreme", "Informativno")])
+
+    response = MagicMock()
+    response.text = html
+    response.raise_for_status.return_value = None
+
+    with patch("quellen.siol_epg.requests.get", return_value=response):
+        events = siol_epg._hole_events_fuer_kanal_und_tag("rtv1", datetime.datetime(2026, 8, 10, tzinfo=siol_epg.LJUBLJANA_TZ))
+
+    assert events == [("19.00", "Dnevnik", "Informativno"), ("19.30", "Vreme", "Informativno")]
+
+
+def test_siol_kaputte_html_struktur_gibt_leere_liste_statt_exception(_siol_cache_zuruecksetzen):
+    """Fehlt die erwartete Struktur komplett oder ist die Seite leer,
+    muss die Extraktion still [] liefern statt zu werfen - dieser
+    Scraping-Pfad ist bewusst fragil."""
+    response = MagicMock()
+    response.text = "<html><body>Keine Kanaele hier</body></html>"
+    response.raise_for_status.return_value = None
+
+    with patch("quellen.siol_epg.requests.get", return_value=response):
+        assert siol_epg.siol_hole_kanalliste() == []
+
+    siol_epg._kanalliste_cache = None
+    with patch("quellen.siol_epg.requests.get", side_effect=Exception("kaputt")):
+        assert siol_epg.siol_hole_kanalliste() == []
 
 
 def test_siol_erfolgreicher_abruf_liefert_echte_sendungen(_siol_cache_zuruecksetzen):
-    kanalliste_html = _siol_next_f_html({
-        "tvChannelsAsJson": [{"name": "RTV SLO 1", "externalId": "RTV1"}]
-    })
-    programm_html = _siol_next_f_html({
-        "channelsAsJson": [
-            {
-                "events": [
-                    {
-                        "title": "Dnevnik",
-                        "category": "Informativno",
-                        "startDateTime": "2026-08-10T19:00:00",
-                        "stopDateTime": "2026-08-10T19:30:00",
-                    }
-                ]
-            }
-        ]
-    })
+    kanalliste_html = _siol_kanalliste_html([("rtv1", "RTV SLO 1")])
+    programm_html = _siol_programm_html("rtv1", [("19.00", "Dnevnik", "Informativno")])
 
     kanalliste_response = MagicMock()
     kanalliste_response.text = kanalliste_html
@@ -1443,10 +1440,35 @@ def test_siol_erfolgreicher_abruf_liefert_echte_sendungen(_siol_cache_zurueckset
     assert sendung["stop"] > sendung["start"]
 
 
+def test_siol_mrt_alias_matcht_nicht_faelschlich_rts_oder_hrt(_siol_cache_zuruecksetzen):
+    """Regressionstest fuer den Fehltreffer-Bug: kurze mazedonische
+    Sendernamen wie "MRT 1"/"MRT 2 HD" duerfen nicht per unscharfem
+    Abgleich auf voellig andere Sender (RTS/HRT/MTV Live HD) matchen,
+    sondern muessen ueber die feste Alias-Tabelle korrekt auf die
+    echten siol.net-MRT-Kanaele (mktv1/mktv2/mktv3) aufgeloest werden."""
+    kanalliste_html = _siol_kanalliste_html([
+        ("rts1", "RTS 1"),
+        ("rts2", "RTS 2"),
+        ("hrt3", "HRT 3"),
+        ("mktv1", "MTV 1"),
+        ("mktv2", "MTV 2"),
+        ("mktv3", "MTV 3 Sobrainski"),
+        ("mtvlivehd", "MTV Live HD"),
+    ])
+    response = MagicMock()
+    response.text = kanalliste_html
+    response.raise_for_status.return_value = None
+
+    with patch("quellen.siol_epg.requests.get", return_value=response):
+        assert siol_epg.siol_kanal_finden("MRT 1") == "mktv1"
+        assert siol_epg.siol_kanal_finden("MRT 2") == "mktv2"
+        assert siol_epg.siol_kanal_finden("MRT 2 HD") == "mktv2"
+        assert siol_epg.siol_kanal_finden("MRT 3") == "mktv3"
+        assert siol_epg.siol_kanal_finden("MRT 3 ⱽᴵᴾ ᴿᴬᵂ") == "mktv3"
+
+
 def test_siol_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_siol_cache_zuruecksetzen):
-    kanalliste_html = _siol_next_f_html({
-        "tvChannelsAsJson": [{"name": "RTV SLO 1", "externalId": "RTV1"}]
-    })
+    kanalliste_html = _siol_kanalliste_html([("rtv1", "RTV SLO 1")])
     kanalliste_response = MagicMock()
     kanalliste_response.text = kanalliste_html
     kanalliste_response.raise_for_status.return_value = None

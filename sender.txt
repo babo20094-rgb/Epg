@@ -80,7 +80,7 @@ BA|RTRS ⱽᴵᴾ ᴿᴬᵂ|Rtrs ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.gi
 BA|RTV BIR HD|Rtv Bir Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/af0de72e8e3fe877.png
 BA|RTV BPK ⱽᴵᴾ ᴿᴬᵂ|Rtv Bpk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1bbeecd0facdf9efa2890af1d781605210a38765.png
 BA|RTV CAZIN|Rtv Cazin ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/566e3ff7ef0a68f6.png
-BA|RTV HERCEG BOSNE ⱽᴵᴾ ᴿᴬᵂ|Rtv Herceg Bosne ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/RTV-HERCEG-BOSNE.png
+BA|RTV HERCEG BOSNE ⱽᴵᴾ ᴿᴬᵂ|Rtv Herceg Bosne ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rtv_herceg_bosne/rtv_herceg_bosne.png
 BA|RTV LUKAVAC|Rtv Lukavac ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6daf4875c6cb221b.png
 BA|RTV SANA|Rtv Sana ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2f7ab0db812f91cb.png
 BA|RTV SLON ⱽᴵᴾ ᴿᴬᵂ|Rtv Slon ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/34104dd311d1aaab6fc6e959d1981d6866d98752.png
@@ -1828,7 +1828,7 @@ HR|TOXIC FOLK|Toxic Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 HR|TOXIC RAP|Toxic Rap ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29bacc5313e047a8.png
 HR|TREND TV ⱽᴵᴾ ᴿᴬᵂ|Trend Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e4cc98856bf6a62d.png
 HR|TV BANOVINA ⱽᴵᴾ ᴿᴬᵂ|Tv Banovina ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d62874346fbc1f69.png
-HR|TV DALMACIJA ⱽᴵᴾ ᴿᴬᵂ|Tv Dalmacija ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/TV-DALMACIJA.png
+HR|TV DALMACIJA ⱽᴵᴾ ᴿᴬᵂ|Tv Dalmacija ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_dalmacija/tv_dalmacija.png
 HR|TV JADRAN ⱽᴵᴾ ᴿᴬᵂ|Tv Jadran ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f0e049779550134.png
 HR|TV NOVA PULA HD|Tv Nova Pula Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/61bd20287baadafe.png
 HR|TV NOVA PULA ⱽᴵᴾ ᴿᴬᵂ|Tv Nova Pula ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/61bd20287baadafe.png
@@ -2007,9 +2007,9 @@ MK|ALSAT M HD|Alsat M Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 MK|ALSAT M ⱽᴵᴾ ᴿᴬᵂ|Alsat M ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9c47e5ec9c47e0f7.png
 MK|ANIMAL PLANET [Multi-Sub]|Animal Planet [Multi-Sub] ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 MK|ANIMAL PLANET ⱽᴵᴾ ᴿᴬᵂ|Animal Planet ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
-MK|ARENA M1 PREMIUM FHD|Arena M1 Premium Fhd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/MACEDONIANEW/ARENAM1PREMIUM.png
-MK|ARENA M2 PREMIUM FHD|Arena M2 Premium Fhd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/MACEDONIANEW/ARENAM2PREMIUM.png
-MK|ARENA M3 PREMIUM FHD|Arena M3 Premium Fhd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/MACEDONIANEW/ARENAM3PREMIUM.png
+MK|ARENA M1 PREMIUM FHD|Arena M1 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_premium_mk/arena_premium_1.png
+MK|ARENA M2 PREMIUM FHD|Arena M2 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_premium_mk/arena_premium_2.png
+MK|ARENA M3 PREMIUM FHD|Arena M3 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_premium_mk/arena_premium_3.png
 MK|AXN ⱽᴵᴾ ᴿᴬᵂ|Axn ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b6bb45b54bf28d14.png
 MK|BALKAN MUSIC HD|Balkan Music Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efb8f401e1e8cb46.png
 MK|CINEMAX 1 ⱽᴵᴾ ᴿᴬᵂ|Cinemax 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8dfecb71a712a5e.png
@@ -18119,7 +18119,7 @@ MK|FILM BOX PLUS|Film Box Plus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/ba
 MK|HUGO 2 TV|Hugo 2 TV ᴸⁱᵛᵉ|
 MK|HUGO TV HD|Hugo TV HD ᴸⁱᵛᵉ|
 MK|MTM TV|Mtm TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fd145ea7454d6e17d75df126baf91841ac24f208.png
-MK|MPT SOBRANISKI HD|Mpt Sobraniski HD ᴸⁱᵛᵉ|
+MK|MPT SOBRANISKI HD|Mpt Sobraniski HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mrt_sobraniski/mrt_sobraniski.png
 MK|K3|K3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bdedf704590fc607c223e40e7e9b972c8ceacd31.png
 MK|O2 OHRID HD|O2 Ohrid HD ᴸⁱᵛᵉ|
 MK|KTV KAVADARCI|Ktv Kavadarci ᴸⁱᵛᵉ|
