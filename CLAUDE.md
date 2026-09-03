@@ -1885,3 +1885,24 @@ mehr benoetigt) wurde bei dieser Datei die VOD-Ausschlussliste (siehe
 Gruppen wie "NETFLIX MOVIES") NICHT angewendet - sie enthaelt
 zusaetzlich auch diese VOD-Kategorien, da der Zweck hier reine
 Namens-/Kategoriezuordnung ist, nicht der Sender-Import selbst.
+
+## NameError im DYN-PPV-API-Kanalnamen-Abgleich (Workflow-Log-Fehler behoben)
+
+Der Nutzer schickte einen Screenshot des GitHub-Actions-Workflow-Logs
+mit "DYN-PPV-API-Kanalnamen-Abgleich Fehler: name
+'M3U_PROVIDER_TIMEOUT_SEKUNDEN' is not defined". Root Cause: Die
+Konstanten `M3U_PROVIDER_TIMEOUT_SEKUNDEN`/`M3U_PROVIDER_MAX_ZEICHEN`
+wurden im Skript-Ablauf erst WEITER UNTEN definiert (im Abschnitt
+"LIVE-KANALNAMEN AUS DER EIGENEN IPTV-PLAYLIST", `m3u_playlist_
+abgleichen()`), aber bereits VORHER im "DYN PPV CHANNELS"-Abschnitt
+verwendet (dem eigenstaendigen Playlist-Abgleich fuer die 20 fest
+kodierten API-Kanaele) - Python fuehrt Modul-Code von oben nach unten
+aus, der Name existierte an dieser Stelle schlicht noch nicht. Der
+Fehler wurde intern abgefangen (kein Absturz des gesamten Laufs dank
+Try/Except), degradierte aber fuer DIESEN einen Abgleich auf den alten
+hartcodierten Kanalnamen-Fallback - betraf nur die Umbenennung auf den
+exakten Live-Playlist-Namen fuer DYN PPV 1-20 (API-Gruppe), nicht die
+eigentlichen Programmdaten selbst. Fix: beide Konstanten vor den
+DYN-PPV-Block verschoben (Abschnittskommentar mit verschoben), keine
+doppelte Definition mehr noetig, da `m3u_playlist_abgleichen()` weiter
+unten dieselben (jetzt frueher definierten) Konstanten mitverwendet.

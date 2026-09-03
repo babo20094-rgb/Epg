@@ -1707,6 +1707,28 @@ for daten in logo_only_channels:
     )
 
 # ==========================================================
+# LIVE-KANALNAMEN AUS DER EIGENEN IPTV-PLAYLIST
+#
+# Manche IPTV-Anbieter pflegen die aktuellen Live-Event-Namen direkt
+# im Anzeigenamen der eigenen M3U-Playlist (z.B. Clubber: "(IE)
+# (Clubber 01) | Kerry GAA: Milltown/Castlemaine vs An Ghaeltacht
+# (2026-08-07 16:00:00)"). Das ist die einzige Quelle fuer Live-
+# Kanalnamen (Secret PROVIDER, optional) - ohne gesetztes
+# Secret bleibt es bei den generischen Kategorie-Platzhaltertexten.
+#
+# WICHTIG: diese beiden Konstanten muessen VOR dem DYN-PPV-Block
+# unten stehen (Bug September 2026 behoben: NameError, weil sie
+# frueher erst spaeter im Skript definiert wurden, aber schon hier
+# oben verwendet werden).
+# ==========================================================
+
+M3U_PROVIDER_TIMEOUT_SEKUNDEN = 120
+# Die Playlist enthaelt (anders als die myepg.top-Datei) ausschliesslich
+# Kanaldefinitionen, keine Programmdaten - daher reicht ein grosszuegiges,
+# aber festes Limit als Sicherheitsnetz gegen eine unerwartet riesige Datei.
+M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
+
+# ==========================================================
 # DYN PPV CHANNELS
 # ==========================================================
 
@@ -2055,24 +2077,6 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
         real_daten["event_titel"] = event_titel
         return True
     return False
-
-
-# ==========================================================
-# LIVE-KANALNAMEN AUS DER EIGENEN IPTV-PLAYLIST
-#
-# Manche IPTV-Anbieter pflegen die aktuellen Live-Event-Namen direkt
-# im Anzeigenamen der eigenen M3U-Playlist (z.B. Clubber: "(IE)
-# (Clubber 01) | Kerry GAA: Milltown/Castlemaine vs An Ghaeltacht
-# (2026-08-07 16:00:00)"). Das ist die einzige Quelle fuer Live-
-# Kanalnamen (Secret PROVIDER, optional) - ohne gesetztes
-# Secret bleibt es bei den generischen Kategorie-Platzhaltertexten.
-# ==========================================================
-
-M3U_PROVIDER_TIMEOUT_SEKUNDEN = 120
-# Die Playlist enthaelt (anders als die myepg.top-Datei) ausschliesslich
-# Kanaldefinitionen, keine Programmdaten - daher reicht ein grosszuegiges,
-# aber festes Limit als Sicherheitsnetz gegen eine unerwartet riesige Datei.
-M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
 
 
 def m3u_playlist_abgleichen(url, quelle_name):
