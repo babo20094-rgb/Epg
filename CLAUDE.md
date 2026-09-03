@@ -1906,3 +1906,25 @@ eigentlichen Programmdaten selbst. Fix: beide Konstanten vor den
 DYN-PPV-Block verschoben (Abschnittskommentar mit verschoben), keine
 doppelte Definition mehr noetig, da `m3u_playlist_abgleichen()` weiter
 unten dieselben (jetzt frueher definierten) Konstanten mitverwendet.
+
+## Workflow-Log entrümpelt: keine Sender-Einzelauflistung mehr
+
+Der Nutzer wollte im GitHub-Actions-Log nicht mehr fuer JEDEN
+einzelnen Sender eine eigene "X-EPG: N echte Sendungen fuer 'Y'
+geladen"-Zeile sehen (bei ~19.000 Sendern eine sehr lange, kaum
+lesbare Liste) - nur noch, DASS der Lauf erfolgreich war und alle
+Sender verarbeitet wurden. Alle 23 Print-Aufrufe dieser Art (Telemach,
+mtel.ba, mymedia.ba, klix.ba, Sky, Magenta, Arena, DAZN, Freeview,
+TVGuide, TVPassport, mts.rs, MojMaxTV, SportKlub, Siol, Magenta-
+myTeamTV, Deswird, PlutoTV, TvMovie, Hoerzu, SamsungTV, Tubi) zaehlen
+jetzt nur noch still mit (`echte_quelle_zaehler`/`_echte_quelle_
+zaehlen()`, ganz oben in `generate_epg.py` definiert) statt eine
+eigene Log-Zeile pro Sender auszugeben. Am Ende des Laufs (kurz vor
+"EPG erfolgreich erstellt") steht jetzt EINE kompakte Zusammenfassung,
+z.B. "Echte Programmdaten fuer 8432 Sender geladen (Telemach: 120,
+mts.rs: 45, Deswird: 3200, ...)". Die "Live-Kanalabgleich Treffer:
+..."-Zeile (kompletter Namens-Liste der per Playlist aktualisierten
+NAME:-Sender) wurde ebenso auf eine reine Anzahl gekuerzt. Echte
+Fehlermeldungen (404s, Netzwerkfehler etc.) bleiben unveraendert
+bestehen - die sind fuer die Fehlersuche weiterhin wichtig, nur die
+Erfolgsmeldungen pro Sender wurden entfernt.

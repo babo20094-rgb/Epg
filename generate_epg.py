@@ -526,6 +526,17 @@ xml_teile = ['<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n']
 
 sender_daten = []
 
+# Zaehlt pro echter Quelle, wie viele Sender damit echte Programmdaten
+# bekommen haben - statt bei JEDEM einzelnen Sender eine eigene
+# Log-Zeile auszugeben (bei ~19.000 Sendern eine sehr lange, kaum
+# lesbare Liste im Workflow-Log). Am Ende des Laufs wird daraus eine
+# kompakte Zusammenfassung ausgegeben (siehe ganz unten im Skript).
+echte_quelle_zaehler = {}
+
+
+def _echte_quelle_zaehlen(quelle):
+    echte_quelle_zaehler[quelle] = echte_quelle_zaehler.get(quelle, 0) + 1
+
 # ==========================================================
 # sender.txt lesen
 #
@@ -2140,7 +2151,7 @@ def m3u_playlist_abgleichen(url, quelle_name):
             aktualisierte_sender.append(real_daten["sender"])
 
     if aktualisierte_sender:
-        print(f"Live-Kanalabgleich ({quelle_name}) Treffer:", ", ".join(aktualisierte_sender))
+        print(f"Live-Kanalabgleich ({quelle_name}): {len(aktualisierte_sender)} Sender mit echtem Live-Event aktualisiert.")
 
     return erledigte_keys
 
@@ -2354,7 +2365,7 @@ for daten in telemach_sender:
     echte_daten_gefunden = bool(programme)
 
     if programme:
-        print(f"Telemach-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Telemach")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2378,7 +2389,7 @@ for daten in telemach_sender:
             daten["mtel_intervalle"] = [(p["start"], p["stop"]) for p in mtel_programme]
 
             if mtel_programme:
-                print(f"Mtel-EPG: {len(mtel_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach-Fallback).")
+                _echte_quelle_zaehlen("mtel.ba")
                 _schreibe_echte_programme(daten, mtel_programme)
                 echte_daten_gefunden = True
             else:
@@ -2399,7 +2410,7 @@ for daten in telemach_sender:
                     daten["mymedia_intervalle"] = [(p["start"], p["stop"]) for p in mymedia_programme]
 
                     if mymedia_programme:
-                        print(f"MyMedia-EPG: {len(mymedia_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach/Mtel-Fallback).")
+                        _echte_quelle_zaehlen("mymedia.ba")
                         _schreibe_echte_programme(daten, mymedia_programme)
                         echte_daten_gefunden = True
                     else:
@@ -2423,7 +2434,7 @@ for daten in telemach_sender:
                     daten["klix_intervalle"] = [(p["start"], p["stop"]) for p in klix_programme]
 
                     if klix_programme:
-                        print(f"Klix-EPG: {len(klix_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Telemach/Mtel-Fallback).")
+                        _echte_quelle_zaehlen("klix.ba")
                         _schreibe_echte_programme(daten, klix_programme)
                         echte_daten_gefunden = True
                     else:
@@ -2455,7 +2466,7 @@ for daten in sky_sender:
     daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Sky-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Sky")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2485,7 +2496,7 @@ for daten in magenta_sender:
     daten["magenta_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Magenta-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Magenta")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2514,7 +2525,7 @@ for daten in arena_sender:
     daten["arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Arena-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Arena Sport")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2543,7 +2554,7 @@ for daten in dazn_sender:
     daten["dazn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"DAZN-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("DAZN")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2573,7 +2584,7 @@ for daten in freeview_sender:
     daten["freeview_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Freeview-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Freeview")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2603,7 +2614,7 @@ for daten in tvguide_sender:
     daten["tvguide_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"TVGuide-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("TVGuide")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2633,7 +2644,7 @@ for daten in tvpassport_sender:
     daten["tvpassport_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"TVPassport-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("TVPassport")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2661,7 +2672,7 @@ for daten in mts_sender:
     daten["mts_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Mts-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("mts.rs")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2688,7 +2699,7 @@ for daten in mojmaxtv_sender:
     daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"MojMaxTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("MojMaxTV")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2719,7 +2730,7 @@ for daten in mojmaxtv_sender:
     daten["sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"SportKlub-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("SportKlub")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2746,7 +2757,7 @@ for daten in siol_sender:
     daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Siol-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Siol")
         _schreibe_echte_programme(daten, programme)
         continue
 
@@ -2768,7 +2779,7 @@ for daten in siol_sender:
     daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
 
     if sportklub_programme:
-        print(f"SportKlub-EPG: {len(sportklub_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Siol-Fallback).")
+        _echte_quelle_zaehlen("SportKlub")
         _schreibe_echte_programme(daten, sportklub_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2806,7 +2817,7 @@ for daten in plutotv_sender:
         daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
         if programme:
-            print(f"Magenta-myTeamTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+            _echte_quelle_zaehlen("Magenta-myTeamTV")
             _schreibe_echte_programme(daten, programme)
         continue
 
@@ -2824,7 +2835,7 @@ for daten in plutotv_sender:
     daten["deswird_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Deswird-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Deswird")
         _schreibe_echte_programme(daten, programme)
         continue
 
@@ -2844,7 +2855,7 @@ for daten in plutotv_sender:
     daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"PlutoTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("PlutoTV")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -2866,7 +2877,7 @@ for daten in plutotv_sender:
         daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
 
         if tvmovie_programme:
-            print(f"TvMovie-EPG: {len(tvmovie_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV-Fallback).")
+            _echte_quelle_zaehlen("TvMovie")
             _schreibe_echte_programme(daten, tvmovie_programme)
         else:
             # hoerzu.de als vierter Versuch fuer DE-Sender (siehe
@@ -2886,7 +2897,7 @@ for daten in plutotv_sender:
             daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
 
             if hoerzu_programme:
-                print(f"Hoerzu-EPG: {len(hoerzu_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV/TvMovie-Fallback).")
+                _echte_quelle_zaehlen("Hoerzu")
                 _schreibe_echte_programme(daten, hoerzu_programme)
             else:
                 # Samsung TV Plus als fuenfter Versuch fuer DE-Sender
@@ -2907,7 +2918,7 @@ for daten in plutotv_sender:
                 daten["samsungtv_intervalle"] = [(p["start"], p["stop"]) for p in samsungtv_programme]
 
                 if samsungtv_programme:
-                    print(f"SamsungTV-EPG: {len(samsungtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV/TvMovie/Hoerzu-Fallback).")
+                    _echte_quelle_zaehlen("SamsungTV")
                     _schreibe_echte_programme(daten, samsungtv_programme)
 
 # ==========================================================
@@ -2951,7 +2962,7 @@ for daten in tubi_sender:
     daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        print(f"Tubi-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _echte_quelle_zaehlen("Tubi")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
@@ -3129,5 +3140,12 @@ with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
 # unterstuetzt gezippte XMLTV-Quellen direkt per URL.
 with gzip.open("Epg_365_Tage.xml.gz", "wb") as f:
     f.write(xml_inhalt.encode("utf-8"))
+
+gesamt_echte_daten = sum(echte_quelle_zaehler.values())
+if echte_quelle_zaehler:
+    zusammenfassung = ", ".join(
+        f"{quelle}: {anzahl}" for quelle, anzahl in sorted(echte_quelle_zaehler.items())
+    )
+    print(f"Echte Programmdaten fuer {gesamt_echte_daten} Sender geladen ({zusammenfassung}).")
 
 print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
