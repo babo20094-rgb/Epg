@@ -280,7 +280,23 @@ def kern_und_event_extrahieren(voller_name):
                 r":\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*$",
                 voller_name,
             )
-            if ende_match:
+            # WICHTIG (Bug September 2026 behoben): ein blosses 2-4-Buchstaben-
+            # Laenderkuerzel VOR dem gefundenen Doppelpunkt (z.B. "DE: RTL+ PPV
+            # 28", "US: ESPN+ PPV 7") ist die weit verbreitete "Land: Name PPV
+            # N"-Konvention OHNE Pipe (RTL+/SOCCER/ESPN+/DAZN/NETFLIX/MLS/FIFA+/
+            # B/R MAX SPORTS PPV usw., tausende Zeilen) - die faellt NICHT unter
+            # das neue Kern-am-Ende-Muster (das ist fuer Faelle mit echtem
+            # Event-Text VOR dem Kern gedacht, z.B. Milb/Flo College). Ohne
+            # diese Ausnahme wurde "DE"/"US" faelschlich als "Event-Text"
+            # interpretiert (sichtbares Symptom: der Sendungstitel zeigte nur
+            # noch "DE"/"US" statt des Kanalnamens) UND der eigentliche Kern
+            # verlor sein Laenderkuerzel, wodurch alle nachfolgenden Live-
+            # Playlist-Treffer fuer diese Sender-Gruppen ausblieben.
+            ende_match_land_praefix = (
+                ende_match
+                and re.fullmatch(r"[A-Za-z]{2,4}", voller_name[:ende_match.start()].strip(" :").strip())
+            )
+            if ende_match and not ende_match_land_praefix:
                 kurzname = ende_match.group(1).strip()
                 event_teil = voller_name[:ende_match.start()].strip(" :").strip()
             else:

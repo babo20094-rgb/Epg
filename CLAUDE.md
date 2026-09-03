@@ -1687,3 +1687,45 @@ Auf Nutzerwunsch spaeter durch ein nummeriertes Logo-Set ersetzt
 Icon (S+Pfeil, schwarzer Hintergrund) plus "SPORT DEUTSCHLAND"-
 Schriftzug plus Kanalnummer in Gelb, alle 100 Varianten per Skript
 erzeugt und optimiert unter `logos/sport_deutschland/<N>.png`.
+
+## KRITISCHER REGRESSIONS-BUG (September 2026): Kern-am-Ende-Fix brach "Land: Name PPV N"-Konvention flaechendeckend
+
+Der Nutzer meldete per Screenshots viele verschiedene Sendergruppen
+(RTL+ PPV, ESPN+ PPV VIP, NETFLIX PPV, B/R MAX SPORTS PPV, FIFA+ PPV,
+NA| PPV & LIVE EVENTS, DE: SOCCER PPV) gleichzeitig kaputt: Sendungstitel
+zeigte teils nur noch "DE"/"US" statt eines sinnvollen Textes, Live-
+Events wurden nicht mehr extrahiert, keine generischen Platzhalter mehr.
+Root Cause: Der in derselben Nacht eingebaute generische Kern-am-Ende-
+Fix (siehe Abschnitt oben, fuer Milb/Flo College/Tennis/MLS/NBA) wird
+in `kern_und_event_extrahieren()` NICHT nur beim Live-Playlist-Abgleich
+verwendet, sondern auch beim URSPRUENGLICHEN EINLESEN jeder NAME:-Zeile
+aus `sender.txt` selbst (Zeile ~598) - und das neue Regex-Muster
+(":<Kern> <Nummer>" am Zeilenende) matchte dabei UNBEABSICHTIGT auch
+die weit verbreitete pipe-lose "Land: Name PPV N"-Konvention selbst
+(z.B. "DE: RTL+ PPV 28" - der Doppelpunkt direkt nach "DE" wurde
+faelschlich als der gesuchte Trenner erkannt, "RTL+ PPV 28" als Kern,
+das blosse "DE" als vermeintlicher "Event-Text"). Das betraf potenziell
+JEDE NAME:-Sendergruppe in diesem Format (RTL+/SOCCER/ESPN+/DAZN/
+NETFLIX/MLS/FIFA+/B-R-MAX-SPORTS/NA-PPV-LIVE-EVENTS PPV usw. - mehrere
+tausend Zeilen), da der urspruengliche Kern durch das Laenderkuerzel
+verloren ging und "DE"/"US" als angeblicher Event-Text durchging.
+**Fix:** `kern_und_event_extrahieren()` prueft jetzt VOR der Uebernahme
+des Kern-am-Ende-Treffers, ob der Text VOR dem gefundenen Doppelpunkt
+nur ein blosses 2-4-Buchstaben-Laenderkuerzel ist (`re.fullmatch(r"[A-Za-z]{2,4}", ...)`,
+dieselbe Pruefung wie an mehreren anderen Stellen in dieser Funktion
+bereits verwendet) - trifft das zu, wird der Treffer verworfen und
+die Zeile faellt auf die alte, korrekte Behandlung zurueck (kompletter
+String bleibt Kern, keine Aenderung). Gegen alle betroffenen echten
+Beispiele aus den Nutzer-Screenshots verifiziert (RTL+/ESPN+ PPV VIP/
+NETFLIX/B-R-MAX-SPORTS/FIFA+/NA-PPV-LIVE-EVENTS/SOCCER PPV) sowie
+gegen die urspruenglichen Milb/Flo-College-Faelle - beide funktionieren
+jetzt nebeneinander korrekt.
+**Lehre:** Eine neue generische Regex-Erweiterung an einer zentral
+wiederverwendeten Parsing-Funktion (hier: sowohl fuers Einlesen von
+sender.txt als auch fuer den Live-Playlist-Abgleich verwendet) IMMER
+gegen die HAEUFIGSTEN bestehenden Formate der Datei testen, nicht nur
+gegen die neuen Zielformate, die der Fix eigentlich beheben sollte -
+"risikofrei, weil der Index-Lookup sonst einfach fehlschlaegt" gilt nur
+fuer den LIVE-Abgleich (wo ein falscher Kern einfach keinen Treffer
+findet), NICHT fuers Einlesen von sender.txt selbst, wo der falsch
+erkannte Kern direkt und ungeprueft zum tatsaechlichen Sendernamen wird.
