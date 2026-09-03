@@ -1627,3 +1627,41 @@ getrennte Ursachen, beide behoben:
    DIRTVISION, FA PLAYER, Clubber) werden weiterhin zuerst geprueft und
    bleiben unveraendert, da sie vor dem neuen generischen Pfad im
    Code stehen.
+
+## MAGENTA SPORT PPV: myTeamTV-Fix griff nicht (deswird.org-Fehltreffer verhinderte es)
+
+Nach dem myTeamTV-Fix (siehe oben) und dem naechsten automatischen
+Workflow-Lauf zeigte PPV 1 trotzdem weiterhin nur "MagentaSport
+Programmübersicht" (generischer Text) statt des erwarteten Events -
+der Nutzer sprang testweise per Vorlauf auf Donnerstag 19 Uhr, ohne
+Erfolg. Root Cause: deswird.org (die ERSTE Quelle in der DE-Kaskade,
+also VOR dem neu eingebauten myTeamTV-sechsten-Versuch) matcht "MAGENTA
+SPORT PPV 1 HD" per unscharfem Abgleich (`deswird_kanal_finden()`)
+faelschlich auf den voelling anderen, echten Basis-Kanal "MagentaSport"
+(derselbe Kanal, der schon bei der urspruenglichen Magenta-API-
+Untersuchung nur einen generischen "Programmübersicht"-Platzhalter
+lieferte - hier aber via deswird.org, nicht via magenta_epg.py). Diese
+"echten" (aber fuer den Nutzer nutzlosen) Daten zaehlten als Treffer
+und beendeten die Kaskade per `continue`, BEVOR myTeamTV ueberhaupt
+drankam - der klassische Fehltreffer-Bug-Typ dieser Session (wie
+Sport Klub/Arena Premium/MRT), nur diesmal in deswird_kanal_finden()
+statt in einem der difflib-basierten Module.
+**Fix:** In der DE-Kaskaden-Schleife (`generate_epg.py`,
+`plutotv_sender`-Schleife) wurde ein frueher Check ergaenzt: Sender,
+deren Name auf `^MAGENTA\s*SPORT\s*PPV\s*\d+` passt, ueberspringen
+deswird.org/PlutoTV/tvmovie.de/hoerzu.de/Samsung TV Plus komplett und
+gehen DIREKT zu myTeamTV (`continue` nach dem myTeamTV-Versuch) - kein
+Risiko, dass irgendeine der fuenf generischen DE-Quellen sie noch
+abfaengt. Der alte myTeamTV-Code-Block tief in der samsungtv-Kaskade
+wurde entfernt (jetzt ueberfluessig). Live verifiziert: `deswird_kanal_finden("MAGENTA SPORT PPV 1 HD")`
+matcht weiterhin auf "MagentaSport" (das Modul selbst wurde nicht
+veraendert - der Fehltreffer ist an sich harmlos fuer andere Sender),
+aber die PPV-Sender erreichen deswird.org jetzt gar nicht mehr und
+bekommen stattdessen zuverlaessig die myTeamTV-Daten ("Live: Champions
+Hockey League" fuer PPV 1 am Donnerstag 19 Uhr).
+**Lehre:** Bei einer neuen Fallback-Quelle IMMER pruefen, ob eine der
+VORGESCHALTETEN Quellen in der Kaskade den Sendernamen per Fuzzy-
+Abgleich auf einen unpassenden, aber "echten" Kanal matchen und damit
+generische/falsche Daten als "Treffer" liefern koennte - das Vorhandensein
+ECHTER (aber falscher) Daten wird vom bestehenden Code nicht von einem
+ECHTEN, PASSENDEN Treffer unterschieden.

@@ -2716,6 +2716,30 @@ for daten in siol_sender:
 # ==========================================================
 
 for daten in plutotv_sender:
+    # "MAGENTA SPORT PPV N"-Sender ueberspringen deswird.org/PlutoTV/
+    # tvmovie.de/hoerzu.de/Samsung TV Plus komplett und gehen direkt zu
+    # myTeamTV (siehe magenta_myteam_epg.py) - deswird.org matcht diese
+    # Sender sonst per unscharfem Abgleich faelschlich auf den voellig
+    # anderen, echten Basis-Kanal "MagentaSport" und liefert dessen
+    # generischen "MagentaSport Programmübersicht"-Platzhaltertext, der
+    # als "echter Treffer" durchgeht und myTeamTV nie zum Zug kommen
+    # laesst (Bug September 2026 behoben).
+    if re.match(r"^MAGENTA\s*SPORT\s*PPV\s*\d+", daten["sender"], re.IGNORECASE):
+        programme = []
+        try:
+            myteam_site_id = magenta_myteam_kanal_finden(daten["sender"])
+            if myteam_site_id is not None:
+                programme = magenta_myteam_hole_programme(myteam_site_id, PLUTOTV_TAGE)
+        except Exception as e:
+            programme = []
+
+        daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            print(f"Magenta-myTeamTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+            _schreibe_echte_programme(daten, programme)
+        continue
+
     programme = []
     try:
         site_id = deswird_kanal_finden(daten["sender"])
@@ -2815,31 +2839,6 @@ for daten in plutotv_sender:
                 if samsungtv_programme:
                     print(f"SamsungTV-EPG: {len(samsungtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV/TvMovie/Hoerzu-Fallback).")
                     _schreibe_echte_programme(daten, samsungtv_programme)
-                else:
-                    # myTeamTV (epgshare01.online) als sechster Versuch,
-                    # NUR fuer "MAGENTA SPORT PPV N"-Sender (siehe
-                    # magenta_myteam_epg.py) - Magentas eigene PPV-Events
-                    # sind ueber die normale MAGENTA:-Quelle nicht
-                    # erreichbar (keine eigenen PPV-Kanaele dort) und der
-                    # Rohname in der Playlist ist komplett statisch (kein
-                    # Live-Event-Marker), daher kein Match ueber
-                    # m3u_playlist_abgleichen() moeglich.
-                    myteam_programme = []
-                    try:
-                        myteam_site_id = magenta_myteam_kanal_finden(daten["sender"])
-                        if myteam_site_id is not None:
-                            myteam_programme = magenta_myteam_hole_programme(myteam_site_id, PLUTOTV_TAGE)
-                        else:
-                            pass  # log unterdrueckt: keine echten Programmdaten
-                    except Exception as e:
-                        pass  # log unterdrueckt: keine echten Programmdaten
-                        myteam_programme = []
-
-                    daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in myteam_programme]
-
-                    if myteam_programme:
-                        print(f"Magenta-myTeamTV-EPG: {len(myteam_programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
-                        _schreibe_echte_programme(daten, myteam_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
