@@ -37,6 +37,7 @@ from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
 from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
 from quellen.samsungtv_epg import samsungtv_kanal_finden, samsungtv_hole_programme
+from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
 from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 
@@ -169,7 +170,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
     "tubi": ["tubi_intervalle"],
 }
 
@@ -2254,6 +2255,7 @@ DESWIRD_TAGE = 3
 PLUTOTV_TAGE = 2
 TVMOVIE_TAGE = 1
 SAMSUNGTV_TAGE = 1
+JOYN_VOD_TAGE = 1
 TUBI_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
@@ -2981,6 +2983,28 @@ for daten in plutotv_sender:
                 if samsungtv_programme:
                     _echte_quelle_zaehlen("SamsungTV")
                     _schreibe_echte_programme(daten, samsungtv_programme)
+                else:
+                    # Joyn-VOD als sechster und letzter Versuch fuer DE-
+                    # Sender (siehe joyn_vod_epg.py) - deckt Joyns eigene
+                    # thematische Serien-/Doku-"Sender" ab (z.B. "Ancient
+                    # Aliens", "Der letzte Bulle"), die keiner der
+                    # vorherigen fuenf Quellen kennt.
+                    joyn_vod_programme = []
+                    try:
+                        joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
+                        if joyn_vod_site_id is not None:
+                            joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
+                        else:
+                            pass  # log unterdrueckt: keine echten Programmdaten
+                    except Exception as e:
+                        pass  # log unterdrueckt: keine echten Programmdaten
+                        joyn_vod_programme = []
+
+                    daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
+
+                    if joyn_vod_programme:
+                        _echte_quelle_zaehlen("Joyn-VOD")
+                        _schreibe_echte_programme(daten, joyn_vod_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe

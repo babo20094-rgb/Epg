@@ -1511,6 +1511,63 @@ def test_magenta_myteam_kaputtes_gzip_gibt_none_statt_exception(_magenta_myteam_
 
 
 # ==========================================================
+# Joyn-VOD-EPG (letzter Fallback der DE-Kaskade fuer Joyns thematische
+# Serien-/Doku-"Sender", siehe joyn_vod_epg.py)
+# ==========================================================
+
+from quellen import joyn_vod_epg
+
+
+@pytest.fixture(autouse=False)
+def _joyn_vod_cache_zuruecksetzen():
+    joyn_vod_epg._daten_cache = None
+    yield
+    joyn_vod_epg._daten_cache = None
+
+
+def _joyn_vod_xml_response():
+    heute = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+  <channel id="joyn-vod-de-odc-ancientaliens"><display-name lang="de">Ancient Aliens</display-name></channel>
+  <channel id="joyn-vod-de-odc-charmed"><display-name lang="de">Charmed</display-name></channel>
+  <programme start="{heute}060000 +0000" stop="{heute}070000 +0000" channel="joyn-vod-de-odc-ancientaliens">
+    <title>Ancient Aliens</title>
+  </programme>
+</tv>"""
+    response = MagicMock()
+    response.status_code = 200
+    response.content = gzip.compress(xml.encode("utf-8"))
+    response.raise_for_status = lambda: None
+    return response
+
+
+def test_joyn_vod_findet_exakten_namen_kein_fuzzy(_joyn_vod_cache_zuruecksetzen):
+    with patch("quellen.joyn_vod_epg.requests.get", return_value=_joyn_vod_xml_response()):
+        site_id = joyn_vod_epg.joyn_vod_kanal_finden("ANCIENT ALIENS ᴿᴬᵂ")
+        programme = joyn_vod_epg.joyn_vod_hole_programme(site_id, tage=365)
+
+        # Kein Treffer fuer einen komplett anderen Namen - kein Fuzzy-
+        # Abgleich, der faelschlich auf "Charmed" matchen koennte.
+        kein_treffer = joyn_vod_epg.joyn_vod_kanal_finden("Voellig Anderer Name XYZ")
+
+    assert site_id == "joyn-vod-de-odc-ancientaliens"
+    assert len(programme) == 1
+    assert programme[0]["title"] == "Ancient Aliens"
+    assert kein_treffer is None
+
+
+def test_joyn_vod_kaputtes_gzip_gibt_none_statt_exception(_joyn_vod_cache_zuruecksetzen):
+    kaputte_response = MagicMock()
+    kaputte_response.status_code = 200
+    kaputte_response.content = b"kein gueltiges gzip/xml"
+    kaputte_response.raise_for_status = lambda: None
+    with patch("quellen.joyn_vod_epg.requests.get", return_value=kaputte_response):
+        assert joyn_vod_epg.joyn_vod_kanal_finden("Ancient Aliens") is None
+        assert joyn_vod_epg.joyn_vod_hole_programme("joyn-vod-de-odc-ancientaliens") == []
+
+
+# ==========================================================
 # Siol-EPG (automatischer Abgleich fuer SI-Sender, HTML-Scraping,
 # siehe siol_epg.py)
 # ==========================================================

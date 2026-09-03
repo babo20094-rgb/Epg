@@ -1907,6 +1907,58 @@ DYN-PPV-Block verschoben (Abschnittskommentar mit verschoben), keine
 doppelte Definition mehr noetig, da `m3u_playlist_abgleichen()` weiter
 unten dieselben (jetzt frueher definierten) Konstanten mitverwendet.
 
+## Temporaerer Diagnose-Workflow: PlutoTV/SamsungTV/Mazedonien mit vollem Internetzugriff geprueft
+
+Auf Nutzerwunsch wurde (analog zum frueheren `logos_nachladen.yml`,
+siehe "Logo-Recherche September 2026") ein temporaerer Workflow
+`quellen_recherche.yml` angelegt, einmalig per `workflow_dispatch`
+ausgefuehrt und danach wieder geloescht - Zweck: einige Quellen, die
+aus der Entwickler-Sandbox blockiert waren, ueber den GitHub-Actions-
+Runner (voller Internetzugriff) direkt zu testen. Ergebnis:
+- **PlutoTV DE funktioniert einwandfrei** (200 OK, 516 KB) - das 403
+  in der Sandbox war ein reines Sandbox-Netzwerk-Artefakt (blockierter
+  Zugriff auf github.com selbst), im echten Workflow lief diese Quelle
+  nie und muss nicht angefasst werden.
+- **Mazedonien ist endgueltig geklaert (negativ):** `prd-static-
+  mkt.spectar.tv` (MaxTV-GO/Spectar-Backend) sowie `mkbox.mk`/
+  `programa.mk`/`tv-programa.mk`/`epg.mk`/`tv.mk` loesen sich per DNS
+  ueberhaupt nicht auf ("Name or service not known") - diese Domains
+  existieren nicht mehr, das ist kein Sandbox-Problem. Es gibt aktuell
+  keine bekannte funktionierende echte Quelle fuer Mazedonien.
+- **Samsung TV Plus DE ist dauerhaft tot:** `samsungtv_de_guide.xml.gz`
+  wurde vom Host (kodi-unlimited-support.de) entfernt (per Verzeichnis-
+  Listing direkt bestaetigt) - das 404 ist kein temporaerer Fehler.
+  Der Aufruf blieb in der DE-Kaskade (degradiert dank des Cache-Fixes
+  oben ohnehin billig graceful), lohnt sich aber fuer eine kuenftige
+  Bereinigung, falls der Host die Datei nie wieder bereitstellt.
+- **Neuer Fund, direkt umgesetzt:** derselbe Host bietet neu
+  `joyn_vod_de_guide.xml.gz` (Joyns eigenes VOD-EPG fuer thematische
+  Serien-/Doku-"Sender" wie "Ancient Aliens"/"Der letzte Bulle") -
+  siehe eigener Abschnitt unten.
+
+## Joyn-VOD-EPG: sechster und letzter Fallback der DE-Kaskade (joyn_vod_epg.py)
+
+Neue Quelle `joyn_vod_epg.py` (Muster wie plutotv_epg.py/
+sportklub_epg.py: komplette XMLTV-Datei EINMAL pro Lauf laden, dann
+lokal matchen) deckt Joyns eigene "ODC"-Themenkanaele ab (~100 Kanaele,
+z.B. "Ancient Aliens", "Charmed", "Der letzte Bulle", "Focus TV") -
+viele durchnummerierte/thematische DE/JOYN/PRIME/WOW-sender.txt-Zeilen
+sind genau diese Art rund-um-die-Uhr-Serien-"Sender", die deswird.org &
+Co. (nur "grosse" TV-Sender) nicht kennen.
+Kanalzuordnung laeuft bewusst NUR ueber einen EXAKTEN Namensabgleich
+(kein Fuzzy-Anteil) - die Kanalnamen sind kurze, spezifische Serien-
+titel, bei denen ein unscharfer Abgleich zu leicht falsch matchen
+wuerde (z.B. "Charmed" vs. ein aehnlich klingender, aber inhaltlich
+anderer Sender). Als SECHSTER und letzter Versuch in die bestehende
+DE-Kaskade eingehaengt (`generate_epg.py`, `plutotv_sender`-Schleife,
+nach Samsung TV Plus), neuer `joyn_vod_intervalle`-Eintrag im
+`plutotv`-Fallback-Ketten-Dict. Live verifiziert: 6 von ~2.170 DE/
+JOYN/WOW/PRIME-Sendern (z.B. "ALIAS", "DER LETZTE BULLE ᴿᴬᵂ", "FOCUS
+TV", " ANCIENT ALIENS ᴿᴬᵂ") finden einen exakten Treffer mit je 20
+echten Sendungen - kleiner, aber sauberer, risikofreier Zugewinn ohne
+sender.txt-Aenderung. Degradiert wie alle anderen Quellen graceful auf
+[] bei jedem Fehler.
+
 ## CITY|-Sender (lokale US-Sender mit Call-Sign): automatischer Call-Sign-Abgleich gegen tvpassport.com
 
 Auf Nutzerwunsch ("mach mit Option 1 weiter" nach der blockierten
