@@ -1474,3 +1474,62 @@ nach dem naechsten Lauf weiterhin einzelne andere Nummern fehlen,
 liegt die Ursache vermutlich woanders (z.B. dasselbe TiviMate-
 Auto-Matching-Verhalten wie bei DYN PPV 1-20/ESPN+) - noch nicht mit
 echten Daten gegengeprueft.
+
+## Sport Klub HR (SK 1-12/4K/Esports/Fight/Golf): neue Quelle sportklub_epg.py
+
+Der Nutzer meldete per Screenshot, dass `HR|SK 1`-`SK 10` nur den
+generischen Text zeigten und SK1 sogar eine komplett falsche deutsche
+Sendung anzeigte. Root Cause: MojMaxTV (unsere normale automatische
+HR-Quelle) fuehrt seit September 2026 GAR KEINEN "Sport Klub"-Kanal mehr
+in der eigenen Kanalliste (nur noch Arena Sport 1-10 u.ae., live per API
+verifiziert) - der unscharfe difflib-Fallback in `mojmaxtv_kanal_finden()`
+matchte "SK 1" dadurch faelschlich auf den voellig unabhaengigen Kanal
+"Sport 1" (deutsche Sendungen). Fix in zwei Teilen:
+
+1. **`mojmaxtv_epg.py`**: Der "SK N"->"Sport Klub N"-Alias akzeptiert
+   jetzt nur noch einen EXAKTEN Namenstreffer, keinen unscharfen
+   Fallback mehr (lieber kein Treffer als ein falscher).
+2. **Neue Quelle `sportklub_epg.py`**: Der Nutzer bestand darauf, ECHTE
+   Programmdaten zu bekommen, nicht nur "kein falscher Treffer" - auf
+   ausdruecklichen Hinweis des Nutzers wurde zuerst live geprueft, ob
+   eine bereits integrierte Quelle (Telemach/mtel.ba/mts.rs) Sport Klub
+   fuehrt (alle drei live per API abgefragt: kein einziger "Sport
+   Klub"/"SK"-Treffer in allen dreien). `sportklub.hr` selbst laedt sein
+   TV-Programm per JS-Bundle nach (`web-apps.ug.cdn.united.cloud`), ist
+   nicht direkt per HTTP-Request scrapbar. Stattdessen wird jetzt der
+   oeffentliche, community-gepflegte XMLTV-Spiegel von epgshare01.online
+   (`epg_ripper_SPORTKLUB1.xml.gz`, laut eigenem `<url>`-Tag von
+   sportklub.hr selbst gespeist, 16 Kanaele: SK 1-12, SK 4K, SK Esports,
+   SK Fight, SK Golf) als zweiter automatischer Versuch fuer alle
+   `HR|SK N`-Sender genutzt, NACH MojMaxTV (nur wenn MojMaxTV nichts
+   liefert - siehe `mojmaxtv_sender`-Schleife in `generate_epg.py`, neuer
+   `sportklub_intervalle`-Eintrag in der `mojmaxtv`-Fallback-Kette).
+   Genau wie bei plutotv_epg.py wird die komplette XMLTV-Datei nur
+   EINMAL pro Lauf geladen und lokal gematcht (kein API-Request pro
+   Kanal). Kanalzuordnung laeuft bewusst NICHT ueber Fuzzy-/Kern-Abgleich
+   (die epgshare01-Namen "SK 1"/"SK 10"/"SK 11" sind sich als Text zu
+   aehnlich), sondern ueber einen exakten Nummern-/Wort-Vergleich
+   (`sportklub_kanal_finden()`, Regex auf die fuehrende Zahl bzw. feste
+   Woerter Esports/Fight/Golf) - kein Fehltreffer-Risiko. Degradiert wie
+   alle anderen Quellen graceful auf [] bei jedem Fehler.
+   Live verifiziert: SK 1-12/4K/Esports/Fight/Golf liefern jeweils echte
+   Sendungen (z.B. SK 1: 44 Sendungen/2 Tage), SK 99 (nicht existent)
+   liefert sauber `None`.
+
+## RS| ARENA SPORT 1-5 PREMIUM: identisches Programm bei allen 5 Sendern (mts.rs)
+
+Der Nutzer meldete per Screenshot, dass `RS|ARENA SPORT 1-5 PREMIUM`
+(HD und nicht-HD) im EPG-Raster ueberall identisches Programm zeigten
+("Fudbal - Brazilska liga" bei allen). Root Cause: mts.rs (unsere
+automatische RS-Quelle) fuehrt diese Kanaele unter vertauschter
+Wortreihenfolge ("Arena PREMIUM 1".."Arena PREMIUM 5" statt "Arena
+Sport 1 Premium" wie in `sender.txt`) - der exakte Namensabgleich in
+`mts_kanal_finden()` griff dadurch nie, und der unscharfe difflib-
+Fallback kollabierte alle 5 sich sehr aehnlichen, kurzen normalisierten
+Namen faelschlich auf denselben einen Kanal (beobachtet: alle auf
+"Arena PREMIUM 5"). Fix: `mts_kanal_finden()` (`quellen/mts_epg.py`)
+prueft jetzt VOR dem Fuzzy-Pfad eine feste Regex-Alias-Aufloesung
+(`ARENA SPORT N PREMIUM[ HD]` -> exakt `Arena PREMIUM N`), analog zum
+MRT/SK-Alias-Muster weiter oben - kein Fehltreffer-Risiko mehr. Live
+verifiziert: alle 5 Kanaele liefern jetzt jeweils eigene, unterschiedliche
+echte Sendungen.

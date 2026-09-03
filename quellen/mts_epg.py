@@ -27,6 +27,7 @@ from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 import difflib
+import re
 
 import requests
 
@@ -110,9 +111,26 @@ def mts_hole_kanalliste():
     return kanaele
 
 
+
+# "ARENA SPORT N PREMIUM"/"ARENA SPORT N PREMIUM HD" (eigene sender.txt-
+# Konvention) vs. "Arena PREMIUM N" bei mts.rs - die vertauschte
+# Wortreihenfolge ("Sport"/"Premium" vs. nur "Premium") verhindert einen
+# exakten Treffer nach normalisiere_sendername(). Der unscharfe
+# difflib-Fallback darunter ist dabei GEFAEHRLICH: alle 5 Premium-Sender
+# (1-5) sind sich als kurze, fast identische normalisierte Strings so
+# aehnlich, dass sie faelschlich ALLE auf denselben einen Kanal
+# (beobachtet: "Arena PREMIUM 5") kollabierten - der Nutzer sah dadurch
+# bei ARENA SPORT 1-5 PREMIUM ueberall identisches Programm statt 5
+# verschiedener Kanaele. Fix: die Nummer wird explizit extrahiert und
+# EXAKT gegen "Arena PREMIUM N" verglichen, bevor der generelle
+# Fuzzy-Pfad ueberhaupt zum Zug kommt - kein Fehltreffer-Risiko mehr.
+_ARENA_PREMIUM_PATTERN = re.compile(r"^ARENA\s*SPORT\s*0*(\d+)\s*PREMIUM(?:\s*HD)?$", re.IGNORECASE)
+
+
 def mts_kanal_finden(kanalname):
     """Sucht den mts.rs-Kanal, der am besten zu kanalname passt - erst
-    exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
+    feste Alias-Aufloesung (Arena Sport N Premium), dann exakter
+    Abgleich nach normalisiere_sendername(), sonst unscharfer
     difflib-Abgleich (gleiche Vorgehensweise wie telemach_kanal_finden()).
     Gibt die (URL-encodete) site_id zurueck oder None."""
     kanaele = mts_hole_kanalliste()
@@ -128,6 +146,11 @@ def mts_kanal_finden(kanalname):
         schluessel = normalisiere_sendername(kanal["name"])
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
+
+    premium_treffer = _ARENA_PREMIUM_PATTERN.match(kanalname.strip())
+    if premium_treffer:
+        alias_schluessel = normalisiere_sendername(f"Arena PREMIUM {premium_treffer.group(1)}")
+        return name_index.get(alias_schluessel)
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]

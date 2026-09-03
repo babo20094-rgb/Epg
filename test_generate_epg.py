@@ -18,6 +18,7 @@ Kategorien oder Sprachen erweitert werden:
 """
 
 import datetime
+import gzip
 import json
 import os
 from unittest.mock import patch, MagicMock
@@ -1220,6 +1221,35 @@ def test_mts_erfolgreicher_abruf_liefert_echte_sendungen(_mts_cache_zuruecksetze
     assert sendung["stop"] > sendung["start"]
 
 
+def test_mts_arena_premium_matcht_nicht_faelschlich_auf_selben_kanal(_mts_cache_zuruecksetzen):
+    """Regressionstest: 'ARENA SPORT N PREMIUM' (eigene sender.txt-
+    Konvention) hat bei mts.rs die vertauschte Wortreihenfolge 'Arena
+    PREMIUM N' - ohne die feste Alias-Aufloesung kollabierte der
+    unscharfe difflib-Abgleich alle 5 Premium-Sender faelschlich auf
+    denselben einen Kanal."""
+    response = _mock_response({
+        "products": [
+            {"code": "p1", "name": "Arena PREMIUM 1", "programs": []},
+            {"code": "p2", "name": "Arena PREMIUM 2", "programs": []},
+            {"code": "p3", "name": "Arena PREMIUM 3", "programs": []},
+            {"code": "p4", "name": "Arena PREMIUM 4", "programs": []},
+            {"code": "p5", "name": "Arena PREMIUM 5", "programs": []},
+        ]
+    })
+    with patch("quellen.mts_epg.requests.get", return_value=response):
+        treffer = {
+            n: mts_epg.mts_kanal_finden(f"ARENA SPORT {n} PREMIUM")
+            for n in range(1, 6)
+        }
+        treffer_hd = {
+            n: mts_epg.mts_kanal_finden(f"ARENA SPORT {n} PREMIUM HD")
+            for n in range(1, 6)
+        }
+
+    assert treffer == {1: "p1", 2: "p2", 3: "p3", 4: "p4", 5: "p5"}
+    assert treffer_hd == treffer
+
+
 def test_mts_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_mts_cache_zuruecksetzen):
     with patch("quellen.mts_epg.requests.get", return_value=_mts_tagesdaten_response()):
         assert mts_epg.mts_kanal_finden("Nicht Existierender Kanal XYZ") is None
@@ -1297,6 +1327,29 @@ def test_mojmaxtv_erfolgreicher_abruf_liefert_echte_sendungen(_mojmaxtv_cache_zu
     assert sendung["stop"] > sendung["start"]
 
 
+def test_mojmaxtv_sk_alias_matcht_nicht_faelschlich_bei_fehlendem_sport_klub(_mojmaxtv_cache_zuruecksetzen):
+    """Regressionstest fuer den Fehltreffer-Bug: MojMaxTV fuehrt aktuell
+    KEINEN "Sport Klub"-Kanal mehr - "SK 1" darf dann NICHT per
+    unscharfem Abgleich auf einen voellig unabhaengigen Kanal wie
+    "Sport 1" matchen (fuehrte zu deutschen Sendungen statt kroatischem
+    Sport-Klub-Programm), sondern muss None liefern."""
+    kanalliste_response = _mock_response({
+        "channels": [{"station_id": "1", "title": "Sport 1"}]
+    })
+    with patch("quellen.mojmaxtv_epg.requests.get", return_value=kanalliste_response):
+        assert mojmaxtv_epg.mojmaxtv_kanal_finden("SK 1") is None
+
+    mojmaxtv_epg._kanalliste_cache = None
+    kanalliste_mit_sport_klub = _mock_response({
+        "channels": [
+            {"station_id": "1", "title": "Sport 1"},
+            {"station_id": "43", "title": "Sport Klub 1"},
+        ]
+    })
+    with patch("quellen.mojmaxtv_epg.requests.get", return_value=kanalliste_mit_sport_klub):
+        assert mojmaxtv_epg.mojmaxtv_kanal_finden("SK 1") == "43"
+
+
 def test_mojmaxtv_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_mojmaxtv_cache_zuruecksetzen):
     with patch("quellen.mojmaxtv_epg.requests.get", return_value=_mojmaxtv_channels_response()):
         assert mojmaxtv_epg.mojmaxtv_kanal_finden("Nicht Existierender Kanal XYZ") is None
@@ -1318,6 +1371,71 @@ def test_mojmaxtv_ohne_hr_zeilen_werden_keine_requests_ausgeloest():
             mojmaxtv_epg.mojmaxtv_kanal_finden(daten["sender"])
 
     assert mojmaxtv_sender_leer == []
+
+
+# ==========================================================
+# SportKlub-EPG (Fallback fuer HR|SK N, wenn MojMaxTV nichts liefert,
+# siehe sportklub_epg.py)
+# ==========================================================
+
+from quellen import sportklub_epg
+
+
+@pytest.fixture(autouse=False)
+def _sportklub_cache_zuruecksetzen():
+    sportklub_epg._daten_cache = None
+    yield
+    sportklub_epg._daten_cache = None
+
+
+def _sportklub_xml_response():
+    heute = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+  <channel id="SK.1.HD.(HR).ba"><display-name>SK 1 HD (HR)</display-name></channel>
+  <channel id="SK.11.HD.HR.(Portals).ba"><display-name>SK 11 HD HR (Portals)</display-name></channel>
+  <channel id="SK.Golf.(BIH/SI).ba"><display-name>SK Golf (BIH/SI)</display-name></channel>
+  <programme start="{heute}190000 +0000" stop="{heute}193000 +0000" channel="SK.1.HD.(HR).ba">
+    <title>Nogomet: Hajduk - Dinamo</title>
+  </programme>
+</tv>"""
+    komprimiert = gzip.compress(xml.encode("utf-8"))
+    response = MagicMock()
+    response.status_code = 200
+    response.content = komprimiert
+    response.raise_for_status = lambda: None
+    return response
+
+
+def test_sportklub_findet_sk1_nicht_faelschlich_sk11(_sportklub_cache_zuruecksetzen):
+    """Regressionstest: 'SK 1' darf nicht auf 'SK 11'/'SK 12' matchen
+    (Nummern-Praefix-Kollision bei rein textuellem Vergleich)."""
+    with patch("quellen.sportklub_epg.requests.get", return_value=_sportklub_xml_response()):
+        assert sportklub_epg.sportklub_kanal_finden("SK 1") == "SK.1.HD.(HR).ba"
+        assert sportklub_epg.sportklub_kanal_finden("SK 11") == "SK.11.HD.HR.(Portals).ba"
+        assert sportklub_epg.sportklub_kanal_finden("SK Golf") == "SK.Golf.(BIH/SI).ba"
+        assert sportklub_epg.sportklub_kanal_finden("SK 99") is None
+
+
+def test_sportklub_erfolgreicher_abruf_liefert_echte_sendungen(_sportklub_cache_zuruecksetzen):
+    with patch("quellen.sportklub_epg.requests.get", return_value=_sportklub_xml_response()):
+        site_id = sportklub_epg.sportklub_kanal_finden("SK 1")
+        assert site_id == "SK.1.HD.(HR).ba"
+        programme = sportklub_epg.sportklub_hole_programme(site_id, tage=365)
+
+    assert len(programme) == 1
+    assert programme[0]["title"] == "Nogomet: Hajduk - Dinamo"
+    assert programme[0]["start"].tzinfo is not None
+
+
+def test_sportklub_kaputtes_gzip_gibt_none_statt_exception(_sportklub_cache_zuruecksetzen):
+    kaputte_response = MagicMock()
+    kaputte_response.status_code = 200
+    kaputte_response.content = b"kein gueltiges gzip/xml"
+    kaputte_response.raise_for_status = lambda: None
+    with patch("quellen.sportklub_epg.requests.get", return_value=kaputte_response):
+        assert sportklub_epg.sportklub_kanal_finden("SK 1") is None
+        assert sportklub_epg.sportklub_hole_programme("SK.1.HD.(HR).ba") == []
 
 
 # ==========================================================

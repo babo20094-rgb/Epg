@@ -143,17 +143,26 @@ def mojmaxtv_kanal_finden(kanalname):
         return None
 
     # "SK 1".."SK 10" (eigene Playlist-Abkuerzung in sender.txt, z.B.
-    # "HR|SK 1") vs. "Sport Klub 1" (voller Name bei MojMaxTV): die
-    # normalisierten Schluessel "SK1" vs. "SPORTKLUB1" liegen bei so
-    # kurzen Strings weit unter der difflib-Aehnlichkeits-Schwelle
-    # (0.72) - der Sender wurde deshalb NIE automatisch gefunden, obwohl
-    # MojMaxTV die echten Programmdaten dafuer hat (Bug September 2026
-    # behoben). Nur dieses eine bekannte Abkuerzungsmuster wird gezielt
-    # aufgeloest, kein globales "SK"-Alias (zu hohes Fehltreffer-Risiko
-    # bei anderen Sendern/Laendercodes).
+    # "HR|SK 1") vs. "Sport Klub 1" (voller Name bei MojMaxTV, FALLS
+    # vorhanden): die normalisierten Schluessel "SK1" vs. "SPORTKLUB1"
+    # liegen bei so kurzen Strings weit unter der difflib-Aehnlichkeits-
+    # Schwelle (0.72), ein exakter Treffer war deshalb nie moeglich.
+    # WICHTIG (Bug September 2026 behoben): MojMaxTV fuehrt inzwischen
+    # GAR KEINEN "Sport Klub"-Kanal mehr in der Kanalliste (nur noch
+    # Arena Sport 1-10 u.ae.) - der unscharfe difflib-Fallback unten
+    # matchte "SK 1" dadurch faelschlich auf den voellig unabhaengigen
+    # Kanal "Sport 1" (deutsche Sendungen statt kroatischem Sport-Klub-
+    # Programm). Fuer dieses Alias-Muster wird deshalb NUR noch ein
+    # exakter Treffer akzeptiert - kein unscharfer Fallback, lieber
+    # kein Treffer als ein falscher.
     sk_match = re.match(r"^SK\s*0*(\d+)$", kanalname.strip(), re.IGNORECASE)
     if sk_match:
         kanalname = f"Sport Klub {sk_match.group(1)}"
+        ziel_schluessel = normalisiere_sendername(kanalname)
+        for kanal in kanaele:
+            if normalisiere_sendername(kanal["name"]) == ziel_schluessel:
+                return kanal["site_id"]
+        return None
 
     ziel_schluessel = normalisiere_sendername(kanalname)
     if not ziel_schluessel:

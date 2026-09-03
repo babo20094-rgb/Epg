@@ -23,6 +23,7 @@ from quellen.mymedia_epg import mymedia_hole_programme
 from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
 from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
+from quellen.sportklub_epg import sportklub_kanal_finden, sportklub_hole_programme
 from quellen.siol_epg import siol_kanal_finden, siol_hole_programme
 from quellen.sky_epg import sky_kanal_finden, sky_hole_programme
 from quellen.magenta_epg import magenta_kanal_finden, magenta_hole_programme
@@ -164,7 +165,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvguide": ["tvguide_intervalle"],
     "tvpassport": ["tvpassport_intervalle"],
     "mts": ["mts_intervalle"],
-    "mojmaxtv": ["mojmaxtv_intervalle"],
+    "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle"],
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle"],
     "tubi": ["tubi_intervalle"],
@@ -2603,6 +2604,37 @@ for daten in mojmaxtv_sender:
 
     if programme:
         print(f"MojMaxTV-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SPORTKLUB: zweiter Versuch fuer alle HR-Sender, bei denen MojMaxTV
+# nichts gefunden hat (siehe sportklub_epg.py - MojMaxTV fuehrt seit
+# September 2026 keine "Sport Klub"-Kanaele mehr, betrifft "HR|SK N").
+# Kein eigenes Praefix noetig, laeuft automatisch als Fallback nach
+# MojMaxTV innerhalb derselben mojmaxtv_sender-Liste.
+# ==========================================================
+
+for daten in mojmaxtv_sender:
+    if daten.get("mojmaxtv_intervalle"):
+        continue  # MojMaxTV hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        site_id = sportklub_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = sportklub_hole_programme(site_id, MOJMAXTV_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        print(f"SportKlub-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
