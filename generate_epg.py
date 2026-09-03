@@ -337,6 +337,16 @@ def kern_vorne_und_event_extrahieren(voller_name):
     if match:
         return match.group(1).strip(), match.group(2).strip()
 
+    # "LIVE EVENT N - ..." (z.B. "LIVE EVENT 07 - NO EVENT", "LIVE EVENT
+    # 06 - 9pm High Limit Racing Skagit") - eigene Bindestrich-Konvention
+    # ohne Land, weder Pipe noch Doppelpunkt. Eng auf "LIVE EVENT"
+    # begrenzt (nicht generisch auf jeden Bindestrich), um nicht
+    # denselben Fehltreffer-Typ wie beim generischen Doppelpunkt-Muster
+    # zu riskieren (siehe Regressions-Lehre oben).
+    live_event_match = re.match(r"^\s*(LIVE\s*EVENT\s*0*\d+)\s*-\s*(.*)$", voller_name, re.IGNORECASE)
+    if live_event_match:
+        return live_event_match.group(1).strip(), live_event_match.group(2).strip()
+
     # Generisches Kern-VORNE-Muster ohne Pipe (z.B. NCAAF: "NCAAF 01:
     # North Texas vs Charlotte @ Oct 24 7:00 PM" -> Kern "NCAAF 01").
     # An ^ verankert, damit nur der ALLERERSTE Doppelpunkt der Zeile als

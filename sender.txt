@@ -237,34 +237,34 @@ CITY|NBC WNBJ LD NASHVILLE ᴿᴬᵂ|Nbc Wnbj Ld Nashville ᴿᴬᵂ ᴸⁱᵛ�
 CITY|NBC WTOV CLEVELAND ᴿᴬᵂ|Nbc Wtov Cleveland ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/890e598f2e683746.png
 CITY|NBC WWLP DETROIT ᴿᴬᵂ|Nbc Wwlp Detroit ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
 CITY|NBC WXIA ATLANTA ᴿᴬᵂ|Nbc Wxia Atlanta ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ba714620641f222f.png
-CITY|PBS KBDI DENVER ᴿᴬᵂ|Pbs Kbdi Denver ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938458.png
+CITY|PBS KBDI DENVER ᴿᴬᵂ|Pbs Kbdi Denver ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS KBTC SEATTLE ᴿᴬᵂ|Pbs Kbtc Seattle ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/55f65b7d7b965875.png
 CITY|PBS KCTS SEATTLE ᴿᴬᵂ|Pbs Kcts Seattle ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/55f65b7d7b965875.png
-CITY|PBS KEPB BOULDER ᴿᴬᵂ|Pbs Kepb Boulder ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938453.png
-CITY|PBS KERA MIAMI ᴿᴬᵂ|Pbs Kera Miami ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938452.png
-CITY|PBS KETC COLUMBUS ᴿᴬᵂ|Pbs Ketc Columbus ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938451.png
+CITY|PBS KEPB BOULDER ᴿᴬᵂ|Pbs Kepb Boulder ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+CITY|PBS KERA MIAMI ᴿᴬᵂ|Pbs Kera Miami ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+CITY|PBS KETC COLUMBUS ᴿᴬᵂ|Pbs Ketc Columbus ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS KETS HOUSTON ᴿᴬᵂ|Pbs Kets Houston ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/68cc4a58802de5a3.png
-CITY|PBS KLPB BROOKLYN ᴿᴬᵂ|Pbs Klpb Brooklyn ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938449.png
-CITY|PBS KLTL MARIETTA ᴿᴬᵂ|Pbs Kltl Marietta ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938448.png
+CITY|PBS KLPB BROOKLYN ᴿᴬᵂ|Pbs Klpb Brooklyn ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+CITY|PBS KLTL MARIETTA ᴿᴬᵂ|Pbs Kltl Marietta ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS KQED SAN FRANCISCO ᴿᴬᵂ|Pbs Kqed San Francisco ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f301173549b7cb9e.png
 CITY|PBS KQIN LOS ANGELES ᴿᴬᵂ|Pbs Kqin Los Angeles ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/deaba86b880b5609.png
 CITY|PBS KRCB SAN FRANCISCO ᴿᴬᵂ|Pbs Krcb San Francisco ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f301173549b7cb9e.png
-CITY|PBS KRMA DENVER ᴿᴬᵂ|Pbs Krma Denver ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938442.png
+CITY|PBS KRMA DENVER ᴿᴬᵂ|Pbs Krma Denver ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS KUED PHILADELPHIA ᴿᴬᵂ|Pbs Kued Philadelphia ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/63108aa4db7016f9.png
 CITY|PBS WABE ATLANTA ᴿᴬᵂ|Pbs Wabe Atlanta ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5a8e3053b0187af1.png
 CITY|PBS WENH BOSTON ᴿᴬᵂ|Pbs Wenh Boston ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d87f180c44f89721.png
 CITY|PBS WGBH BOSTON ᴿᴬᵂ|Pbs Wgbh Boston ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8ffcab1047b56284.png
-CITY|PBS WGBY DETROIT ᴿᴬᵂ|Pbs Wgby Detroit ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938437.png
+CITY|PBS WGBY DETROIT ᴿᴬᵂ|Pbs Wgby Detroit ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS WGTV ATLANTA ᴿᴬᵂ|Pbs Wgtv Atlanta ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5a8e3053b0187af1.png
-CITY|PBS WKLE PHOENIX ᴿᴬᵂ|Pbs Wkle Phoenix ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938434.png
+CITY|PBS WKLE PHOENIX ᴿᴬᵂ|Pbs Wkle Phoenix ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS WLJT NASHVILLE ᴿᴬᵂ|Pbs Wljt Nashville ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/adf7eb06cec09787.png
-CITY|PBS WMAO TAMPA ᴿᴬᵂ|Pbs Wmao Tampa ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938432.png
-CITY|PBS WMUM SILVER SPRING ᴿᴬᵂ|Pbs Wmum Silver Spring ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938431.png
-CITY|PBS WNET NEW YORK ᴿᴬᵂ|Pbs Wnet New York ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938430.png
-CITY|PBS WNJN NEW YORK ᴿᴬᵂ|Pbs Wnjn New York ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938429.png
-CITY|PBS WPNE GREENBAY ᴿᴬᵂ|Pbs Wpne Greenbay ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938428.png
+CITY|PBS WMAO TAMPA ᴿᴬᵂ|Pbs Wmao Tampa ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+CITY|PBS WMUM SILVER SPRING ᴿᴬᵂ|Pbs Wmum Silver Spring ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+CITY|PBS WNET NEW YORK ᴿᴬᵂ|Pbs Wnet New York ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+CITY|PBS WNJN NEW YORK ᴿᴬᵂ|Pbs Wnjn New York ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+CITY|PBS WPNE GREENBAY ᴿᴬᵂ|Pbs Wpne Greenbay ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS WQPT LOS ANGELES ᴿᴬᵂ|Pbs Wqpt Los Angeles ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e2c330f7456c9d0.png
-CITY|PBS WSKG CAMBRIDGE ᴿᴬᵂ|Pbs Wskg Cambridge ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1938426.png
+CITY|PBS WSKG CAMBRIDGE ᴿᴬᵂ|Pbs Wskg Cambridge ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS WTCI WASHINGTON ᴿᴬᵂ|Pbs Wtci Washington ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/556097bab2c4a6d5.png
 CITY|PBS WTTW CHICAGO ᴿᴬᵂ|Pbs Wttw Chicago ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0a23f67e75f397c6.png
 CITY|PBS WYIN CHICAGO ᴿᴬᵂ|Pbs Wyin Chicago ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0a23f67e75f397c6.png
@@ -1550,7 +1550,7 @@ GO|OXYGEN TRUE CRIME ARCHIVES|Oxygen True Crime Archives ᴸⁱᵛᵉ|https://ra
 GO|PARAMOUNT TV|Paramount Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e50ba329e6ff87f6.png
 GO|PBS KIDS|Pbs Kids ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd873b9de5e68069.png
 GO|PBS-WNET|Pbs-Wnet ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a546665b3515e47338da4d41469aa6ef6cd98628.png
-GO|PBS-WNJN|Pbs-Wnjn ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1930975.png
+GO|PBS-WNJN|Pbs-Wnjn ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 GO|PICKLEBALL TV|Pickleball Tv ᴸⁱᵛᵉ|https://pickleballtv.com/wp-content/themes/bootscore-child-main/img/logo/full-logo.svg
 GO|POKERGO|Pokergo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6627d77bee18a998.png
 GO|POP|Pop ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/03d7f29e9ceca372.png
@@ -3807,24 +3807,24 @@ FREEVIEW:GB|CARTOONITO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 FREEVIEW:GB|CBBC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a1bbbfea22a59562.png
 FREEVIEW:GB|CBS REALITY +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29478f6ca64916ad.png
 FREEVIEW:GB|CHALLENGE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1740ad920bdafc8d.png
-FREEVIEW:GB|CHAMPIONS LEAGUE HIGHLIGHTS ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 1 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 10 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 11 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 12 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 13 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 14 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 15 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 16 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 2 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 3 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 4 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 5 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 6 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 7 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 8 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 9 ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
-FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY INFO ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
+FREEVIEW:GB|CHAMPIONS LEAGUE HIGHLIGHTS ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 10 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 11 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 12 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 13 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 14 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 15 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 16 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 2 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 3 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 4 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 5 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 6 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 7 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 8 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY 9 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
+FREEVIEW:GB|CHAMPIONS LEAGUE REPLAY INFO ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa_replay/uefa_replay.png
 FREEVIEW:GB|CHANNEL 4 +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
 FREEVIEW:GB|CHANNEL 4 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebcb28ea272ba58f.png
@@ -5350,18 +5350,18 @@ TVGUIDE:US|AVATA THE LAST AIRBENDER FHD|https://raw.githubusercontent.com/babo20
 TVGUIDE:US|AVATAR THE LAST AIRBENDER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f15f561b1a16513.png
 TVGUIDE:US|AWE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d700776473da427.png
 TVGUIDE:US|AXS TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/049005a337d729ee.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 1|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 10|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 11|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 12|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 2|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 3|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 4|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 5|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 6|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 7|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 8|http://51.158.145.100/picons/logos/PPV/Max.png
-TVGUIDE:US|B/R MAX SPORTS EVENTS 9|http://51.158.145.100/picons/logos/PPV/Max.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
+TVGUIDE:US|B/R MAX SPORTS EVENTS 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/br_max_sports/br_max_sports.png
 TVGUIDE:US|BABY DADDY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4be37f4339e07325ae534b47f866bfc1263ab3a2.png
 TVGUIDE:US|BABY FIRST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7b6e23f1c34fdb1d.png
 TVGUIDE:US|BABY TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f7dd11c9952fc56.png
@@ -6986,36 +6986,36 @@ TVGUIDE:US|PARAMOUNT+ ORIGINAL 8 ᴴᴰ|https://raw.githubusercontent.com/babo20
 TVGUIDE:US|PARAMOUNT+ ORIGINAL 9 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7607f86b740cbb13.png
 TVGUIDE:US|PARAMOUNT+ ORIGINAL INFO ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7607f86b740cbb13.png
 TVGUIDE:US|PATRIOT ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e44379a0beed097.png
-TVPASSPORT:US|PBS (KERA) DALLAS|http://51.158.145.100/picons/logos/USA/1938452.png
+TVPASSPORT:US|PBS (KERA) DALLAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS (KQED) SAN FRANCISCO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f301173549b7cb9e.png
-TVPASSPORT:US|PBS (KUAT) TUCSON|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS (WETA) BALTIMORE|http://51.158.145.100/picons/logos/PPV/PBS.png
+TVPASSPORT:US|PBS (KUAT) TUCSON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS (WETA) BALTIMORE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 US|PBS (WGBH) MA | BOSTON|Pbs (Wgbh) Ma | Boston ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
 TVPASSPORT:US|PBS (WHYY) PA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/82f7d542bf7781a4.png
-TVPASSPORT:US|PBS (WITF) HARRISBURG|http://51.158.145.100/picons/logos/PPV/PBS.png
+TVPASSPORT:US|PBS (WITF) HARRISBURG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS (WLRN) MIAMI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/89ba32c2140470eb.png
 TVPASSPORT:US|PBS (WNED) NY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ef0a8f83249158ea.png
 TVPASSPORT:US|PBS (WTCI) CHATTANOOGA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/556097bab2c4a6d5.png
-TVPASSPORT:US|PBS (WTIU) INDIANAPOLIS|http://51.158.145.100/picons/logos/PPV/PBS.png
+TVPASSPORT:US|PBS (WTIU) INDIANAPOLIS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS (WTTW) CHICAGO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0a23f67e75f397c6.png
-TVPASSPORT:US|PBS (WYES) NEW ORLEANS|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS 10 (KLVX) LAS VEGAS|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS 19 (KCPT) KANSAS CITY|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS 30 (WGCU)|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVGUIDE:US|PBS 36 ODESSA/MIDLAND|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS 58 (KLCS) LOS ANGELES|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVGUIDE:US|PBS ALBUQUERQUE-SANTA FE|http://51.158.145.100/picons/logos/PPV/PBS.png
+TVPASSPORT:US|PBS (WYES) NEW ORLEANS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS 10 (KLVX) LAS VEGAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS 19 (KCPT) KANSAS CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS 30 (WGCU)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVGUIDE:US|PBS 36 ODESSA/MIDLAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS 58 (KLCS) LOS ANGELES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVGUIDE:US|PBS ALBUQUERQUE-SANTA FE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVGUIDE:US|PBS DETROIT (WTVS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/440c3fd0e4313920.png
-TVPASSPORT:US|PBS ENCORE KET2 (WKAS)|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS ENCORE KET2 (WKGB)|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS ENCORE KET2 (WKLE)|http://51.158.145.100/picons/logos/PPV/PBS.png
-TVPASSPORT:US|PBS ENCORE KET2 (WKPC)|http://51.158.145.100/picons/logos/PPV/PBS.png
+TVPASSPORT:US|PBS ENCORE KET2 (WKAS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS ENCORE KET2 (WKGB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS ENCORE KET2 (WKLE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+TVPASSPORT:US|PBS ENCORE KET2 (WKPC)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVGUIDE:US|PBS KIDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd873b9de5e68069.png
 TVPASSPORT:US|PBS KIDS (WTCI) CHATTANOOGA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/556097bab2c4a6d5.png
 US|PBS KY | KET LEXINGTON (WKLE)|Pbs Ky | Ket Lexington (Wkle) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
 US|PBS NJ | NEW JERSEY (WNJT)|Pbs Nj | New Jersey (Wnjt) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
 US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ef0a8f83249158ea1704c8d53f10ab6c1e9682e5.png
-TVPASSPORT:US|PBS PA Pittsburgh (WQED)|http://51.158.145.100/picons/logos/PPV/PBS.png
+TVPASSPORT:US|PBS PA Pittsburgh (WQED)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS PORTLAND (KOPB) OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aca99881d215f1b5.png
 TVGUIDE:US|PEACOCK ORIGINAL 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/116eaef5a8549899.png
 TVGUIDE:US|PEACOCK ORIGINAL 10 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/116eaef5a8549899.png
@@ -12600,40 +12600,40 @@ NAME:LA LIGA| REAL SOCIEDAD|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 NAME:LA LIGA| SEVILLA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/217b88ec76b0ec10938b09be678f381a0a628a63.png
 NAME:LA LIGA| VALENCIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a978b534e3d61abdfec455886c57cdd0eaeaf3e1.png
 NAME:LA LIGA| VILLAREAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/217b88ec76b0ec10938b09be678f381a0a628a63.png
-NAME:LIVE EVENT 01|
-NAME:LIVE EVENT 02|
-NAME:LIVE EVENT 03|
-NAME:LIVE EVENT 04|
-NAME:LIVE EVENT 05|
-NAME:LIVE EVENT 06|
-NAME:LIVE EVENT 07|
-NAME:LIVE EVENT 08|
-NAME:LIVE EVENT 09|
-NAME:LIVE EVENT 10|
-NAME:LIVE EVENT 11|
-NAME:LIVE EVENT 12|
-NAME:LIVE EVENT 13|
-NAME:LIVE EVENT 14|
-NAME:LIVE EVENT 15|
-NAME:LIVE EVENT 16|
-NAME:LIVE EVENT 17|
-NAME:LIVE EVENT 18|
-NAME:LIVE EVENT 19|
-NAME:LIVE EVENT 20|
-NAME:LIVE EVENT 21|
-NAME:LIVE EVENT 22|
-NAME:LIVE EVENT 23|
-NAME:LIVE EVENT 24|
-NAME:LIVE EVENT 25|
-NAME:LIVE EVENT 26|
-NAME:LIVE EVENT 27|
-NAME:LIVE EVENT 28|
-NAME:LIVE EVENT 29|
-NAME:LIVE EVENT 30|
-NAME:LIVE EVENT 31|
-NAME:LIVE EVENT 32|
-NAME:LIVE EVENT 33|
-NAME:LIVE EVENT 34|
+NAME:LIVE EVENT 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
+NAME:LIVE EVENT 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
 NAME:LIVE NFL PLAYOFFS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:LOI  TV 12 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 06 : Athlone Town v Bray Wanderers  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
@@ -13305,106 +13305,106 @@ NAME:Supercross 1|
 NAME:Supercross 2|
 NAME:Supercross 3|
 NAME::Flo College  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
-NAME:TC+ 1|
-NAME:TC+ 10|
-NAME:TC+ 100|
-NAME:TC+ 11|
-NAME:TC+ 12|
-NAME:TC+ 13|
-NAME:TC+ 14|
-NAME:TC+ 15|
-NAME:TC+ 16|
-NAME:TC+ 17|
-NAME:TC+ 18|
-NAME:TC+ 19|
-NAME:TC+ 2|
-NAME:TC+ 20|
-NAME:TC+ 21|
-NAME:TC+ 22|
-NAME:TC+ 23|
-NAME:TC+ 24|
-NAME:TC+ 25|
-NAME:TC+ 26|
-NAME:TC+ 27|
-NAME:TC+ 28|
-NAME:TC+ 29|
-NAME:TC+ 3|
-NAME:TC+ 30|
-NAME:TC+ 31|
-NAME:TC+ 32|
-NAME:TC+ 33|
-NAME:TC+ 34|
-NAME:TC+ 35|
-NAME:TC+ 36|
-NAME:TC+ 37|
-NAME:TC+ 38|
-NAME:TC+ 39|
-NAME:TC+ 4|
-NAME:TC+ 40|
-NAME:TC+ 41|
-NAME:TC+ 42|
-NAME:TC+ 43|
-NAME:TC+ 44|
-NAME:TC+ 45|
-NAME:TC+ 46|
-NAME:TC+ 47|
-NAME:TC+ 48|
-NAME:TC+ 49|
-NAME:TC+ 5|
-NAME:TC+ 50|
-NAME:TC+ 51|
-NAME:TC+ 52|
-NAME:TC+ 53|
-NAME:TC+ 54|
-NAME:TC+ 55|
-NAME:TC+ 56|
-NAME:TC+ 57|
-NAME:TC+ 58|
-NAME:TC+ 59|
-NAME:TC+ 6|
-NAME:TC+ 60|
-NAME:TC+ 61|
-NAME:TC+ 62|
-NAME:TC+ 63|
-NAME:TC+ 64|
-NAME:TC+ 65|
-NAME:TC+ 66|
-NAME:TC+ 67|
-NAME:TC+ 68|
-NAME:TC+ 69|
-NAME:TC+ 7|
-NAME:TC+ 70|
-NAME:TC+ 71|
-NAME:TC+ 72|
-NAME:TC+ 73|
-NAME:TC+ 74|
-NAME:TC+ 75|
-NAME:TC+ 76|
-NAME:TC+ 77|
-NAME:TC+ 78|
-NAME:TC+ 79|
-NAME:TC+ 8|
-NAME:TC+ 80|
-NAME:TC+ 81|
-NAME:TC+ 82|
-NAME:TC+ 83|
-NAME:TC+ 84|
-NAME:TC+ 85|
-NAME:TC+ 86|
-NAME:TC+ 87|
-NAME:TC+ 88|
-NAME:TC+ 89|
-NAME:TC+ 9|
-NAME:TC+ 90|
-NAME:TC+ 91|
-NAME:TC+ 92|
-NAME:TC+ 93|
-NAME:TC+ 94|
-NAME:TC+ 95|
-NAME:TC+ 96|
-NAME:TC+ 97|
-NAME:TC+ 98|
-NAME:TC+ 99|
+NAME:TC+ 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 100|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 39|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 51|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 52|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 53|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 54|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 55|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 56|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 61|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 63|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 64|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 65|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 66|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 67|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 68|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 69|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 70|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 71|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 72|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 73|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 74|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 75|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 76|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 77|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 78|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 79|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 80|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 81|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 82|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 83|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 84|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 85|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 86|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 87|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 88|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 89|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 90|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 91|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 92|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 93|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 94|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 95|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME:TC+ 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:TEXAS RANGER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/576f2e351c97b2c05c29aa29c9b1019de3ac7660.png
 NAME:THE TEENAGE WITCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b1234eae55748b125724e8391179c8c2d6c03b53.png
 NAME:TNT SPORTS | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
@@ -15967,56 +15967,56 @@ NAME:US: ESPN+ PPV 996|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:US: ESPN+ PPV 997|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
 NAME:US: ESPN+ PPV 998|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
 NAME:US: ESPN+ PPV 999|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0dde68f2493b586f97a4994f54b6fcc84c44f7ac.png
-NAME:US: FIFA+ PPV 1|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 10|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 11|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 12|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 13|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 14|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 15|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 16|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 17|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 18|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 19|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 2|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 20|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 21|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 22|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 23|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 24|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 25|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 26|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 27|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 28|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 29|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 3|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 30|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 31|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 32|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 33|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 34|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 35|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 36|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 37|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 38|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 39|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 4|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 40|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 41|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 42|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 43|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 44|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 45|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 46|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 47|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 48|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 49|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 5|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 50|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 6|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 7|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 8|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
-NAME:US: FIFA+ PPV 9|https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FIFA%2B.svg/960px-FIFA%2B.svg.png
+NAME:US: FIFA+ PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 39|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
+NAME:US: FIFA+ PPV 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fifa_plus/fifa_plus.png
 NAME:US: MAX PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:US: MAX PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:US: MAX PPV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png

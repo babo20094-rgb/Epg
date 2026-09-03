@@ -1729,3 +1729,70 @@ gegen die neuen Zielformate, die der Fix eigentlich beheben sollte -
 fuer den LIVE-Abgleich (wo ein falscher Kern einfach keinen Treffer
 findet), NICHT fuers Einlesen von sender.txt selbst, wo der falsch
 erkannte Kern direkt und ungeprueft zum tatsaechlichen Sendernamen wird.
+
+## Grosse Logo-/Extraktions-Aufraeumrunde (September 2026, nach Regressions-Fix)
+
+Nach dem kritischen Regressions-Fix (siehe oben) meldete der Nutzer per
+9 Screenshots eine ganze Reihe weiterer Logo-/Extraktionsluecken, der
+Reihe nach behoben:
+
+- **FIFA+ PPV (50 Sender):** Logo verlinkte nur extern auf Wikimedia
+  (Regelverstoss) - Original-Logo heruntergeladen, optimiert, selbst
+  gehostet unter `logos/fifa_plus/`.
+- **US Tennis Channel Plus / "TC+ N" (100 Sender):** hatten GAR KEIN
+  Logo (leeres Feld) - bekommen jetzt dasselbe bereits vorhandene
+  Tennis-Channel-Logo wie die "US: Tennis PPV"-Gruppe.
+- **PBS (33 Sender):** zeigten auf den bekannten toten Picon-Host
+  `51.158.145.100` - offizielles PBS-Icon (`pbs.org/favicons/`)
+  heruntergeladen, optimiert, unter `logos/pbs/` selbst gehostet, als
+  einheitliches Fallback-Logo fuer alle betroffenen PBS-Varianten
+  eingetragen (besser ein generisches echtes Logo als gar keins).
+- **B/R Max Sports Events (12 Sender):** ebenfalls toter Picon-Host,
+  kein offizielles Logo online auffindbar (bleacherreport.com liefert
+  keine brauchbaren Assets) - eigenes Text-Logo erstellt ("B/R" weiss +
+  "MAX SPORTS" rot auf dunkelblauem Grund), nutzergegengeprueft, unter
+  `logos/br_max_sports/`.
+- **UK Champions League Replay/Highlights (18 Sender):** ebenfalls
+  toter Picon-Host, uefa.com aus der Sandbox nicht erreichbar (Timeout)
+  - eigenes Text-Logo erstellt ("CHAMPIONS" weiss + "LEAGUE REPLAY"
+    gold auf dunkelblauem Grund), unter `logos/uefa_replay/`.
+- **"LIVE EVENT N" (34 Sender, `NAME:LIVE EVENT 01`-`34`):** hatte GAR
+  KEIN Logo UND wurde beim Live-Playlist-Abgleich strukturell NIE
+  erkannt (siehe eigener Abschnitt unten zum Bindestrich-Format) -
+  eigenes Text-Logo erstellt ("LIVE" rot + "EVENT" weiss auf
+  dunkelgrauem Grund), unter `logos/live_event/`.
+- **RTL+ PPV/ESPN+ PPV VIP #4+#7/US NETFLIX PPV/DE SOCCER PPV:** alles
+  Symptome desselben, bereits behobenen "DE"/"US"-Regressionsbugs
+  (siehe Abschnitt oben) - keine weitere Aenderung noetig, loest sich
+  automatisch mit dem naechsten Lauf. Alle 200 SOCCER-PPV-Nummern
+  wurden zusaetzlich stichprobenartig auf Luecken geprueft (keine
+  gefunden).
+- Alle neuen eigenen Logos wurden dem Nutzer vor der Uebernahme als
+  Bildvorschau gezeigt und explizit bestaetigt (gilt fuer B/R Max
+  Sports, Champions League Replay UND "LIVE EVENT").
+
+## "LIVE EVENT N": eigenes Bindestrich-Namensformat ohne Pipe/Doppelpunkt ergaenzt
+
+Der Nutzer meldete, dass die "LIVE EVENT N"-Sender (34 Stueck) trotz
+vorhandener sender.txt-Zeile in TiviMate komplett "Keine Information"
+zeigten, obwohl unsere generierte XML fuer den KANAL-NAMEN "LIVE EVENT
+07" durchaus den generischen Fallback-Text ("Live Event 07 ᴸⁱᵛᵉ")
+enthielt. Root Cause: der ECHTE Rohname in der Playlist dieses Senders
+lautet nicht "LIVE EVENT 07", sondern "LIVE EVENT 07 - NO EVENT" (bzw.
+bei einem echten Event "LIVE EVENT 06 - 9pm High Limit Racing Skagit")
+- ein eigenes Bindestrich-Format, weder Pipe- noch Doppelpunkt-basiert,
+das `kern_und_event_extrahieren()`/`kern_vorne_und_event_extrahieren()`
+bisher gar nicht kannten. Der Live-Playlist-Abgleich
+(`m3u_playlist_abgleichen()`) konnte den Kern aus dem Rohnamen deshalb
+nie extrahieren, wodurch `daten["kanal"]` beim statischen sender.txt-
+Kern ("LIVE EVENT 07") stehen blieb, statt auf den tatsaechlichen,
+laengeren Playlist-Namen aktualisiert zu werden - TiviMates exakter
+Namensabgleich (siehe September-2026-Lehre oben) scheiterte dadurch
+strukturell, unabhaengig von den (eigentlich vorhandenen) Programmdaten.
+**Fix:** `kern_vorne_und_event_extrahieren()` um ein eng auf "LIVE
+EVENT N -" begrenztes Muster erweitert (bewusst NICHT generisch auf
+jeden Bindestrich, um nicht denselben Fehltreffer-Typ wie beim
+generischen Doppelpunkt-Muster zu riskieren) - "LIVE EVENT 07 - NO
+EVENT" wird jetzt korrekt in Kern "LIVE EVENT 07" und Event-Text "NO
+EVENT" zerlegt; "NO EVENT" greift automatisch ueber `LEERLAUF_MARKER`
+("no event" ist dort bereits als Substring gelistet).
