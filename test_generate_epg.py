@@ -1439,6 +1439,78 @@ def test_sportklub_kaputtes_gzip_gibt_none_statt_exception(_sportklub_cache_zuru
 
 
 # ==========================================================
+# Magenta-myTeamTV-EPG (Fallback fuer MAGENTA SPORT PPV 1-18, siehe
+# magenta_myteam_epg.py)
+# ==========================================================
+
+from quellen import magenta_myteam_epg
+
+
+@pytest.fixture(autouse=False)
+def _magenta_myteam_cache_zuruecksetzen():
+    magenta_myteam_epg._daten_cache = None
+    yield
+    magenta_myteam_epg._daten_cache = None
+
+
+def _magenta_myteam_xml_response():
+    heute = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+  <channel id="Sport.1.-.myTeamTV.de"><display-name>Sport 1 - myTeamTV</display-name></channel>
+  <channel id="Sport.10.-.myTeamTV.de"><display-name>Sport 10 - myTeamTV</display-name></channel>
+  <channel id="Andere.Sport.1.de"><display-name>Sport 1 - myTeamTV Sonstige</display-name></channel>
+  <programme start="{heute}170000 +0000" stop="{heute}203000 +0000" channel="Sport.1.-.myTeamTV.de">
+    <title>Live: Champions Hockey League</title>
+  </programme>
+  <programme start="{heute}040000 +0000" stop="{heute}080000 +0000" channel="Sport.10.-.myTeamTV.de">
+    <title>myTeamTV: Momentan kein Programm</title>
+  </programme>
+</tv>"""
+    komprimiert = gzip.compress(xml.encode("utf-8"))
+    response = MagicMock()
+    response.status_code = 200
+    response.content = komprimiert
+    response.raise_for_status = lambda: None
+    return response
+
+
+def test_magenta_myteam_findet_ppv1_nicht_faelschlich_ppv10(_magenta_myteam_cache_zuruecksetzen):
+    """Regressionstest: 'MAGENTA SPORT PPV 1' darf nicht auf 'Sport 10 -
+    myTeamTV' matchen (Nummern-Praefix-Kollision)."""
+    with patch("quellen.magenta_myteam_epg.requests.get", return_value=_magenta_myteam_xml_response()):
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD") == "Sport.1.-.myTeamTV.de"
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 10 HD") == "Sport.10.-.myTeamTV.de"
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 99 HD") is None
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("RTL HD") is None
+
+
+def test_magenta_myteam_erfolgreicher_abruf_liefert_echte_sendungen_und_filtert_platzhalter(_magenta_myteam_cache_zuruecksetzen):
+    with patch("quellen.magenta_myteam_epg.requests.get", return_value=_magenta_myteam_xml_response()):
+        site_id = magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD")
+        programme = magenta_myteam_epg.magenta_myteam_hole_programme(site_id, tage=365)
+
+        leer_site_id = magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 10 HD")
+        leer_programme = magenta_myteam_epg.magenta_myteam_hole_programme(leer_site_id, tage=365)
+
+    assert len(programme) == 1
+    assert programme[0]["title"] == "Live: Champions Hockey League"
+    # Der generische "kein Programm"-Platzhalter wird herausgefiltert,
+    # nicht als echte Sendung behandelt.
+    assert leer_programme == []
+
+
+def test_magenta_myteam_kaputtes_gzip_gibt_none_statt_exception(_magenta_myteam_cache_zuruecksetzen):
+    kaputte_response = MagicMock()
+    kaputte_response.status_code = 200
+    kaputte_response.content = b"kein gueltiges gzip/xml"
+    kaputte_response.raise_for_status = lambda: None
+    with patch("quellen.magenta_myteam_epg.requests.get", return_value=kaputte_response):
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD") is None
+        assert magenta_myteam_epg.magenta_myteam_hole_programme("Sport.1.-.myTeamTV.de") == []
+
+
+# ==========================================================
 # Siol-EPG (automatischer Abgleich fuer SI-Sender, HTML-Scraping,
 # siehe siol_epg.py)
 # ==========================================================

@@ -8682,8 +8682,8 @@ NAME:(Victory+ 097)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:(Victory+ 098)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/537d041b7b9877feaf225a6e37eb6856d795ca62.png
 NAME:(Victory+ 099)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/537d041b7b9877feaf225a6e37eb6856d795ca62.png
 NAME:(Victory+ 100)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/537d041b7b9877feaf225a6e37eb6856d795ca62.png
-NAME:2026 US Open Tennis: Early Round Coverage Day #2 vs Primetime @ Aug 31 19:00 :Tennis  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:2026 US Open Tennis: Early Round Coverage Day #3 @ Sep 1 11:00 :Tennis  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:24/7 100 PERCENT HOTTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 12 OZ MOUSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9c688d1d99f9c78cddc56681e9046d17e975b330.png
@@ -11395,9 +11395,9 @@ NAME:AU (STAN 96)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:AU (STAN 97)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
 NAME:AU (STAN 98)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
 NAME:AU (STAN 99)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
-NAME:Altoona Curve vs Erie SeaWolves @ Aug 30 6:00 PM :Milb  57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Amarillo Sod Poodles vs Corpus Christi Hooks @ Aug 30 2:05 PM :Milb  36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Augusta GreenJackets vs Myrtle Beach Pelicans @ Aug 30 5:05 PM :Milb  53|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  53|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:BTN+ 1 HD (D): B1G+ | Field Hockey | Ball State at Michigan State | Tue 14 Oct 13:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 10 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 11 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
@@ -11448,8 +11448,8 @@ NAME:BTN+ 6 HD (D): B1G+ | Ice Hockey (M) | Robert Morris at #9 Michigan | Thu 1
 NAME:BTN+ 7 HD (D): B1G+ | Soccer (W) | Illinois at Northwestern | Thu 16 Oct 19:30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 8 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 9 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:Biloxi Shuckers vs Knoxville Smokies @ Aug 30 6:05 PM :Milb  58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Birmingham Barons vs Rocket City Trash Pandas @ Aug 30 3:05 PM :Milb  43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  43|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Boxing  05  :  FURY vs HALL  6PM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:Boxing 1 : MOSES vs HRGOVIC  4:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:Boxing 2 : MOSES vs HRGOVIC  4:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
@@ -11457,9 +11457,9 @@ NAME:Boxing 4 : MOSES vs HRGOVIC  4:00pm|https://raw.githubusercontent.com/babo2
 NAME:Boxing 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:Boxing 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:Boxing 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
-NAME:Cedar Rapids Kernels vs Lake County Captains @ Aug 30 2:05 PM :Milb  31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Charlotte Knights vs Memphis Redbirds @ Aug 30 5:05 PM :Milb  52|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Chattanooga Lookouts vs Columbus Clingstones @ Aug 30 1:00 PM :Milb  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  31|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  52|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Clubber 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d6ee116e0b4cce38cd9b4789c7a8ddb45467e670.png
 NAME:Clubber 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/90a91b86c2155aa22b8aaf00e2ab4aaa6fc0470a.png
 NAME:Clubber 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d339cbbc9dad91093fb7586b5b677c12d6b8642e.png
@@ -11480,8 +11480,8 @@ NAME:Clubber TV | Event 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 NAME:Clubber TV | Event 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
 NAME:Clubber TV | Event 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
 NAME:Clubber TV | Event 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/139e46a804c482e02d62989f65d98bea2ee28e69.png
-NAME:Columbia Fireflies vs Charleston RiverDogs @ Aug 30 5:05 PM :Milb  55|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Columbus Crew vs New England Revolution @ Aug 30 4:30 PM :MLS  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
+NAME::Milb  55|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::MLS  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:D+| ANIMAL PLANET FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b80d7240675959483ec65900bdb14ec8ed76178a.png
 NAME:D+| DISCOVERY HISTORY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/627da46d2f20b5f6d2bfc59eb8b30a816e5b1630.png
 NAME:D+| DISCOVERY SCIENCE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ee3cb4b22d9d8e62aa4a799ca5841ae8e70c0b42.png
@@ -12246,11 +12246,11 @@ NAME:DIRTVISION  08|
 NAME:DIRTVISION 01 : Nodak Speedway 7:15 PM|
 NAME:DIRTVISION 02 : Huset's Speedway 7:25 PM|
 NAME:DIRTVISION 03 : Sheridan Speedway 8:15 PM|
-NAME:Daytona Tortugas vs St. Lucie Mets @ Aug 30 1:05 PM :Milb  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Delmarva Shorebirds vs Fredericksburg Nationals @ Aug 30 2:05 PM :Milb  33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:00 PM :Milb  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Dunedin Blue Jays vs Palm Beach Cardinals @ Aug 30 12:05 PM :Milb  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Durham Bulls vs Norfolk Tides @ Aug 30 1:05 PM :Milb  17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:ESPN PLUS 00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8b4ee897eb321f74f91ff21608e977e0027ce586.png
 NAME:ESPN PLUS 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fb91df430b669c6aa523115695e981f78853e088.png
 NAME:ESPN PLUS 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5ef79978386a04e228bc83a9024cdaaa3abdb167.png
@@ -12362,7 +12362,7 @@ NAME:ESPN PLUS 96|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:ESPN PLUS 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d66d2e325da2b0a0ba2466b76866372783a90bcd.png
 NAME:ESPN PLUS 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3b588ef198fe6edbac9a9f76085021fe7616a5cb.png
 NAME:ESPN PLUS 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9580f13ee139f8a1a42fd2fa1b0c9c73ee6c36ae.png
-NAME:Everett AquaSox vs Eugene Emeralds @ Aug 30 7:05 PM :Milb  59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:FA Player 01 : Chelsea vs Manchester United // UK Sun 18 May 1:30pm // ET Sun 18 May 8:30am|http://103.176.90.95/images/1429570.png
 NAME:FA Player 02 : Chelsea vs Crystal Palace // UK Sun 9 Mar 3:30pm // ET Sun 9 Mar 10:30am|http://103.176.90.95/images/1429579.png
 NAME:FA Player 03 : Arsenal vs Liverpool // UK Sun 9 Mar 3:30pm // ET Sun 9 Mar 10:30am|http://103.176.90.95/images/1429578.png
@@ -12370,8 +12370,8 @@ NAME:FA Player 04 : Manchester City vs Leicester City // UK Sun 9 Feb 3:00pm // 
 NAME:FA Player 05 : Arsenal vs London City Lionesses // UK Sun 9 Feb 3:00pm // ET Sun 9 Feb 10:00am|http://103.176.90.95/images/1429576.png
 NAME:FA Player 06 : Portsmouth vs Sunderland // UK Sun 9 Feb 3:00pm // ET Sun 9 Feb 10:00am|http://103.176.90.95/images/1429575.png
 NAME:FA Player 07 : Arsenal vs Bristol City // UK Sun 12 Jan 4:00pm // ET Sun 12 Jan 11:00am|http://103.176.90.95/images/1429574.png
-NAME:Fayetteville Woodpeckers vs Salem RidgeYaks @ Aug 30 2:00 PM :Milb  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Fayetteville Woodpeckers vs Salem RidgeYaks @ Aug 30 2:05 PM :Milb  38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Fite TV 1 HD (D): TrillerTV-Willow Sports International Women Cricket: England vs India, 3rd ODI - Tue,22 Jul 07:50 ET|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
 NAME:Fite TV 1 SD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
 NAME:Fite TV 10 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
@@ -12420,11 +12420,11 @@ NAME:Florugby 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME:Florugby 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Florugby 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Florugby 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
-NAME:Fort Myers Mighty Mussels vs Bradenton Marauders @ Aug 30 12:05 PM :Milb  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Fort Myers Mighty Mussels vs Bradenton Marauders @ Aug 30 12:10 PM :Milb  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Fort Wayne TinCaps vs Dayton Dragons @ Aug 30 1:05 PM :Milb  18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Frederick Keys vs Asheville Tourists @ Aug 30 2:00 PM :Milb  28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Frederick Keys vs Asheville Tourists @ Aug 30 2:05 PM :Milb  37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:GB: DAZN PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:GB: DAZN PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:GB: DAZN PPV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
@@ -12535,9 +12535,9 @@ NAME:GaaGo |Event  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 NAME:Gaago 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/806ea63a4246b5e19f10e60a669955c9537e041c.png
 NAME:Gaago 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a5b6fe3b723bfd0c27c16bed51bb1eabc57ea6fa.png
 NAME:Gaago 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0fffd08593fd8c8da5378a87a75a2db4fa7c23dd.png
-NAME:Great Lakes Loons vs Lansing Lugnuts @ Aug 30 1:05 PM :Milb  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Greensboro Grasshoppers vs Hub City Spartanburgers @ Aug 30 2:00 PM :Milb  27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Greenville Drive vs Rome Emperors @ Aug 30 3:05 PM :Milb  42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  42|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:HBO Max UK | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/094384472af27965827c19331cb0be86efc312ce.png
 NAME:HBO Max UK | Event 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/094384472af27965827c19331cb0be86efc312ce.png
 NAME:HBO Max UK | Event 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/094384472af27965827c19331cb0be86efc312ce.png
@@ -12568,17 +12568,17 @@ NAME:HBO Max | Event 27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 NAME:HBO Max | Event 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:HBO Max | Event 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:HBO Max | Event 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
-NAME:Harrisburg Senators vs Chesapeake Baysox @ Aug 30 1:00 PM :Milb  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:High Limit Racing at Douglas Co :Flo Racing  04|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Hill City Howlers vs Kannapolis Cannon Ballers @ Aug 30 2:00 PM :Milb  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Hillsboro Hops vs Tri-City Dust Devils @ Aug 30 4:05 PM :Milb  47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Hudson Valley Renegades vs Brooklyn Cyclones @ Aug 30 2:05 PM :Milb  32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Indianapolis Indians vs Columbus Clippers @ Aug 30 1:35 PM :Milb  21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Inland Empire 66ers vs Fresno Grizzlies @ Aug 30 8:35 PM :Milb  63|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Iowa Cubs vs Omaha Storm Chasers @ Aug 30 2:08 PM :Milb  39|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Jacksonville Jumbo Shrimp vs Nashville Sounds @ Aug 30 2:05 PM :Milb  34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Jersey Shore BlueClaws vs Wilmington Blue Rocks @ Aug 30 1:05 PM :Milb  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Jupiter Hammerheads vs Tampa Tarpons @ Aug 30 12:30 PM :Milb  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  63|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  39|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:KOTTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:LA LIGA| ALAVES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/217b88ec76b0ec10938b09be678f381a0a628a63.png
 NAME:LA LIGA| ALMERÍA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/217b88ec76b0ec10938b09be678f381a0a628a63.png
@@ -12645,10 +12645,10 @@ NAME:LOI TV 11||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/e
 NAME:LOI TV 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 14 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 15||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:Lakeland Flying Tigers vs Clearwater Threshers @ Aug 30 12:00 PM :Milb  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Las Vegas Aviators vs Sugar Land Space Cowboys @ Aug 30 9:05 PM :Milb  64|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Lehigh Valley IronPigs vs Syracuse Mets @ Aug 30 1:15 PM :Milb  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Lewis vs UW Parkside @ Aug 31 8:00 PM :Flo College  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Milb  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  64|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Flo College  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME:Ligue 1 | Match 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
 NAME:Ligue 1 | Match 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/69be362b8cd63edc59d1f9642214d3a60270dac0.png
 NAME:Ligue 1 | Match 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
@@ -12665,13 +12665,13 @@ NAME:Live Football 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 NAME:Live Football 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
 NAME:Live Football 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
 NAME:Live Football 05 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
-NAME:Live From Arthur Ashe Stadium (Intended Order of Play):​ Aryna Sabalenka [1] vs Camila Osorio (COL) Roman Safiullin vs Carlos Alcaraz (ESP) [2] Ben Shelton (USA) [8] vs Tallon Griekspoor (NED) Naomi Osaka (JPN) [13] vs Anastasia Zakharova @ Aug 31 :Tennis  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:LoiTV event 1 : Treaty United v Bohemians start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LoiTV event 2 : Shamrock Rovers v Athlone Town start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LoiTV event 3 : DLR Waves v Peamount United start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LoiTV event 4 : Galway United v Cork City start: 2026-08-29 16:45:00 stop: 2026-08-29 19:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e33f3d47c74f0da949d467572b84e0a1db494cdd.png
 NAME:LoiTV event 5 : Sligo Rovers v Waterford start: 2026-08-29 16:45:00 stop: 2026-08-29 19:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:Louisville Bats vs Gwinnett Stripers @ Aug 30 1:05 PM :Milb  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:MISFITS MANIA: Fight Night|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:MLB 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
 NAME:MLB 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
@@ -12720,7 +12720,7 @@ NAME:MLS Sporting Kansas City|https://raw.githubusercontent.com/babo20094-rgb/Ep
 NAME:MLS St Louis CITY SC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:MLS Toronto FC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:MLS Vancouver Whitecaps FC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
-NAME:MLS Wrap Up⁩ @ Aug 30 9:30 PM :MLS  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
+NAME::MLS  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:Matchroom Event 00|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 01|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 02|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
@@ -12746,7 +12746,7 @@ NAME:Matchroom Event 21|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom
 NAME:Matchroom Event 22|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 23|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 24 | No Event Scheduled|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Midland RockHounds vs Tulsa Drillers @ Aug 30 2:00 PM :Milb  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Mola Event 00 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
 NAME:Mola Event 01 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
 NAME:Mola Event 02 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
@@ -12792,7 +12792,7 @@ NAME:MonoMax | Event 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:MonoMax | Event 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d22a17604566de5d08eaf9a21a5d58ddfe8dc12c.png
 NAME:MonoMax | Event 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d22a17604566de5d08eaf9a21a5d58ddfe8dc12c.png
 NAME:MonoMax | Event 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d22a17604566de5d08eaf9a21a5d58ddfe8dc12c.png
-NAME:Montgomery Biscuits vs Pensacola Blue Wahoos @ Aug 30 4:33 PM :Milb  50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  50|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:NBA 06 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
 NAME:NBA 07 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
 NAME:NBA 08 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
@@ -12822,11 +12822,11 @@ NAME:NBA REPLAY 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME:NBA REPLAY 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
 NAME:NBA REPLAY HIGHLIGHTS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
 NAME:NBA REPLAY INFO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
-NAME:NBA Summer League Lakers vs. Bulls jul 16 :NBA 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
-NAME:NBA Summer League Mavericks vs. Thunder Jul 16 :NBA 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
-NAME:NBA Summer League Nets vs. Rockets jul 16 :NBA 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
-NAME:NBA Summer League Raptors vs. Heat jul 17 :NBA 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
-NAME:NBA Summer League Warriors vs. Knicks jul 16 :NBA 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
+NAME::NBA 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
+NAME::NBA 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
+NAME::NBA 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
+NAME::NBA 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
+NAME::NBA 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
 NAME:NBA TEAM| ATLANTA HAWKS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9470c679b3454aeb15ba2ec700cd566695d75c4b.png
 NAME:NBA TEAM| BOSTON CELTICS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/834c387788ee51ba697a8a9ae5f0e3a9c2ebc1c2.png
 NAME:NBA TEAM| BROOKLYN NETS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ca30f215a535c2f331e5bf2ef0871f6459f22b0a.png
@@ -13108,8 +13108,8 @@ NAME:National League | Event 35|https://raw.githubusercontent.com/babo20094-rgb/
 NAME:National League | Event 36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
 NAME:National League | Event 37|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
 NAME:National League | Event 38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
-NAME:New Hampshire Fisher Cats vs Hartford Yard Goats @ Aug 30 1:05 PM :Milb  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Northwest Arkansas Naturals vs Frisco RoughRiders @ Aug 30 3:05 PM :Milb  44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:OHL  01 : 6:00 PM Kitchener Rangers @ Barrie Colts|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 02 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 03 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
@@ -13122,7 +13122,7 @@ NAME:OHL 09 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ext
 NAME:OHL 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
-NAME:Oklahoma City Comets vs El Paso Chihuahuas @ Aug 30 7:05 PM :Milb  60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:PBR RidePass :Flo Racing  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
 NAME:PDC Board 06|http://103.176.90.95/images/1556645.png
 NAME:PDC Board 07|http://103.176.90.95/images/1556646.png
@@ -13176,13 +13176,13 @@ NAME:Pay Per View 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:Pay Per View 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3a0536a1cc55316f001cc76121f4317c7ef05d37.png
 NAME:Pay Per View 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3a0536a1cc55316f001cc76121f4317c7ef05d37.png
 NAME:Pay Per View 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3a0536a1cc55316f001cc76121f4317c7ef05d37.png
-NAME:Quad Cities River Bandits vs Beloit Sky Carp @ Aug 30 2:00 PM :Milb  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Rancho Cucamonga Quakes vs Lake Elsinore Storm @ Aug 30 8:00 PM :Milb  61|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Reading Fightin Phils vs Binghamton Rumble Ponies @ Aug 30 5:15 PM :Milb  56|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Reno Aces vs Sacramento River Cats @ Aug 30 4:05 PM :Milb  49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Richmond Flying Squirrels vs Portland Sea Dogs @ Aug 30 5:05 PM :Milb  54|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Rochester Red Wings vs Buffalo Bisons @ Aug 30 1:05 PM :Milb  15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Round Rock Express vs Albuquerque Isotopes @ Aug 30 2:05 PM :Milb  30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  61|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  56|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  49|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  54|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Rugby 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
@@ -13219,7 +13219,7 @@ NAME:SERIE A| SASSUOLO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:SERIE A| TORINO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e7cc5cc627aeca443425506fbf9caa50a94ce9b0.png
 NAME:SERIE A| UDINESE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e7cc5cc627aeca443425506fbf9caa50a94ce9b0.png
 NAME:SERIE A| VERONA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/78b5d7d977834c73a8641c0efbefd689feb8d1f3.png
-NAME:San Jose Giants vs Visalia Rawhide @ Aug 30 4:00 PM :Milb  46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Serie A: Atalanta vs Bologna @ Aug 31 2:30 PM :Paramount+  02|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
 NAME:Serie A: Lecce vs Roma @ Aug 31 12:20 PM :Paramount+  01|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
 NAME:Setanta | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c21e84ffba5c9df024f6637569e973e83e873f49.png
@@ -13292,11 +13292,11 @@ NAME:Sky Sport+ 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:Sky Sport+ 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc29f90e41222b3c77291fab35dd5399b9bd8771.png
 NAME:Sky Sport+ 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc29f90e41222b3c77291fab35dd5399b9bd8771.png
 NAME:Sky Sport+ 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cc29f90e41222b3c77291fab35dd5399b9bd8771.png
-NAME:Somerset Patriots vs Akron RubberDucks @ Aug 30 1:05 PM :Milb  19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Springfield Cardinals vs San Antonio Missions @ Aug 30 2:15 PM :Milb  41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:St Louis CITY SC vs FC Dallas @ Aug 30 6:30 PM :MLS  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
-NAME:St. Paul Saints vs Toledo Mud Hens @ Aug 30 3:07 PM :Milb  45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Stockton Ports vs Ontario Tower Buzzers @ Aug 30 8:00 PM :Milb  62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::MLS  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
+NAME::Milb  45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Super League Plus Event 1|
 NAME:Super League Plus Event 2|
 NAME:Super League Plus | Event 3 Toulouse Olympique vs Bradford Bulls // UK Sat 29 Aug 7:50pm // ET Sat 29 Aug 2:50pm|http://103.176.90.95/images/1455579.png
@@ -13304,7 +13304,7 @@ NAME:Super League Plus | Event 4 Warrington Wolves v Castleford Tigers | Round 5
 NAME:Supercross 1|
 NAME:Supercross 2|
 NAME:Supercross 3|
-NAME:TAMIU vs West Alabama @ Aug 31 5:00 PM :Flo College  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
+NAME::Flo College  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME:TC+ 1|
 NAME:TC+ 10|
 NAME:TC+ 100|
@@ -13425,30 +13425,30 @@ NAME:TNT SPORTS | Event 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 NAME:TNT SPORTS | Event 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
 NAME:TNT SPORTS | Event 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
 NAME:TNT SPORTS | Event 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d312e5630ec9d2c9ddbfccab6a1e08f36188522b.png
-NAME:Tacoma Rainiers vs Salt Lake Bees @ Aug 30 4:35 PM :Milb  51|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Tennis: Aleksandar Vukic vs Rei sakamoto @ Aug 31 19:30 PM :Tennis  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Alex Michelsen vs Federico cinà @ Aug 31 19:30 PM :Tennis  27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Anhelina Kalinina vs Himeno Sakatsume @ Aug 31 17:00 PM :Tennis  17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Anna Blinkova vs Anna Kalinskaya @ Aug 31 19:30 PM :Tennis  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Aoi Ito vs Oksana Selekhmeteva @ Aug 31 19:30 PM :Tennis  28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Aryna Sabalenka vs Camila Osorio @ Aug 31 17:30 PM :Tennis  19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Ashlyn Krueger vs Amanda Anisimova @ Aug 31 19:30 PM :Tennis  30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Elsa Jacquemot vs Marie Bouzková @ Aug 31 17:00 PM :Tennis  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Emma Navarro vs Loïs Boisson @ Aug 31 19:30 PM :Tennis  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Harriet Dart vs Peyton Stearns @ Aug 31 17:00 PM :Tennis  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Kimberly Birrell @ Aug 31 19:30 PM :Tennis  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Lilli Tagger vs Tamara Korpatsch @ Aug 31 17:00 PM :Tennis  15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Mananchaya Sawangkaew vs Panna Udvardy @ Aug 31 17:00 PM :Tennis  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Matteo Arnaldi vs James Duckworth @ Aug 31 19:30 PM :Tennis  21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Otto Virtanen vs Andrey Rublev @ Aug 31 17:00 PM :Tennis  18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Qinwen Zheng vs Kristina Liutova @ Aug 31 17:00 PM :Tennis  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Raphaël collignon @ Aug 31 19:30 PM :Tennis  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Sinja Kraus vs Karolína Muchová @ Aug 31 17:00 PM :Tennis  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Stefanos Tsitsipas vs Arthur Fils @ Aug 31 17:00 PM :Tennis  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Sára Bejlek vs Cristina Bucsa @ Aug 31 17:00 PM :Tennis  14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Tamara Zidansek vs Maria Timofeeva @ Aug 31 19:00 PM :Tennis  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Thiago Tirante vs Adrian Mannarino @ Aug 31 19:30 PM :Tennis  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:Tennis: Valentin Vacherot vs Aleksandar Kovacevic @ Aug 31 17:00 PM :Tennis  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Milb  51|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Tennis  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  27|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:Tunisie Vs France - 30-11-22|https://upload.wikimedia.org/wikipedia/fr/thumb/e/e3/2022_FIFA_World_Cup.svg/1713px-2022_FIFA_World_Cup.svg.png
 NAME:UEFA  | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA  | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
@@ -14825,10 +14825,10 @@ NAME:US (Peacock 097)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 NAME:US (Peacock 098)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/116eaef5a8549899de6760f7d6fdc13c2354629a.png
 NAME:US (Peacock 099)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/116eaef5a8549899de6760f7d6fdc13c2354629a.png
 NAME:US (Peacock 100)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/116eaef5a8549899de6760f7d6fdc13c2354629a.png
-NAME:US Open: Day #2 vs Court TBD A @ Aug 31 11:00 :Tennis  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:US Open: Day #2 vs Court TBD B @ Aug 31 11:30 :Tennis  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:US Open: Day #2 vs RedZone at the US Open @ Aug 31 11:00 :Tennis  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:US Open: Day #3 vs Court TBD B @ Sep 1 11:30 :Tennis  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
+NAME::Tennis  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:US P+ 105 (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US P+ 126 (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US P+ 147 (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
@@ -16465,7 +16465,7 @@ NAME:US: VIAPLAY PPV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:US: VIAPLAY PPV 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:US: VIAPLAY PPV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:US: VIAPLAY PPV 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
-NAME:Vancouver Canadians vs Spokane Indians @ Aug 30 4:05 PM :Milb  48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Vidio EPL 1 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
 NAME:Vidio EPL 10 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
 NAME:Vidio EPL 11 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
@@ -16589,13 +16589,13 @@ NAME:WORLD CUP 2026 REPLAY 8 ᴴᴰ|https://raw.githubusercontent.com/babo20094-
 NAME:WORLD CUP 2026 REPLAY 9 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wc2026.png
 NAME:WORLD CUP 2026 REPLAY INFO ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wc2026.png
 NAME:WWE Summerslam|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/db8902005c245bdca3b6c8cadb6e8fd30f23c728.png
-NAME:West Michigan Whitecaps vs Peoria Chiefs @ Aug 30 2:00 PM :Milb  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Wichita Wind Surge vs Arkansas Travelers @ Aug 30 2:05 PM :Milb  35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Wild Thing Kart Series at Stafford @ Aug 31 6:15 PM :Flo Racing  03|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Wilson Warbirds vs Hickory Crawdads @ Aug 30 1:05 PM :Milb  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Winston-Salem Dash vs Bowling Green Hot Rods @ Aug 30 2:00 PM :Milb  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Wisconsin Timber Rattlers vs South Bend Cubs @ Aug 30 2:10 PM :Milb  40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Worcester Red Sox vs Scranton-Wilkes-Barre RailRiders @ Aug 30 1:05 PM :Milb  14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
+NAME::Milb  14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 
 SKY:DE|Sky Cinema Feelgood HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_feelgood/sky_cinema_feelgood.png|DE| SKY CINEMA FEELGOOD HD
 SKY:DE|Sky Cinema Feelgood HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_cinema_feelgood/sky_cinema_feelgood.png|DE| SKY CINEMA FEELGOOD FHD

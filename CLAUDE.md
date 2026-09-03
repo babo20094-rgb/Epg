@@ -1533,3 +1533,97 @@ prueft jetzt VOR dem Fuzzy-Pfad eine feste Regex-Alias-Aufloesung
 MRT/SK-Alias-Muster weiter oben - kein Fehltreffer-Risiko mehr. Live
 verifiziert: alle 5 Kanaele liefern jetzt jeweils eigene, unterschiedliche
 echte Sendungen.
+
+## MAGENTA SPORT PPV 1-18: echte Programmdaten ueber epgshare01.online/myTeamTV (neue Quelle magenta_myteam_epg.py)
+
+Der Nutzer meldete, dass `MAGENTA SPORT PPV 1`-`18` NIE ein Event zeigen -
+weder aktuell noch in Zukunft - obwohl er wusste, dass z.B. auf PPV 1
+Donnerstag gegen 19 Uhr ein echtes Event laeuft.
+
+**Erster Loesungsversuch war falsch und wurde zurueckgenommen:** Zunaechst
+wurde vermutet, dies sei derselbe Datenluecken-Bug wie bei DAZN PPV/SPORT
+DEUTSCHLAND PPV (statische `DE|...`-Zeile statt `NAME:`-Zeile) und die 36
+Zeilen entsprechend auf `NAME:DE: MAGENTA SPORT PPV N` umgestellt. Ein
+direkter Abgleich gegen die echte IPTV-Playlist des Nutzers (temporaer
+heruntergeladen, ausgewertet, sofort wieder geloescht) widerlegte das
+aber: Anders als DAZN/SOCCER/ESPN+ PPV ist der rohe Playlist-Kanalname
+bei MAGENTA SPORT PPV 1-18 (HD UND RAW) komplett STATISCH - kein NEXT/
+LIVE/ENDED-Marker, kein sich aenderender Text. Der
+`m3u_playlist_abgleichen()`-Mechanismus hat hier also strukturell nichts
+zum Auslesen, unabhaengig vom sender.txt-Format - die `NAME:`-Umstellung
+haette nichts gebracht und haette zusaetzlich das HD/RAW-Playlist-
+Matching kaputt gemacht (beide Varianten waeren auf dieselbe Kanal-ID
+kollabiert). Wurde vollstaendig zurueckgerollt.
+Zusaetzlich bestaetigt: Magenta selbst hat in seiner oeffentlichen
+MPX-Feed-API (die normale `MAGENTA:`-Quelle, siehe `magenta_epg.py`)
+KEINE separaten PPV-Kanaele - nur den einen Basis-Kanal "MagentaSport"
+(liefert dort nur einen generischen "MagentaSport Programmübersicht"-
+Platzhalter alle 4h, keine echten Einzel-Event-Titel) - ein
+`MAGENTA:`-Praefix haette hier also ohnehin nicht geholfen.
+
+**Tatsaechliche Loesung:** Magentas PPV-Events werden auf epgshare01.online
+unter der Marke "myTeamTV" gefuehrt ("Sport 1 - myTeamTV" bis "Sport 18 -
+myTeamTV", Nummerierung identisch zu unseren PPV-Nummern) - Teil des
+allgemeinen `epg_ripper_DE1.xml.gz`-Sammelfeeds, kein eigener Feed. Live
+bestaetigt: Kanal 1 zeigt Donnerstag 17:00 UTC (=19:00 Uhr deutscher Zeit)
+"Live: Champions Hockey League" - exakt das vom Nutzer erwartete Event.
+Neues Modul `magenta_myteam_epg.py` (Muster wie plutotv_epg.py/
+sportklub_epg.py: EINMAL pro Lauf laden, gefiltert auf die 18 relevanten
+Kanaele um den Speicherbedarf klein zu halten, dann lokal matchen) als
+SECHSTER Versuch in die bestehende DE-Kaskade eingehaengt (nach deswird.org/
+Pluto TV/tvmovie.de/hoerzu.de/Samsung TV Plus), NUR fuer Sender, deren Name
+auf "MAGENTA SPORT PPV N" passt (exakter Nummern-Regex, kein Fuzzy-Abgleich -
+kein Fehltreffer-Risiko). Der generische "myTeamTV: Momentan kein Programm"-
+Platzhalter der Quelle selbst wird herausgefiltert (gilt nicht als echtes
+Event). Die urspruenglichen statischen `DE|MAGENTA SPORT PPV N HD/RAW`-
+Zeilen in sender.txt bleiben unveraendert (korrekt so, siehe oben) - der
+Fix sitzt komplett im DE-Kaskade-Code, keine sender.txt-Aenderung noetig.
+
+## Kern-Extraktion um generische Kern-am-Ende/Kern-am-Anfang-Muster erweitert (Milb, Flo College, Tennis, MLS, NBA, NCAAF)
+
+Der Nutzer schickte Screenshots mehrerer NAME:-Sendergruppen (Milb 1-100,
+Flo College 1-100, Tennis, MLS, NBA Summer League, NCAAF 1-70), die trotz
+vorhandener sender.txt-Zeilen NIE ein echtes Live-Event zeigten. Zwei
+getrennte Ursachen, beide behoben:
+
+1. **Datenmuell in sender.txt (wie beim fruehereren ESPN+/STAN-Fix):**
+   64 von 100 Milb-Zeilen, 2 von 100 Flo-College-Zeilen sowie ALLE
+   Tennis-/MLS-/NBA-Zeilen trugen noch den kompletten alten Rohtext vom
+   urspruenglichen Playlist-Import im Kernnamen (z.B. `NAME:TAMIU vs West
+   Alabama @ Aug 31 5:00 PM :Flo College  02|<Logo>` statt `NAME::Flo
+   College  02|<Logo>`) - dadurch registrierte `name_pipe_kanal_index`
+   einen falschen/instabilen Index-Schluessel. Per Skript auf den reinen
+   Kern reduziert (106 Zeilen insgesamt: 64 Milb, 2 Flo College, 30
+   Tennis, 3 MLS, 5 NBA). Milb hatte dadurch zusaetzlich eine
+   Nummernluecke (1-64 fehlten de facto, da unter Muell-Namen verborgen) -
+   nach der Bereinigung durchgehend 1-100 ohne Luecke.
+2. **Struktureller Code-Gap in der Kern-Extraktion (der eigentliche,
+   schwerwiegendere Bug):** `kern_und_event_extrahieren()`/
+   `kern_vorne_und_event_extrahieren()` (`generate_epg.py`) erkannten im
+   No-Pipe-Zweig bisher NUR das DYN-PPV/FLO-RACING-Muster bzw. (Kern-
+   vorne) nur DIRTVISION/FA PLAYER - jedes andere No-Pipe-Namensschema
+   (egal wie sauber der sender.txt-Kern selbst war) wurde beim
+   Live-Playlist-Abgleich NIE erkannt, weil der KOMPLETTE rohe Playlist-
+   Name als "Kern" genommen wurde, statt den eigentlichen stabilen Teil
+   herauszuloesen. Das betraf strukturell JEDE Sendergruppe mit Kern-am-
+   Ende- (`<Event> :<Name> <N>`, z.B. Milb/Flo College/Tennis/MLS/NBA)
+   oder Kern-am-Anfang-Doppelpunkt-Konvention (`<Name> <N>: <Event>`,
+   z.B. NCAAF) - unabhaengig von sender.txt.
+   **Fix:** Beide Funktionen um generische, an `^`/`$` verankerte Muster
+   erweitert (`:\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*$`
+   fuer Kern-am-Ende, `^\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*:\s*(.*)$`
+   fuer Kern-am-Anfang) - greift jetzt automatisch fuer JEDE aktuelle und
+   kuenftige No-Pipe-NAME:-Gruppe mit diesem Namensschema, ohne
+   anbieterspezifischen Code. Risikofrei: ein falsch geratener Kern
+   findet einfach keinen Treffer im Index (`name_pipe_kanal_index.get()`
+   liefert `None`) und faellt auf den bisherigen generischen Fallback
+   zurueck - kein Fehltreffer-Risiko wie bei einem unscharfen Abgleich,
+   da hier ausschliesslich exakte Dictionary-Lookups entscheiden. Die
+   Ankerung an `^`/`$` verhindert, dass eine Uhrzeitangabe im Event-Text
+   selbst (z.B. "7:00 PM"/"5:00 PM") faelschlich als Trenner-Doppelpunkt
+   genommen wird - manuell gegen alle Beispieltexte aus den Nutzer-
+   Screenshots verifiziert (Milb, Flo College, NCAAF, Tennis, MLS, NBA).
+   Bestehende Sonderfaelle (DYN PPV, FLO RACING, Super League Plus,
+   DIRTVISION, FA PLAYER, Clubber) werden weiterhin zuerst geprueft und
+   bleiben unveraendert, da sie vor dem neuen generischen Pfad im
+   Code stehen.

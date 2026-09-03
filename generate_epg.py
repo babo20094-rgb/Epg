@@ -24,6 +24,7 @@ from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
 from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
 from quellen.sportklub_epg import sportklub_kanal_finden, sportklub_hole_programme
+from quellen.magenta_myteam_epg import magenta_myteam_kanal_finden, magenta_myteam_hole_programme
 from quellen.siol_epg import siol_kanal_finden, siol_hole_programme
 from quellen.sky_epg import sky_kanal_finden, sky_hole_programme
 from quellen.magenta_epg import magenta_kanal_finden, magenta_hole_programme
@@ -167,7 +168,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle"],
     "tubi": ["tubi_intervalle"],
 }
 
@@ -262,15 +263,36 @@ def kern_und_event_extrahieren(voller_name):
             if re.fullmatch(r"[A-Za-z]{2,4}", event_teil):
                 event_teil = ""
         else:
-            # Laender-Praefix bleibt hier bewusst Teil des Kerns (siehe
-            # Pipe-Zweig oben: nur DYN PPV/FLO RACING sind die
-            # Sonderfaelle ohne Land) - der Pipe-Zweig verwendet
-            # dieselbe Regel, damit z.B. "US: ESPN+ PPV 1" (sender.txt-
-            # Kernname) und der beim Live-Playlist-Abgleich aus
-            # "... | US: ESPN+ PPV 1" extrahierte Kern exakt
-            # uebereinstimmen, OHNE mit "DE: ESPN+ PPV 1" zu kollidieren.
-            kurzname = voller_name
-            event_teil = ""
+            # Generisches Kern-AM-ENDE-Muster ohne Pipe (z.B. Milb, Flo
+            # College, Tennis, MLS, NBA Summer League): der stabile Kern
+            # steht als ":<Name(n)> <Nummer>" ganz am Zeilenende, alles
+            # davor ist der wechselnde Event-Text (z.B. "TAMIU vs West
+            # Alabama @ Aug 31 5:00 PM :Flo College  01" -> Kern
+            # "Flo College  01"). Ans Zeilenende ($) verankert, damit eine
+            # Uhrzeitangabe im Event-Text selbst (z.B. "5:00 PM") nicht
+            # faelschlich als Trenner genommen wird - nur der LETZTE
+            # Doppelpunkt vor einer schliessenden Zahl zaehlt. Ein
+            # erfolgloser Versuch hier ist risikofrei: der anschliessende
+            # Index-Lookup in name_pipe_kanal_index() schlaegt einfach
+            # fehl, wenn kein passender Sender registriert ist - kein
+            # Fehltreffer-Risiko wie bei einem unscharfen Abgleich.
+            ende_match = re.search(
+                r":\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*$",
+                voller_name,
+            )
+            if ende_match:
+                kurzname = ende_match.group(1).strip()
+                event_teil = voller_name[:ende_match.start()].strip(" :").strip()
+            else:
+                # Laender-Praefix bleibt hier bewusst Teil des Kerns
+                # (siehe Pipe-Zweig oben: nur DYN PPV/FLO RACING sind die
+                # Sonderfaelle ohne Land) - der Pipe-Zweig verwendet
+                # dieselbe Regel, damit z.B. "US: ESPN+ PPV 1" (sender.txt-
+                # Kernname) und der beim Live-Playlist-Abgleich aus
+                # "... | US: ESPN+ PPV 1" extrahierte Kern exakt
+                # uebereinstimmen, OHNE mit "DE: ESPN+ PPV 1" zu kollidieren.
+                kurzname = voller_name
+                event_teil = ""
     return kurzname, event_teil
 
 
@@ -298,6 +320,21 @@ def kern_vorne_und_event_extrahieren(voller_name):
     match = re.match(r"^\s*(DIRTVISION\s*\d+|FA\s*PLAYER\s*\d+)\s*:\s*(.*)$", voller_name, re.IGNORECASE)
     if match:
         return match.group(1).strip(), match.group(2).strip()
+
+    # Generisches Kern-VORNE-Muster ohne Pipe (z.B. NCAAF: "NCAAF 01:
+    # North Texas vs Charlotte @ Oct 24 7:00 PM" -> Kern "NCAAF 01").
+    # An ^ verankert, damit nur der ALLERERSTE Doppelpunkt der Zeile als
+    # Trenner zaehlt - eine Uhrzeitangabe im Event-Text (z.B. "7:00 PM")
+    # kommt immer erst NACH dem Kern und wird dadurch nie faelschlich
+    # als Trenner genommen. Ein erfolgloser Versuch ist risikofrei: der
+    # anschliessende Index-Lookup schlaegt einfach fehl, wenn kein
+    # passender Sender registriert ist.
+    generisch_match = re.match(
+        r"^\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*:\s*(.*)$",
+        voller_name,
+    )
+    if generisch_match:
+        return generisch_match.group(1).strip(), generisch_match.group(2).strip()
 
     return None, ""
 
@@ -2778,6 +2815,31 @@ for daten in plutotv_sender:
                 if samsungtv_programme:
                     print(f"SamsungTV-EPG: {len(samsungtv_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Deswird/PlutoTV/TvMovie/Hoerzu-Fallback).")
                     _schreibe_echte_programme(daten, samsungtv_programme)
+                else:
+                    # myTeamTV (epgshare01.online) als sechster Versuch,
+                    # NUR fuer "MAGENTA SPORT PPV N"-Sender (siehe
+                    # magenta_myteam_epg.py) - Magentas eigene PPV-Events
+                    # sind ueber die normale MAGENTA:-Quelle nicht
+                    # erreichbar (keine eigenen PPV-Kanaele dort) und der
+                    # Rohname in der Playlist ist komplett statisch (kein
+                    # Live-Event-Marker), daher kein Match ueber
+                    # m3u_playlist_abgleichen() moeglich.
+                    myteam_programme = []
+                    try:
+                        myteam_site_id = magenta_myteam_kanal_finden(daten["sender"])
+                        if myteam_site_id is not None:
+                            myteam_programme = magenta_myteam_hole_programme(myteam_site_id, PLUTOTV_TAGE)
+                        else:
+                            pass  # log unterdrueckt: keine echten Programmdaten
+                    except Exception as e:
+                        pass  # log unterdrueckt: keine echten Programmdaten
+                        myteam_programme = []
+
+                    daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in myteam_programme]
+
+                    if myteam_programme:
+                        print(f"Magenta-myTeamTV-EPG: {len(myteam_programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
+                        _schreibe_echte_programme(daten, myteam_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
