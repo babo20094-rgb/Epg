@@ -704,6 +704,17 @@ for zeile in zeilen:
             if super_league_idle_match:
                 event_titel = f"Super League Plus ({super_league_idle_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
 
+        # Sport-Deutschland-PPV-Kanaele ohne erkanntes Event: gleiche
+        # Konvention wie DYN PPV/FA Player/Super League Plus oben (z.B.
+        # "Sport Deutschland Ppv 1 ᴺᵒ ᴸⁱᵛᵉ") statt des generischen
+        # "... ᴸⁱᵛᵉ"-Fallbacks weiter unten - auf Nutzerwunsch.
+        if event_titel is None:
+            sport_deutschland_match = re.search(
+                r"SPORT\s*DEUTSCHLAND\s*PPV\s*0*(\d+)", kurzname, re.IGNORECASE
+            )
+            if sport_deutschland_match:
+                event_titel = f"Sport Deutschland Ppv {sport_deutschland_match.group(1)} ᴺᵒ ᴸⁱᵛᵉ"
+
         # Alle uebrigen NAME:-Sender ohne bekanntes Anbieter-Muster
         # (z.B. "Premier League+ 1", kein Pipe-/Event-Mechanismus
         # vorhanden) UND ohne erkanntes Event: statt der generischen,

@@ -1665,3 +1665,25 @@ Abgleich auf einen unpassenden, aber "echten" Kanal matchen und damit
 generische/falsche Daten als "Treffer" liefern koennte - das Vorhandensein
 ECHTER (aber falscher) Daten wird vom bestehenden Code nicht von einem
 ECHTEN, PASSENDEN Treffer unterschieden.
+
+## DE: SPORT DEUTSCHLAND PPV 1-100: totes Logo + eigener Leerlauf-Text
+
+Der Nutzer meldete, dass alle 100 `DE: SPORT DEUTSCHLAND PPV`-Sender kein
+Logo zeigen. Ursache: alle 100 Zeilen zeigten auf denselben toten
+Picon-Host `51.158.145.100` (siehe "Logo-Regel"-Abschnitt oben - einer
+der beiden bereits bekannten toten Hosts). Fix: offizielles App-Icon von
+sportdeutschland.tv selbst (`/apple-touch-icon.png`, S+Pfeil-Logo,
+schwarzer Hintergrund) heruntergeladen, optimiert (max. 300px/256
+Farben) und unter `logos/sport_deutschland/sport_deutschland.png`
+selbst gehostet, alle 100 Zeilen darauf umgestellt.
+Zusaetzlich auf Nutzerwunsch: Leerlauf-Text (kein erkanntes Live-Event)
+folgt jetzt derselben "N ᴺᵒ ᴸⁱᵛᵉ"-Konvention wie DYN PPV/FA Player/
+Super League Plus (z.B. "Sport Deutschland Ppv 42 ᴺᵒ ᴸⁱᵛᵉ") statt des
+generischen "<Kurzname> ᴸⁱᵛᵉ"-Catch-all-Fallbacks - neuer Regex-Zweig
+in `generate_epg.py` (`SPORT\s*DEUTSCHLAND\s*PPV\s*0*(\d+)`) vor dem
+generischen Fallback, betrifft automatisch alle 100 Nummern.
+Auf Nutzerwunsch spaeter durch ein nummeriertes Logo-Set ersetzt
+(gleiches Prinzip wie DYN PPV/Sky Select/Vodafone GO): offizielles
+Icon (S+Pfeil, schwarzer Hintergrund) plus "SPORT DEUTSCHLAND"-
+Schriftzug plus Kanalnummer in Gelb, alle 100 Varianten per Skript
+erzeugt und optimiert unter `logos/sport_deutschland/<N>.png`.
