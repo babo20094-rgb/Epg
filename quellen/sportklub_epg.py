@@ -28,6 +28,7 @@ from datetime import datetime, timedelta, timezone
 
 import gzip
 import re
+import unicodedata
 import xml.etree.ElementTree as ET
 
 import requests
@@ -53,7 +54,7 @@ HEADERS = {
 # Stattdessen wird die Sender-Nummer explizit aus dem sender.txt-Namen
 # extrahiert und exakt gegen die Nummer im epgshare01-Kanalnamen
 # verglichen - kein Fehltreffer-Risiko.
-_SK_NUMMER_PATTERN = re.compile(r"^SK\s*0*(\d+K?)$", re.IGNORECASE)
+_SK_NUMMER_PATTERN = re.compile(r"^(?:SK|SPORT\s*KLUB)\s*0*(\d+K?)(?:\s*(?:HD|FHD|SD|UHD|HEVC))?$", re.IGNORECASE)
 _KANAL_NUMMER_PATTERN = re.compile(r"^SK\s*0*(\d+K?)\b", re.IGNORECASE)
 
 # "SK Esports"/"SK Fight"/"SK Golf" (ohne Nummer) - ebenfalls exakter
@@ -150,6 +151,16 @@ def _xmltv_zeit_parsen(text):
         return None
 
 
+def _vip_raw_entfernen(name):
+    """Entfernt die playlist-eigenen Deko-Marker "VIP"/"RAW" (auch in
+    hochgestellter Unicode-Schreibweise wie "ⱽᴵᴾ ᴿᴬᵂ" - NFKD zerlegt
+    diese zu normalen Buchstaben) - reine Playlist-Tags, kein Teil des
+    echten Sendernamens (analog zu epg_lib.normalisiere_sendername())."""
+    zerlegt = unicodedata.normalize("NFKD", name)
+    zerlegt = "".join(z for z in zerlegt if not unicodedata.combining(z))
+    return re.sub(r"\bVIP\b|\bRAW\b", " ", zerlegt, flags=re.IGNORECASE).strip()
+
+
 def sportklub_kanal_finden(kanalname):
     """Sucht den Sport-Klub-Kanal, der exakt zur sender.txt-Nummer/zum
     Wort-Alias (SK 1-12/4K/Esports/Fight/Golf) passt. Gibt die Kanal-ID
@@ -159,14 +170,14 @@ def sportklub_kanal_finden(kanalname):
     if not daten or not daten["kanaele"]:
         return None
 
-    name = kanalname.strip()
+    name = _vip_raw_entfernen(kanalname.strip())
 
     ziel_nummer = None
     treffer = _SK_NUMMER_PATTERN.match(name)
     if treffer:
         ziel_nummer = treffer.group(1).upper()
     else:
-        wort = re.sub(r"^SK\s+", "", name, flags=re.IGNORECASE).strip().upper()
+        wort = re.sub(r"^(?:SK|SPORT\s*KLUB)\s+", "", name, flags=re.IGNORECASE).strip().upper()
         ziel_nummer = _SK_WORT_ALIASE.get(wort)
 
     if not ziel_nummer:

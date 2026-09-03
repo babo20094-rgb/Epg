@@ -1796,3 +1796,30 @@ generischen Doppelpunkt-Muster zu riskieren) - "LIVE EVENT 07 - NO
 EVENT" wird jetzt korrekt in Kern "LIVE EVENT 07" und Event-Text "NO
 EVENT" zerlegt; "NO EVENT" greift automatisch ueber `LEERLAUF_MARKER`
 ("no event" ist dort bereits als Substring gelistet).
+
+## SI Sport Klub 1-3, EXYU Arena Adrenalin, HR Arena Sport 1/6 HD: drei kleinere Datenluecken behoben
+
+- **SI|SPORT KLUB 1-3** (und alle weiteren SI/RS "SPORT KLUB N"-
+  Sender): siol.net (unsere automatische SI-Quelle) fuehrt keine
+  "Sport Klub"-Kanaele - `sportklub_epg.py` (bisher nur als HR-Fallback
+  nach MojMaxTV im Einsatz, siehe Abschnitt oben) wurde daher auch als
+  zweiter Versuch fuer SI-Sender in die Siol-Verarbeitungsschleife
+  eingehaengt (`siol_sportklub_intervalle` in der `siol`-Fallback-Kette).
+  `sportklub_kanal_finden()` akzeptierte bisher nur die Kurzform "SK N"
+  - um "SPORT KLUB N" (voller sender.txt-Name) erweitert. Live
+  verifiziert: SI|SPORT KLUB 1-3 liefern jetzt 38-43 echte Sendungen.
+- **EXYU|ARENA ADRENALIN (FHD/HD/SD):** mts.rs (unsere automatische
+  RS-Quelle) fuehrt den Kanal echt als "Arena Adrenalin" - aber "EXYU"
+  ist keines der Laender, die automatisch eine Quelle ausloesen (bewusst
+  keine generische EXYU-weite Quellenpruefung, siehe "kein pauschales
+  Durchsuchen"-Regel oben). Stattdessen gezielt NUR fuer den
+  Sendernamen "Arena Adrenalin" (Regex-Anker) mts.rs aktiviert, egal ob
+  Land RS oder EXYU - kein Risiko fuer andere EXYU-Zeilen. Live
+  verifiziert: 49 echte Sendungen.
+- **HR|ARENA SPORT 1 HD und HR|ARENA SPORT 6 HD fehlten komplett** in
+  sender.txt (reine Datenluecke wie bei den frueheren SOCCER-PPV-8-/
+  Milb-Faellen) - andere Nummern/Varianten (`1 ⱽᴵᴾ ᴿᴬᵂ`, `6` ohne "HD")
+  waren vorhanden. Ergaenzt (gleiches Logo wie die jeweilige VIP-RAW-
+  bzw. Nicht-HD-Variante desselben Kanals) - MojMaxTV (die normale
+  HR-Quelle) liefert dafuer bereits nachweislich echte Daten (16-18
+  Sendungen), sobald die Zeile existiert.

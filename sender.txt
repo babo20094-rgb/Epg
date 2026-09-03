@@ -1645,6 +1645,7 @@ HR|AMC BALKAN ⱽᴵᴾ ᴿᴬᵂ|Amc Balkan ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|ht
 HR|ANIMAL PLANET ⱽᴵᴾ ᴿᴬᵂ|Animal Planet ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 HR|ARENA ESPORT ⱽᴵᴾ ᴿᴬᵂ|Arena Esport ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ff3f4fe40ca315f.png
 HR|ARENA FIGHT ⱽᴵᴾ ᴿᴬᵂ|Arena Fight ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b52b20e258e98d46.png
+HR|ARENA SPORT 1 HD|Arena Sport 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 HR|ARENA SPORT 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 HR|ARENA SPORT 10 HD|Arena Sport 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
 HR|ARENA SPORT 10 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 10 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
@@ -1657,6 +1658,7 @@ HR|ARENA SPORT 4 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 4 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ
 HR|ARENA SPORT 5 HD|Arena Sport 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/215cf783d40956e3.png
 HR|ARENA SPORT 5 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 5 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/215cf783d40956e3.png
 HR|ARENA SPORT 6|Arena Sport 6 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f017d5939dd74668.png
+HR|ARENA SPORT 6 HD|Arena Sport 6 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f017d5939dd74668.png
 HR|ARENA SPORT 6 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 6 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f017d5939dd74668.png
 HR|ARENA SPORT 7 HD|Arena Sport 7 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4359293fd45707f4.png
 HR|ARENA SPORT 7 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 7 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4359293fd45707f4.png
@@ -8685,102 +8687,102 @@ NAME:(Victory+ 100)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME::Tennis  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME::Tennis  06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:24/7 100 PERCENT HOTTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 12 OZ MOUSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 12 OZ MOUSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/71495da304ba9533.png
 NAME:24/7 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9c688d1d99f9c78cddc56681e9046d17e975b330.png
-NAME:24/7 24 LEGACY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 24 LEGACY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/f6e6d5f45e8110ec.png
 NAME:24/7 30 ROCK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/560969694b24ba7e5d2a9c3d8e2150532a8faea2.png
 NAME:24/7 3RD ROCK FROM THE SUN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b56691e0dbd4ddf63a74e1322dbe5bc0743f2452.png
-NAME:24/7 50 STATES OF FRIGHT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 60 DAYS IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 666 PARK AVENUE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 9-1-1 LONE STAR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 90 DAY FIANC�: BEFORE THE 90 DAYS|http://51.158.145.100/picons/logos/PPV/24-7.png
-NAME:24/7 A N T FARM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 A TOUCH OF CLOTH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 50 STATES OF FRIGHT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/20ca788e7ded5d63.png
+NAME:24/7 60 DAYS IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6ac3209df40ad23e.png
+NAME:24/7 666 PARK AVENUE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/181c0c87cc08170a.png
+NAME:24/7 9-1-1 LONE STAR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/32b2b5f5abba2431.png
+NAME:24/7 90 DAY FIANC�: BEFORE THE 90 DAYS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/e4ee536d21b5cdbf.png
+NAME:24/7 A N T FARM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/a7f1022451aa2ac5.png
+NAME:24/7 A TOUCH OF CLOTH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/67e3ecca7accd578.png
 NAME:24/7 A USELESS ONMYOJI FAMILY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AAAHH REAL MONSTERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ABER BERGEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ABOUT A BOY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ABSOLUTELY FABULOUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ABSTRACT THE ART OF DESIGN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ACCIDENTALLY ON PURPOSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AAAHH REAL MONSTERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/a10941502ee23d4b.png
+NAME:24/7 ABER BERGEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/af38b66592e39c96.png
+NAME:24/7 ABOUT A BOY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/437e52048d89099f.png
+NAME:24/7 ABSOLUTELY FABULOUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/3d4e3bfdb9d73741.png
+NAME:24/7 ABSTRACT THE ART OF DESIGN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/110118f85ad82a55.png
+NAME:24/7 ACCIDENTALLY ON PURPOSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/f5e4be39d7a07a25.png
 NAME:24/7 ACCORDING TO JIM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4ce0662d2a2773ed218752bfd7d4cc5cb8905456.png
 NAME:24/7 ACKLEY BRIDGE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ADAM DRIVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ADAM DRIVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/a88ee68dc1ae2317.png
 NAME:24/7 ADAM SANDLER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/19f8b1a92c31ff1f6c03b54018f1f3ed9c9e7701.png
-NAME:24/7 ADAM-12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ADAM-12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/b6fff71585ef0ae1.png
 NAME:24/7 ADAMSANDLER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/19f8b1a92c31ff1f6c03b54018f1f3ed9c9e7701.png
-NAME:24/7 ADVENTURE TIME DISTANT LANDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AFTER LIFE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AGATHA RAISIN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ADVENTURE TIME DISTANT LANDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7b2da4e71912f605.png
+NAME:24/7 AFTER LIFE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/623b350a61ee7772.png
+NAME:24/7 AGATHA RAISIN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/96d89918407cb5ed.png
 NAME:24/7 AHIRU NO SORA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 AIRWOLF|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/96fb9f5d66fcf85ef86ccaf6a82c5c5e4f6e1056.png
-NAME:24/7 AJ AND THE QUEEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AL PACINO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AJ AND THE QUEEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/911eba287449b6d6.png
+NAME:24/7 AL PACINO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6191197143540a71.png
 NAME:24/7 ALADDIN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fe1091a97414fc0da10ad8cfde98944999dbe345.png
-NAME:24/7 ALAN CARRS EPIC GAMESHOW|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALASKAN BUSH PEOPLE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALF|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALFRED HITCHCOCK PRESENTS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ALAN CARRS EPIC GAMESHOW|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/5aca2f4f0106b5f1.png
+NAME:24/7 ALASKAN BUSH PEOPLE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/00c96bb555161343.png
+NAME:24/7 ALF|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/dfd100ca2afc644d.png
+NAME:24/7 ALFRED HITCHCOCK PRESENTS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ea362c8166a34203.png
 NAME:24/7 ALIAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3103753274b932d69def11a3a307984750177c2e.png
-NAME:24/7 ALICIAVIKANDER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ALICIAVIKANDER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/31e24c34b6778134.png
 NAME:24/7 ALL IN THE FAMILY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7a521db882bab4b0eebaa4639db0880079266e15.png
 NAME:24/7 ALL OR NOTHING PHILADELPHIA EAGLES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALL RISE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALL ROUND TO MRS BROWNS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALL THAT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALLISON JANNEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALLY MCBEAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALMOST HUMAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ALONE THE BEAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ALL RISE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/08c5617dd7f442fe.png
+NAME:24/7 ALL ROUND TO MRS BROWNS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/bf53819518658d5c.png
+NAME:24/7 ALL THAT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ee05576b583ec414.png
+NAME:24/7 ALLISON JANNEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/9552453f6203f843.png
+NAME:24/7 ALLY MCBEAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/635bad58ded798a1.png
+NAME:24/7 ALMOST HUMAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/de6bdf31ddca70ff.png
+NAME:24/7 ALONE THE BEAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/212ad85d41200095.png
 NAME:24/7 ALVINNN AND THE CHIPMUNKS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c98268432e8510248f49c5a95e50eed7cc0c8b60.png
-NAME:24/7 AMAZING STORIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AMERICA S GOT TALENT THE CHAMPIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AMERICA'S NEXT TOP MODEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AMERICA'S TOP DOG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AMAZING STORIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/42442500ede94acd.png
+NAME:24/7 AMERICA S GOT TALENT THE CHAMPIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/2d80548b7b17f63b.png
+NAME:24/7 AMERICA'S NEXT TOP MODEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/22730aa0b17752f6.png
+NAME:24/7 AMERICA'S TOP DOG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/f2f38add75134b2a.png
 NAME:24/7 AMERICAN DAD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c942ed132337ca21542e9df19968efab0a75970f.png
 NAME:24/7 AMERICAN DAD 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c942ed132337ca21542e9df19968efab0a75970f.png
 NAME:24/7 AMERICAN DAD 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c942ed132337ca21542e9df19968efab0a75970f.png
 NAME:24/7 AMERICAN DIGGER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c942ed132337ca21542e9df19968efab0a75970f.png
-NAME:24/7 AMERICAN DRAGON JAKE LONG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AMERICAN DRAGON JAKE LONG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/fa718d021e989c24.png
 NAME:24/7 AMERICAN GODS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/458568441c957def3bfac972129b784767cf5683.png
 NAME:24/7 AMERICAN GRIT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/458568441c957def3bfac972129b784767cf5683.png
 NAME:24/7 AMERICAN HORROR STORY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c5625073fe7a9a620b330e2e3758a1ccdfdc4e23.png
 NAME:24/7 AMERICAN HOUSEWIFE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/997bceece9b6271e7d0da5b2ad7be2b602fbc88c.png
-NAME:24/7 AMERICAN ODYSSEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AMERICAN ODYSSEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/68d782695a0d26d8.png
 NAME:24/7 AMERICAN PICKERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/86565a9d02c2c10638f35c4170335d1185011b01.png
 NAME:24/7 AMERICAN PICKERS 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/86565a9d02c2c10638f35c4170335d1185011b01.png
 NAME:24/7 AMERICAN SOUL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/458568441c957def3bfac972129b784767cf5683.png
 NAME:24/7 AMERICAN VANDAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c942ed132337ca21542e9df19968efab0a75970f.png
-NAME:24/7 AMERICAS FUNNIEST HOME VIDEOS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AMERICAS GOT TALENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AMERICAS FUNNIEST HOME VIDEOS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/d2915d531b4373ae.png
+NAME:24/7 AMERICAS GOT TALENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/4260cc6bb91f4c84.png
 NAME:24/7 AMERICAS TEST KITCHEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d71ca3696ae924c88ebfa17e50002d56fd5c893a.png
-NAME:24/7 AMPHIBIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AMY ADAMS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AMY SCHUMER LEARNS TO COOK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AMPHIBIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/f547b6f20477dc9c.png
+NAME:24/7 AMY ADAMS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/8307374ab5fd1cb0.png
+NAME:24/7 AMY SCHUMER LEARNS TO COOK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ef5e9c6047585eab.png
 NAME:24/7 ANCIENT ALIENS 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6280846d5e89651ae81ce92ed9f0a26ccce4c0f0.png
-NAME:24/7 AND THEN THERE WERE NONE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AND THEN THERE WERE NONE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7f325c024fc3bd6a.png
 NAME:24/7 ANDROMEDA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/66cfafc39084a18a948c0d1363f35dff5fcd5382.png
-NAME:24/7 ANGEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ANGEL FROM HELL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ANGEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/fe36a7568b962d63.png
+NAME:24/7 ANGEL FROM HELL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7bebf363ed65d4cc.png
 NAME:24/7 ANGER MANAGEMENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5d78fd2b310884bda862ccc650b643808c2a94db.png
 NAME:24/7 ANIMALS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d6e9c8a9538a500b67a658738c49809a130178b0.png
-NAME:24/7 ANNE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ANNE OF GREEN GABLES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ANNETTE BENING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ANTHONY BOURDAIN NO RESERVATIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ANNE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/f7b7016490cda30a.png
+NAME:24/7 ANNE OF GREEN GABLES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6dfc41a0d3f439ff.png
+NAME:24/7 ANNETTE BENING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/5997ab727cf0f4d9.png
+NAME:24/7 ANTHONY BOURDAIN NO RESERVATIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7c5534e284afa533.png
 NAME:24/7 ANTHONY BOURDAIN PARTS UNKNOWN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/40cb7f4203fc32e682ff8064799ec9e68803c1fa.png
-NAME:24/7 APPLE TREE YARD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 APPLE TREE YARD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6ff6b1e4df04ab79.png
 NAME:24/7 AQUA TEEN HUNGER FORCE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/da37d78361ebf3350eb294ea876378d87c699192.png
 NAME:24/7 ARE YOU AFRAID OF THE DARK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/277acd9726d01cf750b9b0bd2863758aa6ff3bd8.png
-NAME:24/7 ARIANA GRANDE DANGEROUS WOMAN DIARIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ARTHUR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AS TOLD BY GINGER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ATLANTIS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ATOMIC BETTY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 ATYPICAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AUSSIE GOLD HUNTERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AUSTIN AND ALLY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 ARIANA GRANDE DANGEROUS WOMAN DIARIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/9fcf1228771d0ebf.png
+NAME:24/7 ARTHUR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/0483e29ad0ee111c.png
+NAME:24/7 AS TOLD BY GINGER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/88cccbeeb51a6c31.png
+NAME:24/7 ATLANTIS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ff891b875269164a.png
+NAME:24/7 ATOMIC BETTY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/9855259d64dbd2ad.png
+NAME:24/7 ATYPICAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/940bf65ea643d303.png
+NAME:24/7 AUSSIE GOLD HUNTERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ee3a4d859753d370.png
+NAME:24/7 AUSTIN AND ALLY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/76c261b7abbec803.png
 NAME:24/7 AVATAR THE LAST AIRBENDER BOOK 1 WATER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 AVATAR THE LAST AIRBENDER BOOK 2 EARTH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 AVATAR THE LAST AIRBENDER BOOK 3 FIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
@@ -8788,168 +8790,168 @@ NAME:24/7 AVATAR THE LEGEND OF KORRA BOOK 1 AIR|https://raw.githubusercontent.co
 NAME:24/7 AVATAR THE LEGEND OF KORRA BOOK 2 SPIRITS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 AVATAR THE LEGEND OF KORRA BOOK 3 CHANGE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 AVATAR THE LEGEND OF KORRA BOOK 4 BALANCE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AVENUE 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AVOCADO TOAST THE SERIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 AWKWAFINA IS NORA FROM QUEENS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 AVENUE 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/33c34b2a74472dc2.png
+NAME:24/7 AVOCADO TOAST THE SERIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/71db22c0ee836524.png
+NAME:24/7 AWKWAFINA IS NORA FROM QUEENS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/8f49e352dfc8befc.png
 NAME:24/7 AWKWARD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1d3d8c6e169a9a29a38db718d8d07294e3a716cf.png
-NAME:24/7 BABY DADDY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BABY DADDY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/52e881c84623a43c.png
 NAME:24/7 BABYLON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8e8aa016c8547fc561f8805f77ff11806f33ea0f.png
-NAME:24/7 BABYLON 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BACHELOR IN PARADISE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BABYLON 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/61bdd546763ecd80.png
+NAME:24/7 BACHELOR IN PARADISE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/201701c4b5b54334.png
 NAME:24/7 BACK TO THE FUTURE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e4dbf2571ae3a408b0759c1432f70d217d9ec871.png
-NAME:24/7 BACKYARD ENVY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BAD BANKS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BACKYARD ENVY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/feb3ff5ef982ebb1.png
+NAME:24/7 BAD BANKS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/cb73b27b3d3da3ea.png
 NAME:24/7 BAEK HEE HAS RETURNED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BAGHDAD CENTRAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BAGHDAD CENTRAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6138a03104429e34.png
 NAME:24/7 BAI YAO PU|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BAJILLIONAIRES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BAKEAWAY CAMP WITH MARTHA STEWART|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BAJILLIONAIRES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/f3ca4c51ca9d5600.png
+NAME:24/7 BAKEAWAY CAMP WITH MARTHA STEWART|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/727d1df6aaac85bf.png
 NAME:24/7 BALLERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a655c928ed184beb4834e5971f38adc994cee0bf.png
-NAME:24/7 BALLMASTRZ 9009|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BANCROFT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BAND OF BROTHERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BALLMASTRZ 9009|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/dd59d7b7fa664f7d.png
+NAME:24/7 BANCROFT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/107ced5d2f4b8f44.png
+NAME:24/7 BAND OF BROTHERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/aa59d58c1bfb4111.png
 NAME:24/7 BANSHEE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cceef705277e3871823b9e5233b6402c3ab74ad3.png
 NAME:24/7 BAR RESCUE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f90a715a908fd7ea25723c9519f9ffe93adf4e25.png
-NAME:24/7 BARBIE DREAMHOUSE ADVENTURES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BARELY FAMOUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BARETTA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BARBIE DREAMHOUSE ADVENTURES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6eb007f768ac8e5a.png
+NAME:24/7 BARELY FAMOUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/b2e1c61f1c1eac18.png
+NAME:24/7 BARETTA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/07cab6ee1a9042b2.png
 NAME:24/7 BARKSKINS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BASKETS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BATMAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BATMAN BEYOND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BATTLEBOTS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BASKETS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/32771e0313286d90.png
+NAME:24/7 BATMAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/3a47b88d7c9807a4.png
+NAME:24/7 BATMAN BEYOND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/d479f9b32693f91b.png
+NAME:24/7 BATTLEBOTS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7990dfb37b8cfecf.png
 NAME:24/7 BATWOMAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BE MELODRAMATIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BE MELODRAMATIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c319fb87d9c36bd7.png
 NAME:24/7 BEAT SHAZAM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 BEAVIS AND BUTT HEAD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4ddbf0a8b65c304cd6005282c06faa629214992b.png
-NAME:24/7 BEDLAM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BEDLAM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/5902227d75b61ea5.png
 NAME:24/7 BEING MARY JANE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ef8e9ef5e305a8bd8ad4af673d24317a52335356.png
-NAME:24/7 BELGRAVIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BELOW DECK SAILING YACHT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BELGRAVIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/329ab9133cc16c3f.png
+NAME:24/7 BELOW DECK SAILING YACHT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/99c80cf0a5e2996d.png
 NAME:24/7 BELOW: TALES OF ARCADIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e20cb4d59eab0c1167d559b2a4fbb62ecd8895de.png
-NAME:24/7 BEN MENDELSOHN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BENEDICT CUMBERBATCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BENICIO DEL TORO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BENIDORM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BEN MENDELSOHN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/cbf3fae72513b01d.png
+NAME:24/7 BENEDICT CUMBERBATCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/542ac09dce31a41b.png
+NAME:24/7 BENICIO DEL TORO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/55294439a2ec0b93.png
+NAME:24/7 BENIDORM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c9ef2f1288fb815b.png
 NAME:24/7 BERNIE MACK 2001|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 BEST CHRISTMAS MOVIE S 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 BEST CHRISTMAS MOVIE S 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 BEST CHRISTMAS MOVIE S 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BEST FRIENDS WHENEVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BETAAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BETRAYAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BEST FRIENDS WHENEVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/78463313ada24dbf.png
+NAME:24/7 BETAAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ae0b14c876575bc9.png
+NAME:24/7 BETRAYAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/46783972892a1bde.png
 NAME:24/7 BETTER CALL SAUL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d4411e355021cc49371f8b6d4bfa9ef68fd73174.png
 NAME:24/7 BETTER OFF TED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BETTER THINGS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BETTER THINGS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/84077fc4e1e997c9.png
 NAME:24/7 BEVERLY HILLS, 90210|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2e11cacbe60ade7a66dd359d62dbca3e18a25b53.png
-NAME:24/7 BEWARE THE BATMAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BEWITCHED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BEWARE THE BATMAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/24a5121679cfbdb5.png
+NAME:24/7 BEWITCHED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/5a3699de39604fa9.png
 NAME:24/7 BEYBLADE BURST SUPER KING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BEYOND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BEYOND SCARED STRAIGHT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BEYOND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/2693e01017d7a4ab.png
+NAME:24/7 BEYOND SCARED STRAIGHT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/b1c139d375e4c5d7.png
 NAME:24/7 BIG BROTHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/400612fcb994f33994083bde8a844e4c45d6001c.png
-NAME:24/7 BIG CITY GREENS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BIG DOGS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BIG LITTLE LIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BIG PAPI NEEDS A JOB|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BIG CITY GREENS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c3f3e2e289035299.png
+NAME:24/7 BIG DOGS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/8fe73b6286ea1177.png
+NAME:24/7 BIG LITTLE LIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/be9a262378f70cdd.png
+NAME:24/7 BIG PAPI NEEDS A JOB|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/5e18ed154c431ee9.png
 NAME:24/7 BIG TIME RUSH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/43256977b34f9954655e47cc27808206a90f74e6.png
-NAME:24/7 BILL BURR PRESENTS: THE RINGERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BILL NYE SAVES THE WORLD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BILLIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BILLY BILLIE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BIRDS OF PREY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BILL BURR PRESENTS: THE RINGERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/136223c03d7a245b.png
+NAME:24/7 BILL NYE SAVES THE WORLD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/cd8948fd321d1d2e.png
+NAME:24/7 BILLIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6c1e5f721a7b97bb.png
+NAME:24/7 BILLY BILLIE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/b0d805c7afdb98f9.png
+NAME:24/7 BIRDS OF PREY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7b2ff46988a0ca4f.png
 NAME:24/7 BITTEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 BJ AND THE BEAR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/08fcb0cea021f48425779d7b9573926bc059f813.png
-NAME:24/7 BLACK CLOVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BLACK FILES DECLASSIFIED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BLACK CLOVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/281a1e26785f41a0.png
+NAME:24/7 BLACK FILES DECLASSIFIED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/418f8f414a247c85.png
 NAME:24/7 BLACK MONDAY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1b9d224a6e58681ff18c566b6d131e930368230e.png
 NAME:24/7 BLACK SUN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0e76a6851bc5b824d7df3e29ffc9ddcd6bafd046.png
 NAME:24/7 BLACK-ISH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0e76a6851bc5b824d7df3e29ffc9ddcd6bafd046.png
-NAME:24/7 BLOOD AND OIL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BLOODLINE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BLOOM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BLOW BREEZE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BLOOD AND OIL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/e283cb2b0c3df0dd.png
+NAME:24/7 BLOODLINE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/e9e020e79ffb2e6c.png
+NAME:24/7 BLOOM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/bcd4b0a8f1a64673.png
+NAME:24/7 BLOW BREEZE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/8d5b7cfbbddf6a36.png
 NAME:24/7 BLUE BLOODS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/69e0c5b4886d591f759d375a50a4c2a28b7c4ec2.png
-NAME:24/7 BLUE MURDER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BLUEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOARDWALK EMPIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOB HEARTS ABISHOLA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOB ODENKIRK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOB THE BUILDER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BLUE MURDER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/98962e5fde1f9a79.png
+NAME:24/7 BLUEY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7a3cf5b578397927.png
+NAME:24/7 BOARDWALK EMPIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/67b87ac565e3e8b8.png
+NAME:24/7 BOB HEARTS ABISHOLA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/67449310d86fecbe.png
+NAME:24/7 BOB ODENKIRK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/8cecc0e54d4e4e9e.png
+NAME:24/7 BOB THE BUILDER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/b900c585317f3881.png
 NAME:24/7 BOB'S BURGERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ef9425a1d53797d28221a1283626d8b5fedf6782.png
-NAME:24/7 BODY HACK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BODY OF PROOF|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BODYGUARD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BODY HACK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/51de7dfc3b16df28.png
+NAME:24/7 BODY OF PROOF|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/affcae0c2e53d1f0.png
+NAME:24/7 BODYGUARD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/91d3640383f470d7.png
 NAME:24/7 BONANZA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d61f4aa1bacea2e367181aea8df491934ea6a934.png
 NAME:24/7 BONES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c19ac76a6d3d7afe35877838a7d9151a22a3282d.png
 NAME:24/7 BOOMERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BORDERLINE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BORDERTOWN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BORUTO NARUTO NEXT GENERATIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOSS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOSTON LEGAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOTCHED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BOY BAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BORDERLINE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6c94676a6d13448d.png
+NAME:24/7 BORDERTOWN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/deddcd049ade6370.png
+NAME:24/7 BORUTO NARUTO NEXT GENERATIONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/a6754d1702089134.png
+NAME:24/7 BOSS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/431c23faebfea456.png
+NAME:24/7 BOSTON LEGAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/e12a529abfc22547.png
+NAME:24/7 BOTCHED|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6a49a40b47b469cd.png
+NAME:24/7 BOY BAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c69b7249e0da8c8f.png
 NAME:24/7 BOY MEETS GIRL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bf4d3d51d0b75ff9a97ab0dbbeba3c19d53462e4.png
 NAME:24/7 BOY MEETS WORLD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bf4d3d51d0b75ff9a97ab0dbbeba3c19d53462e4.png
-NAME:24/7 BRADLEY COOPER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BRADLEY COOPER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/4b38f2cb4d3f7604.png
 NAME:24/7 BRADY BUNCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1eef45c9d1d9988e1735d8cfe1ac3d23d754f56a.png
-NAME:24/7 BRAQUO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BREAKING IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BREEDERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BREWS BROTHERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BRIARPATCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BRICKLEBERRY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BRIE LARSON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BRIEF ENCOUNTERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BRING IT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BRAQUO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/de9095a47396f223.png
+NAME:24/7 BREAKING IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/6891421b85a96816.png
+NAME:24/7 BREEDERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c9fa0fc99b1f18f9.png
+NAME:24/7 BREWS BROTHERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c6291dfd578bdf5e.png
+NAME:24/7 BRIARPATCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ce9a46d1ad108b1c.png
+NAME:24/7 BRICKLEBERRY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ab5d0bc2bcefdcd1.png
+NAME:24/7 BRIE LARSON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/db8a316e6d0ff9ff.png
+NAME:24/7 BRIEF ENCOUNTERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/e0c3d4d686dc6daf.png
+NAME:24/7 BRING IT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/44253771228d5f1f.png
 NAME:24/7 BRITAIN'S GOT TALENT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/afb621ae5f3d12fe4f78917e8a3f9943f9ff9e52.png
-NAME:24/7 BROADCHURCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BROADCHURCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/1a4618797e6bf8e1.png
 NAME:24/7 BROCKMIRE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f06b337d5ddd564264ab9488e6794392b6c20f18.png
-NAME:24/7 BROKE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BROKE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/e4242ccdc210b943.png
 NAME:24/7 BROKE GIRLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/90858e323f3bb9d42d81e702208e08c5c14f3a76.png
-NAME:24/7 BROKEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BRON BROEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BRON BROEN THE BRIDGE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BROOKLYN NINE NINE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BROTHER AND BROTHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BROTHERHOOD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BROKEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/7b9ef257c8a354f4.png
+NAME:24/7 BRON BROEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/21ce0e8a128ac4ed.png
+NAME:24/7 BRON BROEN THE BRIDGE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/cab04f075f9bf880.png
+NAME:24/7 BROOKLYN NINE NINE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/eb53ac27fc27f20d.png
+NAME:24/7 BROTHER AND BROTHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/84878a8ebb7c31b3.png
+NAME:24/7 BROTHERHOOD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/8b3855d33c0cd0bd.png
 NAME:24/7 BROTHERS AND SISTERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3073471d95eebf0dbaa647567536e48d27366c51.png
 NAME:24/7 BRUCE LEE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6a3acd4b0f616b99407dcc7cd7d15fcbd5cdbdea.png
 NAME:24/7 BRUCE WILLIS MOVIE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0c94f0f8a128bb221f6bf80c1f100209b2503f93.png
-NAME:24/7 BRYAN CRANSTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BRYAN CRANSTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/2828abbdad44f104.png
 NAME:24/7 BUBBLE GUPPIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/221ad01bbedcab75d96970b4a3346bc604420c2a.png
-NAME:24/7 BUFFY THE VAMPIRE SLAYER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BUFFY THE VAMPIRE SLAYER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/007a7acda38419a3.png
 NAME:24/7 BULGE BRACKET|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BULLETPROOF|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BUNHEADS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 BUNK D|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 BULLETPROOF|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/0c24cc368a1ecd10.png
+NAME:24/7 BUNHEADS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/68ce68cb60b6bda0.png
+NAME:24/7 BUNK D|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/fd765683e9bc768d.png
 NAME:24/7 BURN NOTICE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1f42ad6060d6aefede757a920cf514635f2d18bb.png
-NAME:24/7 CABLE GIRLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 CABLE GIRLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/27df1e7612f4bc46.png
 NAME:24/7 CAGNEY AND LACEY 1982|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAKE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 CAKE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/b29596f525ef133a.png
 NAME:24/7 CALIFORNICATION|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/eb3963c9ece788827500a3b0ecca2bef0f20c8a9.png
-NAME:24/7 CALL THE MIDWIFE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAMP LAKEBOTTOM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAPTAIN PLANET AND THE PLANETEERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAPTAIN POWER AND SOLIDERS OF THE FUTURE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAR ISSUES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAR MASTERS RUST TO RICHES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAR SOS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CARNIVAL EATS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CAROL'S SECOND ACT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CARRIE COON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CASUAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 CALL THE MIDWIFE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c8eed3cfeefe4a01.png
+NAME:24/7 CAMP LAKEBOTTOM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/24f428398af446b7.png
+NAME:24/7 CAPTAIN PLANET AND THE PLANETEERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/71a82a79415fa6fc.png
+NAME:24/7 CAPTAIN POWER AND SOLIDERS OF THE FUTURE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/1ed95a7b3b9a040e.png
+NAME:24/7 CAR ISSUES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/eb9e2e7ceeab23c4.png
+NAME:24/7 CAR MASTERS RUST TO RICHES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/dfec2dc20b504761.png
+NAME:24/7 CAR SOS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/fe42fb7f7897c3f2.png
+NAME:24/7 CARNIVAL EATS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/2df595d4e5c69dfc.png
+NAME:24/7 CAROL'S SECOND ACT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/916507c8f6eb6eed.png
+NAME:24/7 CARRIE COON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/0f87acc883048461.png
+NAME:24/7 CASUAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/39022e90e48f0f45.png
 NAME:24/7 CATCH-22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e3cef974f617a6d20f39a4c2977f12bbe5fea050.png
-NAME:24/7 CATDOG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CATDOG 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CATE BLANCHETT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 CATDOG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/0f2df5c0c0c06fa7.png
+NAME:24/7 CATDOG 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/e15d2b927f791e2b.png
+NAME:24/7 CATE BLANCHETT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/fd60e474fa6dff67.png
 NAME:24/7 CATFISH: THE TV SHOW|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c019180a5f15e8980d333772042015ff25a9e756.png
-NAME:24/7 CATHERINE TATES NAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CELEBRITY FAMILY FEUD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CELEBRITY IOU|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CELEBRITY WATCH PARTY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
-NAME:24/7 CESAR 911|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
+NAME:24/7 CATHERINE TATES NAN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/4a77a75cd8b816c7.png
+NAME:24/7 CELEBRITY FAMILY FEUD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c9a6139ea0d9e090.png
+NAME:24/7 CELEBRITY IOU|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/ecb0dc1643ac6523.png
+NAME:24/7 CELEBRITY WATCH PARTY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/50c0cf258c22f0b0.png
+NAME:24/7 CESAR 911|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv247_import/c82b9d9faa6c7407.png
 NAME:24/7 CHAPPELLE'S SHOW|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8c8f601bf34c0f83978a28f33fb96ca2e0f8f9d.png
 NAME:24/7 CHARLIE'S ANGELS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d608824fcba974073913ef8a47dc5e4abe95865e.png
 NAME:24/7 CHARLIZE THERON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ba847b1c3b07d500951816d7d6dc6873aa083a7d.png

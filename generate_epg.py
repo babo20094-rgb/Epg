@@ -167,7 +167,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvpassport": ["tvpassport_intervalle"],
     "mts": ["mts_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
-    "siol": ["siol_intervalle"],
+    "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle"],
     "tubi": ["tubi_intervalle"],
 }
@@ -1392,6 +1392,13 @@ for zeile in zeilen:
         eintrag["mojmaxtv"] = True
     if land.strip().upper() in ("SI", "MK"):
         eintrag["siol"] = True
+    # "EXYU|Arena Adrenalin ..." ist derselbe echte Kanal wie mts.rs'
+    # "Arena Adrenalin" (RS) - gezielt NUR fuer diesen einen Sendernamen
+    # aktiviert, nicht pauschal fuer alle EXYU-Zeilen (siehe generelle
+    # "kein pauschales Durchsuchen"-Regel oben - EXYU ist eine breite,
+    # generische Playlist-Kategorie ohne Bezug zu einem einzelnen Land).
+    if land.strip().upper() == "EXYU" and re.match(r"^ARENA\s*ADRENALIN\b", eintrag["sender"], re.IGNORECASE):
+        eintrag["mts"] = True
     # "PRIME" laeuft zusaetzlich zu Tubi (siehe unten) auch durch die
     # deutsche Kaskade (deswird.org/Pluto TV/tvmovie.de/hoerzu.de/
     # Samsung TV Plus) - der PRIME-Bereich der Playlist enthaelt neben
@@ -2737,6 +2744,28 @@ for daten in siol_sender:
     if programme:
         print(f"Siol-EPG: {len(programme)} echte Sendungen fuer '{daten['sender']}' geladen.")
         _schreibe_echte_programme(daten, programme)
+        continue
+
+    # SportKlub (epgshare01.online) als zweiter Versuch fuer SI-Sender
+    # nach siol.net (siehe sportklub_epg.py) - siol.net fuehrt keine
+    # "Sport Klub"-Kanaele, epgshare01.online hat sie (bereits als
+    # HR-Fallback nach MojMaxTV im Einsatz).
+    sportklub_programme = []
+    try:
+        sportklub_site_id = sportklub_kanal_finden(daten["sender"])
+        if sportklub_site_id is not None:
+            sportklub_programme = sportklub_hole_programme(sportklub_site_id, SIOL_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        sportklub_programme = []
+
+    daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
+
+    if sportklub_programme:
+        print(f"SportKlub-EPG: {len(sportklub_programme)} echte Sendungen fuer '{daten['sender']}' geladen (Siol-Fallback).")
+        _schreibe_echte_programme(daten, sportklub_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
