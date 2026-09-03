@@ -1823,3 +1823,45 @@ EVENT" zerlegt; "NO EVENT" greift automatisch ueber `LEERLAUF_MARKER`
   bzw. Nicht-HD-Variante desselben Kanals) - MojMaxTV (die normale
   HR-Quelle) liefert dafuer bereits nachweislich echte Daten (16-18
   Sendungen), sobald die Zeile existiert.
+
+## 24/7-Serien-/Film-Sender: automatisierte TMDB-Poster-Recherche (1.752 Sender)
+
+Der Nutzer meldete, dass bei den `NAME:24/7 <Titel>`-Sendern (2.268
+Zeilen insgesamt - jeder Titel laeuft rund um die Uhr als eigener
+Kanal) den meisten nur ein generischer Platzhalter-Logo angezeigt
+wurde, obwohl es sich um echte Serien/Filme handelt, fuer die es
+Poster gibt. 1.748 Zeilen zeigten auf den generischen Platzhalter
+(`externe_logos_import/f8c8f601...`), 4 weitere auf einen der
+bekannten toten Picon-Hosts - macht 1.752 zu bearbeitende Sender.
+
+**Vorgehen:** Automatisiertes Skript (`fetch_247_logos.py`, temporaer
+im Scratchpad, nicht ins Repo uebernommen) durchsucht fuer jeden Titel
+TMDB per HTML-Scraping der Suchergebnisseite (kein API-Key noetig,
+gleiche Technik wie bei frueheren Logo-Recherchen dieser Session):
+erstes Suchergebnis (`/tv/<id>-...` oder `/movie/<id>-...`, Navigations-
+Links wie "now-playing" werden durch das numerische ID-Praefix
+ausgeschlossen) -> Detailseite -> `og:image`-Meta-Tag als Poster-URL.
+Lief als Hintergrundprozess (~45-50 Minuten fuer alle 1.752 Titel,
+bei ~1,5 Sekunden pro Titel durch die 2 noetigen HTTP-Requests),
+Zwischenspeichern von sender.txt alle 25 Titel als Absicherung gegen
+einen Abbruch mitten im Lauf.
+
+**Ergebnis:** 1.405 von 1.752 Titeln (80%) haben jetzt ein echtes,
+selbst gehostetes Poster unter `logos/tv247_import/<sha1-hash-des-
+Titels>.png` (max. 300px/256 Farben, gleiche Optimierungs-Konvention
+wie alle anderen Logo-Sets). 347 Titel (20%) blieben beim bisherigen
+Fallback - entweder kein TMDB-Treffer (z.B. sehr kurzlebige/seltene
+Sendungen, Tippfehler im Titel, mehrdeutige generische Namen) oder der
+Bild-Download selbst schlug fehl. Stichprobenartig gegengeprueft
+(z.B. "24 Legacy", "12 Oz Mouse") - Poster passen korrekt zum Titel.
+
+**Bekannte Einschraenkung:** Bei mehrdeutigen/sehr kurzen Titeln
+(z.B. reine Zahlen, generische Ein-Wort-Titel) kann das ERSTE
+TMDB-Suchergebnis theoretisch zum falschen Film/zur falschen Serie
+gehoeren, falls TMDB mehrere Treffer mit aehnlicher Popularitaet hat -
+anders als bei den strikten Alias-/Exakt-Match-Fixes weiter oben in
+diesem Dokument ist das hier ein bewusster Kompromiss (kein Fuzzy-
+Score-Vergleich, einfach der oberste Suchtreffer), da eine manuelle
+Pruefung bei 1.405 Treffern nicht praktikabel war. Bei einer kuenftigen
+Meldung "falsches Logo bei 24/7 X" zuerst pruefen, ob TMDB fuer genau
+diesen Titel mehrere sehr aehnliche Ergebnisse listet.
