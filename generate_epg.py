@@ -2394,11 +2394,30 @@ jetzt = datetime.now(timezone.utc).replace(
     hour=0, minute=0, second=0, microsecond=0
 )
 
+# Die DYN-API kuendigt manche Events (z.B. Handball-/Basketball-Termine)
+# schon Wochen bis Monate im Voraus an (dyn_synth_api_fenster kann daher
+# weit ueber die normalen ANZAHL_TAGE=3 hinausreichende Fenster
+# enthalten) - lief die Leerzeiten-Fuellung nur ueber die festen
+# DYN_LEERZEIT_TAGE, entstanden zwischen einem nahen und einem fernen
+# echten Event riesige, komplett leere Zeitraeume ohne jeden
+# <programme>-Eintrag (TiviMate zeigte dort "Keine Information" statt
+# des Leerlauf-Platzhalters - September 2026 behoben). Die Fuellung
+# deckt jetzt dynamisch bis zum spaetesten bekannten API-Fenster-Ende ab
+# (mit einer Obergrenze von 180 Tagen, um die Dateigroesse nicht
+# unbegrenzt wachsen zu lassen), mindestens aber weiterhin
+# DYN_LEERZEIT_TAGE.
+_dyn_leerzeit_tage_max = DYN_LEERZEIT_TAGE
+for _fenster_liste in dyn_synth_api_fenster.values():
+    for _fenster_start, _fenster_ende in _fenster_liste:
+        _benoetigte_tage = (_fenster_ende - jetzt).days + 1
+        if _benoetigte_tage > _dyn_leerzeit_tage_max:
+            _dyn_leerzeit_tage_max = min(_benoetigte_tage, 180)
+
 for i in range(1, DYN_PPV_ANZAHL + 1):
     kanal_ids = dyn_ppv_kanal_ids(i)
     api_fenster = dyn_synth_api_fenster.get(i, [])
 
-    for stunde in range(24 * DYN_LEERZEIT_TAGE):
+    for stunde in range(24 * _dyn_leerzeit_tage_max):
         block_start = jetzt + timedelta(hours=stunde)
         block_ende = block_start + timedelta(hours=1)
 
