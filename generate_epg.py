@@ -168,7 +168,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvguide": ["tvguide_intervalle"],
     "tvpassport": ["tvpassport_intervalle"],
     "tvpassport_callsign": ["tvpassport_intervalle"],
-    "mts": ["mts_intervalle"],
+    "mts": ["mts_intervalle", "mts_sportklub_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
@@ -1778,6 +1778,25 @@ M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
 # bleibt der bisherige hartcodierte String als Fallback stehen - keine
 # Verhaltensaenderung fuer Nutzer ohne diese spezielle Playlist-Abweichung.
 dyn_ppv_api_playlist_namen = {}
+
+# HR|SK 1-10: dieselbe Idee wie bei den DYN-PPV-API-Kanaelen oben - statt
+# der statischen sender.txt-Schreibweise ("HR|SK N") wird bei Treffer der
+# EXAKTE, aktuell in der eigenen Playlist stehende Rohname uebernommen
+# (z.B. falls dort "HR| SK N HD" o.ae. steht). Der Nutzer hat diese
+# Kanaele in seiner Playlist bewusst auf "SK N" umbenannt (nur unter
+# diesem Namen liefern unsere Quellen echte Programmdaten, siehe
+# mojmaxtv_epg.py/sportklub_epg.py) - TiviMates automatische Sender-
+# Zuordnung matcht per exaktem Namensvergleich (siehe
+# m3u_playlist_abgleichen()-Kommentar oben) - weicht unsere generierte
+# ID auch nur minimal vom tatsaechlichen Playlist-Namen ab, kann eine
+# vorher gesetzte, falsche Zuordnung (z.B. auf das aehnlich benannte
+# RS|SPORT KLUB) bestehen bleiben, obwohl der Sender selbst laengst
+# korrekt (MojMaxTV/SportKlub) befuellt ist. Ohne Treffer oder bei jedem
+# Fehler bleibt unveraendert die bisherige statische "HR|SK N"-ID stehen
+# (siehe kanal_id_varianten() weiter unten) - keine Verhaltensaenderung
+# fuer Nutzer ohne Abweichung.
+hr_sk_playlist_namen = {}
+
 _m3u_url_fuer_dyn_ppv = os.environ.get("PROVIDER")
 if _m3u_url_fuer_dyn_ppv:
     try:
@@ -1806,14 +1825,41 @@ if _m3u_url_fuer_dyn_ppv:
                 _nummer = int(_dyn_ppv_match.group(1))
                 if 1 <= _nummer <= DYN_PPV_ANZAHL:
                     dyn_ppv_api_playlist_namen[_nummer] = _voller_name
+                continue
+
+            _hr_sk_match = re.match(r"^HR\|\s*SK\s*0*(\d{1,2})\s*(?:HD|FHD)?$", _voller_name, re.IGNORECASE)
+            if _hr_sk_match:
+                _nummer = int(_hr_sk_match.group(1))
+                if 1 <= _nummer <= 10:
+                    hr_sk_playlist_namen[_nummer] = _voller_name
 
         if dyn_ppv_api_playlist_namen:
             print(
                 f"DYN-PPV-API-Kanalnamen: {len(dyn_ppv_api_playlist_namen)} von "
                 f"{DYN_PPV_ANZAHL} Kanaelen mit exaktem Playlist-Namen abgeglichen"
             )
+        if hr_sk_playlist_namen:
+            print(f"HR|SK-Kanalnamen: {len(hr_sk_playlist_namen)} von 10 Kanaelen mit exaktem Playlist-Namen abgeglichen")
     except Exception as e:
-        print("DYN-PPV-API-Kanalnamen-Abgleich Fehler:", e)
+        print("DYN-PPV-API-/HR-SK-Kanalnamen-Abgleich Fehler:", e)
+
+# HR|SK 1-10: bei Treffer in hr_sk_playlist_namen die "kanal"-ID der
+# jeweiligen sender_daten-Eintraege direkt auf den exakten Playlist-
+# Rohnamen setzen (nicht nur den Anzeigenamen) - "kanal" ist die ID, die
+# ueberall verwendet wird: <channel id>, kanal_id_varianten() und jedes
+# <programme channel="...">. Nur so stimmt die tatsaechlich erzeugte
+# Kanal-ID mit dem ueberein, was TiviMates automatische Zuordnung
+# vergleicht. Ohne Playlist-Treffer bleibt "kanal" unveraendert bei der
+# statischen sender.txt-Schreibweise ("HR|SK N").
+for _daten in sender_daten:
+    if _daten["land"].strip().upper() != "HR":
+        continue
+    _hr_sk_sender_match = re.match(r"^SK\s*0*(\d{1,2})$", _daten["sender"].strip(), re.IGNORECASE)
+    if not _hr_sk_sender_match:
+        continue
+    _hr_sk_nummer = int(_hr_sk_sender_match.group(1))
+    if _hr_sk_nummer in hr_sk_playlist_namen:
+        _daten["kanal"] = hr_sk_playlist_namen[_hr_sk_nummer]
 
 for i in range(1, DYN_PPV_ANZAHL + 1):
     kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
@@ -2212,7 +2258,14 @@ for daten in sender_daten:
     if daten.get("exakter_name"):
         playlist_name = daten["kanal"]
     else:
-        playlist_name = f"{daten['land']}| {daten['sender']}"
+        # Normalerweise identisch mit "Land| Sender" (siehe kanal-
+        # Zuweisung beim Einlesen), aber fuer HR|SK 1-10 kann "kanal"
+        # oben bereits auf den exakten Live-Playlist-Rohnamen
+        # ueberschrieben worden sein - der Anzeigename muss dann
+        # mitziehen, sonst weichen <channel id> und <display-name>
+        # voneinander ab (gleiches Bug-Muster wie bei DYN PPV, siehe
+        # Kommentar dort).
+        playlist_name = daten["kanal"]
 
     # Fuer jede Kanal-ID-Variante (mit/ohne Leerzeichen nach dem Pipe-
     # Zeichen, siehe kanal_id_varianten()) einen eigenen <channel>-
@@ -2726,6 +2779,36 @@ for daten in mts_sender:
 
     if programme:
         _echte_quelle_zaehlen("mts.rs")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SPORTKLUB: zweiter Versuch fuer alle RS-Sender, bei denen mts.rs nichts
+# gefunden hat (siehe sportklub_epg.py - mts.rs fuehrt KEINE "Sport
+# Klub"-Kanaele, epgshare01.online hat sie, bereits als HR-/SI-Fallback
+# im Einsatz). Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in mts_sender:
+    if daten.get("mts_intervalle"):
+        continue  # mts.rs hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        site_id = sportklub_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = sportklub_hole_programme(site_id, MTS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["mts_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("SportKlub")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

@@ -126,6 +126,19 @@ def mts_hole_kanalliste():
 # Fuzzy-Pfad ueberhaupt zum Zug kommt - kein Fehltreffer-Risiko mehr.
 _ARENA_PREMIUM_PATTERN = re.compile(r"^ARENA\s*SPORT\s*0*(\d+)\s*PREMIUM(?:\s*HD)?$", re.IGNORECASE)
 
+# "SPORT KLUB N"/"SPORT KLUB FIGHT"/... (RS|SPORT KLUB-Sender, siehe
+# sportklub_epg.py) hat bei mts.rs KEINEN echten Treffer - aber der
+# unscharfe difflib-Fallback matchte den kurzen, normalisierten String
+# "SPORTKLUB" faelschlich auf den voellig anderen ungarischen Kanal
+# "Sorozatklub" (endet ebenfalls auf "klub", hohe Zeichen-Aehnlichkeit) -
+# ALLE Nummern (1-10/Fight/Golf/HD) kollabierten dadurch auf denselben
+# einen falschen Kanal (das immer wiederkehrende Fehltreffer-Muster
+# dieser Session, siehe Arena-PREMIUM-Fix oben). mts.rs fuehrt keine
+# "Sport Klub"-Kanaele (siehe sportklub_epg.py als echte Quelle dafuer,
+# ueber generate_epg.py als Fallback fuer RS-Sender eingehaengt) - der
+# Fuzzy-Pfad wird fuer diese Sender daher komplett uebersprungen.
+_SPORT_KLUB_GUARD = re.compile(r"^SPORT\s*KLUB\b", re.IGNORECASE)
+
 
 def mts_kanal_finden(kanalname):
     """Sucht den mts.rs-Kanal, der am besten zu kanalname passt - erst
@@ -139,6 +152,9 @@ def mts_kanal_finden(kanalname):
 
     ziel_schluessel = normalisiere_sendername(kanalname)
     if not ziel_schluessel:
+        return None
+
+    if _SPORT_KLUB_GUARD.match(kanalname.strip()):
         return None
 
     name_index = {}
