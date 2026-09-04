@@ -1477,19 +1477,21 @@ for zeile in zeilen:
     if land.strip().upper() in ("DE", "JOYN", "PRIME", "WOW"):
         eintrag["plutotv"] = True
 
-    # "WOW|SKY SPORT BUNDESLIGA N ᴴᴰ ◉": derselbe echte Kanal wie die
-    # normalen "SKY:DE|SKY SPORT BUNDESLIGA N HD/FHD"-Opt-in-Zeilen (Sky
-    # HAWK-API, siehe sky_epg.py) - nur mit "WOW"-Praefix statt "DE" und
+    # "WOW|SKY SPORT ... ᴴᴰ ◉" (Bundesliga, 1-10, F1, Golf, Mix, Premier
+    # League, Tennis, Top Event, ...): derselbe echte Kanal wie die
+    # normalen "SKY:DE|SKY SPORT ... HD/FHD"-Opt-in-Zeilen (Sky HAWK-API,
+    # siehe sky_epg.py) - nur mit "WOW"-Praefix statt "DE" und
     # zusaetzlichen Unicode-Suffixen (ᴴᴰ/◉) in der eigenen Playlist des
     # Nutzers. Die deswird.org-Kaskade oben (plutotv-Flag) kennt diese
-    # Kanaele zwar dem Namen nach (SkyBundesligaN.de), liefert aber
-    # keinen Sendeplan dafuer - deshalb hier gezielt zusaetzlich Sky
-    # selbst aktiviert. Regex statt Fuzzy-Abgleich (kein Fehltreffer-
-    # Risiko): nur "SKY SPORT BUNDESLIGA" mit optionaler Nummer, die
-    # Unicode-Suffixe (ᴴᴰ/◉) werden vor der Sky-Suche entfernt (siehe
+    # Kanaele zwar teils dem Namen nach, liefert aber keinen Sendeplan
+    # dafuer - deshalb hier gezielt zusaetzlich Sky selbst aktiviert.
+    # Regex statt Fuzzy-Abgleich (kein Fehltreffer-Risiko): jeder Name,
+    # der mit "SKY SPORT" beginnt (deckt automatisch auch kuenftige
+    # WOW|SKY-SPORT-Varianten ab, nicht nur Bundesliga) - die Unicode-
+    # Suffixe (ᴴᴰ/◉) werden vor der Sky-Suche entfernt (siehe
     # sky_wow_sender-Verarbeitungsblock weiter unten).
     if land.strip().upper() == "WOW" and re.match(
-        r"^SKY\s*SPORT\s*BUNDESLIGA\b", eintrag["sender"], re.IGNORECASE
+        r"^SKY\s*SPORT\b", eintrag["sender"], re.IGNORECASE
     ):
         eintrag["sky_wow"] = True
 
