@@ -2080,3 +2080,100 @@ NAME:-Sender) wurde ebenso auf eine reine Anzahl gekuerzt. Echte
 Fehlermeldungen (404s, Netzwerkfehler etc.) bleiben unveraendert
 bestehen - die sind fuer die Fehlersuche weiterhin wichtig, nur die
 Erfolgsmeldungen pro Sender wurden entfernt.
+
+## HR|SK/RS|SPORT KLUB-Verwechslung + DYN-PPV-1-20-Dateiposition + Bindestrich-ohne-Pipe-Kernbug (September 2026)
+
+Drei getrennte, in derselben Session gefundene Bugs - bei kuenftigen
+"Sender X zeigt falsche/keine Daten"-Meldungen erst hier nachschauen,
+ob eines der Muster passt, bevor von vorne debuggt wird:
+
+1. **mts.rs matchte "SPORT KLUB N" (RS-Sender) per Fuzzy-Fallback
+   faelschlich auf den unabhaengigen ungarischen Kanal "Sorozatklub"**
+   (endet ebenfalls auf "klub", hohe Zeichen-Aehnlichkeit) - alle
+   Nummern zeigten identisches, falsches (ungarisches) Programm. mts.rs
+   fuehrt GAR KEINE "Sport Klub"-Kanaele. Fix: `mts_kanal_finden()`
+   (`quellen/mts_epg.py`) ueberspringt "SPORT KLUB"-Namen jetzt
+   komplett (`_SPORT_KLUB_GUARD`), SportKlub (epgshare01.online,
+   bereits fuer HR/SI im Einsatz) uebernimmt als echter Fallback fuer
+   RS (`generate_epg.py`, neuer `mts_sportklub_intervalle`-Block nach
+   dem normalen `mts_sender`-Block). **Wichtig fuer die Fehlersuche
+   dabei:** der Nutzer meldete das Symptom zunaechst als "HR|SK zeigt
+   falsches EPG" - gemeint war aber tatsaechlich `RS|SPORT KLUB`
+   (Verwechslung durch aehnliche Markennamen). Immer den EXAKTEN
+   sender.txt-Zeilennamen nachfragen/verifizieren, bevor an der
+   falschen Stelle gesucht wird.
+2. **HR|SK 1-10: TiviMate ordnete die EPG-Daten teils falsch zu**,
+   obwohl MojMaxTV/SportKlub fuer diese Kanaele nachweislich korrekte,
+   unterschiedliche Sendungen lieferten - Kanal-ID war bisher immer
+   die starre sender.txt-Schreibweise ("HR|SK N"), nicht der exakte
+   Live-Playlist-Name. Fix: analog zum DYN-PPV-1-20-Mechanismus wird
+   jetzt einmalig die eigene Playlist nach "HR| SK N" durchsucht und
+   bei Treffer der exakte rohe Playlist-Name fuer ID UND Anzeigename
+   uebernommen (`hr_sk_playlist_namen` in `generate_epg.py`).
+3. **DYN-PPV-1-20-API-Kanaele zeigten NUR bei diesen 20 Kanaelen
+   durchgaengig "Keine Information"**, obwohl die Platzhalter-Daten
+   ("Dyn Sport (N) No Live") nachweislich vollstaendig in der Datei
+   standen und alle anderen ~18.000 Sender normal angezeigt wurden.
+   Ursache-Verdacht (nicht 100% verifizierbar, aber sehr stimmige
+   Beweislage): die unkomprimierte `Epg_365_Tage.xml` ist mittlerweile
+   ueber 300 MB gross, und der DYN-PPV-Leerzeiten-Block lag bisher als
+   ALLERLETZTES Stueck Inhalt direkt vor `</tv>` - ein schwaecheres
+   Android-TV-Geraet duerfte beim Parsen/Download einer so grossen
+   Datei irgendwo gegen Ende abbrechen, bevor der letzte Abschnitt
+   fertig eingelesen ist. Fix: Block direkt hinter die
+   `<channel>`-Definitionen verschoben, noch vor der grossen
+   Tagesraster-Schleife fuer alle Sender - liegt dadurch in den ersten
+   Prozentpunkten der Datei statt im letzten. **Kein vollstaendiger
+   Fix des Grundproblems** (Datei bleibt riesig) - verschiebt das
+   Truncation-Risiko nur auf die zuletzt in `sender.txt` stehenden
+   Sender. Bei weiteren "nur bestimmte Sender zeigen nichts trotz
+   nachweislich vorhandener Daten"-Meldungen: IMMER zuerst die
+   Dateiposition des betroffenen Kanals pruefen (`data.find(...)`,
+   Position in % der Gesamtlaenge) - liegt sie nahe 100%, ist das ein
+   Kandidat fuer dasselbe Problem, weiteres Verschieben nach vorne
+   waere der naheliegende naechste Schritt.
+4. **Neuer, echter Bindestrich-ohne-Pipe-Parsing-Bug bei manchen
+   NAME:-Sendern gefunden** (z.B. "AR: DAZN PPV N"): manche Anbieter
+   haengen den Leerlauf-Platzhaltertext OHNE trennendes Pipe-Zeichen
+   direkt an den Kern an, z.B. "AR: DAZN PPV 1 - NO EVENT STREAMING -
+   | 8K EXCLUSIVE" (Kern und "- NO EVENT STREAMING -" durch ein
+   Leerzeichen, nicht durch ein Pipe getrennt). Weder die Kern-hinten-
+   noch die bisherige Kern-vorne-Erkennung (`kern_vorne_und_
+   event_extrahieren()`) fand dadurch den sauberen Kern "AR: DAZN PPV
+   1" - die Live-Zuordnung schlug fuer diese Momentaufnahmen komplett
+   fehl. Fix: ein angehaengter, in Bindestriche eingeschlossener Text
+   ("- ... -" am Ende des ersten Pipe-Abschnitts) wird jetzt
+   abgetrennt und dem Event-Text zugeschlagen, bevor der Kern-Abgleich
+   laeuft - risikofrei (nur bei diesem spezifischen Muster aktiv,
+   sonst unveraendertes Verhalten). Getestet gegen mehrere echte und
+   synthetische Beispiele (AR: DAZN PPV, SOCCER PPV, Clubber, normale
+   Live-Events).
+5. **Wichtige Abgrenzung, die in dieser Session mehrfach zu
+   Missverstaendnissen fuehrte:** "Sender X zeigt falsche/keine Daten"
+   kann PRINZIPIELL vier komplett unterschiedliche Ursachen haben, die
+   sich oberflaechlich alle gleich anfuehlen ("Keine Information"/
+   falscher Text) - IMMER an den echten Daten (generierte XML direkt
+   pruefen, nicht raten) verifizieren, WELCHE es ist, bevor gefixt
+   wird:
+   - **Datenmuell im sender.txt-Kernnamen** (alter Rohtext im
+     NAME:-Wert selbst, siehe fruehere ESPN+/STAN/UEFA-Faelle weiter
+     oben) - IMMER zuerst `grep "^NAME:.*<Sendername>" sender.txt`
+     pruefen.
+   - **Fuzzy-Fehltreffer bei einer echten Quelle** (siehe SPORT-KLUB-
+     bei-mts.rs-Fall oben, oder die frueheren Arena-PREMIUM-/MRT-Faelle)
+     - Kanalliste der Quelle direkt abfragen und pruefen, ob der
+     Fuzzy-Treffer inhaltlich wirklich passt.
+   - **Struktureller Parsing-Bug in kern_und_event_extrahieren()/
+     kern_vorne_und_event_extrahieren()** (neues, bisher unbekanntes
+     Rohnamen-Format) - den rohen Text aus dem TiviMate-Sendernamen-
+     Editor holen und Schritt fuer Schritt durch die Extraktions-
+     funktionen nachrechnen (siehe Bindestrich-Fix oben als Vorlage).
+   - **Reines Datenalter/Timing** (unser Workflow laeuft nur alle 4h,
+     der rohe Live-Playlist-Name bei dynamischen PPV-Kanaelen aendert
+     sich aber alle paar Minuten) - erkennbar daran, dass der aktuell
+     im TiviMate-Sendernamen-Editor angezeigte Rohname ein ANDERER
+     ist als der, der in der zuletzt generierten XML steht (Zeit-
+     stempel des letzten erfolgreichen Workflow-Laufs mit der Uhrzeit
+     des Nutzer-Screenshots vergleichen). Das ist KEIN Bug, sondern ein
+     bekannter, akzeptierter Kompromiss bei ~9.000 dynamischen
+     PPV-Kanaelen mit nur alle 4h aktualisierten Snapshots.

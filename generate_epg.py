@@ -333,8 +333,33 @@ def kern_vorne_und_event_extrahieren(voller_name):
     Text selbst (z.B. "7:15 pm") faelschlich als Trenner genommen."""
     if "|" in voller_name:
         segmente = voller_name.split("|")
-        kurzname = segmente[0].strip()
-        event_teil = "|".join(segmente[1:]).strip()
+        erster_teil = segmente[0].strip()
+        rest = "|".join(segmente[1:]).strip()
+
+        # Manche Anbieter haengen den Leerlauf-/Status-Text OHNE
+        # trennendes Pipe-Zeichen direkt an den Kern an (z.B. "AR: DAZN
+        # PPV 1 - NO EVENT STREAMING - | 8K EXCLUSIVE" - kein Pipe
+        # zwischen Kern und "- NO EVENT STREAMING -"). Ohne Sonder-
+        # behandlung bleibt der komplette erste Abschnitt inkl.
+        # Anhaengsel der vermeintliche Kern, der dann nie exakt mit dem
+        # sauberen sender.txt-Kern uebereinstimmt (beobachtet bei
+        # "AR: DAZN PPV N", sender.txt-Kern "AR: DAZN PPV 1" wurde nie
+        # erkannt). Ein angehaengter, in Bindestriche eingeschlossener
+        # Text ("- ... -" am Ende des ersten Abschnitts) wird deshalb
+        # abgetrennt und stattdessen dem Event-Text zugeschlagen -
+        # risikofrei: ohne dieses Muster gibt es keinen Treffer fuer die
+        # Regex, und ein falsch abgetrennter Kern findet beim
+        # anschliessenden Index-Lookup in name_pipe_kanal_index() einfach
+        # keinen Treffer (kein Fehltreffer-Risiko wie bei einem
+        # unscharfen Abgleich).
+        dash_suffix = re.search(r"\s+-\s+.+-\s*$", erster_teil)
+        if dash_suffix:
+            kurzname = erster_teil[:dash_suffix.start()].strip()
+            abgetrennt = erster_teil[dash_suffix.start():].strip(" -")
+            event_teil = " | ".join(t for t in (abgetrennt, rest) if t)
+        else:
+            kurzname = erster_teil
+            event_teil = rest
         return kurzname, event_teil
 
     match = re.match(r"^\s*(DIRTVISION\s*\d+|FA\s*PLAYER\s*\d+)\s*:\s*(.*)$", voller_name, re.IGNORECASE)
