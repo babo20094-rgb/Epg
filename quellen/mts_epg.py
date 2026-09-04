@@ -112,20 +112,6 @@ def mts_hole_kanalliste():
 
 
 
-# "ARENA SPORT N PREMIUM"/"ARENA SPORT N PREMIUM HD" (eigene sender.txt-
-# Konvention) vs. "Arena PREMIUM N" bei mts.rs - die vertauschte
-# Wortreihenfolge ("Sport"/"Premium" vs. nur "Premium") verhindert einen
-# exakten Treffer nach normalisiere_sendername(). Der unscharfe
-# difflib-Fallback darunter ist dabei GEFAEHRLICH: alle 5 Premium-Sender
-# (1-5) sind sich als kurze, fast identische normalisierte Strings so
-# aehnlich, dass sie faelschlich ALLE auf denselben einen Kanal
-# (beobachtet: "Arena PREMIUM 5") kollabierten - der Nutzer sah dadurch
-# bei ARENA SPORT 1-5 PREMIUM ueberall identisches Programm statt 5
-# verschiedener Kanaele. Fix: die Nummer wird explizit extrahiert und
-# EXAKT gegen "Arena PREMIUM N" verglichen, bevor der generelle
-# Fuzzy-Pfad ueberhaupt zum Zug kommt - kein Fehltreffer-Risiko mehr.
-_ARENA_PREMIUM_PATTERN = re.compile(r"^ARENA\s*SPORT\s*0*(\d+)\s*PREMIUM(?:\s*HD)?$", re.IGNORECASE)
-
 # "SPORT KLUB N"/"SPORT KLUB FIGHT"/... (RS|SPORT KLUB-Sender, siehe
 # sportklub_epg.py) hat bei mts.rs KEINEN echten Treffer - aber der
 # unscharfe difflib-Fallback matchte den kurzen, normalisierten String
@@ -139,13 +125,29 @@ _ARENA_PREMIUM_PATTERN = re.compile(r"^ARENA\s*SPORT\s*0*(\d+)\s*PREMIUM(?:\s*HD
 # Fuzzy-Pfad wird fuer diese Sender daher komplett uebersprungen.
 _SPORT_KLUB_GUARD = re.compile(r"^SPORT\s*KLUB\b", re.IGNORECASE)
 
+# "ARENA SPORT N"/"...HD"/"...FHD"/"...PREMIUM"/"...VIP RAW" (RS|ARENA
+# SPORT-Sender): mts.rs fuehrt zwar einen eigenen "Arena Sport N"-Kanal
+# (kein Fehltreffer-Risiko wie bei SPORT KLUB - hier matcht der Name
+# tatsaechlich exakt bzw. via die obige ARENA-PREMIUM-Alias-Aufloesung),
+# ABER die dortigen Sendezeiten stimmen live nachweislich nicht (ca. 4h
+# Versatz beobachtet, z.B. "Arena Sport 2": mts.rs zeigte "Palermo -
+# Mantova" als aktuell laufend, real lief zu dem Zeitpunkt "Real Madrid -
+# Malaga" - bestaetigt durch direkten Abgleich mit der echten Arena-
+# Sport-Quelle tvarenasport.com, siehe arena_epg.py). mts.rs wird fuer
+# "ARENA SPORT"-Namen deshalb komplett uebersprungen - arena_epg.py
+# (tvarenasport.com) uebernimmt als generelle Quelle dafuer, ueber
+# generate_epg.py als Fallback fuer RS-Sender eingehaengt.
+_ARENA_SPORT_GUARD = re.compile(r"^ARENA\s*SPORT\b", re.IGNORECASE)
+
 
 def mts_kanal_finden(kanalname):
     """Sucht den mts.rs-Kanal, der am besten zu kanalname passt - erst
-    feste Alias-Aufloesung (Arena Sport N Premium), dann exakter
-    Abgleich nach normalisiere_sendername(), sonst unscharfer
+    exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
     difflib-Abgleich (gleiche Vorgehensweise wie telemach_kanal_finden()).
-    Gibt die (URL-encodete) site_id zurueck oder None."""
+    "SPORT KLUB"/"ARENA SPORT"-Namen werden vorher ausgefiltert (siehe
+    _SPORT_KLUB_GUARD/_ARENA_SPORT_GUARD) - fuer beide hat mts.rs keine
+    zuverlaessigen eigenen Daten. Gibt die (URL-encodete) site_id zurueck
+    oder None."""
     kanaele = mts_hole_kanalliste()
     if not kanaele:
         return None
@@ -157,16 +159,14 @@ def mts_kanal_finden(kanalname):
     if _SPORT_KLUB_GUARD.match(kanalname.strip()):
         return None
 
+    if _ARENA_SPORT_GUARD.match(kanalname.strip()):
+        return None
+
     name_index = {}
     for kanal in kanaele:
         schluessel = normalisiere_sendername(kanal["name"])
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
-
-    premium_treffer = _ARENA_PREMIUM_PATTERN.match(kanalname.strip())
-    if premium_treffer:
-        alias_schluessel = normalisiere_sendername(f"Arena PREMIUM {premium_treffer.group(1)}")
-        return name_index.get(alias_schluessel)
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]

@@ -195,17 +195,28 @@ def arena_hole_kanalliste(land="HR"):
         return []
 
 
+_QUALITAETS_SUFFIX = re.compile(r"\b(?:HD|FHD|UHD|SD)\b", re.IGNORECASE)
+
+
 def arena_kanal_finden(kanalname, land="HR"):
     """Sucht den Arena-Sport-Kanal, der am besten zu kanalname passt -
     erst exakter Abgleich nach normalisiere_sendername(), sonst
     unscharfer difflib-Abgleich (gleiche Vorgehensweise wie
     sky_kanal_finden()/telemach_kanal_finden()). Gibt die site_id zurueck
-    oder None."""
+    oder None.
+
+    Qualitaets-Suffixe (HD/FHD/UHD/SD) werden vor dem Abgleich entfernt -
+    unsere eigenen Kanalnamen sind meist um "Serbia"/spezifische Zusaetze
+    laenger als die kurzen Arena-eigenen Namen, ein zusaetzliches "FHD"
+    kann den ohnehin knappen difflib-Aehnlichkeitswert (Cutoff 0.72) unter
+    die Schwelle druecken und einen eigentlich sicheren Treffer verhindern
+    (beobachtet bei "ARENA SPORT 1 FHD" -> 0.71 statt 0.79 ohne Suffix)."""
     kanaele = arena_hole_kanalliste(land)
     if not kanaele:
         return None
 
-    ziel_schluessel = normalisiere_sendername(kanalname)
+    kanalname_ohne_qualitaet = _QUALITAETS_SUFFIX.sub(" ", kanalname)
+    ziel_schluessel = normalisiere_sendername(kanalname_ohne_qualitaet)
     if not ziel_schluessel:
         return None
 

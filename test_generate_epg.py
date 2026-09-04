@@ -1221,33 +1221,25 @@ def test_mts_erfolgreicher_abruf_liefert_echte_sendungen(_mts_cache_zuruecksetze
     assert sendung["stop"] > sendung["start"]
 
 
-def test_mts_arena_premium_matcht_nicht_faelschlich_auf_selben_kanal(_mts_cache_zuruecksetzen):
-    """Regressionstest: 'ARENA SPORT N PREMIUM' (eigene sender.txt-
-    Konvention) hat bei mts.rs die vertauschte Wortreihenfolge 'Arena
-    PREMIUM N' - ohne die feste Alias-Aufloesung kollabierte der
-    unscharfe difflib-Abgleich alle 5 Premium-Sender faelschlich auf
-    denselben einen Kanal."""
+def test_mts_arena_sport_wird_komplett_uebersprungen(_mts_cache_zuruecksetzen):
+    """mts.rs fuehrt zwar einen eigenen 'Arena Sport N'/'Arena PREMIUM N'-
+    Kanal, dessen Sendezeiten live nachweislich falsch sind (ca. 4h
+    Versatz, siehe _ARENA_SPORT_GUARD in mts_epg.py) - jeder Name, der
+    mit 'ARENA SPORT' beginnt, wird deshalb komplett uebersprungen
+    (None), unabhaengig davon, ob mts.rs selbst einen (aehnlich
+    benannten) Kanal dafuer haette. arena_epg.py (tvarenasport.com)
+    uebernimmt stattdessen als Fallback in generate_epg.py."""
     response = _mock_response({
         "products": [
+            {"code": "as1", "name": "Arena Sport 1", "programs": []},
             {"code": "p1", "name": "Arena PREMIUM 1", "programs": []},
-            {"code": "p2", "name": "Arena PREMIUM 2", "programs": []},
-            {"code": "p3", "name": "Arena PREMIUM 3", "programs": []},
-            {"code": "p4", "name": "Arena PREMIUM 4", "programs": []},
-            {"code": "p5", "name": "Arena PREMIUM 5", "programs": []},
         ]
     })
     with patch("quellen.mts_epg.requests.get", return_value=response):
-        treffer = {
-            n: mts_epg.mts_kanal_finden(f"ARENA SPORT {n} PREMIUM")
-            for n in range(1, 6)
-        }
-        treffer_hd = {
-            n: mts_epg.mts_kanal_finden(f"ARENA SPORT {n} PREMIUM HD")
-            for n in range(1, 6)
-        }
-
-    assert treffer == {1: "p1", 2: "p2", 3: "p3", 4: "p4", 5: "p5"}
-    assert treffer_hd == treffer
+        assert mts_epg.mts_kanal_finden("ARENA SPORT 1") is None
+        assert mts_epg.mts_kanal_finden("ARENA SPORT 1 HD") is None
+        assert mts_epg.mts_kanal_finden("ARENA SPORT 1 PREMIUM") is None
+        assert mts_epg.mts_kanal_finden("ARENA SPORT 1 PREMIUM HD") is None
 
 
 def test_mts_kein_kanal_treffer_oder_fehlschlag_faellt_graceful_zurueck(_mts_cache_zuruecksetzen):

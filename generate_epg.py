@@ -168,7 +168,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvguide": ["tvguide_intervalle"],
     "tvpassport": ["tvpassport_intervalle"],
     "tvpassport_callsign": ["tvpassport_intervalle"],
-    "mts": ["mts_intervalle", "mts_sportklub_intervalle"],
+    "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
@@ -2887,6 +2887,44 @@ for daten in mts_sender:
 
     if programme:
         _echte_quelle_zaehlen("SportKlub")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# ARENA (RS-Fallback): dritter Versuch fuer alle RS-Sender, deren Name
+# auf "ARENA SPORT" beginnt (siehe arena_epg.py/mts_epg.py -
+# _ARENA_SPORT_GUARD). mts.rs fuehrt zwar einen eigenen "Arena Sport N"-
+# Kanal, dessen Sendezeiten aber live nachweislich falsch sind (ca. 4h
+# Versatz, siehe Kommentar bei _ARENA_SPORT_GUARD) - tvarenasport.com
+# (dieselbe Quelle wie beim ARENA:-Praefix) uebernimmt stattdessen. Kein
+# eigenes Praefix noetig, die bestehenden "RS|ARENA SPORT N ..."-Zeilen
+# in sender.txt bleiben unveraendert (ihre Kanal-IDs matchen bereits
+# korrekt gegen die eigene Playlist).
+# ==========================================================
+
+for daten in mts_sender:
+    if daten.get("mts_intervalle") or daten.get("mts_sportklub_intervalle"):
+        continue  # mts.rs/SportKlub haben fuer diesen Sender bereits echte Daten geliefert
+
+    if not re.match(r"^ARENA\s*SPORT\b", daten["sender"].strip(), re.IGNORECASE):
+        continue
+
+    programme = []
+    try:
+        site_id = arena_kanal_finden(daten["sender"], "RS")
+        if site_id is not None:
+            programme = arena_hole_programme(site_id, "RS", MTS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["mts_arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Arena Sport")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
