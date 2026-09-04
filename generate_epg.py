@@ -354,7 +354,18 @@ def kern_vorne_und_event_extrahieren(voller_name):
         # anschliessenden Index-Lookup in name_pipe_kanal_index() einfach
         # keinen Treffer (kein Fehltreffer-Risiko wie bei einem
         # unscharfen Abgleich).
-        dash_suffix = re.search(r"\s+-\s+.+-\s*$", erster_teil)
+        # Manche Anbieter haengen NUR einen einzelnen, abschliessenden
+        # Bindestrich als Trenner an (kein "- ... -"-Paar wie oben, z.B.
+        # "US: NETFLIX PPV 1 - | 8K EXCLUSIVE" - der Leerlauftext steht
+        # hier bereits hinter dem Pipe in "rest", der Bindestrich markiert
+        # nur das Ende des Kerns). Ohne diese Ergaenzung blieb der
+        # angehaengte Bindestrich Teil des vermeintlichen Kerns
+        # ("US: NETFLIX PPV 1 -"), der dadurch nie exakt mit dem sauberen
+        # sender.txt-Kern ("US: NETFLIX PPV 1") uebereinstimmte - derselbe
+        # Bug-Typ wie beim "- ... -"-Muster oben, nur ohne zweiten
+        # Bindestrich. Gleiche Risikofreiheit: ein falsch abgetrennter
+        # Kern findet beim Index-Lookup einfach keinen Treffer.
+        dash_suffix = re.search(r"\s+-\s+.+-\s*$", erster_teil) or re.search(r"\s+-\s*$", erster_teil)
         if dash_suffix:
             kurzname = erster_teil[:dash_suffix.start()].strip()
             abgetrennt = erster_teil[dash_suffix.start():].strip(" -")
