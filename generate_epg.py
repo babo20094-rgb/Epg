@@ -40,6 +40,7 @@ from quellen.samsungtv_epg import samsungtv_kanal_finden, samsungtv_hole_program
 from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
 from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
+from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -172,6 +173,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
     "tubi": ["tubi_intervalle"],
+    "tvprofil": ["tvprofil_intervalle"],
 }
 
 
@@ -1412,6 +1414,13 @@ for zeile in zeilen:
     # generische Playlist-Kategorie ohne Bezug zu einem einzelnen Land).
     if land.strip().upper() == "EXYU" and re.match(r"^ARENA\s*ADRENALIN\b", eintrag["sender"], re.IGNORECASE):
         eintrag["mts"] = True
+    # TvProfil.net: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/
+    # MO/CG-Sender, nach allen anderen Quellen (siehe tvprofil_net_epg.py -
+    # nur ~56 Kanaele, aber ein paar sonst nicht abgedeckte, z.B. Plava
+    # Vinkovačka, TV Zapad, CMC, Doma TV, Nova M). Nur exakter Namens-
+    # abgleich, kein Fehltreffer-Risiko fuer andere Zeilen.
+    if land.strip().upper() in ("HR", "BA", "RS", "SI", "MK", "ME", "MNG", "MO", "CG"):
+        eintrag["tvprofil"] = True
     # Automatischer Call-Sign-Abgleich fuer "CITY|"-Sender (lokale US-
     # Sender mit Call-Sign im Namen, z.B. "ABC KATC BROOKLYN") gegen
     # tvpassport.com - siehe tvpassport_kanal_finden_callsign() in
@@ -2257,6 +2266,7 @@ TVMOVIE_TAGE = 1
 SAMSUNGTV_TAGE = 1
 JOYN_VOD_TAGE = 1
 TUBI_TAGE = 2
+TVPROFIL_TAGE = 3
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 magenta_sender = [d for d in sender_daten if d.get("magenta")]
@@ -2269,6 +2279,7 @@ tvpassport_callsign_sender = [d for d in sender_daten if d.get("tvpassport_calls
 mts_sender = [d for d in sender_daten if d.get("mts")]
 mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
 siol_sender = [d for d in sender_daten if d.get("siol")]
+tvprofil_sender = [d for d in sender_daten if d.get("tvprofil")]
 plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
@@ -2823,6 +2834,37 @@ for daten in siol_sender:
     if sportklub_programme:
         _echte_quelle_zaehlen("SportKlub")
         _schreibe_echte_programme(daten, sportklub_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVPROFIL.NET: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/MO/
+# CG-Sender, nur wenn keine der vorherigen Quellen (Telemach/mtel.ba/
+# mymedia.ba/klix.ba/mts.rs/MojMaxTV/SportKlub/Siol) bereits echte Daten
+# geliefert hat (siehe tvprofil_net_epg.py - kleine, feste Kanalliste,
+# nur exakter Namensabgleich).
+# ==========================================================
+
+for daten in tvprofil_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        site_id = tvprofil_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = tvprofil_hole_programme(site_id, TVPROFIL_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["tvprofil_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("TvProfil.net")
+        _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
