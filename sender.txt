@@ -4935,6 +4935,7 @@ SKY:GB|TNT SPORT 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 SKY:GB|TNT SPORT 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1a00fff844d5b48658aeb515a85575b176107d13.png
 
 ##### US (aus Playlist) #####
+|##### NEWS NETWORK #####||
 TVGUIDE:US|007: ROAD TO A MILLION ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|13 REASONS WHY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|2 BROKE GIRLS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/90858e323f3bb9d4.png
@@ -18818,3 +18819,396 @@ SKY:DE|SKY SPORT BUNDESLIGA 9 FHD|https://raw.githubusercontent.com/babo20094-rg
 SKY:DE|SKY SPORT BUNDESLIGA 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_10.png
 SKY:DE|DAZN Lacrosse TV|
 SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_6.png
+
+##### PLAYLIST-KATEGORIE-TRENNER (aus Playlist, keine echten Sender - nur Platzhaltertext statt "Keine Information") #####
+|#### PRIME ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####||
+|#####  ENTERTAINMENT HEVC #####||
+|#####  LALIGA REPLAY  #####||
+|#####  NHL LEAGUE REPLAY  #####||
+|#####  SPECTRUM NETWORK #####||
+|##### 24/7 MOVIES #####||
+|##### ABC ALABAMA #####||
+|##### ABC ALASKA #####||
+|##### ABC ARIZONA #####||
+|##### ABC ARKANSAS #####||
+|##### ABC CALIFORNIA #####||
+|##### ABC COLORADO #####||
+|##### ABC CONNECTICUT #####||
+|##### ABC DISTRICT OF COLUMBIA #####||
+|##### ABC FLORIDA #####||
+|##### ABC GEORGIA #####||
+|##### ABC HAWAII #####||
+|##### ABC IDAHO #####||
+|##### ABC ILLINOIS #####||
+|##### ABC INDIANA #####||
+|##### ABC IOWA #####||
+|##### ABC KANSAS #####||
+|##### ABC KENTUCKY #####||
+|##### ABC LOUISIANA #####||
+|##### ABC MAINE #####||
+|##### ABC MARYLAND #####||
+|##### ABC MASSACHUSETTES #####||
+|##### ABC MICHIGAN #####||
+|##### ABC MINNESOTA #####||
+|##### ABC MISSISSIPPI #####||
+|##### ABC MISSOURI #####||
+|##### ABC MONTANA #####||
+|##### ABC NEBRASKA #####||
+|##### ABC NEVADA #####||
+|##### ABC NEW HAMPSHIRE #####||
+|##### ABC NEW MEXICO #####||
+|##### ABC NEW YORK #####||
+|##### ABC NORTH CAROLINA #####||
+|##### ABC NORTH DAKOTA #####||
+|##### ABC OHIO #####||
+|##### ABC OKLAHOMA #####||
+|##### ABC OREGON #####||
+|##### ABC PENNSYLVANIA #####||
+|##### ABC RHODE ISLAND #####||
+|##### ABC SOUTH CAROLINA #####||
+|##### ABC SOUTH DAKOTA #####||
+|##### ABC TENNESSEE #####||
+|##### ABC TEXAS #####||
+|##### ABC UTAH #####||
+|##### ABC VERMONT #####||
+|##### ABC VIRGINIA #####||
+|##### ABC WASHINGTON #####||
+|##### ABC WEST VIRGINIA #####||
+|##### ABC WISCONSIN #####||
+|##### AMAZON PRIME #####||
+|##### AMERICAN HOCKEY LEAGUE #####||
+|##### APPLE TV+ #####||
+|##### B1G+ PPV #####||
+|##### BBCIPLAYER SERIES #####||
+|##### BEIN SPORTS #####||
+|##### BEIN SPORTS ASIA #####||
+|##### BIBLICAL/RELIGIOUS #####||
+|##### BUNDESLIGA REPLAY #####||
+|##### CARABO  CUB  #####||
+|##### CBS ALABAMA #####||
+|##### CBS ALASKA #####||
+|##### CBS ARIZONA #####||
+|##### CBS ARKANSAS #####||
+|##### CBS CALIFORNIA #####||
+|##### CBS COLORADO #####||
+|##### CBS CONNECTICUT #####||
+|##### CBS DISTRICT OF COLUMBIA #####||
+|##### CBS FLORIDA #####||
+|##### CBS GEORGIA #####||
+|##### CBS HAWAII #####||
+|##### CBS IDAHO #####||
+|##### CBS ILLINOIS #####||
+|##### CBS INDIANA #####||
+|##### CBS IOWA #####||
+|##### CBS KANSAS #####||
+|##### CBS KENTUCKY #####||
+|##### CBS LOUISIANA #####||
+|##### CBS MAINE #####||
+|##### CBS MARYLAND #####||
+|##### CBS MASSACHUSETTES #####||
+|##### CBS MICHIGAN #####||
+|##### CBS MINNESOTA #####||
+|##### CBS MISSISSIPPI #####||
+|##### CBS MISSOURI #####||
+|##### CBS MONTANA #####||
+|##### CBS NEBRASKA #####||
+|##### CBS NEVADA #####||
+|##### CBS NEW MEXICO #####||
+|##### CBS NEW YORK #####||
+|##### CBS NORTH CAROLINA #####||
+|##### CBS NORTH DAKOTA #####||
+|##### CBS OHIO #####||
+|##### CBS OKLAHOMA #####||
+|##### CBS OREGON #####||
+|##### CBS PENNSYLVANIA #####||
+|##### CBS RHODE ISLAND #####||
+|##### CBS SOUTH CAROLINA #####||
+|##### CBS SOUTH DAKOTA #####||
+|##### CBS TENNESSEE #####||
+|##### CBS TEXAS #####||
+|##### CBS UTAH #####||
+|##### CBS VERMONT #####||
+|##### CBS VIRGINIA #####||
+|##### CBS WASHINGTON #####||
+|##### CBS WEST VIRGINIA #####||
+|##### CBS WISCONSIN #####||
+|##### CBS WYOMING #####||
+|##### CHAMPIONS LEAGUE #####||
+|##### CHAMPIONS LEAGUE EVENTS #####||
+|##### CHAMPIONS LEAGUE REPLAY #####||
+|##### CINEMANIA HOLLYWOOD #####||
+|##### CINEMANIA TV SHOWS #####||
+|##### COOKING #####||
+|##### CROATIA ⱽᴵᴾ ᴿᴬᵂ #####||
+|##### CW ALABAMA #####||
+|##### CW FLORIDA #####||
+|##### CW GEORGIA #####||
+|##### CW INDIANA #####||
+|##### CW KENTUCKY #####||
+|##### CW LOUISIANA #####||
+|##### CW MARYLAND #####||
+|##### CW MASSACHUSETTS #####||
+|##### CW MICHIGAN #####||
+|##### CW MINNESOTA #####||
+|##### CW MISSOURI #####||
+|##### CW MONTANA #####||
+|##### CW NEVADA #####||
+|##### CW NEW YORK #####||
+|##### CW NORTH CAROLINA #####||
+|##### CW OHIO #####||
+|##### CW OKLAHOMA #####||
+|##### CW PENNSYLVANIA #####||
+|##### CW TENNESSEE #####||
+|##### CW TEXAS #####||
+|##### CW VERMONT #####||
+|##### CW WASHINGTON #####||
+|##### CW WISCONSIN #####||
+|##### DAZN EXCLUSIVE ᴴᴰ/ᴿᴬᵂ #####||
+|##### DE BUNDESLIGA #####||
+|##### DE DOCUMENTAIRE #####||
+|##### DE ENTERTAINMENT #####||
+|##### DE GENERAL #####||
+|##### DE SPORTS #####||
+|##### DISNEY+ ORIGINAL #####||
+|##### DOCUMENTARY HEVC #####||
+|##### DOKUS UND NEWS #####||
+|##### DYN PPV EXCLUSIVE ᵁᴴᴰ #####||
+|##### EB CINEMA #####||
+|##### EFL IFOLLOW REPLAY #####||
+|##### EFL-L1 REPLAYS #####||
+|##### EFL-L2 REPLAYS #####||
+|##### ENTERTAINMENT #####||
+|##### ENTERTAINMENT FHD #####||
+|##### ENTERTAINMENT SD #####||
+|##### EPL PREMIER LEAGUE #####||
+|##### EPL PREMIER LEAGUE PPV #####||
+|##### ESPN PLAY #####||
+|##### EUROPA CONFERENCE LEAGUE  #####||
+|##### EUROPA LEAGUE #####||
+|##### EUROPA LEAGUE REPLAY #####||
+|##### EUROPIEN QUALIFIER #####||
+|##### EUROPIEN QUALIFIERS  #####||
+|##### EX YU RADIO #####||
+|##### FA CUB  #####||
+|##### FILMS #####||
+|##### FITE EVENTS  #####||
+|##### FLO NETWORK #####||
+|##### FOX ALABAMA #####||
+|##### FOX ALASKA #####||
+|##### FOX ARIZONA #####||
+|##### FOX ARKANSAS #####||
+|##### FOX CALIFORNIA #####||
+|##### FOX COLORADO #####||
+|##### FOX CONNECTICUT #####||
+|##### FOX DISTRICT OF COLUMBIA #####||
+|##### FOX FLORIDA #####||
+|##### FOX GEORGIA #####||
+|##### FOX HAWAII #####||
+|##### FOX IDAHO #####||
+|##### FOX ILLINOIS #####||
+|##### FOX INDIANA #####||
+|##### FOX IOWA #####||
+|##### FOX KANSAS #####||
+|##### FOX KENTUCKY #####||
+|##### FOX LOUISIANA #####||
+|##### FOX MAINE #####||
+|##### FOX MARYLAND #####||
+|##### FOX MASSACHUSETTES #####||
+|##### FOX MICHIGAN #####||
+|##### FOX MINNESOTA #####||
+|##### FOX MISSISSIPPI #####||
+|##### FOX MISSOURI #####||
+|##### FOX MONTANA #####||
+|##### FOX NEBRASKA #####||
+|##### FOX NEVADA #####||
+|##### FOX NEW MEXICO #####||
+|##### FOX NEW YORK #####||
+|##### FOX NORTH CAROLINA #####||
+|##### FOX NORTH DAKOTA #####||
+|##### FOX OHIO #####||
+|##### FOX OKLAHOMA #####||
+|##### FOX OREGON #####||
+|##### FOX PENNSYLVANIA #####||
+|##### FOX RHODE ISLAND #####||
+|##### FOX SOUTH CAROLINA #####||
+|##### FOX SOUTH DAKOTA #####||
+|##### FOX TENNESSEE #####||
+|##### FOX TEXAS #####||
+|##### FOX UTAH #####||
+|##### FOX VERMONT #####||
+|##### FOX VIRGINIA #####||
+|##### FOX WASHINGTON #####||
+|##### FOX WEST VIRGINIA #####||
+|##### FOX WISCONSIN #####||
+|##### FOX WYOMING #####||
+|##### GENERAL FHD #####||
+|##### GENERAL HEVC  #####||
+|##### GENERAL SD #####||
+|##### GERMANY HEVC #####||
+|##### HBO ORIGINAL #####||
+|##### HULU ORIGINALS #####||
+|##### JOYN ᴿᴬᵂ ᴰᴱ #####||
+|##### KIDS #####||
+|##### KIDS FHD #####||
+|##### KIDS HEVC #####||
+|##### KIDS NETWORK #####||
+|##### KIDS ONEPLAY #####||
+|##### KIDS SD #####||
+|##### KINDERSENDER #####||
+|##### LOCALS #####||
+|##### MAGENTA FILME 4K #####||
+|##### MAGENTA PPV #####||
+|##### MAGENTA SERIE 4K #####||
+|##### MAX PPV ⱽᴵᴾ #####||
+|##### MAX SELECT #####||
+|##### MLB PACKAGE #####||
+|##### MLS NETWORK #####||
+|##### MOVIES BOSS #####||
+|##### MOVIES FHD #####||
+|##### MOVIES HD #####||
+|##### MOVIES HEVC #####||
+|##### MOVIES NETWORK #####||
+|##### MOVIES SD #####||
+|##### MUSIC #####||
+|##### MY NETWORK #####||
+|##### MYSPORT PPV #####||
+|##### NATIONAL LEAGUE REPLAY #####||
+|##### NBA LEAGUE REPLAY #####||
+|##### NBA LIVE EVENTS #####||
+|##### NBA TEAMS #####||
+|##### NBC ALABAMA #####||
+|##### NBC ALASKA #####||
+|##### NBC ARIZONA #####||
+|##### NBC ARKANSAS #####||
+|##### NBC CALIFORNIA #####||
+|##### NBC COLORADO #####||
+|##### NBC CONNECTICUT #####||
+|##### NBC DISTRICT OF COLUMBIA #####||
+|##### NBC FLORIDA #####||
+|##### NBC GEORGIA #####||
+|##### NBC HAWAII #####||
+|##### NBC IDAHO #####||
+|##### NBC ILLINOIS #####||
+|##### NBC INDIANA #####||
+|##### NBC IOWA #####||
+|##### NBC KANSAS #####||
+|##### NBC KENTUCKY #####||
+|##### NBC LOUISIANA #####||
+|##### NBC MAINE #####||
+|##### NBC MARYLAND #####||
+|##### NBC MASSACHUSETTS #####||
+|##### NBC MICHIGAN #####||
+|##### NBC MINNESOTA #####||
+|##### NBC MISSISSIPPI #####||
+|##### NBC MISSOURI #####||
+|##### NBC MONTANA #####||
+|##### NBC NEBRASKA #####||
+|##### NBC NEVADA #####||
+|##### NBC NEW MEXICO #####||
+|##### NBC NEW YORK #####||
+|##### NBC NORTH CAROLINA #####||
+|##### NBC NORTH DAKOTA #####||
+|##### NBC OHIO #####||
+|##### NBC OKLAHOMA #####||
+|##### NBC OREGON #####||
+|##### NBC PENNSYLVANIA #####||
+|##### NBC RHODE ISLAND #####||
+|##### NBC SOUTH CAROLINA #####||
+|##### NBC SOUTH DAKOTA #####||
+|##### NBC TENNESSEE #####||
+|##### NBC TEXAS #####||
+|##### NBC UTAH #####||
+|##### NBC VERMONT #####||
+|##### NBC VIRGINIA #####||
+|##### NBC WASHINGTON #####||
+|##### NBC WES VIRGINIA #####||
+|##### NBC WISCONSIN #####||
+|##### NBC WYOMING #####||
+|##### NETFLIX PREMIERE ORIGINAL #####||
+|##### NETFLIX SERIES ORIGINAL #####||
+|##### NEWS SD / FHD #####||
+|##### NFL LEAGUE REPLAY #####||
+|##### NFL LIVE EVENTS #####||
+|##### NFL TEAMS #####||
+|##### NHL LIVE EVENTS #####||
+|##### NHL TEAMS #####||
+|##### ONEPLAY ADVENTURE #####||
+|##### ONEPLAY CINEMA #####||
+|##### ONEPLAY COLLECTION #####||
+|##### ONTARIO HOCKEY LEAGUE #####||
+|##### PARAMOUNT+ ORIGINAL #####||
+|##### PARAMOUNT+ PPV #####||
+|##### PBS NETWORK #####||
+|##### PEACOCK SERIE ORIGINAL #####||
+|##### PL REPLAYS #####||
+|##### PLUTO TV #####||
+|##### PPV & LIVE EVENTS #####||
+|##### PPV LIVE EVENTS  #####||
+|##### PRIME VIDEO SERIES #####||
+|##### PRIME VIDEO ᴿᴬᵂ #####||
+|##### QUEBEC HOCKEY LEAGUE #####||
+|##### REALITY SHOW TV #####||
+|##### REGIONALSENDER #####||
+|##### SCOTLAND #####||
+|##### SCOTTISH LEAGUE #####||
+|##### SERIEA REPLAY #####||
+|##### SERIES #####||
+|##### SKY GO CINEMA VIP #####||
+|##### SKY GO PREMIUM PLAY #####||
+|##### SKY MAX PPV 4K #####||
+|##### SKY SELECT #####||
+|##### SKY SPORT #####||
+|##### SKY SPORT BUNDESLIGA #####||
+|##### SKY SPORTS FHD #####||
+|##### SKY SPORTS HD #####||
+|##### SKY SPORTS SD #####||
+|##### SKY STORE PREMIERE #####||
+|##### SPFL REPLAY #####||
+|##### SPORT DEUTSCHLAND #####||
+|##### SPORTS HEVC  ####||
+|##### SPORTS NETWORK #####||
+|##### SUPER SELECT #####||
+|##### SUPER SPORTS #####||
+|##### UK ASTRO SPORTS #####||
+|##### UK CHAMPIONSHIP #####||
+|##### UK GAAGO SPORTS #####||
+|##### UK HUB SPORTS #####||
+|##### UK LEAGUE ONE #####||
+|##### UK LEAGUE TWO #####||
+|##### UK MATCHROOM SPORTS #####||
+|##### UK NOW SPORTS #####||
+|##### UK PAY PER VIEW PPV #####||
+|##### ULTIMATE POOL PPV #####||
+|##### USA NCAA LIVE #####||
+|##### VODAFONE GO #####||
+|##### WESTERN HOCKEY LEAGUE #####||
+|##### ZONE CINEMA #####||
+|###### BOSNIA ⱽᴵᴾ ᴿᴬᵂ ######||
+|###### DISCOVERY+ PPV  ######||
+|###### MACEDONIA ⱽᴵᴾ ᴿᴬᵂ ######||
+|###### PRIME ᴿᴬᵂ ⁶⁰ᶠᵖˢ ######||
+|###### RTL+ ᴿᴬᵂ ᴳᴼᴸᴰ ######||
+|###### SERBIA ⱽᴵᴾ ᴿᴬᵂ ######||
+|###### SLOVENIA ⱽᴵᴾ ᴿᴬᵂ ######||
+|####### DAZN PPV #######||
+|####### DAZN PPV DE #######||
+|####### DAZN PPV US #######||
+|####### DISNEY+ PPV #######||
+|####### DISNEY+ ᴿᴬᵂ #######||
+|####### DYN PPV EXCLUSIVE #######||
+|####### ESPN+ PPV ⱽᴵᴾ #######||
+|####### FIFA+ PPV #######||
+|####### HULU ᴿᴬᵂ #######||
+|####### ITV X VIP #######||
+|####### MAX PPV #######||
+|####### MC VIDEO ᴴᴰ #######||
+|####### MLS PPV VIP #######||
+|####### MXGP PPV #######||
+|####### NBA PASS PPV #######||
+|####### NFHS PPV #######||
+|####### RALLY PPV #######||
+|####### RTL+ PPV #######||
+|####### SOCCER PPV #######||
+|####### TUBI ᴿᴬᵂ #######||
+|####### VOLLEY BALL WORLD PPV #######||
+|######## NETFLIX PPV ########||

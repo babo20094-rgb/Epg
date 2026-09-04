@@ -32,6 +32,7 @@ from quellen.arena_epg import arena_kanal_finden, arena_hole_programme
 from quellen.dazn_epg import dazn_kanal_finden, dazn_hole_programme
 from quellen.freeview_epg import freeview_kanal_finden, freeview_hole_programme
 from quellen.tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
+from quellen.epgshare_us_epg import epgshare_us_kanal_finden, epgshare_us_hole_programme
 from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme, tvpassport_kanal_finden_callsign
 from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
@@ -2852,10 +2853,24 @@ for daten in tvguide_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 
+    # Zweiter Versuch bei TVGuide.com-Fehlschlag: epgshare01.online
+    # deckt (anders als TVGuide.com's feste kleine nationale Grund-
+    # aufstellung und tvpassport.com's ueberwiegend lokale Sender)
+    # gezielt nationale US-KABELnetzwerke ab (siehe epgshare_us_epg.py).
+    # Nur exakter Namens-/Alias-Abgleich, kein Fuzzy-Risiko.
+    if not programme:
+        try:
+            us2_site_id = epgshare_us_kanal_finden(daten["sender"])
+            if us2_site_id is not None:
+                programme = epgshare_us_hole_programme(us2_site_id, TVGUIDE_TAGE)
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
     daten["tvguide_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("TVGuide")
+        _echte_quelle_zaehlen("TVGuide/EpgshareUS")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
