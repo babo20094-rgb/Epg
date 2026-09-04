@@ -2177,3 +2177,47 @@ ob eines der Muster passt, bevor von vorne debuggt wird:
      des Nutzer-Screenshots vergleichen). Das ist KEIN Bug, sondern ein
      bekannter, akzeptierter Kompromiss bei ~9.000 dynamischen
      PPV-Kanaelen mit nur alle 4h aktualisierten Snapshots.
+
+## UK: VOLLEY PPV 1-30: neues Bindestrich-nach-Nummer-Kernmuster + GaaGo 07-11 bereinigt
+
+Der Nutzer meldete per Screenshot, dass `UK: VOLLEY PPV 1`/`30` trotz
+sender.txt-Zeile "Keine Information" zeigten. Root Cause: ein bisher
+unbekanntes Rohnamen-Format, bei dem der Leerlauf-/Event-Text OHNE
+trennendes Pipe-Zeichen direkt mit einem einzelnen Bindestrich an die
+Kern-Nummer angehaengt wird und selbst wieder eigene Pipes enthaelt
+(z. B. "UK: VOLLEY PPV 1 - MELISSA/BRANDIE (CAN) VS MÄDER/KERNEN (SUI),
+WOMEN SEMIFINALS ON CC | OSTRAVA (CZE) | Sun 31 May 08:50 |
+8K EXCLUSIVE" oder "UK: VOLLEY PPV 30 - NO EVENT STREAMING -
+8K EXCLUSIVE") - weder die bestehende Kern-hinten- noch die
+Kern-vorne-Logik (inkl. der bereits vorhandenen Bindestrich-Suffix-Faelle
+"US: NETFLIX PPV N -"/"AR: DAZN PPV N - ... -", die den Bindestrich nur
+am ENDE eines Pipe-Abschnitts erwarten) erkannte das.
+**Fix:** `kern_vorne_und_event_extrahieren()` (`generate_epg.py`) prueft
+jetzt ganz am Anfang zusaetzlich ein neues, global auf `voller_name`
+angewandtes Muster `^<Laendercode 2-4 Buchstaben>: <Name> <Nummer> -
+<Rest>` (Bindestrich direkt nach der Nummer, unabhaengig von Pipes davor
+oder danach) - liefert Kern "UK: VOLLEY PPV 1" bzw. "UK: VOLLEY PPV 30",
+der Rest wird komplett zum Event-Text. Das 2-4-Buchstaben-Laendercode-
+Praefix mit Doppelpunkt ist Pflicht, damit derselbe September-2026-
+Regressionsbug (blosses "DE: RTL+ PPV 28" ohne Bindestrich nach der
+Nummer wuerde faelschlich matchen) nicht erneut auftritt - gegen alle
+bekannten Regressionsfaelle (Clubber, DAZN NEXT, Netflix-PPV-Bindestrich-
+Suffix US+UK, DirtVision, LIVE-EVENT-Bindestrich, Matchroom, DE:/US:-
+PPV-Regressionsguard) sowie die neuen VOLLEY-PPV-Faelle verifiziert,
+`pytest` (98 Tests) bestaetigt gruen.
+Zusaetzlich in derselben Session gefunden (Screenshot "Sender von 01 bis
+11"): 5 von 11 `GaaGo`-Sendern (07-11) trugen noch eingebetteten
+Rohtext-Muell im gespeicherten Kernnamen selbst (z. B.
+`NAME:GaaGo | 08 23 Aug | Galway: Athenry v Ardrahan - Forvis Mazars
+Senior Hurling Championship Group 4 Round 2 | 17:15 GMT` statt
+`NAME:GaaGo 08`) - derselbe Datenmuell-Bug-Typ wie bei den frueheren
+ESPN+/STAN-/Milb-Faellen weiter oben. Auf das saubere, bereits bei
+Gaago 01-03 funktionierende Format (`GaaGo NN`, ohne Pipe) reduziert.
+Fuer `UK: VOLLEY PPV` gab es zudem noch KEIN Logo (alle 30 Zeilen leer) -
+offizielle Quellen (fivb.com, volleyballworld.com, tv-logo/tv-logos)
+waren aus der Sandbox nicht erreichbar (403/404), daher ein eigenes
+Text-Logo erstellt (Volleyball-Icon + "VOLLEY PPV"-Schriftzug, dunkelblauer
+Hintergrund), dem Nutzer per Bildvorschau gezeigt und bestaetigt, unter
+`logos/volley_ppv/volley_ppv.png` selbst gehostet und in allen 30 Zeilen
+eingetragen - gleiche "immer selbst hosten"-Regel wie bei allen anderen
+Logo-Funden dieser Session.
