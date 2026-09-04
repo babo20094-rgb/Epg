@@ -5843,12 +5843,12 @@ TVPASSPORT:US|CW 58 NASHVILLE TN (WNAB)|https://raw.githubusercontent.com/babo20
 TVPASSPORT:US|CW 6 SAN DIEGO CA (KFMB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4fbda40e55b90be5.png
 TVPASSPORT:US|CW 62 (WYCW) SPARTANBURG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b621a2a3a32d4465.png
 TVPASSPORT:US|CW 69 ATLANTA GA (WUPA)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b621a2a3a32d4465.png
-TVPASSPORT:US|CW 7 (WSPA) SPARTANBURG|http://51.158.145.100/picons/logos/PPV/CW.png
+TVPASSPORT:US|CW 7 (WSPA) SPARTANBURG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cw/cw.png
 TVPASSPORT:US|CW 8 MISSOULA MT (KPAX)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b621a2a3a32d4465.png
 TVGUIDE:US|CW ATLANTA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5e46a25fed465548.png
 TVGUIDE:US|CW CHICAGO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bec1f95eb2b50b95.png
 TVGUIDE:US|CW PHILADELPHIA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/00086e085724f342.png
-TVGUIDE:US|CW PITTSBURGH|http://51.158.145.100/picons/logos/USA/90953.png
+TVGUIDE:US|CW PITTSBURGH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cw/cw.png
 TVPASSPORT:US|CW PIX11 (WPIX) NEW YORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b621a2a3a32d4465.png
 TVGUIDE:US|CW SACRAMENTO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/899aeb742d02d59561ec127ae07c94be8ce89835.png
 TVGUIDE:US|CW SAN FRANCISCO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a9832916a72e59bf927424a6104d34cfeaad3330.png
@@ -7237,63 +7237,63 @@ TVPASSPORT:US|TELEMUNDO (EAST)|https://raw.githubusercontent.com/babo20094-rgb/E
 TVPASSPORT:US|TELEMUNDO (KBLR) NORTH LAS VEGAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c69b3cae0541e32f.png
 TVPASSPORT:US|TELEMUNDO (KBLR) PARADISE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c69b3cae0541e32f.png
 TVPASSPORT:US|TELEMUNDO (KCSO) CERES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21308307d0859e3f.png
-TVPASSPORT:US|TELEMUNDO (KDEN) DENVER|http://51.158.145.100/picons/logos/USA/1938422.png
-TVPASSPORT:US|TELEMUNDO (KDEN) PARKER|http://51.158.145.100/picons/logos/USA/1938422.png
+TVPASSPORT:US|TELEMUNDO (KDEN) DENVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (KDEN) PARKER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO (KHRR-DT) MARANA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21308307d0859e3f.png
 TVPASSPORT:US|TELEMUNDO (KNSO) FRESNO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6b3e7f000c8d0c1c.png
-TVPASSPORT:US|TELEMUNDO (KSTS) SAN JOSE|http://51.158.145.100/picons/logos/USA/1938421.png
-TVPASSPORT:US|TELEMUNDO (KSTS-DT) CONCORD|http://51.158.145.100/picons/logos/USA/1938421.png
+TVPASSPORT:US|TELEMUNDO (KSTS) SAN JOSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (KSTS-DT) CONCORD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO (KTAZ) PHOENIX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3fab9a229c489165.png
 TVPASSPORT:US|TELEMUNDO (KTDO) LAS CRUCES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3448609c55bf6494.png
 TVPASSPORT:US|TELEMUNDO (KTLM) MISSION|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e85df43a86bc9a92.png
 TVPASSPORT:US|TELEMUNDO (KTLM) RIO GRANDE CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e85df43a86bc9a92.png
 TVPASSPORT:US|TELEMUNDO (KTMD) HOUSTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c826dd075ed79cf3.png
 TVPASSPORT:US|TELEMUNDO (KTMD) PEARLAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c826dd075ed79cf3.png
-TVPASSPORT:US|TELEMUNDO (KUAN) POWAY, ETC.|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO (KUAN) POWAY, ETC.|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO (KVDA) SAN ANTONIO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9e8c2d3d1c44dfb5.png
 TVPASSPORT:US|TELEMUNDO (KVEA) LOS ANGELES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d0d016c6491b8b1a.png
-TVPASSPORT:US|TELEMUNDO (KXTX) THE COLONY|http://51.158.145.100/picons/logos/USA/1938418.png
-TVPASSPORT:US|TELEMUNDO (KXTX-DT) THE COLONY|http://51.158.145.100/picons/logos/USA/1938418.png
+TVPASSPORT:US|TELEMUNDO (KXTX) THE COLONY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (KXTX-DT) THE COLONY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO (WKTB) ATLANTA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dab72d80f3ad306e.png
-TVPASSPORT:US|TELEMUNDO (WNEU) BOSTON|http://51.158.145.100/picons/logos/USA/1938417.png
-TVPASSPORT:US|TELEMUNDO (WNEU) WORCESTER|http://51.158.145.100/picons/logos/USA/1938417.png
-TVPASSPORT:US|TELEMUNDO (WNJU) LINDEN|http://51.158.145.100/picons/logos/USA/1938416.png
-TVPASSPORT:US|TELEMUNDO (WNJU) NORWALK|http://51.158.145.100/picons/logos/USA/1938416.png
+TVPASSPORT:US|TELEMUNDO (WNEU) BOSTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (WNEU) WORCESTER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (WNJU) LINDEN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (WNJU) NORWALK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO (WQMC-DT3) BAY CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/42ba39904719453b.png
-TVPASSPORT:US|TELEMUNDO (WRDM) HARTFORD|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO (WSNS) AURORA|http://51.158.145.100/picons/logos/USA/1938415.png
-TVPASSPORT:US|TELEMUNDO (WSNS) CHICAGO|http://51.158.145.100/picons/logos/USA/1938415.png
-TVPASSPORT:US|TELEMUNDO (WWDT) FORT MYERS|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO (WRDM) HARTFORD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (WSNS) AURORA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (WSNS) CHICAGO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO (WWDT) FORT MYERS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO (WWSI) TRENTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e85df43a86bc9a92.png
-TVPASSPORT:US|TELEMUNDO (WYTU) MILWAUKEE|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO (WYTU) MILWAUKEE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO (WZDC) WASHINGTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/363e309406af209c.png
-TVPASSPORT:US|TELEMUNDO 11 (KFFX) PENDLETON|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 11 (KFFX-DT2) KENNEWICK|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO 11 (KFFX) PENDLETON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 11 (KFFX-DT2) KENNEWICK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO 13 (KRDO-DT2) PUEBLO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/595a695d8fe81345.png
-TVPASSPORT:US|TELEMUNDO 14 (KBWF) SIOUX CITY|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 19 (KFBI) MEDFORD|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 2 (KASA) ALBUQUERQUE-SANTA FE|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO 14 (KBWF) SIOUX CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 19 (KFBI) MEDFORD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 2 (KASA) ALBUQUERQUE-SANTA FE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO 20 (KQRE) BEND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21308307d0859e3f.png
 TVPASSPORT:US|TELEMUNDO 20 (KTMW) SALT LAKE CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/00086e085724f342.png
 TVPASSPORT:US|TELEMUNDO 20 (KTMW-DT) SALT LAKE CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/00086e085724f342.png
-TVPASSPORT:US|TELEMUNDO 21 (KKYK) LITTLE_ROCK|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 21 (KNPG) ST. JOSEPH|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 24 (KNVN) CHICO-REDDING|http://51.158.145.100/picons/logos/USA/NBC.png
-TVPASSPORT:US|TELEMUNDO 24 (KXTQ-CD) LUBBOCK/TEXAS|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO 21 (KKYK) LITTLE_ROCK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 21 (KNPG) ST. JOSEPH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 24 (KNVN) CHICO-REDDING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 24 (KXTQ-CD) LUBBOCK/TEXAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO 25 (KUTU) TULSA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b2421675fb882aa3.png
-TVPASSPORT:US|TELEMUNDO 27 (KFDY) LINCOLN|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO 27 (KFDY) LINCOLN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO 27 (KOHA) OMAHA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4e9728cc6de3ab1.png
 TVPASSPORT:US|TELEMUNDO 3 (KESE) YUMA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d80aa21097145d00.png
-TVPASSPORT:US|TELEMUNDO 30 (KTUZ) OKLAHOMA CITY|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 31 (WTMO) ORLANDO|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 39 (KGKC) KANSAS CITY|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 39 (KXTX) DALLAS|http://51.158.145.100/picons/logos/USA/1938418.png
+TVPASSPORT:US|TELEMUNDO 30 (KTUZ) OKLAHOMA CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 31 (WTMO) ORLANDO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 39 (KGKC) KANSAS CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 39 (KXTX) DALLAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO 4 (KAJA) CORPUS CHRISTI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8b3b52050dcc82bd.png
-TVPASSPORT:US|TELEMUNDO 42 (KGLA-DT) NEW ORLEANS|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
-TVPASSPORT:US|TELEMUNDO 46 (KXTQ) LUBBOCK/TEXAS|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO 42 (KGLA-DT) NEW ORLEANS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|TELEMUNDO 46 (KXTQ) LUBBOCK/TEXAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO 51 (WSCV) MIAMI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4f42e717ca19e137.png
 TVPASSPORT:US|TELEMUNDO 52 (KVEA) LOS ANGELES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d0d016c6491b8b1a.png
-TVPASSPORT:US|TELEMUNDO 6 (WTCL) CLEVELAND|http://51.158.145.100/picons/logos/PPV/TELEMUNDO.png
+TVPASSPORT:US|TELEMUNDO 6 (WTCL) CLEVELAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVPASSPORT:US|TELEMUNDO TELEVISION NETWORK (WEST)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f1912fd647626a74.png
 TVGUIDE:US|TENNIS CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5459cfe9ba2df2be.png
 TVGUIDE:US|TENNIS CHANNEL PLUS 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5459cfe9ba2df2be.png
@@ -16819,7 +16819,7 @@ TVPASSPORT:US|CBS (KSWL-LD) Lake Charles, LA HD|AUTO|CITY| CBS (KSWL-LD) LAKE CH
 |24/7 GHOST ADVENTURES SCREAMING ROOM|Ghost Adventures Screaming Room ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cc051354290f9cf86efe089419796141b8e1928b.png
 |24/7 GHOST ADVENTURES QUARANTINE|Ghost Adventures Quarantine ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cc051354290f9cf86efe089419796141b8e1928b.png
 MAGENTA:DE|PROSIEBENSAT.1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/prosiebensat1.png
-TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|AUTO
+TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 TVGUIDE:US|TODAY ALL DAY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1ec1dcb633cfd9ac9351cd41f242f0b4e1be7daa.png
 #DE| MAGENTA TV
 MAGENTA:DE| BILD+ EVENT FAME FIGHTING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bild_fame_fighting/bild_fame_fighting.png
@@ -16917,22 +16917,22 @@ FREEVIEW:GB| RTE TWO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 FREEVIEW:GB| TALK TV HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/talk-tv-uk.png
 UK| TALK TV FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/297e9e917eca9fd9336f9f3d84cfea8bb2db39d3.png
 #US| TELEMUNDO NETWORK
-TVPASSPORT:US|Telemundo (WTCL-LP) Cleveland, OH|AUTO
-TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|AUTO
+TVPASSPORT:US|Telemundo (WTCL-LP) Cleveland, OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 US| TELEMUNDO 31 (WTMO-CD) DAYTONA BEACH||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
 US| TELEMUNDO 29 (WTNX) NASHVILLE||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
-TVPASSPORT:US|Telemundo (KFDY-LD) Lincoln, NE|AUTO
+TVPASSPORT:US|Telemundo (KFDY-LD) Lincoln, NE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 US| TELEMUNDO 24 (WTBM) BIRMINGHAM||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
-TVPASSPORT:US|Telemundo (KNPG-LD3) St. Joseph, MO|AUTO
-TVPASSPORT:US|Telemundo (KKYK) Little Rock, AR|AUTO
-TVPASSPORT:US|Telemundo (KFBI-LD2) Medford, OR|AUTO
+TVPASSPORT:US|Telemundo (KNPG-LD3) St. Joseph, MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|Telemundo (KKYK) Little Rock, AR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|Telemundo (KFBI-LD2) Medford, OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 US| TELEMUNDO 10 (KXNV) INCLINE||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
-TVPASSPORT:US|Telemundo (WYTU) Milwaukee, WI|AUTO
-TVPASSPORT:US|Telemundo (WWDT-CD) Fort Myers, FL|AUTO
+TVPASSPORT:US|Telemundo (WYTU) Milwaukee, WI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
+TVPASSPORT:US|Telemundo (WWDT-CD) Fort Myers, FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 US| TELEMUNDO (WRMD) PINELLAS PARK||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
 US| TELEMUNDO (WRMD) HARTFORD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
 US| TELEMUNDO (KUAN-LD) CHULA VISTA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
-TVPASSPORT:US|Telemundo (KUAN) San Diego, CA|AUTO
+TVPASSPORT:US|Telemundo (KUAN) San Diego, CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
 US| TELEMUNDO (KUAN) CHULA VISTA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo.png
 US| NBC 10 BOSTON MA (WBTS)||AUTO
 TVPASSPORT:US|NBC (KTUU) Anchorage, AK|AUTO
@@ -18328,9 +18328,9 @@ TVPASSPORT:US|FOX (WDAF) Kansas City, MO HD|AUTO
 TVPASSPORT:US|Seattle 11 (KSTW) Tacoma, WA HD|AUTO
 #US| CW/MY NETWORK
 US| CW 19 JEANNETTE PA (WPCW)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
-TVPASSPORT:US|CW (WNOL) New Orleans, LA|AUTO
+TVPASSPORT:US|CW (WNOL) New Orleans, LA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cw/cw.png
 US|Cw 23 (KCWT)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
-TVPASSPORT:US|CW (WLMT) Memphis, TN|AUTO
+TVPASSPORT:US|CW (WLMT) Memphis, TN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cw/cw.png
 US|CW News 9 San Diego (KUSI) HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b621a2a3a32d446540f64734b9b7343cdc296466.png
 US|CW Seattle HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
 TVPASSPORT:US|MNT (KHII) Honolulu, HI|AUTO
