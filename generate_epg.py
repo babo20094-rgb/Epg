@@ -1886,6 +1886,35 @@ for _daten in sender_daten:
     if _hr_sk_nummer in hr_sk_playlist_namen:
         _daten["kanal"] = hr_sk_playlist_namen[_hr_sk_nummer]
 
+def dyn_ppv_kanal_ids(nummer):
+    """Alle Kanal-ID-Varianten fuer einen DYN-PPV-1-20-API-Kanal: sowohl
+    die feste, garantiert stabile Standard-ID ("DE| DYN PPV N HD") als
+    auch - falls per Live-Playlist-Abgleich gefunden - den exakten
+    aktuellen Rohnamen aus der Playlist (siehe dyn_ppv_api_playlist_namen
+    oben).
+
+    Frueher wurde bei einem Live-Treffer NUR NOCH der Live-Name
+    verwendet, die feste Standard-ID ging dabei komplett verloren -
+    weicht der gefundene Live-Name auch nur minimal vom tatsaechlichen,
+    aktuellen Playlist-Namen ab (z.B. durch einen kurzzeitigen Netzwerk-/
+    Parse-Fehler beim Fetch oder eine zwischenzeitliche Playlist-
+    Aenderung zwischen Abgleich und TiviMates eigenem Abruf), matchte
+    TiviMate ueberhaupt nichts mehr - obwohl die feste Standard-ID vorher
+    (vor Einfuehrung dieses Live-Abgleichs) IMMER zuverlaessig
+    funktioniert hatte. Jetzt werden beide Varianten gleichzeitig als
+    <channel>/<programme> ausgegeben (Vereinigung der
+    kanal_id_varianten() beider Texte) - kein Fehltreffer-Risiko, nur
+    zusaetzliche, strikt additive Trefferchancen."""
+    standard = f"DE| DYN PPV {nummer} HD"
+    ids = list(kanal_id_varianten(standard))
+    live_name = dyn_ppv_api_playlist_namen.get(nummer)
+    if live_name and live_name != standard:
+        for kanal_id in kanal_id_varianten(live_name):
+            if kanal_id not in ids:
+                ids.append(kanal_id)
+    return ids
+
+
 for i in range(1, DYN_PPV_ANZAHL + 1):
     kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
     logo_fuer_kanal = dyn_ppv_logo_overrides.get(
@@ -1900,7 +1929,7 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
     # display-name statt der ID heranzieht, verhinderte genau diese
     # Abweichung die Zuordnung trotz technisch passender ID (Bug
     # September 2026 behoben).
-    for kanal_id in kanal_id_varianten(kanal):
+    for kanal_id in dyn_ppv_kanal_ids(i):
         xml_teile.append(
             f' <channel id="{escape(kanal_id)}"> <display-name>{escape(kanal)}</display-name> <icon src="{escape(logo_fuer_kanal)}"/> </channel> '
         )
@@ -1990,9 +2019,7 @@ try:
                 startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
                 endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
 
-                kanal = dyn_ppv_api_playlist_namen.get(kanal_nummer, f"DE| DYN PPV {kanal_nummer} HD")
-
-                for kanal_id in kanal_id_varianten(kanal):
+                for kanal_id in dyn_ppv_kanal_ids(kanal_nummer):
                     xml_teile.append(
                         f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal_id)}">'
                         f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
@@ -2067,9 +2094,7 @@ for competition_id, competition_name in DYN_BASKETBALL_COMPETITION_IDS.items():
 
         startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
         endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
-        kanal = dyn_ppv_api_playlist_namen.get(basketball_kanal_nummer, f"DE| DYN PPV {basketball_kanal_nummer} HD")
-
-        for kanal_id in kanal_id_varianten(kanal):
+        for kanal_id in dyn_ppv_kanal_ids(basketball_kanal_nummer):
             xml_teile.append(
                 f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal_id)}">'
                 f' <title>{escape(titel)}</title> <desc>{escape(titel)}</desc> </programme> '
@@ -2335,8 +2360,7 @@ jetzt = datetime.now(timezone.utc).replace(
 )
 
 for i in range(1, DYN_PPV_ANZAHL + 1):
-    kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
-    kanal_ids = kanal_id_varianten(kanal)
+    kanal_ids = dyn_ppv_kanal_ids(i)
     api_fenster = dyn_synth_api_fenster.get(i, [])
 
     for stunde in range(24 * DYN_LEERZEIT_TAGE):
