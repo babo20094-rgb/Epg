@@ -5302,11 +5302,11 @@ TVGUIDE:US|ABC NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 TVGUIDE:US|ACC NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c69b9e8e7135193f.png
 TVGUIDE:US|ACCN ᴴᴰ ⁶⁰ᶠᵖˢ|http://51.158.145.100/picons/logos/USA/1921350.png
 TVGUIDE:US|ACCORDING TO JIM FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4ce0662d2a2773ed.png
-TVGUIDE:US|ACCUWEATHER HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f3ee4e6d4447b1b8.png
+TVPASSPORT:US|ACCUWEATHER HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f3ee4e6d4447b1b8.png
 TVGUIDE:US|ACTION MAX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1149298ba15d8653.png
 TVGUIDE:US|ADOLESCENCE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|ADULT SWIM HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f28fdcc7653616f0.png
-TVGUIDE:US|ADULT SWIM WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f28fdcc7653616f0.png
+TVPASSPORT:US|ADULT SWIM WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f28fdcc7653616f0.png
 TVGUIDE:US|ADVENTURE TIME FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf2a752f1b813f37.png
 TVGUIDE:US|ADVENTURES OF THE GUMMI BEARS FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|AFN SPORT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/47423b11382ab66a.png
@@ -5325,7 +5325,7 @@ TVGUIDE:US|ALTITUDE SPORTS 2 HD|https://raw.githubusercontent.com/babo20094-rgb/
 TVGUIDE:US|ALTITUDE SPORTS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e21e53274bb3695d.png
 TVGUIDE:US|AMC +|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/66c99f973d2327b4.png
 TVGUIDE:US|AMC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/66c99f973d2327b4.png
-TVGUIDE:US|AMC PLUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/824a9e8f6a39f089.png
+TVPASSPORT:US|AMC PLUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/824a9e8f6a39f089.png
 TVGUIDE:US|AMERICA TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e8eaaafd5d70f03b.png
 TVGUIDE:US|AMERICAN BORN CHINESE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|AMERICAN DAD FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c942ed132337ca21.png
@@ -5345,7 +5345,7 @@ TVGUIDE:US|ARCHER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 TVGUIDE:US|ARE YOU AFRAID OF THE DARK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/277acd9726d01cf7.png
 TVGUIDE:US|ARRESTED DEVELOPMENT FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8aa45a36384c89d4.png
 TVGUIDE:US|ARROW FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/895810ef2fd441b3.png
-TVGUIDE:US|ASPIRE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1cc054eca8fc10f3.png
+TVPASSPORT:US|ASPIRE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1cc054eca8fc10f3.png
 TVGUIDE:US|AT&T SPORTSNET ROCKY MOUNTAIN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0d5dd504b2fe953516871a9e3cd19f7650f0c41d.png
 TVGUIDE:US|ATYPICAL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|AVATA THE LAST AIRBENDER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f15f561b1a16513.png
@@ -5385,7 +5385,7 @@ TVGUIDE:US|BAYWATCH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 TVGUIDE:US|BAYWATCH FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9be1df4319a4bc69.png
 TVGUIDE:US|BBC AMERICA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b3cf00bdb2dc96cb.png
 TVGUIDE:US|BBC WORLD NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/817bc74452daceb1.png
-TVGUIDE:US|BEACH TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4051f2459b73582.png
+TVPASSPORT:US|BEACH TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4051f2459b73582.png
 TVGUIDE:US|BEAUTY AND THE BEAST 1987 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5f88acf376545688.png
 TVGUIDE:US|BEAUTY AND THE BEAST 2012 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5f88acf376545688.png
 TVGUIDE:US|BEAVIS AND BUTT HEAD FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4ddbf0a8b65c304c.png
@@ -5399,12 +5399,12 @@ TVGUIDE:US|BEIN SPORTS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 TVGUIDE:US|BEIN SPORTS XTRA N (ES) HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ae7fa9b28e4120d3.png
 TVGUIDE:US|BEING MARY JANE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ef8e9ef5e305a8bd.png
 TVGUIDE:US|BEN 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/99465bf1a84ee56e.png
-TVGUIDE:US|BET GOSPEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d625abf5b163c69e.png
+TVPASSPORT:US|BET GOSPEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d625abf5b163c69e.png
 TVGUIDE:US|BET HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/16ec6d63a2735799.png
 TVGUIDE:US|BET HER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e681a6eed1e191c.png
 TVGUIDE:US|BET HER HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e681a6eed1e191c.png
-TVGUIDE:US|BET JAMS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/205765cf2bda8b03.png
-TVGUIDE:US|BET SOUL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73118a5b0732224.png
+TVPASSPORT:US|BET JAMS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/205765cf2bda8b03.png
+TVPASSPORT:US|BET SOUL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73118a5b0732224.png
 TVGUIDE:US|BET ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/16ec6d63a2735799.png
 TVGUIDE:US|BET+|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/16ec6d63a2735799.png
 TVGUIDE:US|BEVERLY HILLS BORDELLO FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80b73673e4cb9f08.png
@@ -5441,7 +5441,7 @@ TVGUIDE:US|BOSCH FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 TVGUIDE:US|BOSCH LEGACY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|BOSCH ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a2ba7ed4842bbbc1.png
 TVGUIDE:US|BOSTON LEGAL FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/05715006bb5c9a9a6a48496e674c0dd8d3fe8378.png
-TVGUIDE:US|BOUNCE TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/13fb42221c392aaf.png
+TVPASSPORT:US|BOUNCE TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/13fb42221c392aaf.png
 TVGUIDE:US|BOUNCE XL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/13fb42221c392aaf.png
 TVGUIDE:US|BOXING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d400c84a93974370.png
 TVGUIDE:US|BOY MEETS WORLD FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5fbdef248115fa6a.png
@@ -5456,7 +5456,7 @@ TVGUIDE:US|BUFFY THE VAMPIRE SLAYER FHD|https://raw.githubusercontent.com/babo20
 TVGUIDE:US|BULLET BULLET ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|BURN NOTICE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f42ad6060d6aefe.png
 TVGUIDE:US|BUTTERFLY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/35cffa30f43a4ea6.png
-TVGUIDE:US|BUZZR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e570e252b8ea26df.png
+TVPASSPORT:US|BUZZR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e570e252b8ea26df.png
 TVGUIDE:US|BYU TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dc3dc79f49fc08ad.png
 TVGUIDE:US|C HOLLYWOOD PREMIERE 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/856109179a5c67c9.png
 TVGUIDE:US|C-SPAN 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fee4da90de4f72d0.png
@@ -5654,7 +5654,7 @@ TVGUIDE:US|CBS SPORTS GALAZO NETWORK HD|https://raw.githubusercontent.com/babo20
 TVGUIDE:US|CBS SPORTS NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f989420ed24bc2d7.png
 TVGUIDE:US|CENTURIONS FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|CHAPPELLE'S SHOW FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7e7e4f863d4dc5117ec860404f4d2becaca6145a.png
-TVGUIDE:US|CHARGE!|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8245c06c88327c5.png
+TVPASSPORT:US|CHARGE!|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8245c06c88327c5.png
 TVGUIDE:US|CHARMED FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0865b403a0898930.png
 TVGUIDE:US|CHEDDAR BUSINESS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/93c107ea2597cd84.png
 TVGUIDE:US|CHEDDAR NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/084798ebfeffe8eb.png
@@ -5728,7 +5728,7 @@ TVGUIDE:US|CITADEL HONEY BUNNY ᴿᴬᵂ|https://raw.githubusercontent.com/babo2
 TVGUIDE:US|CITADEL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|CITIES OF THE UNDERWORLD FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f10bcda8bfe88a30123b69772d6c831026559658.png
 TVGUIDE:US|CLEAN SLATE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
-TVGUIDE:US|CLEO TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6f896a5853f6ab41.png
+TVPASSPORT:US|CLEO TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6f896a5853f6ab41.png
 TVGUIDE:US|CLICKBAIT ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|CM AMAZON 1 FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|CM AMAZON 2 FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -5758,7 +5758,7 @@ TVGUIDE:US|CM NETFLIX 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 TVGUIDE:US|CM NETFLIX 4 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|CM NETFLIX 5 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|CMT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/708b5d86c3a774be.png
-TVGUIDE:US|CMT MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6be727aa66c88464.png
+TVPASSPORT:US|CMT MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6be727aa66c88464.png
 TVGUIDE:US|CNBC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/865c56b6a660870a.png
 TVGUIDE:US|CNBC WORLD HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf6a776e69f2f8e5.png
 TVGUIDE:US|CNN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/046f50d9235eb679.png
@@ -5771,11 +5771,11 @@ TVGUIDE:US|COLUMBO FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 TVGUIDE:US|COMEDY CENTRAL EAST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a507b9335912406c.png
 TVGUIDE:US|COMEDY CENTRAL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a507b9335912406c.png
 TVGUIDE:US|COMEDY CENTRAL WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5913c32609b66fd7.png
-TVGUIDE:US|COMEDY TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/18015dea0ebe190c.png
+TVPASSPORT:US|COMEDY TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/18015dea0ebe190c.png
 TVGUIDE:US|COMET HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/193f51f5a6063b18.png
 TVGUIDE:US|CONSTANTINE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7fed7da144e3c027fb17a4cef463aee7fcb9c7b1.png
 TVGUIDE:US|CONTINUUM FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/63481458182094a58bbf293e9bc144502e37141f.png
-TVGUIDE:US|COOKING CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4bf35850d513b540.png
+TVPASSPORT:US|COOKING CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4bf35850d513b540.png
 TVGUIDE:US|CORONER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f887bc89361e517106379203a96844b0a8737a69.png
 TVGUIDE:US|COUGAR TOWN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/58e07790b5e7955196a3baa9fc9a7f8ef3b50bf1.png
 TVGUIDE:US|COUNTDOWN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c6549c224fd2a0ff.png
@@ -5853,7 +5853,7 @@ TVGUIDE:US|CW SACRAMENTO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 TVGUIDE:US|CW SAN FRANCISCO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a9832916a72e59bf927424a6104d34cfeaad3330.png
 TVGUIDE:US|CW TAMPA BAY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/80d12a5fd72435f4d6f2bc5956a9aa2918998672.png
 TVGUIDE:US|CYBERPUNK EDGERUNNERS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|DABL TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f87c537266089f9.png
+TVPASSPORT:US|DABL TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f87c537266089f9.png
 TVGUIDE:US|DADS ARMY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7284952968dae6d5b2847f83f67fca4fffcd74c5.png
 TVGUIDE:US|DAISY JONES AND THE SIX ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|DAREDEVIL BORN AGAIN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
@@ -5878,7 +5878,7 @@ TVGUIDE:US|DICK VAN DYKE SHOW FHD|http://51.158.145.100/picons/logos/USA/CINEMAN
 TVGUIDE:US|DIFF'RENT STROKES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/131be513e7054c608ecdbdc611a759e662c93ccf.png
 TVGUIDE:US|DINERS DRIVE-INS AND DIVES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/78cdf85131948cc4.png
 TVGUIDE:US|DINOSAURS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fda0f5f4d8211e87.png
-TVGUIDE:US|DISCOVERY CHANNEL EAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebb1b778c9ce5e8e.png
+TVPASSPORT:US|DISCOVERY CHANNEL EAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ebb1b778c9ce5e8e.png
 TVGUIDE:US|DISCOVERY CHANNEL WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/98abc1ade3da65f7.png
 TVGUIDE:US|DISCOVERY FAMILY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/df733bc19aeaa6cd.png
 TVGUIDE:US|DISCOVERY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f068d2cb7058abac.png
@@ -5906,7 +5906,7 @@ TVGUIDE:US|DISNEY+ SERIES 8 ᴴᴰ|https://raw.githubusercontent.com/babo20094-r
 TVGUIDE:US|DISNEY+ SERIES 9 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|DISNEY+ SERIES INFO ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|DOCTOR WHO FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d3fe2b19db975a5c.png
-TVGUIDE:US|DOG TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a3cca32494d9a9cf.png
+TVPASSPORT:US|DOG TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a3cca32494d9a9cf.png
 TVGUIDE:US|DORA THE EXPLORER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8751b29308c04f7f.png
 TVGUIDE:US|DOVE CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/408feaebb77fd30f.png
 TVGUIDE:US|DOVE MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/68ded1a03875d167.png
@@ -5916,7 +5916,7 @@ TVGUIDE:US|DRUNK HISTORY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 TVGUIDE:US|DUCK DYNASTY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/359b231c47920f20.png
 TVGUIDE:US|DUCK TALES 1987 FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|DUCK TALES 2017 FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
-TVGUIDE:US|E! ENTERTAINMENT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9b37008c80dd2ba2.png
+TVPASSPORT:US|E! ENTERTAINMENT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9b37008c80dd2ba2.png
 TVGUIDE:US|E! ENTERTAINMENT WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6665ef8ff1ad44fe.png
 TVGUIDE:US|EL REY REBEL HD|http://51.158.145.100/picons/logos/USA/991597.png
 TVGUIDE:US|ELENA OF AVALOR FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
@@ -6270,7 +6270,7 @@ TVPASSPORT:US|FOX HARTFORD (WTIC)|https://raw.githubusercontent.com/babo20094-rg
 TVGUIDE:US|FOX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ee2cd75fecf2b5f9.png
 TVGUIDE:US|FOX NEWS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/37015ac4fd8e006e.png
 TVGUIDE:US|FOX SOCCER PLUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32f2f55e59cf8630.png
-TVGUIDE:US|FOX SOUL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d62f3614c78dc3a.png
+TVPASSPORT:US|FOX SOUL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d62f3614c78dc3a.png
 TVGUIDE:US|FOX SPORTS 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5c663c29dd381085.png
 TVGUIDE:US|FOX SPORTS 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aeaf31b940296e15.png
 TVGUIDE:US|FOX SPORTS DETROIT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5bba311ac43eb9d.png
@@ -6282,7 +6282,7 @@ TVGUIDE:US|FOX SPORTS SAN DIEGO HD|https://raw.githubusercontent.com/babo20094-r
 TVGUIDE:US|FOX SPORTS SOUTH HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/33bf0384da6cd483.png
 TVGUIDE:US|FOX SPORTS SUN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ee1c95fd92227401.png
 TVGUIDE:US|FOX UHD/4K+ (EVENT ONLY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ee2cd75fecf2b5f9.png
-TVGUIDE:US|FOX WEATHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/18cf9432787b3de4.png
+TVPASSPORT:US|FOX WEATHER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/18cf9432787b3de4.png
 TVGUIDE:US|FRAGGLE ROCK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bc97c2358212ec2d.png
 TVGUIDE:US|FRASIER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e232c6f5bcd42818.png
 TVGUIDE:US|FREE SPEECH TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3a2e78f560108380.png
@@ -6307,7 +6307,7 @@ TVGUIDE:US|Fite TV 24/7 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/E
 TVGUIDE:US|Fite TV 24/7 SD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f223c6c9d76a5774.png
 TVGUIDE:US|GAME OF THRONES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
 TVGUIDE:US|GAME SHOW CENTRAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/08539244a3a41638.png
-TVGUIDE:US|GAME TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1cc5a91f21343adf.png
+TVPASSPORT:US|GAME TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1cc5a91f21343adf.png
 TVGUIDE:US|GANGLAND FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5d488ff085c81c40.png
 TVGUIDE:US|GANGLAND UNDERCOVER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/62e7d35d33c99b0e7d64074b4fee25e79bdbf143.png
 TVGUIDE:US|GAVIN AND STACEY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2a5aaddc1ff5e84.png
@@ -6374,7 +6374,7 @@ TVGUIDE:US|HBOMAX ORIGINAL 7 ᴴᴰ|https://raw.githubusercontent.com/babo20094-
 TVGUIDE:US|HBOMAX ORIGINAL 8 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7557925553f5f423.png
 TVGUIDE:US|HBOMAX ORIGINAL 9 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7557925553f5f423.png
 TVGUIDE:US|HBOMAX ORIGINAL INFO ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7557925553f5f423.png
-TVGUIDE:US|HD NET MOVIES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a457e86846c0e3.png
+TVPASSPORT:US|HD NET MOVIES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a457e86846c0e3.png
 TVGUIDE:US|HE-MAN AND THE MASTERS OF THE UNIVERSE 2002 FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|HE-MAN AND THE MASTERS OF THE UNIVERSE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/896029c465f788e8f54abfe6c91864c83b6daf89.png
 TVGUIDE:US|HEARTLAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/56894c402f4370c3.png
@@ -6392,7 +6392,7 @@ TVGUIDE:US|HLN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 TVGUIDE:US|HOGANS HEROS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ff30df18d162ce87.png
 TVGUIDE:US|HOME IMPROVEMENT FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2b217dce425b004b.png
 TVGUIDE:US|HOMECOMING ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dc333551c3814e3e.png
-TVGUIDE:US|HOPE CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/37e1058f9ef10d64.png
+TVPASSPORT:US|HOPE CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/37e1058f9ef10d64.png
 TVGUIDE:US|HOSTAGE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|HOUSE OF CARDS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1466c71d4e134afeac5a35e2047ffca3d33d5ad6.png
 TVGUIDE:US|HOUSE OF CARDS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
@@ -6431,10 +6431,10 @@ TVGUIDE:US|IM A VIRGO ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/
 TVGUIDE:US|IMPRACTICAL JOKERS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ab12490016088264.png
 TVGUIDE:US|IN LIVING COLOR FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddf1287050b6fbc3.png
 TVGUIDE:US|IN THE HEAT OF THE NIGHT FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e0da526e80b6cac25368d228141e41578e41f241.png
-TVGUIDE:US|INDIEPLEX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2d9fbd363aa38b3c.png
+TVPASSPORT:US|INDIEPLEX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2d9fbd363aa38b3c.png
 TVGUIDE:US|INK MASTER FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e326a2ece1cf8507.png
 TVGUIDE:US|INSIDE JOB ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|INSP HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f762eaf4b60fa79.png
+TVPASSPORT:US|INSP HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0f762eaf4b60fa79.png
 TVGUIDE:US|INVINCIBLE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|ION HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e3e5cb061452addb.png
 TVGUIDE:US|ION MYSTERY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e3e5cb061452addb.png
@@ -6450,7 +6450,7 @@ TVGUIDE:US|JURASSIC WORLD CHAOS THEORY ᴿᴬᵂ|https://raw.githubusercontent.c
 TVGUIDE:US|JURASSIC WORLD: CAMP CRETACEOUS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0263c1091231daed42e266a8befa560ef0c531ae.png
 TVGUIDE:US|JUST ADD MAGIC MYSTERY CITY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|JUST GOOD FRIENDS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c29a79d94a29670dcc46d71aa0057267b2e32018.png
-TVGUIDE:US|JUSTICE CENTRAL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd5b51869c27ae9b.png
+TVPASSPORT:US|JUSTICE CENTRAL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd5b51869c27ae9b.png
 TVGUIDE:US|KAOS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|KEEPING UP APPEARANCES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/18fd72440acd828f4bb47d9fe7e532cebe4a3507.png
 TVGUIDE:US|KEEPING UP WITH THE KARDASHIANS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/041b59720fbecd13d27eae0ccf25abd205b8134f.png
@@ -6477,13 +6477,13 @@ TVGUIDE:US|LEVERAGE REDEMPTION ᴿᴬᵂ|https://raw.githubusercontent.com/babo2
 TVGUIDE:US|LIFE TIME|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/49a9b9fe57b7a652.png
 TVGUIDE:US|LIFETIME HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/49a9b9fe57b7a652.png
 TVGUIDE:US|LIFETIME MOVIE NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/41fcd40155d38021.png
-TVGUIDE:US|LIFETIME REAL WOMEN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d54b5273cee6b4a1.png
+TVPASSPORT:US|LIFETIME REAL WOMEN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d54b5273cee6b4a1.png
 TVGUIDE:US|LIKE A DRAGON YAKUZA ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|LITTLE BRITAIN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6ef6cba930f40468.png
 TVGUIDE:US|LITTLE HOUSE ON THE PRAIRIE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9aa911c24643e86f.png
 TVGUIDE:US|LIVENOW FROM FOX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/81dfaecba813ac50.png
 TVGUIDE:US|LMN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/070f49a5ccad8d7a.png
-TVGUIDE:US|LOCAL NOW HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b81fd6224f9f95d4.png
+TVPASSPORT:US|LOCAL NOW HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b81fd6224f9f95d4.png
 TVGUIDE:US|LOCKE AND KEY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|LOGO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/84d00ddfd20673bc.png
 TVGUIDE:US|LOKI ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
@@ -6514,7 +6514,7 @@ TVGUIDE:US|ME TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 TVGUIDE:US|MEGA TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aca2dacdc0668aee.png
 TVGUIDE:US|MERCY FOR NONE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|METV TOONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7519e745658d36eb.png
-TVGUIDE:US|MGM HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1558e25b068d4796.png
+TVPASSPORT:US|MGM HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1558e25b068d4796.png
 TVGUIDE:US|MGM+ DRIVE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0b97e16c07ad4818.png
 TVGUIDE:US|MGM+ HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1558e25b068d4796.png
 TVGUIDE:US|MGM+ HITS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4f50b325a24d3cc0.png
@@ -6523,7 +6523,7 @@ TVGUIDE:US|MIAMI VICE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 TVGUIDE:US|MICKEY MOUSE CLUBHOUSE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a21036bc171b00387040d1cfebdd53c31673ca26.png
 TVGUIDE:US|MIDNIGHT MASS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/156619bfbdc05ce5.png
 TVGUIDE:US|MIGHTY DUCKS FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
-TVGUIDE:US|MILITARY HISTORY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e9fa3a401f8e482f.png
+TVPASSPORT:US|MILITARY HISTORY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e9fa3a401f8e482f.png
 TVGUIDE:US|MINDHUNTER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4fb2b3d832534dd8.png
 TVGUIDE:US|MLB ARIZONA DIAMONDBACKS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d1ddf4e407e68465.png
 TVGUIDE:US|MLB ATLANTA BRAVES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d1ddf4e407e68465.png
@@ -6565,7 +6565,7 @@ TVGUIDE:US|MONUMENTAL SPORTS NETWORK HD|https://raw.githubusercontent.com/babo20
 TVGUIDE:US|MOON KNIGHT ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|MOREMAX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/41c38908ec577c28.png
 TVGUIDE:US|MOTORHEADS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
-TVGUIDE:US|MOTORTREND HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/75d8511b12b9a15d.png
+TVPASSPORT:US|MOTORTREND HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/75d8511b12b9a15d.png
 TVGUIDE:US|MOVIEPLEX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29b7a8169a0bfc3b.png
 TVGUIDE:US|MR AND MRS SMITH ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|MR BEAN ANIMATED FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0a983a63c819789f59c8d425e253ca4bc5b77402.png
@@ -6576,14 +6576,14 @@ TVGUIDE:US|MSG 2 PLUS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 TVGUIDE:US|MSG HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d3446ea15532a47.png
 TVGUIDE:US|MSG PLUS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d3446ea15532a47.png
 TVGUIDE:US|MTV 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6a26b2447fe93f63.png
-TVGUIDE:US|MTV CLASSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6946beb1faa7ec18.png
+TVPASSPORT:US|MTV CLASSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6946beb1faa7ec18.png
 TVGUIDE:US|MTV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6a26b2447fe93f63.png
-TVGUIDE:US|MTV LIVE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cb67a59c37a8d65f.png
+TVPASSPORT:US|MTV LIVE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cb67a59c37a8d65f.png
 TVGUIDE:US|MUPPET BABIES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/248a5feeb67e9260.png
 TVGUIDE:US|MUSIC CHOICE  MAX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09272c174aae9ed8.png
 TVGUIDE:US|MUSIC CHOICE '70's|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/760adea08aeef01405512620c2554df7e6e7e6c0.png
-TVGUIDE:US|MUSIC CHOICE CLASSIC COUNTRY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b0c7454074b1c91e.png
-TVGUIDE:US|MUSIC CHOICE HIP-HOP AND R&B|https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/Music_Choice_logo.png/960px-Music_Choice_logo.png
+TVPASSPORT:US|MUSIC CHOICE CLASSIC COUNTRY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b0c7454074b1c91e.png
+TVPASSPORT:US|MUSIC CHOICE HIP-HOP AND R&B|https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/Music_Choice_logo.png/960px-Music_Choice_logo.png
 TVGUIDE:US|MUSIC CHOICE JAZZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ba5e75c41df0c4ed.png
 TVGUIDE:US|MUSIC CHOICE POP HITS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/82385506b7730d4c.png
 TVGUIDE:US|MUSIC CHOICE ROCK HITS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9755fc20142c1606.png
@@ -6611,7 +6611,7 @@ TVGUIDE:US|MY LADY JANE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rg
 TVGUIDE:US|MY LIFE WITH THE WALTER BOYS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|MY LITTLE PONY FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|MY NAME IS EARL FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2339051ee0c8e28f.png
-TVGUIDE:US|MY27 KDFI DALLAS|http://51.158.145.100/picons/logos/USA/1938495.png
+TVPASSPORT:US|MY27 KDFI DALLAS|http://51.158.145.100/picons/logos/USA/1938495.png
 TVGUIDE:US|MeTV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d43bf7d9d87a3f2a.png
 TVPASSPORT:US|MeTV (KAZA)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d43bf7d9d87a3f2a.png
 TVGUIDE:US|MeTV NETWORK EAST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dbd3088c4807aff3.png
@@ -6964,7 +6964,7 @@ TVGUIDE:US|ONE PIECE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/E
 TVGUIDE:US|ONLY FOOLS AND HORSES FHD|https://logo.m3uassets.com/onlyfools&amp;horses.png
 TVGUIDE:US|ORANGE IS THE NEW BLACK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5474e3c1508c0e69.png
 TVGUIDE:US|ORANGE IS THE NEW BLACK ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5474e3c1508c0e69.png
-TVGUIDE:US|OUTDOOR CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4ecdc44fd1a842be.png
+TVPASSPORT:US|OUTDOOR CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4ecdc44fd1a842be.png
 TVGUIDE:US|OUTER BANKS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|OUTER RANGE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|OUTLAST ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/794afc46ef55e1b8.png
@@ -7043,21 +7043,21 @@ TVGUIDE:US|POWERNATION HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 TVGUIDE:US|PTVN MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c3a6903628633e79.png
 TVGUIDE:US|PURSUIT CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/00467512d17542a8.png
 TVGUIDE:US|QUEEN CHARLOTTE A BRIDGERTON STORY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|QVC 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4c5e4fd6941b4729.png
-TVGUIDE:US|QVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd5c45feed0b917c.png
+TVPASSPORT:US|QVC 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4c5e4fd6941b4729.png
+TVPASSPORT:US|QVC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd5c45feed0b917c.png
 TVGUIDE:US|REAL AMERICA'S VOICE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/39f8924f7a0004b51093e3fb47ed831ea2e550a3.png
 TVGUIDE:US|REAL AMERICAN VOICE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/39f8924f7a0004b5.png
 TVGUIDE:US|REATCHER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
-TVGUIDE:US|RECIPE TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b9aeeaa96d6a8272.png
+TVPASSPORT:US|RECIPE TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b9aeeaa96d6a8272.png
 TVGUIDE:US|RECORD OF RAGNAROK ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|RED BULL TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7121dc01dd501af6.png
 TVGUIDE:US|RED OAKS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|RENEGADE NELL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
-TVGUIDE:US|RETRO TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3e23f1d2294b7388.png
-TVGUIDE:US|RETROPLEX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/88bd6e22a36da693.png
-TVGUIDE:US|REVOLT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d45b34ee717d14e8.png
+TVPASSPORT:US|RETRO TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3e23f1d2294b7388.png
+TVPASSPORT:US|RETROPLEX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/88bd6e22a36da693.png
+TVPASSPORT:US|REVOLT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d45b34ee717d14e8.png
 TVGUIDE:US|REVRY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/65ab9a91d8a05e60.png
-TVGUIDE:US|RFD TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3c4e78f3312fb6bd.png
+TVPASSPORT:US|RFD TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3c4e78f3312fb6bd.png
 TVGUIDE:US|RICK AND MORTY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d81d5edc10cbf61.png
 TVGUIDE:US|RISING DAMP FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5be7350dca4a5122a96e301956ad6fadcf46e0f6.png
 TVGUIDE:US|RIVALS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
@@ -7105,10 +7105,10 @@ TVGUIDE:US|SHOWTIME WOMEN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 TVPASSPORT:US|SHOXBET (EAST)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92d87a59407766a8.png
 TVPASSPORT:US|SHOXBET (WEST)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92d87a59407766a8.png
 TVGUIDE:US|SKULL ISLAND ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|SMITHSONIAN CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbefa5d572b03c30.png
+TVPASSPORT:US|SMITHSONIAN CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbefa5d572b03c30.png
 TVGUIDE:US|SMITHSONIAN CHANNEL WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbefa5d572b03c30.png
 TVGUIDE:US|SNEAKY PETE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
-TVGUIDE:US|SO YUMMY!|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7853314e894500ad.png
+TVPASSPORT:US|SO YUMMY!|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7853314e894500ad.png
 TVGUIDE:US|SOLOS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|SONY MOVIE CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7a3c1c600f7ea09d.png
 TVGUIDE:US|SOUTH PARK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/656d9e7e0893b67e.png
@@ -7309,7 +7309,7 @@ TVGUIDE:US|THE ASSASSIN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rg
 TVGUIDE:US|THE BENNY HILL SHOW FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/83ff01f8dc3bf60dcf8fd76f50c19df7d120c22c.png
 TVGUIDE:US|THE BETTER SISTER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE BIG BANG THEORY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/83fb8dafc0a09c05.png
-TVGUIDE:US|THE BLAZE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/230108b832bef910.png
+TVPASSPORT:US|THE BLAZE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/230108b832bef910.png
 TVGUIDE:US|THE BONDSMAN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE BOOK OF BOBA FETT ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|THE BOYS PRESENTS DIABOLICAL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
@@ -7407,7 +7407,7 @@ TVGUIDE:US|THE UMBRELLA ACADEMY ᴿᴬᵂ|https://raw.githubusercontent.com/babo
 TVGUIDE:US|THE WALKING DEAD FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/48cd6e62eb7d8e33.png
 TVGUIDE:US|THE WALTONS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a28dcf4cabef9c9f.png
 TVGUIDE:US|THE WATCHER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|THE WEATHER CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bc4b5e66e1980bd0.png
+TVPASSPORT:US|THE WEATHER CHANNEL HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bc4b5e66e1980bd0.png
 TVGUIDE:US|THE WHEEL OF TIME ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE WILDS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE WITCHER BLOOD ORIGIN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
@@ -7440,7 +7440,7 @@ TVGUIDE:US|TROLLHUNTERS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rg
 TVGUIDE:US|TRUTV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f6e535094e90444d.png
 TVGUIDE:US|TRUTV WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0441380915fd8ba9.png
 TVGUIDE:US|TV LAND HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/990e28a4ebbbb8cd.png
-TVGUIDE:US|TV ONE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/113312b441c6981c.png
+TVPASSPORT:US|TV ONE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/113312b441c6981c.png
 TVGUIDE:US|TVG NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dbd3088c4807aff3.png
 TVGUIDE:US|TVG NETWORK 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dbd3088c4807aff3.png
 TVGUIDE:US|TWO AND A HALF MEN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b6096c7c1855a0d0.png
@@ -7449,10 +7449,10 @@ TVGUIDE:US|TYT NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 TVGUIDE:US|UNDONE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3c9395fdb6b1338e.png
 TVGUIDE:US|UNFORGOTTEN FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/df0c4cbbb1896b4d270bbefd902f4dacf315cb38.png
 TVGUIDE:US|UNTAMED ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|UP TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0e23b0d82a69eeb3.png
+TVPASSPORT:US|UP TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0e23b0d82a69eeb3.png
 TVGUIDE:US|UPLOAD ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVPASSPORT:US|US MYTV (KHII) HANOLULU|http://51.158.145.100/picons/logos/USA/USMYTVKHIIHONOLULU.png
-TVGUIDE:US|USA NETWORK EAST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9004efe09123c064.png
+TVPASSPORT:US|USA NETWORK EAST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9004efe09123c064.png
 TVGUIDE:US|USA NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9004efe09123c064.png
 TVGUIDE:US|USA NETWORK WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9004efe09123c064.png
 TVGUIDE:US|UTOPIA ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
@@ -7460,7 +7460,7 @@ TVGUIDE:US|VAN HELSING ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb
 TVPASSPORT:US|VEGAS34 (KMCC) LAS VEGAS|http://51.158.145.100/picons/logos/USA/1650948.png
 TVGUIDE:US|VH1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8a5694e0e70b321e.png
 TVGUIDE:US|VICE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fb549e5490861e5b.png
-TVGUIDE:US|VICELAND HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/84341ab71f3f17b8.png
+TVPASSPORT:US|VICELAND HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/84341ab71f3f17b8.png
 TVGUIDE:US|VICTORY CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6174e4729b331cfa.png
 TVGUIDE:US|VIKINGS VALHALLA ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|VIKINGS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/975577b42cd6ff57.png
@@ -7489,7 +7489,7 @@ TVGUIDE:US|WIRED2FISH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 TVGUIDE:US|WKRP FHD|http://51.158.145.100/picons/logos/USA/CINEMANIA.png
 TVGUIDE:US|WOLF KING ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|WORKIN MOMS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
-TVGUIDE:US|WORLD FISHING NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1dd95885d3b55c76.png
+TVPASSPORT:US|WORLD FISHING NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1dd95885d3b55c76.png
 TVGUIDE:US|WORLD POKER TOUR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2e644912c953ec0.png
 TVGUIDE:US|WORLD POKER TOUR HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2e644912c953ec0.png
 TVGUIDE:US|WWE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/00866970a2ec810c.png
