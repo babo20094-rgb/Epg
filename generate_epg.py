@@ -2284,6 +2284,59 @@ for daten in sender_daten:
 
         xml_teile.append(" </channel>\n")
 
+# ==========================================================
+# DYN LEERZEITEN
+#
+# Bewusst HIER geschrieben (gleich nach den <channel>-Bloecken, VOR der
+# grossen Tagesraster-Schleife fuer alle ~18.000 Sender) statt erst ganz
+# am Ende der Datei: die unkomprimierte Epg_365_Tage.xml ist mittlerweile
+# ueber 300 MB gross - stand dieser Block ganz am Schluss (wie fruehder),
+# landeten die 20 DYN-PPV-API-Kanaele (Land DE, feste "DE| DYN PPV N HD"-
+# IDs) im allerletzten Prozent der Datei. Ein Nutzer meldete, dass
+# TiviMate auf einem leistungsschwaecheren Geraet fuer GENAU diese 20
+# Kanaele durchgaengig "Keine Information" zeigte, obwohl die Daten
+# nachweislich in der Datei standen und alle anderen ~18.000 Sender
+# (deren Daten alle VOR diesem Block lagen) korrekt angezeigt wurden -
+# ein starkes Indiz fuer einen Download-/Parse-Abbruch nach einer
+# bestimmten Groesse auf schwaecheren Geraeten, nicht fuer fehlende
+# Daten. Durch die Verschiebung an den Anfang der Datei (gleich nach den
+# Kanaldefinitionen) sind diese 20 Kanaele jetzt unter den ersten
+# Prozentpunkten der Datei zu finden, unabhaengig von einer moeglichen
+# Truncation weiter hinten.
+# ==========================================================
+
+jetzt = datetime.now(timezone.utc).replace(
+    hour=0, minute=0, second=0, microsecond=0
+)
+
+for i in range(1, DYN_PPV_ANZAHL + 1):
+    kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
+    kanal_ids = kanal_id_varianten(kanal)
+    api_fenster = dyn_synth_api_fenster.get(i, [])
+
+    for stunde in range(24 * DYN_LEERZEIT_TAGE):
+        block_start = jetzt + timedelta(hours=stunde)
+        block_ende = block_start + timedelta(hours=1)
+
+        # Nur den mit einem API-Event ueberlappenden Teil dieser Stunde
+        # ausschneiden (siehe segmente_ohne_ueberlappung weiter oben) -
+        # der Rest bekommt weiterhin den Leerzeit-Platzhalter, statt
+        # eine ganze Stunde vor/nach dem Event wegzulassen.
+        for start, ende in segmente_ohne_ueberlappung(block_start, block_ende, api_fenster):
+            start_str = start.strftime("%Y%m%d%H%M%S +0000")
+            ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
+
+            # Gleiche Leerlauf-Konvention wie bei den Playlist-basierten
+            # DYN PPV 1-50-Sendern ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ") statt eines
+            # eigenen, abweichenden Textes - auf Nutzerwunsch vereinheitlicht.
+            leerlauf_text = f"Dyn Sport ({i}) ᴺᵒ ᴸⁱᵛᵉ"
+            for kanal_id in kanal_ids:
+                xml_teile.append(
+                    f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal_id)}">'
+                    f' <title>{escape(leerlauf_text)}</title>'
+                    f' <desc>{escape(leerlauf_text)}</desc> </programme> '
+                )
+
 # Hinweis Clubber-PPV (Irland, GAA-Club-Spiele): laeuft ueber denselben
 # generischen Playlist-Namensabgleich wie DYN PPV - der Anbieter fuehrt
 # die 50 echten Clubber-Kanaele mit demselben Kern ("(IE) (Clubber 01)"
@@ -3275,42 +3328,6 @@ for tag_index in range(ANZAHL_TAGE):
                 escape(luecken_titel), luecken_titel, "de",
                 kategorie_key, daten["land"], True,
             )
-
-# ==========================================================
-# DYN LEERZEITEN
-# ==========================================================
-
-jetzt = datetime.now(timezone.utc).replace(
-    hour=0, minute=0, second=0, microsecond=0
-)
-
-for i in range(1, DYN_PPV_ANZAHL + 1):
-    kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
-    kanal_ids = kanal_id_varianten(kanal)
-    api_fenster = dyn_synth_api_fenster.get(i, [])
-
-    for stunde in range(24 * DYN_LEERZEIT_TAGE):
-        block_start = jetzt + timedelta(hours=stunde)
-        block_ende = block_start + timedelta(hours=1)
-
-        # Nur den mit einem API-Event ueberlappenden Teil dieser Stunde
-        # ausschneiden (siehe segmente_ohne_ueberlappung weiter oben) -
-        # der Rest bekommt weiterhin den Leerzeit-Platzhalter, statt
-        # eine ganze Stunde vor/nach dem Event wegzulassen.
-        for start, ende in segmente_ohne_ueberlappung(block_start, block_ende, api_fenster):
-            start_str = start.strftime("%Y%m%d%H%M%S +0000")
-            ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
-
-            # Gleiche Leerlauf-Konvention wie bei den Playlist-basierten
-            # DYN PPV 1-50-Sendern ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ") statt eines
-            # eigenen, abweichenden Textes - auf Nutzerwunsch vereinheitlicht.
-            leerlauf_text = f"Dyn Sport ({i}) ᴺᵒ ᴸⁱᵛᵉ"
-            for kanal_id in kanal_ids:
-                xml_teile.append(
-                    f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal_id)}">'
-                    f' <title>{escape(leerlauf_text)}</title>'
-                    f' <desc>{escape(leerlauf_text)}</desc> </programme> '
-                )
 
 # ==========================================================
 # XML ABSCHLIESSEN
