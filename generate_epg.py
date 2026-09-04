@@ -333,6 +333,28 @@ def kern_vorne_und_event_extrahieren(voller_name):
     gezielt nach bekannten Kern-Keywords gesucht, statt am ERSTEN
     Doppelpunkt zu trennen - sonst wuerde eine Uhrzeitangabe im Event-
     Text selbst (z.B. "7:15 pm") faelschlich als Trenner genommen."""
+    # Manche Anbieter haengen den Event-Text mit einem einzelnen
+    # Bindestrich DIREKT hinter die Kern-Nummer an, OHNE trennendes
+    # Pipe-Zeichen davor (z.B. "UK: VOLLEY PPV 1 - MELISSA/BRANDIE (CAN)
+    # VS MAEDER/KERNEN (SUI), WOMEN SEMIFINALS ON CC | OSTRAVA (CZE) |
+    # Sun 31 May 08:50 | 8K EXCLUSIVE" -> Kern "UK: VOLLEY PPV 1", Event
+    # der komplette Rest inkl. der spaeteren Pipes). Der bestehende
+    # dash_suffix-Zweig weiter unten greift hier nicht, da der Bindestrich
+    # nicht am ENDE des ersten Pipe-Abschnitts steht, sondern gleich nach
+    # der Nummer, gefolgt von langem Fliesstext mit eigenen Pipes. Das
+    # 2-4-Buchstaben-Laendercode-Praefix ist Pflicht (":" muss direkt nach
+    # dem Kuerzel folgen) - verhindert denselben Fehltreffer-Typ wie beim
+    # September-2026-Regressions-Bug ("DE: RTL+ PPV 28" hat KEINEN
+    # Bindestrich nach der Nummer und matcht hier nicht).
+    frueher_bindestrich_match = re.match(
+        r"^\s*([A-Za-z]{2,4}:\s*[A-Za-z][\w+./]*(?:\s+[\w+./]+)*\s+0*\d+)\s+-\s+(.*)$",
+        voller_name,
+    )
+    if frueher_bindestrich_match:
+        kurzname = frueher_bindestrich_match.group(1).strip()
+        event_teil = frueher_bindestrich_match.group(2).strip()
+        return kurzname, event_teil
+
     # Manche Anbieter kombinieren BEIDE Trenner in einem Namen: Kern
     # VORNE mit Doppelpunkt, aber der nachfolgende Event-Text enthaelt
     # SELBST wieder Pipe-Zeichen (z.B. "Matchroom Event 01: British
@@ -685,7 +707,43 @@ for zeile in zeilen:
         # Leerlauf nur "Flo Racing 03") - hier greift die Pipe-
         # Konvention nicht, daher Fallback auf das bekannte
         # DYN-PPV/FLO-RACING-Muster (siehe kern_und_event_extrahieren()).
+        #
+        # WICHTIG: Manche in sender.txt gespeicherten NAME:-Kerne
+        # enthalten selbst legitim ein Pipe-Zeichen als fester
+        # Namensbestandteil (z.B. "TNT SPORTS | Event 1" - kein
+        # Alt-Datenmuell, das ist der komplette, stabile Kanalname).
+        # Die generische Pipe-Konvention wuerde das faelschlich am
+        # letzten Pipe zerschneiden ("Event 1" als Kern, "TNT SPORTS"
+        # als vermeintlicher Event-Text -> falscher Sendungstitel statt
+        # des generischen Platzhalters). Die Selbstbereinigung wird
+        # deshalb NUR angewendet, wenn der abgetrennte Event-Teil auch
+        # WIRKLICH wie Rohtext-Muell aussieht (enthaelt eine Ziffer,
+        # "vs"/"vs.", einen bekannten Leerlauf-/Event-Marker, oder ist
+        # laenger als 4 Woerter) - alle bisher behobenen echten
+        # Datenmuell-Faelle (Milb/Flo College/ESPN+/STAN/UEFA, siehe
+        # CLAUDE.md) erfuellen mindestens eines dieser Merkmale.
+        def _wirkt_wie_rohtext_muell(text):
+            if not text:
+                return False
+            # Uhrzeit (7:15/19:00), Datum (2026-08-31, 31.08./08/31) oder
+            # eine Jahreszahl - eine einzelne kurze Nummer allein (z.B.
+            # "Event 1") reicht NICHT, das ist oft selbst Teil eines
+            # stabilen Kanalnamens (siehe "TNT SPORTS | Event 1").
+            if re.search(r"\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}([./]\d{2,4})?|\b(19|20)\d{2}\b", text):
+                return True
+            if re.search(r"\bvs\.?\b", text, re.IGNORECASE):
+                return True
+            if any(marker in text.lower() for marker in LEERLAUF_MARKER):
+                return True
+            if any(marker in text.lower() for marker in EVENT_MARKER_NEXT + EVENT_MARKER_LIVE + EVENT_MARKER_ENDE):
+                return True
+            if len(text.split()) > 4:
+                return True
+            return False
+
         kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+        if kurzname != voller_name and not _wirkt_wie_rohtext_muell(event_teil):
+            kurzname, event_teil = voller_name, ""
 
         # Kein Kern-hinten-Muster erkannt (kurzname unveraendert) ->
         # zusaetzlich Kern-VORNE probieren (Clubber-Pipe-Konvention oder
@@ -695,7 +753,7 @@ for zeile in zeilen:
         # bleibt es beim bisherigen kurzname/event_teil.
         if kurzname == voller_name:
             kern_vorne, event_vorne = kern_vorne_und_event_extrahieren(voller_name)
-            if kern_vorne:
+            if kern_vorne and _wirkt_wie_rohtext_muell(event_vorne):
                 kurzname, event_teil = kern_vorne, event_vorne
 
         # Land-Praefix wie "NA|", "US|" am ANFANG des Namens (nicht zu
