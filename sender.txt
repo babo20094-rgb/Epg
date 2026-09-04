@@ -5128,81 +5128,81 @@ TVGUIDE:US|A PRIVATE AFFAIR ᴿᴬᵂ|https://raw.githubusercontent.com/babo2009
 TVGUIDE:US|A SERIES OF UNFORTUNATE EVENTS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|A THOUSAND BLOWS ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|A&E HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e65190ce26194e9c1e57390c8e56a02a10dd92e4.png
-TVGUIDE:US|ABC  2 (KQTV ) ST JOSEPH|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 10 (WPLG) MIAMI|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 10 ALBANY NY (WTEN)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVGUIDE:US|ABC  2 (KQTV ) ST JOSEPH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 10 (WPLG) MIAMI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 10 ALBANY NY (WTEN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 10 DULUTH MN (WDIO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b518d4d988902fd4.png
 TVPASSPORT:US|ABC 10 SACRAMENTO CA (KXTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4e9040420e068afb.png
 TVPASSPORT:US|ABC 10 SAN DIEGO CA (KGTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7003e0b95a65a033.png
 TVPASSPORT:US|ABC 10 WICHITA KS (KAKE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/97b0cb5a65ea4134.png
 TVPASSPORT:US|ABC 11 DURHAM NC (WTVD)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5676d68133f9a859.png
 TVPASSPORT:US|ABC 11 LOUISVILLE KY (WHAS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a070704a885c1a5f.png
-TVPASSPORT:US|ABC 11 MERIDIAN MS (WTOK)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 11 MERIDIAN MS (WTOK)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 12 ABILENE TX (KTXS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dc426a2588b8c8c0.png
 TVPASSPORT:US|ABC 12 BEAUMONT TX (KBMT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f1983c90dc41456.png
 TVPASSPORT:US|ABC 12 FLINT MI (WJRT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31266d991eaf12f9.png
 TVPASSPORT:US|ABC 12 JOPLIN MO (KODE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e4447f6481c886a9.png
 TVPASSPORT:US|ABC 12 MEDFORD OR (KDRV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/95f33896610df1af.png
 TVPASSPORT:US|ABC 12 MILWAUKEE WI (WISN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c22e5a2f0dc417c7.png
-TVPASSPORT:US|ABC 12 NEW BERN NC (WCTI)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 12 NEW BERN NC (WCTI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 12 SAN ANTONIO TX (KSAT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4ed0abcfd81056d2.png
 TVPASSPORT:US|ABC 13 (KRDO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/595a695d8fe81345.png
 TVPASSPORT:US|ABC 13 (WTVG) TOLEDO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/595a695d8fe81345.png
-TVPASSPORT:US|ABC 13 ANCHORAGE AK (KYUR)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 13 ANCHORAGE AK (KYUR)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 13 ASHEVILLE NC (WLOS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8b1fceb0c960f90b.png
 TVPASSPORT:US|ABC 13 BILOXI MS (WLOX)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/477d5cb8a5d43e7f.png
-TVPASSPORT:US|ABC 13 BOWLING GREEN KY (WBKO)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 13 BOWLING GREEN KY (WBKO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 13 GRAND RAPIDS MI (WZZM)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5f5ea96ab0fb1b45.png
 TVPASSPORT:US|ABC 13 HARRISONBURG VA (WHSV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cf86984301a84bb.png
 TVPASSPORT:US|ABC 13 HOUSTON TX (KTRK)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/42d1a38cbbe8966c.png
 TVPASSPORT:US|ABC 13 LAS VEGAS NV (KTNV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2eec474ad981c786.png
 TVPASSPORT:US|ABC 13 LYNCHBURG VA (WSET)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7cf86984301a84bb.png
-TVPASSPORT:US|ABC 13 NORFOLK VA (WVEC)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 13 PANAMA CITY FL (WMBB)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 13 ROCHESTER NY (WHAM)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 13 NORFOLK VA (WVEC)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 13 PANAMA CITY FL (WMBB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 13 ROCHESTER NY (WHAM)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 13 SIOUX FALLS SD (KSFY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f5089acca5073f4.png
-TVPASSPORT:US|ABC 15 FLORENCE SC (WPDE)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 15 FLORENCE SC (WPDE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 15 PHOENIX AZ (KNXV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0b0bd41277cb74e6.png
 TVPASSPORT:US|ABC 16 CHARLOTTESVILLE VA (WVAW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3ff482d4b86a7041.png
-TVPASSPORT:US|ABC 16 JACKSON MS (WAPT)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 16 Jackson (WAPT)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 16 JACKSON MS (WAPT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 16 Jackson (WAPT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 17 COLUMBIA MO (KMIZ)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a8acf70a7f97d9e6.png
-TVPASSPORT:US|ABC 17 MINOT ND (KBMY)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 17 MINOT ND (KBMY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 17 ROCKFORD IL (WTVO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8ac863cc2500cd9e.png
 TVPASSPORT:US|ABC 18 BUTTE MT (KWYB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5fb574084dd60465.png
-TVPASSPORT:US|ABC 18 DOTHAN AL (WDHN)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 18 EAU CLAIRE WI (WQOW)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 18 DOTHAN AL (WDHN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 18 EAU CLAIRE WI (WQOW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 18 MIAMI FL (WSVN-D2)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6e821503336c5dc2.png
-TVPASSPORT:US|ABC 19 LA CROSS WI (WXOW)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 19 LA CROSS WI (WXOW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 2 ATLANTA GA (WSB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f9cdc3fcf6124b99.png
 TVPASSPORT:US|ABC 2 BALTIMORE MD (WMAR)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8206678d4e731705.png
 TVPASSPORT:US|ABC 2 BATON ROUGE LA (WBRZ)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3220902cbc4643ac.png
-TVPASSPORT:US|ABC 2 GREEN BAY WI (WBAY)|http://51.158.145.100/picons/logos/USA/1938600.png
-TVPASSPORT:US|ABC 2 MIDLAND TX (KMID)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 2 NASHVILLE TN (WKRN)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 2 GREEN BAY WI (WBAY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 2 MIDLAND TX (KMID)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 2 NASHVILLE TN (WKRN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 2 PORTLAND OR (KATU)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bbcbed5c2b372faf.png
-TVPASSPORT:US|ABC 20 GAINESVILLE FL (WCJB)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 20 GAINESVILLE FL (WCJB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 20 SPRINGFIELD IL (WICS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/57b43dede71fb336.png
 TVPASSPORT:US|ABC 21 (WPTA) FORT WAYNE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ff4f7aaf75f8cc2f.png
-TVPASSPORT:US|ABC 22 BURLINGTON VT (WVNY)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 22 BURLINGTON VT (WVNY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 22 DAYTON OH (WKEF)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9ffebb6055d8bcbc.png
-TVPASSPORT:US|ABC 22 SAVANNAH GA (WJCL)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 22 SAVANNAH GA (WJCL)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 23 BAKERSFIELD CA (KERO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7a2ad47a37a47dc0.png
-TVPASSPORT:US|ABC 23 JOHNSTOWN PA (WATM)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 23 JOHNSTOWN PA (WATM)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 23 MISSOULA MT (KTMF)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a2df10f48cae8af6.png
-TVPASSPORT:US|ABC 24 AUSTIN TX (KVUE)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 24 ERIE PA (WJET)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 24 AUSTIN TX (KVUE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 24 ERIE PA (WJET)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 24 MEMPHIS TN (WATN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e4b24ab045cf6e70.png
 TVPASSPORT:US|ABC 25 COLUMBIA SC (WOLO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24585d1861fe3575.png
-TVPASSPORT:US|ABC 25 EVANSVILLE IN (WEHT)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 25 JACKSONVILLE FL (WJXX)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 25 VICTORIA TX (KAVU)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 25 EVANSVILLE IN (WEHT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 25 JACKSONVILLE FL (WJXX)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 25 VICTORIA TX (KAVU)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 25 WACO TX (KXXV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0b4f92df1cade2ee.png
-TVPASSPORT:US|ABC 25 WEST PALM BEACH FL (WPBF)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 26 (WGNO) NEW ORLEANS|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 25 WEST PALM BEACH FL (WPBF)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 26 (WGNO) NEW ORLEANS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 27 HARRISBURG PA (WHTM)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/239663acfaa064a6.png
 TVPASSPORT:US|ABC 27 MADISON WI (WKOW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4bba491c9d23108.png
-TVPASSPORT:US|ABC 27 TALLAHASSEE FL (WTXL)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 27 TALLAHASSEE FL (WTXL)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 28 (KAMC) LUBBOCK TX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9daab856c967a6f9.png
 TVPASSPORT:US|ABC 28 TAMPA FL (WFTS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0791a1c429ec8bfd.png
 TVPASSPORT:US|ABC 3 CORPUS CHRISTI TX (KIII)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a60b1b19dceb3a52.png
@@ -5211,59 +5211,59 @@ TVPASSPORT:US|ABC 3 LAFAYETTE LA (KATC)|https://raw.githubusercontent.com/babo20
 TVPASSPORT:US|ABC 3 PALM SPRINGS CA (KESQ)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b621a2a3a32d4465.png
 TVPASSPORT:US|ABC 3 PENSACOLA FL (WEAR)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/83abcb67670bfb93.png
 TVPASSPORT:US|ABC 3 RAPID CITY SD (KOTA)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b48d26db0b23c2e0.png
-TVPASSPORT:US|ABC 3 SANTA BARBARA CA (KEYT)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 3 SANTA BARBARA CA (KEYT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 3 SHREVEPORT LA (KTBS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/133610b81061f5c0.png
 TVPASSPORT:US|ABC 30 FRESNO (KFSN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92f96609f1ecd2e7.png
 TVPASSPORT:US|ABC 30 ST LOUIS MO (KDNL)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5ed5fe9c774d23e9.png
-TVPASSPORT:US|ABC 31 ALEXANDRIA LA (KLAX)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 31 ALEXANDRIA LA (KLAX)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 31 HUNTSVILLE AL (WAAY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29292bd000fa8d5c.png
-TVPASSPORT:US|ABC 32 MONTGOMERY AL (WNCF)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 33 BIRMINGHAM AL (WABM)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 32 MONTGOMERY AL (WNCF)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 33 BIRMINGHAM AL (WABM)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 33 SPRINGFIELD MO (KSPR)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dfb0273a51bbf7dd.png
-TVPASSPORT:US|ABC 33 YOUNGSTOWN OH (WYTV)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 34 BINGHAMTON NY (WIVT)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 36 LEXINGTON KY (WTVQ)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 4 BATTLE CREEK MI (WOTV)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 33 YOUNGSTOWN OH (WYTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 34 BINGHAMTON NY (WIVT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 36 LEXINGTON KY (WTVQ)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 4 BATTLE CREEK MI (WOTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 4 CHARLESTON (WCIV-DT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ac6f533450b0858c.png
-TVPASSPORT:US|ABC 4 HONOLULU HI (KITV)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 4 HONOLULU HI (KITV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 4 PITTSBURGH PA (WTAE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d5012aa27e9cc688.png
 TVPASSPORT:US|ABC 4 SALT LAKE CITY UT (KTVX)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4a337e1f489b308f.png
 TVPASSPORT:US|ABC 4 SEATTLE WA (KOMO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/56fd148e65b9e682.png
 TVPASSPORT:US|ABC 4 SPOKANE WA (KXLY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d6e8eee2978cee2.png
-TVPASSPORT:US|ABC 40/29 FORT SMITH AR (KHBS)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 42 KENNEWICK WA (KVEW)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 45 WINSTON NC (WXLV)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 40/29 FORT SMITH AR (KHBS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 42 KENNEWICK WA (KVEW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 45 WINSTON NC (WXLV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 47 (WMDT) SALISBURY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cfdf74fda23428ff.png
 TVPASSPORT:US|ABC 49 TOPEKA KS (KTKA)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d0a473588a628da0.png
 TVPASSPORT:US|ABC 5 BOSTON MA (WCVB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/56f538ef8dc9b3b4.png
-TVPASSPORT:US|ABC 5 CLEVELAND OH (WEWS)|http://51.158.145.100/picons/logos/USA/1924203.png
-TVPASSPORT:US|ABC 5 GREAT FALLS MT (KFBB)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 5 MINNEAPOLIS MN (KSTP)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 5 OKLAHOMA CITY OK (KOCO)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 5 CLEVELAND OH (WEWS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 5 GREAT FALLS MT (KFBB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 5 MINNEAPOLIS MN (KSTP)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 5 OKLAHOMA CITY OK (KOCO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 5 WEST DES MOINES IA (WOI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/399fafd8d57df339.png
 TVPASSPORT:US|ABC 53 LANSING MI (WLAJ)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d22acfb66203c982.png
-TVPASSPORT:US|ABC 57 SOUTH BEND IN (WBND)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 57 SOUTH BEND IN (WBND)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 6 AUGUSTA GA (WJBF)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31311b36906df2c7.png
-TVPASSPORT:US|ABC 6 BILLINGS MT (KSVI)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 6 BILLINGS MT (KSVI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 6 BOISE ID (KIVI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f3f0931b62e5c443.png
-TVPASSPORT:US|ABC 6 COLUMBUS OH (WSYX)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 6 FARGO ND (WDAY)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 6 GREENWOOD (WABG)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 6 COLUMBUS OH (WSYX)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 6 FARGO ND (WDAY)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 6 GREENWOOD (WABG)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 6 INDIANAPOLIS IN (WRTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5beb331d1e9c020c.png
 TVPASSPORT:US|ABC 6 KNOXVILLE (WATE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d1963baa12093f9b.png
 TVPASSPORT:US|ABC 6 PHILADELPHIA PA (WPVI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b08c1294fe4cc5c9.png
 TVPASSPORT:US|ABC 6 PROVIDENCE RI (WLNE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/69fe83c6a59cd79b.png
-TVPASSPORT:US|ABC 6 ROCHESTER MN (KAAL)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 6 ROCHESTER MN (KAAL)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 6 WESLACO TX (KRGV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5e87a0d99a3e3ec5.png
 TVPASSPORT:US|ABC 7 (KRCR) CHICO/REDDING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d6f0df72a4f6ecbe.png
-TVPASSPORT:US|ABC 7 ALBUQUERQUE NM (KOAT)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 7 ALBUQUERQUE NM (KOAT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 7 AMARILLO TX (KVII)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/557a385ddddb36c6.png
 TVPASSPORT:US|ABC 7 BUFFALO NY (WKBW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/554c2f6b8f8234e2.png
 TVPASSPORT:US|ABC 7 CHICAGO IL (WLS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f93ead1db1d499a7.png
 TVPASSPORT:US|ABC 7 DENVER CO (KMGH)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8dfafaf79ed3434b.png
 TVPASSPORT:US|ABC 7 DETROIT MI (WXYZ)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2fb94cbc529b7494.png
 TVPASSPORT:US|ABC 7 EL PASO TX (KVIA)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/acbfed12cf8efd49.png
-TVPASSPORT:US|ABC 7 FORT MYERS FL (WZVN)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 7 FORT MYERS FL (WZVN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 7 JACKSON TN (WBBJ)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80a61224acc5c34b.png
 TVPASSPORT:US|ABC 7 LAWTON OK (KSWO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4b0c9f3d680d44d7.png
 TVPASSPORT:US|ABC 7 LITTLE ROCK AR (KATV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b006f190c19c74c0.png
@@ -5278,27 +5278,27 @@ TVPASSPORT:US|ABC 8 CHARLESTON WV (WCHS)|https://raw.githubusercontent.com/babo2
 TVPASSPORT:US|ABC 8 DALLAS TX (WFAA)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/04e4ed2acb075a61.png
 TVPASSPORT:US|ABC 8 GRAND JUNCTION CO (KJCT)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9caeb296da246096.png
 TVPASSPORT:US|ABC 8 IDAHO FALLS (KIFI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0b2a87f99b946e75.png
-TVPASSPORT:US|ABC 8 LINCOLN NE (KLKN)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 8 NEW HAVEN CT (WTNH)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 8 PORTLAND ME (WMTW)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 8 LINCOLN NE (KLKN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 8 NEW HAVEN CT (WTNH)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 8 PORTLAND ME (WMTW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 8 RENO NV (KOLO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0595f246e33d46b7.png
-TVPASSPORT:US|ABC 8 RICHMOND VA (WRIC)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 8 RICHMOND VA (WRIC)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 8 TULSA OK (KTUL)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d3e0b3462f9676d.png
-TVPASSPORT:US|ABC 9 CEDAR RAPIDS IA (KCRG)|http://51.158.145.100/picons/logos/PPV/ABC.png
-TVPASSPORT:US|ABC 9 CHARLOTTE NC (WSOC)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 9 CEDAR RAPIDS IA (KCRG)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
+TVPASSPORT:US|ABC 9 CHARLOTTE NC (WSOC)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 9 CHATTANOOGA TN (WTVC)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/70240eea3b8a4bac.png
 TVPASSPORT:US|ABC 9 CINCINNATI OH (WCPO)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dbf2f49f49725a59.png
 TVPASSPORT:US|ABC 9 COLUMBUS GA (WTVM)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f1a07da8a837ff06.png
 TVPASSPORT:US|ABC 9 EUGENE OR (KEZI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/105bee4be7c68def.png
-TVPASSPORT:US|ABC 9 KANSAS CITY MO (KMBC)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 9 KANSAS CITY MO (KMBC)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 9 MANCHESTER NH (WMUR)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c62521c59d873dc6.png
 TVPASSPORT:US|ABC 9 ORLANDO FL (WFTV)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e346083721009f8d.png
 TVPASSPORT:US|ABC 9 SIOUX CITY IA (KCAU)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9a2f686d669aa60c.png
 TVPASSPORT:US|ABC 9 SYRACUSE NY (WSYR)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/186ca47f4ae19ac2.png
-TVPASSPORT:US|ABC 9 TUCSON AZ (KGUN)|http://51.158.145.100/picons/logos/PPV/ABC.png
+TVPASSPORT:US|ABC 9 TUCSON AZ (KGUN)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVPASSPORT:US|ABC 9 WAUSAU WI (WAOW)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd2cd02a48498e6e.png
 TVGUIDE:US|ABC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e12c7f346b1a6671.png
-TVPASSPORT:US|ABC MOLINE (WQAD)|
+TVPASSPORT:US|ABC MOLINE (WQAD)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/abc/abc.png
 TVGUIDE:US|ABC NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b811c9e7cc3e6f07.png
 TVGUIDE:US|ACC NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c69b9e8e7135193f.png
 TVGUIDE:US|ACCN ᴴᴰ ⁶⁰ᶠᵖˢ|http://51.158.145.100/picons/logos/USA/1921350.png
