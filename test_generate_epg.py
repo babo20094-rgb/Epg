@@ -1477,7 +1477,7 @@ def test_magenta_myteam_findet_ppv1_nicht_faelschlich_ppv10(_magenta_myteam_cach
         assert magenta_myteam_epg.magenta_myteam_kanal_finden("RTL HD") is None
 
 
-def test_magenta_myteam_erfolgreicher_abruf_liefert_echte_sendungen_und_filtert_platzhalter(_magenta_myteam_cache_zuruecksetzen):
+def test_magenta_myteam_erfolgreicher_abruf_liefert_echte_sendungen_inkl_platzhalter(_magenta_myteam_cache_zuruecksetzen):
     with patch("quellen.magenta_myteam_epg.requests.get", return_value=_magenta_myteam_xml_response()):
         site_id = magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD")
         programme = magenta_myteam_epg.magenta_myteam_hole_programme(site_id, tage=365)
@@ -1487,9 +1487,12 @@ def test_magenta_myteam_erfolgreicher_abruf_liefert_echte_sendungen_und_filtert_
 
     assert len(programme) == 1
     assert programme[0]["title"] == "Live: Champions Hockey League"
-    # Der generische "kein Programm"-Platzhalter wird herausgefiltert,
-    # nicht als echte Sendung behandelt.
-    assert leer_programme == []
+    # Der generische "kein Programm"-Platzhalter der Quelle selbst wird
+    # NICHT mehr herausgefiltert (auf Nutzerwunsch) - er soll bei
+    # Leerlauf genau wie von myTeamTV geliefert im EPG-Raster erscheinen,
+    # statt eines selbst ausgedachten Ersatztextes.
+    assert len(leer_programme) == 1
+    assert "kein Programm" in leer_programme[0]["title"]
 
 
 def test_magenta_myteam_kaputtes_gzip_gibt_none_statt_exception(_magenta_myteam_cache_zuruecksetzen):

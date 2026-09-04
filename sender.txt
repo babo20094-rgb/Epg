@@ -502,42 +502,42 @@ DE|MAGENTA NON-STOP 4K|Magenta Non-Stop 4K ᴸⁱᵛᵉ|https://raw.githubuserco
 DE|MAGENTA ROMANCE 4K|Magenta Romance 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d61c81779180bd3d.png
 DE|MAGENTA SCI-FI 4K|Magenta Sci-Fi 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d61c81779180bd3d.png
 DE|MAGENTA SPECIAL 4K|Magenta Special 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d61c81779180bd3d.png
-DE|MAGENTA SPORT PPV 1 HD|Magenta Sport Ppv 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/1.png
-DE|MAGENTA SPORT PPV 1 ᴿᴬᵂ|Magenta Sport Ppv 1 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/1.png
-DE|MAGENTA SPORT PPV 10 HD|Magenta Sport Ppv 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/10.png
-DE|MAGENTA SPORT PPV 10 ᴿᴬᵂ|Magenta Sport Ppv 10 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/10.png
-DE|MAGENTA SPORT PPV 11 HD|Magenta Sport Ppv 11 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/11.png
-DE|MAGENTA SPORT PPV 11 ᴿᴬᵂ|Magenta Sport Ppv 11 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/11.png
-DE|MAGENTA SPORT PPV 12 HD|Magenta Sport Ppv 12 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/12.png
-DE|MAGENTA SPORT PPV 12 ᴿᴬᵂ|Magenta Sport Ppv 12 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/12.png
-DE|MAGENTA SPORT PPV 13 HD|Magenta Sport Ppv 13 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/13.png
-DE|MAGENTA SPORT PPV 13 ᴿᴬᵂ|Magenta Sport Ppv 13 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/13.png
-DE|MAGENTA SPORT PPV 14 HD|Magenta Sport Ppv 14 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/14.png
-DE|MAGENTA SPORT PPV 14 ᴿᴬᵂ|Magenta Sport Ppv 14 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/14.png
-DE|MAGENTA SPORT PPV 15 HD|Magenta Sport Ppv 15 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/15.png
-DE|MAGENTA SPORT PPV 15 ᴿᴬᵂ|Magenta Sport Ppv 15 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/15.png
-DE|MAGENTA SPORT PPV 16 HD|Magenta Sport Ppv 16 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/16.png
-DE|MAGENTA SPORT PPV 16 ᴿᴬᵂ|Magenta Sport Ppv 16 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/16.png
-DE|MAGENTA SPORT PPV 17 HD|Magenta Sport Ppv 17 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/17.png
-DE|MAGENTA SPORT PPV 17 ᴿᴬᵂ|Magenta Sport Ppv 17 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/17.png
-DE|MAGENTA SPORT PPV 18 HD|Magenta Sport Ppv 18 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/18.png
-DE|MAGENTA SPORT PPV 18 ᴿᴬᵂ|Magenta Sport Ppv 18 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/18.png
-DE|MAGENTA SPORT PPV 2 HD|Magenta Sport Ppv 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/2.png
-DE|MAGENTA SPORT PPV 2 ᴿᴬᵂ|Magenta Sport Ppv 2 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/2.png
-DE|MAGENTA SPORT PPV 3 HD|Magenta Sport Ppv 3 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/3.png
-DE|MAGENTA SPORT PPV 3 ᴿᴬᵂ|Magenta Sport Ppv 3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/3.png
-DE|MAGENTA SPORT PPV 4 HD|Magenta Sport Ppv 4 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/4.png
-DE|MAGENTA SPORT PPV 4 ᴿᴬᵂ|Magenta Sport Ppv 4 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/4.png
-DE|MAGENTA SPORT PPV 5 HD|Magenta Sport Ppv 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/5.png
-DE|MAGENTA SPORT PPV 5 ᴿᴬᵂ|Magenta Sport Ppv 5 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/5.png
-DE|MAGENTA SPORT PPV 6 HD|Magenta Sport Ppv 6 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/6.png
-DE|MAGENTA SPORT PPV 6 ᴿᴬᵂ|Magenta Sport Ppv 6 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/6.png
-DE|MAGENTA SPORT PPV 7 HD|Magenta Sport Ppv 7 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/7.png
-DE|MAGENTA SPORT PPV 7 ᴿᴬᵂ|Magenta Sport Ppv 7 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/7.png
-DE|MAGENTA SPORT PPV 8 HD|Magenta Sport Ppv 8 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/8.png
-DE|MAGENTA SPORT PPV 8 ᴿᴬᵂ|Magenta Sport Ppv 8 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/8.png
-DE|MAGENTA SPORT PPV 9 HD|Magenta Sport Ppv 9 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/9.png
-DE|MAGENTA SPORT PPV 9 ᴿᴬᵂ|Magenta Sport Ppv 9 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/9.png
+DE|MAGENTA SPORT PPV 1 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/1.png
+DE|MAGENTA SPORT PPV 1 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/1.png
+DE|MAGENTA SPORT PPV 10 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/10.png
+DE|MAGENTA SPORT PPV 10 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/10.png
+DE|MAGENTA SPORT PPV 11 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/11.png
+DE|MAGENTA SPORT PPV 11 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/11.png
+DE|MAGENTA SPORT PPV 12 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/12.png
+DE|MAGENTA SPORT PPV 12 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/12.png
+DE|MAGENTA SPORT PPV 13 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/13.png
+DE|MAGENTA SPORT PPV 13 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/13.png
+DE|MAGENTA SPORT PPV 14 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/14.png
+DE|MAGENTA SPORT PPV 14 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/14.png
+DE|MAGENTA SPORT PPV 15 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/15.png
+DE|MAGENTA SPORT PPV 15 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/15.png
+DE|MAGENTA SPORT PPV 16 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/16.png
+DE|MAGENTA SPORT PPV 16 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/16.png
+DE|MAGENTA SPORT PPV 17 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/17.png
+DE|MAGENTA SPORT PPV 17 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/17.png
+DE|MAGENTA SPORT PPV 18 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/18.png
+DE|MAGENTA SPORT PPV 18 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/18.png
+DE|MAGENTA SPORT PPV 2 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/2.png
+DE|MAGENTA SPORT PPV 2 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/2.png
+DE|MAGENTA SPORT PPV 3 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/3.png
+DE|MAGENTA SPORT PPV 3 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/3.png
+DE|MAGENTA SPORT PPV 4 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/4.png
+DE|MAGENTA SPORT PPV 4 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/4.png
+DE|MAGENTA SPORT PPV 5 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/5.png
+DE|MAGENTA SPORT PPV 5 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/5.png
+DE|MAGENTA SPORT PPV 6 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/6.png
+DE|MAGENTA SPORT PPV 6 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/6.png
+DE|MAGENTA SPORT PPV 7 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/7.png
+DE|MAGENTA SPORT PPV 7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/7.png
+DE|MAGENTA SPORT PPV 8 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/8.png
+DE|MAGENTA SPORT PPV 8 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/8.png
+DE|MAGENTA SPORT PPV 9 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/9.png
+DE|MAGENTA SPORT PPV 9 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/magenta_myteam/9.png
 DE|MAGENTA THRILLER 4K|Magenta Thriller 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d61c81779180bd3d.png
 DE|MAGENTATV INFO ᴿᴬᵂ|Magentatv Info ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2482fdcc9eb380bd.png
 DE|MDR THÜRINGEN HD|Mdr Thüringen Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cdd9117994ebef38.png

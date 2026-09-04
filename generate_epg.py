@@ -3362,6 +3362,29 @@ for tag_index in range(ANZAHL_TAGE):
             event_titel = daten.get("event_titel")
 
             if event_titel:
+                # Ausnahme (Bug September 2026 behoben): hat dieser Sender
+                # ZUSAETZLICH eine aktive echte Quelle (z.B. DE|MAGENTA
+                # SPORT PPV N mit manuellem Beschreibungstext "<Name>
+                # Live" UND echten myTeamTV-Daten), durfte der feste
+                # event_titel nicht blind den GANZEN Block ueberschreiben -
+                # sonst wurde die echte Sendung zwar zusaetzlich
+                # geschrieben, aber vom unveraenderten, ueberlappenden
+                # event_titel-Block komplett verdeckt/dupliziert, statt
+                # dass nur die tatsaechlich unbedeckte Luecke den
+                # event_titel-Text bekommt. Gleiche Segmentierung wie beim
+                # generischen Fallback weiter unten.
+                if hat_aktive_echte_quelle(daten):
+                    rest_segmente = segmente_ohne_ueberlappung(
+                        start, ende, alle_echten_intervalle(daten)
+                    )
+                    if rest_segmente:
+                        schreibe_programme_segmente(
+                            xml_teile, rest_segmente, daten["kanal"],
+                            escape(event_titel), event_titel, "de",
+                            kategorie_key, daten["land"], True,
+                        )
+                    continue
+
                 titel_text = escape(event_titel)
                 beschr_text = event_titel
                 lang_code = "de"

@@ -181,9 +181,12 @@ def magenta_myteam_kanal_finden(kanalname):
 def magenta_myteam_hole_programme(site_id, tage=2):
     """Liefert die bereits geladenen Programmdaten fuer den gegebenen
     Kanal (site_id) aus dem Modul-Cache, begrenzt auf die naechsten
-    `tage` Tage ab heute (UTC). Leere Liste bei jedem Fehler, wenn keine
-    Sendungen vorhanden sind, oder wenn nur der generische "Momentan
-    kein Programm"-Platzhalter vorliegt (kein echtes Event)."""
+    `tage` Tage ab heute (UTC). Leere Liste bei jedem Fehler oder wenn
+    keine Sendungen vorhanden sind. Der generische "myTeamTV: Momentan
+    kein Programm"-Platzhalter der Quelle selbst wird bewusst NICHT mehr
+    herausgefiltert (anders als frueher) - auf Nutzerwunsch soll bei
+    Leerlauf genau der Text erscheinen, den die Quelle selbst dafuer
+    liefert, statt eines selbst ausgedachten Ersatztextes."""
     if site_id is None:
         return []
 
@@ -212,5 +215,4 @@ def magenta_myteam_hole_programme(site_id, tage=2):
         {**p, "bild": bild}
         for p in eintraege
         if (p["start"].date() in erlaubte_tage or p["stop"].date() in erlaubte_tage)
-        and "kein Programm" not in p["title"]
     ]
