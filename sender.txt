@@ -627,7 +627,7 @@ DE|PEAKY BLINDERS S06 4K|Peaky Blinders S06 4K ᴸⁱᵛᵉ|https://raw.githubus
 DE|PERCY JACKSON AND THE OLYMPIANS  ᴿᴬᵂ|Percy Jackson And The Olympians  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/82dca434da5c16a8c071fcc4e33e1664a6c7e808.png
 DE|PHOENIX HD|Phoenix Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/753dbb3a6f722fca.png
 DE|PLEX BOX-OFFICE|Plex Box-Office ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0c90e53cda0de591.png
-DE|PLEX KINDER +|Plex Kinder + ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0203215765aae7fd.png
+DE|PLEX KINDER +|Plex Kinder + ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_kinder_plus.png
 DE|PRISON BREAK ᴿᴬᵂ|Prison Break ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|PRO7SAT.1 FHD|Pro7Sat.1 Fhd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/PRO7SAT1.png
 DE|PROSIEBEN|Prosieben ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/de7a379eee6f73f9.png
