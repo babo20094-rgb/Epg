@@ -161,6 +161,7 @@ def ueberlappt_intervall(intervalle, start, ende):
 _ECHTE_QUELLEN_INTERVALLE = {
     "telemach": ["telemach_intervalle", "mtel_intervalle", "mymedia_intervalle", "klix_intervalle"],
     "sky": ["sky_intervalle"],
+    "sky_wow": ["sky_intervalle"],
     "magenta": ["magenta_intervalle"],
     "arena": ["arena_intervalle"],
     "dazn": ["dazn_intervalle"],
@@ -799,6 +800,7 @@ for zeile in zeilen:
             "beschreibung": beschreibung,
             "logo": logo,
             "exakter_name": True,
+            "live_playlist_kern": True,
             "event_titel": event_titel,
             "kategorie": kategorie_key
         })
@@ -1394,6 +1396,7 @@ for zeile in zeilen:
         "beschreibung": beschreibung,
         "logo": logo,
         "exakter_name": leeres_land_zeile,
+        "live_playlist_kern": leeres_land_zeile,
         "event_titel": direkter_text_event_titel,
         "kategorie": kategorie_key
     }
@@ -1472,6 +1475,22 @@ for zeile in zeilen:
     # Display-ID-Override die bevorzugte Loesung.
     if land.strip().upper() in ("DE", "JOYN", "PRIME", "WOW"):
         eintrag["plutotv"] = True
+
+    # "WOW|SKY SPORT BUNDESLIGA N ᴴᴰ ◉": derselbe echte Kanal wie die
+    # normalen "SKY:DE|SKY SPORT BUNDESLIGA N HD/FHD"-Opt-in-Zeilen (Sky
+    # HAWK-API, siehe sky_epg.py) - nur mit "WOW"-Praefix statt "DE" und
+    # zusaetzlichen Unicode-Suffixen (ᴴᴰ/◉) in der eigenen Playlist des
+    # Nutzers. Die deswird.org-Kaskade oben (plutotv-Flag) kennt diese
+    # Kanaele zwar dem Namen nach (SkyBundesligaN.de), liefert aber
+    # keinen Sendeplan dafuer - deshalb hier gezielt zusaetzlich Sky
+    # selbst aktiviert. Regex statt Fuzzy-Abgleich (kein Fehltreffer-
+    # Risiko): nur "SKY SPORT BUNDESLIGA" mit optionaler Nummer, die
+    # Unicode-Suffixe (ᴴᴰ/◉) werden vor der Sky-Suche entfernt (siehe
+    # sky_wow_sender-Verarbeitungsblock weiter unten).
+    if land.strip().upper() == "WOW" and re.match(
+        r"^SKY\s*SPORT\s*BUNDESLIGA\b", eintrag["sender"], re.IGNORECASE
+    ):
+        eintrag["sky_wow"] = True
 
     # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-/GO-Sender: analog
     # zum PlutoTV-Autoabgleich fuer DE - kein eigenes Praefix noetig,
@@ -1948,7 +1967,20 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 # Kernnamen uebereinstimmt, den der Anbieter selbst im Kanalnamen fuehrt.
 name_pipe_kanal_index = {}
 for daten in sender_daten:
-    if daten.get("exakter_name"):
+    # Wichtig: NUR echte NAME:-/leere-Land-Zeilen (dynamische Live-
+    # Event-Kanaele, deren "kanal" absichtlich vom aktuellen Playlist-
+    # Rohnamen ueberschrieben werden soll) landen hier - NICHT jeder
+    # "exakter_name"-Eintrag. TELEMACH:/SKY:/MAGENTA:/ARENA:/DAZN:/
+    # FREEVIEW:/TVGUIDE:/TVPASSPORT: setzen "exakter_name" ebenfalls,
+    # haben aber einen STATISCHEN, verlaesslichen Kanalnamen - wurde
+    # frueher faelschlich mit indexiert, wodurch m3u_playlist_
+    # abgleichen() bei einer zufaelligen Kernnamen-Kollision mit einem
+    # voelling unabhaengigen dynamischen Live-Kanal in der eigenen
+    # Playlist (z.B. "DAZN 1 HD") deren "kanal" auf einen falschen
+    # Rohnamen ueberschrieb - der Sender verschwand dadurch komplett
+    # aus dem generierten <channel>-Verzeichnis (September 2026
+    # behoben, siehe CLAUDE.md).
+    if daten.get("live_playlist_kern"):
         normalisierter_kern = re.sub(r"\s+", " ", daten["sender"]).strip().upper()
         name_pipe_kanal_index[normalisierter_kern] = daten
 
@@ -2424,6 +2456,7 @@ TUBI_TAGE = 2
 TVPROFIL_TAGE = 3
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
+sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
 magenta_sender = [d for d in sender_daten if d.get("magenta")]
 arena_sender = [d for d in sender_daten if d.get("arena")]
 dazn_sender = [d for d in sender_daten if d.get("dazn")]
@@ -2638,6 +2671,36 @@ for daten in sky_sender:
     except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Sky")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# WOW|SKY SPORT BUNDESLIGA N: derselbe echte Sky-HAWK-API-Kanal wie die
+# SKY:DE|SKY SPORT BUNDESLIGA-Opt-in-Zeilen (siehe sky_wow-Flag oben) -
+# Unicode-Suffixe (ᴴᴰ/◉) werden vor der Suche entfernt, da sky_epg.py
+# diese nicht kennt.
+# ==========================================================
+
+_SKY_WOW_SUFFIX_ENTFERNEN = re.compile(r"[ᴴᴰ◉]")
+
+for daten in sky_wow_sender:
+    programme = []
+    try:
+        sky_wow_name = _SKY_WOW_SUFFIX_ENTFERNEN.sub("", daten["sender"]).strip()
+        site_id = sky_kanal_finden(sky_wow_name, "DE")
+        if site_id is not None:
+            programme = sky_hole_programme(site_id, "DE", SKY_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
         pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
 

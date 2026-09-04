@@ -553,8 +553,8 @@ DE|MOTORHEADS ᴿᴬᵂ|Motorheads ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuser
 DE|MOTORVISION TV FHD|Motorvision Tv Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/524a50764dbc2e68.png
 DE|MR AND MRS SMITH ᴿᴬᵂ|Mr And Mrs Smith ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|MR. ROBOT 2015|Mr. Robot 2015 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/86616bc161fa0951.png
-DE|MS GOLF 1 HD|Ms Golf 1 Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/MSCOLF1.jpg
-DE|MS GOLF 2 HD|Ms Golf 2 Hd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/MSCOLF2.jpg
+DE|MS GOLF 1 HD|Ms Golf 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ms_golf/ms_golf.png
+DE|MS GOLF 2 HD|Ms Golf 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ms_golf/ms_golf.png
 DE|MTV HD|Mtv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
 DE|MYSPORTS 1 4K|Mysports 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/711da339d2c5183e.png
 DE|MYSPORTS 1 HD|Mysports 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/711da339d2c5183e.png
