@@ -4034,7 +4034,7 @@ FREEVIEW:GB|FITE TV 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|FITE TV 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f223c6c9d76a5774.png
 FREEVIEW:GB|FOOD NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
 FREEVIEW:GB|FOOD NETWORK +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
-|UK|FORMULA 1| ALB - ALBON WILLIAMS|Formula 1| Alb - Albon Williams ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK|FORMULA 1| ALB - ALBON WILLIAMS|Formula 1 Alb - Albon Williams ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
 FREEVIEW:GB|FRANCE 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d8cd29a5223736b.png
 FREEVIEW:GB|GB NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
 FREEVIEW:GB|GB NEWS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
@@ -12748,7 +12748,7 @@ NAME:Matchroom Event 20|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom
 NAME:Matchroom Event 21|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 22|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME:Matchroom Event 23|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 24 | No Event Scheduled|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
+NAME:Matchroom Event 24|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
 NAME::Milb  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Mola Event 00 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
 NAME:Mola Event 01 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
@@ -19212,3 +19212,26 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |####### TUBI ᴿᴬᵂ #######|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |####### VOLLEY BALL WORLD PPV #######|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |######## NETFLIX PPV ########|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+
+|UK| FORMULA 1| ALO - ALONSO ALPINE|Formula 1 Alo - Alonso Alpine ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| BOT - BOTTAS ALFA ROMEO|Formula 1 Bot - Bottas Alfa Romeo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| DATA|Formula 1 Data ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| DEV - DEVRIES ALPHA TAURI|Formula 1 Dev - Devries Alpha Tauri ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| GAS - GASLY ALPHA TAURI|Formula 1 Gas - Gasly Alpha Tauri ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| HAM - HAMILTON MERCEDES|Formula 1 Ham - Hamilton Mercedes ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| HUL - HULKENBERG HAAS F1 TEAM|Formula 1 Hul - Hulkenberg Haas F1 Team ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| LAT - LATIFI WILLIAMS|Formula 1 Lat - Latifi Williams ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| LEC - LECLERC FERRARI|Formula 1 Lec - Leclerc Ferrari ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| MAG - MAGNUSSEN HAAS F1 TEAM|Formula 1 Mag - Magnussen Haas F1 Team ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| NOR - NORRIS MCLAREN|Formula 1 Nor - Norris Mclaren ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| OCO - OCON ALPINE|Formula 1 Oco - Ocon Alpine ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| PER - PEREZ REDBULL RACING|Formula 1 Per - Perez Redbull Racing ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| RIC - RICCIARDO MCLAREN|Formula 1 Ric - Ricciardo Mclaren ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| RUS - RUSSELL MERCEDES|Formula 1 Rus - Russell Mercedes ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| SAI - SAINZ FERRARI|Formula 1 Sai - Sainz Ferrari ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| SAR - SARGEANT WILLIAMS|Formula 1 Sar - Sargeant Williams ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| STR - STROLL ASTON MARTIN|Formula 1 Str - Stroll Aston Martin ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| TRACKER|Formula 1 Tracker ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| TSU - TSUNODA ALPHA TAURI|Formula 1 Tsu - Tsunoda Alpha Tauri ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| VER - VERSTAPPEN REDBULL RACING|Formula 1 Ver - Verstappen Redbull Racing ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK| FORMULA 1| ZHO - ZHOU ALFA ROMEO|Formula 1 Zho - Zhou Alfa Romeo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png

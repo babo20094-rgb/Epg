@@ -333,6 +333,33 @@ def kern_vorne_und_event_extrahieren(voller_name):
     gezielt nach bekannten Kern-Keywords gesucht, statt am ERSTEN
     Doppelpunkt zu trennen - sonst wuerde eine Uhrzeitangabe im Event-
     Text selbst (z.B. "7:15 pm") faelschlich als Trenner genommen."""
+    # Manche Anbieter kombinieren BEIDE Trenner in einem Namen: Kern
+    # VORNE mit Doppelpunkt, aber der nachfolgende Event-Text enthaelt
+    # SELBST wieder Pipe-Zeichen (z.B. "Matchroom Event 01: British
+    # Open 2024 - Day 2 - T2 | The Centaur, Cheltenham | snooker | Tue
+    # 24 Sep 9:00:00 AM" - sender.txt-Kern ist "Matchroom Event 01").
+    # Der generische Pipe-Zweig unten trennt bisher blind am ERSTEN
+    # Pipe-Zeichen und haette den kompletten Text vor diesem Pipe
+    # (inkl. Event-Text) faelschlich als Kern uebernommen. Der generische
+    # Kern-vorne-Doppelpunkt-Fallback (weiter unten in dieser Funktion)
+    # wird deshalb HIER VORGEZOGEN, wenn er einen Treffer VOR dem ersten
+    # Pipe-Zeichen findet - der eigentliche Pipe-Zweig kommt dann gar
+    # nicht mehr zum Zug. Risikofrei: das Muster ist an ^ verankert (nur
+    # der allererste Doppelpunkt der Zeile zaehlt), eine Uhrzeitangabe
+    # im Event-Text (z.B. "9:00:00 AM") kommt immer erst deutlich
+    # spaeter und wird nie faelschlich als Kern-Trenner genommen.
+    if "|" in voller_name:
+        erster_pipe_index = voller_name.index("|")
+        vor_pipe = voller_name[:erster_pipe_index]
+        frueher_match = re.match(
+            r"^\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*:\s*(.*)$",
+            vor_pipe,
+        )
+        if frueher_match:
+            kurzname = frueher_match.group(1).strip()
+            event_teil = (frueher_match.group(2).strip() + " " + voller_name[erster_pipe_index:]).strip()
+            return kurzname, event_teil
+
     if "|" in voller_name:
         segmente = voller_name.split("|")
         erster_teil = segmente[0].strip()
