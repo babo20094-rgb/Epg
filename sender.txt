@@ -2475,7 +2475,7 @@ PRIME|COURT TV LEGENDARY TRIALS ᴿᴬᵂ|Court Tv Legendary Trials ᴿᴬᵂ �
 PRIME|COURT TV ᴿᴬᵂ|Court Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d1a85dba0ecb195.png
 PRIME|CRIME & JUSTICE ᴿᴬᵂ|Crime & Justice ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e83e4822d44023b2d0ee73afbb48e502ed48932a.png
 PRIME|CRIME CULTS KILLERS BY A&E ᴿᴬᵂ|Crime Cults Killers By A&E ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920326.png
-PRIME|CRIME SCENE TV | DE ᴿᴬᵂ|Crime Scene Tv | De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/police_lights.png
+|PRIME|CRIME SCENE TV | DE ᴿᴬᵂ|Crime Scene Tv | De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/police_lights.png
 PRIME|CRIME SCENES ᴿᴬᵂ|Crime Scenes ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920324.png
 PRIME|CRIMEN ᴿᴬᵂ|Crimen ᴿᴬᵂ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/FoxCrimeAU-Logo.svg/960px-FoxCrimeAU-Logo.svg.png
 PRIME|CRUNCHYROLL ᴿᴬᵂ|Crunchyroll ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32257354a45cf66ba898cc93af6d796622be56a4.png
@@ -4034,7 +4034,7 @@ FREEVIEW:GB|FITE TV 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|FITE TV 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f223c6c9d76a5774.png
 FREEVIEW:GB|FOOD NETWORK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
 FREEVIEW:GB|FOOD NETWORK +1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png
-UK|FORMULA 1| ALB - ALBON WILLIAMS|Formula 1| Alb - Albon Williams ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
+|UK|FORMULA 1| ALB - ALBON WILLIAMS|Formula 1| Alb - Albon Williams ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
 FREEVIEW:GB|FRANCE 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d8cd29a5223736b.png
 FREEVIEW:GB|GB NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
 FREEVIEW:GB|GB NEWS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09b81e0d6aab0e17.png
@@ -4711,7 +4711,7 @@ FREEVIEW:GB|TV WAREHOUSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|TVC NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/27fcfd2613e5f167.png
 FREEVIEW:GB|U&W HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fb25a2f7086f0691c7546a2472952265d3048152.png
 FREEVIEW:GB|UFC TV (Events2)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
-UK|UK| BEIN SPORTS ASIA 2|Uk| Bein Sports Asia 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/10be5f843f561f70f557b3c2dbf40a5dba1327ce.png
+|UK|UK| BEIN SPORTS ASIA 2|Uk| Bein Sports Asia 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/10be5f843f561f70f557b3c2dbf40a5dba1327ce.png
 FREEVIEW:GB|UTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a6801908317cbdfc.png
 FREEVIEW:GB|VH1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8a5694e0e70b321e93f84292647e56acbe6e7b53.png
 FREEVIEW:GB|VIAPLAY 1 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
@@ -5464,7 +5464,7 @@ TVGUIDE:US|C-SPAN 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 TVGUIDE:US|C-SPAN 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/752a34362c881c2d.png
 TVGUIDE:US|CALL THE MIDWIFE FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cc9c8118bc90c4312cc723e1c092bb19928b5276.png
 TVGUIDE:US|CAPTAIN PLANET AND THE PLANETEERS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5859a6c01843d01a3c9c1f2f168fa39e2b52842d.png
-US|CAR 54,US|  WHERE ARE YOU FHD|Car 54,Us|  Where Are You Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/car54.png
+|US|CAR 54,US|  WHERE ARE YOU FHD|Car 54,Us|  Where Are You Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/car54.png
 TVGUIDE:US|CARMEN SANDIEGO ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7007a671b42e5b58.png
 TVGUIDE:US|CARNIVAL ROW ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|CARS ON THE ROAD ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
@@ -6993,7 +6993,7 @@ TVPASSPORT:US|PBS (KERA) DALLAS|https://raw.githubusercontent.com/babo20094-rgb/
 TVPASSPORT:US|PBS (KQED) SAN FRANCISCO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f301173549b7cb9e.png
 TVPASSPORT:US|PBS (KUAT) TUCSON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS (WETA) BALTIMORE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
-US|PBS (WGBH) MA | BOSTON|Pbs (Wgbh) Ma | Boston ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
+|US|PBS (WGBH) MA | BOSTON|Pbs (Wgbh) Ma | Boston ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
 TVPASSPORT:US|PBS (WHYY) PA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/82f7d542bf7781a4.png
 TVPASSPORT:US|PBS (WITF) HARRISBURG|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS (WLRN) MIAMI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/89ba32c2140470eb.png
@@ -7008,16 +7008,16 @@ TVPASSPORT:US|PBS 30 (WGCU)|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 TVGUIDE:US|PBS 36 ODESSA/MIDLAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS 58 (KLCS) LOS ANGELES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVGUIDE:US|PBS ALBUQUERQUE-SANTA FE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
-TVGUIDE:US|PBS DETROIT (WTVS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/440c3fd0e4313920.png
+TVGUIDE:US|PBS DETROIT (WTVS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/440c3fd0e4313920.png
 TVPASSPORT:US|PBS ENCORE KET2 (WKAS)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS ENCORE KET2 (WKGB)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS ENCORE KET2 (WKLE)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS ENCORE KET2 (WKPC)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVGUIDE:US|PBS KIDS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd873b9de5e68069.png
 TVPASSPORT:US|PBS KIDS (WTCI) CHATTANOOGA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/556097bab2c4a6d5.png
-US|PBS KY | KET LEXINGTON (WKLE)|Pbs Ky | Ket Lexington (Wkle) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
-US|PBS NJ | NEW JERSEY (WNJT)|Pbs Nj | New Jersey (Wnjt) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
-US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ef0a8f83249158ea1704c8d53f10ab6c1e9682e5.png
+|US|PBS KY | KET LEXINGTON (WKLE)|Pbs Ky | Ket Lexington (Wkle) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
+|US|PBS NJ | NEW JERSEY (WNJT)|Pbs Nj | New Jersey (Wnjt) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
+|US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ef0a8f83249158ea1704c8d53f10ab6c1e9682e5.png
 TVPASSPORT:US|PBS PA Pittsburgh (WQED)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 TVPASSPORT:US|PBS PORTLAND (KOPB) OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aca99881d215f1b5.png
 TVGUIDE:US|PEACOCK ORIGINAL 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/116eaef5a8549899.png
@@ -17233,7 +17233,7 @@ GO| DOVE TV||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3ua
 CITY| NBC WRCB WASHINGTON ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1eb95d2eddf9596988414683e0f49b6283a72743.png
 NFL TEAMS| FOX REDSKINS WASHINGTON DC||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/commanders.png
 NFL TEAMS| FOX REDSKINS BALTIMORE MD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/commanders.png
-TVPASSPORT:US|PBS (KOPB) Portland, OR|AUTO
+TVPASSPORT:US|PBS (KOPB) Portland, OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 UK| NOW HK PREMIER SPORTS 8||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/10a281011739d7b9224cb455582790d456d6f58f.png
 SKY:UK| SKY CINEMA OSCARS HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-cinema-oscars-uk.png
 FREEVIEW:GB| MTV MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/60aa37e1d777db22b89164405eb2985cc8892c3c.png
