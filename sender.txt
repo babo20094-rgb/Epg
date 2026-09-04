@@ -6856,12 +6856,12 @@ TVGUIDE:US|NFL CHANNEL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 TVPASSPORT:US|NFL NETWORK (N507) SAVANNAH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N508) PITTSBURGH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N509) FORT WAYNE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
-TVPASSPORT:US|NFL NETWORK (N512) BALTIMORE|http://51.158.145.100/picons/logos/USA/NFL.png
+TVPASSPORT:US|NFL NETWORK (N512) BALTIMORE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N514) BUFFALO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N518) GREENSBORO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N519) CHARLESTON|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N520) AUGUSTA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
-TVPASSPORT:US|NFL NETWORK (N525) ALBANY GA|http://51.158.145.100/picons/logos/USA/NFL.png
+TVPASSPORT:US|NFL NETWORK (N525) ALBANY GA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N527) INDIANAPOLIS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N528) KEY WEST|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N529) LOUISVILLE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
@@ -6907,7 +6907,7 @@ TVPASSPORT:US|NFL NETWORK (N637) CEDAR RAPIDS|https://raw.githubusercontent.com/
 TVPASSPORT:US|NFL NETWORK (N640) MEMPHIS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N641) SAN ANTONIO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N643) LAKE CHARLES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
-TVPASSPORT:US|NFL NETWORK (N644) ALEXANDRIA|http://51.158.145.100/picons/logos/USA/NFL.png
+TVPASSPORT:US|NFL NETWORK (N644) ALEXANDRIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N648) CHICAGO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e0590318b45d7521.png
 TVPASSPORT:US|NFL NETWORK (N650) OKLAHOMA CITY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N652) OMAHA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
@@ -6929,20 +6929,20 @@ TVPASSPORT:US|NFL NETWORK (N756) BILLINGS|https://raw.githubusercontent.com/babo
 TVPASSPORT:US|NFL NETWORK (N758) IDAHO FALLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N765) EL PASO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N766) HELENA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
-TVPASSPORT:US|NFL NETWORK (N789) TUCSON AZ|http://51.158.145.100/picons/logos/USA/NFL.png
+TVPASSPORT:US|NFL NETWORK (N789) TUCSON AZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N801) EUGENE OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N804) PALM SPRINGS CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N807) SAN JOSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N810) YAKIMA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N813) MEDFORD OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N825) SAN DIEGO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
-TVPASSPORT:US|NFL NETWORK (N839) LAS VEGAS|http://51.158.145.100/picons/logos/USA/NFL.png
+TVPASSPORT:US|NFL NETWORK (N839) LAS VEGAS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N862) SACRAMENTO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N866) FRESNO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N868) REDDING CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL NETWORK (N881) SPOKANE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVGUIDE:US|NFL NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
-TVGUIDE:US|NFL NETWORK-ALT (S)|http://51.158.145.100/picons/logos/USA/NFL.png
+TVGUIDE:US|NFL NETWORK-ALT (S)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/07cbfa2152ae7c8d.png
 TVPASSPORT:US|NFL REDZONE (LOWER) (F)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2a3a95e206b1430d.png
 TVGUIDE:US|NFL REDZONE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2a3a95e206b1430d.png
 TVGUIDE:US|NHL ALTERNATE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d03f07a943ba94d.png
