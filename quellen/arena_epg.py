@@ -32,6 +32,7 @@ Modul darf einen Lauf niemals zum Absturz bringen.
 from datetime import datetime, timedelta
 
 import difflib
+import json
 import re
 
 import requests
@@ -55,6 +56,43 @@ _LAND_PARAMETER = {
 # sender.txt stehen.
 _kanalliste_cache = {}
 _seite_cache = {}
+
+# RS-spezifischer Cache: die Website (tvarenasport.com) laedt ihr TV-
+# Programm inzwischen per JavaScript nach (September 2026, Breaking
+# Change - das rohe HTML enthaelt fuer jeden Kanalblock nur noch einen
+# leeren Platzhalter-Div mit "data-channel-index"/"data-day-key"-
+# Attributen). Die kompletten Rohdaten stehen aber weiterhin als
+# sauberes JSON direkt im HTML, in einem "window.TV_SCHEMES = {...};"
+# Inline-Script - robuster als das alte HTML-Slider-Scraping, da eine
+# stabile Datenstruktur statt CSS-Klassen abgefragt wird. Wird
+# zusaetzlich zum bestehenden BeautifulSoup-Cache gehalten (fuer die
+# Kanalliste/Block-Zuordnung wird weiterhin das HTML gebraucht, fuer
+# die eigentlichen Sendungen nur noch dieses JSON).
+_rs_schema_cache = None
+
+
+def _rs_schema_laden():
+    """Laedt (und cached) das komplette window.TV_SCHEMES-JSON von der
+    RS-Arena-Seite - ein Dict {Kanalname: {"days": {"YYYY-MM-DD":
+    {"emisije": [...]}}}}. Leeres Dict bei jedem Fehler (Netzwerk, HTTP-
+    Status, Script nicht gefunden, kaputtes JSON)."""
+    global _rs_schema_cache
+
+    if _rs_schema_cache is not None:
+        return _rs_schema_cache
+
+    try:
+        response = requests.get(RS_URL, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response.raise_for_status()
+        match = re.search(r"window\.TV_SCHEMES\s*=\s*(\{.*?\});", response.text, re.DOTALL)
+        if not match:
+            raise ValueError("window.TV_SCHEMES nicht im HTML gefunden")
+        _rs_schema_cache = json.loads(match.group(1))
+        return _rs_schema_cache
+    except Exception as e:
+        print(f"Arena-EPG: RS-TV_SCHEMES laden fehlgeschlagen ({e}), ueberspringe.")
+        _rs_schema_cache = {}
+        return _rs_schema_cache
 
 
 def _land_normalisieren(land):
@@ -196,7 +234,11 @@ def _tag_span_parsen(tag_element, tz):
         if len(spans) < 3:
             return None
         text = spans[2].get_text(strip=True)
-        match = re.match(r"^(\d{1,2})\.(\d{1,2})\.$", text)
+        # Format war "DD.MM." (mit abschliessendem Punkt), die Website
+        # liefert inzwischen "DD.MM" ohne abschliessenden Punkt - beide
+        # Schreibweisen werden akzeptiert (Website-Redesign, September
+        # 2026, siehe CLAUDE.md).
+        match = re.match(r"^(\d{1,2})\.(\d{1,2})\.?$", text)
         if not match:
             return None
         tag, monat = int(match.group(1)), int(match.group(2))
@@ -310,6 +352,9 @@ def _hr_programme_parsen(soup, site_id, tz, tage):
 
 
 def _rs_kanalblock_finden(soup, site_id):
+    """Findet fuer die RS-Seite den Kanal-Container mit passender
+    site_id. Gibt das <section class="tv-scheme-chanel">-Element zurueck,
+    oder None."""
     for block in soup.select(".tv-scheme-chanel"):
         img = block.select_one(".tv-scheme-chanel-header img")
         if img is None:
@@ -322,59 +367,84 @@ def _rs_kanalblock_finden(soup, site_id):
     return None
 
 
+def _rs_tv_schemes_schluessel(block):
+    """Liest den window.TV_SCHEMES-Kanalschluessel (z.B. "Arena Sport 1")
+    aus dem "data-channel-index"-Attribut des Platzhalter-Divs im
+    Kanalblock (".tv-day-shell", siehe _rs_schema_laden()). None, falls
+    nicht gefunden (unerwartete HTML-Struktur)."""
+    shell = block.select_one(".tv-day-shell")
+    if shell is None:
+        return None
+    schluessel = shell.get("data-channel-index")
+    return schluessel.strip() if schluessel else None
+
+
+def _rs_kategorie_normalisieren(text):
+    """RS-Kategorien/Sportarten stehen im JSON oft komplett gross-
+    geschrieben (z.B. "SPANSKA LIGA") - normalisiert analog zu
+    normalisiere_grossschreibung() in generate_epg.py (hier lokal
+    dupliziert, damit dieses Modul unabhaengig bleibt)."""
+    if not text:
+        return text
+
+    def wandel(wort):
+        kern = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", wort)
+        if not kern or kern != kern.upper() or len(kern) <= 3:
+            return wort
+        return wort.capitalize()
+
+    return " ".join(wandel(w) for w in text.split(" "))
+
+
 def _rs_programme_parsen(soup, site_id, tz, tage):
+    """Nutzt das eingebettete window.TV_SCHEMES-JSON (siehe
+    _rs_schema_laden()) statt HTML-Slider-Scraping - die Website laedt
+    ihr TV-Programm seit einem Redesign (September 2026) per JavaScript
+    nach, das rohe HTML enthaelt fuer die Sendungen selbst nur noch
+    leere Platzhalter. Der Kanalblock im HTML (via _rs_kanalblock_finden)
+    wird weiterhin fuer den Kanalschluessel gebraucht (data-channel-
+    index), die eigentlichen Sendungen kommen komplett aus dem JSON."""
     block = _rs_kanalblock_finden(soup, site_id)
     if block is None:
         return []
 
-    tag_links = block.select(".tv-scheme-days a")
-    tage_daten = [_tag_span_parsen(a, tz) for a in tag_links]
+    kanal_schluessel = _rs_tv_schemes_schluessel(block)
+    if kanal_schluessel is None:
+        return []
 
-    slider_items = block.select(".tv-scheme-new-slider-item")
+    schemas = _rs_schema_laden()
+    kanal_daten = schemas.get(kanal_schluessel)
+    if not kanal_daten:
+        return []
+
+    tage_dict = kanal_daten.get("days") or {}
 
     heute = datetime.now(tz).date()
     ziel_tage = [heute + timedelta(days=i) for i in range(tage)]
 
     ergebnis = []
     for ziel_datum in ziel_tage:
-        if ziel_datum not in tage_daten:
+        tag_daten = tage_dict.get(ziel_datum.strftime("%Y-%m-%d"))
+        if not tag_daten:
             continue
-        index = tage_daten.index(ziel_datum)
-        if index >= len(slider_items):
-            continue
-        item = slider_items[index]
 
         tages_sendungen = []
-        for content in item.select(".slider-content"):
-            zeit_span = content.select_one(".slider-content-top span")
-            titel_p = content.select_one(".slider-content-bottom p")
-
-            if zeit_span is None:
+        for emission in tag_daten.get("emisije") or []:
+            zeit_text = emission.get("time")
+            if not zeit_text:
                 continue
-            start = _zeit_kombinieren(ziel_datum, zeit_span.get_text(strip=True), tz)
+            start = _zeit_kombinieren(ziel_datum, zeit_text, tz)
             if start is None:
                 continue
 
-            titel_text = titel_p.get_text(strip=True) if titel_p else ""
-
-            league = ""
-            is_live = False
-            blob = content.select_one(".blob-text")
-            if blob is not None:
-                is_live = blob.get_text(strip=True).lower() == "uzivo" or blob.get_text(strip=True).lower() == "uživo"
-
-            ausgeschlossene_klassen = {"live-title", "blob-text", "blob-border", "blob"}
-            for span in content.select(".slider-content-bottom span"):
-                klassen = set(span.get("class") or [])
-                if klassen & ausgeschlossene_klassen:
-                    continue
-                league = span.get_text(strip=True)
-                break
-
-            if not titel_text and not league:
+            inhalt = (emission.get("content") or "").strip()
+            if not inhalt:
                 continue
 
-            titel = (league + ": " + titel_text) if league else titel_text
+            kategorie = _rs_kategorie_normalisieren((emission.get("category") or "").strip())
+            titel = f"{kategorie}: {inhalt}" if kategorie else inhalt
+
+            is_live = (emission.get("description") or "").strip().lower() == "uzivo"
             if is_live:
                 titel = "(Uživo) " + titel
 

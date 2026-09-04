@@ -556,9 +556,11 @@ def _mock_html_response(html_text, status_ok=True):
 def _arena_cache_zuruecksetzen():
     arena_epg._kanalliste_cache = {}
     arena_epg._seite_cache = {}
+    arena_epg._rs_schema_cache = None
     yield
     arena_epg._kanalliste_cache = {}
     arena_epg._seite_cache = {}
+    arena_epg._rs_schema_cache = None
 
 
 def _hr_tage_labels():
@@ -575,6 +577,14 @@ def _rs_tage_labels():
     heute = datetime.datetime.now(tz).date()
     morgen = heute + datetime.timedelta(days=1)
     return heute.strftime("%d.%m."), morgen.strftime("%d.%m.")
+
+
+def _rs_tage_iso():
+    from zoneinfo import ZoneInfo
+    tz = ZoneInfo("Europe/Belgrade")
+    heute = datetime.datetime.now(tz).date()
+    morgen = heute + datetime.timedelta(days=1)
+    return heute.strftime("%Y-%m-%d"), morgen.strftime("%Y-%m-%d")
 
 
 def _hr_fixture_html():
@@ -614,39 +624,29 @@ def _hr_fixture_html():
 
 
 def _rs_fixture_html():
-    tag1, tag2 = _rs_tage_labels()
+    # Seit dem Website-Redesign (September 2026, siehe CLAUDE.md/
+    # arena_epg.py) laedt tvarenasport.com die Sendungen per JavaScript
+    # nach - das rohe HTML enthaelt nur noch einen leeren Platzhalter-Div
+    # mit "data-channel-index", die eigentlichen Daten stecken in einem
+    # "window.TV_SCHEMES = {...};"-Inline-Script.
+    tag1_iso, tag2_iso = _rs_tage_iso()
     return f"""
     <html><body>
     <div class="tv-scheme-chanel">
       <div class="tv-scheme-chanel-header"><img src="https://x/chanel-1.png"></div>
-      <div class="tv-scheme-days">
-        <a><span></span><span></span><span>{tag1}</span></a>
-        <a><span></span><span></span><span>{tag2}</span></a>
-      </div>
-      <div class="tv-scheme-new-slider-item">
-        <div class="slider-content">
-          <div class="slider-content-top"><span>20:00</span></div>
-          <div class="slider-content-bottom">
-            <p>Match A</p>
-            <span>Liga A</span>
-          </div>
-        </div>
-        <div class="slider-content">
-          <div class="slider-content-top"><span>22:00</span></div>
-          <div class="slider-content-bottom">
-            <p>Match B</p>
-            <span class="blob-text">Uzivo</span>
-            <span>Liga B</span>
-          </div>
-        </div>
-      </div>
-      <div class="tv-scheme-new-slider-item">
-        <div class="slider-content">
-          <div class="slider-content-top"><span>09:00</span></div>
-          <div class="slider-content-bottom"><p>Morning Show</p></div>
-        </div>
-      </div>
+      <div class="tv-day-shell" data-channel-index="Arena Sport 1 Test" data-day-key="{tag1_iso}"></div>
     </div>
+    <script>
+      window.TV_SCHEMES = {{"Arena Sport 1 Test": {{"days": {{
+        "{tag1_iso}": {{"emisije": [
+          {{"content": "Match A", "time": "20:00", "category": "Liga A", "description": "snimak"}},
+          {{"content": "Match B", "time": "22:00", "category": "Liga B", "description": "uzivo"}}
+        ]}},
+        "{tag2_iso}": {{"emisije": [
+          {{"content": "Morning Show", "time": "09:00", "category": "", "description": "snimak"}}
+        ]}}
+      }}}}}};
+    </script>
     </body></html>
     """
 
