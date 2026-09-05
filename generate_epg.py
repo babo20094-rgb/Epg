@@ -3,6 +3,7 @@ from xml.sax.saxutils import escape
 import gzip
 import os
 import re
+import unicodedata
 import requests
 import xml.etree.ElementTree as ET
 
@@ -3115,10 +3116,22 @@ for daten in mts_sender:
 # auf "ARENA SPORT" beginnt (siehe arena_epg.py/mts_epg.py -
 # _ARENA_SPORT_GUARD). mts.rs fuehrt zwar einen eigenen "Arena Sport N"-
 # Kanal, dessen Sendezeiten aber live nachweislich falsch sind (ca. 4h
-# Versatz, siehe Kommentar bei _ARENA_SPORT_GUARD) - tvarenasport.com
-# (dieselbe Quelle wie beim ARENA:-Praefix) uebernimmt stattdessen. Kein
-# eigenes Praefix noetig, die bestehenden "RS|ARENA SPORT N ..."-Zeilen
-# in sender.txt bleiben unveraendert (ihre Kanal-IDs matchen bereits
+# Versatz, siehe Kommentar bei _ARENA_SPORT_GUARD).
+#
+# WICHTIG (September 2026, per Nutzer-Screenshot/Live-Vergleich
+# bestaetigt): Der Nutzer hat in seiner eigenen IPTV-Playlist Kanaele,
+# die dort faelschlich mit "RS|" gefuehrt werden, obwohl der reale
+# Stream inhaltlich die KROATISCHE Arena-Sport-Ausstrahlung ist (exakt
+# dasselbe Fehlbenennungs-Muster wie beim frueheren HR|SK-Fall, nur
+# beim Anbieter selbst statt beim Nutzer) - tvarenasport.com Serbien
+# zeigte fuer "RS|ARENA SPORT 7 HD" "Ruska Liga: Fakel - Zenit",
+# waehrend real (und laut MojMaxTV/Kroatien) "Europa Liga: Porto -
+# Stuttgart" lief. Erster Versuch ist deshalb jetzt MojMaxTV
+# (dieselbe Quelle, die fuer HR|ARENA SPORT genutzt wird - siehe oben),
+# tvarenasport.com Serbien bleibt nur noch als letzter Fallback, falls
+# MojMaxTV fuer einen Sender einmal nichts liefert. Kein eigenes
+# Praefix noetig, die bestehenden "RS|ARENA SPORT N ..."-Zeilen in
+# sender.txt bleiben unveraendert (ihre Kanal-IDs matchen bereits
 # korrekt gegen die eigene Playlist).
 # ==========================================================
 
@@ -3129,24 +3142,57 @@ for daten in mts_sender:
     if not re.match(r"^ARENA\s*SPORT\b", daten["sender"].strip(), re.IGNORECASE):
         continue
 
+    # MojMaxTV fuehrt nur die zehn einfachen "Arenasport N"-Kanaele -
+    # Sonderkanaele wie "1x2"/"PREMIUM" gibt es dort nicht, ein
+    # unscharfer Abgleich wuerde die faelschlich auf einen der zehn
+    # normalen Kanaele matchen (beobachtet: "Arena Sport 1x2 HD" ->
+    # "Arenasport 2"). Deshalb nur bei einem eindeutigen "Arena Sport N
+    # [HD/FHD/UHD/SD] [VIP RAW]"-Namen ohne weiteren Zusatz ueberhaupt
+    # versuchen - die reinen Playlist-Deko-Marker "VIP"/"RAW" (auch als
+    # hochgestelltes Unicode "ⱽᴵᴾ ᴿᴬᵂ") werden dafuer per NFKD auf
+    # normale Buchstaben zurueckgefuehrt, bevor der Vergleich laeuft.
+    sender_ascii = "".join(
+        z for z in unicodedata.normalize("NFKD", daten["sender"].strip())
+        if not unicodedata.combining(z)
+    )
+    ist_einfacher_arena_kanal = bool(re.match(
+        r"^ARENA\s*SPORT\s*0*\d{1,2}(\s*(HD|FHD|UHD|SD))?(\s*(VIP|RAW))*\s*$",
+        sender_ascii,
+        re.IGNORECASE,
+    ))
+
     programme = []
-    try:
-        site_id = arena_kanal_finden(daten["sender"], "RS")
-        if site_id is not None:
-            programme = arena_hole_programme(site_id, "RS", MTS_TAGE)
+    if ist_einfacher_arena_kanal:
+        try:
+            site_id = mojmaxtv_kanal_finden(daten["sender"])
+            if site_id is not None:
+                programme = mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
+    if programme:
+        _echte_quelle_zaehlen("MojMaxTV (RS-Arena-Fallback)")
+    else:
+        try:
+            site_id = arena_kanal_finden(daten["sender"], "RS")
+            if site_id is not None:
+                programme = arena_hole_programme(site_id, "RS", MTS_TAGE)
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
+        if programme:
+            _echte_quelle_zaehlen("Arena Sport")
         else:
             pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
 
     daten["mts_arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("Arena Sport")
         _schreibe_echte_programme(daten, programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # MOJMAXTV: automatischer Abgleich fuer alle HR-Sender (siehe
