@@ -4712,6 +4712,7 @@ FREEVIEW:GB|TVC NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 FREEVIEW:GB|U&W HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fb25a2f7086f0691c7546a2472952265d3048152.png
 FREEVIEW:GB|UFC TV (Events2)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
 |UK|UK| BEIN SPORTS ASIA 2|Uk| Bein Sports Asia 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/10be5f843f561f70f557b3c2dbf40a5dba1327ce.png
+|UK|UK| BEIN SPORTS ASIA 3|Uk| Bein Sports Asia 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/10be5f843f561f70f557b3c2dbf40a5dba1327ce.png
 FREEVIEW:GB|UTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a6801908317cbdfc.png
 FREEVIEW:GB|VH1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8a5694e0e70b321e93f84292647e56acbe6e7b53.png
 FREEVIEW:GB|VIAPLAY 1 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
@@ -12639,10 +12640,10 @@ NAME:LIVE EVENT 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 NAME:LIVE EVENT 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
 NAME:LIVE NFL PLAYOFFS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:LOI  TV 12 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 06 : Athlone Town v Bray Wanderers  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 07 : Cobh Ramblers v Longford Town  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 08 : Kerry v Treaty United  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 09 : UCD v Finn Harps  start: 2026-08-28 19:35:00  stop: 2026-08-28 22:35:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 11||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
@@ -12669,11 +12670,11 @@ NAME:Live Football 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 NAME:Live Football 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
 NAME:Live Football 05 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/508d0ba61a4f267da146f6d3080d444e0946e16c.png
 NAME::Tennis  04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
-NAME:LoiTV event 1 : Treaty United v Bohemians start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LoiTV event 2 : Shamrock Rovers v Athlone Town start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LoiTV event 3 : DLR Waves v Peamount United start: 2026-08-29 14:45:00 stop: 2026-08-29 17:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LoiTV event 4 : Galway United v Cork City start: 2026-08-29 16:45:00 stop: 2026-08-29 19:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e33f3d47c74f0da949d467572b84e0a1db494cdd.png
-NAME:LoiTV event 5 : Sligo Rovers v Waterford start: 2026-08-29 16:45:00 stop: 2026-08-29 19:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LoiTV event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LoiTV event 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LoiTV event 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LoiTV event 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e33f3d47c74f0da949d467572b84e0a1db494cdd.png
+NAME:LoiTV event 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME::Milb  10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:MISFITS MANIA: Fight Night|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:MLB 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
@@ -13491,8 +13492,8 @@ NAME:UEFA | 31 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME:UEFA | 32 - ARSENAL - ATHLETIC CLUB BILBAO | Sat 09 Aug 15:45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 NAME:UEFA |10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/15fc5ed5a5bdaf69c31a72676b93952dd82c25d5.png
 NAME:UFC 00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
-NAME:UFC 02 : ANTHONY PETTIS FC 25 start:2026-08-31 01:55:00 stop:2026-08-31 05:00:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
-NAME:UFC 03 : UFC 330: MAKHACHEV VS MACHADO GARRY start:2026-08-16 02:55:00 stop:2026-08-16 06:00:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
+NAME:UFC 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
+NAME:UFC 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 04 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 05 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 06 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
@@ -16776,6 +16777,7 @@ RS| VIASAT HISTORY HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 RS| TRAVEL XP||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f798c7fc9721bc196169615b16a6eb838e888e18.png
 RS| TLC||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a099c438ff7a11da1b9ee3f2160d7839047abe5b.png
 #EXYU SPORTSKI KANALI
+HR|SPORT KLUB|Sport Klub ᴸⁱᵛᵉ|
 TELEMACH:BA|ARENA SPORT 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cb9eaf240f67cc6596847143ee18d8eee7e197cc.png
 TELEMACH:BA|ARENA SPORT 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/677842984741693b636d3f7acbbd42577e7fc28e.png
 TELEMACH:BA|ARENA SPORT 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/758a5d23a30fbac3e8e9970392dd863ae4a5057c.png

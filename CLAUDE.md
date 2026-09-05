@@ -2221,3 +2221,212 @@ Hintergrund), dem Nutzer per Bildvorschau gezeigt und bestaetigt, unter
 `logos/volley_ppv/volley_ppv.png` selbst gehostet und in allen 30 Zeilen
 eingetragen - gleiche "immer selbst hosten"-Regel wie bei allen anderen
 Logo-Funden dieser Session.
+
+## September 2026: XML-Absturz endgueltig behoben (escape() escaped jetzt auch ")
+
+Der Workflow brach wiederholt mit "Erzeugtes XML ist ungueltig, Abbruch
+ohne Schreiben: not well-formed (invalid token): line 36713, column 63"
+ab - IMMER an derselben Zeile/Spalte, unabhaengig vom Lauf/Datum.
+
+**Erster Fix (unvollstaendig):** `escape()` in `generate_epg.py` entfernte
+zusaetzlich zu xml.sax.saxutils.escape()'s Standard-Maskierung (&/</>)
+auch fuer XML 1.0 illegale Steuerzeichen (z.B. vereinzelte Muellbytes
+aus einer HTML-gescrapten Quelle). Das war zwar ein echtes, notwendiges
+Problem, behob den konkreten Absturz aber NICHT - der naechste Lauf
+schlug an EXAKT derselben Stelle erneut fehl.
+
+**Eigentliche Ursache:** `escape()` wird in diesem Skript durchgaengig
+auch fuer XML-ATTRIBUTWERTE verwendet (z.B. `channel id="{escape(...)}"`,
+`icon src="{escape(...)}"`), aber `xml.sax.saxutils.escape()` maskiert
+per Default NUR `&`/`<`/`>` - NICHT das doppelte Anfuehrungszeichen `"`.
+Ein einzelnes rohes `"` in einem Sender-/Kanalnamen (z.B. ein Team-
+Spitzname in Anfuehrungszeichen in einem dynamischen Live-Event-Titel)
+bricht dadurch das umschliessende Attribut und macht die GESAMTE Datei
+ungueltig - immer an derselben Stelle, weil eine stabile Kanal-ID
+betroffen war, nicht wechselnder Sendungstext.
+
+**Fix:** `escape()` escaped jetzt zusaetzlich `"` zu `&quot;` (per
+`entities={'"': '&quot;'}` an `xml.sax.saxutils.escape()` uebergeben).
+Unschaedlich fuer normale `<title>`/`<desc>`-Textinhalte, da `&quot;`
+von jedem XML-Parser ohnehin wieder zu `"` decodiert wird, auch
+ausserhalb von Attributen.
+
+**Lehre fuer kuenftige "not well-formed"-Faelle:** Wenn ein Fix (z.B.
+Steuerzeichen entfernen) nach einem erneuten Workflow-Lauf am EXAKT
+GLEICHEN line:column-Wert erneut fehlschlaegt, ist die erste Diagnose
+mit hoher Wahrscheinlichkeit unvollstaendig oder falsch - eine
+identische Position bei unterschiedlichen Live-Daten deutet auf eine
+STRUKTURELLE Ursache (z.B. fehlendes Attribut-Escaping) hin, nicht auf
+zufaellig wechselnden Sendungstext. Immer zuerst `mcp__github__
+get_job_logs`/`actions_list` gegen den TATSAECHLICHEN Workflow-Lauf
+pruefen, ob ein vorheriger Fix ueberhaupt schon mitgelaufen ist, bevor
+man einen neuen Fix als bestaetigt annimmt.
+
+## September 2026: Samsung TV Plus und mymedia.ba dauerhaft entfernt
+
+Beide Quellen degradierten zwar schon vorher graceful (kein Absturz),
+lieferten aber keine echten Daten mehr und wurden komplett aus
+`generate_epg.py` UND als eigene Module (`quellen/samsungtv_epg.py`,
+`quellen/mymedia_epg.py`) entfernt, inkl. der zugehoerigen Tests:
+
+- **Samsung TV Plus:** Host hat die XMLTV-Datei entfernt (404 bei
+  jedem Abruf) - bereits laenger bekannt, siehe frueherer Abschnitt.
+- **mymedia.ba (Sender "MY TV", 3. BA-Fallback):** Die Seite laeuft
+  jetzt auf einem neuen Plugin ("neoepg" statt "tvsmepg", andere CSS-
+  Klassen). Live geprueft: fuer "MY TV" zeigt die Seite selbst an
+  MEHREREN Tagen (nicht nur heute) einen "Keine Sendungen"-Leerzustand
+  ("EMPTY STATE" im HTML-Kommentar) - kein Scraper-Problem, die Quelle
+  hat aktuell schlicht keine Daten fuer diesen einen Kanal (kein
+  Kanal-Verzeichnis zum Ausweichen, mymedia.ba deckte immer nur "MY TV"
+  ab).
+
+Bei erneuten "Quelle X liefert nichts mehr"-Meldungen: IMMER zuerst wie
+hier live pruefen (mehrere Tage/Daten durchprobieren, nach einem
+"keine Daten"-Leerzustand im HTML suchen), bevor an der eigenen
+Scraping-Logik gesucht wird - manchmal hat der Anbieter selbst
+schlicht keine Daten mehr, unabhaengig vom eigenen Code.
+
+## September 2026: Sport Klub Slowenien - neue Quelle delo_si_epg.py (tvspored.delo.si)
+
+Sport Klub Kroatien (epgshare01.online, `sportklub_epg.py`, bisher
+automatischer Fallback fuer `SI|SPORT KLUB N` nach siol.net) und Sport
+Klub Slowenien zeigen NICHT immer dasselbe Programm - per Nutzer-
+Screenshot bestaetigt lief auf dem echten slowenischen SK1 "Ingolstadt
+- Aachen" (3. Bundesliga), waehrend die kroatischen Daten fuer "SK 1"
+zeitgleich die saudische Liga zeigten. tv-spored.siol.net (die normale
+automatische SI-Quelle) fuehrt selbst keine echten Sport-Klub-Daten
+(die Kanalseiten "sportkl"/"sportklubp" existieren dort zwar, haben
+aber keine eigene Sendungsliste - nur ein "andere Kanaele"-Widget).
+
+**Neue Quelle:** `quellen/delo_si_epg.py` liest die echte slowenische
+Sendungsliste von tvspored.delo.si (schema.org "BroadcastEvent"-
+Microdata, serverseitig gerendert, kein JS-Scraping noetig) fuer
+"SK 1" bis "SK 6" (feste Slug-Zuordnung `sk1`.."sk6"). Erkennt "SK N"/
+"SPORT KLUB N" (optional HD/FHD/UHD/SD und/oder VIP/RAW-Deko-Marker,
+auch als hochgestelltes Unicode "ⱽᴵᴾ ᴿᴬᵂ" via NFKD-Normalisierung).
+Live gegen "Ingolstadt - Aachen" verifiziert - exakter Treffer.
+
+In `generate_epg.py`'s SI-Sport-Klub-Fallback-Kette (nach siol.net)
+jetzt ERSTER Versuch, die kroatische SportKlub-Quelle nur noch letzter
+Fallback, falls delo.si fuer einen Sender einmal nichts liefert.
+
+**Bekannte Einschraenkung:** Die Seite liefert keine echte mehrtaegige
+Datumsnavigation ohne JavaScript (der Datums-Dropdown im HTML aendert
+die serverseitige Antwort nicht) - ein einzelner Abruf der
+Standardseite deckt aber bereits ca. 24-30 Stunden ab (von "gestern
+spaet abends" bis "morgen frueh"), das reicht fuer die aktuelle
+Sendung/naechste Stunden. Tageswechsel-Erkennung: die Liste beginnt
+oft noch am spaeten VORTAG (z.B. "23:15" vor "01:15") - der
+Anfangs-Tagesversatz wird per Peek auf die ersten zwei Zeiten bestimmt
+(faellt die zweite Zeit kleiner aus als die erste, ist die erste Zeile
+noch "gestern"), nicht einfach bei 0 begonnen - sonst verschiebt sich
+die gesamte Liste um einen Tag nach vorne (fruehe Bug-Version dieser
+Session, per direktem Live-Vergleich mit "Ingolstadt-Aachen" gefunden
+und korrigiert).
+
+## September 2026: RS|Arena Sport - Nutzer-Fehlbenennung, KEIN Code-Fix noetig
+
+Der Nutzer meldete falsche Programmdaten bei `RS|ARENA SPORT`-Sendern
+(z.B. tvarenasport.com Serbien zeigte "Ruska Liga: Fakel - Zenit",
+real lief "Europa Liga: Porto - Stuttgart", passend zu den
+KROATISCHEN Daten). Ein Fix (RS auf MojMaxTV/HR-Quelle umstellen)
+wurde zunaechst implementiert, getestet und gepusht - dann aber auf
+Nutzerwunsch WIEDER VOLLSTAENDIG ZURUECKGEROLLT (`git revert`), weil
+sich herausstellte: Der Nutzer hatte seine tatsaechlichen Playlist-
+Kanaele lediglich FALSCH dem `RS|`-EPG-Eintrag zugeordnet (TiviMate-
+Auto-Matching-Fehler, exakt dasselbe Muster wie beim frueheren HR|SK-
+Fall) - die echten `RS|ARENA SPORT`-Sender (wo tatsaechlich serbischer
+Feed dahinter steckt) haetten durch den Fix faelschlich kroatische
+Daten bekommen. Der Nutzer ordnet seine betroffenen Kanaele stattdessen
+manuell in TiviMate auf die passenden `HR|ARENA SPORT`-Eintraege um.
+
+**Lehre:** Bei "Sender X zeigt falsches Programm" IMMER zuerst per
+Live-Video-Vergleich klaeren, ob es wirklich ein Quellen-/Matching-Bug
+in unserem Code ist, oder ob der Nutzer (bzw. sein IPTV-Anbieter) den
+Playlist-Kanal schlicht dem falschen EPG-Eintrag zugeordnet hat -
+letzteres braucht KEINEN Code-Fix, nur eine correcte manuelle
+TiviMate-Zuordnung durch den Nutzer. Vor einem Quellen-Umbau lieber
+einmal zu oft nachfragen ("hast du das schon selbst umbenannt/
+zugeordnet?") als einen unnoetigen, potenziell falschen Fix committen.
+
+## September 2026: MK|KANAL 8 / MK|ROMA TV - falsche/kaputte Logos ersetzt
+
+Bei einer Nutzer-Ueberpruefung (Screenshot mehrerer MK-Sender mit
+"Keine Information") stellte sich heraus: `MK|24 VESTI`, `24 VESTI HD`,
+`K3`, `SUTEL TV`, `ALFA TV`/`ALFA TV SD` hatten bereits korrekte
+Logos UND den generischen "ᴸⁱᵛᵉ"-Platzhaltertext (TiviMate-Zuordnungs-
+Problem, kein Datenproblem) - `KANAL 8` und `ROMA TV` hatten aber
+tatsaechlich kaputte/falsche Logos:
+- **KANAL 8** zeigte faelschlich das Logo von "Kanal 5" (komplett
+  anderer Sender).
+- **ROMA TV** verlinkte auf ein laengst kaputtes Imgur-"Bild nicht
+  gefunden"-Bild.
+
+Neue Logos gefunden (offizielles Icon von kanal8.mk fuer Kanal 8,
+Senderlogo von roma-tv.com fuer Roma TV), dem Nutzer per Bildvorschau
+gezeigt und bestaetigt, auf max. 300px/256 Farben optimiert und selbst
+gehostet unter `logos/kanal8/kanal8.png` bzw. `logos/roma_tv/roma_tv.png`.
+`MK|ALFA` (nicht "ALFA TV") und `MK|SKYFOLK MK` haben ebenfalls
+fragwuerdige/generische Logos (graues "a"-Symbol bzw. generisches
+Radio-Symbol) - auf Nutzerwunsch NICHT angefasst ("Rest kann bleiben").
+
+## September 2026: Playlist-Vollabgleich - wichtige Lehre ueber das "leeres Land"-Format
+
+Auf Nutzerwunsch wurde die komplette eigene IPTV-Playlist (~407 MB,
+~2,76 Mio. Zeilen, temporaer heruntergeladen/analysiert/wieder
+geloescht wie bei allen fruehereren Playlist-Abgleichen) gegen
+`sender.txt` verglichen, um fehlende Live-Sender zu finden.
+
+**Wichtige Lehre (grosser Fehlalarm in dieser Session):** Ein erstes,
+selbstgeschriebenes Python-Vergleichsskript meldete zunaechst "883 +
+301 fehlende Sender" (u.a. komplette Kategorien wie UK Championship/
+League One/League Two/Formula 1 Fahrer-Kanaele/PBS-Affiliates) - das
+war ZUM GROSSTEN TEIL FALSCH. Ursache: `generate_epg.py` unterstuetzt
+bereits ein eigenes, dokumentiertes Format fuer Sendernamen, die selbst
+ein Pipe-Zeichen enthalten ODER kein Land-Praefix haben - die Zeile
+beginnt dann direkt mit `|` (leeres Land-Feld), z.B.
+`|CHAMP | Wrexham|Wrexham ᴸⁱᵛᵉ|` oder `|UK|FORMULA 1| ALB - ALBON
+WILLIAMS|...`. `generate_epg.py` erkennt das explizit (`if
+zeile.startswith("|"):`, Kommentar direkt im Code) und trennt nur an
+den LETZTEN ZWEI Pipes der Zeile (Beschreibung, Logo) - alles davor
+bleibt unveraendert der komplette Sendername, egal wie viele Pipes er
+selbst enthaelt. Das eigene Vergleichsskript kannte dieses Format
+zunaechst nicht und stufte deshalb hunderte laengst korrekt
+eingetragene Sender faelschlich als "fehlend" ein (UK Championship/
+League One/League Two/TT Race PPV/Formula 1/PBS-Affiliates/Fox 24
+Santa Barbara - LETZTERES sogar ueber ein TVPASSPORT:-4.-Feld-Override,
+noch ein weiteres Sonderformat). Nach Korrektur des Vergleichsskripts
+blieben nur noch 22 echte Kandidaten uebrig, von denen die meisten sich
+bei manueller `grep`-Verifikation zusaetzlich als bereits vorhanden
+herausstellten.
+
+**Tatsaechlich neu ergaenzt (nur 3 Sender):**
+- `UK|UK| BEIN SPORTS ASIA 3` (unter "##### UK| WORLD SPORTS #####",
+  direkt neben der bereits vorhandenen "...ASIA 2"-Zeile im selben
+  leeren-Land-Format)
+- `HR|SPORT KLUB` ohne Nummer (unter "#EXYU SPORTSKI KANALI" - zu
+  unterscheiden von den nummerierten `HR|SK N`-Sendern, siehe TiviMate-
+  Abschnitt weiter oben; noch keine echte Quelle, generischer
+  Platzhalter bis auf Weiteres)
+
+**Zusaetzlich gefunden und behoben: 11 weitere Datenmuell-Zeilen**
+(derselbe seit Sommer 2026 bekannte Bug-Typ - alter Roh-Event-Text im
+NAME:-Kern gespeichert statt des stabilen Kerns): `UFC 02`/`UFC 03`
+(hatten volle Kampfnamen+Datum als Kern), `LOI 06`-`LOI 09` und
+`LoiTV event 1`-`5` (hatten volle Team-vs-Team+Datum-Texte als Kern).
+Alle auf den reinen, stabilen Kern reduziert.
+
+**Wichtige Lehre fuer kuenftige Playlist-Abgleiche:** Ein eigenes
+Vergleichsskript gegen `sender.txt` MUSS mindestens folgende Sonder-
+formate kennen, bevor seine "fehlend"-Liste als verlaesslich gilt:
+(1) das "leeres Land"-Format (Zeile beginnt mit `|`, siehe oben),
+(2) `NAME:`-Kernwerte (Substring-Vergleich gegen den vollen
+Playlist-Rohnamen, nicht nur exakter Match), (3) Opt-in-Praefixe
+(`TELEMACH:`/`SKY:`/`MAGENTA:`/`ARENA:`/`DAZN:`/`FREEVIEW:`/
+`TVGUIDE:`/`TVPASSPORT:`) MIT ihrem optionalen 4. Feld (expliziter
+Playlist-Namen-Override, weicht vom 2. Feld/Suchbegriff ab). Ohne
+alle drei Faelle abzudecken, produziert ein Abgleich massenhaft
+Fehlalarme - vor einer Bulk-Ergaenzung IMMER jeden einzelnen
+vermeintlich fehlenden Kandidaten zusaetzlich per direktem `grep`
+gegenchecken, nicht blind dem eigenen Skript vertrauen (wie in dieser
+Session anfangs faelschlich geschehen).
