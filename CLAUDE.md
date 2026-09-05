@@ -2491,3 +2491,52 @@ Import-Statement wird von `pytest` (importiert Module oft schon vor dem
 eigentlichen Test) nicht zwingend erfasst, wenn die Tests das betroffene
 Modul nicht direkt beruehren; ein echter `python3 -m py_compile` +
 kompletter Skriptstart ist der zuverlaessigere Check vor einem Push.
+
+## September 2026: DYN PPV 1-20 (API-Kanaele) - Platzhalter zwischen Events endlich sichtbar (chronologische Reihenfolge behoben)
+
+Der Nutzer meldete ueber mehrere Tage hinweg, dass bei den 20 fest
+kodierten DYN-PPV-API-Kanaelen (`DE| DYN PPV 1 HD` bis `20 HD`, siehe
+Abschnitt "DYN PPV: Echte API-Daten" oben - NICHT zu verwechseln mit den
+`NAME:`-Playlist-Sendern 1-50) zwischen echten Events durchgaengig
+"Keine Information" statt des Leerlauf-Platzhalters ("Dyn Sport (N)
+ᴺᵒ ᴸⁱᵛᵉ") angezeigt wurde - obwohl die Platzhalter-Daten nachweislich
+vollstaendig in der generierten XML standen (kein Datenluecken-Problem).
+
+**Ursache:** In `generate_epg.py` wurden echte API-Events (Handball/
+Tischtennis/Basketball, teils Wochen bis Monate in der Zukunft) IMMER
+VOR den bei "heute 00:00 Uhr" beginnenden stuendlichen Leerzeit-
+Platzhaltern in die Datei geschrieben (zwei getrennte Code-Bloecke
+hintereinander). Fuer einen einzelnen Kanal sprang die Zeitachse
+dadurch mittendrin zurueck (z.B. erst ein Event im November, danach
+Platzhalter ab dem 5. September) - die `<programme>`-Eintraege eines
+Kanals waren also nicht mehr chronologisch aufsteigend sortiert.
+TiviMate (wie offenbar viele EPG-Parser) erwartet das aber und bricht
+die weitere Anzeige fuer einen Kanal nach so einem Rueckwaertssprung
+ab - echte Events (die zuerst in der Datei stehen) wurden dadurch noch
+angezeigt, alles danach nicht mehr.
+
+**Fix:** Echte Events UND Leerzeit-Platzhalter werden jetzt in
+`dyn_kanal_programme` (Dict `{kanalnummer: [(start, ende, titel,
+beschreibung), ...]}`) gesammelt, statt sofort in `xml_teile`
+geschrieben zu werden. Erst am Ende wird pro Kanal ALLES zusammen nach
+Startzeit sortiert und dann erst als `<programme>`-Eintraege emittiert
+- keine Rueckwaertssprruenge mehr. `pytest` (95 Tests) sowie eine
+eigene Simulation (synthetische Events + Leerzeit-Platzhalter,
+Pruefung auf chronologische Reihenfolge) bestaetigten den Fix vor dem
+Push; ein kompletter Testlauf von `generate_epg.py` selbst war in der
+Entwickler-Sandbox nicht moeglich (zu viele externe Quellen, teils
+blockiert) - der eigentliche Nachweis lief ueber den naechsten echten
+Workflow-Lauf.
+
+**Bestaetigt vom Nutzer nach dem naechsten Workflow-Lauf:** Platzhalter
+werden jetzt korrekt vor/nach/zwischen Events angezeigt - der Fix
+funktioniert wie erwartet.
+
+**Lehre fuer aehnliche Faelle:** Wenn ein EPG-Parser (TiviMate o.ae.)
+fuer einen Kanal trotz nachweislich vollstaendiger Daten in der XML
+"Keine Information" zeigt, IMMER auch die REIHENFOLGE der
+`<programme>`-Eintraege fuer genau diesen Kanal in der Datei pruefen
+(chronologisch aufsteigend?), nicht nur, ob die Daten ueberhaupt
+vorhanden sind - ein Rueckwaertssprung in der Zeitachse ist ein
+eigener, leicht zu uebersehender Bug-Typ neben den bereits bekannten
+(Datenluecke, Kanal-ID-Mismatch, Dateiposition/Truncation).
