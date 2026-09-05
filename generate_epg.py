@@ -1,10 +1,29 @@
 from datetime import datetime, timedelta, timezone
-from xml.sax.saxutils import escape
+from xml.sax.saxutils import escape as _sax_escape
 import gzip
 import os
 import re
 import requests
 import xml.etree.ElementTree as ET
+
+# XML 1.0 erlaubt nur Tab/Newline/CR sowie Codepoints ab #x20 (mit
+# Luecken bei den Surrogates und #xFFFE/#xFFFF) - alle anderen
+# Steuerzeichen (z.B. vereinzelte Muellbytes aus einer HTML-gescrapten
+# Quelle wie tvmovie.de/hoerzu.de/delo.si) machen die GESAMTE Datei
+# ungueltig ("not well-formed"), auch wenn nur EIN einziger Sender/eine
+# einzige Sendung betroffen ist. `xml.sax.saxutils.escape()` allein
+# entschaerft nur &/</>, entfernt aber keine illegalen Steuerzeichen -
+# `escape()` filtert deshalb ab jetzt zusaetzlich genau diese Zeichen
+# heraus, bevor escaped wird.
+_XML_UNGUELTIGE_ZEICHEN = re.compile(
+    "[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x84\x86-\x9f﷐-﷯￾￿]"
+)
+
+
+def escape(text, *args, **kwargs):
+    if text:
+        text = _XML_UNGUELTIGE_ZEICHEN.sub("", text)
+    return _sax_escape(text, *args, **kwargs)
 
 from epg_lib import (
     KATEGORIEN, KATEGORIE_PRIORITAET,
