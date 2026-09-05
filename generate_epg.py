@@ -78,6 +78,7 @@ from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
 from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
+from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -209,7 +210,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle"],
     "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle"],
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
 }
@@ -2621,6 +2622,7 @@ DESWIRD_TAGE = 3
 PLUTOTV_TAGE = 2
 TVMOVIE_TAGE = 1
 JOYN_VOD_TAGE = 1
+SEARCH_CH_TAGE = 3
 TUBI_TAGE = 2
 TVPROFIL_TAGE = 3
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
@@ -3559,6 +3561,29 @@ for daten in plutotv_sender:
                 if joyn_vod_programme:
                     _echte_quelle_zaehlen("Joyn-VOD")
                     _schreibe_echte_programme(daten, joyn_vod_programme)
+                else:
+                    # search.ch/tv als sechster und letzter Versuch -
+                    # aktuell NUR fuer "BLUE SPORT 1"/"BLUE SPORT 2"
+                    # (siehe search_ch_epg.py, festes Mapping ohne
+                    # Fuzzy-Abgleich). Keiner der vorherigen fuenf
+                    # DE-Quellen fuehrt diese Schweizer Swisscom-
+                    # Sportkanaele.
+                    search_ch_programme = []
+                    try:
+                        search_ch_slug = search_ch_kanal_finden(daten["sender"])
+                        if search_ch_slug is not None:
+                            search_ch_programme = search_ch_hole_programme(search_ch_slug, SEARCH_CH_TAGE)
+                        else:
+                            pass  # log unterdrueckt: keine echten Programmdaten
+                    except Exception as e:
+                        pass  # log unterdrueckt: keine echten Programmdaten
+                        search_ch_programme = []
+
+                    daten["search_ch_intervalle"] = [(p["start"], p["stop"]) for p in search_ch_programme]
+
+                    if search_ch_programme:
+                        _echte_quelle_zaehlen("Search.ch")
+                        _schreibe_echte_programme(daten, search_ch_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
