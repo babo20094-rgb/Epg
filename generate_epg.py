@@ -24,6 +24,7 @@ from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
 from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
 from quellen.sportklub_epg import sportklub_kanal_finden, sportklub_hole_programme
+from quellen.delo_si_epg import delo_si_kanal_finden, delo_si_hole_programme
 from quellen.magenta_myteam_epg import magenta_myteam_kanal_finden, magenta_myteam_hole_programme
 from quellen.siol_epg import siol_kanal_finden, siol_hole_programme
 from quellen.sky_epg import sky_kanal_finden, sky_hole_programme
@@ -3232,28 +3233,48 @@ for daten in siol_sender:
         _schreibe_echte_programme(daten, programme)
         continue
 
-    # SportKlub (epgshare01.online) als zweiter Versuch fuer SI-Sender
-    # nach siol.net (siehe sportklub_epg.py) - siol.net fuehrt keine
-    # "Sport Klub"-Kanaele, epgshare01.online hat sie (bereits als
-    # HR-Fallback nach MojMaxTV im Einsatz).
+    # Delo.si (echte SLOWENISCHE Sport-Klub-Daten) als zweiter Versuch
+    # fuer SI-Sender nach siol.net - siol.net fuehrt selbst keine
+    # "Sport Klub"-Kanaele. WICHTIG (September 2026): Sport Klub
+    # Kroatien (epgshare01.online, siehe sportklub_epg.py) zeigt NICHT
+    # immer dasselbe Programm wie Sport Klub Slowenien (per Nutzer-
+    # Screenshot bestaetigt: echtes SI|SK1 zeigte "Ingolstadt -
+    # Aachen", die kroatischen Daten fuer "SK 1" zeigten zeitgleich die
+    # saudische Liga) - delo.si (tvspored.delo.si) hat dagegen eine
+    # echte slowenische Sendungsliste und wird deshalb zuerst versucht.
     sportklub_programme = []
     try:
-        sportklub_site_id = sportklub_kanal_finden(daten["sender"])
-        if sportklub_site_id is not None:
-            sportklub_programme = sportklub_hole_programme(sportklub_site_id, SIOL_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
+        delo_slug = delo_si_kanal_finden(daten["sender"])
+        if delo_slug is not None:
+            sportklub_programme = delo_si_hole_programme(delo_slug)
     except Exception as e:
         pass  # log unterdrueckt: keine echten Programmdaten
         sportklub_programme = []
 
+    if sportklub_programme:
+        _echte_quelle_zaehlen("Delo.si (SK Slowenien)")
+    else:
+        # Sport Klub Kroatien (epgshare01.online) als letzter Fallback,
+        # falls delo.si fuer diesen Sender einmal nichts liefert.
+        try:
+            sportklub_site_id = sportklub_kanal_finden(daten["sender"])
+            if sportklub_site_id is not None:
+                sportklub_programme = sportklub_hole_programme(sportklub_site_id, SIOL_TAGE)
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            sportklub_programme = []
+
+        if sportklub_programme:
+            _echte_quelle_zaehlen("SportKlub")
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
     daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
 
     if sportklub_programme:
-        _echte_quelle_zaehlen("SportKlub")
         _schreibe_echte_programme(daten, sportklub_programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # TVPROFIL.NET: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/MO/
