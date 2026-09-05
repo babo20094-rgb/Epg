@@ -2123,6 +2123,17 @@ for daten in sender_daten:
 # ueberlappenden Teil der stuendlichen Platzhalter auszuschneiden.
 dyn_synth_api_fenster = {}
 
+# Sammelt ECHTE API-Events UND Leerzeit-Platzhalter je Kanalnummer als
+# (start_dt, ende_dt, titel, beschreibung)-Tupel, statt sie sofort in
+# xml_teile zu schreiben - siehe Kommentar bei der Emission weiter unten
+# (Bug September 2026: echte Events lagen oft Wochen/Monate in der
+# Zukunft und wurden VOR den bei "heute 00:00 Uhr" beginnenden
+# Leerzeit-Platzhaltern geschrieben, wodurch die Startzeiten pro Kanal
+# in der Datei nicht mehr chronologisch aufsteigend waren - manche
+# EPG-Parser (u.a. TiviMate) brechen die Anzeige nach einem solchen
+# Rueckwaertssprung fuer diesen Kanal ab).
+dyn_kanal_programme = {}
+
 try:
     response = None
     letzter_fehler = None
@@ -2185,11 +2196,9 @@ try:
                 startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
                 endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
 
-                for kanal_id in dyn_ppv_kanal_ids(kanal_nummer):
-                    xml_teile.append(
-                        f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal_id)}">'
-                        f' <title>{escape(titel)}</title> <desc>{escape(beschreibung)}</desc> </programme> '
-                    )
+                dyn_kanal_programme.setdefault(kanal_nummer, []).append(
+                    (start_dt, ende_dt, titel, beschreibung)
+                )
 
                 dyn_synth_api_fenster.setdefault(kanal_nummer, []).append(
                     (start_dt, ende_dt)
@@ -2258,13 +2267,9 @@ for competition_id, competition_name in DYN_BASKETBALL_COMPETITION_IDS.items():
         gast = (match.get("awayClub") or {}).get("name", "").strip()
         titel = f"{heim} - {gast}".strip(" -") if (heim or gast) else competition_name
 
-        startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
-        endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
-        for kanal_id in dyn_ppv_kanal_ids(basketball_kanal_nummer):
-            xml_teile.append(
-                f' <programme start="{startzeit}" stop="{endzeit}" channel="{escape(kanal_id)}">'
-                f' <title>{escape(titel)}</title> <desc>{escape(titel)}</desc> </programme> '
-            )
+        dyn_kanal_programme.setdefault(basketball_kanal_nummer, []).append(
+            (start_dt, ende_dt, titel, titel)
+        )
 
         dyn_synth_api_fenster.setdefault(basketball_kanal_nummer, []).append(
             (start_dt, ende_dt)
@@ -2557,19 +2562,30 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
         # der Rest bekommt weiterhin den Leerzeit-Platzhalter, statt
         # eine ganze Stunde vor/nach dem Event wegzulassen.
         for start, ende in segmente_ohne_ueberlappung(block_start, block_ende, api_fenster):
-            start_str = start.strftime("%Y%m%d%H%M%S +0000")
-            ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
-
             # Gleiche Leerlauf-Konvention wie bei den Playlist-basierten
             # DYN PPV 1-50-Sendern ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ") statt eines
             # eigenen, abweichenden Textes - auf Nutzerwunsch vereinheitlicht.
             leerlauf_text = f"Dyn Sport ({i}) ᴺᵒ ᴸⁱᵛᵉ"
-            for kanal_id in kanal_ids:
-                xml_teile.append(
-                    f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal_id)}">'
-                    f' <title>{escape(leerlauf_text)}</title>'
-                    f' <desc>{escape(leerlauf_text)}</desc> </programme> '
-                )
+            dyn_kanal_programme.setdefault(i, []).append(
+                (start, ende, leerlauf_text, leerlauf_text)
+            )
+
+    # Echte Events UND Leerzeit-Platzhalter dieses Kanals zusammen nach
+    # Startzeit sortiert ausgeben (siehe Kommentar bei
+    # dyn_kanal_programme oben) - verhindert den Rueckwaertssprung in
+    # der Zeitachse, der einige EPG-Parser (u.a. TiviMate) dazu brachte,
+    # die weitere Anzeige fuer diesen Kanal abzubrechen.
+    for start, ende, titel, beschreibung in sorted(
+        dyn_kanal_programme.get(i, []), key=lambda eintrag: eintrag[0]
+    ):
+        start_str = start.strftime("%Y%m%d%H%M%S +0000")
+        ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
+        for kanal_id in kanal_ids:
+            xml_teile.append(
+                f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal_id)}">'
+                f' <title>{escape(titel)}</title>'
+                f' <desc>{escape(beschreibung)}</desc> </programme> '
+            )
 
 # Hinweis Clubber-PPV (Irland, GAA-Club-Spiele): laeuft ueber denselben
 # generischen Playlist-Namensabgleich wie DYN PPV - der Anbieter fuehrt
