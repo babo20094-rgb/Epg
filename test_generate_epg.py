@@ -45,7 +45,6 @@ from quellen import tvpassport_epg
 from quellen import mts_epg
 from quellen import mojmaxtv_epg
 from quellen import siol_epg
-from quellen import mymedia_epg
 from quellen import plutotv_epg
 from quellen import klix_epg
 from quellen import tvmovie_epg
@@ -1875,66 +1874,6 @@ def test_tvpassport_ohne_tvpassport_zeilen_werden_keine_requests_ausgeloest():
             tvpassport_epg.tvpassport_hole_programme(daten["sender"])
 
     assert tvpassport_sender_leer == []
-
-
-def _mymedia_card_html(titel, zeit, beschreibung=""):
-    return (
-        f'<button class="js-tvsmepg-program-card" '
-        f'data-program-title="{titel}" '
-        f'data-program-time="{zeit}" '
-        f'data-program-description="{beschreibung}"></button>'
-    )
-
-
-@pytest.fixture
-def _mymedia_cache_zuruecksetzen():
-    mymedia_epg._seite_cache = {}
-    yield
-    mymedia_epg._seite_cache = {}
-
-
-def test_mymedia_erfolgreicher_abruf_liefert_echte_sendungen(_mymedia_cache_zuruecksetzen):
-    html = "<html><body>" + _mymedia_card_html("Na Rubu Pameti", "10:00 – 10:34", "Talk show") + "</body></html>"
-    response = MagicMock()
-    response.text = html
-    response.raise_for_status.return_value = None
-
-    with patch("quellen.mymedia_epg.requests.get", return_value=response):
-        programme = mymedia_epg.mymedia_hole_programme(tage=1)
-
-    assert len(programme) == 1
-    sendung = programme[0]
-    assert sendung["title"] == "Na Rubu Pameti"
-    assert sendung["beschreibung"] == "Talk show"
-    assert sendung["start"].tzinfo is not None
-    assert sendung["stop"] > sendung["start"]
-
-
-def test_mymedia_ueber_mitternacht_gehende_sendung_bekommt_naechsten_tag(_mymedia_cache_zuruecksetzen):
-    html = "<html><body>" + _mymedia_card_html("Kraj", "23:52 – 09:00") + "</body></html>"
-    response = MagicMock()
-    response.text = html
-    response.raise_for_status.return_value = None
-
-    with patch("quellen.mymedia_epg.requests.get", return_value=response):
-        programme = mymedia_epg.mymedia_hole_programme(tage=1)
-
-    assert len(programme) == 1
-    sendung = programme[0]
-    assert sendung["stop"].date() > sendung["start"].date()
-
-
-def test_mymedia_fehlschlag_faellt_graceful_auf_leere_liste_zurueck(_mymedia_cache_zuruecksetzen):
-    with patch("quellen.mymedia_epg.requests.get", side_effect=Exception("Netzwerk nicht erreichbar")):
-        assert mymedia_epg.mymedia_hole_programme(tage=1) == []
-
-    response = MagicMock()
-    response.text = "<html><body>kein passendes Markup hier</body></html>"
-    response.raise_for_status.return_value = None
-    with patch("quellen.mymedia_epg.requests.get", return_value=response):
-        assert mymedia_epg.mymedia_hole_programme(tage=1) == []
-
-
 
 
 def _plutotv_xmltv_bauen(kanaele, programme):

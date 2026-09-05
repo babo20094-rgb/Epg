@@ -34,11 +34,10 @@ from epg_lib import (
     sender_anzeigename, standard_beschreibung, kategorie_label,
     sender_hash,
     kanalname_normal_geschrieben,
-    normalisiere_sendername, baue_logo_index, finde_logo,
+    baue_logo_index, finde_logo,
 )
 from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
-from quellen.mymedia_epg import mymedia_hole_programme
 from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
 from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
@@ -57,7 +56,6 @@ from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_prog
 from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
 from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
-from quellen.samsungtv_epg import samsungtv_kanal_finden, samsungtv_hole_programme
 from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
 from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
@@ -178,9 +176,9 @@ def ueberlappt_intervall(intervalle, start, ende):
 
 # Ordnet jedem "hat eine echte Quelle aktiv"-Flag in daten die zugehoerigen
 # *_intervalle-Felder zu (mehrere bei Faellen mit Fallback-Kette, z.B.
-# Telemach -> mtel.ba -> mymedia.ba -> klix.ba oder PlutoTV -> tvmovie.de).
+# Telemach -> mtel.ba -> klix.ba oder PlutoTV -> tvmovie.de).
 _ECHTE_QUELLEN_INTERVALLE = {
-    "telemach": ["telemach_intervalle", "mtel_intervalle", "mymedia_intervalle", "klix_intervalle"],
+    "telemach": ["telemach_intervalle", "mtel_intervalle", "klix_intervalle"],
     "sky": ["sky_intervalle"],
     "sky_wow": ["sky_intervalle"],
     "magenta": ["magenta_intervalle"],
@@ -193,7 +191,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle"],
     "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "samsungtv_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
 }
@@ -2573,7 +2571,6 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 
 TELEMACH_TAGE = 3
 MTEL_TAGE = 2
-MYMEDIA_TAGE = 3
 KLIX_TAGE = 3
 SKY_TAGE = 2
 MAGENTA_TAGE = 2
@@ -2588,7 +2585,6 @@ SIOL_TAGE = 2
 DESWIRD_TAGE = 3
 PLUTOTV_TAGE = 2
 TVMOVIE_TAGE = 1
-SAMSUNGTV_TAGE = 1
 JOYN_VOD_TAGE = 1
 TUBI_TAGE = 2
 TVPROFIL_TAGE = 3
@@ -2744,30 +2740,15 @@ for daten in telemach_sender:
             else:
                 pass  # log unterdrueckt: keine echten Programmdaten
 
-                # mymedia.ba als dritter Versuch: deckt technisch nur
-                # EINEN festen Kanal ab ("MY TV", siehe mymedia_epg.py),
-                # daher hier per Namensvergleich statt Kanalsuche - nur
-                # wenn Telemach UND mtel.ba nichts gefunden haben.
-                if normalisiere_sendername(daten["sender"]) == normalisiere_sendername("MY TV"):
-                    mymedia_programme = []
-                    try:
-                        mymedia_programme = mymedia_hole_programme(MYMEDIA_TAGE)
-                    except Exception as e:
-                        pass  # log unterdrueckt: keine echten Programmdaten
-                        mymedia_programme = []
-
-                    daten["mymedia_intervalle"] = [(p["start"], p["stop"]) for p in mymedia_programme]
-
-                    if mymedia_programme:
-                        _echte_quelle_zaehlen("mymedia.ba")
-                        _schreibe_echte_programme(daten, mymedia_programme)
-                        echte_daten_gefunden = True
-                    else:
-                        pass  # log unterdrueckt: keine echten Programmdaten
-
-                # klix.ba als vierter Versuch fuer BA-Sender (siehe
-                # klix_epg.py), nur wenn Telemach UND mtel.ba (UND ggf.
-                # mymedia.ba) nichts gefunden haben.
+                # klix.ba als dritter Versuch fuer BA-Sender (siehe
+                # klix_epg.py), nur wenn Telemach UND mtel.ba nichts
+                # gefunden haben.
+                # (mymedia.ba war frueher hier als dritter Versuch
+                # eingehaengt, deckte technisch nur den einen festen
+                # Kanal "MY TV" ab - September 2026 dauerhaft entfernt:
+                # die Seite lief auf ein neues Plugin um, das fuer "MY
+                # TV" auf jedem geprueften Datum nur noch einen "Keine
+                # Sendungen"-Leerzustand zeigt, keine echten Daten mehr.)
                 if not echte_daten_gefunden:
                     klix_programme = []
                     try:
@@ -3298,7 +3279,7 @@ for daten in siol_sender:
 # ==========================================================
 # TVPROFIL.NET: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/MO/
 # CG-Sender, nur wenn keine der vorherigen Quellen (Telemach/mtel.ba/
-# mymedia.ba/klix.ba/mts.rs/MojMaxTV/SportKlub/Siol) bereits echte Daten
+# klix.ba/mts.rs/MojMaxTV/SportKlub/Siol) bereits echte Daten
 # geliefert hat (siehe tvprofil_net_epg.py - kleine, feste Kanalliste,
 # nur exakter Namensabgleich).
 # ==========================================================
@@ -3327,20 +3308,24 @@ for daten in tvprofil_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# DESWIRD / PLUTOTV / TVMOVIE / HOERZU / SAMSUNGTV: automatischer
+# DESWIRD / PLUTOTV / TVMOVIE / HOERZU / JOYN-VOD: automatischer
 # Abgleich fuer alle DE-Sender (siehe deswird_epg.py, plutotv_epg.py,
-# tvmovie_epg.py, hoerzu_epg.py, samsungtv_epg.py). Kein eigenes
+# tvmovie_epg.py, hoerzu_epg.py, joyn_vod_epg.py). Kein eigenes
 # Praefix noetig, einzige automatischen Quellen fuer DE - deswird.org
 # als primaere Quelle (beste Abdeckung/Qualitaet, mehrere Tage im
 # Voraus), Pluto TV als zweiter Versuch, tvmovie.de als dritter
-# Versuch, hoerzu.de als vierter Versuch, Samsung TV Plus als fuenfter
-# Versuch, jeweils nur wenn die vorherige(n) Quelle(n) nichts gefunden
-# haben. Ohne jegliche DE-Zeile in sender.txt passiert hier gar nichts.
+# Versuch, hoerzu.de als vierter Versuch, Joyn-VOD als fuenfter und
+# letzter Versuch, jeweils nur wenn die vorherige(n) Quelle(n) nichts
+# gefunden haben. Ohne jegliche DE-Zeile in sender.txt passiert hier
+# gar nichts.
+# (Samsung TV Plus war frueher hier als fuenfter Versuch eingehaengt -
+# September 2026 dauerhaft entfernt, der Host hat die XMLTV-Datei
+# entfernt, 404 bei jedem Abruf.)
 # ==========================================================
 
 for daten in plutotv_sender:
     # "MAGENTA SPORT PPV N"-Sender ueberspringen deswird.org/PlutoTV/
-    # tvmovie.de/hoerzu.de/Samsung TV Plus komplett und gehen direkt zu
+    # tvmovie.de/hoerzu.de komplett und gehen direkt zu
     # myTeamTV (siehe magenta_myteam_epg.py) - deswird.org matcht diese
     # Sender sonst per unscharfem Abgleich faelschlich auf den voellig
     # anderen, echten Basis-Kanal "MagentaSport" und liefert dessen
@@ -3463,48 +3448,31 @@ for daten in plutotv_sender:
                 _echte_quelle_zaehlen("Hoerzu")
                 _schreibe_echte_programme(daten, hoerzu_programme)
             else:
-                # Samsung TV Plus als fuenfter Versuch fuer DE-Sender
-                # (siehe samsungtv_epg.py), nur wenn weder deswird.org
-                # noch Pluto TV noch tvmovie.de noch hoerzu.de etwas
-                # gefunden haben.
-                samsungtv_programme = []
+                # Joyn-VOD als fuenfter und letzter Versuch fuer DE-
+                # Sender (siehe joyn_vod_epg.py) - deckt Joyns eigene
+                # thematische Serien-/Doku-"Sender" ab (z.B. "Ancient
+                # Aliens", "Der letzte Bulle"), die keiner der
+                # vorherigen vier Quellen kennt.
+                # (Samsung TV Plus war frueher hier als fuenfter
+                # Versuch eingehaengt - September 2026 dauerhaft
+                # entfernt, der Host hat die XMLTV-Datei entfernt,
+                # 404 bei jedem Abruf.)
+                joyn_vod_programme = []
                 try:
-                    samsungtv_site_id = samsungtv_kanal_finden(daten["sender"])
-                    if samsungtv_site_id is not None:
-                        samsungtv_programme = samsungtv_hole_programme(samsungtv_site_id, SAMSUNGTV_TAGE)
+                    joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
+                    if joyn_vod_site_id is not None:
+                        joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
                     else:
                         pass  # log unterdrueckt: keine echten Programmdaten
                 except Exception as e:
                     pass  # log unterdrueckt: keine echten Programmdaten
-                    samsungtv_programme = []
-
-                daten["samsungtv_intervalle"] = [(p["start"], p["stop"]) for p in samsungtv_programme]
-
-                if samsungtv_programme:
-                    _echte_quelle_zaehlen("SamsungTV")
-                    _schreibe_echte_programme(daten, samsungtv_programme)
-                else:
-                    # Joyn-VOD als sechster und letzter Versuch fuer DE-
-                    # Sender (siehe joyn_vod_epg.py) - deckt Joyns eigene
-                    # thematische Serien-/Doku-"Sender" ab (z.B. "Ancient
-                    # Aliens", "Der letzte Bulle"), die keiner der
-                    # vorherigen fuenf Quellen kennt.
                     joyn_vod_programme = []
-                    try:
-                        joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
-                        if joyn_vod_site_id is not None:
-                            joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
-                        else:
-                            pass  # log unterdrueckt: keine echten Programmdaten
-                    except Exception as e:
-                        pass  # log unterdrueckt: keine echten Programmdaten
-                        joyn_vod_programme = []
 
-                    daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
+                daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
 
-                    if joyn_vod_programme:
-                        _echte_quelle_zaehlen("Joyn-VOD")
-                        _schreibe_echte_programme(daten, joyn_vod_programme)
+                if joyn_vod_programme:
+                    _echte_quelle_zaehlen("Joyn-VOD")
+                    _schreibe_echte_programme(daten, joyn_vod_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
@@ -3515,13 +3483,13 @@ for daten in plutotv_sender:
 
 for daten in tubi_sender:
     # PRIME-Sender laufen zusaetzlich durch die DE-Kaskade (siehe oben,
-    # deswird.org/Pluto TV/tvmovie.de/hoerzu.de/Samsung TV Plus) - hat
-    # die bereits echte Daten gefunden UND geschrieben, wird Tubi hier
-    # uebersprungen, damit dieselben Sendungen nicht doppelt ins XML
-    # geschrieben werden.
+    # deswird.org/Pluto TV/tvmovie.de/hoerzu.de) - hat die bereits echte
+    # Daten gefunden UND geschrieben, wird Tubi hier uebersprungen,
+    # damit dieselben Sendungen nicht doppelt ins XML geschrieben
+    # werden.
     if any(daten.get(feld) for feld in (
         "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
-        "hoerzu_intervalle", "samsungtv_intervalle",
+        "hoerzu_intervalle",
     )):
         continue
 
@@ -3630,7 +3598,7 @@ for tag_index in range(ANZAHL_TAGE):
                 )
                 continue
 
-            # Echte EPG-Quellen (Telemach/mtel.ba/mymedia.ba/klix.ba, Sky,
+            # Echte EPG-Quellen (Telemach/mtel.ba/klix.ba, Sky,
             # Magenta, Arena, DAZN, Freeview, TVGuide, TVPassport, Pluto TV/
             # tvmovie.de/hoerzu.de, MTS, MojMaxTV, Siol, Tubi - siehe
             # _ECHTE_QUELLEN_INTERVALLE): fuer den von einer echten Quelle
