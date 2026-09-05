@@ -2293,6 +2293,58 @@ def kanalname_normal_geschrieben(name):
     return " ".join(ergebnis)
 
 
+# Bewusst eine EIGENE, viel kleinere Abkuerzungsliste als
+# KANALNAME_ABKUERZUNGEN - jene enthaelt auch Land-/Kategorie-Kuerzel
+# wie "LIGA"/"SK"/"NA"/"SI", die in kroatischen/serbischen Sendungs-
+# titeln aber ganz normale Woerter sind ("liga" = Liga, "na" = auf,
+# "si" = du bist) - eine Wiederverwendung der Kanalnamen-Liste wuerde
+# solche Woerter faelschlich gross stehen lassen (z.B. "Talijanska
+# LIGA" statt "Talijanska Liga").
+SATZ_ABKUERZUNGEN = {
+    "HD", "FHD", "UHD", "SD", "HEVC", "4K", "8K", "DAZN", "TV",
+    "UFC", "NFL", "NBA", "NHL", "MLB", "NCAA", "MLS", "EPL",
+}
+
+
+def normalisiere_grossschreibung(text):
+    """Wandelt einen komplett grossgeschriebenen Sendungstitel/-text
+    (z.B. von MojMaxTV/Arena Sport, die ihre Programmdaten oft komplett
+    in GROSSBUCHSTABEN liefern, siehe HR|ARENA SPORT 1-10) in normale
+    Schreibweise um - jedes Wort wird einzeln kapitalisiert, nur die
+    kleine, kollisionsfreie SATZ_ABKUERZUNGEN-Liste (reine technische
+    Kuerzel wie "HD"/"UFC", keine Land-/Kategorie-Codes) bleibt gross.
+    Texte, die nicht komplett grossgeschrieben sind (also bereits normal
+    formatierte echte Quellen wie Telemach/mtel.ba), bleiben unveraendert
+    - kein Risiko, bereits korrekt geschriebene Texte zu verhunzen."""
+    if not text:
+        return text
+    if not any(zeichen.isalpha() for zeichen in text) or text != text.upper():
+        return text
+
+    worte = text.split(" ")
+    ergebnis = []
+    for wort in worte:
+        praefix = ""
+        suffix = ""
+        kern = wort
+
+        while kern and kern[0] in "([":
+            praefix += kern[0]
+            kern = kern[1:]
+        while kern and kern[-1] in ")]:":
+            suffix = kern[-1] + suffix
+            kern = kern[:-1]
+
+        if kern.upper() in SATZ_ABKUERZUNGEN:
+            kern_formatiert = kern.upper()
+        else:
+            kern_formatiert = "-".join(teil.capitalize() for teil in kern.split("-"))
+
+        ergebnis.append(praefix + kern_formatiert + suffix)
+
+    return " ".join(ergebnis)
+
+
 # ==========================================================
 # Automatische Logo-Suche ueber die oeffentliche iptv-org-Datenbank
 # (https://iptv-org.github.io/api/ - freie, offene Sammlung von

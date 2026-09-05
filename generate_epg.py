@@ -49,6 +49,7 @@ from epg_lib import (
     sender_anzeigename, standard_beschreibung, kategorie_label,
     sender_hash,
     kanalname_normal_geschrieben,
+    normalisiere_grossschreibung,
     baue_logo_index, finde_logo,
 )
 from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
@@ -2688,8 +2689,9 @@ def _schreibe_echte_programme(daten, programme):
     for p in programme:
         start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
         stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
-        titel_escaped = escape(kuerze_beschreibung(p["title"]))
-        beschr_text = kuerze_beschreibung(p["beschreibung"] or p["title"])
+        titel_text = normalisiere_grossschreibung(kuerze_beschreibung(p["title"]))
+        titel_escaped = escape(titel_text)
+        beschr_text = normalisiere_grossschreibung(kuerze_beschreibung(p["beschreibung"] or p["title"]))
         beschr_escaped = escape(beschr_text)
         # Bewusst KEIN <sub-title> mehr: manche Player (z.B. TiviMate)
         # haengen den Untertitel im kompakten Wochenraster direkt hinter
