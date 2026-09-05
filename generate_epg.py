@@ -56,6 +56,7 @@ from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
 from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
+from quellen.a1_epg import a1_kanal_finden, a1_hole_programme
 from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
 from quellen.sportklub_epg import sportklub_kanal_finden, sportklub_hole_programme
 from quellen.delo_si_epg import delo_si_kanal_finden, delo_si_hole_programme
@@ -206,7 +207,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvpassport": ["tvpassport_intervalle"],
     "tvpassport_callsign": ["tvpassport_intervalle"],
     "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle"],
-    "mojmaxtv": ["mojmaxtv_intervalle", "sportklub_intervalle"],
+    "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle"],
     "tubi": ["tubi_intervalle"],
@@ -2614,6 +2615,7 @@ TVGUIDE_TAGE = 2
 TVPASSPORT_TAGE = 2
 MTS_TAGE = 2
 MOJMAXTV_TAGE = 2
+A1_TAGE = 6
 SIOL_TAGE = 2
 DESWIRD_TAGE = 3
 PLUTOTV_TAGE = 2
@@ -3202,13 +3204,45 @@ for daten in mts_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# MOJMAXTV: automatischer Abgleich fuer alle HR-Sender (siehe
-# mojmaxtv_epg.py). Kein eigenes Praefix noetig. Ohne jegliche
-# HR-Zeile in sender.txt passiert hier gar nichts - keine
-# zusaetzlichen Netzwerk-Aufrufe.
+# A1 (Kroatien): ERSTER Versuch fuer alle HR-Sender, VOR MojMaxTV
+# (siehe a1_epg.py). Oeffentliche, loginfreie API von www.a1.hr -
+# liefert echte Beschreibungstexte, bereits normal geschriebene Titel
+# und ein laengeres Vorschau-Fenster als MojMaxTV, deckt aber
+# insgesamt weniger Kanaele ab - MojMaxTV/SportKlub bleiben Fallback
+# fuer alles, was A1 nicht kennt. Kein eigenes Praefix noetig.
 # ==========================================================
 
 for daten in mojmaxtv_sender:
+    programme = []
+    try:
+        site_id = a1_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = a1_hole_programme(site_id, A1_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["a1_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("A1")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MOJMAXTV: zweiter Versuch fuer alle HR-Sender, bei denen A1 nichts
+# gefunden hat (siehe mojmaxtv_epg.py). Kein eigenes Praefix noetig.
+# Ohne jegliche HR-Zeile in sender.txt passiert hier gar nichts -
+# keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in mojmaxtv_sender:
+    if daten.get("a1_intervalle"):
+        continue  # A1 hat fuer diesen Sender bereits echte Daten geliefert
+
     programme = []
     try:
         site_id = mojmaxtv_kanal_finden(daten["sender"])
@@ -3229,16 +3263,16 @@ for daten in mojmaxtv_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# SPORTKLUB: zweiter Versuch fuer alle HR-Sender, bei denen MojMaxTV
-# nichts gefunden hat (siehe sportklub_epg.py - MojMaxTV fuehrt seit
-# September 2026 keine "Sport Klub"-Kanaele mehr, betrifft "HR|SK N").
-# Kein eigenes Praefix noetig, laeuft automatisch als Fallback nach
-# MojMaxTV innerhalb derselben mojmaxtv_sender-Liste.
+# SPORTKLUB: dritter Versuch fuer alle HR-Sender, bei denen weder A1
+# noch MojMaxTV etwas gefunden hat (siehe sportklub_epg.py - MojMaxTV
+# fuehrt seit September 2026 keine "Sport Klub"-Kanaele mehr, betrifft
+# "HR|SK N"). Kein eigenes Praefix noetig, laeuft automatisch als
+# Fallback innerhalb derselben mojmaxtv_sender-Liste.
 # ==========================================================
 
 for daten in mojmaxtv_sender:
-    if daten.get("mojmaxtv_intervalle"):
-        continue  # MojMaxTV hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("a1_intervalle") or daten.get("mojmaxtv_intervalle"):
+        continue  # A1/MojMaxTV haben fuer diesen Sender bereits echte Daten geliefert
 
     programme = []
     try:
