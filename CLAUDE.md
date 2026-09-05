@@ -2430,3 +2430,64 @@ Fehlalarme - vor einer Bulk-Ergaenzung IMMER jeden einzelnen
 vermeintlich fehlenden Kandidaten zusaetzlich per direktem `grep`
 gegenchecken, nicht blind dem eigenen Skript vertrauen (wie in dieser
 Session anfangs faelschlich geschehen).
+
+## September 2026: Grossgeschriebene Sendungstitel echter Quellen normalisiert (z.B. HR|ARENA SPORT 1-10)
+
+Der Nutzer meldete per Screenshot, dass `HR|ARENA SPORT 1`-`10` (echte
+Programmdaten von MojMaxTV, unserer automatischen HR-Quelle) im
+EPG-Raster komplett in GROSSBUCHSTABEN angezeigt werden (z.B. "UŽIVO:
+CHAMPIONSHIP: PRESTON - BLACKBURN, NOGOMET" statt normal geschrieben) -
+MojMaxTV liefert seine Sendungstitel roh so, wie sie selbst komplett
+grossgeschrieben sind.
+**Fix:** Neue Funktion `normalisiere_grossschreibung()` in `epg_lib.py`
+- wandelt einen Text NUR dann in normale Schreibweise um, wenn er
+komplett grossgeschrieben ist (`text == text.upper()` und mindestens ein
+Buchstabe enthalten); bereits normal formatierte Texte (Telemach,
+mtel.ba usw.) bleiben unveraendert. Jedes Wort wird einzeln kapitalisiert
+(Doppelpunkte/Klammern werden als Suffix erkannt, Bindestrich-Teile
+einzeln kapitalisiert - "PRESTON - BLACKBURN, NOGOMET" wird "Preston -
+Blackburn, Nogomet"). Nutzt bewusst eine EIGENE, kleine Abkuerzungsliste
+`SATZ_ABKUERZUNGEN` (nur reine technische Kuerzel: HD/FHD/UHD/SD/HEVC/
+4K/8K/DAZN/TV/UFC/NFL/NBA/NHL/MLB/NCAA/MLS/EPL) statt der bestehenden
+`KANALNAME_ABKUERZUNGEN` - letztere enthaelt auch Land-/Kategorie-Kuerzel
+wie "LIGA"/"SK"/"NA"/"SI", die in kroatischen/serbischen Sendungstiteln
+aber ganz normale Woerter sind ("liga" = Liga, "na" = auf, "si" = du
+bist) - eine Wiederverwendung haette z.B. "Talijanska LIGA" statt
+"Talijanska Liga" erzeugt (im ersten Versuch tatsaechlich passiert, dann
+korrigiert).
+In `generate_epg.py`'s zentraler `_schreibe_echte_programme()` (schreibt
+`<title>`/`<desc>` fuer ALLE echten Quellen) wird `normalisiere_
+grossschreibung()` nach `kuerze_beschreibung()` auf Titel UND
+Beschreibung angewendet - betrifft damit automatisch JEDE aktuelle und
+kuenftige echte Quelle, die (wie MojMaxTV) komplett grossgeschrieben
+liefert, nicht nur Arena Sport/MojMaxTV. `pytest` (95 Tests) bestaetigt
+gruen.
+
+## September 2026: ImportError im Workflow behoben (tvpassport_kanal_finden_callsign aus falschem Modul importiert)
+
+Nach dem Einbau der neuen Quelle `epgshare_us_locals_epg.py` (siehe
+CITY|-Abschnitt oben, vorherige Session) brach der naechste Workflow-Lauf
+komplett ab: `ImportError: cannot import name
+'tvpassport_kanal_finden_callsign' from 'quellen.epgshare_us_locals_epg'`
+(`generate_epg.py`, Zeile 72) - ein Copy-Paste-Fehler beim Einbau: die
+Funktion `tvpassport_kanal_finden_callsign()` gehoert zu
+`quellen/tvpassport_epg.py` (dort auch tatsaechlich definiert), wurde
+aber versehentlich zusaetzlich in die `from quellen.epgshare_us_locals_epg
+import ...`-Zeile mit aufgenommen statt in die bereits bestehende
+`from quellen.tvpassport_epg import tvpassport_kanal_finden,
+tvpassport_hole_programme`-Zeile. Da Python-Imports beim Start des
+gesamten Skripts ausgefuehrt werden, fuehrte das zum sofortigen Absturz
+VOR jeder Sender-Verarbeitung - kein Sender bekam ueberhaupt ein EPG.
+**Fix:** Import korrigiert - `tvpassport_kanal_finden_callsign` steht
+jetzt in der `tvpassport_epg`-Import-Zeile, aus der
+`epgshare_us_locals_epg`-Import-Zeile entfernt. Verifiziert per
+`python3 -m py_compile` UND per komplettem Testlauf (`python3 -c "import
+generate_epg"` im Hintergrund, lief mit Exit-Code 0 komplett durch,
+inkl. vollem EPG-Generierungslauf) sowie `pytest` (95 Tests, gruen).
+**Lehre:** Bei einer neuen Quellen-Integration IMMER pruefen, dass jeder
+importierte Funktionsname auch tatsaechlich aus dem Modul kommt, in dem
+er implementiert ist - ein falsches, aber syntaktisch gueltiges
+Import-Statement wird von `pytest` (importiert Module oft schon vor dem
+eigentlichen Test) nicht zwingend erfasst, wenn die Tests das betroffene
+Modul nicht direkt beruehren; ein echter `python3 -m py_compile` +
+kompletter Skriptstart ist der zuverlaessigere Check vor einem Push.
