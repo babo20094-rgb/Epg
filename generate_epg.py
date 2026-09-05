@@ -21,8 +21,23 @@ _XML_UNGUELTIGE_ZEICHEN = re.compile(
 
 
 def escape(text, *args, **kwargs):
+    """Wie xml.sax.saxutils.escape(), entfernt zusaetzlich ungueltige
+    XML-Steuerzeichen UND escaped zusaetzlich das doppelte
+    Anfuehrungszeichen ("). Der Fix vom September 2026 (nur
+    Steuerzeichen entfernt) behob den "not well-formed"-Absturz NICHT
+    vollstaendig - Ursache war stattdessen ein rohes " in einem
+    Sender-/Kanalnamen (z.B. ein Team-Spitzname in Anfuehrungszeichen
+    in einem dynamischen Live-Event-Titel): escape() wird in diesem
+    Skript durchgaengig auch fuer XML-ATTRIBUTWERTE benutzt (z.B.
+    channel id="{escape(...)}"), xml.sax.saxutils.escape() escaped
+    per Default aber NUR &/</> - ein einzelnes " darin bricht das
+    umschliessende Attribut und macht die gesamte Datei ungueltig,
+    exakt an derselben Stelle bei jedem Lauf (deterministisch, da eine
+    stabile Kanal-ID betroffen ist, nicht wechselnder Sendungstext)."""
     if text:
         text = _XML_UNGUELTIGE_ZEICHEN.sub("", text)
+    if not args and "entities" not in kwargs:
+        return _sax_escape(text, {'"': "&quot;"})
     return _sax_escape(text, *args, **kwargs)
 
 from epg_lib import (
