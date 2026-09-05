@@ -1863,8 +1863,8 @@ IR|VIRGIN MEDIA TWO|Virgin Media Two ᴸⁱᵛᵉ|https://raw.githubusercontent.
 ##### JOYN (aus Playlist) #####
 JOYN|3SAT ᴿᴬᵂ|3Sat ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/83b5fe05e04d2640.png
 JOYN|ALLGÄU.TV ᴿᴬᵂ|Allgäu.Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/27d4005a6d5997a1.png
-JOYN|ARD PLUS KRIMI DE ᴿᴬᵂ|Ard Plus Krimi De ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929425.png
-JOYN|ARD PLUS LINDENSTRASSE ᴿᴬᵂ|Ard Plus Lindenstrasse ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929424.png
+JOYN|ARD PLUS KRIMI DE ᴿᴬᵂ|Ard Plus Krimi De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ard_plus_krimi.png
+JOYN|ARD PLUS LINDENSTRASSE ᴿᴬᵂ|Ard Plus Lindenstrasse ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ard_plus_lindenstrasse.png
 JOYN|ARD-ALPHA ᴿᴬᵂ|Ard-Alpha ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4152b8ae6c3a662e.png
 JOYN|ARTE ᴿᴬᵂ|Arte ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f7afe1d344ee8d1c.png
 JOYN|AUGSBURG.TV ᴿᴬᵂ|Augsburg.Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bde3faea5226c192.png
@@ -1942,7 +1942,7 @@ JOYN|SAT.1 NIEDERSACHSEN / BREMEN ᴿᴬᵂ|Sat.1 Niedersachsen / Bremen ᴿᴬ�
 JOYN|SAT.1 NRW ᴿᴬᵂ|Sat.1 Nrw ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ec9fe0e260b69b6a.png
 JOYN|SAT.1 RHEINLAND-PFALZ / HESSEN ᴿᴬᵂ|Sat.1 Rheinland-Pfalz / Hessen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f84874b62044cee1.png
 JOYN|SAT.1 ᴿᴬᵂ|Sat.1 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/799ff0b0969b96ee.png
-JOYN|SCOOORE-HD ᴿᴬᵂ|Scooore-Hd ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929345.png
+JOYN|SCOOORE-HD ᴿᴬᵂ|Scooore-Hd ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/scooore.png
 JOYN|SIXX ᴿᴬᵂ|Sixx ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f6d44179cd1e3c8.png
 JOYN|SPIEGEL TV KONFLIKTE ᴿᴬᵂ|Spiegel Tv Konflikte ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1d3583ba95d24603.png
 JOYN|SPORT1 ᴿᴬᵂ|Sport1 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/24d455c3c9b45e5d.png
@@ -1955,7 +1955,7 @@ JOYN|TENNIS CHANNEL ᴿᴬᵂ|Tennis Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.
 JOYN|TERRA MATER WILD ᴿᴬᵂ|Terra Mater Wild ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fc9555a10071884e.png
 JOYN|TLC ᴿᴬᵂ|Tlc ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a099c438ff7a11da.png
 JOYN|TOP FILME ᴿᴬᵂ|Top Filme ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1c62d622d561d182.png
-JOYN|TOP SCI-FI ᴿᴬᵂ|Top Sci-Fi ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929330.png
+JOYN|TOP SCI-FI ᴿᴬᵂ|Top Sci-Fi ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/top_scifi.png
 JOYN|TOP SERIEN ᴿᴬᵂ|Top Serien ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929329.png
 JOYN|TV MAINFRANKEN ᴿᴬᵂ|Tv Mainfranken ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8a541515bdf46013.png
 JOYN|TV OBERFRANKEN ᴿᴬᵂ|Tv Oberfranken ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6bfdfe1b2c3f4f1f.png
@@ -2389,8 +2389,8 @@ PRIME|AMERICAN GLADIATORS ᴿᴬᵂ|American Gladiators ᴿᴬᵂ ᴸⁱᵛᵉ|h
 PRIME|ANGER MANAGEMENT ᴿᴬᵂ|Anger Management ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5d78fd2b310884bd.png
 PRIME|ANIMAL PLANET ᴿᴬᵂ|Animal Planet ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 PRIME|ANTIQUES ROADSHOW UK ᴿᴬᵂ|Antiques Roadshow Uk ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8f1a9d4033a756cd.png
-PRIME|ARD PLUS KRIMI ᴿᴬᵂ|Ard Plus Krimi ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929425.png
-PRIME|ARD PLUS LINDENSTRASSE ᴿᴬᵂ|Ard Plus Lindenstrasse ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929424.png
+PRIME|ARD PLUS KRIMI ᴿᴬᵂ|Ard Plus Krimi ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ard_plus_krimi.png
+PRIME|ARD PLUS LINDENSTRASSE ᴿᴬᵂ|Ard Plus Lindenstrasse ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ard_plus_lindenstrasse.png
 PRIME|ARD-ALPHA ᴿᴬᵂ|Ard-Alpha ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4152b8ae6c3a662e.png
 PRIME|ARE WE THERE YET? ᴿᴬᵂ|Are We There Yet? ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/30c4e54be17ba3b7.png
 PRIME|ARTE ᴿᴬᵂ|Arte ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f7afe1d344ee8d1c.png
@@ -2475,7 +2475,7 @@ PRIME|COURT TV LEGENDARY TRIALS ᴿᴬᵂ|Court Tv Legendary Trials ᴿᴬᵂ �
 PRIME|COURT TV ᴿᴬᵂ|Court Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d1a85dba0ecb195.png
 PRIME|CRIME & JUSTICE ᴿᴬᵂ|Crime & Justice ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e83e4822d44023b2d0ee73afbb48e502ed48932a.png
 PRIME|CRIME CULTS KILLERS BY A&E ᴿᴬᵂ|Crime Cults Killers By A&E ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920326.png
-|PRIME|CRIME SCENE TV | DE ᴿᴬᵂ|Crime Scene Tv | De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/police_lights.png
+|PRIME|CRIME SCENE TV | DE ᴿᴬᵂ|Crime Scene Tv | De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
 PRIME|CRIME SCENES ᴿᴬᵂ|Crime Scenes ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920324.png
 PRIME|CRIMEN ᴿᴬᵂ|Crimen ᴿᴬᵂ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/FoxCrimeAU-Logo.svg/960px-FoxCrimeAU-Logo.svg.png
 PRIME|CRUNCHYROLL ᴿᴬᵂ|Crunchyroll ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32257354a45cf66ba898cc93af6d796622be56a4.png
@@ -2532,7 +2532,7 @@ PRIME|FEAR FACTOR USA ᴿᴬᵂ|Fear Factor Usa ᴿᴬᵂ ᴸⁱᵛᵉ|https://r
 PRIME|FIFTH GEAR ᴿᴬᵂ|Fifth Gear ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/db8681c0f95283ea.png
 PRIME|FILMGOLD ᴿᴬᵂ|Filmgold ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0e9cdc38f4b22ab7.png
 PRIME|FILMRISE ACTION ᴿᴬᵂ|Filmrise Action ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efbfc9310508f7eb.png
-PRIME|FILMRISE BINGE WATCH ᴿᴬᵂ|Filmrise Binge Watch ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920648.png
+PRIME|FILMRISE BINGE WATCH ᴿᴬᵂ|Filmrise Binge Watch ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/filmrise.png
 PRIME|FILMRISE BLACK TV ᴿᴬᵂ|Filmrise Black Tv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920264.png
 PRIME|FILMRISE BRITISH TV ᴿᴬᵂ|Filmrise British Tv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920263.png
 PRIME|FILMRISE CLASSIC TV ᴿᴬᵂ|Filmrise Classic Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2d92a398fdae6fdf.png
@@ -2560,7 +2560,7 @@ PRIME|GOLDSTAR TV ᴿᴬᵂ|Goldstar Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githu
 PRIME|GRAHAM NORTON SHOW ᴿᴬᵂ|Graham Norton Show ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/caeaa1f976a01679adb162d458b5e1178c7e548f.png
 PRIME|GREAT BRITISH MENU ᴿᴬᵂ|Great British Menu ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4d9ab0524b479e62fe7bcd552ab6a49f6e9eaad9.png
 PRIME|GRIT XTRA ᴿᴬᵂ|Grit Xtra ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cb17c02a2924b1de53f4eb6dd55fe5e0e18927f4.png
-PRIME|GRJNGO - WESTERNFILME ᴿᴬᵂ|Grjngo - Westernfilme ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920643.png
+PRIME|GRJNGO - WESTERNFILME ᴿᴬᵂ|Grjngo - Westernfilme ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cowboy.png
 PRIME|GUTE LAUNE ᴿᴬᵂ|Gute Laune ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b9c5e6bbcc9322d.png
 PRIME|HALLMARK MOVIES & MORE ᴿᴬᵂ|Hallmark Movies & More ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4afa000cd7a8c7b3e37fa4b48d062fb185c62696.png
 PRIME|HARDCORE PAWN ᴿᴬᵂ|Hardcore Pawn ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/64a593ea947d0aed.png
@@ -2736,7 +2736,7 @@ PRIME|PORTLANDIA ᴿᴬᵂ|Portlandia ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubu
 PRIME|POWERNATION ᴿᴬᵂ|Powernation ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5076ad7b962c4114.png
 PRIME|PREMIER SPORTS 1 ᴿᴬᵂ|Premier Sports 1 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/10a281011739d7b9.png
 PRIME|PREMIER SPORTS 2 ᴿᴬᵂ|Premier Sports 2 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/257b95ab7f1de492.png
-PRIME|PROFILING PARIS ᴿᴬᵂ|Profiling Paris ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920594.png
+PRIME|PROFILING PARIS ᴿᴬᵂ|Profiling Paris ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/profiling_paris.png
 PRIME|PROSIEBEN FUN ᴿᴬᵂ|Prosieben Fun ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4277e9f54522b2c1.png
 PRIME|PUREFLIX TV ᴿᴬᵂ|Pureflix Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8685a5a4bbde68bab51370011a1b8480c93323c9.png
 PRIME|QELLO CONCERTS BY STINGRAY ᴿᴬᵂ|Qello Concerts By Stingray ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ffe58762c60abc9.png
@@ -2766,7 +2766,7 @@ PRIME|SAT.1 EMOTIONS ᴿᴬᵂ|Sat.1 Emotions ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw
 PRIME|SAY YES TO THE DRESS ᴿᴬᵂ|Say Yes To The Dress ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/840c876b2fc348c215f9455a271094fcfdfbf73a.png
 PRIME|SCARES BY SHUDDER ᴿᴬᵂ|Scares By Shudder ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0978997bfed8684f8bb0d135f445b1635f59b0e3.png
 PRIME|SCIENCE IS AMAZING ᴿᴬᵂ|Science Is Amazing ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919940.png
-PRIME|SCOOORE ᴿᴬᵂ|Scooore ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929345.png
+PRIME|SCOOORE ᴿᴬᵂ|Scooore ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/scooore.png
 PRIME|SCREAMBOXTV ᴿᴬᵂ|Screamboxtv ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919939.png
 PRIME|SCREENPIX ACTION ᴿᴬᵂ|Screenpix Action ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b20f472ef6f3f26e.png
 PRIME|SCREENPIX VOICES ᴿᴬᵂ|Screenpix Voices ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b6cd38c825e4180b.png
@@ -2839,7 +2839,7 @@ PRIME|THE PRICE IS RIGHT: THE BARKER ERA ᴿᴬᵂ|The Price Is Right: The Barke
 PRIME|THE REAL HOUSEWIVES ᴿᴬᵂ|The Real Housewives ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4e3d03d5a675a283.png
 PRIME|THE STAND-UP CHANNEL ᴿᴬᵂ|The Stand-Up Channel ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919838.png
 PRIME|THE WALKING DEAD UNIVERSE ᴿᴬᵂ|The Walking Dead Universe ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b9e1ac9469da78c2.png
-PRIME|THE WICKED TUNA CHANNEL ᴿᴬᵂ|The Wicked Tuna Channel ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920565.png
+PRIME|THE WICKED TUNA CHANNEL ᴿᴬᵂ|The Wicked Tuna Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wicked_tuna.png
 PRIME|THE WOMEN'S SPORTS NETWORK ᴿᴬᵂ|The Women'S Sports Network ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20dda84c712521580cb7cd5afcbf82975ed764b8.png
 PRIME|THIS OLD HOUSE MAKERS CHANNEL ᴿᴬᵂ|This Old House Makers Channel ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919832.png
 PRIME|THIS OLD HOUSE ᴿᴬᵂ|This Old House ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ec37f5b4d156aa4d.png
@@ -2855,7 +2855,7 @@ PRIME|TOP CHEF VAULT ᴿᴬᵂ|Top Chef Vault ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.1
 PRIME|TOP CHEF ᴿᴬᵂ|Top Chef ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c9941a1d96dd83c1e6d4f926a7db6c386f5dae77.png
 PRIME|TOP FILME ᴿᴬᵂ|Top Filme ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1c62d622d561d182.png
 PRIME|TOP GEAR ᴿᴬᵂ|Top Gear ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/11e4275a84c53952.png
-PRIME|TOP SCI-FI ᴿᴬᵂ|Top Sci-Fi ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929330.png
+PRIME|TOP SCI-FI ᴿᴬᵂ|Top Sci-Fi ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/top_scifi.png
 PRIME|TOP TRUE CRIME ᴿᴬᵂ|Top True Crime ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e46fe94c9e17565.png
 PRIME|TORQUE ᴿᴬᵂ|Torque ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7a9a52e31173c03ea3dea64da907bc38e26e33b2.png
 PRIME|TRAILER PARK BOYS ᴿᴬᵂ|Trailer Park Boys ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f7785acd145c3096d44f4926e33770434c4b4c3e.png
@@ -2868,7 +2868,7 @@ PRIME|TRUE HISTORY ᴿᴬᵂ|True History ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.git
 PRIME|TV CLASSICS ᴿᴬᵂ|Tv Classics ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6946beb1faa7ec18.png
 PRIME|TV ONE CRIME & JUSTICE ᴿᴬᵂ|Tv One Crime & Justice ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e83e4822d44023b2d0ee73afbb48e502ed48932a.png
 PRIME|TYLER PERRY'S LOVE THY NEIGHBOR ᴿᴬᵂ|Tyler Perry'S Love Thy Neighbor ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/72f8b80a7095d81144874f97aa96d7515fc332eb.png
-PRIME|TÄTERJAGD (CRIME SCENE SOLVERS) ᴿᴬᵂ|Täterjagd (Crime Scene Solvers) ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920556.png
+PRIME|TÄTERJAGD (CRIME SCENE SOLVERS) ᴿᴬᵂ|Täterjagd (Crime Scene Solvers) ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/taeterjagd.png
 PRIME|U&LAUGHS ᴿᴬᵂ|U&Laughs ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a36af1fccfc7c7b0344a9ac470cb412543809546.png
 PRIME|U&REAL HEROES ᴿᴬᵂ|U&Real Heroes ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3ee0c25fa00a1c793a9b3eed476157957f227ba8.png
 PRIME|U&THE PAST ᴿᴬᵂ|U&The Past ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/19e148fee960905d050184f9252445c22a84e21d.png
@@ -2907,7 +2907,7 @@ PRIME|WORLD'S MOST EVIL KILLERS ᴿᴬᵂ|World'S Most Evil Killers ᴿᴬᵂ �
 PRIME|WPXI PITTSBURGH (NBC) ᴿᴬᵂ|Wpxi Pittsburgh (Nbc) ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/49cfc5e4519fe534.png
 PRIME|WSB ATLANTA (ABC) ᴿᴬᵂ|Wsb Atlanta (Abc) ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/787da13ed9fb552d.png
 PRIME|WSOC CHARLOTTE (ABC) ᴿᴬᵂ|Wsoc Charlotte (Abc) ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/912043736f7c9641.png
-PRIME|X-FACTOR: DAS UNFASSBARE ᴿᴬᵂ|X-Factor: Das Unfassbare ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1920541.png
+PRIME|X-FACTOR: DAS UNFASSBARE ᴿᴬᵂ|X-Factor: Das Unfassbare ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/x_factor_unfassbare.png
 PRIME|XENA WARRIOR PRINCESS ᴿᴬᵂ|Xena Warrior Princess ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/08b6524bdf26a855.png
 PRIME|XITE 80S FLASHBACK ᴿᴬᵂ|Xite 80S Flashback ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919757.png
 PRIME|XITE 90S THROWBACK ᴿᴬᵂ|Xite 90S Throwback ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a366177aa48ce7dd.png
@@ -18358,7 +18358,7 @@ TUBI| FAMILY UNSCRIPTED ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-r
 TUBI| DANCE MOMS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7db8a8b31f04daeeac4cc0905cd423dc93257cd5.png
 TUBI| CRIME THRILLHER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7ca48ec5ffba81daa4e1e3c03b5a048f294c8322.png
 TUBI| CINEVAULT: CLASSICS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/film_reel.png
-TUBI| CHASING CRIMINALS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/police_lights.png
+TUBI| CHASING CRIMINALS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
 TUBI|WORLD'S MOST EVIL KILLERS RAW|World's Most Evil Killers ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/388fa202920a245f1be7c321502cb070e778ac73.png
 TUBI|WELCOME HOME RAW|Welcome Home ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/81eb2dd872255d8be803177858ceccaa06984a8b.png
 TUBI|WANTED:DEAD OR ALIVE RAW|Wanted:dead Or Alive ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/21eef2c676528db59f55e1a1dadf83b07b504734.png
@@ -18479,7 +18479,7 @@ PRIME| KIDS & FAMILY FUN ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-
 PRIME| BRITBOX MYSTERIES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/dcc961a9ad4c38a1aeebf0051bcd561c4291f67a.png
 PRIME| FOX 5 NEW YORK ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8895a7e240e3ad06ece7d538014883a9bc27119e.png
 PRIME| GARDENING WITH MONTY DON ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/monty_don.png
-PRIME| TRAILERS ᴿᴬᵂ
+PRIME| TRAILERS ᴿᴬᵂ|Trailers ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/trailers.png
 PRIME| ABC CHARLESTON NEWS (WCIV.2) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/218b368d580c6e62870c3303241871a1b12b2474.png
 PRIME| THE SIX MILLION DOLLAR MAN ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ff6d04379855a8d870a7458c114c3c7607d6b458.png
 PRIME| NINJA WARRIOR ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ninja_warrior.png
@@ -18487,7 +18487,7 @@ PRIME| PATERNITY COURT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rg
 PRIME| PGA TOUR ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3340531e95f995cf06c4137248b324a1fd0b50d9.png
 PRIME| ID ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3b622733f7665cd9cec91a08bc2dcfbc5747f842.png
 PRIME| EURO CRIME ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/banged_up_abroad.png
-PRIME| CRIME SCENE TV ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/police_lights.png
+PRIME| CRIME SCENE TV ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
 PRIME| GHOST HUNTERS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1e0cd91a01fb5e842ae4915adee1091a8fd6fdc7.png
 PRIME| MONSTER JAM ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/41fc0a77c8864bea689266dbeb222dc5e09d56f0.png
 PRIME| NASH BRIDGES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3168e683e1e25a5fd6c0e59f39c14211b7a99caa.png
@@ -18495,7 +18495,7 @@ PRIME| NBC 4 Washington News ᴿᴬᵂ||https://raw.githubusercontent.com/babo20
 PRIME| NBC 7 washington nc (WITN) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
 PRIME| The Dog Whisperer with Cesar Millan ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cesar_millan.png
 PRIME| Uefa Champions League ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ucl.png
-PRIME| Chasing Criminals ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/police_lights.png
+PRIME| Chasing Criminals ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
 PRIME| Celebrity Name Game ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b0932bb4ea958ef6e22ab5c7eea9bc970f4d0e72.png
 PRIME| CBS News Minnesota ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f09600fdff0999f58b0b2a6d4f10cc10ad5930e6.png
 PRIME| CBS News Chicago ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f004ee2b2f2a44c09173e54aca7b4738befd5441.png
@@ -18564,7 +18564,7 @@ PRIME|HORROR STORIES RAW|Horror Stories ᴸⁱᵛᵉ|https://raw.githubuserconte
 PRIME|HOT ONES RAW|Hot Ones ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2853089c534f6e8fc797f8bbcd26aa2c6f115b97.png
 PRIME|HUNTER RAW|Hunter ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1196bd875ab4caa98a054038feae057993008ae3.png
 PRIME|World's Wildest Police Videos ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3b8524b5730ad62b6f4763a0c966aa6dd376461f.png
-PRIME|Turk on Video ᴿᴬᵂ|
+PRIME|Turk on Video ᴿᴬᵂ|Turk On Video ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/turk_on_video.png
 PRIME|Nature ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9beec60a735dd72127d4374375fde8d14337cead.png
 PRIME|H&C Tv ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3e334aa34fe65b4b637178248caecbff92b9281c.png
 PRIME|Grjngo-Westernfilme ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cowboy.png
@@ -18600,7 +18600,7 @@ PRIME|Startalk ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 PRIME|Spooks (MI-5)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/spooks.png
 PRIME|Speed Sport 1 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/racing.png
 PRIME|Space & Beyond ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/space.png
-PRIME|Sheriffs EL Dorado County ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/police_lights.png
+PRIME|Sheriffs EL Dorado County ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
 PRIME|Rustic Retreats ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cabin.png
 PRIME|Rugbypass Tv ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6954958c927b0013f31051cbe019a6e917e0936f.png
 PRIME|Rovr Pets ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pets.png
