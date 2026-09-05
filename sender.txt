@@ -2033,7 +2033,7 @@ MK|HBO FHD|Hbo Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/
 MK|KANAL 5|Kanal 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
 MK|KANAL 5 HD|Kanal 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
 MK|KANAL 5 ⱽᴵᴾ ᴿᴬᵂ|Kanal 5 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e608a6f6859023.png
-MK|KANAL 8|Kanal 8 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/76e608a6f685902331b72616e38795cf0de84f4b.png
+MK|KANAL 8|Kanal 8 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kanal8/kanal8.png
 MK|KOHA TV HD|Koha Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c96ffb9e4c84bd04.png
 MK|M-NET INFO|M-Net Info ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d9dec2c2ba5a58ed.png
 MK|M-NET KIDS|M-Net Kids ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c53202bfcd22f176.png
@@ -18113,7 +18113,7 @@ MK|FOLK KLUB TV HD|Folk Klub TV HD ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 MK|TV PLUS|TV Plus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/431a05066b6063dfe83eea3a9e447f22d4304727.png
 MK|FOLK HD|Folk HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c6f1b3ce97a9ff9f31dd6889400e404c4bb6c93d.png
 MK|INTV AVSRALIJA|Intv Avsralija ᴸⁱᵛᵉ|
-MK|ROMA TV|Roma TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e76e5545b045a22cd00f0d0d1fec777af6ca27ec.png
+MK|ROMA TV|Roma TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/roma_tv/roma_tv.png
 MK|INTV AVSTRALIJA HD|Intv Avstralija HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/35c9350948287c7af7140dc55e8d208f72ae7dc7.png
 MK|FOX LIVE|Fox Live ᴸⁱᵛᵉ|
 MK|FOX HD|Fox HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ee2cd75fecf2b5f93b6154a0ffa01bcf1310807c.png
