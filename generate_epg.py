@@ -67,7 +67,8 @@ from quellen.dazn_epg import dazn_kanal_finden, dazn_hole_programme
 from quellen.freeview_epg import freeview_kanal_finden, freeview_hole_programme
 from quellen.tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
 from quellen.epgshare_us_epg import epgshare_us_kanal_finden, epgshare_us_hole_programme
-from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme, tvpassport_kanal_finden_callsign
+from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
+from quellen.epgshare_us_locals_epg import epgshare_us_locals_kanal_finden, epgshare_us_locals_hole_programme, tvpassport_kanal_finden_callsign
 from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
 from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
@@ -3039,34 +3040,52 @@ for daten in tvpassport_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# TVPASSPORT (Call-Sign): automatischer Abgleich fuer alle "CITY|"-
-# Sender (lokale US-Sender mit Call-Sign im Namen, siehe
-# tvpassport_kanal_finden_callsign() in tvpassport_epg.py). Kein
-# eigenes Praefix noetig. Ohne jegliche CITY|-Zeile in sender.txt
-# passiert hier gar nichts.
+# EPGSHARE-US-LOCALS / TVPASSPORT (Call-Sign): automatischer Abgleich
+# fuer alle "CITY|"-Sender (lokale US-Sender mit Call-Sign im Namen).
+# Erster Versuch ist epgshare_us_locals_epg.py (epgshare01.online,
+# ~4.400 US-Lokalsender, Quelle tmsapi.com/Gracenote) - stabileres
+# XMLTV statt HTML-Scraping, deckt teils Call-Signs ab, die bei
+# tvpassport.com keinen Haupt-Affiliate-Eintrag haben. tvpassport.com
+# (siehe tvpassport_kanal_finden_callsign()) bleibt zweiter Versuch,
+# falls epgshare01 fuer einen Call-Sign nichts liefert. Kein eigenes
+# Praefix noetig. Ohne jegliche CITY|-Zeile in sender.txt passiert hier
+# gar nichts.
 # ==========================================================
 
 for daten in tvpassport_callsign_sender:
     programme = []
     try:
-        site_id = tvpassport_kanal_finden_callsign(daten["sender"])
+        site_id = epgshare_us_locals_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = epgshare_us_locals_hole_programme(site_id, TVPASSPORT_TAGE)
     except Exception as e:
         pass  # log unterdrueckt: keine echten Programmdaten
         programme = []
+
+    if programme:
+        _echte_quelle_zaehlen("EpgshareUS-Locals")
+    else:
+        try:
+            site_id = tvpassport_kanal_finden_callsign(daten["sender"])
+            if site_id is not None:
+                programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
+        if programme:
+            _echte_quelle_zaehlen("TVPassport-CallSign")
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
 
     daten["tvpassport_intervalle"] = daten.get("tvpassport_intervalle", []) + [
         (p["start"], p["stop"]) for p in programme
     ]
 
     if programme:
-        _echte_quelle_zaehlen("TVPassport-CallSign")
         _schreibe_echte_programme(daten, programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
