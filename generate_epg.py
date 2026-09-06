@@ -79,6 +79,7 @@ from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
 from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
+from quellen.iptvepg_de_epg import iptvepg_de_kanal_finden, iptvepg_de_hole_programme
 from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
 
 
@@ -211,7 +212,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle"],
     "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle"],
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
     "mk": ["mk_intervalle"],
@@ -2634,6 +2635,7 @@ SEARCH_CH_TAGE = 3
 TUBI_TAGE = 2
 TVPROFIL_TAGE = 3
 MK_TAGE = 3
+IPTVEPG_DE_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
@@ -3623,6 +3625,28 @@ for daten in plutotv_sender:
                     if search_ch_programme:
                         _echte_quelle_zaehlen("Search.ch")
                         _schreibe_echte_programme(daten, search_ch_programme)
+                    else:
+                        # iptv-epg.org als SIEBTER und letzter Versuch
+                        # fuer DE-Sender (siehe iptvepg_de_epg.py) -
+                        # deckt u.a. ARD-Regionalstudios (WDR/MDR/NDR/
+                        # rbb) ab, die deswird.org nur als bundesweiten
+                        # Sammelkanal kennt.
+                        iptvepg_de_programme = []
+                        try:
+                            iptvepg_de_site_id = iptvepg_de_kanal_finden(daten["sender"])
+                            if iptvepg_de_site_id is not None:
+                                iptvepg_de_programme = iptvepg_de_hole_programme(iptvepg_de_site_id, IPTVEPG_DE_TAGE)
+                            else:
+                                pass  # log unterdrueckt: keine echten Programmdaten
+                        except Exception as e:
+                            pass  # log unterdrueckt: keine echten Programmdaten
+                            iptvepg_de_programme = []
+
+                        daten["iptvepg_de_intervalle"] = [(p["start"], p["stop"]) for p in iptvepg_de_programme]
+
+                        if iptvepg_de_programme:
+                            _echte_quelle_zaehlen("iptv-epg.org (DE)")
+                            _schreibe_echte_programme(daten, iptvepg_de_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
