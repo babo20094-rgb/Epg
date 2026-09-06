@@ -142,20 +142,23 @@ def mojmaxtv_kanal_finden(kanalname):
     if not kanaele:
         return None
 
-    # "SK 1".."SK 10" (eigene Playlist-Abkuerzung in sender.txt, z.B.
-    # "HR|SK 1") vs. "Sport Klub 1" (voller Name bei MojMaxTV, FALLS
-    # vorhanden): die normalisierten Schluessel "SK1" vs. "SPORTKLUB1"
-    # liegen bei so kurzen Strings weit unter der difflib-Aehnlichkeits-
-    # Schwelle (0.72), ein exakter Treffer war deshalb nie moeglich.
-    # WICHTIG (Bug September 2026 behoben): MojMaxTV fuehrt inzwischen
-    # GAR KEINEN "Sport Klub"-Kanal mehr in der Kanalliste (nur noch
-    # Arena Sport 1-10 u.ae.) - der unscharfe difflib-Fallback unten
-    # matchte "SK 1" dadurch faelschlich auf den voellig unabhaengigen
-    # Kanal "Sport 1" (deutsche Sendungen statt kroatischem Sport-Klub-
-    # Programm). Fuer dieses Alias-Muster wird deshalb NUR noch ein
-    # exakter Treffer akzeptiert - kein unscharfer Fallback, lieber
-    # kein Treffer als ein falscher.
-    sk_match = re.match(r"^SK\s*0*(\d+)$", kanalname.strip(), re.IGNORECASE)
+    # "SK 1".."SK 10"/"SPORT KLUB 1".."SPORT KLUB 10" (sender.txt-Namen,
+    # z.B. "HR|SK 1" oder "HR|SPORT KLUB 1") vs. "Sport Klub 1" (voller
+    # Name bei MojMaxTV, FALLS vorhanden): die normalisierten Schluessel
+    # "SK1" vs. "SPORTKLUB1" liegen bei so kurzen Strings weit unter der
+    # difflib-Aehnlichkeits-Schwelle (0.72), ein exakter Treffer war
+    # deshalb nie moeglich.
+    # WICHTIG (Bug September 2026 behoben, September 2026 erneut
+    # aufgetreten nach der HR|SK->HR|SPORT KLUB-Umbenennung in
+    # sender.txt): MojMaxTV fuehrt inzwischen GAR KEINEN "Sport Klub"-
+    # Kanal mehr in der Kanalliste (nur noch Arena Sport 1-10 u.ae.) -
+    # der unscharfe difflib-Fallback unten matchte sowohl "SK 1" als
+    # auch (nach der Umbenennung) "SPORT KLUB 1" dadurch faelschlich auf
+    # voellig unabhaengige Kanaele (z.B. deutsche Reality-TV-Sendungen
+    # statt kroatischem Sport-Klub-Programm). Fuer BEIDE Namensvarianten
+    # wird deshalb NUR noch ein exakter Treffer akzeptiert - kein
+    # unscharfer Fallback, lieber kein Treffer als ein falscher.
+    sk_match = re.match(r"^(?:SK|SPORT\s*KLUB)\s*0*(\d+)$", kanalname.strip(), re.IGNORECASE)
     if sk_match:
         kanalname = f"Sport Klub {sk_match.group(1)}"
         ziel_schluessel = normalisiere_sendername(kanalname)
