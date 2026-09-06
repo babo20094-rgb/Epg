@@ -247,6 +247,9 @@ CITY|PBS KETS HOUSTON ᴿᴬᵂ|Pbs Kets Houston ᴿᴬᵂ ᴸⁱᵛᵉ|https://
 CITY|PBS KLPB BROOKLYN ᴿᴬᵂ|Pbs Klpb Brooklyn ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS KLTL MARIETTA ᴿᴬᵂ|Pbs Kltl Marietta ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS KQED SAN FRANCISCO ᴿᴬᵂ|Pbs Kqed San Francisco ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f301173549b7cb9e.png
+US|PBS DETROIT (WTVS|Pbs Detroit Wtvs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+|US| PBS NY | PLAINVIEW (WLIW)|Pbs Ny Plainview Wliw ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
+|US| PBS (WGBH) MA | BOSTON|Pbs Wgbh Ma Boston ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 CITY|PBS KQIN LOS ANGELES ᴿᴬᵂ|Pbs Kqin Los Angeles ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/deaba86b880b5609.png
 CITY|PBS KRCB SAN FRANCISCO ᴿᴬᵂ|Pbs Krcb San Francisco ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f301173549b7cb9e.png
 CITY|PBS KRMA DENVER ᴿᴬᵂ|Pbs Krma Denver ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
@@ -1451,6 +1454,7 @@ GO|FAIL ARMY|Fail Army ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-
 GO|FAMILY ENTERTAINMENT TELEVISION|Family Entertainment Television ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4b6e22452040aa2f.png
 GO|FAMILY MOVIE CLASSICS|Family Movie Classics ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7bea1bc4c07e41fb.png
 GO|FANDUEL TV|Fanduel Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bc794230099c1caa.png
+US|FANDUEL TV EXTRA|Fanduel Tv Extra ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bc794230099c1caa.png
 GO|FIGHT NETWORK|Fight Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/411f878ace6507fc.png
 GO|FM|Fm ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/958ab038fda60bb2.png
 GO|FOOD NETWORK|Food Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/32a15fd5e2611fa3.png

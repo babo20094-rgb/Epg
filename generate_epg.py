@@ -2016,7 +2016,7 @@ if _m3u_url_fuer_dyn_ppv:
                     dyn_ppv_api_playlist_namen[_nummer] = _voller_name
                 continue
 
-            _hr_sk_match = re.match(r"^HR\|\s*SK\s*0*(\d{1,2})\s*(?:HD|FHD)?$", _voller_name, re.IGNORECASE)
+            _hr_sk_match = re.match(r"^HR\|\s*(?:SK|SPORT\s*KLUB)\s*0*(\d{1,2})\s*(?:HD|FHD)?$", _voller_name, re.IGNORECASE)
             if _hr_sk_match:
                 _nummer = int(_hr_sk_match.group(1))
                 if 1 <= _nummer <= 10:
