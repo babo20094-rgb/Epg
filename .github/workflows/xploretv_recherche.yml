@@ -25,6 +25,14 @@ jobs:
             head -c 300 /tmp/c.txt; echo
           done
 
+          echo "=== epggw.a1.mk mit mobilem User-Agent (Android) ==="
+          MOBILE_UA="Mozilla/5.0 (Linux; Android 13; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
+          for path in "/a/service.m3u" "/" ; do
+            echo "--- epggw.a1.mk$path ---"
+            curl -s -o /tmp/d.txt -w "HTTP: %{http_code}\n" "https://epggw.a1.mk$path" -A "$MOBILE_UA" --max-time 10
+            head -c 400 /tmp/d.txt; echo
+          done
+
           echo "=== DNS-Aufloesung ==="
           for host in xploretv.tv epggw.a1.mk api.xploretv.tv; do
             echo "--- $host ---"
