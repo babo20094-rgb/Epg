@@ -33,8 +33,15 @@ jobs:
             head -c 400 /tmp/d.txt; echo
           done
 
+          echo "=== gliktv.mk ==="
+          for path in "/" "/epg" "/api" "/tv-program" ; do
+            echo "--- gliktv.mk$path ---"
+            curl -sL -o /tmp/e.txt -w "HTTP: %{http_code}\n" "https://gliktv.mk$path" -A "Mozilla/5.0" --max-time 10
+            head -c 500 /tmp/e.txt; echo
+          done
+
           echo "=== DNS-Aufloesung ==="
-          for host in xploretv.tv epggw.a1.mk api.xploretv.tv; do
+          for host in xploretv.tv epggw.a1.mk api.xploretv.tv gliktv.mk; do
             echo "--- $host ---"
             getent hosts "$host" || echo "keine Aufloesung"
           done
