@@ -629,7 +629,7 @@ DE|PHOENIX HD|Phoenix Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 DE|PLEX BOX-OFFICE|Plex Box-Office ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0c90e53cda0de591.png
 DE|PLEX KINDER +|Plex Kinder + ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/plex/plex_kinder_plus.png
 DE|PRISON BREAK ᴿᴬᵂ|Prison Break ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|PRO7SAT.1 FHD|Pro7Sat.1 Fhd ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/PRO7SAT1.png
+DE|PRO7SAT.1 FHD|Pro7Sat.1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/prosiebensat1.png
 DE|PROSIEBEN|Prosieben ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/de7a379eee6f73f9.png
 DE|PROSIEBEN FHD|Prosieben Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/de7a379eee6f73f9.png
 DE|PROSIEBEN FUN HD|Prosieben Fun Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4277e9f54522b2c1.png

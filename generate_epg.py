@@ -2741,6 +2741,23 @@ def _schreibe_echte_programme(daten, programme):
 
 
 for daten in telemach_sender:
+    # Alle drei BA-Quellen (Telemach/mtel.ba/klix.ba) werden IMMER der
+    # Reihe nach versucht (nicht mehr abgebrochen, sobald die erste
+    # Quelle etwas liefert) - eine Quelle mit nur TEILWEISER Tages-
+    # abdeckung liess den Rest frueher faelschlich auf den generischen
+    # Platzhaltertext fallen, obwohl eine nachfolgende Quelle fuer genau
+    # dieses Zeitfenster echte Daten gehabt haette (siehe gleiche Luecken-
+    # Fuellung in der DE-Kaskade weiter unten). Jede Quelle schreibt nur
+    # die Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt
+    # sind - keine doppelten/widerspruechlichen <programme>-Eintraege.
+    _telemach_geschrieben_intervalle = []
+
+    def _telemach_ohne_ueberlappung(programme_liste):
+        return [
+            p for p in programme_liste
+            if not ueberlappt_intervall(_telemach_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+
     programme = []
     try:
         site_id = telemach_kanal_finden(daten["sender"], daten["telemach"]["country"])
@@ -2757,68 +2774,69 @@ for daten in telemach_sender:
         programme = []
 
     daten["telemach_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-    echte_daten_gefunden = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("Telemach")
         _schreibe_echte_programme(daten, programme)
+        _telemach_geschrieben_intervalle.extend(daten["telemach_intervalle"])
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
-        # mtel.ba als zweiter Versuch: nur fuer BA-Sender (mtel.ba kennt
-        # kein Montenegro), und nur weil Telemach fuer diesen Sender
-        # nichts gefunden hat. Kein Merge beider Quellen - entweder
-        # Telemach ODER mtel.ba ODER generisch.
-        if daten["telemach"]["country"] == "ba":
-            mtel_programme = []
-            try:
-                mtel_site_id = mtel_kanal_finden(daten["sender"])
-                if mtel_site_id is not None:
-                    mtel_programme = mtel_hole_programme(mtel_site_id, MTEL_TAGE)
-                else:
-                    pass  # log unterdrueckt: keine echten Programmdaten
-            except Exception as e:
-                pass  # log unterdrueckt: keine echten Programmdaten
-                mtel_programme = []
-
-            daten["mtel_intervalle"] = [(p["start"], p["stop"]) for p in mtel_programme]
-
-            if mtel_programme:
-                _echte_quelle_zaehlen("mtel.ba")
-                _schreibe_echte_programme(daten, mtel_programme)
-                echte_daten_gefunden = True
+    # mtel.ba als zweiter Versuch: nur fuer BA-Sender (mtel.ba kennt kein
+    # Montenegro). Wird immer versucht (fuellt ggf. Luecken von
+    # Telemach), schreibt aber nur die noch unbedeckten Zeitfenster.
+    if daten["telemach"]["country"] == "ba":
+        mtel_programme = []
+        try:
+            mtel_site_id = mtel_kanal_finden(daten["sender"])
+            if mtel_site_id is not None:
+                mtel_programme = mtel_hole_programme(mtel_site_id, MTEL_TAGE)
             else:
                 pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            mtel_programme = []
 
-                # klix.ba als dritter Versuch fuer BA-Sender (siehe
-                # klix_epg.py), nur wenn Telemach UND mtel.ba nichts
-                # gefunden haben.
-                # (mymedia.ba war frueher hier als dritter Versuch
-                # eingehaengt, deckte technisch nur den einen festen
-                # Kanal "MY TV" ab - September 2026 dauerhaft entfernt:
-                # die Seite lief auf ein neues Plugin um, das fuer "MY
-                # TV" auf jedem geprueften Datum nur noch einen "Keine
-                # Sendungen"-Leerzustand zeigt, keine echten Daten mehr.)
-                if not echte_daten_gefunden:
-                    klix_programme = []
-                    try:
-                        klix_site_id = klix_kanal_finden(daten["sender"])
-                        if klix_site_id is not None:
-                            klix_programme = klix_hole_programme(klix_site_id, KLIX_TAGE)
-                        else:
-                            pass  # log unterdrueckt: keine echten Programmdaten
-                    except Exception as e:
-                        pass  # log unterdrueckt: keine echten Programmdaten
-                        klix_programme = []
+        daten["mtel_intervalle"] = [(p["start"], p["stop"]) for p in mtel_programme]
 
-                    daten["klix_intervalle"] = [(p["start"], p["stop"]) for p in klix_programme]
+        if mtel_programme:
+            neue_programme = _telemach_ohne_ueberlappung(mtel_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("mtel.ba")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
 
-                    if klix_programme:
-                        _echte_quelle_zaehlen("klix.ba")
-                        _schreibe_echte_programme(daten, klix_programme)
-                        echte_daten_gefunden = True
-                    else:
-                        pass  # log unterdrueckt: keine echten Programmdaten
+        # klix.ba als dritter Versuch fuer BA-Sender (siehe klix_epg.py).
+        # (mymedia.ba war frueher hier als dritter Versuch eingehaengt,
+        # deckte technisch nur den einen festen Kanal "MY TV" ab -
+        # September 2026 dauerhaft entfernt: die Seite lief auf ein
+        # neues Plugin um, das fuer "MY TV" auf jedem geprueften Datum
+        # nur noch einen "Keine Sendungen"-Leerzustand zeigt, keine
+        # echten Daten mehr.) Wird immer versucht, schreibt aber nur die
+        # noch unbedeckten Zeitfenster.
+        klix_programme = []
+        try:
+            klix_site_id = klix_kanal_finden(daten["sender"])
+            if klix_site_id is not None:
+                klix_programme = klix_hole_programme(klix_site_id, KLIX_TAGE)
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            klix_programme = []
+
+        daten["klix_intervalle"] = [(p["start"], p["stop"]) for p in klix_programme]
+
+        if klix_programme:
+            neue_programme = _telemach_ohne_ueberlappung(klix_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("klix.ba")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
 # SKY: echte Programmdaten fuer SKY:-Sender (siehe sky_epg.py und der
@@ -3142,24 +3160,29 @@ for daten in mts_sender:
         programme = []
 
     daten["mts_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    # Sammelt ueber die drei RS-Fallback-Schritte (mts.rs/SportKlub/
+    # Arena) hinweg, was bereits tatsaechlich geschrieben wurde - jede
+    # nachfolgende Quelle fuellt damit nur noch unbedeckte Zeitfenster,
+    # statt bei jeder Teilabdeckung komplett uebersprungen zu werden
+    # (gleiche Luecken-Fuellung wie in der DE-Kaskade, siehe dort).
+    daten["_rs_geschrieben_intervalle"] = []
 
     if programme:
         _echte_quelle_zaehlen("mts.rs")
         _schreibe_echte_programme(daten, programme)
+        daten["_rs_geschrieben_intervalle"].extend(daten["mts_intervalle"])
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# SPORTKLUB: zweiter Versuch fuer alle RS-Sender, bei denen mts.rs nichts
-# gefunden hat (siehe sportklub_epg.py - mts.rs fuehrt KEINE "Sport
-# Klub"-Kanaele, epgshare01.online hat sie, bereits als HR-/SI-Fallback
-# im Einsatz). Kein eigenes Praefix noetig.
+# SPORTKLUB: zweiter Versuch fuer alle RS-Sender (siehe sportklub_epg.py
+# - mts.rs fuehrt KEINE "Sport Klub"-Kanaele, epgshare01.online hat sie,
+# bereits als HR-/SI-Fallback im Einsatz). Wird immer versucht (fuellt
+# ggf. Luecken von mts.rs), schreibt aber nur die noch unbedeckten
+# Zeitfenster. Kein eigenes Praefix noetig.
 # ==========================================================
 
 for daten in mts_sender:
-    if daten.get("mts_intervalle"):
-        continue  # mts.rs hat fuer diesen Sender bereits echte Daten geliefert
-
     programme = []
     try:
         site_id = sportklub_kanal_finden(daten["sender"])
@@ -3174,8 +3197,14 @@ for daten in mts_sender:
     daten["mts_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("SportKlub")
-        _schreibe_echte_programme(daten, programme)
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("SportKlub")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
@@ -3188,13 +3217,11 @@ for daten in mts_sender:
 # (dieselbe Quelle wie beim ARENA:-Praefix) uebernimmt stattdessen. Kein
 # eigenes Praefix noetig, die bestehenden "RS|ARENA SPORT N ..."-Zeilen
 # in sender.txt bleiben unveraendert (ihre Kanal-IDs matchen bereits
-# korrekt gegen die eigene Playlist).
+# korrekt gegen die eigene Playlist). Wird immer versucht, schreibt aber
+# nur die noch unbedeckten Zeitfenster.
 # ==========================================================
 
 for daten in mts_sender:
-    if daten.get("mts_intervalle") or daten.get("mts_sportklub_intervalle"):
-        continue  # mts.rs/SportKlub haben fuer diesen Sender bereits echte Daten geliefert
-
     if not re.match(r"^ARENA\s*SPORT\b", daten["sender"].strip(), re.IGNORECASE):
         continue
 
@@ -3212,8 +3239,14 @@ for daten in mts_sender:
     daten["mts_arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("Arena Sport")
-        _schreibe_echte_programme(daten, programme)
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Arena Sport")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
@@ -3239,24 +3272,27 @@ for daten in mojmaxtv_sender:
         programme = []
 
     daten["a1_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    # Sammelt ueber die drei HR-Fallback-Schritte (A1/MojMaxTV/SportKlub)
+    # hinweg, was bereits tatsaechlich geschrieben wurde - jede
+    # nachfolgende Quelle fuellt damit nur noch unbedeckte Zeitfenster,
+    # statt bei jeder Teilabdeckung komplett uebersprungen zu werden
+    # (gleiche Luecken-Fuellung wie in der DE-Kaskade, siehe dort).
+    daten["_hr_geschrieben_intervalle"] = []
 
     if programme:
         _echte_quelle_zaehlen("A1")
         _schreibe_echte_programme(daten, programme)
+        daten["_hr_geschrieben_intervalle"].extend(daten["a1_intervalle"])
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# MOJMAXTV: zweiter Versuch fuer alle HR-Sender, bei denen A1 nichts
-# gefunden hat (siehe mojmaxtv_epg.py). Kein eigenes Praefix noetig.
-# Ohne jegliche HR-Zeile in sender.txt passiert hier gar nichts -
-# keine zusaetzlichen Netzwerk-Aufrufe.
+# MOJMAXTV: zweiter Versuch fuer alle HR-Sender (siehe mojmaxtv_epg.py).
+# Wird immer versucht (fuellt ggf. Luecken von A1), schreibt aber nur
+# die noch unbedeckten Zeitfenster. Kein eigenes Praefix noetig.
 # ==========================================================
 
 for daten in mojmaxtv_sender:
-    if daten.get("a1_intervalle"):
-        continue  # A1 hat fuer diesen Sender bereits echte Daten geliefert
-
     programme = []
     try:
         site_id = mojmaxtv_kanal_finden(daten["sender"])
@@ -3271,23 +3307,26 @@ for daten in mojmaxtv_sender:
     daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("MojMaxTV")
-        _schreibe_echte_programme(daten, programme)
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("MojMaxTV")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# SPORTKLUB: dritter Versuch fuer alle HR-Sender, bei denen weder A1
-# noch MojMaxTV etwas gefunden hat (siehe sportklub_epg.py - MojMaxTV
-# fuehrt seit September 2026 keine "Sport Klub"-Kanaele mehr, betrifft
-# "HR|SK N"). Kein eigenes Praefix noetig, laeuft automatisch als
-# Fallback innerhalb derselben mojmaxtv_sender-Liste.
+# SPORTKLUB: dritter Versuch fuer alle HR-Sender (siehe sportklub_epg.py
+# - MojMaxTV fuehrt seit September 2026 keine "Sport Klub"-Kanaele mehr,
+# betrifft "HR|SK N"). Wird immer versucht, schreibt aber nur die noch
+# unbedeckten Zeitfenster. Kein eigenes Praefix noetig, laeuft
+# automatisch als Fallback innerhalb derselben mojmaxtv_sender-Liste.
 # ==========================================================
 
 for daten in mojmaxtv_sender:
-    if daten.get("a1_intervalle") or daten.get("mojmaxtv_intervalle"):
-        continue  # A1/MojMaxTV haben fuer diesen Sender bereits echte Daten geliefert
-
     programme = []
     try:
         site_id = sportklub_kanal_finden(daten["sender"])
@@ -3302,8 +3341,14 @@ for daten in mojmaxtv_sender:
     daten["sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("SportKlub")
-        _schreibe_echte_programme(daten, programme)
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("SportKlub")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
@@ -3327,11 +3372,15 @@ for daten in siol_sender:
         programme = []
 
     daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    # Wird immer versucht (fuellt ggf. Luecken von Siol), schreibt aber
+    # nur die noch unbedeckten Zeitfenster - gleiche Luecken-Fuellung
+    # wie in der DE-Kaskade, siehe dort.
+    _siol_geschrieben_intervalle = []
 
     if programme:
         _echte_quelle_zaehlen("Siol")
         _schreibe_echte_programme(daten, programme)
-        continue
+        _siol_geschrieben_intervalle.extend(daten["siol_intervalle"])
 
     # Delo.si (echte SLOWENISCHE Sport-Klub-Daten) als zweiter Versuch
     # fuer SI-Sender nach siol.net - siol.net fuehrt selbst keine
@@ -3374,7 +3423,12 @@ for daten in siol_sender:
     daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
 
     if sportklub_programme:
-        _schreibe_echte_programme(daten, sportklub_programme)
+        neue_programme = [
+            p for p in sportklub_programme
+            if not ueberlappt_intervall(_siol_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _schreibe_echte_programme(daten, neue_programme)
 
 # ==========================================================
 # TVPROFIL.NET: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/MO/
@@ -3494,6 +3548,30 @@ for daten in plutotv_sender:
     if _ard_regional_treffer and _ard_regional_treffer.group(0) != daten["sender"]:
         _deswird_suchbegriffe.append(_ard_regional_treffer.group(1))
 
+    # Alle sieben DE-Quellen werden IMMER der Reihe nach versucht (nicht
+    # mehr abgebrochen, sobald die erste Quelle irgendetwas liefert) -
+    # frueher beendete ein Treffer bei deswird.org die Kaskade komplett,
+    # auch wenn deswird.org nur einen TEIL des Tages abdeckte (z.B. nur
+    # vormittags/nachmittags). Der unbedeckte Rest bekam dann faelschlich
+    # den generischen "<Sender> ᴸⁱᵛᵉ"-Platzhaltertext, obwohl z.B.
+    # hoerzu.de fuer genau dieses Zeitfenster echte Daten gehabt haette
+    # (September 2026 an "SIXX HD" entdeckt: deswird.org deckte nur
+    # 00:00-13:30 und 20:05-24:00 Uhr ab, hoerzu.de aber den kompletten
+    # Tag). Jede nachfolgende Quelle wird jetzt IMMER befragt; ihre
+    # Sendungen werden nur dort tatsaechlich ins XML geschrieben, wo sie
+    # NICHT mit einer bereits von einer frueheren Quelle geschriebenen
+    # Sendung ueberlappen (_ohne_bereits_geschriebene_ueberlappung()) -
+    # keine doppelten/widerspruechlichen <programme>-Eintraege fuer
+    # denselben Zeitpunkt, aber echte Luecken werden jetzt mit echten
+    # Daten der naechsten Quelle statt mit dem generischen Text gefuellt.
+    _de_geschrieben_intervalle = []
+
+    def _ohne_bereits_geschriebene_ueberlappung(programme_liste):
+        return [
+            p for p in programme_liste
+            if not ueberlappt_intervall(_de_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+
     programme = []
     try:
         site_id = None
@@ -3514,10 +3592,11 @@ for daten in plutotv_sender:
     if programme:
         _echte_quelle_zaehlen("Deswird")
         _schreibe_echte_programme(daten, programme)
-        continue
+        _de_geschrieben_intervalle.extend(daten["deswird_intervalle"])
 
-    # Pluto TV als zweiter Versuch fuer DE-Sender (siehe
-    # plutotv_epg.py), nur wenn deswird.org nichts gefunden hat.
+    # Pluto TV als zweiter Versuch fuer DE-Sender (siehe plutotv_epg.py) -
+    # wird immer versucht, schreibt aber nur die Zeitfenster, die
+    # deswird.org (falls es etwas fand) noch NICHT abgedeckt hat.
     programme = []
     try:
         site_id = plutotv_kanal_finden(daten["sender"])
@@ -3532,121 +3611,138 @@ for daten in plutotv_sender:
     daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("PlutoTV")
-        _schreibe_echte_programme(daten, programme)
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(programme)
+        if neue_programme:
+            _echte_quelle_zaehlen("PlutoTV")
+            _schreibe_echte_programme(daten, neue_programme)
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
-        # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
-        # tvmovie_epg.py), nur wenn weder deswird.org noch Pluto TV
-        # etwas gefunden haben.
-        tvmovie_programme = []
-        try:
-            tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
-            if tvmovie_site_id is not None:
-                tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
-            else:
-                pass  # log unterdrueckt: keine echten Programmdaten
-        except Exception as e:
-            pass  # log unterdrueckt: keine echten Programmdaten
-            tvmovie_programme = []
-
-        daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
-
-        if tvmovie_programme:
-            _echte_quelle_zaehlen("TvMovie")
-            _schreibe_echte_programme(daten, tvmovie_programme)
+    # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
+    # tvmovie_epg.py) - wird immer versucht, schreibt aber nur die
+    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
+    tvmovie_programme = []
+    try:
+        tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
+        if tvmovie_site_id is not None:
+            tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
         else:
-            # hoerzu.de als vierter Versuch fuer DE-Sender (siehe
-            # hoerzu_epg.py), nur wenn weder deswird.org noch Pluto TV
-            # noch tvmovie.de etwas gefunden haben.
-            hoerzu_programme = []
-            try:
-                hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
-                if hoerzu_slug is not None:
-                    hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
-                else:
-                    pass  # log unterdrueckt: keine echten Programmdaten
-            except Exception as e:
-                pass  # log unterdrueckt: keine echten Programmdaten
-                hoerzu_programme = []
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        tvmovie_programme = []
 
-            daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
+    daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
 
-            if hoerzu_programme:
-                _echte_quelle_zaehlen("Hoerzu")
-                _schreibe_echte_programme(daten, hoerzu_programme)
-            else:
-                # Joyn-VOD als fuenfter und letzter Versuch fuer DE-
-                # Sender (siehe joyn_vod_epg.py) - deckt Joyns eigene
-                # thematische Serien-/Doku-"Sender" ab (z.B. "Ancient
-                # Aliens", "Der letzte Bulle"), die keiner der
-                # vorherigen vier Quellen kennt.
-                # (Samsung TV Plus war frueher hier als fuenfter
-                # Versuch eingehaengt - September 2026 dauerhaft
-                # entfernt, der Host hat die XMLTV-Datei entfernt,
-                # 404 bei jedem Abruf.)
-                joyn_vod_programme = []
-                try:
-                    joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
-                    if joyn_vod_site_id is not None:
-                        joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
-                    else:
-                        pass  # log unterdrueckt: keine echten Programmdaten
-                except Exception as e:
-                    pass  # log unterdrueckt: keine echten Programmdaten
-                    joyn_vod_programme = []
+    if tvmovie_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(tvmovie_programme)
+        if neue_programme:
+            _echte_quelle_zaehlen("TvMovie")
+            _schreibe_echte_programme(daten, neue_programme)
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
-                daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
+    # hoerzu.de als vierter Versuch fuer DE-Sender (siehe hoerzu_epg.py) -
+    # wird immer versucht, schreibt aber nur die Zeitfenster, die noch
+    # von keiner vorherigen Quelle abgedeckt sind.
+    hoerzu_programme = []
+    try:
+        hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
+        if hoerzu_slug is not None:
+            hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        hoerzu_programme = []
 
-                if joyn_vod_programme:
-                    _echte_quelle_zaehlen("Joyn-VOD")
-                    _schreibe_echte_programme(daten, joyn_vod_programme)
-                else:
-                    # search.ch/tv als sechster und letzter Versuch -
-                    # aktuell NUR fuer "BLUE SPORT 1"/"BLUE SPORT 2"
-                    # (siehe search_ch_epg.py, festes Mapping ohne
-                    # Fuzzy-Abgleich). Keiner der vorherigen fuenf
-                    # DE-Quellen fuehrt diese Schweizer Swisscom-
-                    # Sportkanaele.
-                    search_ch_programme = []
-                    try:
-                        search_ch_slug = search_ch_kanal_finden(daten["sender"])
-                        if search_ch_slug is not None:
-                            search_ch_programme = search_ch_hole_programme(search_ch_slug, SEARCH_CH_TAGE)
-                        else:
-                            pass  # log unterdrueckt: keine echten Programmdaten
-                    except Exception as e:
-                        pass  # log unterdrueckt: keine echten Programmdaten
-                        search_ch_programme = []
+    daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
 
-                    daten["search_ch_intervalle"] = [(p["start"], p["stop"]) for p in search_ch_programme]
+    if hoerzu_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(hoerzu_programme)
+        if neue_programme:
+            _echte_quelle_zaehlen("Hoerzu")
+            _schreibe_echte_programme(daten, neue_programme)
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
-                    if search_ch_programme:
-                        _echte_quelle_zaehlen("Search.ch")
-                        _schreibe_echte_programme(daten, search_ch_programme)
-                    else:
-                        # iptv-epg.org als SIEBTER und letzter Versuch
-                        # fuer DE-Sender (siehe iptvepg_de_epg.py) -
-                        # deckt u.a. ARD-Regionalstudios (WDR/MDR/NDR/
-                        # rbb) ab, die deswird.org nur als bundesweiten
-                        # Sammelkanal kennt.
-                        iptvepg_de_programme = []
-                        try:
-                            iptvepg_de_site_id = iptvepg_de_kanal_finden(daten["sender"])
-                            if iptvepg_de_site_id is not None:
-                                iptvepg_de_programme = iptvepg_de_hole_programme(iptvepg_de_site_id, IPTVEPG_DE_TAGE)
-                            else:
-                                pass  # log unterdrueckt: keine echten Programmdaten
-                        except Exception as e:
-                            pass  # log unterdrueckt: keine echten Programmdaten
-                            iptvepg_de_programme = []
+    # Joyn-VOD als fuenfter Versuch fuer DE-Sender (siehe joyn_vod_epg.py)
+    # - deckt Joyns eigene thematische Serien-/Doku-"Sender" ab (z.B.
+    # "Ancient Aliens", "Der letzte Bulle"), die keiner der vorherigen
+    # vier Quellen kennt. Wird immer versucht, schreibt aber nur die
+    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
+    # (Samsung TV Plus war frueher hier eingehaengt - September 2026
+    # dauerhaft entfernt, der Host hat die XMLTV-Datei entfernt, 404 bei
+    # jedem Abruf.)
+    joyn_vod_programme = []
+    try:
+        joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
+        if joyn_vod_site_id is not None:
+            joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        joyn_vod_programme = []
 
-                        daten["iptvepg_de_intervalle"] = [(p["start"], p["stop"]) for p in iptvepg_de_programme]
+    daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
 
-                        if iptvepg_de_programme:
-                            _echte_quelle_zaehlen("iptv-epg.org (DE)")
-                            _schreibe_echte_programme(daten, iptvepg_de_programme)
+    if joyn_vod_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(joyn_vod_programme)
+        if neue_programme:
+            _echte_quelle_zaehlen("Joyn-VOD")
+            _schreibe_echte_programme(daten, neue_programme)
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # search.ch/tv als sechster Versuch - aktuell NUR fuer "BLUE SPORT 1"/
+    # "BLUE SPORT 2" (siehe search_ch_epg.py, festes Mapping ohne
+    # Fuzzy-Abgleich). Keiner der vorherigen fuenf DE-Quellen fuehrt
+    # diese Schweizer Swisscom-Sportkanaele. Wird immer versucht,
+    # schreibt aber nur die Zeitfenster, die noch von keiner vorherigen
+    # Quelle abgedeckt sind.
+    search_ch_programme = []
+    try:
+        search_ch_slug = search_ch_kanal_finden(daten["sender"])
+        if search_ch_slug is not None:
+            search_ch_programme = search_ch_hole_programme(search_ch_slug, SEARCH_CH_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        search_ch_programme = []
+
+    daten["search_ch_intervalle"] = [(p["start"], p["stop"]) for p in search_ch_programme]
+
+    if search_ch_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(search_ch_programme)
+        if neue_programme:
+            _echte_quelle_zaehlen("Search.ch")
+            _schreibe_echte_programme(daten, neue_programme)
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # iptv-epg.org als SIEBTER und letzter Versuch fuer DE-Sender (siehe
+    # iptvepg_de_epg.py) - deckt u.a. ARD-Regionalstudios (WDR/MDR/NDR/
+    # rbb) ab, die deswird.org nur als bundesweiten Sammelkanal kennt.
+    # Wird immer versucht, schreibt aber nur die Zeitfenster, die noch
+    # von keiner vorherigen Quelle abgedeckt sind.
+    iptvepg_de_programme = []
+    try:
+        iptvepg_de_site_id = iptvepg_de_kanal_finden(daten["sender"])
+        if iptvepg_de_site_id is not None:
+            iptvepg_de_programme = iptvepg_de_hole_programme(iptvepg_de_site_id, IPTVEPG_DE_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        iptvepg_de_programme = []
+
+    daten["iptvepg_de_intervalle"] = [(p["start"], p["stop"]) for p in iptvepg_de_programme]
+
+    if iptvepg_de_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(iptvepg_de_programme)
+        if neue_programme:
+            _echte_quelle_zaehlen("iptv-epg.org (DE)")
+            _schreibe_echte_programme(daten, neue_programme)
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
