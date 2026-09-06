@@ -1893,13 +1893,13 @@ JOYN|FREE COMEDY DE ᴿᴬᵂ|Free Comedy De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.
 JOYN|GRJNGO ᴿᴬᵂ|Grjngo ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f95ad52a97aac704.png
 JOYN|HESSISCHER RUNDFUNK ᴿᴬᵂ|Hessischer Rundfunk ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d6584e6041dc0dd5968f4bcc0c4ae6dcba108001.png
 JOYN|HGTV ᴿᴬᵂ|Hgtv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7dbb7c32c282d744.png
-JOYN|HIMMLISCHES KINO DE ᴿᴬᵂ|Himmlisches Kino De ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929394.png
+JOYN|HIMMLISCHES KINO DE ᴿᴬᵂ|Himmlisches Kino De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/himmlisches_kino/himmlisches_kino.png
 JOYN|JUST COOKING ᴿᴬᵂ|Just Cooking ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6cbf125b105c8704.png
 JOYN|JUST FISHING ᴿᴬᵂ|Just Fishing ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e0f397dd036a09f5.png
 JOYN|KABEL EINS DOKU ᴿᴬᵂ|Kabel Eins Doku ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/835a4bf4b131e93f.png
 JOYN|KABEL EINS ᴿᴬᵂ|Kabel Eins ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/431107e5da13761a.png
 JOYN|KIKA ᴿᴬᵂ|Kika ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f06d55aedc3b423a.png
-JOYN|LANDLUST-TV-HD ᴿᴬᵂ|Landlust-Tv-Hd ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929388.png
+JOYN|LANDLUST-TV-HD ᴿᴬᵂ|Landlust-Tv-Hd ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/landlust/landlust.png
 JOYN|MDR SACHSEN ᴿᴬᵂ|Mdr Sachsen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b83d17a6972b26fb.png
 JOYN|MDR SACHSEN-ANHALT ᴿᴬᵂ|Mdr Sachsen-Anhalt ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/50026ce59c730fc2.png
 JOYN|MDR THÜRINGEN ᴿᴬᵂ|Mdr Thüringen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cdd9117994ebef38.png
@@ -17810,7 +17810,7 @@ DE|Sony Channel FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 DE|Sony AXN HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/284b3a71f1ad4296b8da08453913e2e4b4158465.png
 SKY:DE|Sky Cinema Premieren FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a1972b5901a231c5ee15fe3173c98697762a321f.png
 SKY:DE|Sky Cinema Premieren HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a1972b5901a231c5ee15fe3173c98697762a321f.png
-JOYN|Serienklassiker ᴿᴬᵂ|
+JOYN|Serienklassiker ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/serienklassiker/serienklassiker.png
 ##### DE| JOYN TV #####
 JOYN|SR ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6d3bcbf55e15cbe01fbe6374227a7aca10af343c.png
 JOYN|Elf ᴿᴬᵂ|
