@@ -2610,3 +2610,71 @@ die nur fuer explizit markierte Zeilen zustaendig sind) KEIN Hinweis
 auf Redundanz - erst eine Zahl von 0 (bei einer automatischen Quelle,
 die theoretisch fuer viele Sender zustaendig waere) ist ein echter
 Entfernungs-Kandidat, wie bei Samsung TV Plus/mymedia.ba.
+
+## September 2026: Neuer sender.txt-Bug-Typ gefunden - eingebettetes Pipe im Beschreibungsfeld verfaelscht die Kanal-ID bei "leeres Land"-Zeilen
+
+Auf Nutzerwunsch ("kriegst du noch die letzten paar fehlenden raus?")
+wurde die eigene Playlist erneut komplett heruntergeladen (temporaer,
+danach wieder geloescht) und gegen `sender.txt`/die generierte XML
+abgeglichen - diesmal mit einem deutlich genaueren Vergleichsskript
+(Beruecksichtigung von Gross-/Kleinschreibung, dem UK-Anzeige-Override
+bei SKY:/FREEVIEW:, `maxsplit=3` beim 4.-Feld-Override analog zu
+`generate_epg.py`, und der exakten `rsplit(2)`-Logik fuer "leeres
+Land"-Zeilen). Von anfangs ueber 2000 vermeintlich fehlenden Sendern
+blieben nach Ausschluss bewusst deaktivierter Kategorien (BBCI/NOW TV)
+und VOD-Lernvideos nur noch ~35 echte Kandidaten uebrig.
+
+**Neuer, bisher unbekannter Bug-Typ gefunden:** Bei "leeres Land"-
+Zeilen (Zeile beginnt mit `|`, siehe `generate_epg.py`-Kommentar bei
+`zeile.startswith("|")`) trennt der Parser NUR an den LETZTEN ZWEI
+Pipes der Zeile (Beschreibung, Logo) - alles davor ist der Sendername,
+egal wie viele Pipes er selbst enthaelt. Enthaelt aber das
+BESCHREIBUNGSFELD selbst faelschlich ein eingebettetes Pipe-Zeichen
+(z.B. `Uk| Bein Sports Asia 2 ᴸⁱᵛᵉ` statt `Bein Sports Asia 2 ᴸⁱᵛᵉ`),
+verschiebt sich die vom Parser erkannte Grenze - der TATSAECHLICH
+geparste Sendername bekommt dadurch einen stummeligen, falschen
+Suffix angehaengt (z.B. `UK|UK| BEIN SPORTS ASIA 2|Uk` statt
+`UK|UK| BEIN SPORTS ASIA 2`), was die Kanal-ID verfaelscht und die
+automatische TiviMate-Zuordnung fuer genau diesen Sender verhindert -
+ohne dass sich das in `sender.txt` selbst als offensichtlicher Fehler
+zeigt (die Zeile sieht auf den ersten Blick normal aus).
+Betroffen und behoben (7 Zeilen, stummeliger Pipe-Rest aus dem
+Beschreibungsfeld entfernt, Sendername selbst NIE angefasst): BEIN
+SPORTS ASIA 2/3, PBS NJ/NY (WNET)/KY (WKLE), PBS WGBH MA Boston (in
+einer fruehreren Session dieser Art selbst neu angelegt), Crime Scene
+TV DE, Car 54 Where Are You.
+**Erkennungsmethode fuer kuenftige Faelle:** Fuer jede "leeres Land"-
+Zeile den Sendernamen nach der echten `rsplit(2)`-Logik berechnen und
+gegen die tatsaechlichen Playlist-Namen abgleichen (case-/whitespace-
+normalisiert); ergibt das keinen exakten Treffer, aber ein Abschneiden
+an einem FRUEHEREN internen Pipe im berechneten Sendernamen einen
+Treffer, ist das der eindeutige Beweis fuer diesen Bug-Typ (Skript
+`find_stray_pipe_bugs.py`-Methodik, nicht dauerhaft im Repo). Reiner
+Zufallstreffer ("beschreibung startet mit dem Sendernamen") ist KEIN
+verlaesslicher Indikator - das ist bei korrekten Zeilen (z.B. `|CHAMP
+| Wrexham|Wrexham ᴸⁱᵛᵉ|`) das normale, gewollte Muster (Beschreibung =
+Sendername in Title Case + Live-Suffix) und erzeugt viele Fehlalarme.
+
+**Echte Datenluecken ergaenzt** (Playlist hat den Sender, `sender.txt`
+hatte eine Nummernluecke innerhalb einer sonst vollstaendigen Reihe):
+`NAME:LOI 01`-`05` (nur 06-15 vorhanden), `NAME::Paramount+  01`/`02`
+(nur ab 03), `NAME::Flo Racing  03`/`04` (nur ab 05) - jeweils mit dem
+Logo der benachbarten, bereits vorhandenen Nummer ergaenzt.
+
+**Datenmuell bereinigt** (derselbe seit Sommer 2026 bekannte Bug-Typ,
+siehe fruehere ESPN+/STAN/GaaGo-Faelle): `Boxing 1`/`2`/`4`/` 05`
+hatten noch den alten, vollen Roh-Event-Text im NAME:-Kern gespeichert
+statt des sauberen Kerns - auf den reinen Kern reduziert (`Boxing  05`
+bewusst mit doppeltem Leerzeichen und fuehrender Null belassen, da
+genau diese Schreibweise durch die generische Kern-Extraktions-Regex
+`kern_vorne_und_event_extrahieren()` fuer den Rohtext "Boxing  05  :
+FURY vs HALL  6PM" erzeugt wird - siehe Kommentar dort zu
+"\s+0*\d+").
+
+**Bestaetigte False Positives des Vergleichs (kein Fix noetig):**
+`DE| DYN PPV 1-20 HD` (fest im Code, nicht in `sender.txt` - laut
+Workflow-Log "20 von 20 exakt abgeglichen") und `HR| SPORT KLUB 1-10`
+(laufzeitseitig per `hr_sk_playlist_namen` auf den exakten Playlist-
+Namen umgeschrieben - laut Log "10 von 10 exakt abgeglichen") - beide
+Mechanismen sind fuer ein rein statisches Vergleichsskript unsichtbar,
+da sie die Kanal-ID erst zur Laufzeit gegen die Playlist aktualisieren.
