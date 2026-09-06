@@ -16804,16 +16804,16 @@ TELEMACH:BA|ARENA SPORT PREMIUM 2|https://raw.githubusercontent.com/babo20094-rg
 TELEMACH:BA|ARENA SPORT PREMIUM 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6f72dc4e4c0d8418c54546fce7c92ee5a438762e.png
 TELEMACH:BA|ARENA SPORT 5 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/35ee81b035037aaca1b182153893fc3ee5c4dcc7.png
 TELEMACH:BA|ARENA SPORT 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9b58f123f66d3610e2e535ec797b32cc7c128c3e.png
-HR|SK 1||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_1.png
-HR|SK 2||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_2.png
-HR|SK 3||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_3.png
-HR|SK 4||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_4.png
-HR|SK 5||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_5.png
-HR|SK 6||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_6.png
-HR|SK 7||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_7.png
-HR|SK 8||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_8.png
-HR|SK 9||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_9.png
-HR|SK 10||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_10.png
+HR|SPORT KLUB 1||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_1.png
+HR|SPORT KLUB 2||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_2.png
+HR|SPORT KLUB 3||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_3.png
+HR|SPORT KLUB 4||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_4.png
+HR|SPORT KLUB 5||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_5.png
+HR|SPORT KLUB 6||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_6.png
+HR|SPORT KLUB 7||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_7.png
+HR|SPORT KLUB 8||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_8.png
+HR|SPORT KLUB 9||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_9.png
+HR|SPORT KLUB 10||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_10.png
 #US| ENTERTAINMENT
 TVPASSPORT:US|American Heroes Channel HD|AUTO|US| AMERICA HEROES HD
 TVPASSPORT:US|Investigation Discovery USA HD - Eastern|AUTO|US| ID HD

@@ -1968,24 +1968,6 @@ M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
 # Verhaltensaenderung fuer Nutzer ohne diese spezielle Playlist-Abweichung.
 dyn_ppv_api_playlist_namen = {}
 
-# HR|SK 1-10: dieselbe Idee wie bei den DYN-PPV-API-Kanaelen oben - statt
-# der statischen sender.txt-Schreibweise ("HR|SK N") wird bei Treffer der
-# EXAKTE, aktuell in der eigenen Playlist stehende Rohname uebernommen
-# (z.B. falls dort "HR| SK N HD" o.ae. steht). Der Nutzer hat diese
-# Kanaele in seiner Playlist bewusst auf "SK N" umbenannt (nur unter
-# diesem Namen liefern unsere Quellen echte Programmdaten, siehe
-# mojmaxtv_epg.py/sportklub_epg.py) - TiviMates automatische Sender-
-# Zuordnung matcht per exaktem Namensvergleich (siehe
-# m3u_playlist_abgleichen()-Kommentar oben) - weicht unsere generierte
-# ID auch nur minimal vom tatsaechlichen Playlist-Namen ab, kann eine
-# vorher gesetzte, falsche Zuordnung (z.B. auf das aehnlich benannte
-# RS|SPORT KLUB) bestehen bleiben, obwohl der Sender selbst laengst
-# korrekt (MojMaxTV/SportKlub) befuellt ist. Ohne Treffer oder bei jedem
-# Fehler bleibt unveraendert die bisherige statische "HR|SK N"-ID stehen
-# (siehe kanal_id_varianten() weiter unten) - keine Verhaltensaenderung
-# fuer Nutzer ohne Abweichung.
-hr_sk_playlist_namen = {}
-
 _m3u_url_fuer_dyn_ppv = os.environ.get("PROVIDER")
 if _m3u_url_fuer_dyn_ppv:
     try:
@@ -2014,41 +1996,14 @@ if _m3u_url_fuer_dyn_ppv:
                 _nummer = int(_dyn_ppv_match.group(1))
                 if 1 <= _nummer <= DYN_PPV_ANZAHL:
                     dyn_ppv_api_playlist_namen[_nummer] = _voller_name
-                continue
-
-            _hr_sk_match = re.match(r"^HR\|\s*(?:SK|SPORT\s*KLUB)\s*0*(\d{1,2})\s*(?:HD|FHD)?$", _voller_name, re.IGNORECASE)
-            if _hr_sk_match:
-                _nummer = int(_hr_sk_match.group(1))
-                if 1 <= _nummer <= 10:
-                    hr_sk_playlist_namen[_nummer] = _voller_name
 
         if dyn_ppv_api_playlist_namen:
             print(
                 f"DYN-PPV-API-Kanalnamen: {len(dyn_ppv_api_playlist_namen)} von "
                 f"{DYN_PPV_ANZAHL} Kanaelen mit exaktem Playlist-Namen abgeglichen"
             )
-        if hr_sk_playlist_namen:
-            print(f"HR|SK-Kanalnamen: {len(hr_sk_playlist_namen)} von 10 Kanaelen mit exaktem Playlist-Namen abgeglichen")
     except Exception as e:
-        print("DYN-PPV-API-/HR-SK-Kanalnamen-Abgleich Fehler:", e)
-
-# HR|SK 1-10: bei Treffer in hr_sk_playlist_namen die "kanal"-ID der
-# jeweiligen sender_daten-Eintraege direkt auf den exakten Playlist-
-# Rohnamen setzen (nicht nur den Anzeigenamen) - "kanal" ist die ID, die
-# ueberall verwendet wird: <channel id>, kanal_id_varianten() und jedes
-# <programme channel="...">. Nur so stimmt die tatsaechlich erzeugte
-# Kanal-ID mit dem ueberein, was TiviMates automatische Zuordnung
-# vergleicht. Ohne Playlist-Treffer bleibt "kanal" unveraendert bei der
-# statischen sender.txt-Schreibweise ("HR|SK N").
-for _daten in sender_daten:
-    if _daten["land"].strip().upper() != "HR":
-        continue
-    _hr_sk_sender_match = re.match(r"^SK\s*0*(\d{1,2})$", _daten["sender"].strip(), re.IGNORECASE)
-    if not _hr_sk_sender_match:
-        continue
-    _hr_sk_nummer = int(_hr_sk_sender_match.group(1))
-    if _hr_sk_nummer in hr_sk_playlist_namen:
-        _daten["kanal"] = hr_sk_playlist_namen[_hr_sk_nummer]
+        print("DYN-PPV-API-Kanalnamen-Abgleich Fehler:", e)
 
 def dyn_ppv_kanal_ids(nummer):
     """Alle Kanal-ID-Varianten fuer einen DYN-PPV-1-20-API-Kanal: sowohl
