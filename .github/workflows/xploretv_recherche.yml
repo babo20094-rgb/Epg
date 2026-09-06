@@ -1,0 +1,32 @@
+name: Xplore TV MK Recherche (temporaer)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kandidaten-Endpunkte testen
+        run: |
+          set +e
+          echo "=== xploretv.tv direkt ==="
+          curl -s -o /tmp/a.html -w "HTTP: %{http_code}\n" "https://xploretv.tv" -A "Mozilla/5.0"
+          head -c 500 /tmp/a.html; echo
+
+          echo "=== epggw.a1.net/a/service.m3u (bekannter A1-Endpunkt, AT) ==="
+          curl -s -o /tmp/b.txt -w "HTTP: %{http_code}\n" "https://epggw.a1.net/a/service.m3u" -A "Mozilla/5.0"
+          head -c 500 /tmp/b.txt; echo
+
+          echo "=== moegliche MK-Varianten von epggw.a1.net ==="
+          for host in epggw.a1.mk api.xploretv.tv www.xploretv.tv tv.a1.mk; do
+            echo "--- $host ---"
+            curl -s -o /tmp/c.txt -w "HTTP: %{http_code}\n" "https://$host" -A "Mozilla/5.0" --max-time 10
+            head -c 300 /tmp/c.txt; echo
+          done
+
+          echo "=== DNS-Aufloesung ==="
+          for host in xploretv.tv epggw.a1.mk api.xploretv.tv; do
+            echo "--- $host ---"
+            getent hosts "$host" || echo "keine Aufloesung"
+          done
