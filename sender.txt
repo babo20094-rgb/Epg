@@ -654,6 +654,8 @@ DE|RTL LIVING  ᴿᴬᵂ|Rtl Living  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubus
 DE|RTL LIVING HD|Rtl Living Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f79bd5c8e6c04a51.png
 DE|NITRO FHD|Nitro Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd991d6dab1645e8.png
 DE|NITRO HD|Nitro Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd991d6dab1645e8.png
+DE|RTL NITRO FHD|Rtl Nitro Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd991d6dab1645e8.png
+DE|RTL NITRO HD|Rtl Nitro Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd991d6dab1645e8.png
 DE|RTL PASSION HD|Rtl Passion Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6f39f555a8505f08.png
 DE|RTL PASSION ᴿᴬᵂ|Rtl Passion ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6f39f555a8505f08.png
 DE|RTL PLUS HD|Rtl Plus Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/82e6c4dd3582c0a3.png
