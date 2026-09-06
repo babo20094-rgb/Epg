@@ -78,6 +78,7 @@ from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
 from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
+from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
 from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
 
 
@@ -213,6 +214,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle"],
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
+    "mk": ["mk_intervalle"],
 }
 
 
@@ -1583,6 +1585,12 @@ for zeile in zeilen:
     # abgleich, kein Fehltreffer-Risiko fuer andere Zeilen.
     if land.strip().upper() in ("HR", "BA", "RS", "SI", "MK", "ME", "MNG", "MO", "CG"):
         eintrag["tvprofil"] = True
+    # iptv-epg.org: LETZTER Fallback speziell fuer MK-Sender, nach Siol
+    # und TvProfil.net (siehe mk_epg.py - 109 mazedonische Kanaele,
+    # ~6 Tage Vorschau, live verifiziert u.a. an MRT 1). Kein eigenes
+    # Praefix noetig.
+    if land.strip().upper() == "MK":
+        eintrag["mk"] = True
     # Automatischer Call-Sign-Abgleich fuer "CITY|"-Sender (lokale US-
     # Sender mit Call-Sign im Namen, z.B. "ABC KATC BROOKLYN") gegen
     # tvpassport.com - siehe tvpassport_kanal_finden_callsign() in
@@ -2625,6 +2633,7 @@ JOYN_VOD_TAGE = 1
 SEARCH_CH_TAGE = 3
 TUBI_TAGE = 2
 TVPROFIL_TAGE = 3
+MK_TAGE = 3
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
@@ -2639,6 +2648,7 @@ mts_sender = [d for d in sender_daten if d.get("mts")]
 mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
 siol_sender = [d for d in sender_daten if d.get("siol")]
 tvprofil_sender = [d for d in sender_daten if d.get("tvprofil")]
+mk_sender = [d for d in sender_daten if d.get("mk")]
 plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
@@ -3391,6 +3401,35 @@ for daten in tvprofil_sender:
 
     if programme:
         _echte_quelle_zaehlen("TvProfil.net")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# IPTV-EPG.ORG (Mazedonien): LETZTER Fallback speziell fuer MK-Sender,
+# nach Siol und TvProfil.net (siehe mk_epg.py - 109 mazedonische
+# Kanaele, ~6 Tage Vorschau). Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in mk_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        site_id = mk_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = mk_hole_programme(site_id, MK_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["mk_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("iptv-epg.org (MK)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
