@@ -40,8 +40,15 @@ jobs:
             head -c 500 /tmp/e.txt; echo
           done
 
+          echo "=== golem.mk ==="
+          for path in "/" "/tv-program" "/epg" ; do
+            echo "--- golem.mk$path ---"
+            curl -sL -o /tmp/f.txt -w "HTTP: %{http_code}\n" "https://golem.mk$path" -A "Mozilla/5.0" --max-time 10
+            head -c 500 /tmp/f.txt; echo
+          done
+
           echo "=== DNS-Aufloesung ==="
-          for host in xploretv.tv epggw.a1.mk api.xploretv.tv gliktv.mk; do
+          for host in xploretv.tv epggw.a1.mk api.xploretv.tv gliktv.mk golem.mk; do
             echo "--- $host ---"
             getent hosts "$host" || echo "keine Aufloesung"
           done
