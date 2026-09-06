@@ -2540,3 +2540,73 @@ fuer einen Kanal trotz nachweislich vollstaendiger Daten in der XML
 vorhanden sind - ein Rueckwaertssprung in der Zeitachse ist ein
 eigener, leicht zu uebersehender Bug-Typ neben den bereits bekannten
 (Datenluecke, Kanal-ID-Mismatch, Dateiposition/Truncation).
+
+## September 2026: Zwei neue echte Quellen (iptv-epg.org MK + DE) + Kaskaden-Luecken-Bug behoben (mehrere Quellen pro Sender statt nur die erste)
+
+**Neue Quelle `quellen/mk_epg.py`:** Nach langer erfolgloser Suche nach
+einer echten Mazedonien-Quelle (MaxTV-GO/Spectar tot, A1s eigene
+"Xplore TV"-API per IP gesperrt) wurde `https://iptv-epg.org/files/
+epg-mk.xml` gefunden und integriert - 109 mazedonische Kanaele, live
+verifiziert (u.a. MRT 1 mit echten Titeln). AUTOMATISCH fuer jeden
+`MK|...`-Sender als letzter Fallback nach Siol/TvProfil.net, kein
+eigenes Praefix noetig. Gleiches Cache-/Match-Prinzip wie alle anderen
+XMLTV-Sammeldatei-Quellen (deswird.org/PlutoTV/SportKlub) - exakter
+Namensabgleich, dann Kern-Abgleich, dann difflib-Fallback (cutoff 0.72).
+
+**Neue Quelle `quellen/iptvepg_de_epg.py`:** `https://iptv-epg.org/
+files/epg-de.xml` (438 deutsche Kanaele) als SIEBTER und letzter
+Fallback der DE-Kaskade (nach deswird.org/PlutoTV/tvmovie.de/hoerzu.de/
+Joyn-VOD/search.ch). Deckt v.a. ARD-Regionalstudios ab, die deswird.org
+nicht kennt (alle 10 WDR-Lokalstudios, MDR Sachsen/Sachsen-Anhalt/
+Thueringen, NDR Hamburg/Mecklenburg-Vorpommern/Schleswig-Holstein, rbb
+Berlin/Brandenburg, SWR BW) sowie weitere Luecken (DF1, Nitro, Zee One,
+Sat.1 Bayern, TVA Ostbayern, Oberpfalz TV, ClipMyHorse.TV, GEO DE,
+Artflix u.a.). Live verifiziert im Produktions-Workflow: 210 zusaetzliche
+Sender.
+
+**Kaskaden-Luecken-Bug behoben (betraf ALLE Multi-Quellen-Kaskaden):**
+Bisher galt in jeder Kaskade (DE, BA/ME-Telemach, RS-mts.rs, HR-MojMaxTV,
+SI/MK-Siol) das Prinzip "erste Quelle mit IRGENDWELCHEN Daten gewinnt,
+alle folgenden Quellen werden komplett uebersprungen" (`continue` nach
+erstem Treffer). Das fuehrte dazu, dass Sender wie Sixx trotz
+verfuegbarer, vollstaendigerer Daten bei einer spaeteren Quelle (z.B.
+hoerzu.de) den ganzen Tag ueber grosse Luecken mit generischem
+Platzhaltertext zeigten, weil die erste Quelle (deswird.org) nur einen
+Teil des Tages abdeckte. Fix: ALLE Quellen einer Kaskade werden jetzt
+IMMER der Reihe nach versucht; jede schreibt nur noch den Teil des
+Zeitraums, der von vorherigen Quellen in derselben Kaskade noch NICHT
+abgedeckt wurde (`_ohne_bereits_geschriebene_ueberlappung()`-Muster,
+analog zur bereits bestehenden `segmente_ohne_ueberlappung()`-Logik fuer
+generische Luecken). Umgesetzt fuer alle fuenf betroffenen Kaskaden.
+Kein Risiko von doppelten/widerspruechlichen Eintraegen, da jede Quelle
+nur die noch unbedeckte Restzeit bekommt.
+
+**HR|SK-Playlist-Namensabgleich erweitert:** `hr_sk_playlist_namen`
+(fuer die exakte TiviMate-Kanal-ID-Zuordnung, analog zu DYN PPV 1-20)
+erkannte bisher nur "HR| SK N" in der eigenen Playlist, nicht "HR|
+SPORT KLUB N" (die tatsaechliche Schreibweise in der Playlist des
+Nutzers) - Regex entsprechend erweitert.
+
+**Kleinere sender.txt-Ergaenzungen (echte Datenluecken, per direktem
+Playlist-Abgleich gefunden):** `DE|RTL NITRO FHD`/`DE|RTL NITRO HD`
+(komplett gefehlt), `US|FANDUEL TV EXTRA`, sowie drei PBS-Lokalsender
+(PBS Detroit WTVS, PBS NY Plainview WLIW, PBS WGBH MA Boston - letztere
+zwei im "leeres Land"-Format wegen eingebetteter Pipe-Zeichen im Namen).
+
+**September 2026: Quellen-Audit - keine Quelle ist redundant, nichts
+entfernt.** Auf Nutzerwunsch wurde geprueft, ob (analog zur frueheren
+Entfernung von Samsung TV Plus/mymedia.ba) irgendeine der ~26
+`quellen/*.py`-Module inzwischen ueberfluessig ist, weil eine andere
+Quelle in derselben Kaskade laengst alles abdeckt. Grundlage war die am
+Ende jedes Laufs ausgegebene Zusammenfassungszeile "Echte
+Programmdaten fuer N Sender geladen (Quelle: Anzahl, ...)" aus einem
+frischen, echten Workflow-Lauf. Ergebnis: JEDE der 26 Quellen hat einen
+Beitrag von mindestens 2 Sendern (Search.ch: 2, DAZN: 5, Joyn-VOD: 6),
+keine einzige liefert 0 - anders als bei Samsung TV Plus/mymedia.ba
+(die dort nachweislich tot waren) gibt es aktuell keine wirklich
+ueberfluessige Quelle. Nichts wurde entfernt. **Lehre:** Eine kleine
+Trefferzahl allein ist bei Opt-in-Quellen (SKY:/DAZN:/MAGENTA:/etc.,
+die nur fuer explizit markierte Zeilen zustaendig sind) KEIN Hinweis
+auf Redundanz - erst eine Zahl von 0 (bei einer automatischen Quelle,
+die theoretisch fuer viele Sender zustaendig waere) ist ein echter
+Entfernungs-Kandidat, wie bei Samsung TV Plus/mymedia.ba.
