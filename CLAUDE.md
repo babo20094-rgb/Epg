@@ -2678,3 +2678,59 @@ Workflow-Log "20 von 20 exakt abgeglichen") und `HR| SPORT KLUB 1-10`
 Namen umgeschrieben - laut Log "10 von 10 exakt abgeglichen") - beide
 Mechanismen sind fuer ein rein statisches Vergleichsskript unsichtbar,
 da sie die Kanal-ID erst zur Laufzeit gegen die Playlist aktualisieren.
+
+## September 2026: HR|SK 1-10 endgueltig auf HR|SPORT KLUB 1-10 umbenannt (Playlist-Abgleich-Mechanismus entfernt)
+
+Der Nutzer meldete, dass nach dem `hr_sk_playlist_namen`-Fix (siehe
+Abschnitt "HR|SK/RS|SPORT KLUB-Verwechslung..." weiter oben) seine
+manuelle TiviMate-Zuordnung fuer `HR|SK 1-10` wiederholt automatisch
+auf `RS|SPORT KLUB` zurueckgesetzt wurde, obwohl er sie korrekt auf
+die kroatischen Sender gesetzt hatte.
+
+**Root Cause (kein Bug in unserem Code, sondern eine Namenskollision):**
+Der ROHE Anbieter-Playlist-Name fuer diese Kanaele ist faelschlich
+identisch zum ECHTEN `RS|SPORT KLUB N`-Sender benannt (Fehlbenennung
+durch den Anbieter selbst). `hr_sk_playlist_namen` griff hier nicht
+(der Rohname beginnt mit "RS|", nicht "HR|", die Regex matchte also
+nie) - die generierte ID blieb bei der statischen `HR|SK N`-Schreibweise.
+TiviMates eigener automatischer Namensabgleich (bei jedem EPG-Neuladen)
+verglich aber weiterhin den ROHEN Anbieternamen "RS| SPORT KLUB N"
+exakt gegen unsere ECHTEN `RS|SPORT KLUB N`-Sendereintraege in
+`sender.txt` und ueberschrieb dadurch bei jedem Reload die manuelle
+Korrektur des Nutzers zurueck auf den falschen (aber echten) RS-Kanal.
+
+**Wichtige Klaerung dabei:** Der Nutzer hatte diese Kanaele urspruenglich
+auf "SK" umbenannt, weil er annahm, nur unter diesem Namen wuerden
+unsere Quellen echte Programmdaten liefern - das stimmt so nicht (mehr):
+`sportklub_kanal_finden()` (`quellen/sportklub_epg.py`, `_SK_NUMMER_
+PATTERN`) akzeptiert bereits BEIDE Schreibweisen, "SK N" und "SPORT
+KLUB N", gleichwertig. Der eigentliche Grund fuer die damalige
+Umbenennung (ein `RS|SPORT KLUB`-Fehltreffer bei mts.rs, siehe Abschnitt
+"HR|SK/RS|SPORT KLUB-Verwechslung" oben) betraf eine ANDERE Sendergruppe/
+Land (RS-Sender bei mts.rs), nicht die HR-Kaskade (MojMaxTV/SportKlub).
+
+**Fix:** `sender.txt` umbenannt: `HR|SK 1-10` -> `HR|SPORT KLUB 1-10`
+(gleiche Logos). Der `hr_sk_playlist_namen`-Mechanismus (Playlist nach
+"HR| SK N"/"HR| SPORT KLUB N" durchsuchen und die ID laufzeitseitig
+umschreiben) sowie der zwischenzeitlich eingebaute Alias-Hack in
+`kanal_id_varianten()` wurden komplett entfernt - beide sind durch die
+Umbenennung ueberfluessig geworden, da die generierte ID jetzt direkt
+`HR|SPORT KLUB N` lautet. Kollisionsfrei, da Land `HR` (nicht `RS`) -
+TiviMates Namensabgleich kann `HR|SPORT KLUB N` und `RS|SPORT KLUB N`
+jetzt eindeutig unterscheiden. Der Nutzer hat seine 10 TiviMate-Kanaele
+entsprechend auf `HR| SPORT KLUB 1` bis `10` umbenannt.
+
+**Lehre fuer aehnliche Faelle:** Wenn der ROHE Anbieter-Playlist-Name
+eines Kanals zufaellig exakt mit einer ANDEREN, echten `sender.txt`-ID
+uebereinstimmt (Anbieter-Fehlbenennung, nicht unser Code), kann das
+NICHT durch eine laufzeitseitige ID-Ueberschreibung geloest werden
+(die betrifft nur den Fall, dass unsere ID vom Playlist-Namen abweicht,
+nicht dass zwei verschiedene Sender denselben Playlist-Namen tragen) -
+einzige zuverlaessige Loesung ist, die eigene `sender.txt`-ID so zu
+aendern (anderer Sendername/anderes Land-Praefix), dass sie sich vom
+kollidierenden echten Sender unterscheidet, UND den Nutzer seinen
+Playlist-/TiviMate-Kanalnamen (falls von ihm aenderbar) entsprechend
+anpassen zu lassen. Vor einer Aenderung immer pruefen, ob die
+Zielschreibweise von der zustaendigen echten Quelle (hier: `sportklub_
+epg.py`) bereits unterstuetzt wird, bevor eine sender.txt-Umbenennung
+vorgeschlagen wird.
