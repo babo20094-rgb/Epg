@@ -13128,6 +13128,8 @@ NAME:OHL 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/exter
 NAME:OHL 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME::Milb  60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:PBR RidePass :Flo Racing  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:PDC Board 01|
+NAME:PDC Board 02|
 NAME:PDC Board 06|http://103.176.90.95/images/1556645.png
 NAME:PDC Board 07|http://103.176.90.95/images/1556646.png
 NAME:PDC Board 8 ||http://103.176.90.95/images/1556647.png
