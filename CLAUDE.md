@@ -2734,3 +2734,69 @@ anpassen zu lassen. Vor einer Aenderung immer pruefen, ob die
 Zielschreibweise von der zustaendigen echten Quelle (hier: `sportklub_
 epg.py`) bereits unterstuetzt wird, bevor eine sender.txt-Umbenennung
 vorgeschlagen wird.
+
+## September 2026: HR|SK->HR|SPORT KLUB-Umbenennung hat einen alten Fuzzy-Match-Schutz umgangen (Cindy aus Marzahn/Hardcore Pawn Bug) + WICHTIGE LEHRE zu TiviMates Auto-Matching
+
+Direkt nach der obigen `HR|SK` -> `HR|SPORT KLUB`-Umbenennung meldete
+der Nutzer voellig falsche Sendungen bei diesen Kanaelen (u.a. "Cindy
+aus Marzahn", "Hardcore Pawn Chicago" - deutsche Trash-TV-Sendungen
+statt kroatischem Sport-Klub-Programm).
+
+**Root Cause:** `mojmaxtv_kanal_finden()` (`quellen/mojmaxtv_epg.py`)
+hatte bereits seit einem frueheren Bug (siehe "Sport Klub HR"-Abschnitt
+weiter oben) eine Sicherung: MojMaxTV fuehrt gar keinen "Sport Klub"-
+Kanal mehr, deshalb wird fuer das Namensmuster `SK N` NUR ein exakter
+Treffer akzeptiert, kein unscharfer `difflib`-Fallback (der bei kurzen
+Strings sonst zufaellig auf einen komplett falschen Kanal matchen kann).
+Diese Sicherung war aber nur an das Muster `^SK\s*0*(\d+)$` gekoppelt -
+nach der Umbenennung auf `SPORT KLUB N` griff sie nicht mehr, der
+Sendername fiel in den unscharfen Fallback und matchte zufaellig auf
+irgendeinen aehnlich kurzen MojMaxTV-Kanalnamen.
+**Fix:** Die Regex-Sicherung deckt jetzt BEIDE Schreibweisen ab
+(`^(?:SK|SPORT\s*KLUB)\s*0*(\d+)$`) - `sportklub_epg.py` (die
+tatsaechlich zustaendige, korrekte Quelle) liefert unter "SPORT KLUB N"
+weiterhin unveraendert echte Daten.
+
+**Lehre fuer JEDE kuenftige sender.txt-Umbenennung, die eine bestehende
+Namensform aendert:** Bevor ein Sendername in `sender.txt` umbenannt
+wird (nicht nur bei HR-Sport-Klub, generell), IMMER per `grep -rn
+"<alte Schreibweise>"` durch ALLE `quellen/*.py`-Module suchen, ob dort
+irgendwo eine Regex/ein Namensmuster HART an die ALTE Schreibweise
+gekoppelt ist (Sicherungen gegen fruehere Fehltreffer sind oft genau so
+eng gefasst) - eine Umbenennung kann sonst unsichtbar eine bestehende
+Fehltreffer-Sicherung umgehen und einen laengst behobenen Bug in neuer
+Form wieder einschleppen. `pytest` allein haette das hier NICHT
+aufgefangen (kein Test deckte den Live-API-Fuzzy-Fallback ab).
+
+**WICHTIGE, KORRIGIERTE Lehre zu TiviMates automatischem Matching:**
+In dieser Session wurde zunaechst angenommen (und dem Nutzer so gesagt),
+eine Umbenennung des Kanals INNERHALB von TiviMate (Sendernamen-Editor)
+wuerde ausreichen, damit TiviMates automatischer Namensabgleich auf
+unsere neue `HR|SPORT KLUB N`-ID matcht - analog zu anderen Sendern, bei
+denen eine TiviMate-Umbenennung offenbar funktioniert hatte. Der Nutzer
+hat das exakt so umgesetzt (TiviMate-Kanaele umbenannt, ID bei uns
+angepasst, bestehende Zuordnung VORHER aufgehoben, TiviMate-Cache
+geleert, EPG neu geladen) - **die automatische Zuordnung ist trotzdem
+NICHT auf `HR|SPORT KLUB N` gesprungen**, sondern weiterhin auf das
+gleich klingende, aber inhaltlich falsche `RS|SPORT KLUB N`.
+Das widerlegt die urspruengliche Annahme: TiviMates automatischer
+Namensabgleich matcht ganz offensichtlich gegen den ROHEN, vom Anbieter
+in der M3U-Playlist gelieferten Kanalnamen (hier faelschlich "RS| SPORT
+KLUB N" - eine Anbieter-Fehlbenennung, siehe Abschnitt oben) - NICHT
+gegen einen vom Nutzer INNERHALB von TiviMate frei vergebenen
+Anzeigenamen. Eine TiviMate-seitige Umbenennung aendert also nur die
+Darstellung in der Senderliste, nicht die fuer den automatischen EPG-
+Abgleich verwendete Kennung.
+**Praktische Konsequenz:** Bei diesen 10 Kanaelen (und jedem aehnlich
+gelagerten Fall, wo der rohe Anbieter-Playlist-Name zufaellig exakt mit
+einem ANDEREN, echten `sender.txt`-Sender kollidiert) ist KEINE
+sender.txt-Umbenennung/ID-Anpassung in der Lage, eine automatische
+TiviMate-Zuordnung herzustellen - das laesst sich serverseitig nicht
+loesen. Die manuelle Zuordnung in TiviMate bleibt hier dauerhaft
+noetig; einzig die tatsaechlich angezeigten PROGRAMMDATEN hinter dieser
+manuellen Zuordnung lassen sich (wie mit obigem Fix geschehen) korrigieren.
+**Fuer kuenftige, aehnliche Faelle:** NIE wieder vorab zusichern, dass
+eine TiviMate-interne Umbenennung die automatische Zuordnung herstellen
+wird, ohne das nach einem echten Workflow-Lauf + EPG-Reload beim Nutzer
+tatsaechlich verifiziert zu haben - das ist reines TiviMate-Client-
+Verhalten, das sich aus dem Code hier nicht ableiten laesst.
