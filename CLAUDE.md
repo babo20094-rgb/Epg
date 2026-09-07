@@ -2800,3 +2800,66 @@ eine TiviMate-interne Umbenennung die automatische Zuordnung herstellen
 wird, ohne das nach einem echten Workflow-Lauf + EPG-Reload beim Nutzer
 tatsaechlich verifiziert zu haben - das ist reines TiviMate-Client-
 Verhalten, das sich aus dem Code hier nicht ableiten laesst.
+
+## September 2026: Workflow-Laufzeit halbiert - Netzwerk-Abrufe der groessten Quellen parallelisiert
+
+Der Workflow lief zuletzt im Schnitt ~50-55 Minuten (Schritt "Generate
+EPG" allein: 52-55 Min., per echten Laufzeiten aus den letzten
+Workflow-Runs verifiziert - die aeltere Schaetzung "~27-45 Min." weiter
+oben im Dokument war veraltet/zu optimistisch). Ursache: KEINE der
+~29 `quellen/*.py`-Module nutzte bisher irgendeine Parallelisierung -
+jeder einzelne Sender-Request (Kanalsuche + Programmabruf) lief
+strikt sequenziell nacheinander, obwohl es sich um reine I/O-gebundene
+Netzwerk-Wartezeit handelt (die GIL ist dabei kein Flaschenhals).
+
+**Fix:** Neuer genereller Helper `_parallel_abrufen(sender_liste,
+abruf_fn, worker=12)` (`generate_epg.py`, direkt vor dem TELEMACH-
+Abschnitt) nutzt `concurrent.futures.ThreadPoolExecutor`, um den
+REINEN Netzwerk-Abruf-Teil (Kanalsuche + Programmabruf, OHNE die
+anschliessende XML-Erzeugung) einer ganzen Senderliste gleichzeitig
+in mehreren Threads auszufuehren - `ThreadPoolExecutor.map()` erhaelt
+dabei die Eingabereihenfolge, sodass das anschliessende sequenzielle
+Schreiben in `xml_teile` (inkl. der Ueberlappungs-/Luecken-Fuellungs-
+Logik zwischen mehreren Fallback-Quellen) unveraendert bleibt - jeder
+Fehler faellt weiterhin pro Sender still auf die naechste Quelle bzw.
+den generischen Text zurueck (Zero-Risk-Garantie bleibt erhalten, nur
+der Netzwerk-Teil selbst laeuft jetzt parallel statt sequenziell).
+
+Umgesetzt fuer die Quellen mit den meisten Einzel-Requests (ein
+HTTP-Request pro Sender/Tag): Telemach + mtel.ba + klix.ba (BA/ME-
+Kaskade), Sky, mts.rs + SportKlub + Arena (RS-Kaskade), A1 + MojMaxTV
++ SportKlub (HR-Kaskade), TVPassport. NICHT angefasst: alle "einmal
+pro Lauf komplett laden, dann lokal matchen"-Quellen (deswird.org,
+PlutoTV, Tubi, Joyn-VOD, iptv-epg.org DE/MK, Magenta-myTeamTV,
+delo.si) - die sind bereits optimal (nur 1 Request unabhaengig von der
+Senderzahl) und brauchen keine Parallelisierung.
+
+**Ergebnis (per echtem Workflow-Lauf verifiziert, Commit `d8210af`):**
+Schritt "Generate EPG" 54:31 Min. -> 25:41 Min. (mehr als halbiert).
+Sender-Gesamtzahl im generierten EPG identisch (19133 vor und nach dem
+Fix) - keine Sender verloren gegangen. Die Aufteilung "echte
+Programmdaten pro Quelle" verschob sich minimal zwischen A1 (109 ->
+37 Treffer) und MojMaxTV (81 -> 141 Treffer) - das liegt an A1s
+eigener Instabilitaet (503 Service Unavailable, siehe eigener
+A1-Abschnitt weiter oben) an diesem konkreten Lauf, nicht am Fix
+selbst: die RS/HR-Luecken-Fuellungs-Kaskade hat das automatisch
+kompensiert (MojMaxTV sprang fuer die A1-Ausfaelle ein), in Summe
+blieb die Zahl echter Treffer nahezu gleich (3879 -> 3870).
+
+**Noch nicht umgesetzt (moegliche weitere Optimierungen, besprochen
+aber auf Nutzerwunsch noch nicht gebaut):**
+- Die uebrigen kleineren Opt-in-Quellen mit Request-pro-Sender
+  (Magenta, DAZN, Arena/ARENA:-Praefix, Freeview, TVGuide, klix.ba,
+  EpgshareUS-Locals) sind noch nicht parallelisiert - dort faellt die
+  Ersparnis geringer aus (weniger Sender pro Quelle), waere aber nach
+  demselben `_parallel_abrufen()`-Muster leicht nachruestbar.
+- Kein Retry bei transienten Fehlern (502/503/Timeout) - ein
+  fehlgeschlagener Request wird sofort als "kein Treffer" gewertet,
+  kein zweiter Versuch. Wuerde die A1-Fehlerquote (siehe oben) weiter
+  senken, ist aber ein separates Thema von der reinen Laufzeit-
+  Optimierung.
+- Der eigentliche Rest der Laufzeit (unter 26 Minuten fuer die
+  restlichen NAME:-Kaskaden, die DE-Kaskade mit ihren mittlerweile
+  sieben Quellen, das generische Tagesraster fuer alle ~19.000 Sender
+  usw.) wurde noch nicht analysiert/optimiert - naechster Kandidat fuer
+  eine weitere Laufzeitverbesserung, falls gewuenscht.
