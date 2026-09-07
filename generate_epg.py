@@ -2915,22 +2915,19 @@ for daten in sky_wow_sender:
 # Netzwerk-Aufrufe.
 # ==========================================================
 
-def _magenta_abrufen(daten):
+for daten in magenta_sender:
+    programme = []
     try:
         kanal_ref = magenta_kanal_finden(daten["sender"])
         if kanal_ref is not None:
-            return magenta_hole_programme(kanal_ref, MAGENTA_TAGE)
-    except Exception:
+            programme = magenta_hole_programme(kanal_ref, MAGENTA_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        pass
-    return []
-
-
-_magenta_ergebnisse = _parallel_abrufen(magenta_sender, _magenta_abrufen)
-
-for _idx, daten in enumerate(magenta_sender):
-    programme = _magenta_ergebnisse[_idx]
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
 
     daten["magenta_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -2947,22 +2944,19 @@ for _idx, daten in enumerate(magenta_sender):
 # hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
-def _arena_abrufen(daten):
+for daten in arena_sender:
+    programme = []
     try:
         site_id = arena_kanal_finden(daten["sender"], daten["arena"]["land"])
         if site_id is not None:
-            return arena_hole_programme(site_id, daten["arena"]["land"], ARENA_TAGE)
-    except Exception:
+            programme = arena_hole_programme(site_id, daten["arena"]["land"], ARENA_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        pass
-    return []
-
-
-_arena_ergebnisse = _parallel_abrufen(arena_sender, _arena_abrufen)
-
-for _idx, daten in enumerate(arena_sender):
-    programme = _arena_ergebnisse[_idx]
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
 
     daten["arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -2979,22 +2973,19 @@ for _idx, daten in enumerate(arena_sender):
 # gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
-def _dazn_abrufen(daten):
+for daten in dazn_sender:
+    programme = []
     try:
         site_id = dazn_kanal_finden(daten["sender"], daten["dazn"]["land"])
         if site_id is not None:
-            return dazn_hole_programme(site_id, daten["dazn"]["land"], DAZN_TAGE)
-    except Exception:
+            programme = dazn_hole_programme(site_id, daten["dazn"]["land"], DAZN_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        pass
-    return []
-
-
-_dazn_ergebnisse = _parallel_abrufen(dazn_sender, _dazn_abrufen)
-
-for _idx, daten in enumerate(dazn_sender):
-    programme = _dazn_ergebnisse[_idx]
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
 
     daten["dazn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3012,22 +3003,19 @@ for _idx, daten in enumerate(dazn_sender):
 # zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
-def _freeview_abrufen(daten):
+for daten in freeview_sender:
+    programme = []
     try:
         site_id = freeview_kanal_finden(daten["sender"])
         if site_id is not None:
-            return freeview_hole_programme(site_id, FREEVIEW_TAGE)
-    except Exception:
+            programme = freeview_hole_programme(site_id, FREEVIEW_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        pass
-    return []
-
-
-_freeview_ergebnisse = _parallel_abrufen(freeview_sender, _freeview_abrufen)
-
-for _idx, daten in enumerate(freeview_sender):
-    programme = _freeview_ergebnisse[_idx]
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
 
     daten["freeview_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3045,44 +3033,33 @@ for _idx, daten in enumerate(freeview_sender):
 # zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
-def _tvguide_abrufen(daten):
+for daten in tvguide_sender:
+    programme = []
     try:
         site_id = tvguide_kanal_finden(daten["sender"])
         if site_id is not None:
-            return tvguide_hole_programme(site_id, TVGUIDE_TAGE)
-    except Exception:
+            programme = tvguide_hole_programme(site_id, TVGUIDE_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        pass
-    return []
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
 
-
-def _epgshare_us_abrufen(daten):
     # Zweiter Versuch bei TVGuide.com-Fehlschlag: epgshare01.online
     # deckt (anders als TVGuide.com's feste kleine nationale Grund-
     # aufstellung und tvpassport.com's ueberwiegend lokale Sender)
     # gezielt nationale US-KABELnetzwerke ab (siehe epgshare_us_epg.py).
-    # Nur exakter Namens-/Alias-Abgleich, kein Fuzzy-Risiko. Wird
-    # PARALLEL zu tvguide_sender vorabgerufen (unabhaengig davon, ob
-    # TVGuide.com am Ende etwas liefert) - nur das ANSCHLIESSENDE
-    # Verwenden bleibt an "TVGuide hat nichts geliefert" geknuepft.
-    try:
-        us2_site_id = epgshare_us_kanal_finden(daten["sender"])
-        if us2_site_id is not None:
-            return epgshare_us_hole_programme(us2_site_id, TVGUIDE_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-_tvguide_ergebnisse = _parallel_abrufen(tvguide_sender, _tvguide_abrufen)
-_epgshare_us_ergebnisse = _parallel_abrufen(tvguide_sender, _epgshare_us_abrufen)
-
-for _idx, daten in enumerate(tvguide_sender):
-    programme = _tvguide_ergebnisse[_idx]
-
+    # Nur exakter Namens-/Alias-Abgleich, kein Fuzzy-Risiko.
     if not programme:
-        programme = _epgshare_us_ergebnisse[_idx]
+        try:
+            us2_site_id = epgshare_us_kanal_finden(daten["sender"])
+            if us2_site_id is not None:
+                programme = epgshare_us_hole_programme(us2_site_id, TVGUIDE_TAGE)
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
 
     daten["tvguide_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3138,40 +3115,29 @@ for _idx, daten in enumerate(tvpassport_sender):
 # gar nichts.
 # ==========================================================
 
-def _epgshare_us_locals_abrufen(daten):
+for daten in tvpassport_callsign_sender:
+    programme = []
     try:
         site_id = epgshare_us_locals_kanal_finden(daten["sender"])
         if site_id is not None:
-            return epgshare_us_locals_hole_programme(site_id, TVPASSPORT_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-def _tvpassport_callsign_abrufen(daten):
-    # Wird PARALLEL zu EpgshareUS-Locals vorabgerufen (unabhaengig davon,
-    # ob EpgshareUS-Locals am Ende etwas liefert) - nur das
-    # ANSCHLIESSENDE Verwenden bleibt an "EpgshareUS-Locals hat nichts
-    # geliefert" geknuepft.
-    try:
-        site_id = tvpassport_kanal_finden_callsign(daten["sender"])
-        if site_id is not None:
-            return tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-_epgshare_us_locals_ergebnisse = _parallel_abrufen(tvpassport_callsign_sender, _epgshare_us_locals_abrufen)
-_tvpassport_callsign_ergebnisse = _parallel_abrufen(tvpassport_callsign_sender, _tvpassport_callsign_abrufen)
-
-for _idx, daten in enumerate(tvpassport_callsign_sender):
-    programme = _epgshare_us_locals_ergebnisse[_idx]
+            programme = epgshare_us_locals_hole_programme(site_id, TVPASSPORT_TAGE)
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
 
     if programme:
         _echte_quelle_zaehlen("EpgshareUS-Locals")
     else:
-        programme = _tvpassport_callsign_ergebnisse[_idx]
+        try:
+            site_id = tvpassport_kanal_finden_callsign(daten["sender"])
+            if site_id is not None:
+                programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
         if programme:
             _echte_quelle_zaehlen("TVPassport-CallSign")
         else:
