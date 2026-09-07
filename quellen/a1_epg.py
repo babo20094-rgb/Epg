@@ -27,6 +27,7 @@ normale generische EPG-Generierung zurueck.
 from datetime import datetime, timedelta, timezone
 
 import re
+import time
 
 import requests
 
@@ -47,6 +48,40 @@ CHANNELS_URL = API_BASE + "channels"
 ENTRIES_URL = API_BASE + "entries"
 
 REQUEST_TIMEOUT_SEKUNDEN = 20
+
+# A1 antwortet in letzter Zeit gehaeuft mit voruebergehenden Fehlern
+# (502 Bad Gateway, 503 Service Unavailable, gelegentlich auch Read-
+# Timeouts) statt einer echten dauerhaften Nichtverfuegbarkeit - ein
+# einzelner erneuter Versuch nach kurzer Pause behebt einen guten Teil
+# dieser Faelle, ohne bei einem echten, anhaltenden Ausfall spuerbar
+# mehr Zeit zu kosten (nur EIN Retry, keine lange Backoff-Kette).
+RETRY_VERSUCHE = 1
+RETRY_WARTEZEIT_SEKUNDEN = 1.5
+_RETRY_STATUS_CODES = {502, 503, 504}
+
+
+def _get_mit_retry(url, params=None):
+    """Wie requests.get(), aber mit einem einzigen erneuten Versuch bei
+    transienten Fehlern (502/503/504-Status oder Timeout/Connection-
+    Fehler). Wirft weiterhin ganz normal eine Exception, wenn auch der
+    Retry fehlschlaegt - das bestehende Try/Except beim Aufrufer faengt
+    das wie bisher ab und faellt graceful zurueck."""
+    letzter_fehler = None
+    for versuch in range(RETRY_VERSUCHE + 1):
+        try:
+            response = requests.get(url, params=params, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+            if response.status_code in _RETRY_STATUS_CODES and versuch < RETRY_VERSUCHE:
+                time.sleep(RETRY_WARTEZEIT_SEKUNDEN)
+                continue
+            response.raise_for_status()
+            return response
+        except requests.exceptions.RequestException as e:
+            letzter_fehler = e
+            if versuch < RETRY_VERSUCHE:
+                time.sleep(RETRY_WARTEZEIT_SEKUNDEN)
+                continue
+            raise
+    raise letzter_fehler
 
 HEADERS = {
     "User-Agent": (
@@ -71,8 +106,7 @@ def a1_hole_kanalliste():
         return _kanalliste_cache
 
     try:
-        response = requests.get(CHANNELS_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
-        response.raise_for_status()
+        response = _get_mit_retry(CHANNELS_URL)
         daten = response.json()
         roh_kanaele = daten.get("channels", []) if isinstance(daten, dict) else []
 
@@ -168,13 +202,7 @@ def _hole_tag(site_id, datum):
 
     ergebnis = []
     try:
-        response = requests.get(
-            ENTRIES_URL,
-            params={"channels": site_id, "date": datum_str},
-            headers=HEADERS,
-            timeout=REQUEST_TIMEOUT_SEKUNDEN,
-        )
-        response.raise_for_status()
+        response = _get_mit_retry(ENTRIES_URL, params={"channels": site_id, "date": datum_str})
         daten = response.json()
         eintraege = daten.get("entries", []) if isinstance(daten, dict) else []
 
