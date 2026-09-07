@@ -16866,7 +16866,6 @@ TVGUIDE:US|REELZ HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/coun
 TVGUIDE:US| PBS HD|https://upload.wikimedia.org/wikipedia/commons/8/89/PBS_logo_2019.svg
 TVGUIDE:US| PARAMOUNT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cedc5c99150207943539c08807fa3912a1360db4.png
 TVGUIDE:US|RT DOCUMENTARY HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/international/rt-documentary-int.png
-ARENA:BA|ARENA SPORT 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cb9eaf240f67cc6596847143ee18d8eee7e197cc.png
 TELEMACH:RS|DISCOVERY XTRA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac37aaf5e7d1b12b78181bc575fe8fad22091c53.png
 TELEMACH:RS|DM SAT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1c8b0e81cdf1f2e33adc8d2b5f1d8941b7395011.png
 TELEMACH:RS|MTV CLUB|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/mtv-club-rs.png
