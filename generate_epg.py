@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from xml.sax.saxutils import escape as _sax_escape
 import gzip
@@ -2560,6 +2561,42 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 # kern_vorne_und_event_extrahieren()).
 
 # ==========================================================
+# PARALLELISIERUNG DER NETZWERK-ABRUFE (September 2026)
+#
+# Die groessten Quellen (Telemach/mtel.ba/klix.ba, Sky, mts.rs, A1/
+# MojMaxTV/SportKlub, TVPassport) fragen fuer JEDEN einzelnen Sender
+# einen eigenen HTTP-Request ab - bei tausenden Sendern lief das bisher
+# rein sequenziell (ein Request nach dem anderen), was den groessten
+# Anteil an der Workflow-Laufzeit ausmacht. `_parallel_abrufen()`
+# fuehrt den REINEN Netzwerk-Abruf-Teil (Kanalsuche + Programmabruf,
+# OHNE die anschliessende XML-Erzeugung) fuer eine ganze Senderliste
+# gleichzeitig in mehreren Threads aus (I/O-gebunden, GIL ist dabei
+# kein Flaschenhals) - das eigentliche Schreiben in xml_teile bleibt
+# danach unveraendert sequenziell in der urspruenglichen Reihenfolge,
+# damit sich am Zero-Risk-Verhalten (jeder Fehler faellt still auf die
+# naechste Quelle zurueck) nichts aendert.
+# ==========================================================
+
+PARALLEL_WORKER = 12
+
+
+def _parallel_abrufen(sender_liste, abruf_fn, worker=PARALLEL_WORKER):
+    """Fuehrt abruf_fn(daten) fuer jeden Eintrag in sender_liste parallel
+    in mehreren Threads aus und gibt eine Liste von Ergebnissen in
+    DERSELBEN Reihenfolge wie sender_liste zurueck (ThreadPoolExecutor.
+    map erhaelt die Eingabereihenfolge). abruf_fn muss selbst jeden
+    Fehler abfangen und im Fehlerfall eine leere Liste liefern (wie
+    bisher schon in den einzelnen Verarbeitungsbloecken) - ein
+    unerwarteter Fehler hier wuerde sonst den gesamten Lauf abbrechen,
+    statt nur diesen einen Sender auf generisch zurueckfallen zu
+    lassen."""
+    if not sender_liste:
+        return []
+    with ThreadPoolExecutor(max_workers=min(worker, len(sender_liste))) as pool:
+        return list(pool.map(abruf_fn, sender_liste))
+
+
+# ==========================================================
 # TELEMACH: echte Programmdaten fuer TELEMACH:-Sender (siehe
 # telemach_epg.py und der Parsing-Kommentar oben bei "TELEMACH:").
 # Login und Kanalliste werden dank Caching in telemach_epg.py nur
@@ -2695,16 +2732,60 @@ def _schreibe_echte_programme(daten, programme):
             )
 
 
-for daten in telemach_sender:
-    # Alle drei BA-Quellen (Telemach/mtel.ba/klix.ba) werden IMMER der
-    # Reihe nach versucht (nicht mehr abgebrochen, sobald die erste
-    # Quelle etwas liefert) - eine Quelle mit nur TEILWEISER Tages-
-    # abdeckung liess den Rest frueher faelschlich auf den generischen
-    # Platzhaltertext fallen, obwohl eine nachfolgende Quelle fuer genau
-    # dieses Zeitfenster echte Daten gehabt haette (siehe gleiche Luecken-
-    # Fuellung in der DE-Kaskade weiter unten). Jede Quelle schreibt nur
-    # die Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt
-    # sind - keine doppelten/widerspruechlichen <programme>-Eintraege.
+def _telemach_abrufen(daten):
+    try:
+        site_id = telemach_kanal_finden(daten["sender"], daten["telemach"]["country"])
+        if site_id is not None:
+            return telemach_hole_programme(site_id, daten["telemach"]["country"], TELEMACH_TAGE)
+    except Exception:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass
+    return []
+
+
+def _mtel_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        mtel_site_id = mtel_kanal_finden(daten["sender"])
+        if mtel_site_id is not None:
+            return mtel_hole_programme(mtel_site_id, MTEL_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+def _klix_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        klix_site_id = klix_kanal_finden(daten["sender"])
+        if klix_site_id is not None:
+            return klix_hole_programme(klix_site_id, KLIX_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+# Alle drei BA-Quellen (Telemach/mtel.ba/klix.ba) werden fuer JEDEN
+# Sender IMMER der Reihe nach versucht (nicht mehr abgebrochen, sobald
+# die erste Quelle etwas liefert) - eine Quelle mit nur TEILWEISER
+# Tagesabdeckung liess den Rest frueher faelschlich auf den
+# generischen Platzhaltertext fallen, obwohl eine nachfolgende Quelle
+# fuer genau dieses Zeitfenster echte Daten gehabt haette (siehe
+# gleiche Luecken-Fuellung in der DE-Kaskade weiter unten). Jede
+# Quelle schreibt nur die Zeitfenster, die noch von keiner vorherigen
+# Quelle abgedeckt sind - keine doppelten/widerspruechlichen
+# <programme>-Eintraege. Die drei Netzwerk-Abrufe selbst laufen jetzt
+# PARALLEL ueber alle telemach_sender hinweg (siehe _parallel_abrufen()
+# oben) - die anschliessende, von den Ergebnissen vorheriger Quellen
+# abhaengige Ueberlappungs-/Schreiblogik bleibt unveraendert sequenziell.
+_telemach_ergebnisse = _parallel_abrufen(telemach_sender, _telemach_abrufen)
+_mtel_ergebnisse = _parallel_abrufen(telemach_sender, _mtel_abrufen)
+_klix_ergebnisse = _parallel_abrufen(telemach_sender, _klix_abrufen)
+
+for _idx, daten in enumerate(telemach_sender):
     _telemach_geschrieben_intervalle = []
 
     def _telemach_ohne_ueberlappung(programme_liste):
@@ -2713,20 +2794,7 @@ for daten in telemach_sender:
             if not ueberlappt_intervall(_telemach_geschrieben_intervalle, p["start"], p["stop"])
         ]
 
-    programme = []
-    try:
-        site_id = telemach_kanal_finden(daten["sender"], daten["telemach"]["country"])
-        if site_id is not None:
-            programme = telemach_hole_programme(
-                site_id, daten["telemach"]["country"], TELEMACH_TAGE
-            )
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
-        # generische Generierung fuer diesen Sender zurueck.
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+    programme = _telemach_ergebnisse[_idx]
 
     daten["telemach_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -2741,16 +2809,7 @@ for daten in telemach_sender:
     # Montenegro). Wird immer versucht (fuellt ggf. Luecken von
     # Telemach), schreibt aber nur die noch unbedeckten Zeitfenster.
     if daten["telemach"]["country"] == "ba":
-        mtel_programme = []
-        try:
-            mtel_site_id = mtel_kanal_finden(daten["sender"])
-            if mtel_site_id is not None:
-                mtel_programme = mtel_hole_programme(mtel_site_id, MTEL_TAGE)
-            else:
-                pass  # log unterdrueckt: keine echten Programmdaten
-        except Exception as e:
-            pass  # log unterdrueckt: keine echten Programmdaten
-            mtel_programme = []
+        mtel_programme = _mtel_ergebnisse[_idx]
 
         daten["mtel_intervalle"] = [(p["start"], p["stop"]) for p in mtel_programme]
 
@@ -2771,16 +2830,7 @@ for daten in telemach_sender:
         # nur noch einen "Keine Sendungen"-Leerzustand zeigt, keine
         # echten Daten mehr.) Wird immer versucht, schreibt aber nur die
         # noch unbedeckten Zeitfenster.
-        klix_programme = []
-        try:
-            klix_site_id = klix_kanal_finden(daten["sender"])
-            if klix_site_id is not None:
-                klix_programme = klix_hole_programme(klix_site_id, KLIX_TAGE)
-            else:
-                pass  # log unterdrueckt: keine echten Programmdaten
-        except Exception as e:
-            pass  # log unterdrueckt: keine echten Programmdaten
-            klix_programme = []
+        klix_programme = _klix_ergebnisse[_idx]
 
         daten["klix_intervalle"] = [(p["start"], p["stop"]) for p in klix_programme]
 
@@ -2802,19 +2852,22 @@ for daten in telemach_sender:
 # zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
-for daten in sky_sender:
-    programme = []
+def _sky_abrufen(daten):
     try:
         site_id = sky_kanal_finden(daten["sender"], daten["sky"]["territory"])
         if site_id is not None:
-            programme = sky_hole_programme(site_id, daten["sky"]["territory"], SKY_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
+            return sky_hole_programme(site_id, daten["sky"]["territory"], SKY_TAGE)
+    except Exception:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+        pass
+    return []
+
+
+_sky_ergebnisse = _parallel_abrufen(sky_sender, _sky_abrufen)
+
+for _idx, daten in enumerate(sky_sender):
+    programme = _sky_ergebnisse[_idx]
 
     daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3024,19 +3077,22 @@ for daten in tvguide_sender:
 # zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
-for daten in tvpassport_sender:
-    programme = []
+def _tvpassport_abrufen(daten):
     try:
         site_id = tvpassport_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
+            return tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+    except Exception:
         # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
         # generische Generierung fuer diesen Sender zurueck.
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+        pass
+    return []
+
+
+_tvpassport_ergebnisse = _parallel_abrufen(tvpassport_sender, _tvpassport_abrufen)
+
+for _idx, daten in enumerate(tvpassport_sender):
+    programme = _tvpassport_ergebnisse[_idx]
 
     daten["tvpassport_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3102,17 +3158,20 @@ for daten in tvpassport_callsign_sender:
 # Aufrufe.
 # ==========================================================
 
-for daten in mts_sender:
-    programme = []
+def _mts_abrufen(daten):
     try:
         site_id = mts_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = mts_hole_programme(site_id, MTS_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return mts_hole_programme(site_id, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mts_ergebnisse = _parallel_abrufen(mts_sender, _mts_abrufen)
+
+for _idx, daten in enumerate(mts_sender):
+    programme = _mts_ergebnisse[_idx]
 
     daten["mts_intervalle"] = [(p["start"], p["stop"]) for p in programme]
     # Sammelt ueber die drei RS-Fallback-Schritte (mts.rs/SportKlub/
@@ -3137,17 +3196,20 @@ for daten in mts_sender:
 # Zeitfenster. Kein eigenes Praefix noetig.
 # ==========================================================
 
-for daten in mts_sender:
-    programme = []
+def _mts_sportklub_abrufen(daten):
     try:
         site_id = sportklub_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = sportklub_hole_programme(site_id, MTS_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return sportklub_hole_programme(site_id, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mts_sportklub_ergebnisse = _parallel_abrufen(mts_sender, _mts_sportklub_abrufen)
+
+for _idx, daten in enumerate(mts_sender):
+    programme = _mts_sportklub_ergebnisse[_idx]
 
     daten["mts_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3176,20 +3238,23 @@ for daten in mts_sender:
 # nur die noch unbedeckten Zeitfenster.
 # ==========================================================
 
-for daten in mts_sender:
-    if not re.match(r"^ARENA\s*SPORT\b", daten["sender"].strip(), re.IGNORECASE):
-        continue
-
-    programme = []
+def _mts_arena_abrufen(daten):
     try:
         site_id = arena_kanal_finden(daten["sender"], "RS")
         if site_id is not None:
-            programme = arena_hole_programme(site_id, "RS", MTS_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return arena_hole_programme(site_id, "RS", MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mts_arena_sender = [
+    d for d in mts_sender if re.match(r"^ARENA\s*SPORT\b", d["sender"].strip(), re.IGNORECASE)
+]
+_mts_arena_ergebnisse = _parallel_abrufen(_mts_arena_sender, _mts_arena_abrufen)
+
+for _idx, daten in enumerate(_mts_arena_sender):
+    programme = _mts_arena_ergebnisse[_idx]
 
     daten["mts_arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3214,17 +3279,20 @@ for daten in mts_sender:
 # fuer alles, was A1 nicht kennt. Kein eigenes Praefix noetig.
 # ==========================================================
 
-for daten in mojmaxtv_sender:
-    programme = []
+def _a1_abrufen(daten):
     try:
         site_id = a1_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = a1_hole_programme(site_id, A1_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return a1_hole_programme(site_id, A1_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen)
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _a1_ergebnisse[_idx]
 
     daten["a1_intervalle"] = [(p["start"], p["stop"]) for p in programme]
     # Sammelt ueber die drei HR-Fallback-Schritte (A1/MojMaxTV/SportKlub)
@@ -3247,17 +3315,20 @@ for daten in mojmaxtv_sender:
 # die noch unbedeckten Zeitfenster. Kein eigenes Praefix noetig.
 # ==========================================================
 
-for daten in mojmaxtv_sender:
-    programme = []
+def _mojmaxtv_abrufen(daten):
     try:
         site_id = mojmaxtv_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mojmaxtv_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojmaxtv_abrufen)
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _mojmaxtv_ergebnisse[_idx]
 
     daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -3281,17 +3352,20 @@ for daten in mojmaxtv_sender:
 # automatisch als Fallback innerhalb derselben mojmaxtv_sender-Liste.
 # ==========================================================
 
-for daten in mojmaxtv_sender:
-    programme = []
+def _hr_sportklub_abrufen(daten):
     try:
         site_id = sportklub_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = sportklub_hole_programme(site_id, MOJMAXTV_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return sportklub_hole_programme(site_id, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_hr_sportklub_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_sportklub_abrufen)
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _hr_sportklub_ergebnisse[_idx]
 
     daten["sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
