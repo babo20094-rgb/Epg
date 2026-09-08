@@ -2863,3 +2863,113 @@ aber auf Nutzerwunsch noch nicht gebaut):**
   sieben Quellen, das generische Tagesraster fuer alle ~19.000 Sender
   usw.) wurde noch nicht analysiert/optimiert - naechster Kandidat fuer
   eine weitere Laufzeitverbesserung, falls gewuenscht.
+
+## September 2026: ARENA:-Praefix mit nicht unterstuetztem Land erzeugt doppelte/ueberlappende Kanal-ID (behoben)
+
+Der Nutzer meldete "Keine Information"-Platzhalter zwischen echten
+Sendungen bei mehreren Arena-Sport-/Sport-Klub-Sendern (BA/HR/SI/RS).
+Konkret nachgewiesen und behoben wurde ein Fall:
+
+- **Ursache:** `sender.txt` enthielt zusaetzlich zur normalen Zeile
+  `HR|ARENA SPORT 1 HD` noch eine Zeile `ARENA:BA|ARENA SPORT 1 HD|...`.
+  Arena Sport hat aber KEINE eigene bosnische Seite (`arena_epg.py`
+  unterstuetzt nur `HR`/`RS`) - der Code (`generate_epg.py`, ARENA:-
+  Block) faellt bei einem nicht unterstuetzten Land-Wert (hier "BA")
+  silently auf "HR" zurueck (`if arena_land not in ("HR","RS"):
+  arena_land = "HR"`). Dadurch entstand ein ZWEITER, komplett
+  unabhaengiger `<channel id="HR|ARENA SPORT 1 HD">`-Eintrag, der
+  AUSSERHALB der normalen A1/MojMaxTV/SportKlub-Ueberlappungs-Logik
+  (`_hr_geschrieben_intervalle`) lief und deshalb eigene, mit dem
+  echten HR-Sender exakt ueberlappende `<programme>`-Eintraege in
+  denselben Kanal schrieb. Per direktem XML-Vergleich verifiziert: 145
+  Zeitslots mit je ZWEI widerspruechlichen Sendungen fuer dieselbe ID
+  und denselben Zeitraum. Ein Player kann zwei sich ueberlappende
+  Eintraege fuer exakt dieselbe Zeit nicht sauber aufloesen - das
+  aeussert sich als "Keine Information" oder falsches Programm.
+- **Fix:** Die ueberfluessige `ARENA:BA`-Zeile wurde aus `sender.txt`
+  entfernt (Commit `e0dfdb9`) - sie war ohnehin redundant, da Bosniens
+  eigenes, echtes Arena-Sport-1-Programm bereits ueber
+  `TELEMACH:BA|ARENA SPORT 1 HD` (mtel.ba/Telemach, live verifiziert
+  mit eigenstaendigen, von Kroatien abweichenden Sendungen) abgedeckt
+  wird.
+- **Lehre/Vorsichtsmassnahme fuer kuenftige Faelle:** Bei JEDEM
+  Opt-in-Praefix mit Land-Whitelist und Silent-Fallback (`ARENA:` nur
+  HR/RS, `TELEMACH:` nur BA/ME, `SKY:` nur DE/GB, ...) IMMER pruefen,
+  ob fuer die erzeugte `<channel>`-ID (Land-Fallback-Wert + Kanalname)
+  bereits eine andere Zeile in `sender.txt` dieselbe ID erzeugt, BEVOR
+  eine neue Opt-in-Zeile mit einem exotischen/nicht unterstuetzten
+  Land-Wert eingetragen wird - der Silent-Fallback ist an sich
+  gewolltes Verhalten (siehe Doku bei den einzelnen Quellen-
+  Abschnitten), macht aber unentdeckte Kollisionen mit bereits
+  bestehenden, "richtigen" Land-Zeilen moeglich. Bei einer erneuten
+  Meldung "Sender X zeigt Platzhalter/Konflikte" IMMER zuerst per
+  Python direkt im generierten `Epg_365_Tage.xml.gz` pruefen (mit
+  `xml.etree.ElementTree`, NICHT nur Regex/Text-Suche - siehe naechster
+  Punkt) ob (a) doppelte `<channel id>` existieren
+  (`collections.Counter` ueber alle `id`-Attribute) und (b) ob fuer den
+  betroffenen Kanal `<programme>`-Eintraege mit identischem/ueberlappendem
+  Zeitfenster mehrfach vorkommen - beides ist der zuverlaessigste Weg,
+  diese Klasse von Bug zu erkennen, bevor an der Matching-Logik der
+  einzelnen Quellen gesucht wird.
+- **Wichtig fuer die Verifikation selbst:** Regex-basierte Textsuche im
+  (sehr grossen, ueber 300 MB) rohen XML kann bei komplexen Mustern
+  (verschachtelte Anfuehrungszeichen, mehrzeilige Tags) zu falschen
+  Ergebnissen fuehren. Fuer eine wirklich verlaessliche Aussage ("hat
+  Kanal X wirklich Sendung Y?", "gibt es doppelte IDs?") immer
+  `xml.etree.ElementTree.fromstring()` auf die entpackte Datei anwenden
+  und ueber `root.iter("channel")`/`root.iter("programme")` gehen -
+  das ist in dieser Session der entscheidende Schritt gewesen, um einen
+  ersten (falschen) Verdacht zu widerlegen bzw. zu erhaerten.
+
+## Offener Fall: HR|SPORT KLUB 1 zeigt in TiviMate gelegentlich falsches Programm ("Container Wars") - KEIN bestaetigter Datenfehler bei uns
+
+Der Nutzer meldete per Screenshot, dass der von ihm in TiviMate
+ausgewaehlte EPG-Eintrag "HR| SPORT KLUB 1" zeitweise das Programm des
+komplett anderen, echten deutschen Senders "Sport1" zeigt (u.a.
+"Container Wars", "Ladykracher", "Pastewka" - alles reale Sport1-
+Sendungen zur exakt richtigen Uhrzeit, live bei MojMaxTV unter dem
+eigenstaendigen Kanal "Sport 1" verifiziert, siehe `HR|SPORT 1 ⱽᴵᴾ ᴿᴬᵂ`
+in `sender.txt`).
+
+**Grundlich verifiziert und NICHT die Ursache:**
+- `arena_epg.py`/`mojmaxtv_epg.py`/`sportklub_epg.py` haben (Stand
+  September 2026) bereits explizite Exact-Match-Sicherungen fuer
+  "SK N"/"SPORT KLUB N" gegen genau diese Art Fehltreffer (siehe
+  Abschnitte weiter oben) - kein Fuzzy-Fallback moeglich.
+- Mit `xml.etree.ElementTree` (nicht nur Regex) direkt im generierten
+  `Epg_365_Tage.xml.gz` geprueft: `HR|SPORT KLUB 1` UND `HR| SPORT KLUB
+  1` (beide Leerzeichen-ID-Varianten, siehe `kanal_id_varianten()`)
+  existieren jeweils genau EINMAL, haben beide das korrekte Sport-Klub-
+  Logo (`logos/hr_sk/sk_1.png`, NICHT irgendein Sport1-Logo) und
+  jeweils 47 durchgehend echte Sport-Sendungen (Bundesliga, span./
+  tuerk. Liga usw.) - NULL Treffer fuer "Container Wars" in der Datei,
+  zu keinem Zeitpunkt.
+- Der Nutzer hat bestaetigt, dass in TiviMate nur EINE EPG-Quelle
+  eingetragen ist (unsere eigene `.xml.gz`-URL) - eine zweite,
+  kollidierende Drittanbieter-Quelle scheidet damit als Erklaerung aus.
+
+**Arbeitshypothese (nicht verifizierbar ohne TiviMate-internen
+Zugriff):** TiviMates lokale EPG-Datenbank haelt fuer diese Senderzeile
+vermutlich noch eine alte, verwaiste Bindung aus der Zeit VOR der
+September-Umbenennung `HR|SK 1` -> `HR|SPORT KLUB 1` (siehe
+"HR|SK->HR|SPORT KLUB-Umbenennung"-Abschnitt weiter oben, wo im
+selben Zeitraum tatsaechlich ein MojMaxTV-Fuzzy-Fehltreffer auf
+"Sport 1" auftrat, ABER fuer die "SK N"-Schreibweise, nicht "SPORT
+KLUB N"). Ein einfaches "EPG aktualisieren" in TiviMate raeumt so eine
+verwaiste Bindung offenbar nicht auf - nur ein kompletter Loeschen-und-
+neu-Anlegen-Vorgang der EPG-Quelle wuerde das voraussichtlich beheben.
+**Der Nutzer moechte das aber ausdruecklich NICHT tun** (schlechte
+Erfahrung: verlor beim letzten Neuaufbau 1009 Sender-Zuordnungen) - der
+Fall bleibt also bewusst ungeloest/offen stehen, KEIN weiterer
+Code-Fix-Versuch ohne neue, konkrete Evidenz.
+
+**Vorgehen bei kuenftigen aehnlichen Meldungen ("Sender X zeigt
+falsches Programm, obwohl korrekt zugeordnet"):** Erst IMMER wie oben
+beschrieben mit `xml.etree.ElementTree` die eigene generierte Datei
+lueckenlos verifizieren (Kanal-ID(s), Logo, alle `<programme>`-
+Eintraege). Wenn die eigene Datei nachweislich sauber ist UND der
+Nutzer nur eine einzige, korrekte EPG-Quelle bestaetigt, liegt die
+Ursache mit hoher Wahrscheinlichkeit auf TiviMate-Client-Seite
+(verwaiste alte Kanal-Bindung in der lokalen Datenbank) - nicht weiter
+an der Matching-Logik der Quellen suchen, sondern das dem Nutzer genau
+so kommunizieren, statt einen ungerechtfertigten Code-Fix vorzuschlagen.
