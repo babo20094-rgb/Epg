@@ -2973,3 +2973,58 @@ Ursache mit hoher Wahrscheinlichkeit auf TiviMate-Client-Seite
 (verwaiste alte Kanal-Bindung in der lokalen Datenbank) - nicht weiter
 an der Matching-Logik der Quellen suchen, sondern das dem Nutzer genau
 so kommunizieren, statt einen ungerechtfertigten Code-Fix vorzuschlagen.
+
+## September 2026: US| TENNIS PPV 1-30 (und alle anderen "::Kern"-Zeilen ohne Event-Text) - fuehrender Doppelpunkt blieb faelschlich im gespeicherten Kern, Live-Abgleich traf nie
+
+Der Nutzer meldete per Screenshot, dass ALLE 30 Sender der Gruppe
+`US| TENNIS PPV` weder eine automatische Kanalzuordnung noch echte
+Live-Events bekamen - trotz vorhandener, sauberer `sender.txt`-Zeilen
+(`NAME::Tennis  01|<Logo>` bis `NAME::Tennis  30|<Logo>`, KEIN
+Datenmuell wie bei frueheren aehnlichen Faellen).
+
+**Root Cause:** Beim Einlesen einer `NAME:`-Zeile wird `voller_name`
+aus allem VOR dem letzten Pipe gebildet - bei diesen Zeilen also
+`:Tennis  04` MIT fuehrendem Doppelpunkt (Teil der `":Kernname"`-
+Konvention, die auch bei Flo Racing/Paramount+ verwendet wird). Die
+generische Kern-am-Ende-Extraktion (`kern_und_event_extrahieren()`)
+erkennt daraus korrekt Kern "Tennis  04" (OHNE Doppelpunkt) und
+Event-Text "" (leer, da vor dem Doppelpunkt nichts steht). Ein
+Sicherheits-Rollback direkt danach (`if kurzname != voller_name and
+not _wirkt_wie_rohtext_muell(event_teil): kurzname, event_teil =
+voller_name, ""` - gedacht als Schutz vor Faellen wie "TNT SPORTS |
+Event 1", wo "TNT SPORTS" faelschlich als Event-Text abgetrennt
+werden koennte) griff hier aber FAELSCHLICH: ein LEERER Event-Text
+gilt per `_wirkt_wie_rohtext_muell("")` als "kein Muell" (Funktion
+gibt bei leerem Text `False` zurueck) - das Rollback nahm den
+unveraenderten `voller_name` MIT fuehrendem Doppelpunkt als
+gespeicherten Kern (`daten["sender"] = ":Tennis  04"`, nicht
+"Tennis  04"). Der Live-Playlist-Abgleich (`m3u_playlist_
+abgleichen()`) extrahiert aus dem ECHTEN Rohnamen aber korrekt
+"Tennis 04" OHNE Doppelpunkt (siehe Screenshots: "... :Tennis 04" /
+"... :Tennis 15" - der Doppelpunkt ist dort nur Trenner, nicht Teil
+des Kerns). Die beiden normalisierten Kernnamen ("`:TENNIS 04`" vs.
+"`TENNIS 04`") waren dadurch NIE identisch - `name_pipe_kanal_index`
+fand fuer keinen der 30 Sender einen Treffer, weder fuer die
+Kanalnamen-Zuordnung noch fuer echte Events.
+**Fix:** Das Rollback greift jetzt nur noch, wenn tatsaechlich ein
+NICHT-LEERER Event-Text abgetrennt wurde, der zusaetzlich nicht wie
+Muell aussieht (`if kurzname != voller_name and event_teil and not
+_wirkt_wie_rohtext_muell(event_teil)`) - der urspruengliche
+Schutzzweck ("TNT SPORTS | Event 1" bleibt unangetastet, da dort
+event_teil nicht leer waere) bleibt erhalten. Bei leerem Event-Text
+(reine "`:Kernname`"-Zeilen ohne jeglichen Event-Text davor) wird
+jetzt korrekt der bereinigte Kern OHNE fuehrenden Doppelpunkt
+uebernommen. Betraf strukturell ALLE `NAME::<Kern>`-Zeilen ohne
+Event-Text vor dem Doppelpunkt, nicht nur Tennis PPV - z.B. auch
+"Flo Racing  03"-"07" (mit `NAME::Flo Racing  0N|...` in derselben
+Konvention gespeichert). `pytest` (95 Tests) bestaetigt gruen nach
+dem Fix.
+**Lehre:** Bei einem Sicherheits-Rollback, der eine Extraktion nur
+unter bestimmten Bedingungen verwirft, IMMER auch den Fall "nichts
+wurde abgetrennt" (leerer/None Ergebniswert) explizit bedenken - eine
+Helper-Funktion wie `_wirkt_wie_rohtext_muell()`, die bei leerem Input
+konservativ `False` zurueckgibt (technisch korrekt: ein leerer Text
+"sieht nicht wie Muell aus"), kann in einer Sicherheitsbedingung genau
+deshalb zum Gegenteil des Gewollten fuehren, wenn "leer" und "sauberer
+Text, der nicht abgetrennt werden sollte" nicht auseinandergehalten
+werden.

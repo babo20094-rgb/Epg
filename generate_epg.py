@@ -783,7 +783,20 @@ for zeile in zeilen:
             return False
 
         kurzname, event_teil = kern_und_event_extrahieren(voller_name)
-        if kurzname != voller_name and not _wirkt_wie_rohtext_muell(event_teil):
+        # WICHTIG: Nur zurueckrollen, wenn tatsaechlich ETWAS abgetrennt
+        # wurde, das nicht wie Rohtext-Muell aussieht (z.B. "TNT SPORTS |
+        # Event 1" - "TNT SPORTS" ist echter Namensbestandteil, kein
+        # Muell). Ist event_teil dagegen LEER (z.B. ":Tennis  04" oder
+        # ":Flo Racing  03" - nur ein fuehrender Doppelpunkt vor dem
+        # eigentlichen Kern, kein Event-Text), wurde nichts Fragliches
+        # abgeschnitten - der erkannte Kern (ohne den fuehrenden
+        # Doppelpunkt) ist dann garantiert richtig. Ohne diese
+        # Bedingung wurde der fuehrende Doppelpunkt faelschlich wieder
+        # Teil des gespeicherten Kerns, wodurch der spaetere Live-
+        # Playlist-Abgleich (der den Kern OHNE Doppelpunkt liefert) nie
+        # mehr treffen konnte - betraf z.B. ALLE 30 "US| TENNIS PPV"-
+        # Sender (September 2026 behoben).
+        if kurzname != voller_name and event_teil and not _wirkt_wie_rohtext_muell(event_teil):
             kurzname, event_teil = voller_name, ""
 
         # Kein Kern-hinten-Muster erkannt (kurzname unveraendert) ->
