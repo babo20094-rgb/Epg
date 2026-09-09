@@ -3028,3 +3028,129 @@ konservativ `False` zurueckgibt (technisch korrekt: ein leerer Text
 deshalb zum Gegenteil des Gewollten fuehren, wenn "leer" und "sauberer
 Text, der nicht abgetrennt werden sollte" nicht auseinandergehalten
 werden.
+
+## September 2026: 13 fehlende Playlist-Kategorie-Trenner ergaenzt + automatische NAME:-Datenmuell-/Duplikat-Bereinigung eingebaut
+
+Der Nutzer meldete "12 von ~18957 Playlist-Sendern noch nicht
+zugeordnet" und dass er sie bei der schieren Menge nicht mehr von Hand
+finden koenne. Ein reiner Textabgleich Playlist gegen `sender.txt`
+(unter Beruecksichtigung aller bekannten Sonderformate: leeres-Land-
+Zeilen, `NAME:`-Kernwerte, Opt-in-Praefixe mit 4. Feld, UK/GB-Alias bei
+SKY:/FREEVIEW:) fand am Ende NULL echte fehlende Sender - jeder
+Playlist-Name hatte rein textlich eine passende Zeile. Der eigentliche
+Fund war eine andere Kanal-Art: die Playlist enthaelt fuer jede
+Kategorie zusaetzlich eine eigene, rein dekorative "Trenner"-Kanalzeile
+(`#EXTINF`-Eintrag mit einem Namen wie "##### GERMANY HEVC #####" oder
+identisch zum `group-title`, ohne echtes Programm) - TiviMate zaehlt
+diese mit als eigenen, zuzuordnenden Kanal. Es gibt dafuer bereits
+einen eigenen, frueher angelegten Abschnitt in `sender.txt`
+("##### PLAYLIST-KATEGORIE-TRENNER ... #####", alle Zeilen im
+leeres-Land-Format `|<Trenner-Text exakt wie in der Playlist>|<Logo-
+URL>` mit demselben `logos/kategorie_trenner/kategorie_trenner.png`-
+Logo) - 392 von 405 in der aktuellen Playlist vorkommenden Trennern
+standen dort bereits, 13 fehlten (u.a. "WOW ENTERTAINMENT ᴴᴰ ᴰᴼᴸᴮʸ
+ᴬᵁᴰᴵᴼ", "LEAGUES FOOTBALL PPV", "APPLE TV F1 PPV", "MONTENEGRO/CMA
+GORA ⱽᴵᴾ ᴿᴬᵂ") - ergaenzt, exakter Rohtext 1:1 aus der Playlist
+uebernommen (temporaerer Download, danach geloescht, wie bei allen
+frueheren Playlist-Abgleichen), keine Duplikate.
+**Wichtige Lehre fuer kuenftige Abgleiche dieser Art:** ein erster
+Vergleichsversuch verglich den Header-Text faelschlich gegen die
+NORMALISIERTE GESAMTE sender.txt-Zeile (inkl. URL) statt nur gegen den
+geparsten Sendernamen-Teil - das erzeugte zunaechst 404 "fehlende"
+Treffer, obwohl 392 davon laengst vorhanden waren. Vor einer Bulk-
+Ergaenzung IMMER den tatsaechlich geparsten Sendernamen vergleichen,
+nicht die rohe Zeile.
+
+**Zusaetzlich (separate Anfrage direkt danach): alter Datenmuell in
+NAME:-Kernen systematisch gesucht und automatisiert.** Nach demselben
+Muster wie in frueheren Sessions (ESPN+/STAN/GaaGo/Milb/Boxing, siehe
+Abschnitte oben) fanden sich weitere 18 `NAME:`-Zeilen mit eingebettetem
+altem Roh-Event-Text im Kern (DIRTVISION 01-03, FA Player 01-07, Fite
+TV 1 HD, OHL 01, Rugby 6/13, US (P+) Italy SerieA 6, 2× Serie A ->
+Paramount+, 2× -> Flo Racing). 14 davon waren reine Duplikate einer
+bereits an anderer Stelle vorhandenen sauberen Zeile (z.B. `NAME:DIRTVISION
+01 : Nodak Speedway 7:15 PM|` duplizierte das laengst vorhandene
+`NAME:DIRTVISION 01 :|<echtes Logo>`) - geloescht. 5 hatten keine
+saubere Zeile daneben und wurden auf den reinen Kern gekuerzt.
+
+Auf Nutzerwunsch ("kann man das automatisch machen, damit wir das
+nicht jedes mal manuell machen muessen") wurde direkt danach eine
+DAUERHAFTE automatische Erkennung in `generate_epg.py` eingebaut, statt
+das jedes Mal erneut von Hand zu suchen:
+
+- Ein neuer, einmaliger Vorab-Durchlauf ueber alle `NAME:`-Zeilen
+  (VOR der eigentlichen Verarbeitungsschleife) registriert zuerst
+  saemtliche bereits sauberen Kerne in `_name_kern_registry` - "sauber"
+  heisst: die Extraktion (`kern_und_event_extrahieren()`/
+  `kern_vorne_und_event_extrahieren()`, unveraendert) trennt entweder
+  gar nichts ab, oder nur einen leeren Doppelpunkt-Marker ohne
+  jeglichen Text dahinter (z.B. ":Paramount+  02" oder "OHL 02 :").
+  Ein NICHT-leerer abgetrennter Text gilt dagegen immer als echter
+  Datenmuell.
+- In der eigentlichen Verarbeitungsschleife wird bei jeder `NAME:`-
+  Zeile mit erkanntem, nicht-leerem Muelltext gegen diese Registry
+  geprueft: existiert der bereinigte Kern dort schon (aus dem
+  Vorab-Durchlauf ODER aus einer bereits verarbeiteten Muell-Zeile
+  weiter oben in derselben Datei), wird die Zeile als Duplikat komplett
+  uebersprungen (kein doppelter `<channel>`-Eintrag mehr). Existiert er
+  noch nicht, wird die Zeile trotzdem verwendet, aber der BEREINIGTE
+  Kern (nicht der Roh-Datenmuell) wird als `<channel>`-ID benutzt -
+  matcht dadurch sofort korrekt gegen den Live-Playlist-Abgleich, ganz
+  ohne manuelle sender.txt-Korrektur.
+- Der Vorab-Durchlauf (Reihenfolge-Unabhaengigkeit) ist wichtig: Steht
+  die Muell-Zeile in `sender.txt` VOR der sauberen Zeile (der
+  haeufigere Fall, da Muell oft aus dem urspruenglichen Playlist-Import
+  stammt und saubere Ergaenzungen spaeter angehaengt wurden), wuerde
+  ohne Vorab-Durchlauf die Muell-Zeile faelschlich zuerst registriert
+  und die eigentlich bessere, saubere Zeile als Duplikat verworfen -
+  genau umgekehrt vom gewuenschten Verhalten.
+- `_wirkt_wie_rohtext_muell()` wurde dafuer von einer bei jeder
+  Schleifeniteration neu definierten inneren Funktion auf Modulebene
+  verschoben (identischer Code, keine Logikaenderung) - wird jetzt
+  sowohl vom Vorab-Durchlauf als auch von der Hauptverarbeitung
+  gemeinsam genutzt.
+- Log-Ausgabe am Laufende (nur EINE Zeile, keine Einzelauflistung):
+  "NAME:-Datenmuell automatisch bereinigt: N Kanal-IDs korrigiert, M
+  Duplikate uebersprungen."
+- **Wichtig: Die eigentliche Event-/Sendungstitel-Extraktion selbst
+  wurde NICHT angefasst** - `kern_und_event_extrahieren()`,
+  `kern_vorne_und_event_extrahieren()` und alle anbieterspezifischen
+  Sonderfaelle (DYN PPV/DirtVision/FA Player/Rugby/etc.) sind
+  unveraendert. Die neue Logik betrifft ausschliesslich, WELCHE
+  `<channel>`-ID eine `NAME:`-Zeile am Ende bekommt bzw. ob die Zeile
+  ueberhaupt einen eigenen Kanal erzeugt - nicht, was als
+  Sendungstitel/-beschreibung angezeigt wird.
+- Verifiziert durch isoliertes Nachbauen der echten Code-Bloecke
+  (`exec()` der relevanten `generate_epg.py`-Ausschnitte mit
+  synthetischen Test-Zeilen, da ein kompletter Lauf in der
+  Entwickler-Sandbox wegen blockierter externer Quellen zu lange
+  dauert) - mehrfach mit echten Faellen (DIRTVISION, FA Player,
+  Paramount+) in BEIDEN Reihenfolgen (Muell zuerst / sauber zuerst)
+  getestet, `pytest` (95 Tests) bleibt gruen.
+
+**Direkt im Anschluss ein echter, durch die neue Logik AUFGEDECKTER
+Bug gefunden:** Der Nutzer meldete per Screenshot, dass bei den 50
+`DE: DYN PPV`-Sendern (NAME:-Playlist-Gruppe 1-50, nicht zu verwechseln
+mit den 20 API-Kanaelen) in TiviMate ploetzlich nur noch ein generisches
+Ordner-Icon statt des individuellen, nummerierten Logos angezeigt
+wurde. Ursache: in `sender.txt` gab es fuer JEDE der 50 Nummern zwei
+komplett getrennte `NAME:`-Zeilen mit demselben Kern - eine strukturell
+"saubere" (kein abgetrennter Text) mit einem FALSCHEN, generischen
+`externe_logos_import`-Logo, und eine mit eingebettetem Leerlauf-
+Platzhaltertext im Kern ("- NO EVENT STREAMING - | 8K EXCLUSIVE | DE:
+DYN PPV N") aber mit dem KORREKTEN, nummerierten Logo
+(`logos/dyn_ppv/dyn_ppv_N.png`). Die neue automatische Duplikat-
+Erkennung (siehe oben) hat bei diesem Sonderfall die STRUKTURELL
+saubere, aber inhaltlich falsche Zeile registriert und die inhaltlich
+richtige (aber wie Datenmuell aussehende) Zeile faelschlich als
+Duplikat verworfen - "strukturell sauber" ist eben nicht automatisch
+gleichbedeutend mit "inhaltlich korrekt". Behoben durch direkte
+Bereinigung in `sender.txt`: pro Nummer nur noch EINE Zeile
+(`NAME:DE: DYN PPV N|https://.../logos/dyn_ppv/dyn_ppv_N.png`), die
+jeweils andere geloescht. **Lehre:** Bei zwei konkurrierenden
+`NAME:`-Zeilen fuer denselben Kern IMMER pruefen, welche der beiden
+tatsaechlich das korrekte, gewollte Logo/die gewollten Daten traegt,
+bevor die "sauberer aussehende" pauschal bevorzugt wird - dieser Fall
+war ein reines sender.txt-Datenproblem (zwei widerspruechliche
+historische Eintraege), kein Fehler in der neuen Erkennungslogik
+selbst.
