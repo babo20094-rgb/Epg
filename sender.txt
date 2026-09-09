@@ -12257,9 +12257,6 @@ NAME:DE: SPORT DEUTSCHLAND PPV 97|https://raw.githubusercontent.com/babo20094-rg
 NAME:DE: SPORT DEUTSCHLAND PPV 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sport_deutschland/98.png
 NAME:DE: SPORT DEUTSCHLAND PPV 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sport_deutschland/99.png
 NAME:DIRTVISION  08|
-NAME:DIRTVISION 01 : Nodak Speedway 7:15 PM|
-NAME:DIRTVISION 02 : Huset's Speedway 7:25 PM|
-NAME:DIRTVISION 03 : Sheridan Speedway 8:15 PM|
 NAME::Milb  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
@@ -12377,16 +12374,9 @@ NAME:ESPN PLUS 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:ESPN PLUS 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3b588ef198fe6edbac9a9f76085021fe7616a5cb.png
 NAME:ESPN PLUS 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9580f13ee139f8a1a42fd2fa1b0c9c73ee6c36ae.png
 NAME::Milb  59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:FA Player 01 : Chelsea vs Manchester United // UK Sun 18 May 1:30pm // ET Sun 18 May 8:30am|http://103.176.90.95/images/1429570.png
-NAME:FA Player 02 : Chelsea vs Crystal Palace // UK Sun 9 Mar 3:30pm // ET Sun 9 Mar 10:30am|http://103.176.90.95/images/1429579.png
-NAME:FA Player 03 : Arsenal vs Liverpool // UK Sun 9 Mar 3:30pm // ET Sun 9 Mar 10:30am|http://103.176.90.95/images/1429578.png
-NAME:FA Player 04 : Manchester City vs Leicester City // UK Sun 9 Feb 3:00pm // ET Sun 9 Feb 10:00am|http://103.176.90.95/images/1429577.png
-NAME:FA Player 05 : Arsenal vs London City Lionesses // UK Sun 9 Feb 3:00pm // ET Sun 9 Feb 10:00am|http://103.176.90.95/images/1429576.png
-NAME:FA Player 06 : Portsmouth vs Sunderland // UK Sun 9 Feb 3:00pm // ET Sun 9 Feb 10:00am|http://103.176.90.95/images/1429575.png
-NAME:FA Player 07 : Arsenal vs Bristol City // UK Sun 12 Jan 4:00pm // ET Sun 12 Jan 11:00am|http://103.176.90.95/images/1429574.png
 NAME::Milb  29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Fite TV 1 HD (D): TrillerTV-Willow Sports International Women Cricket: England vs India, 3rd ODI - Tue,22 Jul 07:50 ET|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
+NAME:Fite TV 1 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
 NAME:Fite TV 1 SD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
 NAME:Fite TV 10 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
 NAME:Fite TV 10 SD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f223c6c9d76a577410ac526dad02cdf313ed0f82.png
@@ -12583,7 +12573,6 @@ NAME:HBO Max | Event 28|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 NAME:HBO Max | Event 29|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME:HBO Max | Event 30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7557925553f5f423e4e79c43bd6ea5fa710c0d0c.png
 NAME::Milb  07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:High Limit Racing at Douglas Co :Flo Racing  04|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
 NAME::Milb  23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  47|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
@@ -13129,7 +13118,7 @@ NAME:National League | Event 37|https://raw.githubusercontent.com/babo20094-rgb/
 NAME:National League | Event 38|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
 NAME::Milb  16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  44|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:OHL  01 : 6:00 PM Kitchener Rangers @ Barrie Colts|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
+NAME:OHL  01 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 02 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 03 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME:OHL 04 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
@@ -13208,7 +13197,7 @@ NAME:Rugby 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/exte
 NAME:Rugby 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
-NAME:Rugby 13 : Dolphins vs Raiders 5:00am Sun|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 13 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
@@ -13216,7 +13205,7 @@ NAME:Rugby 2 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3
 NAME:Rugby 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
-NAME:Rugby 6 : Canada vs Spain 2:00 am|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
+NAME:Rugby 6 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
 NAME:Rugby 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02defe0cc0ce21182c287c3d85b8667c43c82103.png
@@ -13241,8 +13230,6 @@ NAME:SERIE A| TORINO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME:SERIE A| UDINESE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e7cc5cc627aeca443425506fbf9caa50a94ce9b0.png
 NAME:SERIE A| VERONA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/78b5d7d977834c73a8641c0efbefd689feb8d1f3.png
 NAME::Milb  46|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Serie A: Atalanta vs Bologna @ Aug 31 2:30 PM :Paramount+  02|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
-NAME:Serie A: Lecce vs Roma @ Aug 31 12:20 PM :Paramount+  01|http://51.158.145.100/picons/logos/PPV/PARAMOUNTPLUS.png
 NAME:Setanta | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c21e84ffba5c9df024f6637569e973e83e873f49.png
 NAME:Setanta | Event 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c21e84ffba5c9df024f6637569e973e83e873f49.png
 NAME:Setanta | Event 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c21e84ffba5c9df024f6637569e973e83e873f49.png
@@ -14522,7 +14509,7 @@ NAME:US (P+) Italy SerieA 20|https://raw.githubusercontent.com/babo20094-rgb/Epg
 NAME:US (P+) Italy SerieA 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US (P+) Italy SerieA 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US (P+) Italy SerieA 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
-NAME:US (P+) Italy SerieA 6: Roma vs Napoli | 23/12 14:00 ET|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
+NAME:US (P+) Italy SerieA 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US (P+) Italy SerieA 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US (P+) Italy SerieA 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
 NAME:US (P+) Italy SerieA 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7607f86b740cbb139caa111ab7b2c1dfdaa0f000.png
@@ -16612,7 +16599,6 @@ NAME:WORLD CUP 2026 REPLAY INFO ᴴᴰ|https://raw.githubusercontent.com/babo200
 NAME:WWE Summerslam|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/db8902005c245bdca3b6c8cadb6e8fd30f23c728.png
 NAME::Milb  25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  35|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Wild Thing Kart Series at Stafford @ Aug 31 6:15 PM :Flo Racing  03|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
 NAME::Milb  11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  26|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  40|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png

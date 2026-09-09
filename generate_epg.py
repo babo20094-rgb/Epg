@@ -658,6 +658,49 @@ xml_teile = ['<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n']
 
 sender_daten = []
 
+# Automatische Datenmuell-/Duplikat-Erkennung fuer NAME:-Sender: manche
+# sender.txt-Zeilen tragen (durch fruehere fehlerhafte Kern-Erkennung
+# beim Playlist-Import) noch alten Roh-Event-Text im Kern statt des
+# stabilen Kerns (siehe CLAUDE.md, Abschnitt "Datenmuell"). Die
+# Extraktion weiter unten (kern_und_event_extrahieren()/
+# kern_vorne_und_event_extrahieren()) erkennt und bereinigt das bereits
+# fuer die ANGEZEIGTE Beschreibung - hier wird zusaetzlich automatisch
+# verhindert, dass so ein Datenmuell-Kern eine eigene, doppelte
+# <channel>-ID neben der laengst vorhandenen sauberen erzeugt: Wird bei
+# einer NAME:-Zeile Muell erkannt und abgetrennt, UND der uebrig
+# bleibende saubere Kern wurde bereits von einer anderen Zeile
+# registriert, wird diese Zeile komplett uebersprungen (Duplikat).
+# Wurde er noch nicht registriert, wird die Zeile trotzdem verwendet,
+# aber mit dem BEREINIGTEN Kern als <channel>-ID (statt des Roh-
+# Datenmuells) - dadurch matcht der Live-Playlist-Abgleich sofort
+# richtig, ganz ohne manuelle sender.txt-Korrektur.
+_name_kern_registry = {}
+_name_kern_duplikate_uebersprungen = 0
+_name_kern_automatisch_bereinigt = 0
+
+# Auf Modulebene (statt wie frueher innerhalb der Schleife neu
+# definiert), da sowohl der Vorab-Durchlauf (Registry-Vorbefuellung
+# unten) als auch die eigentliche NAME:-Verarbeitung weiter unten
+# dieselbe Funktion brauchen. Erkennt, ob ein abgetrennter Text-
+# Abschnitt wie echter Rohtext-Muell aussieht (Uhrzeit/Datum/
+# Jahreszahl, "vs", ein bekannter Leerlauf-/Event-Marker, oder mehr
+# als 4 Woerter) - siehe ausfuehrliche Erklaerung weiter unten bei der
+# NAME:-Verarbeitung.
+def _wirkt_wie_rohtext_muell(text):
+    if not text:
+        return False
+    if re.search(r"\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}([./]\d{2,4})?|\b(19|20)\d{2}\b", text):
+        return True
+    if re.search(r"\bvs\.?\b", text, re.IGNORECASE):
+        return True
+    if any(marker in text.lower() for marker in LEERLAUF_MARKER):
+        return True
+    if any(marker in text.lower() for marker in EVENT_MARKER_NEXT + EVENT_MARKER_LIVE + EVENT_MARKER_ENDE):
+        return True
+    if len(text.split()) > 4:
+        return True
+    return False
+
 # Zaehlt pro echter Quelle, wie viele Sender damit echte Programmdaten
 # bekommen haben - statt bei JEDEM einzelnen Sender eine eigene
 # Log-Zeile auszugeben (bei ~19.000 Sendern eine sehr lange, kaum
@@ -687,6 +730,61 @@ try:
         zeilen = f.readlines()
 except FileNotFoundError:
     raise SystemExit("Fehler: sender.txt wurde nicht gefunden.")
+
+# Normalisierter Vergleichsschluessel fuer die Datenmuell-/Duplikat-
+# Registry. Ein trainierender, alleinstehender Doppelpunkt (z.B. bei
+# "DIRTVISION 01 :"/"OHL 02 :" - der Doppelpunkt bleibt dort stehen,
+# weil kern_vorne_und_event_extrahieren() ihn nur entfernt, wenn
+# WIRKLICH Muell dahinter erkannt wird, sonst bleibt die Zeile
+# unveraendert) wird hier zusaetzlich entfernt, damit "DIRTVISION 01 :"
+# und das aus einer Datenmuell-Zeile bereinigte "DIRTVISION 01" (dort
+# wird der Doppelpunkt beim Abtrennen des erkannten Muells IMMER mit
+# entfernt) auf denselben Schluessel normalisieren - sonst wuerden
+# beide Schreibweisen faelschlich als unterschiedliche Kanaele gelten.
+def _name_kern_registry_key(text):
+    text = re.sub(r"\s+", " ", text.strip().lower())
+    text = re.sub(r"\s*:$", "", text)
+    return text
+
+# Vorab-Durchlauf NUR fuer die Datenmuell-/Duplikat-Registry (siehe
+# Kommentar oben bei _name_kern_registry): registriert zuerst ALLE
+# bereits sauberen NAME:-Kerne (wo nichts oder nur ein alleinstehender
+# fuehrender/abschliessender Doppelpunkt-Marker abgetrennt wird - siehe
+# _name_kern_registry_key oben), BEVOR die eigentliche Verarbeitung
+# unten beginnt. Ohne diesen Vorab-Durchlauf wuerde bei der Reihenfolge
+# "Datenmuell-Zeile steht VOR der sauberen Zeile in sender.txt" (in der
+# Praxis der haeufigere Fall, da Muell-Zeilen oft aus dem urspruenglichen
+# Playlist-Import stammen und saubere Ergaenzungen spaeter angehaengt
+# wurden) die Muell-Zeile faelschlich zuerst registriert und die
+# eigentlich bessere, saubere Zeile (meist mit funktionierendem, selbst
+# gehostetem Logo statt eines toten externen Links) als vermeintliches
+# Duplikat verworfen - genau umgekehrt vom gewuenschten Verhalten.
+for _vorab_zeile in zeilen:
+    _vorab_zeile = _vorab_zeile.strip()
+    if not _vorab_zeile.upper().startswith("NAME:"):
+        continue
+    _vorab_rest = _vorab_zeile[5:]
+    _vorab_teile = _vorab_rest.rsplit("|", 1)
+    if len(_vorab_teile) != 2:
+        continue
+    _vorab_voller_name = _vorab_teile[0].strip()
+    if not _vorab_voller_name:
+        continue
+    _vorab_kurzname, _vorab_event_teil = kern_und_event_extrahieren(_vorab_voller_name)
+    if _vorab_kurzname != _vorab_voller_name and _vorab_event_teil and not _wirkt_wie_rohtext_muell(_vorab_event_teil):
+        _vorab_kurzname, _vorab_event_teil = _vorab_voller_name, ""
+    if _vorab_kurzname == _vorab_voller_name:
+        _vorab_kern_vorne, _vorab_event_vorne = kern_vorne_und_event_extrahieren(_vorab_voller_name)
+        if _vorab_kern_vorne and _wirkt_wie_rohtext_muell(_vorab_event_vorne):
+            _vorab_kurzname, _vorab_event_teil = _vorab_kern_vorne, _vorab_event_vorne
+    # "sauber" heisst: entweder komplett unveraendert, oder es wurde nur
+    # ein leerer Event-Teil abgetrennt (reiner Doppelpunkt-Marker ohne
+    # jeglichen Text dahinter, z.B. ":Paramount+  02" oder "OHL 02 :")
+    # - ein NICHT-leerer Event-Teil bedeutet dagegen immer echten,
+    # abgetrennten Muelltext und zaehlt nicht als "sauber".
+    if not _vorab_event_teil:
+        _vorab_key = _name_kern_registry_key(_vorab_kurzname)
+        _name_kern_registry[_vorab_key] = True
 
 for zeile in zeilen:
 
@@ -763,24 +861,9 @@ for zeile in zeilen:
         # laenger als 4 Woerter) - alle bisher behobenen echten
         # Datenmuell-Faelle (Milb/Flo College/ESPN+/STAN/UEFA, siehe
         # CLAUDE.md) erfuellen mindestens eines dieser Merkmale.
-        def _wirkt_wie_rohtext_muell(text):
-            if not text:
-                return False
-            # Uhrzeit (7:15/19:00), Datum (2026-08-31, 31.08./08/31) oder
-            # eine Jahreszahl - eine einzelne kurze Nummer allein (z.B.
-            # "Event 1") reicht NICHT, das ist oft selbst Teil eines
-            # stabilen Kanalnamens (siehe "TNT SPORTS | Event 1").
-            if re.search(r"\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}([./]\d{2,4})?|\b(19|20)\d{2}\b", text):
-                return True
-            if re.search(r"\bvs\.?\b", text, re.IGNORECASE):
-                return True
-            if any(marker in text.lower() for marker in LEERLAUF_MARKER):
-                return True
-            if any(marker in text.lower() for marker in EVENT_MARKER_NEXT + EVENT_MARKER_LIVE + EVENT_MARKER_ENDE):
-                return True
-            if len(text.split()) > 4:
-                return True
-            return False
+        # (Funktion _wirkt_wie_rohtext_muell() ist auf Modulebene
+        # definiert, siehe oben vor dem sender.txt-Vorab-Durchlauf -
+        # wird auch dort fuer die Registry-Vorbefuellung gebraucht.)
 
         kurzname, event_teil = kern_und_event_extrahieren(voller_name)
         # WICHTIG: Nur zurueckrollen, wenn tatsaechlich ETWAS abgetrennt
@@ -944,8 +1027,34 @@ for zeile in zeilen:
         if event_titel is None:
             event_titel = f"{kanalname_normal_geschrieben(kurzname)} ᴸⁱᵛᵉ"
 
+        # Automatische Datenmuell-/Duplikat-Erkennung (siehe Registry-
+        # Kommentar oben bei sender_daten). Wurde oben ein abweichender
+        # Kern extrahiert (kurzname != voller_name), als <channel>-ID
+        # statt des vollen Rohnamens verwenden - matcht dann sofort
+        # richtig gegen den Live-Playlist-Abgleich. Nur wenn dabei auch
+        # WIRKLICH ein nicht-leerer Muelltext abgetrennt wurde
+        # (event_teil), gilt die Zeile als Datenmuell-Kandidat und wird
+        # gegen die Registry geprueft: registrierte eine ANDERE Zeile
+        # bereits denselben bereinigten Kern, ist diese Zeile ein reines
+        # Duplikat und wird uebersprungen. Ein LEERER event_teil (nur
+        # ein alleinstehender Doppelpunkt-Marker wurde entfernt, z.B.
+        # ":Paramount+  02" oder "DIRTVISION 01 :") gilt dagegen immer
+        # als bereits sauber und wird NIE uebersprungen (sonst wuerde
+        # sich eine im Vorab-Durchlauf bereits registrierte, saubere
+        # Zeile hier faelschlich selbst als Duplikat verwerfen).
+        _kanal_id_fuer_eintrag = kurzname if kurzname != voller_name else voller_name
+        _registry_key = _name_kern_registry_key(kurzname)
+        if event_teil:
+            if _registry_key in _name_kern_registry:
+                _name_kern_duplikate_uebersprungen += 1
+                continue
+            _name_kern_registry[_registry_key] = True
+            _name_kern_automatisch_bereinigt += 1
+        else:
+            _name_kern_registry.setdefault(_registry_key, True)
+
         sender_daten.append({
-            "kanal": voller_name,
+            "kanal": _kanal_id_fuer_eintrag,
             "land": land,
             "sender": kurzname,
             "beschreibung": beschreibung,
@@ -3999,5 +4108,11 @@ if echte_quelle_zaehler:
         f"{quelle}: {anzahl}" for quelle, anzahl in sorted(echte_quelle_zaehler.items())
     )
     print(f"Echte Programmdaten fuer {gesamt_echte_daten} Sender geladen ({zusammenfassung}).")
+
+if _name_kern_automatisch_bereinigt or _name_kern_duplikate_uebersprungen:
+    print(
+        f"NAME:-Datenmuell automatisch bereinigt: {_name_kern_automatisch_bereinigt} "
+        f"Kanal-IDs korrigiert, {_name_kern_duplikate_uebersprungen} Duplikate uebersprungen."
+    )
 
 print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
