@@ -19230,6 +19230,19 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |####### TUBI ᴿᴬᵂ #######|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |####### VOLLEY BALL WORLD PPV #######|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |######## NETFLIX PPV ########|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### WOW ENTERTAINMENT ᴴᴰ ᴰᴼᴸᴮʸ ᴬᵁᴰᴵᴼ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### WOW SPORT ᴴᴰ ᴰᴼᴸᴮʸ ᴬᵁᴰᴵᴼ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### LEAGUES FOOTBALL PPV ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|#### MAGENTA PPV ᴿᴬᵂ ᴳᴼᴸᴰ ####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### RTL+ SPORT PPV ᴿᴬᵂ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|## MAX ESPN ᴴᴰ/ᴿᴬᵂ ⁶⁰ᶠᵖˢ ##|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### DIREC TV GO  ᴴᴰ/ᴿᴬᵂ ⁶⁰ᶠᵖˢ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### DIREC TV ᶜᶦᵗʸ ᴴᴰ/ᴿᴬᵂ ⁶⁰ᶠᵖˢ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|#### APPLE TV F1 PPV ####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### NETFLIX ON AIR ᴿᴬᵂ ⁶⁰ᶠᵖˢ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### 24/7 DISNEY+ ᴿᴬᵂ ⁶⁰ᶠᵖˢ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|### 24/7 PRIME VIDEO ᴿᴬᵂ ⁶⁰ᶠᵖˢ ###|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|#### MONTENEGRO/CMA GORA ⱽᴵᴾ ᴿᴬᵂ ####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 
 |UK| FORMULA 1| ALO - ALONSO ALPINE|Formula 1 Alo - Alonso Alpine ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
 |UK| FORMULA 1| BOT - BOTTAS ALFA ROMEO|Formula 1 Bot - Bottas Alfa Romeo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4f335a7bd82fd97a9f97f9eb753b32872feea7c6.png
