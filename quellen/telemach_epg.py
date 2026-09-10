@@ -20,7 +20,38 @@ import re
 
 import requests
 
-from epg_lib import normalisiere_sendername
+from epg_lib import (
+    kanal_index_suchen,
+    kern_index_aufbauen,
+    normalisiere_sendername,
+)
+
+# Telemach haengt an JEDEN Kanalnamen ein oder mehrere Land-Tags in
+# Klammern an (z.B. "TVCG 1 HD (ME)", "TV e (CG)/(BIH)") - reine
+# Metadaten (das Land ist ja schon ueber den country-Parameter gewaehlt),
+# aber ohne Entfernung landen die Buchstaben nach normalisiere_sendername()
+# ungewollt im Vergleichsschluessel (z.B. "HBO HD (ME)" -> "HBOHDME" statt
+# "HBOHD") und ein kurzer sender.txt-Name wie "HBO" fällt dadurch sowohl
+# beim exakten als auch beim unscharfen Abgleich durch, obwohl der Kanal
+# eigentlich existiert (August/September 2026, Montenegro-Sender-Audit).
+_LAND_TAG_MUSTER = re.compile(r"\s*\([A-Za-z]{2,4}\)")
+
+
+def _ohne_land_tag(name):
+    return _LAND_TAG_MUSTER.sub("", name or "").strip()
+
+
+# Der montenegrinische oeffentlich-rechtliche Sender hiess frueher "RTCG"
+# (Radio i Televizija Crne Gore) - in der eigenen Playlist/sender.txt noch
+# so benannt, bei Telemach aber unter dem neueren Markennamen "TVCG"
+# gefuehrt. Bekannte, bestaetigte Umbenennung (kein Fuzzy-Risiko wie beim
+# frueheren Sky-Cinema-Special-Fall) - wird nur auf den ZIEL-Namen
+# (sender.txt-Seite) angewendet, bevor der Abgleich laeuft.
+_RTCG_ALIAS_MUSTER = re.compile(r"^RTV?CG\b", re.IGNORECASE)
+
+
+def _rtcg_alias(kanalname):
+    return _RTCG_ALIAS_MUSTER.sub("TVCG", kanalname or "", count=1)
 
 BASIC_TOKEN = (
     "MjdlMTFmNWUtODhlMi00OGU0LWJkNDItOGUxNWFiYmM2NmY1OjEyejJzMXJ3bXdhZmsxMGNkdzl0cjloOWFjYjZwdjJoZDhscXZ0aGc="
@@ -129,32 +160,35 @@ def telemach_hole_kanalliste(country="ba"):
 
 
 def telemach_kanal_finden(kanalname, country="ba"):
-    """Sucht den Telemach-Kanal, der am besten zu kanalname passt -
-    erst exakter Abgleich nach normalisiere_sendername(), sonst
-    unscharfer difflib-Abgleich (gleiche Vorgehensweise wie finde_logo()
-    in epg_lib.py). Gibt die site_id zurueck oder None."""
+    """Sucht den Telemach-Kanal, der am besten zu kanalname passt - erst
+    exakter Abgleich nach normalisiere_sendername(), dann ein Kern-Abgleich
+    ohne HD/FHD/UHD/SD, zuletzt unscharfer difflib-Abgleich (siehe
+    epg_lib.kanal_index_suchen()). Die von Telemach an jeden Namen
+    angehaengten Land-Tags in Klammern (z.B. "(ME)", "(BIH)") werden vor
+    dem Vergleich entfernt - sonst verfaelschen sie den Schluessel und
+    kurze Namen wie "HBO" finden keinen Treffer mehr, siehe
+    _ohne_land_tag(). Gibt die site_id zurueck oder None."""
     kanaele = telemach_hole_kanalliste(country)
     if not kanaele:
         return None
 
-    ziel_schluessel = normalisiere_sendername(kanalname)
-    if not ziel_schluessel:
-        return None
+    bereinigt = [
+        {"name": _ohne_land_tag(kanal["name"]), "site_id": kanal["site_id"]}
+        for kanal in kanaele
+    ]
 
     name_index = {}
-    for kanal in kanaele:
+    for kanal in bereinigt:
         schluessel = normalisiere_sendername(kanal["name"])
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
 
-    if ziel_schluessel in name_index:
-        return name_index[ziel_schluessel]
+    kern_index = kern_index_aufbauen(bereinigt, "name", "site_id")
 
-    aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
-    if aehnliche:
-        return name_index[aehnliche[0]]
-
-    return None
+    treffer = kanal_index_suchen(kanalname, name_index, kern_index)
+    if treffer is None and _RTCG_ALIAS_MUSTER.match((kanalname or "").strip()):
+        treffer = kanal_index_suchen(_rtcg_alias(kanalname), name_index, kern_index)
+    return treffer
 
 
 def _zeit_parsen(wert):
