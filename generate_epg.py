@@ -1689,7 +1689,17 @@ for zeile in zeilen:
     # Sender. MK laeuft ueber dieselbe siol.net-Quelle wie SI (siol.net
     # fuehrt eine kleine Zahl mazedonischer Sender wie Alfa TV/Alsat
     # Macedonia/TV Sitel/MTV 1-3 zusaetzlich zu den slowenischen).
-    if land.strip().upper() == "RS":
+    # mts.rs (Serbien) laeuft zusaetzlich auch fuer ME/MNG/MO/CG-Sender
+    # (Montenegro) mit: die montenegrinische Playlist fuehrt viele echte
+    # serbische/internationale Kanaele (Pink-Familie, RTS, B92, CNN,
+    # Discovery, Eurosport, Agro TV, Toxic TV, Balkan Trip, ...), die
+    # Telemach ME nicht kennt, mts.rs aber teilweise schon (live
+    # verifiziert, z.B. "Agro TV"). ARENA-SPORT/SPORT-KLUB-Namen werden
+    # bereits innerhalb von mts_kanal_finden() ausgefiltert (siehe
+    # _ARENA_SPORT_GUARD/_SPORT_KLUB_GUARD in mts_epg.py - fuer beide hat
+    # mts.rs unzuverlaessige/keine eigenen Daten), betrifft also auch hier
+    # automatisch die ME-ARENASPORT-Zeilen ohne Fehltreffer-Risiko.
+    if land.strip().upper() in ("RS", "ME", "MNG", "MO", "CG"):
         eintrag["mts"] = True
     if land.strip().upper() == "HR":
         eintrag["mojmaxtv"] = True
@@ -3301,12 +3311,25 @@ for _idx, daten in enumerate(mts_sender):
     # nachfolgende Quelle fuellt damit nur noch unbedeckte Zeitfenster,
     # statt bei jeder Teilabdeckung komplett uebersprungen zu werden
     # (gleiche Luecken-Fuellung wie in der DE-Kaskade, siehe dort).
-    daten["_rs_geschrieben_intervalle"] = []
+    # WICHTIG: fuer ME/MNG/MO/CG-Sender lief VORHER bereits Telemach
+    # (telemach_sender/mts_sender ueberschneiden sich jetzt, siehe
+    # TELEMACH_LAND_ALIAS/mts-Routing weiter oben) - dessen bereits
+    # geschriebene Zeitfenster (daten["telemach_intervalle"]) muessen
+    # hier als Startbestand uebernommen werden, sonst wuerde mts.rs
+    # fuer denselben Sender/Zeitraum ein zweites, ueberlappendes
+    # <programme> schreiben (der "doppelte Kanal-ID/ueberlappende
+    # Sendung"-Bug-Typ, siehe ARENA:BA-Fall in docs/HISTORIE.md).
+    daten["_rs_geschrieben_intervalle"] = list(daten.get("telemach_intervalle", []))
 
     if programme:
-        _echte_quelle_zaehlen("mts.rs")
-        _schreibe_echte_programme(daten, programme)
-        daten["_rs_geschrieben_intervalle"].extend(daten["mts_intervalle"])
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("mts.rs")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
 
@@ -3371,7 +3394,9 @@ def _mts_arena_abrufen(daten):
 
 
 _mts_arena_sender = [
-    d for d in mts_sender if re.match(r"^ARENA\s*SPORT\b", d["sender"].strip(), re.IGNORECASE)
+    d for d in mts_sender
+    if d["land"].strip().upper() == "RS"
+    and re.match(r"^ARENA\s*SPORT\b", d["sender"].strip(), re.IGNORECASE)
 ]
 _mts_arena_ergebnisse = _parallel_abrufen(_mts_arena_sender, _mts_arena_abrufen)
 
