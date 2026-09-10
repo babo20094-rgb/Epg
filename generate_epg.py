@@ -2420,6 +2420,17 @@ def _kern_und_event_aus_rohname(voller_name):
     kurzname, event_teil) zurueck, oder (None, None, None, None) bei
     keinem Treffer in name_pipe_kanal_index."""
     kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+    # Gleiches Rollback wie beim sender.txt-Einlesen (siehe dortige
+    # NAME:-Verarbeitung): sieht der abgetrennte "Event-Text" NICHT wie
+    # Rohtext-Muell aus (z.B. "NFL TEAMS" vor "| FOX PACKERS ST. LOUIS
+    # MO"), ist er ein echter, fester Namensbestandteil - der komplette
+    # Rohname bleibt dann der Kern. Ohne dieses Rollback wuerde hier ein
+    # anderer (verkuerzter) Kern berechnet als der beim Einlesen in
+    # name_pipe_kanal_index gespeicherte, wodurch der Live-Playlist-
+    # Abgleich fuer alle betroffenen Sender (z.B. "NFL TEAMS| <Team>")
+    # nie einen Treffer findet (Bug: automatische Zuordnung schlug fehl).
+    if kurzname != voller_name and event_teil and not _wirkt_wie_rohtext_muell(event_teil):
+        kurzname, event_teil = voller_name, ""
     normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
     real_daten = name_pipe_kanal_index.get(normalisierter_kern)
     if real_daten is None:

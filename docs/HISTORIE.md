@@ -3170,3 +3170,58 @@ bevor die "sauberer aussehende" pauschal bevorzugt wird - dieser Fall
 war ein reines sender.txt-Datenproblem (zwei widerspruechliche
 historische Eintraege), kein Fehler in der neuen Erkennungslogik
 selbst.
+
+## NFL TEAMS-Sender: Live-Playlist-Abgleich fand nie einen Treffer
+(Kern-Rollback beim Einlesen vs. beim Abgleich unterschiedlich, September 2026)
+
+**Symptom:** Nutzer meldete, dass der Sender `NAME:NFL TEAMS| FOX
+PACKERS ST. LOUIS MO|...` im Player nicht gefunden/automatisch
+zugeordnet wurde ("andere kommen, der aber nicht"). Erste Pruefung:
+die Zeile war korrekt in `sender.txt` vorhanden (keine fehlende
+Eintragung) - der Fehler lag also im Code, nicht in den Daten.
+
+**Ursache:** Beim Einlesen von `sender.txt` trennt
+`kern_und_event_extrahieren()` den Namen zunaechst am letzten Pipe:
+Kern = `FOX PACKERS ST. LOUIS MO`, abgetrennter Text = `NFL TEAMS`.
+Da `NFL TEAMS` NICHT wie Rohtext-Muell aussieht (kein Datum/keine
+Uhrzeit/kein "vs"/kein bekannter Marker, ≤4 Woerter -
+`_wirkt_wie_rohtext_muell()` liefert `False`), greift direkt danach
+das bestehende Rollback ("kein echter Muelltext abgetrennt, also
+bleibt der KOMPLETTE Rohname der Kern" - siehe Kommentar bei der
+`NAME:`-Verarbeitung, urspruenglich fuer Faelle wie "TNT SPORTS |
+Event 1" gedacht). Ergebnis: der in `name_pipe_kanal_index`
+gespeicherte, fuer den Live-Abgleich massgebliche Kern (`daten
+["sender"]`) ist der VOLLE String `NFL TEAMS| FOX PACKERS ST. LOUIS
+MO` (inkl. Gruppenpraefix und Pipe) - identisch zur `<channel>`-ID.
+
+Der Live-Playlist-Abgleich (`_kern_und_event_aus_rohname()`, aufgerufen
+aus `m3u_playlist_abgleichen()`) rief zum Ermitteln des Such-Schluessels
+aber NUR `kern_und_event_extrahieren()` OHNE dieses Rollback auf -
+berechnete also fuer denselben Rohnamen nur `FOX PACKERS ST. LOUIS MO`
+(ohne `NFL TEAMS|`). Dieser verkuerzte Schluessel existierte im Index
+nicht (dort steht ja der volle String als Key) - der Lookup schlug
+IMMER fehl, fuer saemtliche `NAME:NFL TEAMS|...`-Zeilen strukturell
+gleichermassen (nicht nur fuer "FOX PACKERS ST. LOUIS MO"), da bei
+jeder dieser Zeilen derselbe Effekt greift (`NFL TEAMS` ist bei jeder
+Zeile der abgetrennte, nicht wie Muell aussehende Text). Die
+`<channel>`-Definition selbst erschien zwar trotzdem korrekt in der
+generierten XML (die haengt nicht vom Live-Abgleich ab), aber der
+Sendungstitel konnte nie den aktuellen Live-Namen aus der eigenen
+IPTV-Playlist des Nutzers uebernehmen.
+
+**Fix:** `_kern_und_event_aus_rohname()` in `generate_epg.py` wendet
+jetzt exakt dasselbe Rollback an wie die `NAME:`-Verarbeitung beim
+sender.txt-Einlesen (gleiche Bedingung: `kurzname != voller_name and
+event_teil and not _wirkt_wie_rohtext_muell(event_teil)` -> kompletter
+Rohname wird zum Kern). Dadurch berechnen Index-Aufbau und
+Live-Abgleich fuer denselben Rohnamen jetzt garantiert denselben
+Schluessel. `pytest` (95 Tests) bleibt gruen.
+
+**Lehre:** Wann immer ein Kernname aus einem rohen Playlist-/
+Sender.txt-Namen extrahiert wird, MUSS exakt dieselbe Extraktions-
+UND Rollback-Logik an BEIDEN Stellen laufen, an denen dieser Kern
+verwendet wird (einmal beim Einlesen/Speichern in den Index, einmal
+beim spaeteren Nachschlagen/Abgleich) - sonst diverging die
+berechneten Schluessel unbemerkt und der Abgleich schlaegt lautlos
+(ohne Fehlermeldung, da `real_daten is None` nur zu "kein Treffer"
+fuehrt) fuer eine ganze Sendergruppe fehl.
