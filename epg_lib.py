@@ -2440,6 +2440,16 @@ def kanal_index_suchen(ziel_name, name_index, kern_index=None, cutoff=0.72):
         if ziel_kern and ziel_kern in kern_index:
             return kern_index[ziel_kern]
 
+    # Sehr kurze Namen (<=3 Zeichen, z.B. "K3") sind fuer den unscharfen
+    # Abgleich zu riskant: difflib haelt z.B. "K3" und "SK3" (85%
+    # Aehnlichkeit) faelschlich fuer denselben Kanal, obwohl es zwei
+    # komplett verschiedene Sender sind (live entdeckt bei MK|K3 vs.
+    # "MK - SK 3"/Sport Klub 3, September 2026, siehe docs/HISTORIE.md).
+    # Bei so kurzen Namen bleibt nur der exakte/Kern-Abgleich oben
+    # massgeblich, kein Fuzzy-Fallback mehr.
+    if len(ziel_schluessel) <= 3:
+        return None
+
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=cutoff)
     if aehnliche:
         return name_index[aehnliche[0]]

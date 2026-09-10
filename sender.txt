@@ -4717,8 +4717,8 @@ FREEVIEW:GB|TV WAREHOUSE|https://raw.githubusercontent.com/babo20094-rgb/Epg/mai
 FREEVIEW:GB|TVC NEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/27fcfd2613e5f167.png
 FREEVIEW:GB|U&W HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fb25a2f7086f0691c7546a2472952265d3048152.png
 FREEVIEW:GB|UFC TV (Events2)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b4dd715020a5a473.png
-|UK|UK| BEIN SPORTS ASIA 2|Bein Sports Asia 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/10be5f843f561f70f557b3c2dbf40a5dba1327ce.png
-|UK|UK| BEIN SPORTS ASIA 3|Bein Sports Asia 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/10be5f843f561f70f557b3c2dbf40a5dba1327ce.png
+|UK|UK| BEIN SPORTS ASIA 2|Bein Sports Asia 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6722a713059b23a66e54ecad8552619a8508c623.png
+|UK|UK| BEIN SPORTS ASIA 3|Bein Sports Asia 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6722a713059b23a66e54ecad8552619a8508c623.png
 FREEVIEW:GB|UTV FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a6801908317cbdfc.png
 FREEVIEW:GB|VH1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8a5694e0e70b321e93f84292647e56acbe6e7b53.png
 FREEVIEW:GB|VIAPLAY 1 HEVC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd63585efe74e77f.png
