@@ -2100,7 +2100,7 @@ MLB|MLB BIG INNING|Mlb Big Inning ᴸⁱᵛᵉ|https://raw.githubusercontent.com
 MNG|ADRIA TV ⱽᴵᴾ ᴿᴬᵂ|Adria Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/57a70bf7bc95944c.png
 MNG|BOIN TV ⱽᴵᴾ ᴿᴬᵂ|Boin Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/36151ec5ad434902.png
 MNG|CG PRVA|Cg Prva ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e3b76061dcf7b1.png
-MNG|GRADSKA TV ⱽᴵᴾ ᴿᴬᵂ|Gradska Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912838.png
+MNG|GRADSKA TV ⱽᴵᴾ ᴿᴬᵂ|Gradska Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gradska_tv/gradska_tv.png
 MNG|MNESPORT 1 ⱽᴵᴾ ᴿᴬᵂ|Mnesport 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/23d29e858f66fc77.png
 MNG|MNESPORT 2 ⱽᴵᴾ ᴿᴬᵂ|Mnesport 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7d28d493f6a0305b.png
 MNG|MNESPORT 3 ⱽᴵᴾ ᴿᴬᵂ|Mnesport 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e331691d104f624.png
@@ -2128,9 +2128,9 @@ MO|24 KITCHEN|24 Kitchen ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 MO|24 VESTI|24 Vesti ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9cd561dced0a8593.png
 MO|ADRENALIN|Adrenalin ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e4f5bf79a3fd0017c1f23b914b134ee37b4a67ab.png
 MO|ADRIA TV|Adria Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/57a70bf7bc95944c.png
-MO|ADRIATIC SPORT 1|Adriatic Sport 1 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/NETHERLAND/1912906.png
-MO|ADRIATIC SPORT 2|Adriatic Sport 2 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/NETHERLAND/1912905.png
-MO|ADRIATIC SPORT 3|Adriatic Sport 3 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/NETHERLAND/1912904.png
+MO|ADRIATIC SPORT 1|Adriatic Sport 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/adriatic_sport/adriatic_sport.png
+MO|ADRIATIC SPORT 2|Adriatic Sport 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/adriatic_sport/adriatic_sport.png
+MO|ADRIATIC SPORT 3|Adriatic Sport 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/adriatic_sport/adriatic_sport.png
 MO|AGRO TV|Agro Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2f0f3591e90e3ba5.png
 MO|AMARI|Amari ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e4abb20cf81f38c2.png
 MO|ARENA ESPORT|Arena Esport ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ff3f4fe40ca315f.png
@@ -3344,9 +3344,9 @@ SI|ARENA SPORT 3 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ
 SI|ARENA SPORT 4 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 4 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf62f976cf7f1d6a.png
 SI|DISCOVERY CHANNEL SLO|Discovery Channel Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/539af6484d85a7e4.png
 SI|GOLD TV HD SLO|Gold Tv Hd Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9e264ab157162b52.png
-SI|HBO 1 SLO|Hbo 1 Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d1ac26cf60dd9eb.png
-SI|HBO 2 SLO|Hbo 2 Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/95876027dde5235d.png
-SI|HBO 3 SLO|Hbo 3 Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e8717bc2bc3cf4ce.png
+SI|HBO 1 SLO|Hbo 1 Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8c0c45272aa1316.png
+SI|HBO 2 SLO|Hbo 2 Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/85ee5f7463042f3e.png
+SI|HBO 3 SLO|Hbo 3 Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9765a6647a55f1fa.png
 SI|KANAL A|Kanal A ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/41611fe136c4e38a.png
 SI|KANAL A SLO|Kanal A Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/41611fe136c4e38a.png
 SI|KINO TV SLO|Kino Tv Slo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/63362d7a9850f7ea.png
