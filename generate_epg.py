@@ -111,15 +111,35 @@ def kanal_id_varianten(kanal):
     sender.txt-Eintrag nie automatisch zugeordnet (Bug September 2026
     behoben)."""
     match = re.match(r"^([A-Za-z]{2,4})\|(\s*)(.+)$", kanal)
-    if not match:
-        return [kanal]
-    land, _leerzeichen, rest = match.groups()
-    ohne = f"{land}|{rest}"
-    mit = f"{land}| {rest}"
-    mit_zwei = f"{land}|  {rest}"
-    if ohne == mit:
-        return [kanal]
-    return [ohne, mit, mit_zwei]
+    if match:
+        land, _leerzeichen, rest = match.groups()
+        ohne = f"{land}|{rest}"
+        mit = f"{land}| {rest}"
+        mit_zwei = f"{land}|  {rest}"
+        varianten = [kanal] if ohne == mit else [ohne, mit, mit_zwei]
+    else:
+        varianten = [kanal]
+
+    # Sonderfall "<Praefix> | <Nummer> -"-Kern (siehe
+    # kern_und_event_extrahieren(), z.B. "UEFA | 01 -"/"NHL | 05 -"):
+    # hier schreiben manche Playlist-Gruppen zusaetzlich unterschiedlich
+    # viele Leerzeichen VOR dem Pipe-Zeichen (z.B. "UEFA  | 01 -" mit
+    # zwei Leerzeichen zwischen Praefix und Pipe statt einem) - eine
+    # Spielart, die das Muster oben (Leerzeichen NUR nach dem Pipe)
+    # nicht abdeckt. Ohne diese Variante wurden solche Sender trotz
+    # korrektem sender.txt-Eintrag nie automatisch zugeordnet (Bug
+    # September 2026 behoben).
+    praefix_nn_match = re.fullmatch(r"([A-Za-z]{2,4})\s*\|\s*(\d+)\s*-\s*", kanal)
+    if praefix_nn_match:
+        praefix, nummer = praefix_nn_match.groups()
+        zusatz = [
+            f"{praefix}{vor}|{nach}{nummer} -"
+            for vor in ("", " ", "  ")
+            for nach in ("", " ", "  ")
+        ]
+        varianten = list(dict.fromkeys(varianten + zusatz))
+
+    return varianten
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
