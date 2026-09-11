@@ -7318,7 +7318,7 @@ TVGUIDE:US|THE ASSASSIN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rg
 TVGUIDE:US|THE BENNY HILL SHOW FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/83ff01f8dc3bf60dcf8fd76f50c19df7d120c22c.png
 TVGUIDE:US|THE BETTER SISTER ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE BIG BANG THEORY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/83fb8dafc0a09c05.png
-TVPASSPORT:US|THE BLAZE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/230108b832bef910.png
+TVPASSPORT:US|THE BLAZE HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/230108b832bef910.png|US|THE BLAZE HD
 TVGUIDE:US|THE BONDSMAN ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|THE BOOK OF BOBA FETT ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|THE BOYS PRESENTS DIABOLICAL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
@@ -16792,15 +16792,25 @@ TELEMACH:BA|ARENA SPORT PREMIUM 3|https://raw.githubusercontent.com/babo20094-rg
 TELEMACH:BA|ARENA SPORT 5 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/35ee81b035037aaca1b182153893fc3ee5c4dcc7.png
 TELEMACH:BA|ARENA SPORT 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9b58f123f66d3610e2e535ec797b32cc7c128c3e.png
 HR|SPORT KLUB 1||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_1.png
+HR|SPORT KLUB 1 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_1.png
 HR|SPORT KLUB 2||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_2.png
+HR|SPORT KLUB 2 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_2.png
 HR|SPORT KLUB 3||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_3.png
+HR|SPORT KLUB 3 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_3.png
 HR|SPORT KLUB 4||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_4.png
+HR|SPORT KLUB 4 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_4.png
 HR|SPORT KLUB 5||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_5.png
+HR|SPORT KLUB 5 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_5.png
 HR|SPORT KLUB 6||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_6.png
+HR|SPORT KLUB 6 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_6.png
 HR|SPORT KLUB 7||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_7.png
+HR|SPORT KLUB 7 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_7.png
 HR|SPORT KLUB 8||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_8.png
+HR|SPORT KLUB 8 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_8.png
 HR|SPORT KLUB 9||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_9.png
+HR|SPORT KLUB 9 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_9.png
 HR|SPORT KLUB 10||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_10.png
+HR|SPORT KLUB 10 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hr_sk/sk_10.png
 #US| ENTERTAINMENT
 TVPASSPORT:US|American Heroes Channel HD|AUTO|US| AMERICA HEROES HD
 TVPASSPORT:US|Investigation Discovery USA HD - Eastern|AUTO|US| ID HD
@@ -17568,8 +17578,10 @@ DE|SKY GO FILME 50 FHD|Sky Go Filme 50 FHD ᴸⁱᵛᵉ|https://raw.githubuserco
 WOW|CARTOON NETWORK ᴴᴰ ◉||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/wow/cartoon_network.png
 #DE| PREMIUM PLAY 40
 DE|FILME 2022 1 4K|Filme 2022 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_1.png
+DE|FILME 2022 1 4k|Filme 2022 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_1.png
 DE|FILME 2022 2 4K|Filme 2022 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_2.png
 DE|FILME 2022 3 4K|Filme 2022 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_3.png
+DE|FILME 2022 3 4k|Filme 2022 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_3.png
 DE|FILME 2022 4 4K|Filme 2022 4 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filme_2022/filme_2022_4.png
 DE|NETFLIX 1 4K|Netflix 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/eb845997caea3c317984b91aa953f2ce18c404f9.png
 DE|NETFLIX 2 4K|Netflix 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/eb845997caea3c317984b91aa953f2ce18c404f9.png
@@ -17719,7 +17731,7 @@ UK|80'S-Direct HD| |https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 UK|Dave&amp;Ana HD|
 UK|RT FHD RUSSIAN (Temp Off Air)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/rt_logo.png
 UK|RTE NEWS NOW||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9f4a96780689eb5480b921fb6e6b8117d0ec7aa0.png
-UK|RT uk HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/31e2a9bc21e5b1b2c0463a5de867355fb9ab40a5.png
+UK|RT UK HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/31e2a9bc21e5b1b2c0463a5de867355fb9ab40a5.png
 UK|W!-Watch FHD|
 UK|RTE 1 HEVC FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38a47e56d070deb29bcc267ec47b48340e376ece.png
 FREEVIEW:GB|Praise Tv Network|
