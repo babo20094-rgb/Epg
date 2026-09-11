@@ -1,0 +1,32 @@
+name: Diagnose - fehlende Sender
+
+# Einmaliges Diagnose-Werkzeug (kein Teil der regulaeren EPG-Erzeugung):
+# vergleicht die aktuelle Playlist gegen sender.txt und listet Playlist-
+# Kanaele auf, fuer die keine passende Kanal-ID erzeugt wird. Nur manuell
+# per workflow_dispatch gestartet.
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fehlende Sender ermitteln
+        env:
+          PROVIDER: ${{ secrets.PROVIDER }}
+        run: |
+          python tools/diagnose_fehlende_sender.py
