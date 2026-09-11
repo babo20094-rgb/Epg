@@ -1,0 +1,31 @@
+name: Cleanup Branches
+
+on:
+  schedule:
+    # Woechentlich, Sonntag 03:00 UTC - loescht alte, bereits in main
+    # gemergte "claude/"-Session-Branches (siehe CLAUDE.md: Claude-Code-
+    # Sessions committen direkt auf main, der technische Session-Branch
+    # bleibt danach als reine Altlast im Repo stehen).
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Delete merged claude/ branches
+        run: |
+          git fetch origin main
+          for branch in $(git branch -r --merged origin/main | grep 'origin/claude/' | sed 's#origin/##'); do
+            echo "Loesche gemergten Branch: $branch"
+            git push origin --delete "$branch" || true
+          done
