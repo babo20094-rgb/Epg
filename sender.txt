@@ -1645,6 +1645,12 @@ GO|WLNY|Wlny ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 GO|WOMEN'S SPORTS NETWORK|Women'S Sports Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20dda84c712521580cb7cd5afcbf82975ed764b8.png
 
 ##### HR (aus Playlist) #####
+HR|DUBAI RACING 1 TV HD|Dubai Racing 1 Tv Hd ᴸⁱᵛᵉ|
+HR|DUBAI RACING 2 HD|Dubai Racing 2 Hd ᴸⁱᵛᵉ|
+HR|DUBAI RACING 3 HD|Dubai Racing 3 Hd ᴸⁱᵛᵉ|
+HR|EQUIDIA LIVE|Equidia Live ᴸⁱᵛᵉ|
+HR|EQUIDIA LIVE HD|Equidia Live Hd ᴸⁱᵛᵉ|
+HR|HORSE & COUNTRY|Horse & Country ᴸⁱᵛᵉ|
 HR|24KITCHEN ⱽᴵᴾ ᴿᴬᵂ|24Kitchen ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e68aea8a5ac1062c.png
 HR|AL JAZEERA BALKANS ⱽᴵᴾ ᴿᴬᵂ|Al Jazeera Balkans ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/eb0608206d93c374.png
 HR|AMC BALKAN ⱽᴵᴾ ᴿᴬᵂ|Amc Balkan ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c5b7451d50feda14.png
@@ -2934,6 +2940,7 @@ PRIME|ZDFNEO ᴿᴬᵂ|Zdfneo ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuserconte
 PRIME|ZENLIFE BY STINGRAY ᴿᴬᵂ|Zenlife By Stingray ᴿᴬᵂ ᴸⁱᵛᵉ|https://www.stingray.com/wp-content/uploads/2023/12/stingray_zenlifebystingray_white.svg
 
 ##### RS (aus Playlist) #####
+RS|PINK CRIME & MYSETRY|Pink Crime & Mysetry ᴸⁱᵛᵉ|
 RS|AGRO TV HD|Agro Tv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2f0f3591e90e3ba5.png
 RS|AGRO TV ⱽᴵᴾ ᴿᴬᵂ|Agro Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2f0f3591e90e3ba5.png
 RS|AMC|Amc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/66c99f973d2327b4.png
@@ -3534,6 +3541,15 @@ UFC|EVENT (1080)|Event (1080) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/bab
 UFC|EVENT (720)|Event (720) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fabccd21b3ee0361dcde9b8bd8e24c6810c43543.png
 
 ##### UK (aus Playlist) #####
+UK|COLORS HEVC FHD|Colors Hevc Fhd ᴸⁱᵛᵉ|
+UK|COLORS HEVC HD|Colors Hevc Hd ᴸⁱᵛᵉ|
+UK|SONY MAX HEVC FHD|Sony Max Hevc Fhd ᴸⁱᵛᵉ|
+UK|SONY MAX HEVC HD|Sony Max Hevc Hd ᴸⁱᵛᵉ|
+UK|U&W HD|U&W Hd ᴸⁱᵛᵉ|
+UK|BEIN SPORTS ASIA 2|Bein Sports Asia 2 ᴸⁱᵛᵉ|
+UK|BEIN SPORTS ASIA 3|Bein Sports Asia 3 ᴸⁱᵛᵉ|
+UK|ZEE TV HEVC FHD|Zee Tv Hevc Fhd ᴸⁱᵛᵉ|
+UK|ZEE TV HEVC HD|Zee Tv Hevc Hd ᴸⁱᵛᵉ|
 FREEVIEW:GB|192 RADIO|http://103.176.90.95/images/784411.png
 FREEVIEW:GB|24/7  COMEDY MOVIES|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/12ce8d9a2667af99605404579b83c29ef76a4376.png
 FREEVIEW:GB|24/7  EDDY MURPHY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/83af7f733c7a66f0f82e42f3e7f3a1e25853a051.png
@@ -4943,7 +4959,84 @@ SKY:GB|TNT SPORT 3 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 SKY:GB|TNT SPORT 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1a00fff844d5b48658aeb515a85575b176107d13.png
 
 ##### US (aus Playlist) #####
+US|A&E HD|A&E Hd ᴸⁱᵛᵉ|
+US|AT&T SPORTSNET SOUTHWEST HD|At&T Sportsnet Southwest Hd ᴸⁱᵛᵉ|
+US|FOX 24 SANTA BARBARA CA (KKFX)|Fox 24 Santa Barbara Ca (Kkfx) ᴸⁱᵛᵉ|
+US|HEROES & ICONS|Heroes & Icons ᴸⁱᵛᵉ|
+US|ID WEST HD|Id West Hd ᴸⁱᵛᵉ|
+US|PBS (WGBH) MA | BOSTON|Pbs (Wgbh) Ma | Boston ᴸⁱᵛᵉ|
+US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|
+US|A WEALTH OF ENT. HD|A Wealth Of Ent. Hd ᴸⁱᵛᵉ|
+US|A&E HD|A&E Hd ᴸⁱᵛᵉ|
+US|ABC EAST HD|Abc East Hd ᴸⁱᵛᵉ|
+US|ABC WEST HD|Abc West Hd ᴸⁱᵛᵉ|
+US|AL JAZEERA AMERICA HD|Al Jazeera America Hd ᴸⁱᵛᵉ|
+US|BLOOMBERG EUROPE HD|Bloomberg Europe Hd ᴸⁱᵛᵉ|
+US|BLOOMBERG USA HD|Bloomberg Usa Hd ᴸⁱᵛᵉ|
+US|BLUE ANT ENTERTAINMENT|Blue Ant Entertainment ᴸⁱᵛᵉ|
+US|BLUE ANT EXTREME|Blue Ant Extreme ᴸⁱᵛᵉ|
+US|BNN HD|Bnn Hd ᴸⁱᵛᵉ|
+US|CBN NEWS CHANNEL HD|Cbn News Channel Hd ᴸⁱᵛᵉ|
+US|CBS EAST HD|Cbs East Hd ᴸⁱᵛᵉ|
+US|CBS WEST HD|Cbs West Hd ᴸⁱᵛᵉ|
+US|CINEMAX ACTION 2 HD|Cinemax Action 2 Hd ᴸⁱᵛᵉ|
+US|CINEMAX ACTIONMAX HD|Cinemax Actionmax Hd ᴸⁱᵛᵉ|
+US|CINEMAX MOVIE PLEX HD|Cinemax Movie Plex Hd ᴸⁱᵛᵉ|
+US|CNBC EUROPE|Cnbc Europe ᴸⁱᵛᵉ|
+US|CNN HD (1)|Cnn Hd (1) ᴸⁱᵛᵉ|
+US|CNN HD (2)|Cnn Hd (2) ᴸⁱᵛᵉ|
+US|CW HD|Cw Hd ᴸⁱᵛᵉ|
+US|CW PIX11 CANADA|Cw Pix11 Canada ᴸⁱᵛᵉ|
+US|DISCOVERY HOME HEALTH|Discovery Home Health ᴸⁱᵛᵉ|
+US|DISCOVERY ID WEST HD|Discovery Id West Hd ᴸⁱᵛᵉ|
+US|DISCOVERY SCIENCE HEVC (NL)|Discovery Science Hevc (Nl) ᴸⁱᵛᵉ|
+US|DISCOVERY THEATER HD|Discovery Theater Hd ᴸⁱᵛᵉ|
+US|DIY HD|Diy Hd ᴸⁱᵛᵉ|
+US|DW ENGLISH HD|Dw English Hd ᴸⁱᵛᵉ|
+US|EPIX 2 HD|Epix 2 Hd ᴸⁱᵛᵉ|
+US|EPIX DRIVE IN|Epix Drive In ᴸⁱᵛᵉ|
+US|EPIX HITS|Epix Hits ᴸⁱᵛᵉ|
+US|FASHION TV FHD HEVC|Fashion Tv Fhd Hevc ᴸⁱᵛᵉ|
+US|FOX EAST HD|Fox East Hd ᴸⁱᵛᵉ|
+US|FOX LIFE HD (EX)|Fox Life Hd (Ex) ᴸⁱᵛᵉ|
+US|FOX WEST HD|Fox West Hd ᴸⁱᵛᵉ|
+US|GAC FAITH & FAMILY HD|Gac Faith & Family Hd ᴸⁱᵛᵉ|
+US|GAC FAMILY|Gac Family ᴸⁱᵛᵉ|
+US|HALLMARK M & M HD|Hallmark M & M Hd ᴸⁱᵛᵉ|
+US|HBO 1 CANADA|Hbo 1 Canada ᴸⁱᵛᵉ|
+US|HBO 2 CANADA|Hbo 2 Canada ᴸⁱᵛᵉ|
+US|HEROS & ICONS HD|Heros & Icons Hd ᴸⁱᵛᵉ|
+US|KTLA HD|Ktla Hd ᴸⁱᵛᵉ|
+US|LIFETIME MOVIE HD|Lifetime Movie Hd ᴸⁱᵛᵉ|
+US|MAGNOLIA UHD|Magnolia Uhd ᴸⁱᵛᵉ|
+US|MOVIETIME CANADA|Movietime Canada ᴸⁱᵛᵉ|
+US|MUCH MUSIC CANADA|Much Music Canada ᴸⁱᵛᵉ|
+US|NAT GEO WEST HD|Nat Geo West Hd ᴸⁱᵛᵉ|
+US|NBC EAST HD|Nbc East Hd ᴸⁱᵛᵉ|
+US|NBC NEWS HD|Nbc News Hd ᴸⁱᵛᵉ|
+US|NBC WEST HD|Nbc West Hd ᴸⁱᵛᵉ|
+US|NEWS 12|News 12 ᴸⁱᵛᵉ|
+US|NEWS MAX 2 HD|News Max 2 Hd ᴸⁱᵛᵉ|
+US|ONE AMERICAN NEWS HD|One American News Hd ᴸⁱᵛᵉ|
+US|PEACH TREE CANADA|Peach Tree Canada ᴸⁱᵛᵉ|
+US|RUSSIA TODAY NEWS HD|Russia Today News Hd ᴸⁱᵛᵉ|
+US|SHOWCASE HD|Showcase Hd ᴸⁱᵛᵉ|
+US|STAR SELECT MOVIES HD|Star Select Movies Hd ᴸⁱᵛᵉ|
+US|TBS EAST HD|Tbs East Hd ᴸⁱᵛᵉ|
+US|TMN 2 CANADA|Tmn 2 Canada ᴸⁱᵛᵉ|
+US|TMN 3 CANADA|Tmn 3 Canada ᴸⁱᵛᵉ|
+US|VICELAND HD (UK)|Viceland Hd (Uk) ᴸⁱᵛᵉ|
+US|W NETWORK CANADA|W Network Canada ᴸⁱᵛᵉ|
+US|WGN|Wgn ᴸⁱᵛᵉ|
+US|WSBK CANADA|Wsbk Canada ᴸⁱᵛᵉ|
+US|ZEE CAFE HD|Zee Cafe Hd ᴸⁱᵛᵉ|
 |##### NEWS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+TVGUIDE:US|AMERICA HEROES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/22c9402ff627c182.png
+TVGUIDE:US|FOX BUSINESS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e11237ce5363f6ea.png
+TVGUIDE:US|GAME SHOW NETWORK HD|
+TVGUIDE:US|SMITHSONIAN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbefa5d572b03c30.png
+TVGUIDE:US|SMITHSONIAN WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbefa5d572b03c30.png
+TVGUIDE:US|STARZ CINEMA WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/942e1bcce9b7a62e.png
 TVGUIDE:US|007: ROAD TO A MILLION ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|13 REASONS WHY ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|2 BROKE GIRLS FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/90858e323f3bb9d4.png
