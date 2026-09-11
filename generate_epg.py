@@ -102,16 +102,24 @@ def kanal_id_varianten(kanal):
     Kanal-IDs ohne dieses "XX|..."-Muster (z.B. NAME:-Sender wie
     "24/7 ALL RISE" oder "DE: DYN PPV 1" mit Doppelpunkt statt Pipe)
     bleiben unveraendert - dort gibt es keine sinnvolle Alternativ-
-    Schreibweise."""
+    Schreibweise.
+
+    Manche Playlist-Gruppen (beobachtet u.a. bei EN|, MK|, RS|, UFC|)
+    schreiben sogar ZWEI Leerzeichen nach dem Pipe (z.B. "EN|  EPIX")
+    statt keinem oder einem - ohne die zusaetzliche Zwei-Leerzeichen-
+    Variante wurden diese Sender trotz korrektem, laengst vorhandenem
+    sender.txt-Eintrag nie automatisch zugeordnet (Bug September 2026
+    behoben)."""
     match = re.match(r"^([A-Za-z]{2,4})\|(\s*)(.+)$", kanal)
     if not match:
         return [kanal]
     land, _leerzeichen, rest = match.groups()
     ohne = f"{land}|{rest}"
     mit = f"{land}| {rest}"
+    mit_zwei = f"{land}|  {rest}"
     if ohne == mit:
         return [kanal]
-    return [ohne, mit]
+    return [ohne, mit, mit_zwei]
 
 
 def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):

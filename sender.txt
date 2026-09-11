@@ -2331,6 +2331,7 @@ NA|BRIDGEPORT ISLANDERS|Bridgeport Islanders ᴸⁱᵛᵉ|https://raw.githubus
 NA|SHERBROOKE PHŒNIX|Sherbrooke Phœnix ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/HOCKEYLEAGUE.png
 
 ##### PPV (aus Playlist) #####
+SPT|GLORY BOXING 07-10-2023|Glory Boxing 07-10-2023 ᴸⁱᵛᵉ|
 PPV|EVENT 1 (BK)|Event 1 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
 PPV|EVENT 2 (BK)|Event 2 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
 PPV|EVENT 3 (BK)|Event 3 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
@@ -17098,51 +17099,51 @@ UK| KARAOKE 6|Karaoke (6) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo200
 UK| KARAOKE 7|Karaoke (7) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fb998237e976be4fc509ec9a9026416b36abee33.png
 UK| KARAOKE 8|Karaoke (8) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fb998237e976be4fc509ec9a9026416b36abee33.png
 #NA| HOCKEY LEAGUE
-NA| Bakersfield Condors|Bakersfield Condors ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Belleville Senators|Belleville Senators ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| BAKERSFIELD CONDORS|Bakersfield Condors ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| BELLEVILLE SENATORS|Belleville Senators ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| Bridgeport Islanders|Bridgeport Islanders ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Chicago Wolves|Chicago Wolves ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Cleveland Monsters|Cleveland Monsters ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Colorado Eagles|Colorado Eagles ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Grand Rapids Griffins|Grand Rapids Griffins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Hartford Wolf Pack|Hartford Wolf Pack ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Henderson Silver Knights|Henderson Silver Knights ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Hershey Bears|Hershey Bears ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Iowa Wild|Iowa Wild ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Laval Rocket|Laval Rocket ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Lehigh Valley Phantoms|Lehigh Valley Phantoms ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Manitoba Moose|Manitoba Moose ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Ontario Reign|Ontario Reign ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Providence Bruins|Providence Bruins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Rochester Americans|Rochester Americans ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/22c9402ff627c182160fce3697759a068ea28d7c.png
-NA| Rockford IceHogs|Rockford Icehogs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| San Diego Gulls|San Diego Gulls ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| San Jose Barracuda|San Jose Barracuda ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Syracuse Crunch|Syracuse Crunch ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Texas Stars|Texas Stars ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Toronto Marlies|Toronto Marlies ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Tucson Roadrunners|Tucson Roadrunners ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Utica Comets|Utica Comets ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| W-B/Scranton Penguins|W-B/scranton Penguins ᴸⁱᵛᵉ|Auto
-NA| Victoriaville Tigres|Victoriaville Tigres ᴸⁱᵛᵉ|Auto
+NA| CHICAGO WOLVES|Chicago Wolves ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| CLEVELAND MONSTERS|Cleveland Monsters ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| COLORADO EAGLES|Colorado Eagles ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| GRAND RAPIDS GRIFFINS|Grand Rapids Griffins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| HARTFORD WOLF PACK|Hartford Wolf Pack ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| HENDERSON SILVER KNIGHTS|Henderson Silver Knights ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| HERSHEY BEARS|Hershey Bears ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| IOWA WILD|Iowa Wild ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| LAVAL ROCKET|Laval Rocket ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| LEHIGH VALLEY PHANTOMS|Lehigh Valley Phantoms ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| MANITOBA MOOSE|Manitoba Moose ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| ONTARIO REIGN|Ontario Reign ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| PROVIDENCE BRUINS|Providence Bruins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| ROCHESTER AMERICANS|Rochester Americans ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/22c9402ff627c182160fce3697759a068ea28d7c.png
+NA| ROCKFORD ICEHOGS|Rockford Icehogs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| SAN DIEGO GULLS|San Diego Gulls ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| SAN JOSE BARRACUDA|San Jose Barracuda ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| SYRACUSE CRUNCH|Syracuse Crunch ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| TEXAS STARS|Texas Stars ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| TORONTO MARLIES|Toronto Marlies ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| TUCSON ROADRUNNERS|Tucson Roadrunners ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| UTICA COMETS|Utica Comets ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| W-B/SCRANTON PENGUINS|W-B/scranton Penguins ᴸⁱᵛᵉ|Auto
+NA| VICTORIAVILLE TIGRES|Victoriaville Tigres ᴸⁱᵛᵉ|Auto
 NA| Sherbrooke Phoenix|Sherbrooke Phoenix ᴸⁱᵛᵉ|Auto
 NA| Val-d'Or Foreurs|Val-D'or Foreurs ᴸⁱᵛᵉ|Auto
-NA| Shawinigan Cataractes|Shawinigan Cataractes ᴸⁱᵛᵉ|Auto
-NA| Saint John Sea Dogs|Saint John Sea Dogs ᴸⁱᵛᵉ|Auto
-NA| Rouyn-Noranda Huskies|Rouyn-Noranda Huskies ᴸⁱᵛᵉ|Auto
-NA| Rimouski Océanic|Rimouski Océanic ᴸⁱᵛᵉ|Auto
-NA| Québec Remparts|Québec Remparts ᴸⁱᵛᵉ|Auto
-NA| Moncton Wildcats|Moncton Wildcats ᴸⁱᵛᵉ|Auto
-NA| Halifax Mooseheads|Halifax Mooseheads ᴸⁱᵛᵉ|Auto
-NA| Gatineau Olympiques|Gatineau Olympiques ᴸⁱᵛᵉ|Auto
-NA| Drummondville Voltigeurs|Drummondville Voltigeurs ᴸⁱᵛᵉ|Auto
-NA| Chicoutimi Saguenéens|Chicoutimi Saguenéens ᴸⁱᵛᵉ|Auto
-NA| Charlottetown Islanders|Charlottetown Islanders ᴸⁱᵛᵉ|Auto
-NA| Blainville-Boisbriand Armada|Blainville-Boisbriand Armada ᴸⁱᵛᵉ|Auto
-NA| Cape Breton Eagles|Cape Breton Eagles ᴸⁱᵛᵉ|Auto
-NA| Baie-Comeau Drakkar|Baie-Comeau Drakkar ᴸⁱᵛᵉ|Auto
-NA| Acadie-Bathurst Titan|Acadie-Bathurst Titan ᴸⁱᵛᵉ|Auto
-NA| Calgary Wranglers|Calgary Wranglers ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| SHAWINIGAN CATARACTES|Shawinigan Cataractes ᴸⁱᵛᵉ|Auto
+NA| SAINT JOHN SEA DOGS|Saint John Sea Dogs ᴸⁱᵛᵉ|Auto
+NA| ROUYN-NORANDA HUSKIES|Rouyn-Noranda Huskies ᴸⁱᵛᵉ|Auto
+NA| RIMOUSKI OCÉANIC|Rimouski Océanic ᴸⁱᵛᵉ|Auto
+NA| QUÉBEC REMPARTS|Québec Remparts ᴸⁱᵛᵉ|Auto
+NA| MONCTON WILDCATS|Moncton Wildcats ᴸⁱᵛᵉ|Auto
+NA| HALIFAX MOOSEHEADS|Halifax Mooseheads ᴸⁱᵛᵉ|Auto
+NA| GATINEAU OLYMPIQUES|Gatineau Olympiques ᴸⁱᵛᵉ|Auto
+NA| DRUMMONDVILLE VOLTIGEURS|Drummondville Voltigeurs ᴸⁱᵛᵉ|Auto
+NA| CHICOUTIMI SAGUENÉENS|Chicoutimi Saguenéens ᴸⁱᵛᵉ|Auto
+NA| CHARLOTTETOWN ISLANDERS|Charlottetown Islanders ᴸⁱᵛᵉ|Auto
+NA| BLAINVILLE-BOISBRIAND ARMADA|Blainville-Boisbriand Armada ᴸⁱᵛᵉ|Auto
+NA| CAPE BRETON EAGLES|Cape Breton Eagles ᴸⁱᵛᵉ|Auto
+NA| BAIE-COMEAU DRAKKAR|Baie-Comeau Drakkar ᴸⁱᵛᵉ|Auto
+NA| ACADIE-BATHURST TITAN|Acadie-Bathurst Titan ᴸⁱᵛᵉ|Auto
+NA| CALGARY WRANGLERS|Calgary Wranglers ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 US| REALITY||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/91719ca116990c9312f5fcd377686f6c1b390d7f.png
 US| YOGA EXERCISE||Auto
 DE| BILD+ EVENT FAME FIGHTING||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bild_fame_fighting/bild_fame_fighting.png
@@ -17700,32 +17701,32 @@ SO|SOLO SPORT 5 HEVC|
 SO|SOLO SPORT 5 FHD|
 SO|SOLO SPORT 5 HD|
 SO|SOLO SPORT 5 SD|
-UK|PL Replay 1 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 2 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 3 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 4 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 5 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 6 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 7 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 8 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
-UK|PL Replay 9 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 1 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 2 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 3 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 4 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 5 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 6 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 7 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 8 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
+UK|PL REPLAY 9 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/203d0e70aeb4c5588afbafe17c164d7a16b5d55f.png
 DE|Hr HD Hessischer Rundfunk||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d6584e6041dc0dd5968f4bcc0c4ae6dcba108001.png
-DE|UHD1 by Astra||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/facb7d5b51f81ead50ac410fcf0a72fc86171ed1.png
+DE|UHD1 BY ASTRA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/facb7d5b51f81ead50ac410fcf0a72fc86171ed1.png
 UK|R&B Soul-Direkt HD| |https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dba0c11470a29c4ded5dd350a5b64962cf2052fb.png
 FREEVIEW:GB|Rap 2K-Direct HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dba0c11470a29c4ded5dd350a5b64962cf2052fb.png
 FREEVIEW:GB|Pop Latino-Direct HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dba0c11470a29c4ded5dd350a5b64962cf2052fb.png
 UK|80'S-Direct HD| |https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dba0c11470a29c4ded5dd350a5b64962cf2052fb.png
 UK|Dave&amp;Ana HD|
-UK|Rt FHD Russian (Temp off Air)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/rt_logo.png
-UK|RTE News Now||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9f4a96780689eb5480b921fb6e6b8117d0ec7aa0.png
+UK|RT FHD RUSSIAN (Temp Off Air)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/rt_logo.png
+UK|RTE NEWS NOW||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9f4a96780689eb5480b921fb6e6b8117d0ec7aa0.png
 UK|RT uk HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/31e2a9bc21e5b1b2c0463a5de867355fb9ab40a5.png
 UK|W!-Watch FHD|
-UK|RTE 1 Hevc FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38a47e56d070deb29bcc267ec47b48340e376ece.png
+UK|RTE 1 HEVC FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38a47e56d070deb29bcc267ec47b48340e376ece.png
 FREEVIEW:GB|Praise Tv Network|
 FREEVIEW:GB|N4 Iceland HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/13e7f69e1f1336b23d2c241b93203e34384d5a7b.png
 US|THE CROWN ᴿᴬᵂ| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
-US|Fox 39 Laredo TX (KXOF)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-US|Fox 43 Topeka KS (KTMJ)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+US|FOX 39 LAREDO TX (KXOF)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+US|FOX 43 TOPEKA KS (KTMJ)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
 TVPASSPORT:US|FOX (KKFX) Santa Barbara, CA|AUTO
 TVPASSPORT:US|ABC (WBND) South Bend, IN HD|AUTO
 LIVE| NFL Playoffs|
@@ -17733,37 +17734,37 @@ US|Fanduel West Plus||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 US|Fanduel Great Lake||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fanduel.png
 US|Fanduel Florida Plus||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fanduel.png
 US|Fanduel Florida||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fanduel.png
-CITY|Nbc KLAF LP Brooklyn ᴿᴬᵂ|
-GO|Up|
-GO|Tribeca Festival+|
+CITY|NBC KLAF LP BROOKLYN ᴿᴬᵂ|
+GO|UP|
+GO|TRIBECA FESTIVAL+|
 GO|The Price is Right-The Barker Era||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8be5e971b9d839b1f8dc47782d4218afe79ca336.png
 GO|The Price is Right-Drew Carey
-GO|MSG Alt-1|
-GO|MSG Alt-2|
-GO|MSG Alt-3|
+GO|MSG ALT-1|
+GO|MSG ALT-2|
+GO|MSG ALT-3|
 GO|20/20||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/77797ae9ebeaf985b900b497f9e488a45c8bbab9.png
 US|Outermax HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/73c0889100735420ad8079bab4d1209a52612dba.png
 US|VSIN||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/be9613289fd30ebb5da8459874fb98ba1d909d15.png
-US|NBC Golf||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/be28d9715d199a0e83a59b1196f5d0154ab270df.png
-US|CSN California HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9268096386b2a7d2848202267ef531cbf2fc5667.png
+US|NBC GOLF||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/be28d9715d199a0e83a59b1196f5d0154ab270df.png
+US|CSN CALIFORNIA HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9268096386b2a7d2848202267ef531cbf2fc5667.png
 #US| SPORTS NETWORK
 TVPASSPORT:US|NBC Sports Boston HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ebfc220c7d8d69aae4e84d0d21fdd0996cd61ee1.png
 TVPASSPORT:US|NBC Sports Bay Area HD|AUTO|US| NBC SPORTS BAY AREA HD
 TVPASSPORT:US|Space City Home Network HD|AUTO|US| SPACE CITY HOME NETWORK HD
-US|Fox Kansas HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-US|Fox 29||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f03d281355cd38f8acbb1f3d8d1c6e5805c454a.png
+US|FOX KANSAS HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+US|FOX 29||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f03d281355cd38f8acbb1f3d8d1c6e5805c454a.png
 US|WNYC||https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/WNYC-Logo.svg/3840px-WNYC-Logo.svg.png
 DE|Geo Tv HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/23c42d1d212bc1a3b893220abf5d7bdae89e34fb.png
 DE|Nat Geo Wild FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/44c1aac73fa723ceca09c47904fed30efa39bf03.png
 DE|Nat Geo Wild HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/44c1aac73fa723ceca09c47904fed30efa39bf03.png
 DE|Sony Channel FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5aa294634bd005cbb4a34485e8d0afc2a6d8c2b8.png
-DE|Sony AXN HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/284b3a71f1ad4296b8da08453913e2e4b4158465.png
+DE|SONY AXN HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/284b3a71f1ad4296b8da08453913e2e4b4158465.png
 SKY:DE|Sky Cinema Premieren FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a1972b5901a231c5ee15fe3173c98697762a321f.png
 SKY:DE|Sky Cinema Premieren HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a1972b5901a231c5ee15fe3173c98697762a321f.png
-JOYN|Serienklassiker ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/serienklassiker/serienklassiker.png
+JOYN|SERIENKLASSIKER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/serienklassiker/serienklassiker.png
 ##### DE| JOYN TV #####
 JOYN|SR ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6d3bcbf55e15cbe01fbe6374227a7aca10af343c.png
-JOYN|Elf ᴿᴬᵂ|
+JOYN|ELF ᴿᴬᵂ|
 JOYN| ZDF NEO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c3314beaaee74ea19dae0a937d92656cbba3e8b5.png
 DE|DAZN Moto America ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/875e3b70fc8caa9e207c7f56954cd008a9776044.png
 DE|DAZN Lacrosse Tv ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/875e3b70fc8caa9e207c7f56954cd008a9776044.png
@@ -18054,7 +18055,7 @@ MO|DM SAT|Dm Sat ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Ep
 MO|DIM TV||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1c03f9b1dfc736056d2124562b56343e33118f6f.png
 #SI| SLOVENIJA
 SI| PLANET PLUS ⱽᴵᴾ ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/eae0daa5dc4d418bdfd2fb97b67c82c91a76a6fd.png
-SI|Brio Tv Slo|
+SI|BRIO TV SLO|
 #MK| MAKEDONIJA
 MK| M-NET SPORT HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/99f85ade802846105c5f60b1e08818a1c580d125.png
 MK| FFM MK FOOTBALL 1 [LIVE-EVENT]|Ffm Mk Football 1 Live Event ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/football.png
@@ -18275,18 +18276,18 @@ HR| MAX TV SELECT 5 HD|Max Tv Select 5 HD ᴸⁱᵛᵉ|https://raw.githubusercon
 HR| MAX TV SELECT 6 HD|Max Tv Select 6 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_6.png
 HR| MAX TV SELECT KIDS 1 HD|Max Tv Select Kids 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_1.png
 HR| MAX TV SELECT KIDS 2 HD|Max Tv Select Kids 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_2.png
-RS| Radio Lola||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/96bbc11020f399e419bde238730b2fdd4c32a02c.png
-RS| MTV Club||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1e43a2cff784278c285ed50fa28170ab9109ce0a.png
+RS| RADIO LOLA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/96bbc11020f399e419bde238730b2fdd4c32a02c.png
+RS| MTV CLUB||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1e43a2cff784278c285ed50fa28170ab9109ce0a.png
 #US| NEWS NETWORK
 TVPASSPORT:US|FOX (WDAF) Kansas City, MO HD|AUTO
 TVPASSPORT:US|Seattle 11 (KSTW) Tacoma, WA HD|AUTO
 #US| CW/MY NETWORK
 US| CW 19 JEANNETTE PA (WPCW)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
 TVPASSPORT:US|CW (WNOL) New Orleans, LA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cw/cw.png
-US|Cw 23 (KCWT)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
+US|CW 23 (KCWT)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
 TVPASSPORT:US|CW (WLMT) Memphis, TN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cw/cw.png
-US|CW News 9 San Diego (KUSI) HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b621a2a3a32d446540f64734b9b7343cdc296466.png
-US|CW Seattle HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
+US|CW NEWS 9 SAN DIEGO (KUSI) HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b621a2a3a32d446540f64734b9b7343cdc296466.png
+US|CW SEATTLE HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cw.png
 TVPASSPORT:US|MNT (KHII) Honolulu, HI|AUTO
 TVPASSPORT:US|MYTV (KHII) HONOLULU, HI|AUTO
 #US| TUBI
@@ -18327,11 +18328,11 @@ TUBI|THE MASKED SINGER RAW|The Masked Singer ᴸⁱᵛᵉ|https://raw.githubuser
 TUBI|TORQUE RAW|Torque ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7a9a52e31173c03ea3dea64da907bc38e26e33b2.png
 TUBI|DEF JAM RAW|Def Jam ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/defjam.png
 TUBI|MYSTERIOUS WORLDS RAW|Mysterious Worlds ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5fbe72277834f34610205f2610d5e4d1981f5fe2.png
-TUBI|Gordon Ramsay ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/gordon_ramsay.png
-TUBI|Gardening with Monty Don ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/monty_don.png
-TUBI|Fox Sports on Tubi ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f1a3902f079f83d42a64234e77213c1af4963e02.png
-TUBI|Fox 5 New York ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8895a7e240e3ad06ece7d538014883a9bc27119e.png
-TUBI|Britbox Mysteries ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/dcc961a9ad4c38a1aeebf0051bcd561c4291f67a.png
+TUBI|GORDON RAMSAY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/gordon_ramsay.png
+TUBI|GARDENING WITH MONTY DON ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/monty_don.png
+TUBI|FOX SPORTS ON TUBI ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f1a3902f079f83d42a64234e77213c1af4963e02.png
+TUBI|FOX 5 NEW YORK ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8895a7e240e3ad06ece7d538014883a9bc27119e.png
+TUBI|BRITBOX MYSTERIES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/dcc961a9ad4c38a1aeebf0051bcd561c4291f67a.png
 #PRIME US,DE
 PRIME| LOCALISH ᴿᴬᵂ|Localish ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a8f6d6ca8a7c023524529b14453863dc0ea26843.png
 TVPASSPORT:US|FOX (KTVU) San Francisco, CA HD|AUTO|PRIME| FOX 2 SAN FRANCISCO ᴿᴬᵂ
