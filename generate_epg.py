@@ -139,6 +139,18 @@ def kanal_id_varianten(kanal):
         ]
         varianten = list(dict.fromkeys(varianten + zusatz))
 
+    # NOW TV (Skys eigener Streaming-Ableger) fuehrt exakt dasselbe
+    # Kanal-Lineup wie die SKY:GB-Sender (die als "UK|..." angezeigt
+    # werden), aber mit zusaetzlichem "-NOWTV"-Suffix am Laenderkuerzel
+    # in der Playlist (z.B. "UK-NOWTV| ALIBI HD" statt "UK|ALIBI HD") -
+    # ohne diese Alias-Variante wurden alle betroffenen Sender trotz
+    # vorhandener SKY:GB-Daten nie automatisch zugeordnet (Bug
+    # September 2026 behoben).
+    if kanal.upper().startswith("UK|"):
+        rest_uk = kanal[3:]
+        alias = [f"UK-NOWTV|{sp}{rest_uk}" for sp in ("", " ", "  ")]
+        varianten = list(dict.fromkeys(varianten + alias))
+
     return varianten
 
 

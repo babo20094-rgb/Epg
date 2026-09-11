@@ -116,17 +116,82 @@ print(f"\n--- Fehlende Zuordnungen nach group-title (Top 80 nach Anzahl) ---")
 for gruppe, anzahl in sorted(gruppen_zaehler.items(), key=lambda x: -x[1])[:80]:
     print(f"{anzahl:6d}  {gruppe!r}")
 
-# Live-TV-Gruppen erkennen: enthalten typischerweise KEIN VOD-/Serien-/
-# Kids-Schluesselwort im Gruppennamen. Nur fuer diese Gruppen die
-# einzelnen fehlenden Kanalnamen ausgeben (sonst wuerden zehntausende
-# VOD-Zeilen die Ausgabe unbrauchbar machen).
-VOD_KEYWORDS = (
-    "VOD", "MOVIE", "FILM", "SERIES", "SERIEN", "SERIE", "KIDS", "CHILD",
-    "24/7", "ANIME", "DOKU", "DOCU", "SHOW", "PPV EVENTS PPV",
-)
+# Live-TV-Gruppen: direkt vom Nutzer aus TiviMates "Gruppen verwalten"-
+# Bildschirm uebernommen (nur die dort AKTIVIERTEN/blauen Gruppen -
+# die deaktivierten/weissen sind VOD/Serien/24-7-Binge und zaehlen
+# NICHT zu den ~18.957 echten Live-Sendern). Prefix-Abgleich (nicht
+# exakt), da TiviMate an manche Gruppennamen zusaetzliche Qualitaets-
+# Badges (HD/4K/PPV/...) anhaengt, die hier nicht 1:1 nachgebaut werden
+# koennen - ein Praefix-Treffer reicht, um die Gruppe zu identifizieren.
+LIVE_GRUPPEN_PREFIXE = [p.upper() for p in (
+    "DE| ALLGEMEIN", "DE| GERMANY", "DE| MAGENTA SPORT", "DE| MAGENTA",
+    "DE| MYTEAM SPORT", "DE| DYN SPORT", "DE| SKY GO WOW",
+    "DE| SKY BUNDESLIGA", "DE| WOW SKY SPORT", "DE| JOYN",
+    "DE| KINDER SENDER", "DE| SKY GO DOKU", "DE| PRIME TV",
+    "DE| VODAFONE GO", "DE| DAZN/SKY SPORT", "DE| DAZN", "DE| LEAGUES FOOTBALL",
+    "DE| SPORT DEUTSCHLAND", "DE| DISCOVERY+", "DE| SKY GO FILME",
+    "DE| SKY MAX", "DE| SKY SELECT", "DE| PREMIUM PLAY", "DE| PLEX TV",
+    "DE| MAGENTA FILME", "DE| MYSPORT", "DE| RTL+", "DE| BUNDESLIGA REPLAY",
+    "DE| SKY GO SPORT", "DE| SKY GO", "DE| SOCCER", "DE| DISNEY+",
+    "US| ENTERTAINMENT", "US| NEWS NETWORK", "US| SPECTRUM NETWORK",
+    "US| KIDS NETWORK", "US| SPORTS NETWORK", "US| MAX ESPN",
+    "US| MOVIES NETWORK", "US| PRIME", "US| DIREC TV", "US| TUBI",
+    "US| FIFA+", "US| PARAMOUNT+ PPV VIP", "US| PARAMOUNT+ 10",
+    "US| PEACOCK PPV", "US| B1G+", "US| BTN+", "US| NBA NETWORK",
+    "US| NBA PACKAGE", "US| NFL NETWORK HULU", "US| NFL PACKAGE",
+    "US| MLB PACKAGE", "US| WNBA PACKAGE", "US| MILB TV",
+    "US| NCAAF PACKAGE", "US| FLO COLLEGE", "US| NHL PACKAGE",
+    "US| FLO RACING", "US| VIAPLAY NHL", "US| VICTORY+", "US| FITE TV",
+    "US| STAN", "US| DIRTVISION", "US| MLS NETWORK", "US| MLS PPV VIP",
+    "US| NFHS", "US| MLS PPV 50", "US| NETFLIX PPV 12", "US| MAX PPV 40",
+    "US| B/R MAX SPORTS", "US| FLO NETWORK", "US| ABC NETWORK",
+    "US| CBS NETWORK", "US| FOX NETWORK", "US| NBC NETWORK",
+    "US| PBS NETWORK", "US| CW/MY NETWORK", "US| TELEMUNDO NETWORK",
+    "US| CINEMANIA HOLLYWOOD", "US| CINEMANIA TV SHOWS",
+    "US| TENNIS CHANNEL PLUS", "US| PEACOCK NETWORK", "US| TENNIS PPV",
+    "US| HBO MAX NETWORK", "US| HULU NETWORK", "US| DISNEY+ NETWORK",
+    "US| ESPN PLUS", "US| ESPN+ PPV VIP", "US| ESPN PLAY",
+    "US| VIX+ DEPORTES", "US| SOCCER", "US| DAZN", "US| NETFLIX ON AIR",
+    "US| PLUTO TV",
+    "NA| PPV & LIVE EVENTS", "NA| HOCKEY LEAGUE",
+    "UK| GENERAL", "UK| ENTERTAINMENT", "UK| NEWS", "UK| KIDS",
+    "UK| DOCUMENTARY", "UK| MUSIC", "UK| MC VIDEO", "UK| MOVIES 4K",
+    "UK| SPORTS", "UK| SKY SPORT+ VIP", "UK| SOCCER REPLAY",
+    "UK| NATIONAL LEAGUE", "UK| UEFA REPLAY", "UK| WORLD SPORTS",
+    "UK| DAZN", "UK| AMAZON PRIME",
+    "CA| OHL",
+    "RS| SERBIA", "BH| BOSNIA", "HR| CROATIA", "MK| MACEDONIA",
+    "SL| SLOVENIA", "CG| MONTENEGRO",
+    "EXYU| SPORTSKI KANALI", "EXYU| PINK MEDIA", "EXYU| FILMSKI KANALI",
+    "EXYU| MUZICKI KANALI", "EXYU| DOKUMENTARNI", "EXYU| DJECIJI KANALI",
+    "EXYU| NON STOP", "EXYU| BALKAN SKY", "EXYU| SKY KIDS",
+    "24/7 DRAMA VIP",
+    # Zusaetzlich alle Kategorien, die im Screenshot NICHT aktiviert
+    # waren - auf Nutzerwunsch trotzdem mitgeprueft, da nicht sicher
+    # ist, ob der Aktivierungsstatus wirklich "gehoert nicht zu den
+    # 18.957 Live-Sendern" bedeutet (Beispiel: "UK| NOW TV" war
+    # deaktiviert, zeigt laut Nutzer aber 149 Sender mit "Keine
+    # Information" im EPG-Raster - gehoert also sehr wohl dazu).
+    "4K UHD 3840P", "US| BIBLICAL/RELIGIOUS", "WM 2026 REPLAY",
+    "US| APPLE TV F1 PPV", "DE| WORLD CUP 2026 REPLAY",
+    "DE| DAZN EXCLUSIVE", "US| PARAMOUNT+ PPV RAW", "US| NCAAB PACKAGE",
+    "24/7 DISNEY+", "24/7 PRIME VIDEO", "24/7 MOVIES & SERIES",
+    "24/7 ONEPLAY", "24/7 SHOWS VIP", "24/7 CLASSIC SHOWS VIP",
+    "24/7 REALITY VIP", "24/7 CARTOON VIP", "24/7 COMEDY VIP",
+    "24/7 KIDS/FAMILY VIP", "24/7 CRIME VIP",
+    "24/7 ACTION & ADVENTURE VIP", "24/7 MOVIES/ACTORS VIP",
+    "UK| MOVIES HEVC", "UK| ITV X VIP", "UK| APPLE TV+ SERIES",
+    "UK| NETFLIX ORIGINAL", "UK| PRIME VIDEO SERIES", "UK| BBCI",
+    "UK| BBCIPLAYER SERIES", "UK| BBC STREAM PPV", "UK| NOW TV",
+    "UK| MONOMAX PPV", "UK| MXGP PPV", "UK| VOLLEY BALL WORLD PPV",
+    "UK| LIGUE 1 PPV", "UK| RALLY TV PPV", "UK| GAA GO PPV",
+    "IR| IRELAND", "IR| CLUBBER PPV", "IR| SETANTA PPV", "IR| LOI PPV",
+    "IR| NIFL PPV",
+)]
+
 live_gruppen = [
     g for g in gruppen_zaehler
-    if g and not any(kw in g.upper() for kw in VOD_KEYWORDS)
+    if g and any(g.upper().startswith(p) for p in LIVE_GRUPPEN_PREFIXE)
 ]
 print(f"\n--- Einzelne fehlende Kanaele in mutmasslichen LIVE-TV-Gruppen ({len(live_gruppen)} Gruppen) ---")
 ausgegeben = 0
