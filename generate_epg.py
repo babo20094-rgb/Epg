@@ -110,7 +110,11 @@ def kanal_id_varianten(kanal):
     Variante wurden diese Sender trotz korrektem, laengst vorhandenem
     sender.txt-Eintrag nie automatisch zugeordnet (Bug September 2026
     behoben)."""
-    match = re.match(r"^([A-Za-z]{2,4})\|(\s*)(.+)$", kanal)
+    # {2,5} statt {2,4}: deckt auch "PRIME|..." ab (5 Buchstaben) - ohne
+    # diese Erweiterung bekamen alle 915 PRIME|-Sender nie eine
+    # Leerzeichen-Variante, da die Praefix-Laenge nicht passte (Bug
+    # September 2026 behoben).
+    match = re.match(r"^([A-Za-z]{2,5})\|(\s*)(.+)$", kanal)
     if match:
         land, _leerzeichen, rest = match.groups()
         ohne = f"{land}|{rest}"
@@ -139,16 +143,21 @@ def kanal_id_varianten(kanal):
         ]
         varianten = list(dict.fromkeys(varianten + zusatz))
 
-    # NOW TV (Skys eigener Streaming-Ableger) fuehrt exakt dasselbe
-    # Kanal-Lineup wie die SKY:GB-Sender (die als "UK|..." angezeigt
-    # werden), aber mit zusaetzlichem "-NOWTV"-Suffix am Laenderkuerzel
-    # in der Playlist (z.B. "UK-NOWTV| ALIBI HD" statt "UK|ALIBI HD") -
-    # ohne diese Alias-Variante wurden alle betroffenen Sender trotz
-    # vorhandener SKY:GB-Daten nie automatisch zugeordnet (Bug
-    # September 2026 behoben).
+    # NOW TV (Skys Streaming-Ableger) und BBC iPlayer fuehren dasselbe
+    # Kanal-Lineup wie die SKY:GB-/FREEVIEW:GB-Sender (die als "UK|..."
+    # angezeigt werden), aber mit zusaetzlichem "-NOWTV"/"-BBCI"-Suffix
+    # am Laenderkuerzel in der Playlist (z.B. "UK-NOWTV| ALIBI HD" statt
+    # "UK|ALIBI HD", "UK-BBCI| BBC ONE EAST" statt "UK|BBC ONE EAST") -
+    # ohne diese Alias-Varianten wurden alle betroffenen Sender trotz
+    # vorhandener SKY:GB-/FREEVIEW:GB-Daten nie automatisch zugeordnet
+    # (Bug September 2026 behoben).
     if kanal.upper().startswith("UK|"):
         rest_uk = kanal[3:]
-        alias = [f"UK-NOWTV|{sp}{rest_uk}" for sp in ("", " ", "  ")]
+        alias = [
+            f"UK-{suffix}|{sp}{rest_uk}"
+            for suffix in ("NOWTV", "BBCI")
+            for sp in ("", " ", "  ")
+        ]
         varianten = list(dict.fromkeys(varianten + alias))
 
     return varianten
