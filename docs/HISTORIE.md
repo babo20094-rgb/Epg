@@ -3225,3 +3225,114 @@ beim spaeteren Nachschlagen/Abgleich) - sonst diverging die
 berechneten Schluessel unbemerkt und der Abgleich schlaegt lautlos
 (ohne Fehlermeldung, da `real_daten is None` nur zu "kein Treffer"
 fuehrt) fuer eine ganze Sendergruppe fehl.
+
+## September 2026: Serie von Kanal-ID-Bugs bei kanal_id_varianten() - Sport Klub HD, Filme 2022 4k, RT UK, The Blaze, UEFA/NHL-Kerne, NOW TV, BBC iPlayer, PRIME
+
+Nutzer meldete, dass TiviMate bei ~18.957 Live-Sendern eine kleine,
+aber hartnaeckige Zahl an Sendern dauerhaft "Keine Information" zeigt,
+trotz mehrerer vorheriger Fixes. Eine ganze Session lang wurden
+nacheinander mehrere UNABHAENGIGE Bugs in `kanal_id_varianten()`
+(generate_epg.py) gefunden, die alle denselben Symptomtyp erzeugen:
+die generierte `<channel id>` weicht in Kleinigkeiten von der
+tatsaechlichen `tvg-name`-Schreibweise in der Playlist des Nutzers ab,
+wodurch TiviMates automatischer ID-Abgleich fehlschlaegt.
+
+**Fund- und Fix-Reihenfolge:**
+
+1. **`HR|SPORT KLUB 1-10` ohne "HD"-Suffix:** sender.txt hatte nur
+   `HR|SPORT KLUB 1` etc., Playlist nutzt `HR| SPORT KLUB 1 HD` (mit
+   angehaengtem "HD"). Fix: zusaetzliche `HR|SPORT KLUB N HD`-Zeilen in
+   sender.txt ergaenzt. Das war vermutlich auch die tatsaechliche
+   Ursache des seit Monaten offenen "Sport Klub 1 zeigt falsches
+   Programm"-Falls (siehe "Bekannter offener Fall" in CLAUDE.md) - kein
+   TiviMate-Cache-Problem, sondern ein echter fehlender ID-Treffer.
+2. **`DE|FILME 2022 1/3 4k`** (kleines "k") und **`UK|RT uk HD`**
+   (falsche Gross-/Kleinschreibung in sender.txt, sollte `RT UK HD`
+   sein): beides reine Datenfehler in sender.txt, per Zusatzzeile bzw.
+   Korrektur behoben.
+3. **`US|THE BLAZE HD`:** Playlist enthaelt vor "HD" ein geschuetztes
+   Leerzeichen (U+00A0) statt eines normalen - per 4. Feld
+   (ID-Override) bei der `TVPASSPORT:`-Zeile mit dem exakten Zeichen
+   ergaenzt, KEIN genereller Code-Fix (haette bei jedem Sender mit
+   Leerzeichen im Namen die Anzahl der `<channel>`-Varianten
+   verdoppelt - erster Ansatz dazu wurde wieder verworfen).
+4. **UEFA/NHL "PRAEFIX \| NN -"-Kerne:** `kern_und_event_extrahieren()`
+   behandelte den Text vor dem letzten Pipe als Laenderkuerzel und warf
+   ihn weg, WENN er 2-4 Buchstaben lang ist - "UEFA" (4 Buchstaben)
+   erfuellt dieses Muster zufaellig genauso wie echte Laendercodes
+   ("US", "DE"), wurde also faelschlich verworfen. Dadurch gingen
+   sowohl der Event-Text ("UEFA | 01 - Fenerbahce vs Roma") als auch
+   die Zuordnung zu den in sender.txt hinterlegten
+   `NAME:UEFA \| NN -`-Kernen verloren. **Fix:** Sonderfall fuer das
+   "PRAEFIX \| NUMMER -"-Muster in `kern_und_event_extrahieren()`
+   ergaenzt, der das Praefix (z.B. "UEFA", "NHL") explizit als Teil des
+   Kerns behaelt statt es als Laendercode zu verwerfen.
+5. **Leerzeichen VOR dem Pipe bei UEFA/NHL-Kernen:** Playlist schreibt
+   zusaetzlich unterschiedlich viele Leerzeichen ZWISCHEN Praefix und
+   Pipe (z.B. "UEFA  \| 01 -" mit zwei Leerzeichen), waehrend die
+   bestehende Leerzeichen-Logik in `kanal_id_varianten()` nur
+   Leerzeichen NACH dem Pipe abdeckte. Fix: zusaetzlicher
+   `fullmatch()`-Zweig fuer genau dieses "PRAEFIX \| NUMMER -"-Muster,
+   der alle Kombinationen aus 0/1/2 Leerzeichen vor UND nach dem Pipe
+   erzeugt (9 Varianten) - bewusst nur fuer dieses spezielle Muster,
+   nicht fuer alle "Land\|Sender"-IDs (haette sonst jeden Sender im
+   Land verdreifacht statt verneunfacht).
+6. **UEFA-Logo:** Alle 37 UEFA-Kanaele hatten 14 unterschiedliche,
+   ausnahmslos FALSCHE Logos (zufaellig durch dieselbe Nummer-Kollision
+   wie Punkt 4 verursacht - Logo-Suche lief teilweise ueber dieselbe
+   blosse Nummer und traf fremde Sender wie "K16", "Region 25",
+   "Siam Thai 13"). Nutzer schickte das echte UEFA-Logo als Bild,
+   wurde herunterskaliert (300px, 256-Farben-Palette) und unter
+   `logos/uefa/uefa.png` selbst gehostet, alle 37 Zeilen darauf
+   umgestellt.
+7. **NOW TV (`UK-NOWTV\|...`) und BBC iPlayer (`UK-BBCI\|...`):**
+   NOW TV (Skys Streaming-Ableger) und BBC iPlayer fuehren exakt
+   dasselbe Kanal-Lineup wie die bereits vorhandenen
+   `SKY:GB\|.../FREEVIEW:GB\|...`-Sender (die als "UK\|..." angezeigt
+   werden), aber die Playlist des Nutzers fuehrt sie unter einem
+   zusaetzlichen Suffix am Laenderkuerzel ("UK-NOWTV\|", "UK-BBCI\|"
+   statt "UK\|"). `kanal_id_varianten()` erzeugt jetzt fuer jede
+   "UK\|..."-ID zusaetzlich beide Alias-Praefix-Varianten (je mit 0/1/2
+   Leerzeichen nach dem Pipe).
+8. **`PRIME\|`-Sender (915 Zeilen in sender.txt):** Der Regex in
+   `kanal_id_varianten()` fuer die Laenderkuerzel-Erkennung war auf
+   `[A-Za-z]{2,4}` begrenzt (2-4 Buchstaben) - "PRIME" hat aber 5
+   Buchstaben und fiel dadurch KOMPLETT durchs Raster, bekam also nie
+   eine Leerzeichen-Variante, obwohl alle anderen "Land\|Sender"-Sender
+   laengst davon profitierten. Regex auf `{2,5}` erweitert (geprueft:
+   "PRIME" ist aktuell das einzige 5-Buchstaben-Praefix in sender.txt).
+
+**Vorgehen, das zum Erfolg fuehrte (Lehre fuer aehnliche Faelle):**
+Ein Playlist-Download direkt aus der Sandbox-Umgebung war blockiert
+(HTTP 511 von Cloudflare, vermutlich IP-Sperre des Anbieters gegen
+Cloud-Sandboxes) - trotz mehrerer Versuche mit unterschiedlichen
+User-Agents/Protokollen. Der zuverlaessige Ersatz war ein **temporaeres
+Diagnose-Skript** (`tools/diagnose_fehlende_sender.py` +
+`.github/workflows/diagnose_fehlende_sender.yml`, jeweils nach
+Gebrauch wieder aus dem Repo entfernt), das exakt den `sender_daten`-
+Aufbauteil von `generate_epg.py` importiert, alle `kanal_id_varianten()`
+sammelt und gegen die echten `tvg-name`-Werte der Playlist vergleicht -
+ausgefuehrt ueber GitHub Actions (kann die Playlist erreichen, im
+Gegensatz zur Sandbox). Wichtige Verfeinerung dabei: die Playlist hat
+~1,38 Mio. Zeilen, davon nur ~18.957 echte Live-Sender - der Rest ist
+VOD (Filme/Serien), das ueber KEINEN zuverlaessigen Keyword-Filter
+sauber vom echten Live-TV zu trennen ist (viele VOD-Gruppen heissen
+harmlos wie "|AF| SOUTH AFRICA" oder "|NL| FORMULE 1"). Der einzige
+zuverlaessige Weg war, sich vom Nutzer die exakte Liste der in
+TiviMates "Gruppen verwalten"-Bildschirm sichtbaren Kategorienamen
+geben zu lassen (Screenshots) und das Diagnose-Skript darauf als feste
+Whitelist zu beschraenken - dabei auch die dort DEAKTIVIERTEN
+Kategorien einschliessen, da Aktivierungsstatus nicht zuverlaessig mit
+"gehoert zu den Live-Sendern" korreliert (Beispiel: "UK\| NOW TV" war
+deaktiviert, hatte aber 149 tatsaechlich fehlende Sender).
+
+Nach Anwendung der Whitelist sank die Zahl der fehlenden Treffer von
+"nicht sinnvoll auswertbar" (>1,3 Mio., ueberwiegend VOD) auf 364
+konkrete Eintraege in 22 Kategorien - davon liessen sich 266 auf die
+zwei letzten echten Bugs (PRIME-Regex, BBCI-Alias) zurueckfuehren. Die
+verbleibenden ~90 sind KEIN Bug, sondern einzelne, gerade aktuelle
+Live-Event-Kanalnummern (FLO Network Volleyball, NFL-Spielwoche,
+DirtVision-Rennen etc.), die schlicht noch nicht als `NAME:`-Zeile in
+sender.txt eingetragen sind - normale laufende Pflege bei einer
+Playlist mit staendig neuen dynamischen PPV-Kanaelen, kein einmalig
+behebbarer Fehler.
