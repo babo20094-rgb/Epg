@@ -76,6 +76,7 @@ antwort.raise_for_status()
 playlist_text = antwort.text
 
 TVG_NAME_MUSTER = re.compile(r'tvg-name="([^"]*)"')
+GROUP_TITLE_MUSTER = re.compile(r'group-title="([^"]*)"')
 
 namen = []
 for zeile in playlist_text.splitlines():
@@ -83,20 +84,57 @@ for zeile in playlist_text.splitlines():
     if not zeile.startswith("#EXTINF") or "," not in zeile:
         continue
 
+    gruppe_treffer = GROUP_TITLE_MUSTER.search(zeile)
+    gruppe = gruppe_treffer.group(1).strip() if gruppe_treffer else ""
+
     tvg_name_treffer = TVG_NAME_MUSTER.search(zeile)
     if tvg_name_treffer and tvg_name_treffer.group(1).strip():
-        namen.append(tvg_name_treffer.group(1).strip())
+        namen.append((tvg_name_treffer.group(1).strip(), gruppe))
         continue
 
     letztes_anfuehrungszeichen = zeile.rfind('"')
     such_start = letztes_anfuehrungszeichen if letztes_anfuehrungszeichen != -1 else 0
     komma_pos = zeile.find(",", such_start)
     name = (zeile[komma_pos + 1:] if komma_pos != -1 else zeile.rsplit(",", 1)[-1]).strip()
-    namen.append(name)
+    namen.append((name, gruppe))
 
 print(f"Playlist-Kanaele: {len(namen)}")
 
-fehlend = [n for n in namen if n not in kanal_ids]
+fehlend = [(n, g) for n, g in namen if n not in kanal_ids]
 print(f"Nicht zugeordnet: {len(fehlend)}")
-for name in sorted(set(fehlend)):
-    print(repr(name))
+
+# VOD-/Serien-Gruppen (Filme, Serien, Kids, 24/7-Binge-Kanaele) machen
+# den Grossteil der 1,3+ Mio. Playlist-Zeilen aus und sind fuer die
+# EPG-Zuordnung irrelevant (VOD hat kein XMLTV-EPG). Nach Gruppe
+# aggregieren, damit echte LIVE-TV-Gruppen mit fehlender Zuordnung
+# sofort auffallen, statt in der VOD-Masse unterzugehen.
+gruppen_zaehler = {}
+for _, g in fehlend:
+    gruppen_zaehler[g] = gruppen_zaehler.get(g, 0) + 1
+
+print(f"\n--- Fehlende Zuordnungen nach group-title (Top 80 nach Anzahl) ---")
+for gruppe, anzahl in sorted(gruppen_zaehler.items(), key=lambda x: -x[1])[:80]:
+    print(f"{anzahl:6d}  {gruppe!r}")
+
+# Live-TV-Gruppen erkennen: enthalten typischerweise KEIN VOD-/Serien-/
+# Kids-Schluesselwort im Gruppennamen. Nur fuer diese Gruppen die
+# einzelnen fehlenden Kanalnamen ausgeben (sonst wuerden zehntausende
+# VOD-Zeilen die Ausgabe unbrauchbar machen).
+VOD_KEYWORDS = (
+    "VOD", "MOVIE", "FILM", "SERIES", "SERIEN", "SERIE", "KIDS", "CHILD",
+    "24/7", "ANIME", "DOKU", "DOCU", "SHOW", "PPV EVENTS PPV",
+)
+live_gruppen = [
+    g for g in gruppen_zaehler
+    if g and not any(kw in g.upper() for kw in VOD_KEYWORDS)
+]
+print(f"\n--- Einzelne fehlende Kanaele in mutmasslichen LIVE-TV-Gruppen ({len(live_gruppen)} Gruppen) ---")
+ausgegeben = 0
+LIMIT = 3000
+for name, gruppe in sorted(fehlend):
+    if gruppe in live_gruppen:
+        print(f"{gruppe!r} -> {name!r}")
+        ausgegeben += 1
+        if ausgegeben >= LIMIT:
+            print(f"... Abbruch nach {LIMIT} Zeilen (weitere vorhanden) ...")
+            break
