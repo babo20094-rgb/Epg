@@ -280,8 +280,31 @@ def kern_und_event_extrahieren(voller_name):
         # Condors") ist ein Land-/Regionskuerzel wie anderswo in sender.txt
         # ("US|", "DE|", ...), kein echter Event-Text - echte Event-Texte
         # sind immer deutlich laenger (Teamnamen, Uhrzeiten usw.).
-        if re.fullmatch(r"[A-Za-z]{2,4}", event_teil):
+        praefix_roh = event_teil
+        ist_reiner_praefix_code = bool(re.fullmatch(r"[A-Za-z]{2,4}", praefix_roh))
+        if ist_reiner_praefix_code:
             event_teil = ""
+        # Sonderfall "PRAEFIX | NN- Team A vs Team B ..." (z.B. UEFA| 01-
+        # Fenerbahce vs Roma 5:45pm): ein reiner Kurz-Praefix VOR dem
+        # Pipe gefolgt von einer Nummer-Bindestrich-Kombination direkt
+        # NACH dem Pipe, ohne weiteres Pipe-Zeichen zur Trennung von
+        # stabiler Nummer und wechselndem Event-Text. Ohne diese
+        # Sonderbehandlung wuerde der komplette Rest nach dem Pipe
+        # (Nummer UND Team-/Zeit-Text) faelschlich als kompletter,
+        # angeblich stabiler Kern gewertet - der aendert sich aber pro
+        # Spiel, wodurch nie ein Treffer gegen den in sender.txt
+        # hinterlegten Leerlauf-Kern ("UEFA | 01 -") zustande kam
+        # (sichtbares Symptom: "Keine Information" oder ein falscher
+        # Platzhalter-Titel eines KOLLIDIERENDEN anderen Praefixes mit
+        # derselben Nummer, z.B. "NHL Live" bei "UEFA | 17"/"18", weil
+        # der Praefix beim bisherigen Verhalten komplett verworfen
+        # wurde und die bloße Nummer allein nicht mehr eindeutig war).
+        # Nummer + Praefix werden deshalb zu einem stabilen,
+        # praefix-eindeutigen Kern rekombiniert ("UEFA | 01 -"), der
+        # Rest nach dem Bindestrich (falls vorhanden) wird Event-Text.
+        nn_bindestrich_match = (
+            re.match(r"^(\d+)\s*-\s*(.*)$", kern_roh) if ist_reiner_praefix_code else None
+        )
         # Laender-Praefix ("DE: ", "US: ", ...) NUR bei DYN PPV/FLO
         # RACING entfernen - das ist die historische Sonderkonvention
         # dieser beiden Anbieter, deren sender.txt-Kernname schon immer
@@ -296,6 +319,10 @@ def kern_und_event_extrahieren(voller_name):
         kern_ohne_land = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", kern_roh).strip()
         if re.fullmatch(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", kern_ohne_land, re.IGNORECASE):
             kurzname = kern_ohne_land
+        elif nn_bindestrich_match:
+            kurzname = f"{praefix_roh} | {nn_bindestrich_match.group(1)} -"
+            if nn_bindestrich_match.group(2).strip():
+                event_teil = nn_bindestrich_match.group(2).strip()
         else:
             kurzname = kern_roh
     else:
