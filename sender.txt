@@ -17334,7 +17334,7 @@ US| BIG BROTHER CAMERA 1||https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 US| BIG BROTHER CAMERA 2||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/43cce51a6adf682e2afc344a2b1972824d96bf82.png
 US| BIG BROTHER CAMERA 3||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bdbd082ddb881c10533b480d34e5a7f490cf809a.png
 US| BIG BROTHER CAMERA 4||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3ef20f3b9206aef68be154095d6b368abdc5b041.png
-GO| JAMIE OLIVER|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/jamie_oliver.png
+GO| JAMIE OLIVER|Jamie Oliver ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/jamie_oliver.png
 GO| GREAT AMERICAN ADVENTURES|
 GO| FAMILY FEUD (STEVE HARVEY)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/89fb07a1d0191596269e6b10c205dea0cd3b8a1f.png
 GO| DOVE TV||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/47019de4f7275b6a675897547d0f50fc52d5064b.png
@@ -17840,13 +17840,13 @@ US|Fanduel Great Lake||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 US|Fanduel Florida Plus||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fanduel.png
 US|Fanduel Florida||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fanduel.png
 CITY|NBC KLAF LP BROOKLYN ᴿᴬᵂ|
-GO|UP|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/up_tv.png
+GO|UP|Up ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/up_tv.png
 GO|TRIBECA FESTIVAL+|
 GO|The Price is Right-The Barker Era||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8be5e971b9d839b1f8dc47782d4218afe79ca336.png
 GO|The Price is Right-Drew Carey
-GO|MSG ALT-1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/msg_network.png
-GO|MSG ALT-2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/msg_network.png
-GO|MSG ALT-3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/msg_network.png
+GO|MSG ALT-1|Msg Alt-1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/msg_network.png
+GO|MSG ALT-2|Msg Alt-2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/msg_network.png
+GO|MSG ALT-3|Msg Alt-3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/msg_network.png
 GO|20/20||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/77797ae9ebeaf985b900b497f9e488a45c8bbab9.png
 US|Outermax HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/73c0889100735420ad8079bab4d1209a52612dba.png
 US|VSIN||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/be9613289fd30ebb5da8459874fb98ba1d909d15.png
@@ -18733,7 +18733,7 @@ PRIME|Fox 7 Austin ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Ep
 PRIME|Fox 6 Milwaukee ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/17147658e1a7c7132f67f0b1b66b330488010a4d.png
 PRIME|Fox 5 Atlanta ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/53677e5a40f9ac44dc6770a8aa7d59063bd6a23e.png
 PRIME|Fox 2 Detroit ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d4ab63dc082c11f3ddc1ed443e7762e95bbeaa3f.png
-PRIME|Fgteev ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/fgteev.png
+PRIME|Fgteev ᴿᴬᵂ|Fgteev ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/fgteev.png
 PRIME|Faithfull Funny ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/comedy_masks.png
 PRIME|Extrem Makeover- Home Edition ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf95b9349c5c0b8dffa9ed9f18baed7cebfce5d.png
 PRIME|ET ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a2a7fb2a4ce6ae9c70a1017756bacb287aeabe06.png
@@ -18755,7 +18755,7 @@ PRIME|Black Voices ᴿᴬᵂ|
 PRIME|BBC Comedy ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2adb219d3db8a0a382a8efbc58511f2d3b88ad90.png
 PRIME|Bargain Hunt ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/bargain_hunt.png
 PRIME|Are You Smarter than a 5th Grader? ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/smarter_5th_grader.png
-PRIME|Aqui Y Ahora ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/aqui_y_ahora.png
+PRIME|Aqui Y Ahora ᴿᴬᵂ|Aqui Y Ahora ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/aqui_y_ahora.png
 PRIME|Antiques Road Trip ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4a01a833007feed8323b43cf389e20fc1896e14b.png
 PRIME|Anime X Hidive ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a9067f06e5e4845b615dfbba3d4ddefcbf948435.png
 PRIME|Animation Favorites ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/film_reel.png
