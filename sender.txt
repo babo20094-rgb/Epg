@@ -12732,7 +12732,7 @@ NAME:LIVE EVENT 32|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 NAME:LIVE EVENT 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
 NAME:LIVE EVENT 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
 NAME:LIVE NFL PLAYOFFS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:LOI  TV 12 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI  TV 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
@@ -12743,10 +12743,10 @@ NAME:LOI 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/exter
 NAME:LOI 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI TV 11||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI TV 14 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI TV 15||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME::Milb  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  64|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
@@ -12790,9 +12790,9 @@ NAME:MLB 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/exter
 NAME:MLB 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
 NAME:MLB 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
 NAME:MLB 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
-NAME:MLB 16 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
+NAME:MLB 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
 NAME:MLB 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6453316d21cc23b7857494d703ed25a0013debd6.png
-NAME:MLS 17 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
+NAME:MLS 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:MLS Atlanta United|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:MLS Austin FC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:MLS CF Montreal|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
@@ -13061,6 +13061,21 @@ NAME:NFL REPLAY 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME:NFL REPLAY 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY HIGHLIGHTS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY INFO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
+NAME:NFL | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 04 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 05 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 06 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 07 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 08 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 09 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 11 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
 NAME:NFL TEAMS| BUFFALO BILLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
 NAME:NFL TEAMS| CBS BEARS CHICAGO IL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
 NAME:NFL TEAMS| CBS BENGALS CINCINNATI OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
@@ -13098,7 +13113,7 @@ NAME:NFL TEAMS| FOX REDSKINS  BALTIMORE MD|https://raw.githubusercontent.com/bab
 NAME:NFL TEAMS| FOX SAINTS NEW ORLEANS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
 NAME:NFL TEAMS| FOX SEAHAWKS SEATTLE WA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
 NAME:NFL TEAMS| FOX VIKINGS MINNEAPOLIS MN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NHL LIVE||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
+NAME:NHL LIVE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:NHL LIVE| 17 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:NHL LIVE| 18 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/022021e6d4233ff3cc881159145422b20134d7f1.png
 NAME:NHL REPLAY 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3d03f07a943ba94de576a797db0496d4d9152834.png
@@ -13168,10 +13183,10 @@ NAME:NIFL 1|
 NAME:NIFL 2|
 NAME:NIFL 3|
 NAME:NIFL 4|
-NAME:NIFL 5 ||http://103.176.90.95/images/1434214.png
-NAME:NIFL 6 ||http://103.176.90.95/images/1434213.png
-NAME:NIFL 7 ||http://103.176.90.95/images/1434212.png
-NAME:NIFL 8 ||http://103.176.90.95/images/1434211.png
+NAME:NIFL 5|http://103.176.90.95/images/1434214.png
+NAME:NIFL 6|http://103.176.90.95/images/1434213.png
+NAME:NIFL 7|http://103.176.90.95/images/1434212.png
+NAME:NIFL 8|http://103.176.90.95/images/1434211.png
 NAME:National League 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
 NAME:National League 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
 NAME:National League 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a544589d654136de46ed84c184a685548df609bf.png
@@ -13230,7 +13245,7 @@ NAME:PDC Board 01|
 NAME:PDC Board 02|
 NAME:PDC Board 06|http://103.176.90.95/images/1556645.png
 NAME:PDC Board 07|http://103.176.90.95/images/1556646.png
-NAME:PDC Board 8 ||http://103.176.90.95/images/1556647.png
+NAME:PDC Board 8|http://103.176.90.95/images/1556647.png
 NAME:PDCTV 1|
 NAME:PDCTV 2|
 NAME:PDCTV 3|
@@ -13823,11 +13838,11 @@ NAME:ULSTER GAA 01 | Ballymacnab v Keady|https://raw.githubusercontent.com/babo2
 NAME:ULSTER GAA 03 | Kilcoo (Down) v Scotstown (Monaghan)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
 NAME:ULSTER GAA 04 | Ballinderry (Derry) v Derrylaughan (Tyrone)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
 NAME:ULSTER GAA 05 | Carey Faughs (Antrim) v Castleblayney (Monaghan)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
-NAME:ULSTER GAA 06 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
-NAME:ULSTER GAA 07 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
-NAME:ULSTER GAA 08 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
-NAME:ULSTER GAA 09 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
-NAME:ULSTER GAA 10 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
+NAME:ULSTER GAA 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
+NAME:ULSTER GAA 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
+NAME:ULSTER GAA 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
+NAME:ULSTER GAA 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
+NAME:ULSTER GAA 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc01666dd3caba9ec81218b2c07a78079fc293f5.png
 NAME:US (BTN+ 002)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:US (BTN+ 003)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:US (BTN+ 004)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
@@ -16568,29 +16583,29 @@ NAME:US: VIAPLAY PPV 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 NAME:US: VIAPLAY PPV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:US: VIAPLAY PPV 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME::Milb  48|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Vidio EPL 1 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 10 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 11 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 12 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 13 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 14 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 15 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 16 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 17 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 18 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 19 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 2 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 20 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 21 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 22 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 23 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 3 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 4 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 5 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 6 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 7 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 8 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
-NAME:Vidio EPL 9 ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
+NAME:Vidio EPL 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/premier_league.png
 NAME:Vidio Live Events | 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8402743f743a3f74ba8ef0f24914d1b0e0b52188.png
 NAME:Vidio Live Events | 25|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4a40d8b8ba3bfb96243b90b7cd50ccf0ad9c7ade.png
 NAME:Vidio Live Events | 26|http://103.176.90.95/images/1387231.png
@@ -17339,8 +17354,7 @@ GO| GREAT AMERICAN ADVENTURES|
 GO| FAMILY FEUD (STEVE HARVEY)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/89fb07a1d0191596269e6b10c205dea0cd3b8a1f.png
 GO| DOVE TV||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/47019de4f7275b6a675897547d0f50fc52d5064b.png
 CITY| NBC WRCB WASHINGTON ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1eb95d2eddf9596988414683e0f49b6283a72743.png
-NFL TEAMS| FOX REDSKINS WASHINGTON DC||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/commanders.png
-NFL TEAMS| FOX REDSKINS BALTIMORE MD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/commanders.png
+NAME:NFL TEAMS| FOX REDSKINS WASHINGTON DC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/commanders.png
 TVPASSPORT:US|PBS (KOPB) Portland, OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 UK| NOW HK PREMIER SPORTS 8||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/10a281011739d7b9224cb455582790d456d6f58f.png
 SKY:UK| SKY CINEMA OSCARS HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-cinema-oscars-uk.png

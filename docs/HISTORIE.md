@@ -3366,3 +3366,69 @@ beibehalten), analog zum bereits korrekten `NAME:BTN+ 8 HD (D)`.
 Verdacht bei einer `NAME:`-Zeile immer zuerst pruefen, ob der Kern noch
 Doppelpunkt+Event-Details/ein Datum enthaelt statt nur dem stabilen
 Basisnamen.
+
+---
+
+## Ueberzaehliges leeres Pipe vor dem Logo (MLB 16, LOI TV, NHL LIVE,
+## NIFL, PDC Board, ULSTER GAA, Vidio EPL - Sept. 2026)
+
+**Symptom:** "MLB 16 |" wurde in TiviMate zwar als Kanal zugeordnet/
+angezeigt, aber es erschien dauerhaft "Keine Information" - anders als
+alle Nachbarkanaele (MLB 01-15, 17 usw.), die normal funktionierten.
+
+**Ursache:** Die betroffene Zeile lautete `NAME:MLB 16 ||<logo>` -
+ein zusaetzliches, komplett leeres Pipe-Zeichen VOR dem eigentlichen
+Logo-Trenner-Pipe (vermutlich Ueberbleibsel aus einem Kopier-Vorgang
+von einer echten Event-Zeile, bei der das Event-Feld danach wieder
+geleert, das Pipe-Zeichen davor aber nicht mit entfernt wurde). Beim
+Einlesen trennt `generate_epg.py` den Kern IMMER am LETZTEN Pipe der
+Zeile - der Abschnitt danach war hier leer, wodurch der gespeicherte
+Kern selbst zu einer leeren Zeichenkette wurde (statt "MLB 16" wie bei
+allen sauberen Nachbarn). Eine leere Kanal-ID kann nie einen Live-
+Playlist-Treffer liefern, daher dauerhaft keine Programminformation
+trotz sichtbarer Kanalzuordnung.
+
+**Fix:** Systematische Suche im gesamten `sender.txt` nach demselben
+Muster (`NAME:<Text>\s*\|\|<Logo-URL>` - zwei Pipes ohne echten Text
+dazwischen) foerderte 39 betroffene Zeilen in mehreren Sendergruppen
+zutage (MLB, LOI TV, MLS, NHL LIVE, NIFL, PDC Board, ULSTER GAA, Vidio
+EPL) - alle mit demselben leeren Extra-Pipe. Ueberzaehliges Pipe
+jeweils entfernt, sodass der Kern wieder exakt dem Muster der sauberen
+Nachbarzeilen entspricht (z.B. `NAME:MLB 16|<logo>`).
+**Lehre:** Bei einem "zugeordnet aber keine Information"-Verdacht bei
+einer `NAME:`-Zeile IMMER auch auf ein leeres, ueberzaehliges Pipe-
+Zeichen direkt vor der Logo-URL pruefen (`grep -nE
+"^NAME:[^|]*\|\|https?://"` gegen die ganze Datei) - dieser Fehler
+betrifft typischerweise nicht nur den gemeldeten Einzelfall, sondern
+mehrere Sendergruppen gleichzeitig.
+
+---
+
+## NFL TEAMS| FOX REDSKINS WASHINGTON DC fehlte das NAME:-Praefix (Sept. 2026)
+
+**Symptom:** Nutzer zaehlte in TiviMate 38 "NFL Teams|..."-Kanaele,
+`sender.txt` enthielt aber nur 37 passende `NAME:`-Zeilen. Der fehlende
+Kanal ("FOX Redskins Washington DC") zeigte einen anderen, generischen
+(nicht-dynamischen) Titel ohne "Live"-Markierung, obwohl alle
+Nachbarkanaele per Live-Playlist-Abgleich funktionierten.
+
+**Ursache:** Die betroffene Zeile begann NICHT mit `NAME:` (`NFL TEAMS|
+FOX REDSKINS WASHINGTON DC||<logo>` statt `NAME:NFL TEAMS| FOX REDSKINS
+WASHINGTON DC|<logo>`) - dadurch griff beim Einlesen das normale
+`Land|Sender|Beschreibung|Logo`-Format statt der NAME:-Sonderbehandlung,
+"NFL TEAMS" wurde faelschlich als Laendercode interpretiert, der Sender
+landete nie im `name_pipe_kanal_index` fuer den Live-Abgleich. Direkt
+daneben stand zudem ein Duplikat fuer "BALTIMORE MD" (derselbe Bug,
+gleiches fehlendes Praefix) - dieses Team existierte bereits an anderer
+Stelle korrekt, das Duplikat war ueberfluessig.
+
+**Fix:** `NAME:`-Praefix bei "FOX REDSKINS WASHINGTON DC" ergaenzt
+(inkl. Behebung des ueberzaehligen leeren Pipes), das doppelte
+"BALTIMORE MD"-Duplikat entfernt. Insgesamt jetzt wieder 38
+`NAME:NFL TEAMS|`-Zeilen, exakt wie vom Nutzer in der Playlist gezaehlt.
+**Lehre:** Bei "Sender X fehlt/verhaelt sich anders als alle
+Nachbarn"-Verdacht innerhalb einer `NAME:`-Sendergruppe IMMER pruefen,
+ob die Zeile ueberhaupt mit `NAME:` beginnt (`grep -n "^NFL TEAMS\|"`
+OHNE das Praefix findet genau solche Faelle) - ein fehlendes Praefix
+sieht auf den ersten Blick wie ein ganz normaler Eintrag aus, wird aber
+komplett anders (und falsch) geparst.
