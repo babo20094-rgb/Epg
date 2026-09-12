@@ -67,5 +67,10 @@ jobs:
           # unwahrscheinlich, da nur Epg_365_Tage.xml committet wird)
           # bricht der Rebase ab und der Job schlägt sichtbar fehl,
           # statt fehlerhaft zu pushen.
-          git pull --rebase origin main
+          # -X theirs: Epg_365_Tage.xml.gz wird bei jedem Lauf komplett neu
+          # generiert, ein inhaltlicher Merge der Binärdatei ist weder
+          # möglich noch nötig - bei einem Konflikt (z.B. zwei Läufe kurz
+          # hintereinander) soll einfach die gerade frisch generierte
+          # Version gewinnen, statt den Job abbrechen zu lassen.
+          git pull --rebase -X theirs origin main
           git push
