@@ -767,6 +767,15 @@ LOGO_AUTO_MARKER = "AUTO"
 
 xml_teile = ['<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n']
 
+# Index (kanal_id, stop_str) -> Position in xml_teile fuer bereits
+# geschriebene echte <programme>-Eintraege - ermoeglicht das
+# nachtraegliche Verlaengern einer vorherigen echten Sendung bis zum
+# Beginn der naechsten (siehe _verlaengere_vorherige_sendung()), statt
+# fuer eine kleine Datenluecke dazwischen einen eigenen
+# "<Sender> ᴸⁱᵛᵉ"-Platzhalterblock einzufuegen. Wird von
+# _schreibe_echte_programme() bei jedem Schreiben aktualisiert.
+_echte_programme_index = {}
+
 sender_daten = []
 
 # Automatische Datenmuell-/Duplikat-Erkennung fuer NAME:-Sender: manche
@@ -3095,6 +3104,34 @@ def _schreibe_echte_programme(daten, programme):
                 f' <title lang="de">{titel_escaped}</title>'
                 f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
             )
+            _echte_programme_index[(kanal_id, stop_str)] = len(xml_teile) - 1
+
+
+def _verlaengere_vorherige_sendung(kanal, alter_stop, neuer_stop):
+    """Verlaengert die bereits geschriebene echte Sendung, die exakt bei
+    `alter_stop` endet, bis `neuer_stop` - genutzt um eine kleine
+    Datenluecke zwischen zwei echten Sendungen (z.B. RS|ARENA SPORT)
+    nahtlos zu schliessen, statt einen "<Sender> ᴸⁱᵛᵉ"-Platzhalterblock
+    dazwischen einzufuegen. Gibt True zurueck, wenn eine passende
+    vorherige Sendung gefunden und verlaengert wurde, sonst False (dann
+    faellt der Aufrufer auf den normalen Platzhalter zurueck)."""
+    alter_stop_str = alter_stop.strftime("%Y%m%d%H%M%S +0000")
+    neuer_stop_str = neuer_stop.strftime("%Y%m%d%H%M%S +0000")
+    gefunden = False
+    for kanal_id in kanal_id_varianten(kanal):
+        schluessel = (kanal_id, alter_stop_str)
+        idx = _echte_programme_index.get(schluessel)
+        if idx is None:
+            continue
+        alt_attribut = f'stop="{alter_stop_str}"'
+        neu_attribut = f'stop="{neuer_stop_str}"'
+        if alt_attribut not in xml_teile[idx]:
+            continue
+        xml_teile[idx] = xml_teile[idx].replace(alt_attribut, neu_attribut, 1)
+        del _echte_programme_index[schluessel]
+        _echte_programme_index[(kanal_id, neuer_stop_str)] = idx
+        gefunden = True
+    return gefunden
 
 
 def _telemach_abrufen(daten):
@@ -4359,9 +4396,38 @@ for tag_index in range(ANZAHL_TAGE):
             # weniger verwirrend als ein zufaellig wirkender Platzhaltertext
             # neben echten Sendungen am selben Tag.
             if hat_aktive_echte_quelle(daten):
-                rest_segmente = segmente_ohne_ueberlappung(
-                    start, ende, alle_echten_intervalle(daten)
-                )
+                echte_intervalle = alle_echten_intervalle(daten)
+                rest_segmente = segmente_ohne_ueberlappung(start, ende, echte_intervalle)
+                if rest_segmente:
+                    # RS|ARENA SPORT/ARENA SPORT PREMIUM (Nutzerwunsch
+                    # September 2026): kleine Datenluecken zwischen zwei
+                    # echten Sendungen (mts.rs/SportKlub/Arena-Kaskade,
+                    # siehe _mts_arena_abrufen weiter oben) sollen nicht
+                    # mehr als eigener "<Sender> ᴸⁱᵛᵉ"-Platzhalterblock
+                    # zwischen den echten Sendungen erscheinen. Statt
+                    # dessen wird die VORHERIGE echte Sendung bis zum
+                    # Beginn der naechsten verlaengert - wirkt im
+                    # EPG-Raster wie durchgehendes echtes Programm.
+                    # Grenzt eine Luecke NICHT an eine vorherige echte
+                    # Sendung (z.B. ganz am Tagesanfang, bevor ueberhaupt
+                    # die erste echte Sendung beginnt), gibt es nichts
+                    # zu verlaengern - dort bleibt der normale
+                    # Platzhalter wie bisher.
+                    ist_rs_arena = (
+                        daten["land"].strip().upper() == "RS"
+                        and re.match(r"^ARENA\s*SPORT\b", daten["sender"].strip(), re.IGNORECASE)
+                    )
+                    if ist_rs_arena:
+                        vorherige_stops = {stop for _, stop in echte_intervalle}
+                        uebrige_segmente = []
+                        for seg_start, seg_ende in rest_segmente:
+                            if seg_start in vorherige_stops and _verlaengere_vorherige_sendung(
+                                daten["kanal"], seg_start, seg_ende
+                            ):
+                                continue
+                            uebrige_segmente.append((seg_start, seg_ende))
+                        rest_segmente = uebrige_segmente
+
                 if rest_segmente:
                     luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
                     schreibe_programme_segmente(
