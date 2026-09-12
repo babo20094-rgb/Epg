@@ -1,0 +1,55 @@
+name: Test MagentaTV ME Quelle
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Testabruf gegen die echte MagentaTV ME API
+        run: |
+          python3 - <<'EOF'
+          import sys
+          sys.path.insert(0, ".")
+          from quellen.magentatv_me_epg import (
+              magentatv_me_kanal_finden,
+              magentatv_me_hole_programme,
+          )
+
+          testsender = [
+              ("MO", "RTCG 1"),
+              ("MO", "PRVA"),
+              ("MNG", "NOVA M"),
+              ("MO", "VIJESTI"),
+              ("MO", "ARENASPORT 1"),
+          ]
+
+          treffer = 0
+          for land, sender in testsender:
+              station_id = magentatv_me_kanal_finden(sender)
+              print(f"{land} | {sender!r:20} -> station_id={station_id}")
+              if station_id is None:
+                  continue
+              programme = magentatv_me_hole_programme(station_id, tage=1)
+              print(f"    {len(programme)} Sendungen geladen")
+              for p in programme[:3]:
+                  print(f"    {p['start']} - {p['stop']}: {p['title']!r}")
+              if programme:
+                  treffer += 1
+
+          print(f"\n{treffer} von {len(testsender)} Testsendern haben echte Sendungsdaten geliefert.")
+          if treffer == 0:
+              print("WARNUNG: kein einziger Testsender hat Daten geliefert.")
+              sys.exit(1)
+          EOF

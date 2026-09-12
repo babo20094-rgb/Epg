@@ -81,6 +81,7 @@ from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
 from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
 from quellen.magentatv_mk_epg import magentatv_mk_kanal_finden, magentatv_mk_hole_programme
+from quellen.magentatv_me_epg import magentatv_me_kanal_finden, magentatv_me_hole_programme
 from quellen.iptvepg_de_epg import iptvepg_de_kanal_finden, iptvepg_de_hole_programme
 from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
 
@@ -268,6 +269,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvprofil": ["tvprofil_intervalle"],
     "mk": ["mk_intervalle"],
     "magentatv_mk": ["magentatv_mk_intervalle"],
+    "magentatv_me": ["magentatv_me_intervalle"],
 }
 
 
@@ -1895,6 +1897,12 @@ for zeile in zeilen:
     # Praefix noetig.
     if land.strip().upper() in ("MK", "BA", "RS", "HR"):
         eintrag["magentatv_mk"] = True
+    # MagentaTV Montenegro: LETZTER Fallback fuer ME/MNG/MO/CG-Sender
+    # (nach Telemach/mtel.ba/klix.ba, siehe magentatv_me_epg.py - gleiche
+    # yo-digital.com-Plattform wie MK, eigener Mandant mit dynamischer
+    # Kanalliste). Kein eigenes Praefix noetig.
+    if land.strip().upper() in ("ME", "MNG", "MO", "CG"):
+        eintrag["magentatv_me"] = True
     # Automatischer Call-Sign-Abgleich fuer "CITY|"-Sender (lokale US-
     # Sender mit Call-Sign im Namen, z.B. "ABC KATC BROOKLYN") gegen
     # tvpassport.com - siehe tvpassport_kanal_finden_callsign() in
@@ -2941,6 +2949,7 @@ TUBI_TAGE = 2
 TVPROFIL_TAGE = 3
 MK_TAGE = 3
 MAGENTATV_MK_TAGE = 2
+MAGENTATV_ME_TAGE = 2
 IPTVEPG_DE_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
@@ -2958,6 +2967,7 @@ siol_sender = [d for d in sender_daten if d.get("siol")]
 tvprofil_sender = [d for d in sender_daten if d.get("tvprofil")]
 mk_sender = [d for d in sender_daten if d.get("mk")]
 magentatv_mk_sender = [d for d in sender_daten if d.get("magentatv_mk")]
+magentatv_me_sender = [d for d in sender_daten if d.get("magentatv_me")]
 plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
@@ -3876,6 +3886,36 @@ for daten in magentatv_mk_sender:
 
     if programme:
         _echte_quelle_zaehlen("MagentaTV GO (MK)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MAGENTATV (Montenegro): LETZTER Fallback fuer ME/MNG/MO/CG-Sender
+# (nach Telemach/mtel.ba/klix.ba, siehe magentatv_me_epg.py - gleiche
+# Plattform wie MagentaTV MK, aber dynamische Kanalliste statt fester
+# Tabelle). Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in magentatv_me_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        station_id = magentatv_me_kanal_finden(daten["sender"])
+        if station_id is not None:
+            programme = magentatv_me_hole_programme(station_id, MAGENTATV_ME_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["magentatv_me_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("MagentaTV (ME)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
