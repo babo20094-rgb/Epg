@@ -1157,6 +1157,14 @@ for zeile in zeilen:
             if dyn_ppv_match:
                 event_titel = f"Dyn Sport ({dyn_ppv_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
 
+        # STAIGE PPV ohne erkanntes Event: gleiche Konvention wie DYN PPV
+        # oben (z.B. "Staige (1) ᴺᵒ ᴸⁱᵛᵉ") statt des generischen
+        # "<Kurzname> ᴸⁱᵛᵉ"-Fallbacks weiter unten.
+        if event_titel is None:
+            staige_idle_match = re.match(r"^DE:\s*STAIGE\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if staige_idle_match:
+                event_titel = f"Staige ({staige_idle_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
         # DirtVision-Kanaele ohne erkanntes Event: statt der generischen
         # kategoriebasierten Beschreibung (s.o.) wird "Kanalname (Nr) ᴸⁱᵛᵉ"
         # angezeigt (z.B. "DirtVision (1) ᴺᵒ ᴸⁱᵛᵉ") - gleiche Konvention wie
@@ -2653,11 +2661,18 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
         roh_marker = roh_segmente[0].lower() if roh_segmente else ""
 
         dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
-        if dyn_ppv_next_match and roh_marker in EVENT_MARKER_ENDE:
-            # Kein fixer Abmoderationstext bei DYN PPV - stattdessen werden
-            # die Teamnamen wie bei NEXT/LIVE extrahiert, nur mit "ᴮᵉᵉⁿᵈᵉᵗ"
+        # STAIGE PPV (September 2026 hinzugefuegt, siehe sender.txt "NAME:
+        # DE: STAIGE PPV N"): gleiches Rohformat/gleiche Team-vs-Team-
+        # Extraktion wie DYN PPV oben, nur mit eigenem Fallback-Text und
+        # OHNE das Land aus dem Kern zu entfernen (Kern bleibt "DE: STAIGE
+        # PPV N", siehe kern_und_event_extrahieren()).
+        staige_ppv_match = re.match(r"^DE:\s*STAIGE\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        if (dyn_ppv_next_match or staige_ppv_match) and roh_marker in EVENT_MARKER_ENDE:
+            # Kein fixer Abmoderationstext - stattdessen werden die
+            # Teamnamen wie bei NEXT/LIVE extrahiert, nur mit "ᴮᵉᵉⁿᵈᵉᵗ"
             # als Suffix. Gelingt die Extraktion nicht, bleibt der beim
-            # Einlesen bereits gesetzte Fallback ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ")
+            # Einlesen bereits gesetzte Fallback ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ"
+            # bzw. generischer "<Kurzname> ᴸⁱᵛᵉ"-Text bei STAIGE)
             # unveraendert stehen - real_daten["event_titel"] wird dann
             # NICHT auf None ueberschrieben (sonst faellt die Sendung auf
             # den generischen kategoriebasierten Zufallstext zurueck, Bug
@@ -2676,6 +2691,13 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
             elif roh_marker in EVENT_MARKER_LIVE:
                 team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
                 event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
+        elif staige_ppv_match:
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"Staige ({staige_ppv_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Staige ({staige_ppv_match.group(1)}) ᴸⁱᵛᵉ"
 
         real_daten["event_titel"] = event_titel
         return True
