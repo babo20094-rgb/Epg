@@ -437,18 +437,18 @@ DE|FRIENDS S08 4K|Friends S08 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/
 DE|FRIENDS S09 4K|Friends S09 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9fc31d92eff5a68f.png
 DE|FRIENDS S10 4K|Friends S10 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9fc31d92eff5a68f.png
 DE|FROM ᴿᴬᵂ|From ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|GAME OF THRONES S01 4K|Game Of Thrones S01 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S01-S02 FHD|Game Of Thrones S01-S02 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S02 4K|Game Of Thrones S02 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S03 4K|Game Of Thrones S03 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S03-S04 FHD|Game Of Thrones S03-S04 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S04 4K|Game Of Thrones S04 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S05 4K|Game Of Thrones S05 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S05-S06 FHD|Game Of Thrones S05-S06 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S06 4K|Game Of Thrones S06 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S07 4K|Game Of Thrones S07 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S07-S08 FHD|Game Of Thrones S07-S08 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GAME OF THRONES S08 4K|Game Of Thrones S08 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
+DE|GAME OF THRONES S01 4K|Game Of Thrones S01 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S01-S02 FHD|Game Of Thrones S01-S02 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S02 4K|Game Of Thrones S02 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S03 4K|Game Of Thrones S03 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S03-S04 FHD|Game Of Thrones S03-S04 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S04 4K|Game Of Thrones S04 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S05 4K|Game Of Thrones S05 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S05-S06 FHD|Game Of Thrones S05-S06 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S06 4K|Game Of Thrones S06 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S07 4K|Game Of Thrones S07 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S07-S08 FHD|Game Of Thrones S07-S08 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
+DE|GAME OF THRONES S08 4K|Game Of Thrones S08 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
 DE|GANGNAM B SIDE ᴿᴬᵂ|Gangnam B Side ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/gangnam_b_side.png
 DE|GEO TELEVISION ᴿᴬᵂ|Geo Television ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9339a1a6e525ae2f.png
 DE|GODFATHER OF HARLEM  ᴿᴬᵂ|Godfather Of Harlem  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b16d77d1bb2480b62b97dd855b1b97a23c077edb.png
@@ -693,10 +693,10 @@ DE|SAT.1 HD|Sat.1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rg
 DE|SAT.1 HEVC|Sat.1 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/799ff0b0969b96ee.png
 DE|SECRET LEVEL ᴿᴬᵂ|Secret Level ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|SERVUS TV FHD|Servus Tv Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ad246d6dc0264b7b.png
-DE|SHERLOCK S01 4k|Sherlock S01 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/03371f53de1cc84d.png
-DE|SHERLOCK S02 4k|Sherlock S02 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/03371f53de1cc84d.png
-DE|SHERLOCK S03 4k|Sherlock S03 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/03371f53de1cc84d.png
-DE|SHERLOCK S04 4k|Sherlock S04 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/03371f53de1cc84d.png
+DE|SHERLOCK S01 4k|Sherlock S01 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/sherlock.png
+DE|SHERLOCK S02 4k|Sherlock S02 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/sherlock.png
+DE|SHERLOCK S03 4k|Sherlock S03 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/sherlock.png
+DE|SHERLOCK S04 4k|Sherlock S04 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/sherlock.png
 DE|SILVERLINE|Silverline ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/175c28084267c94c.png
 DE|SIXX  HEVC|Sixx  Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f6d44179cd1e3c8.png
 DE|SIXX FHD|Sixx Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f6d44179cd1e3c8.png
@@ -1880,7 +1880,7 @@ JOYN|ARD PLUS LINDENSTRASSE ᴿᴬᵂ|Ard Plus Lindenstrasse ᴿᴬᵂ ᴸⁱᵛ
 JOYN|ARD-ALPHA ᴿᴬᵂ|Ard-Alpha ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4152b8ae6c3a662e.png
 JOYN|ARTE ᴿᴬᵂ|Arte ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f7afe1d344ee8d1c.png
 JOYN|AUGSBURG.TV ᴿᴬᵂ|Augsburg.Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bde3faea5226c192.png
-JOYN|BEST OF STAND UP COMEDY ᴿᴬᵂ|Best Of Stand Up Comedy ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929420.png
+JOYN|BEST OF STAND UP COMEDY ᴿᴬᵂ|Best Of Stand Up Comedy ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/best_of_standup_comedy.png
 JOYN|BIG BROTHER CLASSICS ᴿᴬᵂ|Big Brother Classics ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c7e1531e6b16732c5e9ae0c2ddb68062b5403da3.png
 JOYN|BLOOMBERG ᴿᴬᵂ|Bloomberg ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b2e5194ade106bb6.png
 JOYN|BR FERNSEHEN NORD ᴿᴬᵂ|Br Fernsehen Nord ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/204764c365a00a35.png
@@ -2724,7 +2724,7 @@ PRIME|NHL CHANNEL ᴿᴬᵂ|Nhl Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githu
 PRIME|NHRA ᴿᴬᵂ|Nhra ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/99d84af10ccc0919.png
 PRIME|NORTHERN EXPOSURE ᴿᴬᵂ|Northern Exposure ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d5c089178f8eefdc.png
 PRIME|NOSEY ᴿᴬᵂ|Nosey ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0769aad03c95fb42.png
-PRIME|NOTICIAS TELEMUNDO AHORA ᴿᴬᵂ|Noticias Telemundo Ahora ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920016.png
+PRIME|NOTICIAS TELEMUNDO AHORA ᴿᴬᵂ|Noticias Telemundo Ahora ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo_noticias.png
 PRIME|NOW 70S ᴿᴬᵂ|Now 70S ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1bc2365186ee990956416733e224f2d4bc9a90e9.png
 PRIME|NOW 80S ᴿᴬᵂ|Now 80S ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7c233554d0483c82cd300c072eee4a42e968ac11.png
 PRIME|NOW ROCK ᴿᴬᵂ|Now Rock ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/accbfcffe93512934279cc514075821842eb9fd0.png
@@ -2826,10 +2826,10 @@ PRIME|TEEN WOLF ᴿᴬᵂ|Teen Wolf ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuse
 PRIME|TELE5 ᴿᴬᵂ|Tele5 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0584f34fb9e0463f.png
 PRIME|TELEMUNDO ACCIÓN ᴿᴬᵂ|Telemundo Acción ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21308307d0859e3f.png
 PRIME|TELEMUNDO AL DIA ᴿᴬᵂ|Telemundo Al Dia ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/21308307d0859e3f.png
-PRIME|TELEMUNDO NOTICIAS CALIFORNIA ᴿᴬᵂ|Telemundo Noticias California ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1919885.png
-PRIME|TELEMUNDO NOTICIAS FLORIDA ᴿᴬᵂ|Telemundo Noticias Florida ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920016.png
-PRIME|TELEMUNDO NOTICIAS NORESTE ᴿᴬᵂ|Telemundo Noticias Noreste ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920016.png
-PRIME|TELEMUNDO NOTICIAS TEXAS ᴿᴬᵂ|Telemundo Noticias Texas ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920016.png
+PRIME|TELEMUNDO NOTICIAS CALIFORNIA ᴿᴬᵂ|Telemundo Noticias California ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo_noticias.png
+PRIME|TELEMUNDO NOTICIAS FLORIDA ᴿᴬᵂ|Telemundo Noticias Florida ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo_noticias.png
+PRIME|TELEMUNDO NOTICIAS NORESTE ᴿᴬᵂ|Telemundo Noticias Noreste ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo_noticias.png
+PRIME|TELEMUNDO NOTICIAS TEXAS ᴿᴬᵂ|Telemundo Noticias Texas ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/telemundo_noticias.png
 PRIME|TEMPORATV ᴿᴬᵂ|Temporatv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bfff48f8ef96ab00.png
 PRIME|TENNIS CHANNEL 2 ᴿᴬᵂ|Tennis Channel 2 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5459cfe9ba2df2be.png
 PRIME|TENNIS CHANNEL ᴿᴬᵂ|Tennis Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5459cfe9ba2df2be.png
@@ -6407,7 +6407,7 @@ TVGUIDE:US|FXX WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/
 TVGUIDE:US|FYI HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4e75da42c66518d9.png
 TVGUIDE:US|Fite TV 24/7 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f223c6c9d76a5774.png
 TVGUIDE:US|Fite TV 24/7 SD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f223c6c9d76a5774.png
-TVGUIDE:US|GAME OF THRONES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
+TVGUIDE:US|GAME OF THRONES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/game_of_thrones.png
 TVGUIDE:US|GAME SHOW CENTRAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/08539244a3a41638.png
 TVPASSPORT:US|GAME TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1cc5a91f21343adf.png
 TVGUIDE:US|GANGLAND FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5d488ff085c81c40.png
@@ -7192,8 +7192,8 @@ TVGUIDE:US|SENSE8 ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 TVGUIDE:US|SEX AND THE CITY FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80bf6cd7ab1d7a42.png
 TVGUIDE:US|SHARDLAKE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
 TVGUIDE:US|SHE-HULK ATTORNEY AT LAW ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
-TVGUIDE:US|SHERLOCK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/03371f53de1cc84d.png
-TVGUIDE:US|SHERLOCK HOLMES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/03371f53de1cc84d.png
+TVGUIDE:US|SHERLOCK FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/sherlock.png
+TVGUIDE:US|SHERLOCK HOLMES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/sherlock.png
 TVGUIDE:US|SHOWTIME 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/dd71c4ee154e2085.png
 TVGUIDE:US|SHOWTIME BET HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2a76ab2699914a77.png
 TVGUIDE:US|SHOWTIME EAST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2a76ab2699914a77.png
@@ -17564,31 +17564,31 @@ UK| ASTRO Grandstand|
 UK| SUPERSPORTS PLAY 2 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4003d446ce64c3d63693e5e54319ad90d38b9502.png
 UK| SUPERSPORTS MAXIMO HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5109a0b370be97dd7666e24ab64219d67855c961.png
 #DE| PREMIUM PLAY 25
-DE|SHOGUN S01 4K|Shogun S01 4K ²⁴/⁷
+DE|SHOGUN S01 4K|Shogun S01 4K ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/shogun.png
 DE| 4 BLOCKS S01 4k|4 Blocks S01 4K ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/311890281ec5510647c67b01f03c7f1fbacbfdcd.png
 DE| 4 BLOCKS S02 4k|4 Blocks S02 4K ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/311890281ec5510647c67b01f03c7f1fbacbfdcd.png
 DE| 4 BLOCKS S03 4k|4 Blocks S03 4K ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/311890281ec5510647c67b01f03c7f1fbacbfdcd.png
-DE| OZARK 2017|Ozark 2017 ²⁴/⁷
-DE| AFTER LIFE 2019|After Life 2019 ²⁴/⁷
-DE| PEAKY BLINDERS|Peaky Blinders ²⁴/⁷
-DE| THE WITCHER 2019|The Witcher 2019 ²⁴/⁷
-DE| VIKINGS: VALHALLA|Vikings: Valhalla ²⁴/⁷
-DE| THE LAST KINGDOM|The Last Kingdom ²⁴/⁷
-DE| VIKINGS S01-S04|Vikings S01-S04 ²⁴/⁷
-DE| KINGDOM 2014 FHD|Kingdom 2014 FHD ²⁴/⁷
-DE| MARVEL'S AGENT CARTER FHD|Marvel's Agent Carter FHD ²⁴/⁷
-DE| MARVEL'S THE PUNISHER FHD|Marvel's The Punisher FHD ²⁴/⁷
-DE| LIMITLESS 2015 FHD|Limitless 2015 FHD ²⁴/⁷
-DE| EINSTEIN FHD|Einstein FHD ²⁴/⁷
-DE| HELL ON WHEELS FHD|Hell On Wheels FHD ²⁴/⁷
-DE| HAUS DES GELDES|Haus Des Geldes ²⁴/⁷
-DE| HOUSE OF THE DRAGON FHD|House Of The Dragon FHD ²⁴/⁷
-DE| GOTHAM KNIGHTS FHD|Gotham Knights FHD ²⁴/⁷
-DE| GENIUS 2017 FHD|Genius 2017 FHD ²⁴/⁷
-DE| DOGS OF BERLIN 2018 FHD|Dogs Of Berlin 2018 FHD ²⁴/⁷
-DE| BABYLON BERLIN 2017 FHD|Babylon Berlin 2017 FHD ²⁴/⁷
-DE|SILO FHD|Silo FHD ²⁴/⁷
-DE|THE LAST OF US FHD|The Last Of Us FHD ²⁴/⁷
+DE| OZARK 2017|Ozark 2017 ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ozark.png
+DE| AFTER LIFE 2019|After Life 2019 ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/after_life.png
+DE| PEAKY BLINDERS|Peaky Blinders ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/peaky_blinders.png
+DE| THE WITCHER 2019|The Witcher 2019 ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/the_witcher.png
+DE| VIKINGS: VALHALLA|Vikings: Valhalla ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/vikings_valhalla.png
+DE| THE LAST KINGDOM|The Last Kingdom ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/the_last_kingdom.png
+DE| VIKINGS S01-S04|Vikings S01-S04 ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/vikings.png
+DE| KINGDOM 2014 FHD|Kingdom 2014 FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/kingdom_2014.png
+DE| MARVEL'S AGENT CARTER FHD|Marvel's Agent Carter FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/agent_carter.png
+DE| MARVEL'S THE PUNISHER FHD|Marvel's The Punisher FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/the_punisher.png
+DE| LIMITLESS 2015 FHD|Limitless 2015 FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/limitless_2015.png
+DE| EINSTEIN FHD|Einstein FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/einstein.png
+DE| HELL ON WHEELS FHD|Hell On Wheels FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/hell_on_wheels.png
+DE| HAUS DES GELDES|Haus Des Geldes ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/haus_des_geldes.png
+DE| HOUSE OF THE DRAGON FHD|House Of The Dragon FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/house_of_dragon.png
+DE| GOTHAM KNIGHTS FHD|Gotham Knights FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/gotham_knights.png
+DE| GENIUS 2017 FHD|Genius 2017 FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/genius_2017.png
+DE| DOGS OF BERLIN 2018 FHD|Dogs Of Berlin 2018 FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/dogs_of_berlin.png
+DE| BABYLON BERLIN 2017 FHD|Babylon Berlin 2017 FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/babylon_berlin.png
+DE|SILO FHD|Silo FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/silo.png
+DE|THE LAST OF US FHD|The Last Of Us FHD ²⁴/⁷|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/the_last_of_us.png
 DE| DAZN BAR 1 HEVC||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0bc4b3525b87a23328fd3a9a6f1717861cdcc124.png
 DE| DAZN BAR 2 HEVC||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/861905b80889b158245371dfa68514b15c046401.png
 DE| BUNDESLIGA (DAZN STREAM)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/875e3b70fc8caa9e207c7f56954cd008a9776044.png
