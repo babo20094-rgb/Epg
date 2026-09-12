@@ -3457,3 +3457,45 @@ Nachbarn zum Vergleich (wie bei "NHL LIVE" ohne Nummer), ist ohne
 echten Playlist-Zugriff oder Nutzer-Bestaetigung NICHT sicher
 entscheidbar, ob das Pipe Teil des echten Kanalnamens ist - im
 Zweifel beim Nutzer nachfragen statt blind zu vereinheitlichen.
+
+---
+
+## DIRTVISION 01-08: echter Code-Bug in kern_vorne_und_event_extrahieren()
+## (leerer event_vorne wurde immer verworfen, Sept. 2026)
+
+**Symptom:** ALLE Kanaele "DIRTVISION 01" bis "DIRTVISION 08" zeigten
+dauerhaft "Keine Information", obwohl sie in TiviMate korrekt
+zugeordnet waren - anders als z.B. BTN+ oder MLB 16 war hier keine
+fehlerhafte sender.txt-Zeile die Ursache, sondern ein echter Bug im
+Extraktions-Code selbst.
+
+**Ursache:** `sender.txt` speichert den Leerlauf-Kern korrekt als
+"DIRTVISION 01 :" (mit abschliessendem Doppelpunkt, kein Event-Text
+dahinter). Beim Einlesen erkennt `kern_vorne_und_event_extrahieren()`
+zwar zuverlaessig den sauberen Kern "DIRTVISION 01" (event_vorne dabei
+leer, weil im Leerlauf nichts hinter dem Doppelpunkt steht) - die
+aufrufende Stelle uebernahm dieses Ergebnis aber NUR, wenn
+`_wirkt_wie_rohtext_muell(event_vorne)` true war. Diese Funktion gibt
+bei leerem Text IMMER `False` zurueck (Zeile 1: `if not text: return
+False`) - der korrekt erkannte, saubere Kern wurde dadurch verworfen,
+der komplette Rohtext MIT Doppelpunkt ("DIRTVISION 01 :") blieb
+stattdessen als gespeicherter Kern stehen. Der Live-Playlist-Abgleich
+berechnet aus dem tatsaechlich laufenden Event-Namen (z.B. "DIRTVISION
+01 : Sharon Speedway 6:30 PM", event_vorne hier NICHT leer, besteht die
+Muell-Pruefung problemlos wegen der enthaltenen Uhrzeit) dagegen den
+SAUBEREN Kern "DIRTVISION 01" - beide Varianten trafen sich nie.
+
+**Fix:** In `generate_epg.py` an BEIDEN Stellen, die
+`kern_vorne_und_event_extrahieren()` auswerten (Vorab-Registrierungs-
+Durchlauf UND eigentliche NAME:-Verarbeitung), die Bedingung um `or not
+event_vorne` erweitert - ein leerer Rest gilt jetzt genauso als sicher
+wie ein als Muell erkannter, ohne die bestehende Schutzwirkung fuer
+echte Namensbestandteile (z.B. "TNT SPORTS | Event 1", dort ist der
+Rest "Event 1" nicht leer) zu beeintraechtigen. `sender.txt` selbst war
+unveraendert korrekt und musste nicht angepasst werden.
+**Lehre:** `_wirkt_wie_rohtext_muell("")` gibt IMMER `False` zurueck -
+jede Stelle, die deren Ergebnis als alleinige Freigabebedingung fuer
+einen erkannten Kern nutzt, verwirft dadurch automatisch jeden Treffer
+mit leerem Rest. Bei einem neuen "erkennt Kern korrekt, wendet ihn aber
+nicht an"-Verdacht immer pruefen, ob eine solche Muell-Pruefung
+faelschlich auch den harmlosen Leerlauf-Fall (leerer Rest) blockiert.

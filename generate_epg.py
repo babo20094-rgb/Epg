@@ -851,7 +851,13 @@ for _vorab_zeile in zeilen:
         _vorab_kurzname, _vorab_event_teil = _vorab_voller_name, ""
     if _vorab_kurzname == _vorab_voller_name:
         _vorab_kern_vorne, _vorab_event_vorne = kern_vorne_und_event_extrahieren(_vorab_voller_name)
-        if _vorab_kern_vorne and _wirkt_wie_rohtext_muell(_vorab_event_vorne):
+        # Gleiche Leer-Ausnahme wie bei der eigentlichen NAME:-
+        # Verarbeitung weiter unten (siehe dortiger ausfuehrlicher
+        # Kommentar, z.B. "DIRTVISION 01 :" ohne Event-Text) - sonst
+        # wuerde der Vorab-Durchlauf hier einen anderen (unbereinigten)
+        # Kern registrieren als die eigentliche Verarbeitung spaeter
+        # tatsaechlich verwendet.
+        if _vorab_kern_vorne and (not _vorab_event_vorne or _wirkt_wie_rohtext_muell(_vorab_event_vorne)):
             _vorab_kurzname, _vorab_event_teil = _vorab_kern_vorne, _vorab_event_vorne
     # "sauber" heisst: entweder komplett unveraendert, oder es wurde nur
     # ein leerer Event-Teil abgetrennt (reiner Doppelpunkt-Marker ohne
@@ -961,12 +967,31 @@ for zeile in zeilen:
         # Kein Kern-hinten-Muster erkannt (kurzname unveraendert) ->
         # zusaetzlich Kern-VORNE probieren (Clubber-Pipe-Konvention oder
         # DirtVision-Doppelpunkt-Konvention, siehe
-        # kern_vorne_und_event_extrahieren()). Nur uebernehmen, wenn
-        # dabei wirklich ein Kern erkannt wurde (kein Ratschlag), sonst
-        # bleibt es beim bisherigen kurzname/event_teil.
+        # kern_vorne_und_event_extrahieren()). Uebernehmen, wenn dabei
+        # wirklich ein Kern erkannt wurde UND entweder der abgetrennte
+        # Rest wie Rohtext-Muell aussieht ODER komplett LEER ist (z.B.
+        # "DIRTVISION 01 :" im Leerlauf-Zustand ohne Event-Text hinter
+        # dem Doppelpunkt - kern_vorne_und_event_extrahieren() liefert
+        # dann korrekt den Kern "DIRTVISION 01" mit leerem event_vorne).
+        # OHNE die Leer-Ausnahme wurde der leere event_vorne von
+        # _wirkt_wie_rohtext_muell() immer als "kein Muell" gewertet
+        # (siehe deren eigene "if not text: return False"), der korrekt
+        # erkannte Kern wurde dadurch verworfen und der komplette
+        # Rohtext MIT Doppelpunkt blieb als gespeicherter Kern stehen.
+        # Der Live-Playlist-Abgleich berechnet aus dem echten, laufenden
+        # Event-Namen (z.B. "DIRTVISION 01 : Sharon Speedway 6:30 PM")
+        # ueber dieselbe Funktion aber den SAUBEREN Kern "DIRTVISION 01"
+        # (dort ist event_vorne nicht leer, besteht die Muell-Pruefung
+        # problemlos) - die beiden nie identischen Kerne trafen sich
+        # dadurch nie (Bug: "Keine Information" trotz zugeordnetem
+        # Kanal bei ALLEN DIRTVISION-Nummern, September 2026 behoben).
+        # Kein Risiko fuer echte Namensbestandteile wie "TNT SPORTS |
+        # Event 1": dort ist der abgetrennte Rest ("Event 1") NICHT
+        # leer, die bisherige Muell-Pruefung bleibt fuer diesen Fall
+        # unveraendert wirksam.
         if kurzname == voller_name:
             kern_vorne, event_vorne = kern_vorne_und_event_extrahieren(voller_name)
-            if kern_vorne and _wirkt_wie_rohtext_muell(event_vorne):
+            if kern_vorne and (not event_vorne or _wirkt_wie_rohtext_muell(event_vorne)):
                 kurzname, event_teil = kern_vorne, event_vorne
 
         # Land-Praefix wie "NA|", "US|" am ANFANG des Namens (nicht zu
