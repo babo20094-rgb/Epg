@@ -97,9 +97,11 @@ def _sitzung_starten():
 
 
 def _iso_zeit_parsen(text):
-    """Parst 'YYYY-MM-DDTHH:MM:SSZ' zu einem tz-aware datetime (UTC).
-    None bei Parse-Fehler."""
+    """Parst 'YYYY-MM-DDTHH:MM:SSZ' ODER 'YYYY-MM-DDTHH:MM:SS.ffZ' (der
+    ME-Mandant liefert - anders als MK - Sekundenbruchteile) zu einem
+    tz-aware datetime (UTC). None bei Parse-Fehler."""
     try:
+        text = re.sub(r"\.\d+Z$", "Z", text)
         return datetime.strptime(text, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
     except Exception:
         return None
