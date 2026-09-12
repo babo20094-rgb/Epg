@@ -3623,3 +3623,110 @@ seit vor dieser Session. Ursache vermutlich eine alte, manuell in
 TiviMate gesetzte oder gecachte Kanal-Logo-Zuordnung (gleiches Muster
 wie der bereits bekannte offene Fall bei `HR|SPORT KLUB 1`, siehe
 CLAUDE.md) - kein weiterer Code-Fix ohne neue Evidenz.
+
+---
+
+## September 2026: NFL/NHL-Sender fehlten TATSAECHLICH komplett im XML -
+## die fruehere "nur TiviMate-Cache"-Einschaetzung oben war falsch
+
+**Ausgangslage:** Nutzer meldete per Screenshot falsche NY-Giants-Logos
+bei `NFL | 11`-`15` UND dass mehrere `NFL TEAMS| ...`-Sender (u.a.
+RAIDERS, TEXANS, CHARGERS) sowie `NHL LIVE|` in TiviMates manueller
+EPG-Zuordnung unter KEINEM Namen auffindbar waren. Anders als beim
+obigen (bestaetigt falschen) Verdacht "nur TiviMate-Cache" stellte sich
+diesmal heraus: mehrere echte, bisher unentdeckte Bugs.
+
+**1. Echtes falsches Logo (kein Cache-Fall):** Das in `sender.txt` als
+"generisches NFL-Logo" verwendete Bild
+(`externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png`,
+betraf `NFL | 01`-`15` + 2 Multi-Team-Zeilen) war bei visueller Pruefung
+tatsaechlich das NY-Giants-Logo - eine fruehere Session hatte das nie
+durch tatsaechliches Ansehen der Bilddatei verifiziert. Ersetzt durch
+ein echtes, selbst gehostetes NFL-Schild-Logo
+(`logos/nfl_generic/nfl_shield.png`, von a.espncdn.com/i/teamlogos/
+leagues/500/nfl.png bezogen, nach Standard-Logo-Regeln komprimiert).
+
+**2. Doppelter `NFL | 01`-`16`-Zeilenblock in sender.txt:** Es gab ZWEI
+komplette, redundante Blocks - einmal mit doppeltem Leerzeichen
+("NFL  | 11 -"), einmal mit einfachem ("NFL | 11 -"), mit
+unterschiedlichen (beide falschen) Logos. Der Live-Playlist-Abgleich
+erzeugte dadurch pro Nummer zwei konkurrierende <channel>-Eintraege -
+nur einer bekam die echten Live-Spieldaten, der andere blieb dauerhaft
+"Keine Information" und verwirrte die EPG-Suche. Zusaetzlich war die
+einzige vorhandene "NFL | 16"-Zeile korrupt (roher Spieltext
+"Detroit Lions DET @ Baltimore Ravens BAL" direkt im gespeicherten
+Kern statt eines stabilen Kernnamens). Fix: doppelten Block entfernt,
+"NFL | 16" sauber ohne Rohtext neu angelegt - jetzt genau 16 Zeilen
+(01-16), alle mit dem korrekten NFL-Logo.
+
+**3. Echter Code-Bug in `generate_epg.py` - ">4 Woerter = Rohtext-Muell"
+Heuristik zu aggressiv:** 9 von 38 `NAME:NFL TEAMS|...`-Zeilen fehlten
+KOMPLETT im generierten XML (kein `<channel>`-Eintrag, dadurch in
+TiviMate unter keinem Namen auffindbar), ein 10. Sender bekam den
+bedeutungslosen Kanalnamen "NFL TEAMS" ohne Team-Bezug. Betroffen waren
+ausschliesslich Team-Zeilen mit mehrteiligen Staedtenamen (`LAS VEGAS`,
+`SAN DIEGO`, `KANSAS CITY`, `FORT WAYNE`, `SAN ANTONIO`, `ST. LOUIS`,
+`ST. PETERSBURG`, `SAN FRANCISCO`, `NEW YORK NY`) - z.B. "CBS RAIDERS
+LAS VEGAS NV" hat 5 Woerter und ueberschritt damit die in
+`_wirkt_wie_rohtext_muell()` verwendete ">4 Woerter = Muell"-Schwelle.
+
+**Ursache (zwei Zeilen zusammenwirkend):** Bei `NAME:NFL TEAMS| CBS
+RAIDERS LAS VEGAS NV` trennt `kern_und_event_extrahieren()` zunaechst
+korrekt Kern="CBS RAIDERS LAS VEGAS NV" und Event-Rest="NFL TEAMS" ab.
+Da "NFL TEAMS" (2 Woerter) NICHT wie Muell aussieht, rollt der Code
+korrekt auf den kompletten String zurueck (`kurzname = voller_name`).
+Die direkt folgende Kern-VORNE-Zusatzpruefung (gedacht fuer Faelle, in
+denen die Kern-HINTEN-Erkennung GAR NICHTS gefunden hat) griff aber
+FAELSCHLICH auch hier, weil ihre Bedingung nur `kurzname == voller_name`
+pruefte - das ist nach einem erfolgreichen Rollback IMMER der Fall,
+nicht nur wenn wirklich nichts gefunden wurde. Sie erkannte "NFL TEAMS"
+als Kern-VORNE und "CBS RAIDERS LAS VEGAS NV" (5 Woerter) als
+vermeintlichen Muell-Rest (>4-Woerter-Regel) und ueberschrieb den
+gerade erst korrekt zurueckgerollten Kern wieder auf das blosse "NFL
+TEAMS". Die automatische Duplikat-Erkennung verwarf dadurch 9 von 10
+betroffenen Zeilen komplett (gleicher Registry-Key "nfl teams" fuer
+mehrere verschiedene Sender), der letzte Ueberlebende behielt den
+kaputten Namen.
+
+**Fix:** Neue Variable `_hinten_zurueckgerollt` (an beiden Stellen -
+Vorab-Registry-Durchlauf UND eigentliche NAME:-Verarbeitung, identische
+Logik doppelt vorhanden) merkt sich, ob der Rollback tatsaechlich
+gegriffen hat. Die Kern-VORNE-Zusatzpruefung greift jetzt nur noch,
+wenn `kurzname == voller_name` UND KEIN Rollback stattgefunden hat -
+also wirklich nur, wenn die Kern-HINTEN-Erkennung von Anfang an nichts
+gefunden hat.
+
+**4. Zweiter, unabhaengiger Code-Bug - Live/Next/End-Marker-Pruefung zu
+weit:** `NAME:NHL LIVE|`, `NAME:NHL LIVE| 17 -` und `NAME:NHL LIVE| 18
+-` landeten mit kaputten/leeren Kanalnamen (`''`, `'17 -'`, `'18 -'`)
+im XML - "NHL LIVE" wurde komplett abgeschnitten. Ursache: dieselbe
+`_wirkt_wie_rohtext_muell()` prueft per `marker in text.lower()`, ob
+EVENT_MARKER_LIVE (["live"]) IRGENDWO im abgetrennten Event-Text
+vorkommt - "NHL LIVE" enthaelt das Wort "live" als legitimen
+Namensbestandteil, wurde dadurch faelschlich als DYN-PPV-artiger
+roher Live-Event-Marker (wie beim echten Rohformat "Live| Team A -
+Team B | ...") erkannt. Fix: die Marker-Pruefung fuer EVENT_MARKER_NEXT/
+LIVE/ENDE prueft jetzt nur noch, ob der ERSTE Pipe-Abschnitt des Textes
+EXAKT (nicht als Teilstring) einem der Marker entspricht - genau wie im
+echten DYN-PPV-Rohformat, wo der Marker immer alleinstehend vor dem
+ersten Pipe steht. LEERLAUF_MARKER (mehrwortige Phrasen wie "no event")
+blieb bewusst unveraendert als Teilstring-Suche (deutlich geringeres
+Kollisionsrisiko mit echten Kanalnamen).
+
+**Verifikation:** Beide Fixes per isoliertem Nachbau (echte
+sender.txt-Zeilen in eine temporaere Kopie des Repos mit nur den
+betroffenen Zeilen, Skript bis zum Ende der sender.txt-Einleseschleife
+abgeschnitten) bestaetigt: alle 38 `NFL TEAMS`- und alle 3 `NHL
+LIVE`-Zeilen erscheinen jetzt korrekt und einzeln in `sender_daten`, 0
+Duplikate uebersprungen. `pytest` (95 Tests) durchgehend gruen.
+
+**Lehre:** Die ">4 Woerter"- und "Marker-als-Teilstring"-Heuristiken in
+`_wirkt_wie_rohtext_muell()` sind beide grundsaetzlich fuer echten
+Anbieter-Rohtext (DYN PPV/Live-Event-Ankuendigungen) gedacht, koennen
+aber legitime, stabile Kanalnamen falsch treffen, wenn diese zufaellig
+mehrere Woerter oder ein Marker-Wort ("live"/"next"/"end") enthalten.
+Bei kuenftigen "Sender X komplett unauffindbar"-Meldungen (nicht nur
+falsches Logo/falsche Daten, sondern GAR KEIN Kanal in der EPG-Suche)
+IMMER pruefen, ob der Kanalname eine dieser beiden Heuristiken durch
+Zufall triggert - nicht vorschnell auf TiviMate-Cache schieben wie beim
+Fall oben.

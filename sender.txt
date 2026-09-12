@@ -13029,22 +13029,6 @@ NAME:NCAAF 67|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ext
 NAME:NCAAF 68|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
 NAME:NCAAF 69|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
 NAME:NCAAF 70|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02182e36e2b6b9c02e7805f84e6a7c4a3324d2da.png
-NAME:NFL  | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 04 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 05 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 06 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 07 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 08 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 09 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 11 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 16 -  Detroit Lions DET @ Baltimore Ravens BAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY 10 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY 11 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
@@ -13061,31 +13045,32 @@ NAME:NFL REPLAY 8 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME:NFL REPLAY 9 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY HIGHLIGHTS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY INFO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 04 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 05 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 06 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 07 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 08 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 09 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 11 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 04 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 05 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 06 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 07 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 08 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 09 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 11 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
+NAME:NFL | 16 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
 NAME:NFL TEAMS| BUFFALO BILLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/buf.png
 NAME:NFL TEAMS| CBS BEARS CHICAGO IL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/chi.png
 NAME:NFL TEAMS| CBS BENGALS CINCINNATI OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/cin.png
-NAME:NFL TEAMS| CBS BILLS GIANTS JETS NEW YORK NY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL TEAMS| CBS BILLS GIANTS JETS NEW YORK NY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
 NAME:NFL TEAMS| CBS BRONCOS DENVER CO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/den.png
 NAME:NFL TEAMS| CBS BROWNS CLEVLAND OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/cle.png
 NAME:NFL TEAMS| CBS BUCCANEERS ST. PETERSBURG FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/tb.png
 NAME:NFL TEAMS| CBS CARDINALS PHOENIX AZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ari.png
 NAME:NFL TEAMS| CBS CHARGERS SAN DIEGO CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/lac.png
-NAME:NFL TEAMS| CBS CHIEFS BEARS ST. LOUIS MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL TEAMS| CBS CHIEFS BEARS ST. LOUIS MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_generic/nfl_shield.png
 NAME:NFL TEAMS| CBS CHIEFS KANSAS CITY MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/kc.png
 NAME:NFL TEAMS| CBS COLTS FORT WAYNE IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ind.png
 NAME:NFL TEAMS| CBS COLTS INDIANAPOLIS IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ind.png

@@ -790,7 +790,19 @@ def _wirkt_wie_rohtext_muell(text):
         return True
     if any(marker in text.lower() for marker in LEERLAUF_MARKER):
         return True
-    if any(marker in text.lower() for marker in EVENT_MARKER_NEXT + EVENT_MARKER_LIVE + EVENT_MARKER_ENDE):
+    # NUR pruefen, ob der ERSTE Pipe-Abschnitt EXAKT einem der Marker
+    # entspricht (wie im echten DYN-PPV-Rohformat "Live| Team A - Team B
+    # | ...", wo der Marker immer alleinstehend vor dem ersten Pipe
+    # steht) - NICHT mehr als reine Teilstring-Suche irgendwo im Text.
+    # Sonst wurden legitime, stabile Kanalnamen, die zufaellig eines
+    # dieser kurzen englischen Woerter enthalten (z.B. "NHL LIVE" als
+    # kompletter Kanalname, kein Live-Event-Marker), faelschlich als
+    # Rohtext-Muell erkannt - der Rollback verwarf dadurch den korrekt
+    # erkannten Kern und der Kanal landete kaputt/leer im XML (betraf
+    # "NHL LIVE|", "NHL LIVE| 17 -", "NHL LIVE| 18 -", September 2026
+    # behoben).
+    _erster_abschnitt = text.split("|", 1)[0].strip().lower()
+    if _erster_abschnitt in EVENT_MARKER_NEXT + EVENT_MARKER_LIVE + EVENT_MARKER_ENDE:
         return True
     if len(text.split()) > 4:
         return True
@@ -866,9 +878,18 @@ for _vorab_zeile in zeilen:
     if not _vorab_voller_name:
         continue
     _vorab_kurzname, _vorab_event_teil = kern_und_event_extrahieren(_vorab_voller_name)
+    _vorab_hinten_zurueckgerollt = False
     if _vorab_kurzname != _vorab_voller_name and _vorab_event_teil and not _wirkt_wie_rohtext_muell(_vorab_event_teil):
         _vorab_kurzname, _vorab_event_teil = _vorab_voller_name, ""
-    if _vorab_kurzname == _vorab_voller_name:
+        _vorab_hinten_zurueckgerollt = True
+    # Gleicher Schutz wie bei der eigentlichen NAME:-Verarbeitung weiter
+    # unten (siehe dortiger ausfuehrlicher Kommentar): NUR versuchen,
+    # wenn das Kern-hinten-Muster oben WIRKLICH nichts gefunden hat,
+    # nicht wenn kurzname nur durch den bewussten Rollback direkt
+    # darueber zurueckgesetzt wurde - sonst wuerde der Vorab-Durchlauf
+    # einen anderen (kaputten) Kern registrieren als die eigentliche
+    # Verarbeitung spaeter tatsaechlich verwendet.
+    if _vorab_kurzname == _vorab_voller_name and not _vorab_hinten_zurueckgerollt:
         _vorab_kern_vorne, _vorab_event_vorne = kern_vorne_und_event_extrahieren(_vorab_voller_name)
         # Gleiche Leer-Ausnahme wie bei der eigentlichen NAME:-
         # Verarbeitung weiter unten (siehe dortiger ausfuehrlicher
@@ -980,8 +1001,10 @@ for zeile in zeilen:
         # Playlist-Abgleich (der den Kern OHNE Doppelpunkt liefert) nie
         # mehr treffen konnte - betraf z.B. ALLE 30 "US| TENNIS PPV"-
         # Sender (September 2026 behoben).
+        _hinten_zurueckgerollt = False
         if kurzname != voller_name and event_teil and not _wirkt_wie_rohtext_muell(event_teil):
             kurzname, event_teil = voller_name, ""
+            _hinten_zurueckgerollt = True
 
         # Kein Kern-hinten-Muster erkannt (kurzname unveraendert) ->
         # zusaetzlich Kern-VORNE probieren (Clubber-Pipe-Konvention oder
@@ -1008,7 +1031,26 @@ for zeile in zeilen:
         # Event 1": dort ist der abgetrennte Rest ("Event 1") NICHT
         # leer, die bisherige Muell-Pruefung bleibt fuer diesen Fall
         # unveraendert wirksam.
-        if kurzname == voller_name:
+        # WICHTIG: NUR versuchen, wenn das Kern-hinten-Muster oben
+        # WIRKLICH nichts gefunden hat (kurzname war nie von voller_name
+        # verschieden) - NICHT, wenn kurzname nur durch den bewussten
+        # Rollback direkt oben (_hinten_zurueckgerollt) wieder auf
+        # voller_name zurueckgesetzt wurde. Sonst wird ein bereits
+        # korrekt erkannter und bestaetigter Kern-hinten-Treffer hier
+        # faelschlich nochmal versucht zu "verbessern" und dabei kaputt
+        # gemacht: bei sender.txt-Zeilen wie "NFL TEAMS| CBS RAIDERS LAS
+        # VEGAS NV" (Event-Teil "NFL TEAMS", kein Muell -> Rollback auf
+        # den vollen String) griff wegen dieses fehlenden Schutzes
+        # zusaetzlich noch die Kern-vorne-Erkennung, erkannte "NFL TEAMS"
+        # als Kern-vorne und "CBS RAIDERS LAS VEGAS NV" (>4 Woerter) als
+        # vermeintlichen Muell-Rest - der gespeicherte Kern kollabierte
+        # dadurch auf das blosse "NFL TEAMS", identisch fuer mehrere
+        # verschiedene Team-Sender gleichzeitig. Die automatische
+        # Duplikat-Erkennung verwarf dadurch 9 von 10 betroffenen Sendern
+        # komplett (kein <channel> im XML, in TiviMate nicht auffindbar),
+        # der letzte ueberlebende landete mit dem nutzlosen Kanalnamen
+        # "NFL TEAMS" (September 2026 behoben).
+        if kurzname == voller_name and not _hinten_zurueckgerollt:
             kern_vorne, event_vorne = kern_vorne_und_event_extrahieren(voller_name)
             if kern_vorne and (not event_vorne or _wirkt_wie_rohtext_muell(event_vorne)):
                 kurzname, event_teil = kern_vorne, event_vorne
