@@ -2443,17 +2443,21 @@ def kanal_index_suchen(ziel_name, name_index, kern_index=None, cutoff=0.72):
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=cutoff)
     if aehnliche:
         treffer = aehnliche[0]
-        # Sehr kurze Namen (<=3 Zeichen, z.B. "K3") sind fuer den reinen
-        # Aehnlichkeits-Score zu riskant: difflib haelt z.B. "K3" und
-        # "SK3" (85% Aehnlichkeit) faelschlich fuer denselben Kanal,
-        # obwohl es zwei komplett verschiedene Sender sind (live
-        # entdeckt bei MK|K3 vs. "MK - SK 3"/Sport Klub 3, September
-        # 2026, siehe docs/HISTORIE.md). Ein echtes Kurzform-Match wie
+        # Kurze/mittellange Namen (<=8 Zeichen, z.B. "K3" oder "NOW70S")
+        # sind fuer den reinen Aehnlichkeits-Score zu riskant: difflib
+        # haelt z.B. "K3" und "SK3" (85% Aehnlichkeit) faelschlich fuer
+        # denselben Kanal, obwohl es zwei komplett verschiedene Sender
+        # sind (live entdeckt bei MK|K3 vs. "MK - SK 3"/Sport Klub 3,
+        # September 2026, siehe docs/HISTORIE.md). Gleiches Muster bei
+        # "NOW70S"/"NOW80S" (PRIME|NOW 70S/80S RAW) vs. dem echten
+        # deswird.org-Kanal "NOW US" (72% Aehnlichkeit, knapp ueber dem
+        # Cutoff) - voellig unterschiedliche Sender, die nur das
+        # generische Praefix "NOW" teilen. Ein echtes Kurzform-Match wie
         # "BHT" -> "BHT1" (Telemachs "BHT 1") bleibt dagegen erlaubt,
         # da hier der kurze Name ein reiner PRAEFIX des Treffers ist
         # (bzw. umgekehrt) - "K3" ist dagegen kein Praefix von "SK3"
-        # und "SK3" keins von "K3".
-        if len(ziel_schluessel) <= 3 and not (
+        # und "SK3" keins von "K3", genauso "NOW70S" keins von "NOWUS".
+        if len(ziel_schluessel) <= 8 and not (
             treffer.startswith(ziel_schluessel) or ziel_schluessel.startswith(treffer)
         ):
             return None
