@@ -11506,7 +11506,7 @@ NAME:AU (STAN 99)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME::Milb  57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  36|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  53|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:BTN+ 1 HD (D): B1G+ | Field Hockey | Ball State at Michigan State | Tue 14 Oct 13:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
+NAME:BTN+ 1 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 10 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 11 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 12 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
@@ -11517,7 +11517,7 @@ NAME:BTN+ 16 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:BTN+ 17 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 18 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 19 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:BTN+ 2 HD (D): B1G+ | Soccer (W) | Michigan at Maryland | Thu 16 Oct 19:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
+NAME:BTN+ 2 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 20 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 21 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 22 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
@@ -11528,7 +11528,7 @@ NAME:BTN+ 26 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:BTN+ 27 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 28 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 29 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:BTN+ 3 HD (D): B1G+ | Soccer (W) | Penn State at Purdue | Thu 16 Oct 19:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
+NAME:BTN+ 3 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 30 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 31 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 32 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
@@ -11539,7 +11539,7 @@ NAME:BTN+ 36 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:BTN+ 37 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 38 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 39 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:BTN+ 4 HD (D): B1G+ | Soccer (W) | Ohio State at Rutgers | Thu 16 Oct 19:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
+NAME:BTN+ 4 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 40 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 41 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 42 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
@@ -11550,10 +11550,10 @@ NAME:BTN+ 46 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:BTN+ 47 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 48 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 49 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:BTN+ 5 HD (D): B1G+ | Soccer (W) | Indiana at Michigan State | Thu 16 Oct 19:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
+NAME:BTN+ 5 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 50 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:BTN+ 6 HD (D): B1G+ | Ice Hockey (M) | Robert Morris at #9 Michigan | Thu 16 Oct 19:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
-NAME:BTN+ 7 HD (D): B1G+ | Soccer (W) | Illinois at Northwestern | Thu 16 Oct 19:30|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
+NAME:BTN+ 6 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
+NAME:BTN+ 7 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 8 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME:BTN+ 9 HD (D)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5f1e36f39cd0ee79610fca4a3e3c8b716097b94f.png
 NAME::Milb  58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png

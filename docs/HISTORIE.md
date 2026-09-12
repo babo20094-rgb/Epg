@@ -3336,3 +3336,33 @@ DirtVision-Rennen etc.), die schlicht noch nicht als `NAME:`-Zeile in
 sender.txt eingetragen sind - normale laufende Pflege bei einer
 Playlist mit staendig neuen dynamischen PPV-Kanaelen, kein einmalig
 behebbarer Fehler.
+
+---
+
+## BTN+ 1-7 zeigten alten Roh-Event-Text oder "Keine Information" (Sept. 2026)
+
+**Symptom:** In TiviMate zeigten die Kanaele BTN+ 1, 6 und 7 dauerhaft
+denselben laengst vergangenen Spieltermin als "Kanalname"/Titel (z. B.
+"BTN+ 2 HD (D): B1G+ \| Soccer (W) \| Michigan at Maryland \| Thu 16 Oct
+19:00"), BTN+ 2-5 zeigten stattdessen "Keine Information". BTN+ 8 (und
+alle hoeheren Nummern) funktionierten korrekt und zeigten das aktuell
+laufende Live-Event.
+
+**Ursache:** Bekannter Bug-Typ (derselbe wie bei DIRTVISION 01-03, FA
+Player 01-07, Fite - siehe oben): Bei den betroffenen `NAME:`-Zeilen in
+`sender.txt` war der komplette Roh-Event-Text eines einzelnen,
+vergangenen Live-Events fest in den eigentlich stabilen `NAME:`-Kern
+eingebrannt worden (z. B. `NAME:BTN+ 2 HD (D): B1G+ \| Soccer (W) \|
+Michigan at Maryland \| Thu 16 Oct 19:00|<logo>`), statt nur
+`NAME:BTN+ 2 HD (D)|<logo>` zu speichern. Der `m3u_playlist_abgleichen()`-
+Mechanismus vergleicht diesen Kern gegen den aktuellen, sich staendig
+aendernden Playlist-Kanalnamen - ein derart ueberladener, veralteter
+Kern findet nie mehr einen Treffer, daher altes/kein Programm.
+
+**Fix:** Bei allen betroffenen `NAME:BTN+ 1` bis `NAME:BTN+ 7`-Zeilen
+den Kern auf `NAME:BTN+ N HD (D)` gekuerzt (Logo unveraendert
+beibehalten), analog zum bereits korrekten `NAME:BTN+ 8 HD (D)`.
+**Lehre:** Bei einem neuen "zeigt alten/falschen Event-Text dauerhaft"-
+Verdacht bei einer `NAME:`-Zeile immer zuerst pruefen, ob der Kern noch
+Doppelpunkt+Event-Details/ein Datum enthaelt statt nur dem stabilen
+Basisnamen.
