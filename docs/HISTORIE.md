@@ -3432,3 +3432,28 @@ ob die Zeile ueberhaupt mit `NAME:` beginnt (`grep -n "^NFL TEAMS\|"`
 OHNE das Praefix findet genau solche Faelle) - ein fehlendes Praefix
 sieht auf den ersten Blick wie ein ganz normaler Eintrag aus, wird aber
 komplett anders (und falsch) geparst.
+
+---
+
+## KORREKTUR zum "leeres Extra-Pipe"-Fix oben: NHL LIVE| brauchte das
+## Pipe tatsaechlich (Sept. 2026)
+
+**Wichtige Einschraenkung zum oben beschriebenen 39-Zeilen-Fix:** Bei
+`NAME:NHL LIVE||<logo>` war das doppelte Pipe KEIN Fehler, sondern
+Absicht - der Nutzer bestaetigte per TiviMate-Screenshot ("Kanalname:
+NHL LIVE|"), dass der ECHTE rohe Playlist-Name dieses Kanals selbst mit
+einem Pipe-Zeichen endet (Leerlauf-Zustand ohne angehaengte Event-
+Nummer, analog zu "NHL LIVE| 17 -" MIT Nummer). Die pauschale Bereinigung
+hatte dieses legitime Pipe faelschlich mit entfernt, wodurch der
+gespeicherte Kern ("NHL LIVE" ohne Pipe) nicht mehr exakt mit dem echten
+Playlist-Namen ("NHL LIVE|" mit Pipe) uebereinstimmte - der Sender war
+dadurch in TiviMates Sender-Suche nicht mehr auffindbar/zuordenbar.
+Zurueckgesetzt auf `NAME:NHL LIVE||<logo>`.
+**Lehre:** Das generische "leeres Extra-Pipe"-Muster
+(`^NAME:[^|]*\|\|https?://`) ist NUR dann ein Bug, wenn sich das auch an
+sauberen Nachbar-Zeilen DERSELBEN Sendergruppe zeigen laesst (wie bei
+MLB 16 vs. MLB 01-15/17, alle ohne Pipe). Gibt es keine solchen
+Nachbarn zum Vergleich (wie bei "NHL LIVE" ohne Nummer), ist ohne
+echten Playlist-Zugriff oder Nutzer-Bestaetigung NICHT sicher
+entscheidbar, ob das Pipe Teil des echten Kanalnamens ist - im
+Zweifel beim Nutzer nachfragen statt blind zu vereinheitlichen.
