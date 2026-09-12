@@ -35,6 +35,17 @@ APP_VERSION = "02.0.1470"
 REQUEST_TIMEOUT_SEKUNDEN = 20
 HOUR_RANGE = 3  # Fenstergroesse pro Anfrage, wie von der Web-App selbst verwendet
 
+# Ein Gast-"Geraet"/eine Session pro Lauf (Modul-weit), NICHT pro
+# einzelner Anfrage neu erzeugt - der echte Browser haelt beides fuer
+# die komplette Sitzung konstant. Live per Diagnose-Workflow
+# beobachtet: mit staendig wechselnder device-id/session-id lieferte
+# die Schedules-API bei diesem Mandanten (ME) nur noch leere/fast leere
+# Antworten (vermutlich serverseitige Session-Pruefung), waehrend der
+# MK-Mandant das toleriert hat - schadet dort aber nicht.
+_DEVICE_ID = str(uuid.uuid4())
+_SESSION_ID = str(uuid.uuid4())
+_sitzung_gestartet = False
+
 
 def _guest_headers(x_tv_step):
     """Baut die Header-Menge, mit der die Web-App ihre eigenen
@@ -44,7 +55,7 @@ def _guest_headers(x_tv_step):
     return {
         "app_key": APP_KEY,
         "app_version": APP_VERSION,
-        "device-id": str(uuid.uuid4()),
+        "device-id": _DEVICE_ID,
         "device-density": "xhdpi",
         "device-name": "Linux - Chrome",
         "device_type": "WEB",
@@ -52,7 +63,7 @@ def _guest_headers(x_tv_step):
         "x-tv-step": x_tv_step,
         "x-call-type": "GUEST_USER",
         "x-txn-id": uuid.uuid4().hex,
-        "x-request-session-id": str(uuid.uuid4()),
+        "x-request-session-id": _SESSION_ID,
         "x-request-tracking-id": str(uuid.uuid4()),
         "tenant": "tv",
         "bff_token": "",
@@ -63,6 +74,26 @@ def _guest_headers(x_tv_step):
             "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
         ),
     }
+
+
+def _sitzung_starten():
+    """Ruft einmal pro Lauf /tenant/config auf, bevor die eigentlichen
+    Daten geholt werden - repliziert den Start der echten Web-App-
+    Sitzung (siehe _DEVICE_ID/_SESSION_ID oben). Ergebnis wird nicht
+    ausgewertet, Fehler werden ignoriert - reine Best-Effort-
+    Vorbereitung."""
+    global _sitzung_gestartet
+    if _sitzung_gestartet:
+        return
+    _sitzung_gestartet = True
+    try:
+        params = {"is_sso_enabled": "true", "app_language": "me", "natco_code": "me"}
+        requests.get(
+            f"{BASE_URL}/tenant/config", params=params,
+            headers=_guest_headers("CONFIG"), timeout=REQUEST_TIMEOUT_SEKUNDEN,
+        )
+    except Exception:
+        pass
 
 
 def _iso_zeit_parsen(text):
@@ -90,6 +121,8 @@ def _kanal_index_laden():
         return _kanal_index_cache
 
     index = {"name_index": {}, "kern_index": {}, "kern_mehrdeutig": set()}
+
+    _sitzung_starten()
 
     try:
         params = {
@@ -173,6 +206,8 @@ def _alle_programme_laden(tage):
 
     if _programme_cache is not None:
         return _programme_cache
+
+    _sitzung_starten()
 
     programme = {}
     heute = datetime.now(timezone.utc).date()

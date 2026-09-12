@@ -199,26 +199,33 @@ STATION_NAMEN = {
 }
 
 
-def _guest_headers():
+# Ein Gast-"Geraet"/eine Session pro Lauf (Modul-weit), NICHT pro
+# einzelner Anfrage neu erzeugt - der echte Browser haelt beides fuer
+# die komplette Sitzung konstant (siehe magentatv_me_epg.py, wo eine
+# staendig wechselnde device-id/session-id die Schedules-API leerlaufen
+# liess).
+_DEVICE_ID = str(uuid.uuid4())
+_SESSION_ID = str(uuid.uuid4())
+_sitzung_gestartet = False
+
+
+def _guest_headers(x_tv_step="EPG_SCHEDULES"):
     """Baut die Header-Menge, mit der die Web-App ihre eigenen
     Gast-Anfragen (kein Login) an das Backend schickt - live per
     Diagnose-Workflow (.github/workflows/diag_magentatv.yml)
     mitgeschnitten."""
-    device_id = str(uuid.uuid4())
-    session_id = str(uuid.uuid4())
-    txn_id = uuid.uuid4().hex
     return {
         "app_key": APP_KEY,
         "app_version": APP_VERSION,
-        "device-id": device_id,
+        "device-id": _DEVICE_ID,
         "device-density": "xhdpi",
         "device-name": "Linux - Chrome",
         "device_type": "WEB",
         "x-tv-flow": "EPG",
-        "x-tv-step": "EPG_SCHEDULES",
+        "x-tv-step": x_tv_step,
         "x-call-type": "GUEST_USER",
-        "x-txn-id": txn_id,
-        "x-request-session-id": session_id,
+        "x-txn-id": uuid.uuid4().hex,
+        "x-request-session-id": _SESSION_ID,
         "x-request-tracking-id": str(uuid.uuid4()),
         "tenant": "tv",
         "bff_token": "",
@@ -229,6 +236,24 @@ def _guest_headers():
             "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
         ),
     }
+
+
+def _sitzung_starten():
+    """Ruft einmal pro Lauf /tenant/config auf, bevor die eigentlichen
+    Daten geholt werden - repliziert den Start der echten Web-App-
+    Sitzung. Ergebnis wird nicht ausgewertet, Fehler werden ignoriert."""
+    global _sitzung_gestartet
+    if _sitzung_gestartet:
+        return
+    _sitzung_gestartet = True
+    try:
+        params = {"is_sso_enabled": "true", "app_language": "mk", "natco_code": "mk"}
+        requests.get(
+            "https://tv-mk-prod.yo-digital.com/mk-bifrost/tenant/config", params=params,
+            headers=_guest_headers("CONFIG"), timeout=REQUEST_TIMEOUT_SEKUNDEN,
+        )
+    except Exception:
+        pass
 
 
 def _iso_zeit_parsen(text):
@@ -281,6 +306,8 @@ def _alle_programme_laden(tage):
 
     if _programme_cache is not None:
         return _programme_cache
+
+    _sitzung_starten()
 
     programme = {}
     heute = datetime.now(timezone.utc).date()
