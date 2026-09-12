@@ -80,6 +80,7 @@ from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
 from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
+from quellen.magentatv_mk_epg import magentatv_mk_kanal_finden, magentatv_mk_hole_programme
 from quellen.iptvepg_de_epg import iptvepg_de_kanal_finden, iptvepg_de_hole_programme
 from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
 
@@ -266,6 +267,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
     "mk": ["mk_intervalle"],
+    "magentatv_mk": ["magentatv_mk_intervalle"],
 }
 
 
@@ -1887,6 +1889,12 @@ for zeile in zeilen:
     # Praefix noetig.
     if land.strip().upper() == "MK":
         eintrag["mk"] = True
+    # MagentaTV GO Nordmazedonien: LETZTER Fallback fuer MK (nach
+    # iptv-epg.org) UND zusaetzlich fuer BA/RS/HR-Sender, die im selben
+    # Balkan-Paket mitlaufen (siehe magentatv_mk_epg.py). Kein eigenes
+    # Praefix noetig.
+    if land.strip().upper() in ("MK", "BA", "RS", "HR"):
+        eintrag["magentatv_mk"] = True
     # Automatischer Call-Sign-Abgleich fuer "CITY|"-Sender (lokale US-
     # Sender mit Call-Sign im Namen, z.B. "ABC KATC BROOKLYN") gegen
     # tvpassport.com - siehe tvpassport_kanal_finden_callsign() in
@@ -2932,6 +2940,7 @@ SEARCH_CH_TAGE = 3
 TUBI_TAGE = 2
 TVPROFIL_TAGE = 3
 MK_TAGE = 3
+MAGENTATV_MK_TAGE = 2
 IPTVEPG_DE_TAGE = 2
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
@@ -2948,6 +2957,7 @@ mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
 siol_sender = [d for d in sender_daten if d.get("siol")]
 tvprofil_sender = [d for d in sender_daten if d.get("tvprofil")]
 mk_sender = [d for d in sender_daten if d.get("mk")]
+magentatv_mk_sender = [d for d in sender_daten if d.get("magentatv_mk")]
 plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 
@@ -3835,6 +3845,37 @@ for daten in mk_sender:
 
     if programme:
         _echte_quelle_zaehlen("iptv-epg.org (MK)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MAGENTATV GO (Nordmazedonien): LETZTER Fallback fuer MK-Sender (nach
+# iptv-epg.org) UND zusaetzlich fuer BA/RS/HR-Sender, die im selben
+# Balkan-Paket mitlaufen (siehe magentatv_mk_epg.py - feste
+# station_id->Name-Tabelle aus mehreren Snapshots, kein Login noetig).
+# Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in magentatv_mk_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        station_id = magentatv_mk_kanal_finden(daten["sender"])
+        if station_id is not None:
+            programme = magentatv_mk_hole_programme(station_id, MAGENTATV_MK_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["magentatv_mk_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("MagentaTV GO (MK)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

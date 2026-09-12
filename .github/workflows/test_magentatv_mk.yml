@@ -1,0 +1,62 @@
+name: Test MagentaTV MK Quelle
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Testabruf gegen die echte MagentaTV MK API
+        run: |
+          python3 - <<'EOF'
+          import sys
+          sys.path.insert(0, ".")
+          from quellen.magentatv_mk_epg import (
+              magentatv_mk_kanal_finden,
+              magentatv_mk_hole_programme,
+              STATION_NAMEN,
+          )
+
+          # Stichprobe: ein paar MK/BA/RS/HR-Sender aus sender.txt, die
+          # aktuell nur als Platzhalter (VIP RAW) ohne echte Daten stehen.
+          testsender = [
+              ("MK", "MRT 1"),
+              ("MK", "SITEL"),
+              ("MK", "TELMA"),
+              ("RS", "PRVA"),
+              ("RS", "B92"),
+              ("RS", "PINK WORLD"),
+              ("HR", "RTL 2"),
+              ("HR", "STAR LIFE"),
+              ("BA", "FTV"),
+          ]
+
+          treffer = 0
+          for land, sender in testsender:
+              station_id = magentatv_mk_kanal_finden(sender)
+              print(f"{land} | {sender!r:20} -> station_id={station_id} ({STATION_NAMEN.get(station_id)})")
+              if station_id is None:
+                  continue
+              programme = magentatv_mk_hole_programme(station_id, tage=1)
+              print(f"    {len(programme)} Sendungen geladen")
+              for p in programme[:3]:
+                  print(f"    {p['start']} - {p['stop']}: {p['title']!r}")
+              if programme:
+                  treffer += 1
+
+          print(f"\n{treffer} von {len(testsender)} Testsendern haben echte Sendungsdaten geliefert.")
+          if treffer == 0:
+              print("WARNUNG: kein einziger Testsender hat Daten geliefert - API-Aufruf oder Header vermutlich kaputt.")
+              sys.exit(1)
+          EOF
