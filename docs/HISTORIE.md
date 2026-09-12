@@ -3515,6 +3515,23 @@ hat stattdessen selbst die `player_api.php?...&action=get_live_streams`-
 Xtream-Codes-API (JSON, viel kleiner als volles M3U) von seinem eigenen
 Geraet geladen und hochgeladen.
 
+**MERKE fuer kuenftige Playlist-Abgleiche (Standard-Vorgehen bei
+IP-Sperre):** Der direkte M3U-Download von dieser Session aus schlaegt
+bei diesem Anbieter zuverlaessig fehl (Rechenzentrums-IP-Sperre) UND
+die volle M3U-Datei ist selbst als Upload zu gross (mehrere hundert MB
+wegen Stream-URLs/Metadaten aller ~19.000 Kanaele). Loesung, die
+zuverlaessig funktioniert: den Nutzer bitten, statt der M3U-Playlist-URL
+die Xtream-Codes-JSON-API von seinem EIGENEN Geraet/Browser aus
+aufzurufen und die Antwort hochzuladen -
+`http://<Host>/player_api.php?username=<User>&password=<Pass>&type=m3u_plus&output=m3u8`
+(dieselben Zugangsdaten wie fuer die normale M3U-URL) wird dafuer zu
+`http://<Host>/player_api.php?username=<User>&password=<Pass>&action=get_live_streams`
+umgebaut - liefert ein kompaktes JSON-Array (`name`, `stream_id`,
+`stream_icon`, `category_id`, ...) OHNE Stream-URLs, dadurch nur wenige
+MB statt mehrere hundert MB und problemlos hochladbar. Dieses JSON
+enthaelt alle noetigen Felder fuer einen vollstaendigen Namens-Abgleich
+gegen `sender.txt`/die generierte XML.
+
 **Methodik (wichtig fuer kuenftige Playlist-Abgleiche):** Ein selbst-
 geschriebenes Vergleichsskript, das die *_kanal_finden()/Kern-
 Extraktions-Funktionen NACHBAUT statt sie zu benutzen, produziert
