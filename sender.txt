@@ -2656,9 +2656,9 @@ PRIME|MDR THÜRINGEN ᴿᴬᵂ|Mdr Thüringen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw
 PRIME|MEATEATER ᴿᴬᵂ|Meateater ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/719c74d16096e7327923270fd40af64735864b4e.png
 PRIME|MEET, MARRY, MURDER ᴿᴬᵂ|Meet, Marry, Murder ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e896d38336ac8b30a03f3640e5279aab0a91b97f.png
 PRIME|MGM PRESENTS ᴿᴬᵂ|Mgm Presents ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/91c44ef2cedae6f7.png
-PRIME|MGM PRESENTS: ACTION ᴿᴬᵂ|Mgm Presents: Action ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920094.png
-PRIME|MGM PRESENTS: HORROR ᴿᴬᵂ|Mgm Presents: Horror ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920093.png
-PRIME|MGM PRESENTS: WESTERNS ᴿᴬᵂ|Mgm Presents: Westerns ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920092.png
+PRIME|MGM PRESENTS: ACTION ᴿᴬᵂ|Mgm Presents: Action ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mgm_hd.png
+PRIME|MGM PRESENTS: HORROR ᴿᴬᵂ|Mgm Presents: Horror ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mgm_hd.png
+PRIME|MGM PRESENTS: WESTERNS ᴿᴬᵂ|Mgm Presents: Westerns ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mgm_hd.png
 PRIME|MGM+ HITS ᴿᴬᵂ|Mgm+ Hits ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4f50b325a24d3cc0.png
 PRIME|MGM+ MARQUEE ᴿᴬᵂ|Mgm+ Marquee ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5d5ade2d220fc973.png
 PRIME|MGM+ ᴿᴬᵂ|Mgm+ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1558e25b068d4796.png
@@ -6616,7 +6616,7 @@ TVGUIDE:US|ME TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 TVGUIDE:US|MEGA TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aca2dacdc0668aee.png
 TVGUIDE:US|MERCY FOR NONE ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf463a9a085aa815.png
 TVGUIDE:US|METV TOONS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7519e745658d36eb.png
-TVPASSPORT:US|MGM HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1558e25b068d4796.png
+TVPASSPORT:US|MGM HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mgm_hd.png
 TVGUIDE:US|MGM+ DRIVE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0b97e16c07ad4818.png
 TVGUIDE:US|MGM+ HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1558e25b068d4796.png
 TVGUIDE:US|MGM+ HITS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4f50b325a24d3cc0.png
@@ -18694,7 +18694,7 @@ PRIME|Nat Geo Sharks ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/
 PRIME|Mythical 24/7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mythical.png
 PRIME|Monsters Are Real ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/88c0e29a172fed44ec021c5030115acba1caf810.png
 PRIME|Modern Innovation By History ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/interior_design.png
-PRIME|MGM Celebrates Black Cinema ᴿᴬᵂ|
+PRIME|MGM Celebrates Black Cinema ᴿᴬᵂ|Mgm Celebrates Black Cinema ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mgm_hd.png
 PRIME|Medical Incredible ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/hospital.png
 PRIME|Matched Married Meet ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wedding_rings.png
 PRIME|Love Pets ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pets.png
