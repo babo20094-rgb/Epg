@@ -396,7 +396,7 @@ DE|DISNEY CHANNEL HEVC|Disney Channel Hevc ᴸⁱᵛᵉ|https://raw.githubuserco
 DE|DMAX FHD|Dmax Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d123513e2c063d88.png
 DE|DMAX HD|Dmax Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d123513e2c063d88.png
 DE|DMAX HEVC|Dmax Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d123513e2c063d88.png
-DE|DOCTOR ODYSSEY  ᴿᴬᵂ|Doctor Odyssey  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/DOCTORODYSSEY.png
+DE|DOCTOR ODYSSEY  ᴿᴬᵂ|Doctor Odyssey  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/doctor_odyssey.png
 DE|DOPESICK  ᴿᴬᵂ|Dopesick  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f3a23635862e4b6bcde1efbea84ea57a6275bdf7.png
 DE|DR. HOUSE S01 4k|Dr. House S01 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efc60651cc7ca234.png
 DE|DR. HOUSE S02 4k|Dr. House S02 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efc60651cc7ca234.png
@@ -449,7 +449,7 @@ DE|GAME OF THRONES S06 4K|Game Of Thrones S06 4K ᴸⁱᵛᵉ|https://raw.github
 DE|GAME OF THRONES S07 4K|Game Of Thrones S07 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
 DE|GAME OF THRONES S07-S08 FHD|Game Of Thrones S07-S08 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
 DE|GAME OF THRONES S08 4K|Game Of Thrones S08 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a73741c66eb22982.png
-DE|GANGNAM B SIDE ᴿᴬᵂ|Gangnam B Side ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/GANGNAMBSIDE.png
+DE|GANGNAM B SIDE ᴿᴬᵂ|Gangnam B Side ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/gangnam_b_side.png
 DE|GEO TELEVISION ᴿᴬᵂ|Geo Television ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9339a1a6e525ae2f.png
 DE|GODFATHER OF HARLEM  ᴿᴬᵂ|Godfather Of Harlem  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b16d77d1bb2480b62b97dd855b1b97a23c077edb.png
 DE|GOLIATH ᴿᴬᵂ|Goliath ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
@@ -463,12 +463,12 @@ DE|HANNA ᴿᴬᵂ|Hanna ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 DE|HARLAN COBEN ᴿᴬᵂ|Harlan Coben ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|HARRY POTTER|Harry Potter ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80c958acefd5c6f2.png
 DE|HEIMATKANAL|Heimatkanal ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2555f3b25515c1fd.png
-DE|HELSTROM ᴿᴬᵂ|Helstrom ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/HELSTROM.png
+DE|HELSTROM ᴿᴬᵂ|Helstrom ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/helstrom.png
 DE|HGTV FHD|Hgtv Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7dbb7c32c282d744.png
 DE|HISTORY FHD|History Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/94856e2a9cf7898f.png
 DE|HISTORY HD|History Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/94856e2a9cf7898f.png
 DE|HISTORY HEVC|History Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/94856e2a9cf7898f.png
-DE|HIT MONKEY  ᴿᴬᵂ|Hit Monkey  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/HITMONKEY.png
+DE|HIT MONKEY  ᴿᴬᵂ|Hit Monkey  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/hit_monkey.png
 DE|HOMELAND ᴿᴬᵂ|Homeland ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/45383f45e6a681cc.png
 DE|HOUSE OF DAVID ᴿᴬᵂ|House Of David ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|HSE FHD|Hse Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/579d9b3fe67a5fd8.png
@@ -488,7 +488,7 @@ DE|KIKA HD|Kika Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/
 DE|KIKA HEVC|Kika Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f06d55aedc3b423a.png
 DE|KINOWELT TV|Kinowelt Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e3fd93a46316962f.png
 DE|LIE TO ME ᴿᴬᵂ|Lie To Me ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/938ec774d85996e6b88be56f6731559aa3007dd2.png
-DE|LINK EAT LOVE KILL ᴿᴬᵂ|Link Eat Love Kill ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/LINKEATLOVEKILL.png
+DE|LINK EAT LOVE KILL ᴿᴬᵂ|Link Eat Love Kill ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/link_eat_love_kill.png
 DE|LOKI ᴿᴬᵂ|Loki ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e3f9a5a84531ed42ac0278fdcf7e21174ea0a7d1.png
 DE|LOST ᴿᴬᵂ|Lost ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/664d44ec2950db1c.png
 DE|MAD MAX|Mad Max ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d123513e2c063d88.png
@@ -645,7 +645,7 @@ DE|REACHER ᴿᴬᵂ|Reacher ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubuserconten
 DE|RED BULL TV SD|Red Bull Tv Sd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7121dc01dd501af6fccb703049f8a536ae2d17aa.png
 DE|RED BULL TV ᴴᴰ|Red Bull Tv ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7121dc01dd501af6fccb703049f8a536ae2d17aa.png
 DE|RED BULL TV ᴿᴬᵂ|Red Bull Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7121dc01dd501af6fccb703049f8a536ae2d17aa.png
-DE|REVENGE OF OTHERS  ᴿᴬᵂ|Revenge Of Others  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/REVENGEOFOTHERS.png
+DE|REVENGE OF OTHERS  ᴿᴬᵂ|Revenge Of Others  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/revenge_of_others.png
 DE|ROBERT DE NIRO|Robert De Niro ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|ROMANCE TV FHD|Romance Tv Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fb96e9ae1ecc8a08.png
 DE|RTL 4K FHD|Rtl 4K Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c7a2351ad2595ed2.png
@@ -956,7 +956,7 @@ DE|SYFY HD|Syfy Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/
 DE|SYFY HEVC|Syfy Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8e8d40b2c14143d7.png
 DE|TELE 5 HD|Tele 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0584f34fb9e0463f.png
 DE|TELE 5 HEVC|Tele 5 Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0584f34fb9e0463f.png
-DE|THE BEAR ᴿᴬᵂ|The Bear ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/THEBEAR.png
+DE|THE BEAR ᴿᴬᵂ|The Bear ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/the_bear.png
 DE|THE BETTER SISTER ᴿᴬᵂ|The Better Sister ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|THE BIG BANG THEORY ᴿᴬᵂ|The Big Bang Theory ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|THE BLACKLIST|The Blacklist ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4244f342550d06b5.png
@@ -978,7 +978,7 @@ DE|THE MANDALORIAN ᴿᴬᵂ|The Mandalorian ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.
 DE|THE MATRIX|The Matrix ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bab341ec2ee83fe7.png
 DE|THE O C ᴿᴬᵂ|The O C ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|THE OFFICE ᴿᴬᵂ|The Office ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
-DE|THE PATIENT ᴿᴬᵂ|The Patient ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/THEPATIENT.png
+DE|THE PATIENT ᴿᴬᵂ|The Patient ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/the_patient.png
 DE|THE POWER ᴿᴬᵂ|The Power ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|THE RIG ᴿᴬᵂ|The Rig ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e80e731c06029e7a.png
 DE|THE SIMPSONS ᴿᴬᵂ|The Simpsons ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/685d0ceb225e9303.png
@@ -1043,7 +1043,7 @@ DE|WELT HD|Welt Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/
 DE|WELT HEVC|Welt Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/48d8555fc9f2ff36.png
 DE|WELT SD|Welt Sd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/48d8555fc9f2ff36.png
 DE|WHITE COLLAR  ᴿᴬᵂ|White Collar  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/916af40c3f21791f37012e3755faf7c85a89fdc3.png
-DE|WILL TRENT  ᴿᴬᵂ|Will Trent  ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/WILLTRENT.png
+DE|WILL TRENT  ᴿᴬᵂ|Will Trent  ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/will_trent.png
 DE|ZDF HD|Zdf Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9bf0bf159edf1ef5.png
 DE|ZDF INFO HD|Zdf Info Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/619b62d11e7e3b7f.png
 DE|ZDFNEO HD|Zdfneo Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c3314beaaee74ea1.png
@@ -1917,7 +1917,7 @@ JOYN|MDR SACHSEN-ANHALT ᴿᴬᵂ|Mdr Sachsen-Anhalt ᴿᴬᵂ ᴸⁱᵛᵉ|http
 JOYN|MDR THÜRINGEN ᴿᴬᵂ|Mdr Thüringen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cdd9117994ebef38.png
 JOYN|MOTORVISION CLASSIC ᴿᴬᵂ|Motorvision Classic ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5e276afd23cc65cc.png
 JOYN|MOTORVISION MORE THAN SPORTS ᴿᴬᵂ|Motorvision More Than Sports ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1929260.png
-JOYN|MOTORVISION ᴿᴬᵂ|Motorvision ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5e276afd23cc65cc.png
+JOYN|MOTORVISION ᴿᴬᵂ|Motorvision ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/motorvision.png
 JOYN|MOVIEDOME FAMILY ᴿᴬᵂ|Moviedome Family ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6e4ad82d6b7e857f.png
 JOYN|MOVIEDOME ᴿᴬᵂ|Moviedome ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1fa070551974973a.png
 JOYN|MTV ᴿᴬᵂ|Mtv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
@@ -1968,7 +1968,7 @@ JOYN|TERRA MATER WILD ᴿᴬᵂ|Terra Mater Wild ᴿᴬᵂ ᴸⁱᵛᵉ|https://
 JOYN|TLC ᴿᴬᵂ|Tlc ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a099c438ff7a11da.png
 JOYN|TOP FILME ᴿᴬᵂ|Top Filme ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1c62d622d561d182.png
 JOYN|TOP SCI-FI ᴿᴬᵂ|Top Sci-Fi ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/top_scifi.png
-JOYN|TOP SERIEN ᴿᴬᵂ|Top Serien ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/GERMANY/1929329.png
+JOYN|TOP SERIEN ᴿᴬᵂ|Top Serien ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/top_serien.png
 JOYN|TV MAINFRANKEN ᴿᴬᵂ|Tv Mainfranken ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8a541515bdf46013.png
 JOYN|TV OBERFRANKEN ᴿᴬᵂ|Tv Oberfranken ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6bfdfe1b2c3f4f1f.png
 JOYN|TV.INGOLSTADT ᴿᴬᵂ|Tv.Ingolstadt ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d6897ebc9a4137c9.png
@@ -11602,7 +11602,7 @@ NAME:D+| QUEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos
 NAME:D+| QUEST RED HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/91513c482747bb355e2034722e2bc5fe52a2d2a4.png
 NAME:D+| REALLY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a78292886dc66ab4613360212a90d53c0b2a8362.png
 NAME:D+| TLC FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a099c438ff7a11da1b9ee3f2160d7839047abe5b.png
-NAME:DE: D+ PPV 6|
+NAME:DE: D+ PPV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/31dfbd2ea2c21addf4d0da33de1f4af165b95839.png
 NAME:DE: DAZN PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:DE: DAZN PPV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:DE: DAZN PPV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
@@ -17869,7 +17869,7 @@ SKY:DE|Sky Cinema Premieren HD|https://raw.githubusercontent.com/babo20094-rgb/E
 JOYN|SERIENKLASSIKER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/serienklassiker/serienklassiker.png
 ##### DE| JOYN TV #####
 JOYN|SR ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6d3bcbf55e15cbe01fbe6374227a7aca10af343c.png
-JOYN|ELF ᴿᴬᵂ|
+JOYN|ELF ᴿᴬᵂ|Elf ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/elf.png
 JOYN| ZDF NEO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c3314beaaee74ea19dae0a937d92656cbba3e8b5.png
 DE|DAZN Moto America ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/875e3b70fc8caa9e207c7f56954cd008a9776044.png
 DE|DAZN Lacrosse Tv ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/875e3b70fc8caa9e207c7f56954cd008a9776044.png
