@@ -12733,16 +12733,16 @@ NAME:LIVE EVENT 33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 NAME:LIVE EVENT 34|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/live_event/live_event.png
 NAME:LIVE NFL PLAYOFFS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:LOI  TV 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
-NAME:LOI 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+NAME:LOI TV 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 NAME:LOI TV 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
@@ -13038,11 +13038,11 @@ NAME:NFL  | 06 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME:NFL  | 07 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL  | 08 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL  | 09 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
-NAME:NFL  | 10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/15fc5ed5a5bdaf69c31a72676b93952dd82c25d5.png
-NAME:NFL  | 11 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0b7de8b808afe966c65baf91ff06fb0b656d9407.png
-NAME:NFL  | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/395841d4b06e3d4824d9392215fc93b9f995f337.png
-NAME:NFL  | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ec908a81afc453442bb6004e6f0937638e8bfadb.png
-NAME:NFL  | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/540a8e2d4a75c27b40537f1d584016a7d1b0088e.png
+NAME:NFL  | 10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
+NAME:NFL  | 11 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
+NAME:NFL  | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
+NAME:NFL  | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
+NAME:NFL  | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL  | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL  | 16 -  Detroit Lions DET @ Baltimore Ravens BAL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf54a8552502cdc222bb77027229a938da71068.png
 NAME:NFL REPLAY 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0cf54a8552502cdc222bb77027229a938da71068.png
@@ -13076,43 +13076,43 @@ NAME:NFL | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/e
 NAME:NFL | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
 NAME:NFL | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
 NAME:NFL | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| BUFFALO BILLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS BEARS CHICAGO IL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS BENGALS CINCINNATI OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL TEAMS| BUFFALO BILLS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/buf.png
+NAME:NFL TEAMS| CBS BEARS CHICAGO IL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/chi.png
+NAME:NFL TEAMS| CBS BENGALS CINCINNATI OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/cin.png
 NAME:NFL TEAMS| CBS BILLS GIANTS JETS NEW YORK NY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS BRONCOS DENVER CO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS BROWNS CLEVLAND OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS BUCCANEERS ST. PETERSBURG FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS CARDINALS PHOENIX AZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS CHARGERS SAN DIEGO CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL TEAMS| CBS BRONCOS DENVER CO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/den.png
+NAME:NFL TEAMS| CBS BROWNS CLEVLAND OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/cle.png
+NAME:NFL TEAMS| CBS BUCCANEERS ST. PETERSBURG FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/tb.png
+NAME:NFL TEAMS| CBS CARDINALS PHOENIX AZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ari.png
+NAME:NFL TEAMS| CBS CHARGERS SAN DIEGO CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/lac.png
 NAME:NFL TEAMS| CBS CHIEFS BEARS ST. LOUIS MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS CHIEFS KANSAS CITY MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS COLTS FORT WAYNE IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS COLTS INDIANAPOLIS IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS DOLPHINS MIAMI FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS FALCONS ATLANTA GA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS JAGUARS JACKSONVILLE FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS PANTHERS CHARLOTTE NC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS PATRIOTS BOSTON MA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS RAIDERS LAS VEGAS NV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS RAVENS BALTIMORE MD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS STEELERS PITTSBURGH PA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS TEXANS SAN ANTONIO TX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| CBS TITANS NASHVILLE TN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX 49ERS SAN FRANCISCO CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX BEARS CHICAGO IL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX CARDINALS PHOENIX AZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX COWBOYS DALLAS TX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX DOLPHINS MIAMI FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX EAGLES PHILADELPHIA PA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX FALCONS ATLANTA GA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX LIONS DETROIT MI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX PACKERS ST. LOUIS MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX RAMS SACRAMENTO CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX REDSKINS  BALTIMORE MD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX SAINTS NEW ORLEANS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX SEAHAWKS SEATTLE WA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
-NAME:NFL TEAMS| FOX VIKINGS MINNEAPOLIS MN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64714d615fb2805730038f613d84cec007f7f4ba.png
+NAME:NFL TEAMS| CBS CHIEFS KANSAS CITY MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/kc.png
+NAME:NFL TEAMS| CBS COLTS FORT WAYNE IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ind.png
+NAME:NFL TEAMS| CBS COLTS INDIANAPOLIS IN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ind.png
+NAME:NFL TEAMS| CBS DOLPHINS MIAMI FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/mia.png
+NAME:NFL TEAMS| CBS FALCONS ATLANTA GA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/atl.png
+NAME:NFL TEAMS| CBS JAGUARS JACKSONVILLE FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/jax.png
+NAME:NFL TEAMS| CBS PANTHERS CHARLOTTE NC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/car.png
+NAME:NFL TEAMS| CBS PATRIOTS BOSTON MA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ne.png
+NAME:NFL TEAMS| CBS RAIDERS LAS VEGAS NV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/lv.png
+NAME:NFL TEAMS| CBS RAVENS BALTIMORE MD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/bal.png
+NAME:NFL TEAMS| CBS STEELERS PITTSBURGH PA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/pit.png
+NAME:NFL TEAMS| CBS TEXANS SAN ANTONIO TX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/hou.png
+NAME:NFL TEAMS| CBS TITANS NASHVILLE TN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ten.png
+NAME:NFL TEAMS| FOX 49ERS SAN FRANCISCO CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/sf.png
+NAME:NFL TEAMS| FOX BEARS CHICAGO IL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/chi.png
+NAME:NFL TEAMS| FOX CARDINALS PHOENIX AZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/ari.png
+NAME:NFL TEAMS| FOX COWBOYS DALLAS TX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/dal.png
+NAME:NFL TEAMS| FOX DOLPHINS MIAMI FL|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/mia.png
+NAME:NFL TEAMS| FOX EAGLES PHILADELPHIA PA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/phi.png
+NAME:NFL TEAMS| FOX FALCONS ATLANTA GA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/atl.png
+NAME:NFL TEAMS| FOX LIONS DETROIT MI|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/det.png
+NAME:NFL TEAMS| FOX PACKERS ST. LOUIS MO|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/gb.png
+NAME:NFL TEAMS| FOX RAMS SACRAMENTO CA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/lar.png
+NAME:NFL TEAMS| FOX REDSKINS  BALTIMORE MD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/wsh.png
+NAME:NFL TEAMS| FOX SAINTS NEW ORLEANS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/no.png
+NAME:NFL TEAMS| FOX SEAHAWKS SEATTLE WA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/sea.png
+NAME:NFL TEAMS| FOX VIKINGS MINNEAPOLIS MN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/min.png
 NAME:NHL LIVE||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:NHL LIVE| 17 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:NHL LIVE| 18 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/022021e6d4233ff3cc881159145422b20134d7f1.png
@@ -13243,6 +13243,9 @@ NAME::Milb  60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ex
 NAME:PBR RidePass :Flo Racing  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
 NAME:PDC Board 01|
 NAME:PDC Board 02|
+NAME:PDC Board 03|
+NAME:PDC Board 04|
+NAME:PDC Board 05|
 NAME:PDC Board 06|http://103.176.90.95/images/1556645.png
 NAME:PDC Board 07|http://103.176.90.95/images/1556646.png
 NAME:PDC Board 8|http://103.176.90.95/images/1556647.png

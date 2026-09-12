@@ -300,13 +300,16 @@ def kern_und_event_extrahieren(voller_name):
     # Super League Plus-Sonderfall: die Event-Nummer steckt mal mit,
     # mal ohne Pipe direkt hinter "Super League Plus" (Leerlauf:
     # "Super League Plus | Event 5", live: "Super League Plus Event 1
-    # | Leeds Rhinos v Bradford Bulls | ..."). Ein fester Regex auf die
-    # Nummer macht den Kern in beiden Schreibweisen identisch
-    # ("Super League Plus Event N"), damit Leerlauf-Eintrag und
-    # Live-Playlist-Name zuverlaessig zusammenfinden - analog zum
-    # DYN-PPV/FLO-RACING-Muster unten, nur mit Pipe-Toleranz.
+    # | Leeds Rhinos v Bradford Bulls | ..."), und seit einer Playlist-
+    # Umstellung (September 2026) auch ganz OHNE das Wort "Event" (nur
+    # noch "Super League Plus 03 | Warrington Wolves vs ..."). Das Wort
+    # "Event" ist daher optional - ein fester Regex auf die Nummer macht
+    # den Kern in allen drei Schreibweisen identisch ("Super League Plus
+    # Event N"), damit Leerlauf-Eintrag und Live-Playlist-Name
+    # zuverlaessig zusammenfinden - analog zum DYN-PPV/FLO-RACING-Muster
+    # unten, nur mit Pipe-Toleranz.
     super_league_match = re.search(
-        r"SUPER\s*LEAGUE\s*PLUS.*?EVENT\s*0*(\d+)", voller_name, re.IGNORECASE
+        r"SUPER\s*LEAGUE\s*PLUS.*?(?:EVENT\s*)?0*(\d+)", voller_name, re.IGNORECASE
     )
     if super_league_match:
         kurzname = f"Super League Plus Event {super_league_match.group(1)}"
@@ -487,11 +490,21 @@ def kern_vorne_und_event_extrahieren(voller_name):
     # der allererste Doppelpunkt der Zeile zaehlt), eine Uhrzeitangabe
     # im Event-Text (z.B. "9:00:00 AM") kommt immer erst deutlich
     # spaeter und wird nie faelschlich als Kern-Trenner genommen.
+    # Zeichenklasse enthaelt bewusst auch "()": manche Kerne fuehren ein
+    # Klammer-Suffix (z.B. "BTN+ 1 HD (D)", "US (P+) Italy SerieA 6",
+    # "Fite TV 1 HD (D)") - ohne Klammern in der Zeichenklasse schlug
+    # der Match komplett fehl und der Kern wurde nie erkannt. Das
+    # Schluss-Element vor dem Doppelpunkt ist zusaetzlich EXPLIZIT
+    # entweder eine Zahl ODER ein Klammer-Suffix wie "(D)" - "BTN+ 1 HD
+    # (D)"/"Fite TV 1 HD (D)" enden NICHT auf eine Zahl, das reine
+    # Zahl-Erfordernis liess den Match sonst trotz erlaubter Klammern
+    # in der Zeichenklasse fehlschlagen (September 2026 behoben, siehe
+    # docs/HISTORIE.md).
     if "|" in voller_name:
         erster_pipe_index = voller_name.index("|")
         vor_pipe = voller_name[:erster_pipe_index]
         frueher_match = re.match(
-            r"^\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*:\s*(.*)$",
+            r"^\s*([A-Za-z][A-Za-z0-9+.()]*(?:\s+[A-Za-z0-9+.()]+)*\s+(?:0*\d+|\([A-Za-z0-9]+\)))\s*:\s*(.*)$",
             vor_pipe,
         )
         if frueher_match:
@@ -564,7 +577,7 @@ def kern_vorne_und_event_extrahieren(voller_name):
     # anschliessende Index-Lookup schlaegt einfach fehl, wenn kein
     # passender Sender registriert ist.
     generisch_match = re.match(
-        r"^\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*:\s*(.*)$",
+        r"^\s*([A-Za-z][A-Za-z0-9+.()]*(?:\s+[A-Za-z0-9+.()]+)*\s+(?:0*\d+|\([A-Za-z0-9]+\)))\s*:\s*(.*)$",
         voller_name,
     )
     if generisch_match:
@@ -765,7 +778,13 @@ _name_kern_automatisch_bereinigt = 0
 def _wirkt_wie_rohtext_muell(text):
     if not text:
         return False
-    if re.search(r"\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}([./]\d{2,4})?|\b(19|20)\d{2}\b", text):
+    # "1pm"/"10am" (Uhrzeit OHNE Doppelpunkt) zusaetzlich zur Doppelpunkt-
+    # Variante - NFL-Sender liefern Event-Texte inzwischen im Format
+    # "1pm Buccaneers at Bengals" (kein "vs.", kein Doppelpunkt, nur 4
+    # Woerter) - ohne diese Ergaenzung wirkte der Text faelschlich NICHT
+    # wie Muell, der Rollback verwarf dadurch den korrekt erkannten Kern
+    # (September 2026 behoben, siehe docs/HISTORIE.md).
+    if re.search(r"\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}([./]\d{2,4})?|\b(19|20)\d{2}\b|\d{1,2}\s*(?:am|pm)\b", text, re.IGNORECASE):
         return True
     if re.search(r"\bvs\.?\b", text, re.IGNORECASE):
         return True

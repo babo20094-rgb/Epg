@@ -3499,3 +3499,110 @@ einen erkannten Kern nutzt, verwirft dadurch automatisch jeden Treffer
 mit leerem Rest. Bei einem neuen "erkennt Kern korrekt, wendet ihn aber
 nicht an"-Verdacht immer pruefen, ob eine solche Muell-Pruefung
 faelschlich auch den harmlosen Leerlauf-Fall (leerer Rest) blockiert.
+
+---
+
+## September 2026: Vollstaendiger Playlist-Abgleich (2 fehlende Sender gemeldet) -
+## 4 echte Code-/Datenbugs gefunden, NFL-Team-Logos vereinheitlicht
+
+**Ausgangslage:** Nutzer meldete "Playlist gesamt 18957, EPG-Zuordnung
+gesamt 18955" (nur 2 Sender fehlen), konnte sie aber nicht selbst in
+TiviMate finden (keine Filterfunktion dafuer). Direkter Download der
+eigenen Xtream-Codes-Playlist von dieser Session aus schlug fehl (`HTTP
+511 Network Authentication Required` von Cloudflare, IP-Sperre des
+Anbieters gegen Rechenzentrums-IPs, auch mit VLC-User-Agent) - Nutzer
+hat stattdessen selbst die `player_api.php?...&action=get_live_streams`-
+Xtream-Codes-API (JSON, viel kleiner als volles M3U) von seinem eigenen
+Geraet geladen und hochgeladen.
+
+**Methodik (wichtig fuer kuenftige Playlist-Abgleiche):** Ein selbst-
+geschriebenes Vergleichsskript, das die *_kanal_finden()/Kern-
+Extraktions-Funktionen NACHBAUT statt sie zu benutzen, produziert
+garantiert Fehlalarme (siehe bereits fruehere Lehre "883+301 fehlende
+Sender" oben) - dieses Mal wurde deshalb `kern_und_event_extrahieren()`,
+`kern_vorne_und_event_extrahieren()` und `_wirkt_wie_rohtext_muell()`
+per `ast.parse()` EXAKT aus der aktuellen `generate_epg.py` extrahiert
+und in einem isolierten Namespace ausgefuehrt (kein Neuschreiben der
+Logik von Hand) - inkl. exakter Nachbildung des Registrierungs-
+Rollbacks (`_kern_und_event_aus_rohname()`/NAME:-Einlesen-Block) UND
+des Live-Lookup-Fallbacks (hinten -> vorne). Erst mit dieser 1:1-Kopie
+der echten Funktionen sank die Kandidatenliste von anfangs 239
+(rechnerisch grob "ID stimmt nicht ueberein") über 29 (nach korrekter
+Kern-Extraktion) auf am Ende 0 vermeintlich fehlende Sender.
+
+**4 unabhaengige, jeweils bestaetigte Ursachen gefunden:**
+
+1. **`LOI 01`-`LOI 10` vs. `LOI TV 1`-`LOI TV 10`:** Reine
+   `sender.txt`-Datenpflege, kein Code-Bug. Der Anbieter benennt seine
+   Kanaele inzwischen durchgaengig mit "TV" (wie bereits bei den
+   ebenfalls vorhandenen `LOI TV 11/13/14/15`), die 10 aeltesten
+   Eintraege fuehrten aber noch die alte Kurzform ohne "TV" - die
+   Kanal-ID stimmte dadurch nicht mehr mit dem echten Playlist-Namen
+   ueberein. Fix: alle 10 Zeilen auf `LOI TV N` umbenannt.
+
+2. **`PDC Board 03`/`04`/`05` fehlten komplett** in `sender.txt` (nur
+   01, 02, 06, 07, 8 waren eingetragen) - simple Ergaenzung.
+
+3. **Code-Bug in `kern_vorne_und_event_extrahieren()`:** Die Kern-
+   vorne-Regex (Kern direkt vor dem ersten Doppelpunkt, z.B. "BTN+ 1 HD
+   (D): B1G+ | Field Hockey | ...") erlaubte in ihrer Zeichenklasse kein
+   `(`/`)` UND verlangte zwingend, dass der Kern auf eine Zahl endet.
+   Kerne mit Klammer-Suffix wie "BTN+ 1 HD (D)", "Fite TV 1 HD (D)" oder
+   "US (P+) Italy SerieA 6" (endet zwar auf Zahl, aber "(P+)" mittendrin
+   enthaelt Klammern) matchten dadurch NIE, der Fallback nahm
+   stattdessen den KOMPLETTEN Text bis zum ersten Pipe als (falschen)
+   Kern. Fix: Zeichenklasse um `()` erweitert UND das Schluss-Element
+   vor dem Doppelpunkt akzeptiert jetzt alternativ auch ein
+   Klammer-Suffix (`(?:0*\d+|\([A-Za-z0-9]+\))` statt nur `0*\d+`) - an
+   BEIDEN Fundstellen dieser Regex in `generate_epg.py` (frueher
+   Pipe-Zweig und genereller kern-vorne-Zweig ohne Pipe).
+
+4. **Code-Bug in `_wirkt_wie_rohtext_muell()`:** NFL-Sender liefern ihr
+   Live-Event inzwischen im Format "1pm Buccaneers at Bengals" (kein
+   "vs.", kein Doppelpunkt-Uhrzeit-Format, nur 4 Woerter - die
+   bestehenden Muell-Kriterien griffen alle nicht). Der abgetrennte
+   Event-Text wurde faelschlich NICHT als Rohtext-Muell erkannt, wodurch
+   der Rollback in `_kern_und_event_aus_rohname()`/beim Einlesen den
+   korrekt erkannten Kern ("NFL | 03 -") wieder verwarf und durch den
+   kompletten Rohtext ersetzte - betraf alle "NFL 01"-"16". Fix: Regex
+   um `\d{1,2}\s*(?:am|pm)\b` (Uhrzeit ohne Doppelpunkt) ergaenzt.
+
+5. **Format-Drift bei "Super League Plus":** Bisherige Sonderregex
+   verlangte zwingend das Wort "EVENT" nach "SUPER LEAGUE PLUS" - der
+   Anbieter liefert inzwischen auch die Kurzform "Super League Plus 03 |
+   ..." ganz ohne dieses Wort. Fix: "EVENT" in der Regex optional
+   gemacht (`(?:EVENT\s*)?` statt `EVENT\s*`).
+
+**Alle 5 Fixes zusammen** reduzierten die rechnerisch "fehlenden"
+Sender beim vollstaendigen 18957-Kanal-Abgleich auf 0. `pytest` (95
+Tests) bestaetigte nach jedem einzelnen Fix gruen.
+
+**Zusatzaufgabe (Logos, kein EPG-Matching-Bug):** Auf Nutzerwunsch
+wurden zwei sender.txt-Logo-Inkonsistenzen bereinigt, die mit obigen
+Matching-Fixes NICHTS zu tun haben:
+- `NFL | 01`-`16`: alle 16 Zeilen auf dasselbe NFL-Schild-Logo
+  vereinheitlicht (10-14 hatten zuvor eigene, uneinheitliche Logo-
+  Dateien).
+- `NFL TEAMS| ...` (37 Zeilen, statische lokale CBS/FOX-Team-
+  Zuordnungen): 35 davon teilten sich bisher EIN generisches NFL-Logo.
+  Fuer 35 Zeilen wurde per Team-Name-Erkennung (z.B. "BUCCANEERS" ->
+  Tampa Bay) das jeweils echte Team-Logo von `a.espncdn.com/i/
+  teamlogos/nfl/500/<team-code>.png` geladen, auf max. 300px + 256-
+  Farben-Palette komprimiert und unter `logos/nfl_teams/<code>.png`
+  selbst gehostet (siehe Logo-Regel in CLAUDE.md). 2 Zeilen bewusst
+  NICHT vereinzelt, da sie mehrere Teams gleichzeitig im Namen fuehren
+  ("CBS BILLS GIANTS JETS NEW YORK NY", "CBS CHIEFS BEARS ST. LOUIS
+  MO") - ein einzelnes Team-Logo waere hier falsch/irrefuehrend, bleibt
+  beim generischen NFL-Logo. `FOX REDSKINS WASHINGTON DC` hatte bereits
+  ein eigenes Commanders-Logo und wurde nicht angefasst.
+
+**Wichtig fuer den ungeloest gebliebenen Ausgangs-Report:** Ein per
+TiviMate-Screenshot gemeldetes falsches Team-Logo bei "NFL | 01/02/15"
+(zeigte New York Giants statt NFL-Schild) hat sich als NICHT durch
+unsere Daten verursacht herausgestellt - sowohl `sender.txt` als auch
+die Playlist selbst (`stream_icon` in der Xtream-API) fuehren fuer
+diese Kanaele durchgehend dasselbe generische NFL-Logo, unveraendert
+seit vor dieser Session. Ursache vermutlich eine alte, manuell in
+TiviMate gesetzte oder gecachte Kanal-Logo-Zuordnung (gleiches Muster
+wie der bereits bekannte offene Fall bei `HR|SPORT KLUB 1`, siehe
+CLAUDE.md) - kein weiterer Code-Fix ohne neue Evidenz.
