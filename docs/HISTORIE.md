@@ -3730,3 +3730,104 @@ falsches Logo/falsche Daten, sondern GAR KEIN Kanal in der EPG-Suche)
 IMMER pruefen, ob der Kanalname eine dieser beiden Heuristiken durch
 Zufall triggert - nicht vorschnell auf TiviMate-Cache schieben wie beim
 Fall oben.
+
+## September 2026: MagentaTV MK/ME als neue echte Quelle fuer MK/BA/RS/HR/ME/MNG/MO/CG + kritischer hat_aktive_echte_quelle()-Bug gefunden und behoben
+
+**Ausgangspunkt:** Nutzer schickte mehrere `.mht`-Snapshots von
+`magentatv.mk/epg` (MagentaTV GO Nordmazedonien). Recherche ergab: die
+Seite ist eine reine JS-SPA (Backend "yo-digital.com"/Plattform
+"Reach"), die ihre Sender+Sendungen per XHR im GAST-Modus laedt (`x-
+call-type: GUEST_USER`, kein Login/Account noetig). Die noetigen
+Header/Endpunkte wurden per eigens angelegtem Diagnose-GitHub-Actions-
+Workflow (Playwright, faengt echte Browser-Requests ab) gefunden - ein
+direkter Abruf aus der Claude-Code-Sandbox selbst schlug durchgaengig
+mit HTTP 500 fehl (vermutlich Akamai-Geo-/Cloud-IP-Filter), aus einem
+GitHub-Actions-Runner funktionierte er zuverlaessig.
+
+**Zwei Mandanten, unterschiedliche Sender-Zuordnung:**
+- **MK** (`quellen/magentatv_mk_epg.py`): Der Kanalliste-Endpunkt
+  (`/epg/channel/v2`) lieferte in dieser Session keine brauchbare
+  Antwort. Stattdessen wurde eine FESTE `station_id`->Name-Tabelle aus
+  mehreren, an unterschiedlichen Scroll-Positionen gespeicherten
+  `.mht`-Snapshots gebaut (`STATION_NAMEN`, 139 Sender) - die
+  `station_id` ist identisch mit der Nummer in den Logo-Bild-URLs.
+- **ME** (`quellen/magentatv_me_epg.py`, Montenegro,
+  `magentatv.me/epg`): Hier lieferte der Kanalliste-Endpunkt
+  (`/epg/channel`, ohne `/v2`) direkt Namen+`station_id` in einer
+  einzigen Antwort (218 Sender) - komplett dynamisch, keine feste
+  Tabelle noetig.
+
+**Zwei echte Bugs beim ersten Testlauf gefunden (Test-Workflows
+`test_magentatv_mk.yml`/`test_magentatv_me.yml`, danach wieder
+geloescht):**
+1. **Device-/Session-ID pro Anfrage neu erzeugt statt pro Lauf einmal:**
+   beim ME-Mandanten lieferte das faktisch leere Schedules-Antworten
+   (vermutlich serverseitige Session-Pruefung) - beim MK-Mandanten
+   tolerant, aber vorsorglich in beiden Modulen auf EINE konstante
+   `device-id`/`x-request-session-id` pro Lauf umgestellt, zusaetzlich
+   ein Bootstrap-Aufruf an `/tenant/config` vor der ersten echten
+   Anfrage (repliziert den Sitzungsstart der echten Web-App).
+2. **Zeitformat-Bug:** Der ME-Mandant liefert `start_time`/`end_time`
+   mit Sekundenbruchteilen (`"2026-09-12T21:00:00.00Z"`), der feste
+   Format-String erwartete aber exakt `...T...:00Z` ohne
+   Nachkommastellen - dadurch wurde JEDE einzelne Sendung beim Parsen
+   verworfen, OHNE Fehler-Log (der Fehler wird pro Sendung einzeln und
+   stillschweigend abgefangen). Ein Debug-Workflow-Schritt (alle
+   zurueckgelieferten `station_id`s ueber einen ganzen Tag auflisten)
+   zeigte echte Treffer (226 Sender inkl. PRVA/ARENASPORT 1 im ersten
+   Zeitfenster), obwohl der eigentliche Cache-Aufbau 0 Sendungen
+   zaehlte - das war der entscheidende Hinweis auf einen reinen
+   Parse-Bug statt eines API-Problems. Fix: `_iso_zeit_parsen()`
+   strippt Sekundenbruchteile jetzt vor dem Parsen weg (vorsorglich
+   auch bei MK angewendet).
+
+**Dritter, deutlich kritischerer Bug beim ersten PRODUKTIONS-Lauf
+gefunden:** Die neue MagentaTV-Kaskadenstufe wurde zwar erfolgreich
+eingebaut und per Test-Workflow gegen die echte API validiert (5/5 bzw.
+9/9 Testsender lieferten Sendungen) - im echten `update_epg.yml`-Lauf
+tauchte "MagentaTV" in der abschliessenden Quellen-Zusammenfassung
+("Echte Programmdaten fuer N Sender geladen (...)") aber GAR NICHT auf.
+Ursache: `hat_aktive_echte_quelle(daten)` (in `generate_epg.py`) pruefte
+bisher nur, ob fuer den Sender IRGENDEIN Quellen-Zustaendigkeits-Flag
+gesetzt ist (z.B. "mk"=True fuer jeden MK-Sender, unabhaengig vom
+Ergebnis) - NICHT, ob diese Quelle tatsaechlich schon Daten geliefert
+hat. Da fuer MK/BA/RS/HR/ME/MNG/MO/CG praktisch immer mindestens ein
+FRUEHERES Flag (Siol/mts/MojMaxTV/Telemach) gesetzt ist, ueberspringen
+sich die SPAETEREN Fallback-Stufen (TvProfil.net, iptv-epg.org/MK, jetzt
+auch MagentaTV) dadurch bei JEDEM Lauf selbst - unabhaengig davon, ob
+die fruehere Quelle fuer den jeweiligen Sender ueberhaupt etwas
+gefunden hatte. Verifiziert durch direktes Grep im Log des laufenden
+Produktions-Workflows: "TvProfil.net" und "iptv-epg.org (MK)" fehlten
+in der Quellen-Zusammenfassung EBENFALLS - ein bereits laenger
+bestehender, bis jetzt unbemerkter Bug, nicht durch die MagentaTV-
+Aenderung neu entstanden.
+
+**Fix:** `hat_aktive_echte_quelle()` prueft jetzt pro zustaendigem Flag,
+ob mindestens eines der zugehoerigen `*_intervalle`-Felder tatsaechlich
+schon Eintraege enthaelt (statt nur das Flag selbst). Aendert NICHTS an
+Arena Sport (Haupt-Serie "ARENA SPORT N") und Sport Klub: deren Quellen
+(mts.rs/Arena-Fallback, MojMaxTV/SportKlub, `ARENA:`-Praefix) laufen
+UNGATED (ohne diesen Check) und schreiben bereits vorher echte Daten -
+die neue Pruefung erkennt das (`mts_arena_intervalle`/
+`sportklub_intervalle` nicht leer) und laesst die spaeteren Stufen dort
+weiterhin korrekt aussetzen, exakt wie vorher.
+
+**Ergebnis (Offline-Abgleich vor dem naechsten Lauf):** ~135
+MK/BA/RS/HR-Sender, die bisher trotz `sender.txt`-Eintrag nur als
+`ⱽᴵᴾ ᴿᴬᵂ`-Platzhalter ohne echtes Programm standen (u.a. PRVA, B92,
+RTL 2/Living/Kockica, komplette PINK-Familie, ARENA Fight/Esport/Tenis,
+HBO, Cinemax 1+2, Disney Channel, Nicktoons, FTV, ATV, M1 Gold, Star
+Life/Channel), sowie ~40 ME/MNG/MO-Sender (RTCG 1/2, PRVA, Vijesti,
+Arenasport 1-N, Nova M, ...) bekommen dadurch beim naechsten
+`update_epg.yml`-Lauf zum ersten Mal ueberhaupt eine echte Chance auf
+Daten aus TvProfil.net/iptv-epg.org/MagentaTV.
+
+**Lehre:** Bei kuenftigen "Quelle X liefert nie etwas, obwohl sie laut
+Code aktiv sein sollte"-Faellen IMMER zuerst die abschliessende
+Quellen-Zusammenfassungszeile im Workflow-Log pruefen (listet alle
+TATSAECHLICH beitragenden Quellen samt Sendersanzahl) - fehlt die
+Quelle dort komplett, liegt es fast immer an einer zu fruehen
+`hat_aktive_echte_quelle()`/Skip-Bedingung, nicht an der Quelle selbst.
+Ein erfolgreicher isolierter Modul-Test (Quelle liefert bei direktem
+Aufruf echte Daten) beweist NICHT, dass die Quelle auch im echten
+Kaskaden-Kontext von `generate_epg.py` ueberhaupt aufgerufen wird.

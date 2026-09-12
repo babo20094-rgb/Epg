@@ -275,10 +275,28 @@ _ECHTE_QUELLEN_INTERVALLE = {
 
 def hat_aktive_echte_quelle(daten):
     """True, wenn fuer diesen Sender mindestens eine echte EPG-Quelle
-    (Telemach, Sky, Magenta, Pluto TV/tvmovie.de, Tubi, ...) aktiv ist -
-    unabhaengig davon, ob sie fuer den aktuell betrachteten Zeitblock
-    tatsaechlich Daten geliefert hat."""
-    return any(daten.get(flag) for flag in _ECHTE_QUELLEN_INTERVALLE)
+    (Telemach, Sky, Magenta, Pluto TV/tvmovie.de, Tubi, ...) TATSAECHLICH
+    schon Sendungen geliefert hat - nicht nur, ob die Quelle fuer dieses
+    Land/diesen Sender grundsaetzlich zustaendig waere.
+
+    WICHTIG (Bugfix September 2026): vorher wurde nur das reine
+    Zustaendigkeits-Flag geprueft (z.B. "mk"=True fuer jeden MK-Sender,
+    unabhaengig vom Ergebnis). Da fuer MK/BA/RS/HR/ME/MNG/MO/CG immer
+    mindestens ein FRUEHERES Flag (Siol/mts/MojMaxTV/Telemach) gesetzt
+    ist, ueberspraengen sich die spaeteren Fallback-Stufen (TvProfil.net,
+    iptv-epg.org/MK, MagentaTV MK/ME) dadurch IMMER selbst - sie kamen
+    nie zum Zug, auch wenn die fruehere Quelle fuer den jeweiligen Sender
+    gar nichts gefunden hatte. Jetzt wird stattdessen geprueft, ob die zu
+    einem zustaendigen Flag gehoerenden *_intervalle-Felder tatsaechlich
+    schon Eintraege enthalten. Aendert NICHTS an Arena Sport/Sport Klub
+    (deren Quellen laufen ungated, ohne diesen Check, siehe
+    mts_sender/mojmaxtv_sender-Verarbeitungsbloecke)."""
+    for flag, felder in _ECHTE_QUELLEN_INTERVALLE.items():
+        if not daten.get(flag):
+            continue
+        if any(daten.get(feld) for feld in felder):
+            return True
+    return False
 
 
 def alle_echten_intervalle(daten):
