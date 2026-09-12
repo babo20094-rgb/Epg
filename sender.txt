@@ -18248,16 +18248,16 @@ MK|SUTEL TV|Sutel TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rg
 MK|TV SONCE|TV Sonce ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ec85053b2e0dad7e0108685a1b7a19df58d0fcfa.png
 MK|NASA TV|Nasa TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fa61e2628facad8c023448006336aaf75b149532.png
 MK|TV PLUS ⱽᴵᴾ ᴿᴬᵂ|TV Plus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/431a05066b6063dfe83eea3a9e447f22d4304727.png
-MK|TV HUGO 1 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (1) ᴸⁱᵛᵉ|
-MK|TV HUGO 2 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (2) ᴸⁱᵛᵉ|
-MK|TV HUGO 3 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (3) ᴸⁱᵛᵉ|
-MK|TV HUGO 4 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (4) ᴸⁱᵛᵉ|
-MK|TV HUGO 5 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (5) ᴸⁱᵛᵉ|
-MK|TV HUGO 6 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (6) ᴸⁱᵛᵉ|
-MK|TV HUGO 7 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (7) ᴸⁱᵛᵉ|
-MK|TV HUGO 8 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (8) ᴸⁱᵛᵉ|
-MK|TV HUGO 9 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (9) ᴸⁱᵛᵉ|
-MK|TV HUGO 10 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (10) ᴸⁱᵛᵉ|
+MK|TV HUGO 1 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (1) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_1.png
+MK|TV HUGO 2 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (2) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_2.png
+MK|TV HUGO 3 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (3) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_3.png
+MK|TV HUGO 4 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (4) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_4.png
+MK|TV HUGO 5 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (5) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_5.png
+MK|TV HUGO 6 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (6) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_6.png
+MK|TV HUGO 7 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (7) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_7.png
+MK|TV HUGO 8 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (8) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_8.png
+MK|TV HUGO 9 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (9) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_9.png
+MK|TV HUGO 10 ⱽᴵᴾ ᴿᴬᵂ|TV Hugo (10) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_hugo/tv_hugo_10.png
 MK|TV 24 ⱽᴵᴾ ᴿᴬᵂ|TV (24) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bb45bf2887d1ddcaa59657a52255c246aef4ff74.png
 MK|SOBRANISKI KANAL ⱽᴵᴾ ᴿᴬᵂ|Sobraniski Kanal ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/68b334178aaeb8eeff0a67947a001dcd2c9c4e1b.png
 MK|SITEL ⱽᴵᴾ ᴿᴬᵂ|Sitel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d8d52424a9808609739059fc8b80e91e3fc35c07.png
