@@ -84,6 +84,7 @@ from quellen.magentatv_mk_epg import magentatv_mk_kanal_finden, magentatv_mk_hol
 from quellen.magentatv_me_epg import magentatv_me_kanal_finden, magentatv_me_hole_programme
 from quellen.iptvepg_de_epg import iptvepg_de_kanal_finden, iptvepg_de_hole_programme
 from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
+from quellen.tvprogramdanas_epg import tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -270,6 +271,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mk": ["mk_intervalle"],
     "magentatv_mk": ["magentatv_mk_intervalle"],
     "magentatv_me": ["magentatv_me_intervalle"],
+    "tvprogramdanas": ["tvprogramdanas_intervalle"],
 }
 
 
@@ -1920,6 +1922,20 @@ for zeile in zeilen:
     # abgleich, kein Fehltreffer-Risiko fuer andere Zeilen.
     if land.strip().upper() in ("HR", "BA", "RS", "SI", "MK", "ME", "MNG", "MO", "CG"):
         eintrag["tvprofil"] = True
+    # tvprogramdanas.net: BREITESTER, ALLERLETZTER Fallback fuer HR/BA/
+    # RS/SI/MK/ME/MNG/MO/CG-Sender sowie GO/DE (siehe tvprogramdanas_
+    # epg.py - EXYU-Portal mit HR/RS/BA/MNG/MO/SI/MK-Sendern und diversen
+    # internationalen Pay-TV-Kanaelen wie HBO/Cinemax/Pink*/CineStar/
+    # FilmBox, keine eigene Kanalliste noetig, statische Datei aus allen
+    # Kategorien der Seite exportiert). Nur exakter/enger unscharfer
+    # Namensabgleich, Arena-Sport-/Sport-Klub-Kanaele sind bereits aus
+    # der Kanalliste ausgeschlossen (siehe Kommentar in
+    # tvprogramdanas_kanalliste.txt-Erzeugung) - laufen unveraendert
+    # weiter ueber arena_epg.py/sportklub_epg.py.
+    if land.strip().upper() in (
+        "HR", "BA", "RS", "SI", "MK", "ME", "MNG", "MO", "CG", "GO", "DE",
+    ):
+        eintrag["tvprogramdanas"] = True
     # iptv-epg.org: LETZTER Fallback speziell fuer MK-Sender, nach Siol
     # und TvProfil.net (siehe mk_epg.py - 109 mazedonische Kanaele,
     # ~6 Tage Vorschau, live verifiziert u.a. an MRT 1). Kein eigenes
@@ -3011,6 +3027,7 @@ MK_TAGE = 3
 MAGENTATV_MK_TAGE = 2
 MAGENTATV_ME_TAGE = 2
 IPTVEPG_DE_TAGE = 2
+TVPROGRAMDANAS_TAGE = 3
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
@@ -3030,6 +3047,7 @@ magentatv_mk_sender = [d for d in sender_daten if d.get("magentatv_mk")]
 magentatv_me_sender = [d for d in sender_daten if d.get("magentatv_me")]
 plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
+tvprogramdanas_sender = [d for d in sender_daten if d.get("tvprogramdanas")]
 
 
 BESCHREIBUNG_MAX_LAENGE = 150
@@ -4304,6 +4322,38 @@ for daten in tubi_sender:
 
     if programme:
         _echte_quelle_zaehlen("Tubi")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVPROGRAMDANAS.NET: BREITESTER, ALLERLETZTER Fallback fuer HR/BA/RS/
+# SI/MK/ME/MNG/MO/CG/GO/DE-Sender, nach ALLEN anderen Quellen (siehe
+# tvprogramdanas_epg.py). Nur fuer Sender ohne jede bisherige echte
+# Quelle (hat_aktive_echte_quelle()) - fuellt ausschliesslich noch
+# unbedeckte Platzhalter-Sender, ruehrt laufende Quellen (insbesondere
+# Arena Sport/Sport Klub) nicht an.
+# ==========================================================
+
+for daten in tvprogramdanas_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        slug = tvprogramdanas_kanal_finden(daten["sender"])
+        if slug is not None:
+            programme = tvprogramdanas_hole_programme(slug, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["tvprogramdanas_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("tvprogramdanas.net")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
