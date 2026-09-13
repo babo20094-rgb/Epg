@@ -17281,25 +17281,25 @@ NA| TEXAS STARS|Texas Stars ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2
 NA| TORONTO MARLIES|Toronto Marlies ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| TUCSON ROADRUNNERS|Tucson Roadrunners ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| UTICA COMETS|Utica Comets ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| W-B/SCRANTON PENGUINS|W-B/scranton Penguins ᴸⁱᵛᵉ|Auto
-NA| VICTORIAVILLE TIGRES|Victoriaville Tigres ᴸⁱᵛᵉ|Auto
-NA| Sherbrooke Phoenix|Sherbrooke Phoenix ᴸⁱᵛᵉ|Auto
-NA| Val-d'Or Foreurs|Val-D'or Foreurs ᴸⁱᵛᵉ|Auto
-NA| SHAWINIGAN CATARACTES|Shawinigan Cataractes ᴸⁱᵛᵉ|Auto
-NA| SAINT JOHN SEA DOGS|Saint John Sea Dogs ᴸⁱᵛᵉ|Auto
-NA| ROUYN-NORANDA HUSKIES|Rouyn-Noranda Huskies ᴸⁱᵛᵉ|Auto
-NA| RIMOUSKI OCÉANIC|Rimouski Océanic ᴸⁱᵛᵉ|Auto
-NA| QUÉBEC REMPARTS|Québec Remparts ᴸⁱᵛᵉ|Auto
-NA| MONCTON WILDCATS|Moncton Wildcats ᴸⁱᵛᵉ|Auto
-NA| HALIFAX MOOSEHEADS|Halifax Mooseheads ᴸⁱᵛᵉ|Auto
-NA| GATINEAU OLYMPIQUES|Gatineau Olympiques ᴸⁱᵛᵉ|Auto
-NA| DRUMMONDVILLE VOLTIGEURS|Drummondville Voltigeurs ᴸⁱᵛᵉ|Auto
-NA| CHICOUTIMI SAGUENÉENS|Chicoutimi Saguenéens ᴸⁱᵛᵉ|Auto
-NA| CHARLOTTETOWN ISLANDERS|Charlottetown Islanders ᴸⁱᵛᵉ|Auto
-NA| BLAINVILLE-BOISBRIAND ARMADA|Blainville-Boisbriand Armada ᴸⁱᵛᵉ|Auto
-NA| CAPE BRETON EAGLES|Cape Breton Eagles ᴸⁱᵛᵉ|Auto
-NA| BAIE-COMEAU DRAKKAR|Baie-Comeau Drakkar ᴸⁱᵛᵉ|Auto
-NA| ACADIE-BATHURST TITAN|Acadie-Bathurst Titan ᴸⁱᵛᵉ|Auto
+NA| W-B/SCRANTON PENGUINS|W-B/scranton Penguins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| VICTORIAVILLE TIGRES|Victoriaville Tigres ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Sherbrooke Phoenix|Sherbrooke Phoenix ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| Val-d'Or Foreurs|Val-D'or Foreurs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| SHAWINIGAN CATARACTES|Shawinigan Cataractes ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| SAINT JOHN SEA DOGS|Saint John Sea Dogs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| ROUYN-NORANDA HUSKIES|Rouyn-Noranda Huskies ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| RIMOUSKI OCÉANIC|Rimouski Océanic ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| QUÉBEC REMPARTS|Québec Remparts ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| MONCTON WILDCATS|Moncton Wildcats ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| HALIFAX MOOSEHEADS|Halifax Mooseheads ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| GATINEAU OLYMPIQUES|Gatineau Olympiques ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| DRUMMONDVILLE VOLTIGEURS|Drummondville Voltigeurs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| CHICOUTIMI SAGUENÉENS|Chicoutimi Saguenéens ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| CHARLOTTETOWN ISLANDERS|Charlottetown Islanders ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| BLAINVILLE-BOISBRIAND ARMADA|Blainville-Boisbriand Armada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| CAPE BRETON EAGLES|Cape Breton Eagles ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| BAIE-COMEAU DRAKKAR|Baie-Comeau Drakkar ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| ACADIE-BATHURST TITAN|Acadie-Bathurst Titan ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| CALGARY WRANGLERS|Calgary Wranglers ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 US| REALITY||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/91719ca116990c9312f5fcd377686f6c1b390d7f.png
 US| YOGA EXERCISE||Auto
