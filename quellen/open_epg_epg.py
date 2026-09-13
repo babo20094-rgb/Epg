@@ -126,6 +126,13 @@ _WHITELIST = {
     # gefunden (168 Sendungen), bei keiner anderen Quelle abgedeckt.
     normalisiere_sendername("N1 BH"): ("BA", "N1.HD.(BH)/(BIH).ba"),
     normalisiere_sendername("N1 BH HD"): ("BA", "N1.HD.(BH)/(BIH).ba"),
+    # "Hayat 2" (echte Sendung "7plus", Hayat-TV-Talkshow) = Hayat Plus.
+    normalisiere_sendername("Hayat Plus"): ("BA", "Hayat.2.ba"),
+    # "RTV HIT" (Inhalt bestaetigt Brcko-Bezug) = Hit TV/Hit Brcko -
+    # alle drei sender.txt-Schreibweisen abdecken.
+    normalisiere_sendername("Hit TV"): ("BA", "RTV.HIT.ba"),
+    normalisiere_sendername("Hit Brcko"): ("BA", "RTV.HIT.ba"),
+    normalisiere_sendername("Hit Televizija Brcko"): ("BA", "RTV.HIT.ba"),
 }
 
 _datei_cache = {}
