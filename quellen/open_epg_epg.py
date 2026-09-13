@@ -3,11 +3,12 @@ laenderweise XMLTV.GZ-Dateien, z.B. https://www.open-epg.com/files/
 croatia.xml.gz) - bewusst NUR fuer eine kleine, feste Whitelist
 einzelner Sender eingebaut, die bei ALLEN anderen Quellen (Telemach/
 mtel.ba/klix.ba/mts.rs/MojMaxTV/SportKlub/Siol/TvProfil.net/
-tvprogramdanas.net) durchgefallen sind (Stand September 2026: "Animal
-Planet" und "MrezaZG" fuer HR) - KEIN generisches Matching gegen die
-volle, mehrere hundert Kanaele grosse Landesliste, um das Risiko
-ungewollter Treffer bei bereits anderweitig abgedeckten Sendern
-(insbesondere Arena Sport/Sport Klub) komplett auszuschliessen.
+tvprogramdanas.net/DE-Kaskade) durchgefallen sind (Stand September
+2026: "Animal Planet"/"MrezaZG" fuer HR sowie 14 DE/JOYN/PRIME-Sender,
+siehe _WHITELIST) - KEIN generisches Matching gegen die volle, mehrere
+hundert Kanaele grosse Landesliste, um das Risiko ungewollter Treffer
+bei bereits anderweitig abgedeckten Sendern (insbesondere Arena Sport/
+Sport Klub) komplett auszuschliessen.
 
 Jede Landes-XMLTV.GZ-Datei wird trotzdem nur EINMAL pro Lauf
 heruntergeladen und geparst (gecached) - auch wenn nur ein einzelner
@@ -43,6 +44,7 @@ HEADERS = {
 _LAND_DATEI = {
     "HR": "croatia.xml.gz",
     "BA": "bosnia.xml.gz",
+    "DE": "germany.xml.gz",
 }
 
 # ENGE Whitelist: normalisierter Sendername -> (Land, open-epg.com-
@@ -54,6 +56,27 @@ _LAND_DATEI = {
 _WHITELIST = {
     normalisiere_sendername("Animal Planet"): ("HR", "AnimalPlanet.hr"),
     normalisiere_sendername("MrezaZG"): ("HR", "MrezaZG.hr"),
+    # DE/JOYN/PRIME - September 2026 geprueft: bei KEINER Stufe der
+    # bestehenden DE-Kaskade (deswird.org/Pluto TV/tvmovie.de/hoerzu.de/
+    # Joyn-VOD/search.ch/iptv-epg.org, siehe generate_epg.py) und auch
+    # nicht bei tvprogramdanas.net gefunden, aber bei open-epg.com/
+    # germany.xml.gz mit gut gefuellten Sendeplaenen (25-166 Sendungen).
+    normalisiere_sendername("Big Brother Classics"): ("DE", "BigBrotherClassics.de"),
+    normalisiere_sendername("Curiosity Now"): ("DE", "CuriosityNow.de"),
+    normalisiere_sendername("FIFA+"): ("DE", "FIFAplus.de"),
+    normalisiere_sendername("Ladykracher"): ("DE", "Ladykracher.de"),
+    normalisiere_sendername("MovieSphere"): ("DE", "MovieSphere.de"),
+    normalisiere_sendername("Niederbayern TV Deggendorf-Straubing"): (
+        "DE", "NiederbayernTVDeggendorfStraubing.de",
+    ),
+    normalisiere_sendername("Qello Concerts by Stingray"): ("DE", "QelloConcertsbyStingray.de"),
+    normalisiere_sendername("Spiegel TV Konflikte"): ("DE", "SPIEGELTVKonflikte.de"),
+    normalisiere_sendername("SWR Baden-Württemberg"): ("DE", "SWRBadenWuerttemberg.de"),
+    normalisiere_sendername("SWR Rheinland-Pfalz"): ("DE", "SWRRheinlandPfalz.de"),
+    normalisiere_sendername("TemporaTV"): ("DE", "TemporaTV.de"),
+    normalisiere_sendername("Terra Mater Wild"): ("DE", "TerraMaterWILD.de"),
+    normalisiere_sendername("WDR Köln"): ("DE", "WDRKoeln.de"),
+    normalisiere_sendername("XITE Hits"): ("DE", "XITEHits.de"),
 }
 
 _datei_cache = {}
