@@ -18936,11 +18936,19 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 
 ##### PLAYLIST-KATEGORIE-TRENNER (aus Playlist, keine echten Sender - nur Platzhaltertext statt "Keine Information") #####
 |#### PRIME ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
-|#####  ENTERTAINMENT HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
-|#####  LALIGA REPLAY  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
-|#####  NHL LEAGUE REPLAY  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
-|#####  SPECTRUM NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 ACTION & ADVENTURE VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 CARTOON VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 CLASSIC SHOWS VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 COMEDY VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 CRIME VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 DRAMA VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 KIDS/FAMILY VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### 24/7 MOVIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 MOVIES/ACTORS VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 ONEPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 REALITY VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 24/7 SHOWS VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### 4K UHD 3840P #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ABC ALABAMA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ABC ALASKA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ABC ARIZONA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -18996,8 +19004,11 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### BBCIPLAYER SERIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### BEIN SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### BEIN SPORTS ASIA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### BH BOSNIA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### BH BOSNIA ⱽᴵᴾ ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### BIBLICAL/RELIGIOUS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### BUNDESLIGA REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### CA OHL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CARABO  CUB  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CBS ALABAMA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CBS ALASKA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19047,6 +19058,9 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### CBS WEST VIRGINIA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CBS WISCONSIN #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CBS WYOMING #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### CG MONTENEGRO #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### CG MONTENEGRO VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### CG MONTENEGRO/CRNA GORA ⱽᴵᴾ ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CHAMPIONS LEAGUE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CHAMPIONS LEAGUE EVENTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CHAMPIONS LEAGUE REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19078,11 +19092,45 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### CW WASHINGTON #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### CW WISCONSIN #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DAZN EXCLUSIVE ᴴᴰ/ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE ALLGEMEIN #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DE BUNDESLIGA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE BUNDESLIGA REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE DAZN EXCLUSIVE ᴴᴰ/ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE DAZN PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE DISCOVERY+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE DISNEY+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE DISNEY+ ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DE DOCUMENTAIRE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE DYN NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE DYN PPV EXCLUSIVE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DE ENTERTAINMENT #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE FILME UND SERIEN #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DE GENERAL #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE GERMANY HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE HULU ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE JOYN ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE KINDER #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE LEAGUES FOOTBALL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE MAGENTA FILME 4K #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE MAGENTA PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE MAGENTA PPV ᴿᴬᵂ ᴳᴼᴸᴰ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE MYSPORT PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE MYTEAM SPORT #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE PREMIUM PLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE PRIME VIDEO ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE PRIME ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE RTL+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE RTL+ SPORT PPV ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE RTL+ ᴿᴬᵂ ᴳᴼᴸᴰ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE SKY GO KINO #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE SKY GO SPORT #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE SKY MAX PPV 4K #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE SOCCER PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DE SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE UNTERHALTUNG #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE WORLD CUP 2026 REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE WOW ENTERTAINMENT ᴴᴰ ᴰᴼᴸᴮʸ ᴬᵁᴰᴵᴼ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### DE WOW SPORT ᴴᴰ ᴰᴼᴸᴮʸ ᴬᵁᴰᴵᴼ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DISNEY+ ORIGINAL #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DOCUMENTARY HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### DOKUS UND NEWS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19093,6 +19141,7 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### EFL-L2 REPLAYS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ENTERTAINMENT #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ENTERTAINMENT FHD #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|#####  ENTERTAINMENT HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ENTERTAINMENT SD #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### EPL PREMIER LEAGUE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### EPL PREMIER LEAGUE PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19103,6 +19152,10 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### EUROPIEN QUALIFIER #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### EUROPIEN QUALIFIERS  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### EX YU RADIO #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### EXYU 24/7 #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### EXYU DECIJI KANALI #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### EXYU MUZICKI KANALI #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### EXYU PINK MEDIA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### FA CUB  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### FILMS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### FITE EVENTS  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19161,6 +19214,11 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### GERMANY HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### HBO ORIGINAL #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### HULU ORIGINALS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### IR CLUBBER PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### IR IRELAND #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### IR LOI PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### IR NIFL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### IR SETANTA PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### JOYN ᴿᴬᵂ ᴰᴱ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### KIDS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### KIDS FHD #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19169,12 +19227,15 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### KIDS ONEPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### KIDS SD #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### KINDERSENDER #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|#####  LALIGA REPLAY  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### LOCALS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MAGENTA FILME 4K #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MAGENTA PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MAGENTA SERIE 4K #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MAX PPV ⱽᴵᴾ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MAX SELECT #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### MK MACEDONIA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### MK MACEDONIA ⱽᴵᴾ ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MLB PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MLS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MOVIES BOSS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19186,6 +19247,7 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### MUSIC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MY NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### MYSPORT PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### NA PPV & LIVE EVENTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### NATIONAL LEAGUE REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### NBA LEAGUE REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### NBA LIVE EVENTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19244,6 +19306,7 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### NFL LEAGUE REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### NFL LIVE EVENTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### NFL TEAMS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|#####  NHL LEAGUE REPLAY  #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### NHL LIVE EVENTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### NHL TEAMS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ONEPLAY ADVENTURE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19263,6 +19326,8 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### QUEBEC HOCKEY LEAGUE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### REALITY SHOW TV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### REGIONALSENDER #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### RS SERBIA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### RS SERBIA ⱽᴵᴾ ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SCOTLAND #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SCOTTISH LEAGUE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SERIEA REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
@@ -19277,22 +19342,156 @@ SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 |##### SKY SPORTS HD #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SKY SPORTS SD #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SKY STORE PREMIERE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### SL SLOVENIA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### SL SLOVENIA ⱽᴵᴾ ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|#####  SPECTRUM NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SPFL REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SPORT DEUTSCHLAND #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SPORTS HEVC  ####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SPORTS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SUPER SELECT #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### SUPER SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK 24/7 MOVIES & SERIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK AMAZON PRIME + #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK APPLE TV F1 PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK APPLE TV+ SERIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK ASTRO SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK BBC STREAM PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK BBCI #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK BBCIPLAYER SERIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK CHAMPIONSHIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK CUP GAMES & INTERNATIONAL #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK CYMRU FOOTBALL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK DAZN PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK DISCOVERY + #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK DOCUMENTARY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK DOCUMENTARY HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK ENTERTAINMENT HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK EPL PREMIER LEAGUE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK ESPN+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK EUROSPORT XTRA #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK GAA GO PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK GAAGO SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK GENERAL #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK GENERAL HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK HUB PREMIER PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK HUB SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK ITV X VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK KIDS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK KIDS HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK LA LIGA TEAM PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK LEAGUE ONE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK LEAGUE TWO #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK LIGUE 1 PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MATCHROOM PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK MATCHROOM SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MAX PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MAX PPV VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MC VIDEO ᴴᴰ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MOLA PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MONOMAX PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MOVIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MOVIES HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MUSIC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK MXGP PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK NATIONAL LEAGUE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK NETFLIX ORIGINAL #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK NETFLIX PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK NEWS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK NOW SPORTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK NOW TV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### UK PAY PER VIEW PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK PDC BOARD PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK PPV EVENTS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK PRIME VIDEO SERIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK PRIME ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK PSF PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK RALLY TV PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK REALITY SHOW TV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK RUGBY PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SCOTTISH FOOTBALL #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SERIE A TEAM PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SKY SPORT+ VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SKY SPORTS RED BUTTON #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SKY STORE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SKYMIX DOCS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SKYMIX SERIES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SOCCER REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SPORTS HEVC #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK SUPER LEAGUE+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK TNT SPORTS EVENT #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK UEFA REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK UFC/BOXING PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK ULSTER GAA PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK ULTIMATE POOL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK VIAPLAY PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK VIDIO EPL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK VOLLEY BALL WORLD PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### UK WORLD CUP 2026 REPLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### ULTIMATE POOL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US ABC NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US APPLE TV F1 PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US B/R MAX SPORTS PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US B1G+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US BIBLICAL/RELIGIOUS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US BTN+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US CBS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US CINEMANIA HOLLYWOOD #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US CINEMANIA TV SHOWS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US DAZN PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US DIREC TV GO ᴴᴰ/ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US DIREC TV ᶜᶦᵗʸ ᴴᴰ/ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US DIRTVISION PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US DISNEY+ NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US ESPN PLAY #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US ESPN PLUS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US ESPN+ PPV VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US FIFA+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US FITE TV PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US FLO COLLEGE PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US FLO NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US FLO RACING PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US HBO MAX NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US HULU NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US KIDS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MAX ESPN ᴴᴰ/ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MAX PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MILB TV PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MLB PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MLS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MLS PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MLS PPV VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US MOVIES NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NBA NETWORK VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NBA PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NBC NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NCAAB PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NCAAF PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NETFLIX ON AIR ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NETFLIX PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NFHS PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NFL NETWORK HULU #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NFL PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US NHL PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PARAMOUNT+ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PARAMOUNT+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PARAMOUNT+ PPV VIP #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PARAMOUNT+ PPV ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PBS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PEACOCK NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PEACOCK PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PLUTO TV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US PRIME #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US SOCCER PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US SPECTRUM NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US STAN PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US TENNIS CHANNEL PLUS #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US TENNIS PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US TUBI ᴿᴬᵂ #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US VIAPLAY NHL PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US VICTORY+ PPV #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US VIX+ DEPORTES #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
+|##### US WNBA PACKAGE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### USA NCAA LIVE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### VODAFONE GO #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 |##### WESTERN HOCKEY LEAGUE #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
