@@ -3831,3 +3831,57 @@ Quelle dort komplett, liegt es fast immer an einer zu fruehen
 Ein erfolgreicher isolierter Modul-Test (Quelle liefert bei direktem
 Aufruf echte Daten) beweist NICHT, dass die Quelle auch im echten
 Kaskaden-Kontext von `generate_epg.py` ueberhaupt aufgerufen wird.
+
+## September 2026: PROVIDER-Secret (Playlist-Zugangsdaten) - Exception-Nachrichten koennten Klartext-URL leaken (behoben, kein tatsaechliches Leck)
+
+Im Rahmen einer Fehlersuche (ein einzelner Playlist-Sender "LOI 10:
+Drogheda United v Dundalk ..." wurde von TiviMate nicht zugeordnet,
+siehe eigener Abschnitt weiter unten) wurde testweise ein einmaliger
+Diagnose-Workflow (`diagnose_playlist.yml` + `scripts/
+diagnose_playlist_coverage.py`) gebaut, der die LIVE-Playlist des
+Nutzers per Xtream-Codes-API abruft und gegen `sender.txt` abgleicht.
+
+**Sicherheitsvorfall vermieden, nicht eingetreten:** Ein erster Versuch
+sollte die Zugangsdaten als rohe `workflow_dispatch`-Eingaben uebergeben
+(kein GitHub-Secret) - das haette sie dauerhaft im Klartext im
+Actions-Run-Verlauf sichtbar gemacht. Der automatische Auto-Mode-
+Sicherheits-Classifier hat den Versuch VOR der Ausfuehrung blockiert
+("Credential Leakage") - kein Run wurde mit diesen Werten je erstellt
+(verifiziert: 404 von der GitHub-API, da der Workflow zu dem Zeitpunkt
+noch nicht auf `main` lag). Umgestellt auf das bereits vorhandene
+Secret `PROVIDER` (dieselbe volle M3U-URL, die auch `update_epg.yml`
+fuer den DYN-PPV-Live-Abgleich nutzt) - keine neuen Secrets noetig.
+
+**Zusaetzlich gefundene, ECHTE Schwachstelle im PRODUKTIVEN Code** (in
+`generate_epg.py`, nicht nur im Diagnose-Skript): an zwei Stellen
+(DYN-PPV-API-Kanalnamen-Abgleich, `m3u_playlist_abgleichen()`-Aufruf)
+wurde bei einem Netzwerkfehler die komplette Python-Exception
+ausgegeben (`print("... Fehler:", e)`). `requests`-Exceptions
+(`ConnectionError`, `Timeout`, `HTTPError` von `raise_for_status()`)
+haengen bei einem Fehlschlag haeufig die komplette angefragte URL an
+die Fehlermeldung an - bei `PROVIDER` waere das die volle Playlist-URL
+MIT Username/Passwort im Klartext. GitHub Actions maskiert Secrets in
+Logs nur bei exaktem String-Treffer; das haette in der Praxis bisher
+immer funktioniert (alle bisherigen produktiven Laeufe UND alle 7
+Laeufe eines frueheren, mittlerweile entfernten Diagnose-Workflows
+`diagnose_fehlende_sender.yml` wurden explizit per Log-Pruefung
+verifiziert: durchgehend `conclusion: success`, keine Exception, keine
+Zugangsdaten im Klartext gefunden) - war aber ein unnoetiges
+Restrisiko, das rein von der Maskierung abhing statt strukturell
+ausgeschlossen zu sein.
+
+**Fix:** Beide Stellen geben jetzt NUR NOCH den Exception-Typnamen aus
+(`type(e).__name__`, z.B. "ConnectionError"), nie mehr die
+Exception-Nachricht selbst - ein Leck ist dadurch strukturell
+unmoeglich, unabhaengig von GitHub-Secret-Maskierung. Der einmalige
+Diagnose-Workflow selbst wurde nach Abschluss wieder komplett aus dem
+Repo entfernt (Skript + Workflow-Datei).
+
+**Lehre:** Bei JEDEM `print(text, exception_objekt)`/
+`print(f"...{exception_objekt}")`-Muster in der Naehe von Secret-
+Umgebungsvariablen (aktuell nur `PROVIDER`) IMMER nur den Exception-
+Typnamen ausgeben, nie das Exception-Objekt/seine `str()`-Repraesentation
+direkt - unabhaengig davon, ob die betroffene URL exakt dem Secret-Wert
+entspricht (Maskierung ist ein Sicherheitsnetz, keine Garantie). Gilt
+automatisch fuer jeden neuen Diagnose-/Test-Workflow, der Zugangsdaten
+verarbeitet.

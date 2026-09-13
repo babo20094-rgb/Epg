@@ -2349,7 +2349,14 @@ if _m3u_url_fuer_dyn_ppv:
                 f"{DYN_PPV_ANZAHL} Kanaelen mit exaktem Playlist-Namen abgeglichen"
             )
     except Exception as e:
-        print("DYN-PPV-API-Kanalnamen-Abgleich Fehler:", e)
+        # Bewusst NUR der Exception-Typname, nie die Exception-Nachricht
+        # selbst: requests haengt bei Netzwerkfehlern (Timeout,
+        # ConnectionError, HTTPError) haeufig die volle Request-URL an
+        # die Fehlermeldung an - bei PROVIDER waere das die komplette
+        # M3U-URL samt Username/Passwort im Klartext. GitHub Actions
+        # maskiert Secrets nur bei exaktem String-Treffer; das hier
+        # macht ein Leck unmoeglich, unabhaengig von der Maskierung.
+        print(f"DYN-PPV-API-Kanalnamen-Abgleich Fehler: {type(e).__name__}")
 
 def dyn_ppv_kanal_ids(nummer):
     """Alle Kanal-ID-Varianten fuer einen DYN-PPV-1-20-API-Kanal: sowohl
@@ -2790,7 +2797,11 @@ if name_pipe_kanal_index:
                 f"Live-Kanalnamen aktualisiert"
             )
         except Exception as e:
-            print("Live-Kanalabgleich Fehler:", e)
+            # Nur der Exception-Typname, nie die Nachricht selbst - siehe
+            # ausfuehrlicher Kommentar bei "DYN-PPV-API-Kanalnamen-
+            # Abgleich Fehler" oben (gleiches Leck-Risiko fuer die
+            # PROVIDER-URL samt Zugangsdaten).
+            print(f"Live-Kanalabgleich Fehler: {type(e).__name__}")
 
 # ==========================================================
 # <channel>-Blöcke schreiben (sender.txt, mit ggf.
