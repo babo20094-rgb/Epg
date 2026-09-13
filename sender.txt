@@ -17349,22 +17349,22 @@ EN| XMAS THE CAROLER CHALLENGE||https://raw.githubusercontent.com/babo20094-rgb/
 EN| XMAS VEVO BEST HITS||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/christmas.png
 EN| XMAS VEVO HIP HOP||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/christmas.png
 EN| XMAS VEVO MUSIC||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/christmas.png
-NAME:Cymru Football 1|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 2|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 3|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 4|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 5|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 6|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 7|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 8|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 9|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 10|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 11|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 12|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 13|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 14|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 15|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
-NAME:Cymru Football 16|http://51.158.145.100/picons/logos/PPV/CymrFootball.png
+NAME:Cymru Football 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 8|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
+NAME:Cymru Football 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cymru_football/cymru_football.png
 NHL TEAM| UTAH HOCKEY CLUB|
 US| FOX SPORTS WISCONSIN HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/07d5358176839ca1eb2d9a9d056a5c98af901da1.png
 DE| NOW ᴿᴬᵂ
