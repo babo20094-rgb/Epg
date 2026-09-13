@@ -3885,3 +3885,88 @@ direkt - unabhaengig davon, ob die betroffene URL exakt dem Secret-Wert
 entspricht (Maskierung ist ein Sicherheitsnetz, keine Garantie). Gilt
 automatisch fuer jeden neuen Diagnose-/Test-Workflow, der Zugangsdaten
 verarbeitet.
+
+## September 2026: mojtv.hr geprueft (Cloudflare-Block, verworfen) - stattdessen tvprogramdanas.net als neue letzte Fallback-Quelle eingebaut
+
+Ausgangspunkt war ein vom Nutzer hochgeladener `.mht`-Snapshot von
+mojtv.hr (BiH-Kanaele) mit der Frage, ob sich die Seite als neue
+EPG-Quelle fuer BA-Sender eignet, die aktuell nur die generische
+Platzhalter-Beschreibung zeigen.
+
+**mojtv.hr verworfen:** Die komplette Domain laeuft hinter Cloudflare
+mit aktiviertem Bot-Schutz - JEDE automatisierte Anfrage (curl/requests,
+egal mit welchem User-Agent/Referer/Sprach-Header) wird mit
+"Sorry, you have been blocked" (HTTP 403) abgewiesen, unabhaengig von
+der URL (Startseite genauso wie eine einzelne Kanal-Detailseite). Per
+einmaligem Diagnose-Workflow (`diagnose_mojtv.yml`, `workflow_dispatch`,
+danach wieder entfernt) verifiziert, dass der Block auch von
+GitHub-Actions-Runnern aus greift (andere IP-Range als die
+Sitzungsumgebung) - also kein umgebungsspezifisches Problem, sondern ein
+grundsaetzlicher, nicht umgehbarer Bot-Schutz (Cloudflare erkennt am
+TLS-/Browser-Fingerprint und an fehlender JS-Ausfuehrung, dass keine
+echte Browser-Anfrage vorliegt). Kalender-/Datumsauswahl-Feature auf der
+Seite ist irrelevant, wenn schon die allererste Anfrage blockiert wird.
+
+**tvprogramdanas.net gefunden und eingebaut:** Ein zweiter vom Nutzer
+hochgeladener `.mht`-Snapshot (Kategorie "Filmski Kanali") fuehrte auf
+`tvprogramdanas.net` - ein EXYU-TV-Programm-Portal MIT eigener
+"BiH Kanali"-Kategorie sowie HR/RS/MNG/SI/MK-Kategorien und diversen
+internationalen Pay-TV-Kanaelen (HBO, Cinemax, CineStar, FilmBox,
+Pink-Familie, RTL-Sparten, Sky Showtime, AXN, ...). Im Unterschied zu
+mojtv.hr ganz normal per `requests` erreichbar (kein Cloudflare-Block),
+und die Sender-Detailseite (`https://tvprogramdanas.net/<slug>`) liefert
+OHNE Klick/JavaScript serverseitig gerendert bis zu drei Tage
+(heute/morgen/uebermorgen) als separate HTML-Bloecke in einem einzigen
+GET-Request - ideal fuer unsere Kaskaden-Architektur.
+
+Systematischer Abgleich: alle 14 Kategorien der Seite (507 Sender-
+Eintraege) gegen alle Platzhalter-Zeilen in `sender.txt` (generische
+Beschreibung, kein echter Quellen-Treffer) normalisiert abgeglichen,
+dann jeder Namenstreffer einzeln live verifiziert (Zeitraster
+tatsaechlich gefuellt, nicht nur eine leere Kanal-Seite vorhanden).
+Ergebnis: von 2473 Platzhalter-Kandidaten in HR/BA/RS/SI/MK/ME/MNG/MO/
+CG/GO/DE lassen sich 338 mit echten Programmdaten fuellen (Land-
+Verteilung sehr ungleich: BA selbst kaum betroffen - die urspruenglich
+gesuchten bosnischen Stadtsender wie ATV Banja Luka/RTV Cazin/Elta TV
+bleiben leer -, dafuer deutlich mehr bei MO/RS/HR sowie einzelne
+Qualitaets-Suffix-Varianten bei DE, z.B. "Eurosport 1 FHD"/"Das Erste
+HD"/"Disney Channel HEVC", die bei der bestehenden DE-Kaskade aus
+anderen Gruenden leer bleiben).
+
+**Neues Modul `quellen/tvprogramdanas_epg.py`** (+ statische
+`quellen/tvprogramdanas_kanalliste.txt`, 499 Kanaele aus allen
+Kategorien exportiert, keine Live-Crawls fuer die Kanalsuche selbst) -
+als BREITESTER, ALLERLETZTER Fallback in `generate_epg.py` fuer HR/BA/
+RS/SI/MK/ME/MNG/MO/CG/GO/DE eingehaengt (nach ALLEN anderen Quellen,
+inkl. DE-Kaskade und Tubi), aktiv per neuem Flag `tvprogramdanas` in
+`_ECHTE_QUELLEN_INTERVALLE` und nur wenn `hat_aktive_echte_quelle()` fuer
+den Sender noch False ist.
+
+**Arena-Sport/Sport-Klub bewusst ausgeschlossen** (expliziter
+Nutzerwunsch, diese laufen bereits stabil ueber arena_epg.py/
+sportklub_epg.py): doppelt abgesichert - die Kanalliste selbst enthaelt
+keine "Arena Sport N"/"Sport Klub"-Eintraege (beim Export ausgefiltert),
+UND ein zusaetzlicher Namens-Guard im Modul (`_ARENA_SPORT_GUARD`/
+`_SPORT_KLUB_GUARD`/`_SK_KURZFORM_GUARD`, analog zu den gleichnamigen
+Guards in `mts_epg.py`) blockt jede Anfrage fuer Namen wie "ARENA SPORT
+5", "SPORT KLUB 1", "SK 1"/"SK HD"/"SK GOLF"/"SK FIGHT"/"SK ESPORTS" auf
+Regex-Ebene, unabhaengig vom Inhalt der Kanalliste. Grund fuer den
+zweiten Guard: ein erster Test ohne Namens-Guard liess "ARENA SPORT 1"
+per Fuzzy-Match (difflib) faelschlich auf den unverwandten Kanal "Arena
+Esport" ausweichen - der Namens-Guard verhindert das strukturell, nicht
+nur durch die (theoretisch aenderbare) Kanalliste.
+
+**Nachtraeglich, rein informativ geprueft (ohne Code-Aenderung):**
+tvprogramdanas.net hat fuer Arena Sport 1-6 tatsaechlich brauchbare
+echte Daten (11-20 Sendungen/Tag, 3 Tage), aber fuer Sport Klub
+(SK 1-3/Golf/HD) komplett NICHTS (0 Sendungen bei allen getesteten
+Kanaelen) - die bestehende epgshare01.online-Quelle fuer Sport Klub ist
+hier klar ueberlegen, ein Wechsel/Ergaenzen waere eine Verschlechterung.
+Fuer Arena Sport waere ein Zusatz-Fallback denkbar, aber bewusst NICHT
+umgesetzt (Nutzerwunsch: nicht anfassen, laeuft bereits gut ueber
+mts.rs).
+
+**Frueher Diagnose-Workflow entfernt:** Der einmalige
+`diagnose_mojtv.yml`-Workflow wurde nach Abschluss der Pruefung wieder
+komplett aus dem Repo entfernt (analog zum Vorgehen beim PROVIDER-
+Secret-Diagnose-Workflow oben).
