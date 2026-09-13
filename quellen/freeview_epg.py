@@ -112,10 +112,53 @@ def freeview_hole_kanalliste():
     return kanaele
 
 
+def _gemeinsame_praefixlaenge(a, b):
+    n = min(len(a), len(b))
+    i = 0
+    while i < n and a[i] == b[i]:
+        i += 1
+    return i
+
+
+def _fuzzy_treffer_sicher(ziel_schluessel, treffer_schluessel):
+    """Zusaetzliche Absicherung fuer den difflib-Fallback (siehe unten):
+    unsere abgefragte Freeview-Kanalliste (nur die "Greater London"-
+    Network-ID, siehe Modul-Docstring) enthaelt NUR eine Handvoll
+    regionale BBC-Lokalradios (u.a. Surrey, Three Counties) - alle
+    anderen (Sussex, Tees, WM, Wales, Kent, Cymru, ...) fehlen dort
+    komplett. Da alle diese Namen mit demselben "BBC RADIO"-Praefix
+    beginnen, hielt difflib (Cutoff 0.72) den fehlenden Sender bisher
+    faelschlich fuer einen komplett anderen vorhandenen Kanal (z.B.
+    "BBC RADIO SUSSEX"/"BBC RADIO TEES" -> "BBC Radio 4 Ex", "BBC RADIO
+    WM" -> "BBC Radio 4") - live verifiziert (September 2026): Nutzer
+    sah bei Sussex/Tees identisches, falsches Programm ("The Bayeux
+    Tapestry" von BBC Radio 4 Extra) statt "Keine echte Quelle
+    vorhanden". Der reine Gesamt-Aehnlichkeitswert ist bei so
+    praefixlastigen, kurzen Namen zu grosszuegig (gleiches Bugmuster wie
+    schon bei a1_epg.py "HRT1"/"RTV1" und mk_epg.py "K3"/"SK3").
+
+    Fix: nach dem laengsten gemeinsamen Praefix wird nur noch der REST
+    beider Strings verglichen - ist einer der beiden Reste leer (der
+    eine String ist reiner Praefix des anderen, z.B. "BBCRADIO4EX" vs.
+    "BBCRADIO4EXTRA"), bleibt der Treffer erlaubt. Sind beide Reste
+    nicht leer, muessen sie selbst noch deutlich aehnlich sein (Cutoff
+    0.5) - "SUSSEX" vs. "4EX" faellt klar durch, "SURREY" vs. "" (weil
+    "BBC Surrey" gar kein "RADIO" enthaelt und der gemeinsame Praefix
+    schon bei "BBC" endet) bzw. "THREECOUNTIES" vs. "RADIOTHREECOUNTIES"
+    bleiben dagegen zulaessig."""
+    i = _gemeinsame_praefixlaenge(ziel_schluessel, treffer_schluessel)
+    rest_ziel = ziel_schluessel[i:]
+    rest_treffer = treffer_schluessel[i:]
+    if not rest_ziel or not rest_treffer:
+        return True
+    return difflib.SequenceMatcher(None, rest_ziel, rest_treffer).ratio() >= 0.5
+
+
 def freeview_kanal_finden(kanalname):
     """Sucht den Freeview-Kanal, der am besten zu kanalname passt - erst
     exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
-    difflib-Abgleich (gleiche Vorgehensweise wie die anderen Quellen).
+    difflib-Abgleich (gleiche Vorgehensweise wie die anderen Quellen),
+    zusaetzlich abgesichert durch _fuzzy_treffer_sicher() (siehe dort).
     Gibt die site_id ("64257#<service_id>") zurueck oder None."""
     kanaele = freeview_hole_kanalliste()
     if not kanaele:
@@ -135,7 +178,7 @@ def freeview_kanal_finden(kanalname):
         return name_index[ziel_schluessel]
 
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
-    if aehnliche:
+    if aehnliche and _fuzzy_treffer_sicher(ziel_schluessel, aehnliche[0]):
         return name_index[aehnliche[0]]
 
     return None
