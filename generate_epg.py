@@ -85,6 +85,7 @@ from quellen.magentatv_me_epg import magentatv_me_kanal_finden, magentatv_me_hol
 from quellen.iptvepg_de_epg import iptvepg_de_kanal_finden, iptvepg_de_hole_programme
 from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
 from quellen.tvprogramdanas_epg import tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme
+from quellen.open_epg_epg import open_epg_kanal_finden, open_epg_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -272,6 +273,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "magentatv_mk": ["magentatv_mk_intervalle"],
     "magentatv_me": ["magentatv_me_intervalle"],
     "tvprogramdanas": ["tvprogramdanas_intervalle"],
+    "open_epg": ["open_epg_intervalle"],
 }
 
 
@@ -1936,6 +1938,15 @@ for zeile in zeilen:
         "HR", "BA", "RS", "SI", "MK", "ME", "MNG", "MO", "CG", "GO", "DE",
     ):
         eintrag["tvprogramdanas"] = True
+    # open-epg.com: ALLERENGSTER, ALLERLETZTER Fallback - NUR fuer die
+    # feste Whitelist einzelner Sender in open_epg_epg.py (aktuell
+    # "Animal Planet"/"MrezaZG" fuer HR), die nachweislich bei JEDER
+    # anderen Quelle durchfallen. Bewusst kein Laendercode-Flag wie bei
+    # den anderen Quellen - open_epg_kanal_finden() prueft selbst per
+    # exaktem Namensabgleich gegen die enge Whitelist, kein Risiko fuer
+    # andere Sender (insbesondere Arena Sport/Sport Klub).
+    if open_epg_kanal_finden(eintrag["sender"]) is not None:
+        eintrag["open_epg"] = True
     # iptv-epg.org: LETZTER Fallback speziell fuer MK-Sender, nach Siol
     # und TvProfil.net (siehe mk_epg.py - 109 mazedonische Kanaele,
     # ~6 Tage Vorschau, live verifiziert u.a. an MRT 1). Kein eigenes
@@ -3048,6 +3059,7 @@ magentatv_me_sender = [d for d in sender_daten if d.get("magentatv_me")]
 plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 tvprogramdanas_sender = [d for d in sender_daten if d.get("tvprogramdanas")]
+open_epg_sender = [d for d in sender_daten if d.get("open_epg")]
 
 
 BESCHREIBUNG_MAX_LAENGE = 150
@@ -4354,6 +4366,39 @@ for daten in tvprogramdanas_sender:
 
     if programme:
         _echte_quelle_zaehlen("tvprogramdanas.net")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# OPEN-EPG.COM: ALLERENGSTER, ALLERLETZTER Fallback - nur fuer die
+# feste Sender-Whitelist in open_epg_epg.py (siehe dort). Laeuft trotz
+# "letzter Fallback" ungated durch hat_aktive_echte_quelle(), weil die
+# Whitelist selbst schon ausschliesslich Sender enthaelt, die bei jeder
+# anderen Quelle nachweislich durchgefallen sind - ein zusaetzlicher
+# Check waere redundant, schadet aber auch nicht.
+# ==========================================================
+
+for daten in open_epg_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        treffer = open_epg_kanal_finden(daten["sender"])
+        if treffer is not None:
+            land, kanal_id = treffer
+            programme = open_epg_hole_programme(land, kanal_id, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["open_epg_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("open-epg.com")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
