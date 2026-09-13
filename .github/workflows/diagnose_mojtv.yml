@@ -1,0 +1,21 @@
+name: Diagnose mojtv.hr
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: curl mojtv.hr Startseite
+        run: |
+          curl -sS -o /dev/null -w "Status: %{http_code}\n" \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36" \
+            "https://mojtv.hr/" || true
+
+      - name: curl mojtv.hr Kanalseite (BHT1, id=24)
+        run: |
+          curl -sS -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36" \
+            "https://mojtv.hr/m2/tv-program/kanal.aspx?id=24" -o response.html -w "Status: %{http_code}\n" || true
+          echo "--- erste 2000 Zeichen der Antwort ---"
+          head -c 2000 response.html
