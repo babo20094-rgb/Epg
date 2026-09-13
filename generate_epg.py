@@ -4426,9 +4426,9 @@ for daten in ba_stanice_sender:
 
     programme = []
     try:
-        url = ba_stanice_kanal_finden(daten["sender"])
-        if url is not None:
-            programme = ba_stanice_hole_programme(url, TVPROGRAMDANAS_TAGE)
+        eintrag = ba_stanice_kanal_finden(daten["sender"])
+        if eintrag is not None:
+            programme = ba_stanice_hole_programme(eintrag, TVPROGRAMDANAS_TAGE)
         else:
             pass  # log unterdrueckt: keine echten Programmdaten
     except Exception as e:

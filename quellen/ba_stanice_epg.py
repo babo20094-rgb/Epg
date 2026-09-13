@@ -1,21 +1,25 @@
 """Echte Programmdaten von einzelnen, eigenstaendigen Webseiten
-bosnischer Regionalsender, die selbst eine kleine XMLTV-Datei anbieten
-(Stand September 2026: RTV Vogosca, https://rtvvogosca.ba/
-pregledprograma/rtvvogosca.xml) - AUTOMATISCH fuer die passende
-sender.txt-Zeile, als Fallback fuer Sender, die bei KEINER der grossen
-Kaskaden-Quellen (Telemach/mtel.ba/klix.ba/TvProfil.net/
-tvprogramdanas.net/open-epg.com) etwas liefern.
+bosnischer Regionalsender - AUTOMATISCH fuer die passende sender.txt-
+Zeile, als Fallback fuer Sender, die bei KEINER der grossen Kaskaden-
+Quellen (Telemach/mtel.ba/klix.ba/TvProfil.net/tvprogramdanas.net/
+open-epg.com) etwas liefern.
 
 Jede Seite in dieser engen Whitelist wurde EINZELN manuell geprueft
-(erreichbar, echtes XMLTV, mit Datumsabdeckung, die auch die naechsten
+(erreichbar, echte Daten, mit Datumsabdeckung, die auch die naechsten
 Tage einschliesst - nicht nur die Vergangenheit, siehe z.B. der
 verworfene rtvbpk.ba-Fall, dessen Seite beim Test eine volle Woche
 veraltet war). NICHT einfach um weitere Domains erweitern, ohne das
 genauso zu verifizieren.
 
-Format ist bereits Standard-XMLTV mit expliziten start/stop-Attributen
-(anders als z.B. klix.ba, das nur eine Startzeit liefert) - entsprechend
-einfacher Parser ueber ElementTree, kein Endzeit-Berechnen noetig.
+Zwei unterschiedliche Quellen-Typen, je nach Sender:
+- "xmltv": Standard-XMLTV-Datei mit expliziten start/stop-Attributen
+  (z.B. RTV Vogosca, https://rtvvogosca.ba/pregledprograma/
+  rtvvogosca.xml) - ein einzelner Abruf liefert bereits alle Tage.
+- "html_daily": eigene HTML-Seite mit Tages-Navigation ueber einen
+  "?date=YYYY-MM-DD"-URL-Parameter (z.B. RTVTK,
+  https://rtvtk.ba/tv_cms/public_epg.php/) - ein Abruf PRO Tag noetig,
+  Zeiten sind lokale Zeit ohne Zeitzonen-Angabe (Europe/Sarajevo
+  angenommen, wie bei allen anderen BA-Quellen im Projekt).
 
 Degradiert nach dem gleichen Zero-Risk-Prinzip an JEDER Stelle graceful
 auf None/[]/leere Ergebnisse statt zu werfen - dieses Modul darf einen
@@ -23,6 +27,7 @@ Lauf niemals zum Absturz bringen.
 """
 
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import re
 import xml.etree.ElementTree as ET
@@ -33,6 +38,8 @@ from epg_lib import normalisiere_sendername
 
 REQUEST_TIMEOUT_SEKUNDEN = 20
 
+SARAJEVO_TZ = ZoneInfo("Europe/Sarajevo")
+
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -40,18 +47,30 @@ HEADERS = {
     )
 }
 
-# ENGE Whitelist: normalisierter Sendername -> volle XMLTV-URL. Nur
-# einzeln verifizierte Sender aufnehmen (siehe Modul-Docstring).
+# ENGE Whitelist: normalisierter Sendername -> {"typ": ..., "url"/
+# "url_muster": ...}. Nur einzeln verifizierte Sender aufnehmen (siehe
+# Modul-Docstring).
 _WHITELIST = {
-    normalisiere_sendername("RTV Vogosca"): "https://rtvvogosca.ba/pregledprograma/rtvvogosca.xml",
+    normalisiere_sendername("RTV Vogosca"): {
+        "typ": "xmltv",
+        "url": "https://rtvvogosca.ba/pregledprograma/rtvvogosca.xml",
+    },
+    # "TK" (eigene sender.txt-Kurzform fuer RTVTK/RTV Tuzlanski Kanton -
+    # NICHT identisch mit "RTV TK", das bereits ueber Telemach laeuft)
+    # - {datum} wird durch YYYY-MM-DD ersetzt.
+    normalisiere_sendername("TK"): {
+        "typ": "html_daily",
+        "url_muster": "https://rtvtk.ba/tv_cms/public_epg.php/?date={datum}",
+    },
 }
 
 _datei_cache = {}
+_html_tag_cache = {}
 
 
 def ba_stanice_kanal_finden(kanalname):
     """Nur ein exakter Abgleich gegen die enge Whitelist oben - gibt bei
-    Treffer die volle XMLTV-URL zurueck, sonst None."""
+    Treffer den Whitelist-Eintrag (dict) zurueck, sonst None."""
     schluessel = normalisiere_sendername(kanalname)
     if not schluessel:
         return None
@@ -86,14 +105,7 @@ def _datei_holen(url):
         return None
 
 
-def ba_stanice_hole_programme(url, tage=3):
-    """Holt Programmdaten aus der gegebenen XMLTV-Datei (url),
-    beschraenkt auf die naechsten `tage` Tage ab heute (UTC). Liefert
-    eine nach Startzeit sortierte Liste von {"title", "beschreibung",
-    "bild", "start", "stop"} - leere Liste bei jedem Fehler."""
-    if not url:
-        return []
-
+def _xmltv_programme_holen(url, tage):
     wurzel = _datei_holen(url)
     if wurzel is None:
         return []
@@ -122,7 +134,89 @@ def ba_stanice_hole_programme(url, tage=3):
                 "stop": stop,
             })
     except Exception as e:
-        print(f"BA-Stanice-EPG: Parsen ({url}) fehlgeschlagen ({type(e).__name__}), ueberspringe.")
+        print(f"BA-Stanice-EPG: XMLTV-Parsen ({url}) fehlgeschlagen ({type(e).__name__}), ueberspringe.")
+        return []
+
+    return ergebnis
+
+
+_HTML_TAG_MUSTER = re.compile(
+    r'<span class="start">([0-9:]+)</span>\s*<span class="end">([0-9:]+)</span>.*?'
+    r'<div class="schedule-title">\s*([^<]+?)\s*</div>',
+    re.S,
+)
+
+
+def _html_tag_holen(url_muster, tag):
+    """Holt (und cached pro URL/Tag) die HTML-Seite fuer einen
+    einzelnen Tag. Gibt den rohen HTML-Text zurueck, None bei Fehler."""
+    url = url_muster.format(datum=tag.isoformat())
+    schluessel = url
+
+    if schluessel in _html_tag_cache:
+        return _html_tag_cache[schluessel]
+
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response.raise_for_status()
+        _html_tag_cache[schluessel] = response.text
+        return response.text
+    except Exception as e:
+        print(f"BA-Stanice-EPG: Abruf ({url}) fehlgeschlagen ({type(e).__name__}), ueberspringe.")
+        _html_tag_cache[schluessel] = None
+        return None
+
+
+def _html_daily_programme_holen(url_muster, tage):
+    heute = datetime.now(SARAJEVO_TZ).date()
+
+    ergebnis = []
+    for i in range(tage):
+        tag = heute + timedelta(days=i)
+        text = _html_tag_holen(url_muster, tag)
+        if not text:
+            continue
+        try:
+            for start_text, end_text, titel in _HTML_TAG_MUSTER.findall(text):
+                titel = titel.strip()
+                if not titel:
+                    continue
+                start_h, start_m = (int(x) for x in start_text.split(":"))
+                end_h, end_m = (int(x) for x in end_text.split(":"))
+                start = datetime(tag.year, tag.month, tag.day, start_h, start_m, tzinfo=SARAJEVO_TZ)
+                stop_tag = tag if (end_h, end_m) > (start_h, start_m) else tag + timedelta(days=1)
+                stop = datetime(stop_tag.year, stop_tag.month, stop_tag.day, end_h, end_m, tzinfo=SARAJEVO_TZ)
+                if stop <= start:
+                    continue
+                ergebnis.append({
+                    "title": titel,
+                    "beschreibung": "",
+                    "bild": None,
+                    "start": start.astimezone(timezone.utc),
+                    "stop": stop.astimezone(timezone.utc),
+                })
+        except Exception as e:
+            print(f"BA-Stanice-EPG: HTML-Parsen fuer Tag {tag} fehlgeschlagen ({type(e).__name__}), ueberspringe Tag.")
+            continue
+
+    return ergebnis
+
+
+def ba_stanice_hole_programme(eintrag, tage=3):
+    """Holt Programmdaten fuer den gegebenen Whitelist-Eintrag (dict aus
+    ba_stanice_kanal_finden()), je nach "typ" ueber XMLTV oder taeglich
+    per HTML-Seite. Liefert eine nach Startzeit sortierte Liste von
+    {"title", "beschreibung", "bild", "start", "stop"} (UTC, tz-aware) -
+    leere Liste bei jedem Fehler."""
+    if not eintrag:
+        return []
+
+    typ = eintrag.get("typ")
+    if typ == "xmltv":
+        ergebnis = _xmltv_programme_holen(eintrag["url"], tage)
+    elif typ == "html_daily":
+        ergebnis = _html_daily_programme_holen(eintrag["url_muster"], tage)
+    else:
         return []
 
     ergebnis.sort(key=lambda s: s["start"])
