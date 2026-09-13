@@ -50,12 +50,16 @@ HEADERS = {
 # Land -> volle URL der jeweiligen laenderweisen XMLTV.GZ-Sammel-Datei.
 _LAND_URL = {
     "HR": "https://www.open-epg.com/files/croatia.xml.gz",
-    "BA": "https://www.open-epg.com/files/bosnia.xml.gz",
     "DE": "https://www.open-epg.com/files/germany.xml.gz",
     # epgshare01.online statt open-epg.com: deckt fuer RS deutlich mehr
     # (18 statt 8) sonst nirgends abgedeckte Sender ab (SBB-Quelle,
     # epg.sbb.rs) - siehe Modul-Docstring.
     "RS": "https://epgshare01.online/epgshare01/epg_ripper_RS1.xml.gz",
+    # BA: open-epg.com/bosnia.xml.gz brachte 0 Treffer (September 2026
+    # geprueft) - stattdessen epgshare01.online/epg_ripper_BA1.xml.gz
+    # (Telemach-BA-Mirror, 254 Kanaele), daraus per Display-Name-
+    # Abgleich (nicht erfundene IDs) zwei echte Treffer verifiziert.
+    "BA": "https://epgshare01.online/epgshare01/epg_ripper_BA1.xml.gz",
 }
 
 # ENGE Whitelist: normalisierter Sendername -> (Land, open-epg.com-
@@ -113,6 +117,15 @@ _WHITELIST = {
     normalisiere_sendername("Star"): ("RS", "Star.rs"),
     normalisiere_sendername("STAR HD"): ("RS", "STAR.HD.(RS).rs"),
     normalisiere_sendername("LFCTV"): ("RS", "LFCTV.rs"),
+    # "NOVA BH BACKUP" (BA) - eigener sender.txt-Name, NICHT identisch
+    # mit "NOVA BH" (das laeuft schon ueber Telemach) - in derselben
+    # RS1-Datei als "Nova BH HD (BIH)" gefunden, 137 Sendungen, bei
+    # keiner anderen Quelle abgedeckt.
+    normalisiere_sendername("NOVA BH BACKUP"): ("RS", "Nova.BH.HD.(BIH).rs"),
+    # BA - September 2026 per Display-Name-Abgleich in epg_ripper_BA1.xml.gz
+    # gefunden (168 Sendungen), bei keiner anderen Quelle abgedeckt.
+    normalisiere_sendername("N1 BH"): ("BA", "N1.HD.(BH)/(BIH).ba"),
+    normalisiere_sendername("N1 BH HD"): ("BA", "N1.HD.(BH)/(BIH).ba"),
 }
 
 _datei_cache = {}
