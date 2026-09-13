@@ -86,6 +86,7 @@ from quellen.iptvepg_de_epg import iptvepg_de_kanal_finden, iptvepg_de_hole_prog
 from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
 from quellen.tvprogramdanas_epg import tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme
 from quellen.open_epg_epg import open_epg_kanal_finden, open_epg_hole_programme
+from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -274,6 +275,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "magentatv_me": ["magentatv_me_intervalle"],
     "tvprogramdanas": ["tvprogramdanas_intervalle"],
     "open_epg": ["open_epg_intervalle"],
+    "ba_stanice": ["ba_stanice_intervalle"],
 }
 
 
@@ -1947,6 +1949,12 @@ for zeile in zeilen:
     # andere Sender (insbesondere Arena Sport/Sport Klub).
     if open_epg_kanal_finden(eintrag["sender"]) is not None:
         eintrag["open_epg"] = True
+    # ba_stanice_epg.py: einzeln gepruefte, eigenstaendige Webseiten
+    # bosnischer Regionalsender (z.B. RTV Vogosca) mit eigener kleiner
+    # XMLTV-Datei. Bewusst kein Laendercode-Flag, sondern exakter
+    # Namensabgleich gegen eine enge Whitelist (analog zu open_epg).
+    if ba_stanice_kanal_finden(eintrag["sender"]) is not None:
+        eintrag["ba_stanice"] = True
     # iptv-epg.org: LETZTER Fallback speziell fuer MK-Sender, nach Siol
     # und TvProfil.net (siehe mk_epg.py - 109 mazedonische Kanaele,
     # ~6 Tage Vorschau, live verifiziert u.a. an MRT 1). Kein eigenes
@@ -3060,6 +3068,7 @@ plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 tvprogramdanas_sender = [d for d in sender_daten if d.get("tvprogramdanas")]
 open_epg_sender = [d for d in sender_daten if d.get("open_epg")]
+ba_stanice_sender = [d for d in sender_daten if d.get("ba_stanice")]
 
 
 BESCHREIBUNG_MAX_LAENGE = 150
@@ -4399,6 +4408,37 @@ for daten in open_epg_sender:
 
     if programme:
         _echte_quelle_zaehlen("open-epg.com")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# BA-STANICE: einzeln gepruefte, eigenstaendige Webseiten bosnischer
+# Regionalsender mit eigener kleiner XMLTV-Datei (siehe
+# ba_stanice_epg.py). Laeuft ungated durch hat_aktive_echte_quelle(),
+# da die Whitelist selbst schon nur Sender enthaelt, die bei jeder
+# anderen Quelle nachweislich durchgefallen sind.
+# ==========================================================
+
+for daten in ba_stanice_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        url = ba_stanice_kanal_finden(daten["sender"])
+        if url is not None:
+            programme = ba_stanice_hole_programme(url, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["ba_stanice_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("BA-Stanice (RTV Vogosca u.ae.)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
