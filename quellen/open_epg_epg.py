@@ -1,14 +1,21 @@
-"""Echte Programmdaten von open-epg.com (oeffentliche, loginfreie
-laenderweise XMLTV.GZ-Dateien, z.B. https://www.open-epg.com/files/
-croatia.xml.gz) - bewusst NUR fuer eine kleine, feste Whitelist
+"""Echte Programmdaten von oeffentlichen, loginfreien laenderweisen
+XMLTV.GZ-Sammel-Dateien verschiedener Anbieter (open-epg.com,
+epgshare01.online) - bewusst NUR fuer eine kleine, feste Whitelist
 einzelner Sender eingebaut, die bei ALLEN anderen Quellen (Telemach/
 mtel.ba/klix.ba/mts.rs/MojMaxTV/SportKlub/Siol/TvProfil.net/
 tvprogramdanas.net/DE-Kaskade) durchgefallen sind (Stand September
-2026: "Animal Planet"/"MrezaZG" fuer HR sowie 14 DE/JOYN/PRIME-Sender,
-siehe _WHITELIST) - KEIN generisches Matching gegen die volle, mehrere
-hundert Kanaele grosse Landesliste, um das Risiko ungewollter Treffer
-bei bereits anderweitig abgedeckten Sendern (insbesondere Arena Sport/
-Sport Klub) komplett auszuschliessen.
+2026: "Animal Planet"/"MrezaZG" fuer HR, 14 DE/JOYN/PRIME-Sender sowie
+18 RS-Sender, siehe _WHITELIST) - KEIN generisches Matching gegen die
+volle, mehrere hundert Kanaele grosse Landesliste, um das Risiko
+ungewollter Treffer bei bereits anderweitig abgedeckten Sendern
+(insbesondere Arena Sport/Sport Klub/Arena Premium) komplett
+auszuschliessen.
+
+Jedes Land ist auf eine volle URL gemappt (_LAND_URL) statt auf einen
+festen Anbieter - dadurch koennen unterschiedliche Laender bei
+unterschiedlichen Anbietern liegen, je nachdem, wo die jeweils
+ergiebigste Datei gefunden wurde (z.B. HR/DE bei open-epg.com, RS bei
+epgshare01.online, das fuer RS deutlich mehr Sender abdeckt).
 
 Jede Landes-XMLTV.GZ-Datei wird trotzdem nur EINMAL pro Lauf
 heruntergeladen und geparst (gecached) - auch wenn nur ein einzelner
@@ -40,11 +47,15 @@ HEADERS = {
     )
 }
 
-# Land -> open-epg.com-Dateiname (siehe https://www.open-epg.com/files/).
-_LAND_DATEI = {
-    "HR": "croatia.xml.gz",
-    "BA": "bosnia.xml.gz",
-    "DE": "germany.xml.gz",
+# Land -> volle URL der jeweiligen laenderweisen XMLTV.GZ-Sammel-Datei.
+_LAND_URL = {
+    "HR": "https://www.open-epg.com/files/croatia.xml.gz",
+    "BA": "https://www.open-epg.com/files/bosnia.xml.gz",
+    "DE": "https://www.open-epg.com/files/germany.xml.gz",
+    # epgshare01.online statt open-epg.com: deckt fuer RS deutlich mehr
+    # (18 statt 8) sonst nirgends abgedeckte Sender ab (SBB-Quelle,
+    # epg.sbb.rs) - siehe Modul-Docstring.
+    "RS": "https://epgshare01.online/epgshare01/epg_ripper_RS1.xml.gz",
 }
 
 # ENGE Whitelist: normalisierter Sendername -> (Land, open-epg.com-
@@ -77,6 +88,31 @@ _WHITELIST = {
     normalisiere_sendername("Terra Mater Wild"): ("DE", "TerraMaterWILD.de"),
     normalisiere_sendername("WDR Köln"): ("DE", "WDRKoeln.de"),
     normalisiere_sendername("XITE Hits"): ("DE", "XITEHits.de"),
+    # RS - September 2026 geprueft: bei KEINER Stufe der bestehenden
+    # RS-Kaskade (mts.rs) und auch nicht bei TvProfil.net/
+    # tvprogramdanas.net gefunden, aber bei epgshare01.online/
+    # epg_ripper_RS1.xml.gz (SBB-Quelle) mit gut gefuellten
+    # Sendeplaenen (53-172 Sendungen). "Arena Premium"-Kanaele in
+    # derselben Datei bewusst NICHT aufgenommen (gehoeren zur
+    # Arena-Sport-Markenfamilie, die unangetastet bleiben soll).
+    normalisiere_sendername("AMC HD"): ("RS", "AMC.HD.(RS).rs"),
+    normalisiere_sendername("Animal Planet HD"): ("RS", "Animal.Planet.HD.(RS).rs"),
+    normalisiere_sendername("E! Entertainment"): ("RS", "E!.Entertainment.(RS).rs"),
+    normalisiere_sendername("Happy"): ("RS", "Happy.(RS).rs"),
+    normalisiere_sendername("HBO 2 HD"): ("RS", "HBO.2.HD.(RS).rs"),
+    normalisiere_sendername("HBO 3 HD"): ("RS", "HBO.3.HD.(RS).rs"),
+    normalisiere_sendername("IDJKids HD"): ("RS", "IDJKids.HD.(RS).rs"),
+    normalisiere_sendername("K::CN 1"): ("RS", "K::CN.1.rs"),
+    normalisiere_sendername("Lov i Ribolov"): ("RS", "Lov.i.Ribolov.(RS).rs"),
+    normalisiere_sendername("Premier League TV"): ("RS", "Premier.League.TV.rs"),
+    normalisiere_sendername("Prva plus"): ("RS", "Prva.plus.(RS).rs"),
+    normalisiere_sendername("RTS 1 HD"): ("RS", "RTS.1.HD.rs"),
+    normalisiere_sendername("RTS 2 HD"): ("RS", "RTS.2.HD.rs"),
+    normalisiere_sendername("RTS 3 HD"): ("RS", "RTS.3.HD.rs"),
+    normalisiere_sendername("Sandzak TV"): ("RS", "Sandzak.TV.rs"),
+    normalisiere_sendername("Star"): ("RS", "Star.rs"),
+    normalisiere_sendername("STAR HD"): ("RS", "STAR.HD.(RS).rs"),
+    normalisiere_sendername("LFCTV"): ("RS", "LFCTV.rs"),
 }
 
 _datei_cache = {}
@@ -98,12 +134,10 @@ def _land_datei_holen(land):
     if land in _datei_cache:
         return _datei_cache[land]
 
-    dateiname = _LAND_DATEI.get(land)
-    if not dateiname:
+    url = _LAND_URL.get(land)
+    if not url:
         _datei_cache[land] = None
         return None
-
-    url = f"https://www.open-epg.com/files/{dateiname}"
 
     try:
         response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
