@@ -16849,30 +16849,30 @@ US| DEKKOO|Dekkoo ᴸⁱᵛᵉ|
 |L1 | Barnsley|Barnsley ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8574443756b7d5a1410b895c7334cb12f60943c4.png
 |L1 | AFC Wimbledon|AFC Wimbledon ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8574443756b7d5a1410b895c7334cb12f60943c4.png
 #UK| LEAGUE TWO
-|L2 | York City|York City ᴸⁱᵛᵉ|
-|L2 | Walsall|Walsall ᴸⁱᵛᵉ|
-|L2 | Tranmere Rovers|Tranmere Rovers ᴸⁱᵛᵉ|
-|L2 | Swindon Town|Swindon Town ᴸⁱᵛᵉ|
-|L2 | Shrewsbury Town|Shrewsbury Town ᴸⁱᵛᵉ|
-|L2 | Salford City|Salford City ᴸⁱᵛᵉ|
-|L2 | Rotherham United|Rotherham United ᴸⁱᵛᵉ|
-|L2 | Rochdale|Rochdale ᴸⁱᵛᵉ|
-|L2 | Port Vale|Port Vale ᴸⁱᵛᵉ|
-|L2 | Oldham Athletic|Oldham Athletic ᴸⁱᵛᵉ|
-|L2 | Northampton Town|Northampton Town ᴸⁱᵛᵉ|
-|L2 | Newport County|Newport County ᴸⁱᵛᵉ|
-|L2 | Grimsby Town|Grimsby Town ᴸⁱᵛᵉ|
-|L2 | Gillingham|Gillingham ᴸⁱᵛᵉ|
-|L2 | Fleetwood Town|Fleetwood Town ᴸⁱᵛᵉ|
-|L2 | Exeter City|Exeter City ᴸⁱᵛᵉ|
-|L2 | Crewe Alexandra|Crewe Alexandra ᴸⁱᵛᵉ|
-|L2 | Crawley Town|Crawley Town ᴸⁱᵛᵉ|
-|L2 | Colchester United|Colchester United ᴸⁱᵛᵉ|
-|L2 | Chesterfield|Chesterfield ᴸⁱᵛᵉ|
-|L2 | Cheltenham Town|Cheltenham Town ᴸⁱᵛᵉ|
-|L2 | Bristol Rovers|Bristol Rovers ᴸⁱᵛᵉ|
-|L2 | Barnet|Barnet ᴸⁱᵛᵉ|
-|L2 | Accrington Stanley|Accrington Stanley ᴸⁱᵛᵉ|
+|L2 | York City|York City ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Walsall|Walsall ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Tranmere Rovers|Tranmere Rovers ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Swindon Town|Swindon Town ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Shrewsbury Town|Shrewsbury Town ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Salford City|Salford City ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Rotherham United|Rotherham United ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Rochdale|Rochdale ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Port Vale|Port Vale ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Oldham Athletic|Oldham Athletic ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Northampton Town|Northampton Town ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Newport County|Newport County ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Grimsby Town|Grimsby Town ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Gillingham|Gillingham ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Fleetwood Town|Fleetwood Town ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Exeter City|Exeter City ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Crewe Alexandra|Crewe Alexandra ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Crawley Town|Crawley Town ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Colchester United|Colchester United ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Chesterfield|Chesterfield ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Cheltenham Town|Cheltenham Town ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Bristol Rovers|Bristol Rovers ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Barnet|Barnet ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
+|L2 | Accrington Stanley|Accrington Stanley ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_league_two/l2.png
 NAME:Super League Plus | Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/193de996ab245200.png
 NAME:Super League Plus | Event 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/193de996ab245200.png
 NAME:Super League Plus | Event 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/193de996ab245200.png
