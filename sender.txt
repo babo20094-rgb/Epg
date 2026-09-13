@@ -1,4 +1,4 @@
-NAME:LOI 10: Drogheda United v Dundalk  start: 2026-08-28 19:45:00  stop: 2026-08-28 22:45:00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+|LOI 10: Drogheda United v Dundalk  start: 2026-08-28 19:45:00  stop: 2026-08-28 22:45:00|Loi 10 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 ##### DE| STAIGE PPV #####
 NAME:DE: STAIGE PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/staige_ppv/staige.png
 NAME:DE: STAIGE PPV 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/staige_ppv/staige.png
