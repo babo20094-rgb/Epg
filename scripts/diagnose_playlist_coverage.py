@@ -1,12 +1,14 @@
 """Einmaliges Diagnose-Skript: gleicht die LIVE-Playlist des Nutzers
-(per Xtream-Codes-API, Zugangsdaten ueber Umgebungsvariablen) gegen
-sender.txt ab und listet Kanaele, die auch nach kern_und_event_extrahieren()/
-kern_vorne_und_event_extrahieren()-Abgleich (exakt dieselbe Logik wie
-generate_epg.py) keine Zuordnung finden.
+(per Xtream-Codes-API) gegen sender.txt ab und listet Kanaele, die auch
+nach kern_und_event_extrahieren()/kern_vorne_und_event_extrahieren()-
+Abgleich (exakt dieselbe Logik wie generate_epg.py) keine Zuordnung
+finden.
 
 Nur fuer den manuellen Diagnose-Workflow gedacht (.github/workflows/
-diagnose_playlist.yml) - liest PLAYLIST_USER/PLAYLIST_PASS/PLAYLIST_HOST
-aus der Umgebung, gibt NIE Zugangsdaten aus.
+diagnose_playlist.yml) - liest die volle M3U-Provider-URL aus dem
+bereits vorhandenen Secret PROVIDER (Umgebungsvariable PROVIDER,
+gleiches Secret wie beim normalen update_epg.yml-Workflow) und leitet
+Host/Username/Passwort daraus ab. Gibt NIE Zugangsdaten aus.
 """
 
 import json
@@ -14,14 +16,19 @@ import os
 import re
 import sys
 from collections import Counter
+from urllib.parse import urlsplit, parse_qs
 
 import requests
 
-HOST = os.environ["PLAYLIST_HOST"]
-USER = os.environ["PLAYLIST_USER"]
-PASS = os.environ["PLAYLIST_PASS"]
+_PROVIDER_URL = os.environ["PROVIDER"]
+_TEILE = urlsplit(_PROVIDER_URL)
+_QUERY = parse_qs(_TEILE.query)
 
-BASE = f"http://{HOST}/player_api.php"
+HOST = _TEILE.netloc
+USER = _QUERY["username"][0]
+PASS = _QUERY["password"][0]
+
+BASE = f"{_TEILE.scheme}://{HOST}/player_api.php"
 
 
 def api(action, **params):

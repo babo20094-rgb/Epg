@@ -1,17 +1,7 @@
 name: Diagnose Playlist Coverage
 
 on:
-  workflow_dispatch:
-    inputs:
-      playlist_host:
-        description: "Host der Anbieter-API (z.B. line.playifyo.shop)"
-        required: true
-      playlist_user:
-        description: "Username"
-        required: true
-      playlist_pass:
-        description: "Password"
-        required: true
+  workflow_dispatch: {}
 
 jobs:
   diagnose:
@@ -24,6 +14,4 @@ jobs:
       - run: pip install requests
       - run: python scripts/diagnose_playlist_coverage.py
         env:
-          PLAYLIST_HOST: ${{ inputs.playlist_host }}
-          PLAYLIST_USER: ${{ inputs.playlist_user }}
-          PLAYLIST_PASS: ${{ inputs.playlist_pass }}
+          PROVIDER: ${{ secrets.PROVIDER }}
