@@ -667,8 +667,11 @@ def kern_vorne_und_event_extrahieren(voller_name):
 # ==========================================================
 
 # Wie viele Tage im Voraus das Standard-EPG (Tagesraster-Bloecke)
-# erzeugt wird.
-ANZAHL_TAGE = 3
+# erzeugt wird. September 2026 von 3 auf 2 gesenkt (Datei-Groesse/
+# TiviMate-Ladezeit, siehe Chat-Analyse: generischer Platzhaltertext
+# machte ~54% aller Sendungseintraege aus, echte Quellen haben eigene,
+# unabhaengige Tage-Konstanten und sind davon nicht betroffen).
+ANZAHL_TAGE = 2
 
 # Anzahl der DYN-PPV-Kanaele (DE| DYN PPV 1 HD ... DE| DYN PPV N HD).
 DYN_PPV_ANZAHL = 20
