@@ -87,6 +87,7 @@ from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_program
 from quellen.tvprogramdanas_epg import tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme
 from quellen.open_epg_epg import open_epg_kanal_finden, open_epg_hole_programme
 from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_programme
+from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -264,7 +265,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvguide": ["tvguide_intervalle"],
     "tvpassport": ["tvpassport_intervalle"],
     "tvpassport_callsign": ["tvpassport_intervalle"],
-    "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle"],
+    "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle", "rtv_rs_intervalle"],
     "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
     "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle"],
@@ -3732,6 +3733,44 @@ for _idx, daten in enumerate(_mts_arena_sender):
         ]
         if neue_programme:
             _echte_quelle_zaehlen("Arena Sport")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RTV.rs (RS-Fallback): vierter Versuch fuer alle RS-Sender, deren Name
+# auf "RT VOJVODINA 1/2" bzw. "RTV VOJVODINA 1/2" passt (siehe
+# rtv_rs_epg.py - oeffentlicher Sender aus Novi Sad, weder in mts.rs
+# noch SportKlub/Arena enthalten). Kein eigenes Praefix noetig. Wird
+# immer versucht, schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _rtv_rs_abrufen(daten):
+    try:
+        slug = rtv_rs_kanal_finden(daten["sender"])
+        if slug is not None:
+            return rtv_rs_hole_programme(slug, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_rtv_rs_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_rtv_rs_ergebnisse = _parallel_abrufen(_rtv_rs_sender, _rtv_rs_abrufen)
+
+for _idx, daten in enumerate(_rtv_rs_sender):
+    programme = _rtv_rs_ergebnisse[_idx]
+
+    daten["rtv_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("RTV.rs")
             _schreibe_echte_programme(daten, neue_programme)
             daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:

@@ -3277,8 +3277,8 @@ RS|PRVA WORLD|Prva World ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 RS|PRVA WORLD ⱽᴵᴾ ᴿᴬᵂ|Prva World ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4d6ec33a53ca61e2.png
 RS|PRVA ⱽᴵᴾ ᴿᴬᵂ|Prva ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/eb6b5dd31c646e91.png
 RS|RED TV ⱽᴵᴾ ᴿᴬᵂ|Red Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d33c023a9a7e6ba.png
-RS|RT VOJVODINA 1 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/RT-VOJVODINA-1.png
-RS|RT VOJVODINA 2 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/RT-VOJVODINA-2.png
+RS|RT VOJVODINA 1 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_1/rt_vojvodina_1.png
+RS|RT VOJVODINA 2 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_2/rt_vojvodina_2.png
 RS|RTL LIVING|Rtl Living ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e653ed79a3d39c.png
 RS|RTL WORLD|Rtl World ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/320bb68a1c6ba18e.png
 RS|RTS 1 FHD|Rts 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3ed8c6e2572183e5.png
