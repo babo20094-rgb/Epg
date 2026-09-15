@@ -4001,3 +4001,28 @@ Channel-Key pruefen, bevor an der Quelle debuggt wird - steht die
 Sendung des GEZEIGTEN (falschen) Titels dort bei einem ANDEREN Channel-
 Key, ist es mit hoher Wahrscheinlichkeit wieder eine TiviMate-seitige
 verwaiste Bindung, kein Datenfehler.
+
+## September 2026: RS|ARENA SPORT 1 zeigte "Buduće zvezde Arene ep. 104" (9h-Block) statt live laufendem Fussball - Fehler bei tvarenasport.com selbst, kein Code-Fix
+
+Nutzer meldete per Screenshot: `RS|ARENA SPORT 1` war korrekt als
+EPG-Quelle zugeordnet (verifiziert, kein TiviMate-Matching-Fehler wie
+im Fall weiter oben), zeigte aber im Raster einen 9 Stunden langen
+Block "Buduće zvezde Arene ep. 104" (10:00-19:00 Uhr lokal), waehrend
+live tatsaechlich ein Fussballspiel (Chelsea - Leeds) lief.
+
+**Pruefung:** `arena_kanal_finden()`/`arena_hole_programme()`
+(arena_epg.py, RS-Feed = tvarenasport.com) direkt live abgefragt -
+liefert EXAKT denselben fehlerhaften 9h-Block fuer denselben Zeitraum.
+Das Live-Spiel taucht in den tvarenasport.com-Rohdaten fuer diesen
+Kanal/Zeitraum ueberhaupt nicht auf.
+
+**Ursache:** Fehler/veraltete Pflege bei tvarenasport.com selbst, nicht
+in unserer Verarbeitung - wir uebernehmen deren Tagesplan 1:1. Kein
+Code-Fix moeglich/noetig, korrigiert sich vermutlich von selbst, sobald
+tvarenasport.com den eigenen Plan aktualisiert (naechster automatischer
+4h-Lauf uebernimmt das automatisch).
+
+**Lehre:** Bei "zeigt falsches Programm, Zuordnung ist aber korrekt"
+IMMER auch pruefen, ob die REALE Quelle (nicht nur unsere generierte
+XML) selbst schon den fehlerhaften Wert liefert - dann ist es ein
+Upstream-Datenfehler der Quelle, kein Bug bei uns.
