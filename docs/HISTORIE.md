@@ -3970,3 +3970,34 @@ mts.rs).
 `diagnose_mojtv.yml`-Workflow wurde nach Abschluss der Pruefung wieder
 komplett aus dem Repo entfernt (analog zum Vorgehen beim PROVIDER-
 Secret-Diagnose-Workflow oben).
+
+## September 2026: BA|O KANAL VIP RAW zeigte in TiviMate Programm von O MUSIC VIP RAW - KEIN Datenfehler bei uns (analog zum Sport-Klub-Fall)
+
+Nutzer meldete per Screenshot: Der EPG-Eintrag "BA| O KANAL VIP RAW"
+zeigte um 08:30 Uhr die Sendung "O Music VIP RAW Live" - das ist
+nachweislich das generische Fallback-Beschreibungsfeld eines ANDEREN
+Senders ("BA|O MUSIC VIP RAW" in sender.txt), nicht der von "O Kanal".
+
+**Pruefung:** `Epg_365_Tage.xml.gz` direkt per
+`xml.etree.ElementTree` gegen den Channel-Key `BA|O KANAL VIP RAW`
+geprueft - dort stehen fuer denselben Zeitraum ausschliesslich korrekte,
+echte Telemach-Sendungen ("Rijeka strasti", "Beskrajna ljubav" etc.,
+site_id 748, automatisch ueber die BA-Kaskade Telemach -> mtel.ba ->
+klix.ba). Channel-IDs von "O KANAL"/"O KANAL HD"/"O KANAL VIP RAW"/
+"O MUSIC VIP RAW" sind in der generierten XML alle eindeutig, keine
+Kollision.
+
+**Ursache:** exakt derselbe Bug-Typ wie beim offenen HR|SPORT KLUB
+1-Fall weiter oben - eine verwaiste alte Kanal-Bindung in TiviMates
+lokaler Datenbank (Client-seitig), nicht unsere EPG-Datei.
+
+**Fix (Nutzer, kein Code):** Kanal in TiviMate manuell neu dem
+richtigen EPG-Eintrag zugeordnet - danach behoben. Kein Code-/
+sender.txt-Fix noetig.
+
+**Lehre fuer naechstes Mal:** Bei "Sender X zeigt falsches Programm"
+IMMER zuerst die generierte `Epg_365_Tage.xml.gz` fuer den exakten
+Channel-Key pruefen, bevor an der Quelle debuggt wird - steht die
+Sendung des GEZEIGTEN (falschen) Titels dort bei einem ANDEREN Channel-
+Key, ist es mit hoher Wahrscheinlichkeit wieder eine TiviMate-seitige
+verwaiste Bindung, kein Datenfehler.
