@@ -72,8 +72,8 @@ BA|BHT1 ⱽᴵᴾ ᴿᴬᵂ|Bht1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.gi
 BA|BIR TV ⱽᴵᴾ ᴿᴬᵂ|Bir Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/af0de72e8e3fe877.png
 BA|BLAGOVIJESTI TV ⱽᴵᴾ ᴿᴬᵂ|Blagovijesti Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/blagovesti_tv/blagovesti_tv.png
 BA|BN TV ⱽᴵᴾ ᴿᴬᵂ|Bn Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1bb3bcf963816f1b.png
-BA|BN2 TV|Bn2 Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4173f9b6572930b.png
-BA|BN2 ⱽᴵᴾ ᴿᴬᵂ|Bn2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/df2315216c09a7fa.png
+BA|BN2 TV|Bn2 Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bn2/bn2.png
+BA|BN2 ⱽᴵᴾ ᴿᴬᵂ|Bn2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bn2/bn2.png
 BA|CINEMA TV ⱽᴵᴾ ᴿᴬᵂ|Cinema Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/08b8188caa080940.png
 BA|CITY TV|City Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/feda95b524e35784.png
 BA|CITY TV ⱽᴵᴾ ᴿᴬᵂ|City Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/feda95b524e35784.png
@@ -17014,7 +17014,7 @@ TVGUIDE:US|RT DOCUMENTARY HD|https://raw.githubusercontent.com/tv-logo/tv-logos/
 TELEMACH:RS|DISCOVERY XTRA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac37aaf5e7d1b12b78181bc575fe8fad22091c53.png
 TELEMACH:RS|DM SAT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1c8b0e81cdf1f2e33adc8d2b5f1d8941b7395011.png
 TELEMACH:RS|MTV CLUB|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/mtv-club-rs.png
-TELEMACH:BA|ATV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8b74754b064745494baad8ba4c0801d9428324e8.png
+TELEMACH:BA|ATV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38a8bbe53b6fe46fe5e87559b7a162a0c040cfe1.png
 TELEMACH:BA|HERCEG TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/12d7bfef1d0e6b077c2b54547e6b67f480e4b436.png
 TELEMACH:BA|K3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bdedf704590fc607c223e40e7e9b972c8ceacd31.png
 TELEMACH:BA|RTV BPK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1bbeecd0facdf9efa2890af1d781605210a38765.png
@@ -18323,7 +18323,7 @@ BA|TATABRADA|Tatabrada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-
 BA|AL JAZEERA BALKANS FHD|Al Jazeera Balkans FHD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1423bbabe6631ec990edca2a4559b5cdf597a4b5.png
 BA|AL JAZEERA BALKANS |Al Jazeera Balkans ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1423bbabe6631ec990edca2a4559b5cdf597a4b5.png
 BA|RTV CAZIN HD|Rtv Cazin HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a96aa71648e182123c4fa240cf97e18be8b02dcd.png
-BA|ATV HD BANJA LUKA|Atv HD Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38a8bbe53b6fe46fe5e87559b7a162a0c040cfe1.png
+TELEMACH:BA|ATV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38a8bbe53b6fe46fe5e87559b7a162a0c040cfe1.png|ATV HD BANJA LUKA
 BA|RTV PODRINJE|Rtv Podrinje ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f3eb1aad6b757d0af392b885005192fa3f8cc1eb.png
 BA|RTV KRAJINA|Rtv Krajina ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f6ddb14076bf82920ac8ce19e975dcb686b3c1a1.png
 BA|RTV BANJA LUKA|Rtv Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/22a32177aacfe4fc4acc26c59b23fa7fda472cab.png

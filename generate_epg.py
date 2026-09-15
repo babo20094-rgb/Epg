@@ -89,6 +89,7 @@ from quellen.open_epg_epg import open_epg_kanal_finden, open_epg_hole_programme
 from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_programme
 from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
+from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -279,6 +280,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "open_epg": ["open_epg_intervalle"],
     "ba_stanice": ["ba_stanice_intervalle"],
     "blagovesti": ["blagovesti_intervalle"],
+    "rtvbn": ["rtvbn_intervalle"],
 }
 
 
@@ -1285,27 +1287,34 @@ for zeile in zeilen:
     # dieser Zeile bekommen die echten Daten.
     #
     # SYNTAX (3 Felder, analog zum bestehenden Land|Sender|...-Schema,
-    # nur mit Präfix und fest auf Land+Name+Logo begrenzt):
+    # nur mit Präfix und fest auf Land+Name+Logo begrenzt; optional ein
+    # 4. Feld zum Ueberschreiben des Anzeigenamens/der Kanal-ID, analog
+    # zu TVPASSPORT:/SKY: - nuetzlich, wenn die eigene Playlist den
+    # Sender unter einem abweichenden Namen fuehrt, z.B. mit HD-/Orts-
+    # Zusatz, aber Telemach ihn nur unter dem kurzen Namen kennt):
     #
-    #   TELEMACH:<Land BA oder ME, optional, Default BA>|<Kanalname wie bei Telemach>|<Logo-URL>
+    #   TELEMACH:<Land BA oder ME, optional, Default BA>|<Kanalname wie bei Telemach>|<Logo-URL>[|<Anzeigename-Override>]
     #
     # Beispiel:
     #   TELEMACH:BA|BHT 1|https://example.com/logo.png
     #   TELEMACH:|Sport Klub 1|                      (Land leer -> BA, ohne Logo)
+    #   TELEMACH:BA|ATV|https://example.com/logo.png|ATV HD Banja Luka
     #
-    # Der Kanalname (2. Feld) wird 1:1 als <channel> id/display-name
-    # verwendet (wie bei NAME:) UND als Suchbegriff gegen die Telemach-
-    # Kanalliste (telemach_kanal_finden(), erst exakt normalisiert,
-    # dann difflib-Fuzzy-Match). Fuer die ersten bis zu 3 Tage werden -
-    # sofern Login/Kanalsuche/Programmabruf gelingen - echte Sendungen
-    # eingetragen; alle weiteren Tage (und bei jedem Fehlschlag der
-    # Telemach-Anfrage) fallen exakt auf die normale, generische
-    # Generierung zurück wie bei jedem anderen Sender.
+    # Der Kanalname (2. Feld) wird OHNE Override als <channel> id/
+    # display-name verwendet (wie bei NAME:) UND immer als Suchbegriff
+    # gegen die Telemach-Kanalliste (telemach_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match) - mit Override wird
+    # weiterhin unter dem 2. Feld gesucht, aber unter dem 4. Feld
+    # angezeigt. Fuer die ersten bis zu 3 Tage werden - sofern Login/
+    # Kanalsuche/Programmabruf gelingen - echte Sendungen eingetragen;
+    # alle weiteren Tage (und bei jedem Fehlschlag der Telemach-Anfrage)
+    # fallen exakt auf die normale, generische Generierung zurück wie
+    # bei jedem anderen Sender.
     if zeile.upper().startswith("TELEMACH:"):
         rest = zeile[len("TELEMACH:"):]
         teile_telemach = [x.strip() for x in rest.split("|")]
 
-        while len(teile_telemach) < 3:
+        while len(teile_telemach) < 4:
             teile_telemach.append("")
 
         telemach_land = teile_telemach[0].upper() or "BA"
@@ -1314,23 +1323,24 @@ for zeile in zeilen:
 
         telemach_kanalname = teile_telemach[1]
         telemach_logo = teile_telemach[2]
+        telemach_anzeigename = teile_telemach[3] or telemach_kanalname
 
         if not telemach_kanalname:
             continue
 
-        telemach_auto_beschreibung = f"{telemach_kanalname.title()} ᴸⁱᵛᵉ"
+        telemach_auto_beschreibung = f"{telemach_anzeigename.title()} ᴸⁱᵛᵉ"
         telemach_kategorie_key = None
 
         sender_daten.append({
-            "kanal": f"{telemach_land}| {telemach_kanalname}",
+            "kanal": f"{telemach_land}| {telemach_anzeigename}",
             "land": telemach_land,
-            "sender": telemach_kanalname,
+            "sender": telemach_anzeigename,
             "beschreibung": telemach_auto_beschreibung,
             "logo": telemach_logo,
             "exakter_name": True,
             "event_titel": None,
             "kategorie": telemach_kategorie_key,
-            "telemach": {"country": telemach_land.lower()},
+            "telemach": {"country": telemach_land.lower(), "suchname": telemach_kanalname},
         })
         continue
 
@@ -3189,7 +3199,8 @@ def _verlaengere_vorherige_sendung(kanal, alter_stop, neuer_stop):
 
 def _telemach_abrufen(daten):
     try:
-        site_id = telemach_kanal_finden(daten["sender"], daten["telemach"]["country"])
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        site_id = telemach_kanal_finden(suchname, daten["telemach"]["country"])
         if site_id is not None:
             return telemach_hole_programme(site_id, daten["telemach"]["country"], TELEMACH_TAGE)
     except Exception:
@@ -3203,7 +3214,8 @@ def _mtel_abrufen(daten):
     if daten["telemach"]["country"] != "ba":
         return []
     try:
-        mtel_site_id = mtel_kanal_finden(daten["sender"])
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        mtel_site_id = mtel_kanal_finden(suchname)
         if mtel_site_id is not None:
             return mtel_hole_programme(mtel_site_id, MTEL_TAGE)
     except Exception:
@@ -3215,7 +3227,8 @@ def _klix_abrufen(daten):
     if daten["telemach"]["country"] != "ba":
         return []
     try:
-        klix_site_id = klix_kanal_finden(daten["sender"])
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        klix_site_id = klix_kanal_finden(suchname)
         if klix_site_id is not None:
             return klix_hole_programme(klix_site_id, KLIX_TAGE)
     except Exception:
@@ -4510,6 +4523,36 @@ for daten in sender_daten:
 
     if programme:
         _echte_quelle_zaehlen("Blagovesti TV")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# BN2: einzeln gepruefter, eigenstaendiger zweiter Kanal von rtvbn.tv
+# (siehe rtvbn_epg.py - "Program BN 2"-Kartenblock auf rtvbn.tv/program,
+# separat vom Hauptkanal "TV BN"). Kein eigenes Praefix noetig, matcht
+# direkt gegen den Sendernamen "BN2"/"BN 2" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        marker = rtvbn_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = rtvbn_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["rtvbn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("BN2 (rtvbn.tv)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
