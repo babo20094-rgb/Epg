@@ -91,6 +91,13 @@ from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 
+# Praefixe, bei denen die eigene Playlist (siehe Kommentar in
+# kanal_id_varianten()) nachweislich auch Sender mit null oder zwei
+# Leerzeichen nach dem Pipe enthaelt - nur hier werden weiterhin alle
+# drei Leerzeichen-Varianten geschrieben, fuer alle anderen Praefixe
+# nur noch die Ein-Leerzeichen-Standardvariante.
+_LEERZEICHEN_AUSNAHME_PRAEFIXE = {"EN", "MK", "DE", "UFC", "EXYU", "RS"}
+
 
 def kanal_id_varianten(kanal):
     """Gibt fuer eine Kanal-ID im "Land|Sender"-Muster (z.B. "UK|
@@ -117,7 +124,25 @@ def kanal_id_varianten(kanal):
     statt keinem oder einem - ohne die zusaetzliche Zwei-Leerzeichen-
     Variante wurden diese Sender trotz korrektem, laengst vorhandenem
     sender.txt-Eintrag nie automatisch zugeordnet (Bug September 2026
-    behoben)."""
+    behoben).
+
+    September 2026, Optimierung (Datei-Groesse/TiviMate-Ladezeit): ein
+    Abgleich der eigenen Playlist (18390 Kanaele, siehe Chat-Analyse)
+    zeigte, dass >99% aller Sender-Gruppen in der Praxis IMMER genau
+    EIN Leerzeichen nach dem Pipe verwenden - nur EN|, MK|, DE|, UFC|
+    und EXYU| enthalten vereinzelt Sender mit null oder zwei
+    Leerzeichen. Ein voller sender.txt-Abgleich gegen genau diese
+    Playlist ergab: von 5256 "Land|Sender"-Zeilen brauchten nur 24 (alle
+    innerhalb dieser 5 Praefixe) tatsaechlich die Zusatzvarianten - die
+    verbleibenden ~5230 waren bereits ueber die Ein-Leerzeichen-Variante
+    allein abgedeckt. Alle anderen Praefixe bekommen deshalb nur noch
+    die eine (Standard-)Variante statt aller drei - das reduziert
+    Kanal-/Sendungsanzahl in der generierten XML fuer den Grossteil der
+    Sender auf ein Drittel, ohne (laut diesem Abgleich) einen einzigen
+    aktuell funktionierenden Sender zu treffen. Zeigt sich spaeter bei
+    einer ANDEREN Playlist ein weiterer betroffener Praefix, einfach zu
+    _LEERZEICHEN_AUSNAHME_PRAEFIXE hinzufuegen.
+    """
     # {2,5} statt {2,4}: deckt auch "PRIME|..." ab (5 Buchstaben) - ohne
     # diese Erweiterung bekamen alle 915 PRIME|-Sender nie eine
     # Leerzeichen-Variante, da die Praefix-Laenge nicht passte (Bug
@@ -125,10 +150,13 @@ def kanal_id_varianten(kanal):
     match = re.match(r"^([A-Za-z]{2,5})\|(\s*)(.+)$", kanal)
     if match:
         land, _leerzeichen, rest = match.groups()
-        ohne = f"{land}|{rest}"
         mit = f"{land}| {rest}"
-        mit_zwei = f"{land}|  {rest}"
-        varianten = [kanal] if ohne == mit else [ohne, mit, mit_zwei]
+        if land.upper() in _LEERZEICHEN_AUSNAHME_PRAEFIXE:
+            ohne = f"{land}|{rest}"
+            mit_zwei = f"{land}|  {rest}"
+            varianten = [kanal] if ohne == mit else [ohne, mit, mit_zwei]
+        else:
+            varianten = [mit]
     else:
         varianten = [kanal]
 
