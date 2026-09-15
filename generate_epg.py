@@ -88,6 +88,7 @@ from quellen.tvprogramdanas_epg import tvprogramdanas_kanal_finden, tvprogramdan
 from quellen.open_epg_epg import open_epg_kanal_finden, open_epg_hole_programme
 from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_programme
 from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
+from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 
 
 def kanal_id_varianten(kanal):
@@ -277,6 +278,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "tvprogramdanas": ["tvprogramdanas_intervalle"],
     "open_epg": ["open_epg_intervalle"],
     "ba_stanice": ["ba_stanice_intervalle"],
+    "blagovesti": ["blagovesti_intervalle"],
 }
 
 
@@ -4478,6 +4480,36 @@ for daten in ba_stanice_sender:
 
     if programme:
         _echte_quelle_zaehlen("BA-Stanice (RTV Vogosca u.ae.)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# BLAGOVESTI TV: einzeln gepruefter, eigenstaendiger geistlicher Sender
+# (siehe blagovesti_epg.py - sieben statische Wochentags-Seiten von
+# program.blagovesti.tv). Kein eigenes Praefix noetig, matcht direkt
+# gegen den Sendernamen "BLAGOVESTI TV" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        marker = blagovesti_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = blagovesti_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["blagovesti_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Blagovesti TV")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

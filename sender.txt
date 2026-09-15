@@ -70,7 +70,7 @@ BA|ATV BANJA LUKA|Atv Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/
 BA|BHT|Bht ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d2a566874088cf02.png
 BA|BHT1 ⱽᴵᴾ ᴿᴬᵂ|Bht1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d2a566874088cf02.png
 BA|BIR TV ⱽᴵᴾ ᴿᴬᵂ|Bir Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/af0de72e8e3fe877.png
-BA|BLAGOVIJESTI TV ⱽᴵᴾ ᴿᴬᵂ|Blagovijesti Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/BLAGOVIJESTI.png
+BA|BLAGOVIJESTI TV ⱽᴵᴾ ᴿᴬᵂ|Blagovijesti Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/blagovesti_tv/blagovesti_tv.png
 BA|BN TV ⱽᴵᴾ ᴿᴬᵂ|Bn Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1bb3bcf963816f1b.png
 BA|BN2 TV|Bn2 Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4173f9b6572930b.png
 BA|BN2 ⱽᴵᴾ ᴿᴬᵂ|Bn2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/df2315216c09a7fa.png
@@ -146,7 +146,7 @@ BA|RTVIS ⱽᴵᴾ ᴿᴬᵂ|Rtvis ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.
 BA|SEVDAH|Sevdah ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b41ce4a166a2587.png
 BA|SHOPTEL ⱽᴵᴾ ᴿᴬᵂ|Shoptel ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d4c243e6219a93bd212afd88900231bc3df48222.png
 BA|SIMIC TV ⱽᴵᴾ ᴿᴬᵂ|Simic Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SIMIC.png
-BA|SUPER TV MEDIA TUZLA ⱽᴵᴾ ᴿᴬᵂ|Super Tv Media Tuzla ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SUPER-TV-MEDIA-TUZLA.png
+BA|SUPER TV MEDIA TUZLA ⱽᴵᴾ ᴿᴬᵂ|Super Tv Media Tuzla ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/super_tv_media_tuzla/super_tv_media_tuzla.png
 BA|TB1 ⱽᴵᴾ ᴿᴬᵂ|Tb1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f462a2fc400fe1c4210b6c69ee6634745faaa05f.png
 BA|TELEVIZIJA 5|Televizija 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d164430b0cad7d.png
 BA|TELEVIZIJA 5 HD|Televizija 5 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d164430b0cad7d.png
@@ -155,7 +155,7 @@ BA|TV BUGOJNO|Tv Bugojno ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 BA|TV KAKANJ|Tv Kakanj ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/404edbfeb5be6a2a.png
 BA|TV KAKANJ HD|Tv Kakanj Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/404edbfeb5be6a2a.png
 BA|TV SA ⱽᴵᴾ ᴿᴬᵂ|Tv Sa ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92f722ed8743eced.png
-BA|TV SANDZAK ⱽᴵᴾ ᴿᴬᵂ|Tv Sandzak ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/TV-SANDZAK.png
+BA|TV SANDZAK ⱽᴵᴾ ᴿᴬᵂ|Tv Sandzak ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sandzak_tv/sandzak_tv.png
 BA|TV SARAJEVO|Tv Sarajevo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5b768e61d8abe85.png
 BA|TV SARAJEVO FHD|Tv Sarajevo Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b5b768e61d8abe85.png
 BA|VIKOM TV ⱽᴵᴾ ᴿᴬᵂ|Vikom Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c26d2f58372f0019.png
@@ -17020,11 +17020,11 @@ TELEMACH:BA|K3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ex
 TELEMACH:BA|RTV BPK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1bbeecd0facdf9efa2890af1d781605210a38765.png
 TELEMACH:BA|RTV HIT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2647169395b385706e00ac154daf400d88d5a091.png
 TELEMACH:BA|BIR TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ab9fe41d600197641c9be2a3101e780b4f9dfd04.png
-TELEMACH:BA|DOBOJ TV|AUTO
+TELEMACH:BA|DOBOJ TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/doboj_tv/doboj_tv.png
 TELEMACH:BA|ELTA TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/980bdc875fa06140a373d845c82ffc7f626b45b7.png
 TELEMACH:BA|TB1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/eeaad5bf009658af76e24fea98abc17dd1ba4841.png
 TELEMACH:BA|ALFA TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1aa4b83efab6f33020d041eac9c192acff1aabce.png
-BA|SUPER TV MEDIA TUZLA|Super TV Media Tuzla ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a6e2ac3a82de080da3906063173fbe1df92d902b.png
+BA|SUPER TV MEDIA TUZLA|Super TV Media Tuzla ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/super_tv_media_tuzla/super_tv_media_tuzla.png
 #DE| DAZN SPORT
 DAZN:DE|DAZN 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/875e3b70fc8caa9e207c7f56954cd008a9776044.png
 DAZN:DE|DAZN 1 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/875e3b70fc8caa9e207c7f56954cd008a9776044.png
@@ -18346,8 +18346,8 @@ BA|DOBOJ TV VIP RAW|Doboj TV ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia
 BA|ELTA TV VIP RAW|Elta TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dfb78ed5e2d2addf3285891d27287240448ac0af.png
 BA|SHOPTEL VIP RAW|Shoptel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/604dfe0810f84fa4028f3f960133d0c99a76e3a4.png
 BA|TB1 VIP RAW|Tb1 ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/8/82/Tb1_wordmark.jpg
-BA|SUPER TV MEDIA TUZLA VIP RAW|Super TV Media Tuzla ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a6e2ac3a82de080da3906063173fbe1df92d902b.png
-BA|BLAGOVESTI TV VIP RAW|Blagovesti TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d48375c2ac8c7a16a3c37474ae4b1b3a81d721ea.png
+BA|SUPER TV MEDIA TUZLA VIP RAW|Super TV Media Tuzla ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/super_tv_media_tuzla/super_tv_media_tuzla.png
+BA|BLAGOVESTI TV VIP RAW|Blagovesti TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/blagovesti_tv/blagovesti_tv.png
 BA|DOBRA MUZICKA TV VIP RAW|Dobra Muzicka TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/29cd14d0dee6ff2e5a291f4a8ee15e9ce883317a.png
 BA|HAYAT STIL I ZIVOT VIP RAW|Hayat Stil I Zivot ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/41b73ea428289c3da2f9c489fd9ca4a784c96596.png
 BA|HAYAT LOVE BOX VIP RAW|Hayat Love Box ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b9b657b595a4ff35d81dfcd220964cd86257ee0a.png
