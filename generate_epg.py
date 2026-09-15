@@ -96,7 +96,15 @@ from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 # Leerzeichen nach dem Pipe enthaelt - nur hier werden weiterhin alle
 # drei Leerzeichen-Varianten geschrieben, fuer alle anderen Praefixe
 # nur noch die Ein-Leerzeichen-Standardvariante.
-_LEERZEICHEN_AUSNAHME_PRAEFIXE = {"EN", "MK", "DE", "UFC", "EXYU", "RS"}
+_LEERZEICHEN_AUSNAHME_PRAEFIXE = {"EN", "MK", "UFC", "EXYU", "RS"}
+
+# Einzelne Kanaele ausserhalb der obigen Praefixe, die laut Playlist-
+# Abgleich trotzdem zwei Leerzeichen brauchen (bisher nur "DE|JUKEBOX
+# FHD" bekannt - DE selbst NICHT generell in die Praefixliste
+# aufgenommen, da DE mit weitem Abstand der groesste Praefix ist und
+# eine DE-Ausnahme die Groessenersparnis fast komplett zunichte machen
+# wuerde, siehe Chat-Analyse September 2026).
+_LEERZEICHEN_AUSNAHME_KANAELE = {"DE|JUKEBOX FHD"}
 
 
 def kanal_id_varianten(kanal):
@@ -151,7 +159,11 @@ def kanal_id_varianten(kanal):
     if match:
         land, _leerzeichen, rest = match.groups()
         mit = f"{land}| {rest}"
-        if land.upper() in _LEERZEICHEN_AUSNAHME_PRAEFIXE:
+        kanal_ohne_leerzeichen_normalisiert = f"{land.upper()}|{rest}"
+        if (
+            land.upper() in _LEERZEICHEN_AUSNAHME_PRAEFIXE
+            or kanal_ohne_leerzeichen_normalisiert in _LEERZEICHEN_AUSNAHME_KANAELE
+        ):
             ohne = f"{land}|{rest}"
             mit_zwei = f"{land}|  {rest}"
             varianten = [kanal] if ohne == mit else [ohne, mit, mit_zwei]
