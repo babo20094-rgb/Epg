@@ -90,6 +90,9 @@ from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_prog
 from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
+from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
+from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
+from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
 
 # Praefixe, bei denen die eigene Playlist (siehe Kommentar in
 # kanal_id_varianten()) nachweislich auch Sender mit null oder zwei
@@ -3103,6 +3106,9 @@ MAGENTATV_MK_TAGE = 2
 MAGENTATV_ME_TAGE = 2
 IPTVEPG_DE_TAGE = 2
 TVPROGRAMDANAS_TAGE = 3
+VIKOM_TAGE = 7
+MYMEDIA_TAGE = 3
+RTVSLON_TAGE = 14
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
@@ -4596,6 +4602,93 @@ for daten in sender_daten:
 
     if programme:
         _echte_quelle_zaehlen("BN2 (rtvbn.tv)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# VIKOM TV: einzeln gepruefter, eigenstaendiger Sender (siehe
+# vikom_epg.py - sieben statische Wochentags-Seiten von vikom.tv, das
+# Wochenschema wiederholt sich). Kein eigenes Praefix noetig, matcht
+# direkt gegen den Sendernamen "VIKOM TV" (mit VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        if vikom_kanal_treffer(daten["sender"]):
+            programme = vikom_hole_programme(VIKOM_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["vikom_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Vikom TV (vikom.tv)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MY TV (mymedia.ba): einzeln gepruefter, eigenstaendiger Sender (siehe
+# mymedia_epg.py - echte Kalendertage mit Start-und-Endzeit direkt aus
+# den HTML-data-Attributen). Kein eigenes Praefix noetig, matcht direkt
+# gegen den Sendernamen "MY TV"/"MY TV BHT" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        if mymedia_kanal_treffer(daten["sender"]):
+            programme = mymedia_hole_programme(MYMEDIA_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["mymedia_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("MY TV (mymedia.ba)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RTV SLON: einzeln gepruefter, eigenstaendiger Sender (siehe
+# rtvslon_epg.py - eine einzelne Seite mit zwei kompletten
+# Kalenderwochen). Kein eigenes Praefix noetig, matcht direkt gegen den
+# Sendernamen "RTV SLON" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        if rtvslon_kanal_treffer(daten["sender"]):
+            programme = rtvslon_hole_programme(RTVSLON_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["rtvslon_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("RTV Slon (rtvslon.ba)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

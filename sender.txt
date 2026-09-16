@@ -104,7 +104,7 @@ BA|K3 ⱽᴵᴾ ᴿᴬᵂ|K3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.github
 BA|KCN 1|Kcn 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1ba57af2af08255.png
 BA|KCN 2|Kcn 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1ba57af2af08255.png
 BA|MTV IGMAN|Mtv Igman ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d0f461e577164a3c.png
-BA|MY TV BHT ⱽᴵᴾ ᴿᴬᵂ|My Tv Bht ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a449e66c5ebff42d.png
+BA|MY TV BHT ⱽᴵᴾ ᴿᴬᵂ|My Tv Bht ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/my_tv_bht/my_tv_bht.png
 BA|N1 BH|N1 Bh ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/20e48a94e77efd0f.png
 BA|N1 BH HD|N1 Bh Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d5908aae8a34049.png
 BA|N1 ⱽᴵᴾ ᴿᴬᵂ|N1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/daa24911ae2ddde1.png
@@ -135,7 +135,7 @@ BA|RTV CAZIN|Rtv Cazin ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-
 BA|RTV HERCEG BOSNE ⱽᴵᴾ ᴿᴬᵂ|Rtv Herceg Bosne ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rtv_herceg_bosne/rtv_herceg_bosne.png
 BA|RTV LUKAVAC|Rtv Lukavac ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6daf4875c6cb221b.png
 BA|RTV SANA|Rtv Sana ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2f7ab0db812f91cb.png
-BA|RTV SLON ⱽᴵᴾ ᴿᴬᵂ|Rtv Slon ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/34104dd311d1aaab6fc6e959d1981d6866d98752.png
+BA|RTV SLON ⱽᴵᴾ ᴿᴬᵂ|Rtv Slon ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rtv_slon/rtv_slon.png
 BA|RTV TK ⱽᴵᴾ ᴿᴬᵂ|Rtv Tk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/02fb989942197c52.png
 BA|RTV USK ⱽᴵᴾ ᴿᴬᵂ|Rtv Usk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6600761b56e0cead.png
 BA|RTV VOGOSCA ⱽᴵᴾ ᴿᴬᵂ|Rtv Vogosca ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7278d8a86b1698aabbf134109e102a66ab56effd.png
@@ -18331,7 +18331,7 @@ BA|GLAS DRINE|Glas Drine ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 BA|HIT TV VIP RAW|Hit TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac16628d1e360bc4b609a415e7f7361643501739.png
 BA|K3 PRNJAVOR|K3 Prnjavor ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc1a4254675bae84f3f6434dab44fb9e2da591e1.png
 BA|SIMIC TV|Simic TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c475046f1ce6468129cffa77b11d0dbb380a6163.png
-BA|RTV SLON|Rtv Slon ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ad6cdb45fb1f3bbd07d20d81bd6f6332832c4fb9.png
+BA|RTV SLON|Rtv Slon ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rtv_slon/rtv_slon.png
 BA|RTV USK|Rtv Usk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/aa282381af3b98c8b231dbffbb6441c6e8f91c76.png
 BA|MEKA TV|Meka TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/59c91bade88678ee3e87e9ac06f86aafc297c55b.png
 BA|RTV VOGOSCA VIP RAW|Rtv Vogosca ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3291e2cbf54998e02072f829e98afcda7575b45a.png

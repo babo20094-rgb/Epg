@@ -152,6 +152,25 @@ Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
   `logos_bei_bedarf/meine_logos.txt` (DE+EXYU), `alle_logos.txt` (alle
   Länder), `ppv_kernnamen.txt` (Kern-Namen dynamischer PPV-Gruppen),
   `kategorien.txt` (Sendername→Playlist-Kategorie).
+- **Allgemeine Dauerregel (gilt IMMER, nicht nur für einzelne Sender):**
+  Schickt der Nutzer ein Logo(-Bild) + einen Sendernamen, wird dieses
+  Logo automatisch (ohne Rückfrage) für ALLE Sender in `sender.txt`
+  gesetzt, deren Kern-Sendername passt - auch bei jeder
+  Suffix-Variante (HD, ⱽᴵᴾ ᴿᴬᵂ, RAW, VIP, 4K, ...) und jedem Land, in
+  dem der Sender vorkommt. Das Logo wird wie gewohnt herunterge-
+  laden/optimiert/selbst gehostet (siehe oben) und der Sendername→
+  Logo-Zuordnung unten als neue Dauerregel hinzugefügt, damit auch
+  KÜNFTIG neu angelegte Zeilen mit demselben Kern-Sendernamen
+  automatisch dasselbe Logo bekommen, ohne dass der Nutzer es erneut
+  erwähnen muss.
+- **Feste Sendername→Logo-Zuordnungen (Dauerregel, gilt automatisch für
+  ALLE Suffix-Varianten desselben Kern-Sendernamens, auch neue, ohne
+  erneute Nachfrage):**
+  - `MY TV BHT` (jede Groß-/Kleinschreibung, jedes Suffix wie
+    ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) → `logos/my_tv_bht/my_tv_bht.png`
+  - `RTV SLON` (jede Groß-/Kleinschreibung, jedes Suffix wie
+    ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) → `logos/rtv_slon/rtv_slon.png` (NICHT
+    `TV SLON EXTRA` - eigenständiger, anderer Sendername/Kanal)
 
 ## Architektur-Überblick
 

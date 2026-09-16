@@ -4026,3 +4026,64 @@ tvarenasport.com den eigenen Plan aktualisiert (naechster automatischer
 IMMER auch pruefen, ob die REALE Quelle (nicht nur unsere generierte
 XML) selbst schon den fehlerhaften Wert liefert - dann ist es ein
 Upstream-Datenfehler der Quelle, kein Bug bei uns.
+
+## September 2026: mymedia.ba erneut geprueft - mit drittem Plugin wieder echte Daten, neu als quellen/mymedia_epg.py eingebaut (+ vikom.tv als neue eigenstaendige Quelle)
+
+mymedia.ba war seit einem frueheren Abschnitt ("Samsung TV Plus und
+mymedia.ba dauerhaft entfernt") komplett aus dem Code entfernt, weil die
+Seite damals auf "neoepg" umgestellt hatte und fuer "MY TV" nur einen
+"Keine Sendungen"-Leerzustand zeigte. Nutzer schickte eine aktuelle
+mht-Kopie von `mymedia.ba/tv-program/` - live nachgeprueft: die Seite
+laeuft jetzt auf einem DRITTEN Plugin ("tvschedule-epg" statt "neoepg"/
+"tvsmepg") und liefert fuer "MY TV" wieder gut gefuellte Tagesplaene,
+diesmal sogar mit Start-UND-Endzeit direkt als HTML-data-Attribute
+(`data-program-title`/`-description`/`-time="HH:MM – HH:MM"`), echte
+Kalendertage ueber `?epg_day=YYYY-MM-DD`.
+
+**Neu gebaut:** `quellen/mymedia_epg.py` (ersetzt die alte entfernte
+Version komplett neu) - enge Whitelist auf "MY TV"/"MY TV BHT" (beide
+Playlist-Schreibweisen fuer denselben Sender), Filter fuer den
+"Kraj"-Sendeschluss-Platzhalter, kein Endzeit-Schaetzen noetig (Website
+liefert beides direkt). Eingehaengt in generate_epg.py als schmaler
+Einzelsender-Fallback (analog Blagovesti TV/RTVBN), nach der ganzen
+BA-Kaskade, ungated-artig ueber `hat_aktive_echte_quelle()`-Check pro
+Sender wie die anderen Einzelsender-Quellen.
+
+**Zusaetzlich im selben Zuge:** `quellen/vikom_epg.py` als komplett neue
+Quelle fuer BA|VIKOM TV (Banja Luka) - vikom.tv hat KEINE echte
+Kalender-API, sondern sieben statische Wochentags-HTML-Seiten
+(`vikom.tv/program.php?media=tv&dan=0-6`), die sich wiederholen (echtes
+Wochenschema, kein Datum). Werbeblock-/Fuellprogramm-Zeilen (Zeit
+"*****", Titel "MARKETING n"/"TELEŠOP") werden gefiltert, Endzeit aus
+Start der naechsten Sendung berechnet (letzte Sendung endet um
+Mitternacht) - analog zu klix_epg.py.
+
+**Lehre (deckt sich mit der Regel oben im CLAUDE.md-Kopf):** "Quelle X
+liefert keine Daten mehr" ist kein dauerhafter Zustand - kleine
+WordPress-basierte TV-Programmseiten wechseln offenbar gelegentlich ihr
+EPG-Plugin (neoepg -> tvschedule-epg bei mymedia.ba), IMMER zuerst live
+mit einer frischen Kopie/URL nachpruefen, bevor man annimmt, die Quelle
+bleibt fuer immer leer.
+
+## September 2026: RTV Slon (Tuzla) als neue echte Quelle
+
+Nutzer schickte eine mht-Kopie von `rtvslon.ba/tv-program/` - live
+geprueft: die Seite zeigt auf EINER einzigen statischen Seite direkt
+ZWEI komplette Kalenderwochen (14 Tage mit echtem Datum je
+Wochentags-Zwischenueberschrift) als reinen Fliesstext
+("HH:MM Titel<br>"), kein Kanalverzeichnis/API noetig. Neu gebaut:
+`quellen/rtvslon_epg.py` - enge Whitelist auf "RTV SLON" (NICHT
+"TV SLON EXTRA", ein eigenstaendiger anderer Sendername/Kanal in
+sender.txt, bewusst nicht mit aufgenommen), Titel/Beschreibung werden
+am Gedankenstrich getrennt ("Rijeka strasti – igrana serija (R)" ->
+Titel "Rijeka strasti", Beschreibung "igrana serija (R)"),
+wiederkehrende Fuellprogramm-Titel ("Marketing", "Teletrgovina",
+"Video strane") gefiltert. Eingehaengt analog zu vikom_epg.py/
+mymedia_epg.py, nur EIN Request pro Lauf deckt alle 14 Tage ab.
+
+Gleicher Anlass zusaetzlich: eigenes Logo (`logos/rtv_slon/
+rtv_slon.png`) fuer alle "RTV SLON"-Zeilen (inkl. VIP/RAW-Suffix)
+gesetzt - siehe CLAUDE.md, neue Dauerregel: schickt der Nutzer ein
+Logo + Sendername, gilt das automatisch fuer ALLE Suffix-Varianten
+dieses Kern-Sendernamens, auch kuenftig neu angelegte Zeilen, ohne
+erneute Nachfrage.
