@@ -133,9 +133,25 @@ def mojmaxtv_hole_kanalliste():
         return []
 
 
+# Feste Alias-Aufloesung fuer Sender, deren eigener sender.txt-Name so
+# weit vom MojMaxTV-Namen abweicht (Qualitaets-Suffix bei kurzem
+# Gesamtnamen, o.ae.), dass die difflib-Aehnlichkeit unter der
+# 0.72-Schwelle bleibt - einzeln per Live-Abgleich verifiziert
+# (September 2026). "NOVA HD" bewusst auf "Nova TV" statt "TV Nova"
+# gemappt: MojMaxTV fuehrt beide als getrennte Kanaele, "TV Nova"
+# liefert praktisch keine Sendungen ("Kraj programa"/Sendeschluss),
+# "Nova TV" dagegen ein volles Tagesraster.
+_BEKANNTE_ALIASE = {
+    "NOVAHD": "NOVATV",  # "NOVA HD" -> "Nova TV"
+    "DOMAHD": "DOMATV",  # "DOMA HD" -> "Doma TV"
+    "SPORTSKATV": "SPORTSKATELEVIZIJA",  # "SPORTSKA TV" -> "Sportska Televizija"
+}
+
+
 def mojmaxtv_kanal_finden(kanalname):
     """Sucht den MojMaxTV-Kanal, der am besten zu kanalname passt -
-    erst exakter Abgleich nach normalisiere_sendername(), sonst
+    erst feste Alias-Aufloesung (siehe _BEKANNTE_ALIASE), dann exakter
+    Abgleich nach normalisiere_sendername(), sonst
     unscharfer difflib-Abgleich. Gibt die station_id zurueck oder
     None."""
     kanaele = mojmaxtv_hole_kanalliste()
@@ -176,6 +192,10 @@ def mojmaxtv_kanal_finden(kanalname):
         schluessel = normalisiere_sendername(kanal["name"])
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
+
+    alias_ziel = _BEKANNTE_ALIASE.get(ziel_schluessel)
+    if alias_ziel and alias_ziel in name_index:
+        return name_index[alias_ziel]
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]

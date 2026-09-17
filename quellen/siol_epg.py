@@ -104,17 +104,30 @@ def siol_hole_kanalliste():
 # Diese festen Aliase werden deshalb VOR dem unscharfen Abgleich anhand
 # des HD/FHD/SD-bereinigten Kerns geprueft und bei Treffer direkt
 # zurueckgegeben - kein Fehltreffer-Risiko mehr fuer diese Sender.
-_MK_ALIASE = {
+_BEKANNTE_ALIASE = {
     "MRT1": "mktv1",
     "MRT2": "mktv2",
     "MRT3": "mktv3",
     "ALSATM": "alsatm",
+    # Weitere einzeln per Live-Abgleich verifizierte Namensabweichungen
+    # (September 2026) - eigener sender.txt-Name weicht vom siol.net-
+    # Namen ab, automatischer Abgleich (exakt/unscharf) findet das
+    # nicht (zu kurz/generisch fuer sicheren Fuzzy-Treffer bzw. Wort-
+    # reihenfolge vertauscht):
+    "GOLDTVSLO": "gold",  # "GOLD TV HD SLO" -> "Gold TV"
+    "VESELJAK": "carlitv",  # "VESELJAK FHD" -> "Veseljak Golica"
+    "PLANETTVSLO": "planettv",  # "PLANET TV SLO" -> "Planet" (NICHT
+    # "Planet Eva" - das ist ein eigenstaendiger Spin-off-Kanal)
+    "PLANETATV": "planettv",  # "PLANETA TV HD" (MK) -> derselbe
+    # siol.net-Kanal "Planet", siol.net deckt laut Quellen-Kaskade
+    # automatisch auch MK ab
+    "HBO": "hbo",  # "HBO FHD" -> "HBO"
 }
 
 
 def siol_kanal_finden(kanalname):
     """Sucht den siol.net-Kanal, der am besten zu kanalname passt -
-    erst feste Alias-Aufloesung (MRT 1-3/Alsat M), dann exakter
+    erst feste Alias-Aufloesung (siehe _BEKANNTE_ALIASE), dann exakter
     Abgleich nach normalisiere_sendername(), sonst unscharfer
     difflib-Abgleich. Gibt die site_id zurueck oder None."""
     kanaele = siol_hole_kanalliste()
@@ -126,9 +139,9 @@ def siol_kanal_finden(kanalname):
         return None
 
     alias_schluessel = normalisiere_sendername_kern(kanalname)
-    if alias_schluessel in _MK_ALIASE:
+    if alias_schluessel in _BEKANNTE_ALIASE:
         vorhandene_ids = {kanal["site_id"] for kanal in kanaele}
-        alias_id = _MK_ALIASE[alias_schluessel]
+        alias_id = _BEKANNTE_ALIASE[alias_schluessel]
         if alias_id in vorhandene_ids:
             return alias_id
 
