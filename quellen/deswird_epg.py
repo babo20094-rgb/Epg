@@ -218,6 +218,22 @@ def _de_id_bevorzugen(bestehende_id, neue_id):
 # Zuordnung als eine geratene.
 _BEKANNTE_KERN_ALIASE = {
     "RTLNITRO": "RTLNitro.de",
+    # "KABEL 1 DOKU" (eigene Schreibweise mit Ziffer) vs. deswird.org
+    # "Kabel Eins Doku"/"kabel eins Doku" (ausgeschrieben) - reine
+    # Schreibweisen-Abweichung, kein Kern-Suffix. Mehrere IDs mit
+    # unterschiedlichem Inhalt vorhanden (u.a. "KabelEinsDoku.ch" als
+    # separater Schweizer Feed) - die vollstaendigste deutsche ID
+    # verwendet, analog zur RTL-Nitro-Praeferenz.
+    "KABEL1DOKU": "KabelEinsDoku.de",
+    # "N24 DOKCU" - Tippfehler im sender.txt-Namen (Dokcu statt Doku),
+    # keine reine Suffix-Abweichung, daher vom Kern-Abgleich nicht
+    # erkannt. Ebenfalls mehrere IDs, vollstaendigste deutsche
+    # verwendet.
+    "N24DOKCU": "N24Doku.de",
+    # "SKY ONE" - deswird.org fuehrt den Sender nur als "Sky One D"
+    # (Laenderkennzeichnung direkt im Namen statt als Suffix), einzige
+    # vorhandene ID, keine Mehrdeutigkeit.
+    "SKYONE": "Sky One D",
 }
 
 
