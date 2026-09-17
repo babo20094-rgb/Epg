@@ -2387,6 +2387,32 @@ M3U_PROVIDER_TIMEOUT_SEKUNDEN = 120
 # aber festes Limit als Sicherheitsnetz gegen eine unerwartet riesige Datei.
 M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
 
+# Modul-weiter Cache (pro URL/Lauf): sowohl der DYN-PPV-API-
+# Kanalnamen-Abgleich unten als auch m3u_playlist_abgleichen() laden
+# dieselbe (oft mehrere zehntausend Kanaele grosse) PROVIDER-Playlist -
+# ohne Cache wuerde sie zweimal pro Lauf komplett heruntergeladen,
+# was unnoetig Zeit kostet und das Risiko eines transienten Fehlers
+# (z.B. HTTPError bei einem der beiden Abrufe) verdoppelt.
+_m3u_playlist_cache = {}
+
+
+def _m3u_playlist_roh_text_laden(url):
+    """Laedt (und cached pro URL) den rohen Text der M3U-Playlist. Wirft
+    bei jedem Fehler weiter - der Aufrufer entscheidet, wie er darauf
+    reagiert (Fallback/graceful degradation)."""
+    if url in _m3u_playlist_cache:
+        return _m3u_playlist_cache[url]
+    antwort = requests.get(url, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
+    antwort.raise_for_status()
+    gepuffert = ""
+    for chunk in antwort.iter_content(chunk_size=65536):
+        gepuffert += chunk.decode("utf-8", errors="ignore")
+        if len(gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
+            break
+    antwort.close()
+    _m3u_playlist_cache[url] = gepuffert
+    return gepuffert
+
 # ==========================================================
 # DYN PPV CHANNELS
 # ==========================================================
@@ -2411,14 +2437,7 @@ dyn_ppv_api_playlist_namen = {}
 _m3u_url_fuer_dyn_ppv = os.environ.get("PROVIDER")
 if _m3u_url_fuer_dyn_ppv:
     try:
-        _antwort = requests.get(_m3u_url_fuer_dyn_ppv, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
-        _antwort.raise_for_status()
-        _gepuffert = ""
-        for _chunk in _antwort.iter_content(chunk_size=65536):
-            _gepuffert += _chunk.decode("utf-8", errors="ignore")
-            if len(_gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
-                break
-        _antwort.close()
+        _gepuffert = _m3u_playlist_roh_text_laden(_m3u_url_fuer_dyn_ppv)
 
         for _zeile in _gepuffert.splitlines():
             _zeile = _zeile.strip()
@@ -2820,15 +2839,7 @@ def m3u_playlist_abgleichen(url, quelle_name):
     name_pipe_kanal_index) den aktuellen Anzeigenamen aus der
     #EXTINF-Zeile als Sendungstitel. Gibt die Menge der normalisierten
     Kern-Keys zurueck, die dabei ein echtes Event geliefert haben."""
-    response = requests.get(url, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
-    response.raise_for_status()
-
-    gepuffert = ""
-    for chunk in response.iter_content(chunk_size=65536):
-        gepuffert += chunk.decode("utf-8", errors="ignore")
-        if len(gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
-            break
-    response.close()
+    gepuffert = _m3u_playlist_roh_text_laden(url)
 
     erledigte_keys = set()
     aktualisierte_sender = []
