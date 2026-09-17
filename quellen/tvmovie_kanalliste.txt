@@ -102,7 +102,6 @@ okto-tv|OKTO TV
 orf-1|ORF 1
 orf-2|ORF 2
 orf3|ORF3
-orfsportplus|ORFSportPlus
 phoenix|Phoenix
 planet|Planet
 powert%C3%BCrk|Powertürk
