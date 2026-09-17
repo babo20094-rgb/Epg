@@ -66,10 +66,8 @@ mdr|MDR
 motorvisiontv|Motorvision TV
 mtv|MTV
 mtvbrandnew|MTV Brand New
-mtvhd|MTV HD
 mtvlivehd|MTV Live HD
 muenchentv|München TV
-ntv|n-tv
 n24doku|N24 Doku
 nationalgeographic|National Geographic
 nationalgeographicwild|National Geographic Wild
@@ -121,13 +119,8 @@ skycinemaclassics|Sky Cinema Classics
 skycinemafamily|Sky Cinema Family
 skycinemafun|Sky Cinema Fun
 skycinemapremieren|Sky Cinema Premieren
-skycinemapremierenplus24|Sky Cinema Premieren +24
-skycinemaspecial|Sky Cinema Special
-skycinemathriller|Sky Cinema Thriller
 skykrimi|Sky Krimi
 skyone|Sky One
-skysport1|Sky Sport 1
-skysport2|Sky Sport 2
 skysportaustria1|Sky Sport Austria 1
 skysportbundesliga1|Sky Sport Bundesliga 1
 skysportnews|Sky Sport News
@@ -160,7 +153,6 @@ tv2|TV 2
 tvberlin|TV.Berlin
 tv5monde|TV5MONDE
 universaltv|Universal TV
-vh1classic|VH1 Classic
 vox|VOX
 voxup|VOXup
 wdr|WDR
