@@ -132,13 +132,11 @@ sky-emotion|Sky EMOTION
 sky-fu%C3%9Fball-bundesliga|Sky Fußball Bundesliga
 sky-hits|Sky HITS
 sky-nostalgie|Sky NOSTALGIE
-sky-sport-hd-1|Sky SPORT HD 1
 sky-sport-news-hd|Sky Sport News HD
 sonnenklartv|Sonnenklar.TV
 spiegel-geschichte|Spiegel Geschichte
 spiegel-tv-wissen|Spiegel TV Wissen
 sport1|Sport1
-sport1-us|Sport1 US
 swr-fernsehen|SWR Fernsehen
 syfy|Syfy
 tagesschau24|tagesschau24
