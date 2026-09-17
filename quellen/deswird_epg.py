@@ -196,11 +196,38 @@ def _de_id_bevorzugen(bestehende_id, neue_id):
     return bestehende_id
 
 
+# Bekannte Marken-Umbenennung: der eigene sender.txt-Name "RTL NITRO"
+# weicht vom aktuellen deswird.org-Namen nicht nur um ein HD/FHD-
+# Qualitaetssuffix ab (das faengt der normale Kern-Abgleich ab),
+# sondern im Markennamen selbst (RTL Nitro wurde zu "Nitro"
+# umbenannt) - der automatische Abgleich findet das daher nicht.
+# deswird.org fuehrt den Sender unter drei verschiedenen IDs mit
+# unterschiedlichem Inhalt (per Live-Abgleich September 2026
+# verifiziert): "RTLNitro.de" und "NITRO" teilen sich dieselben
+# Sendungen (deutscher Feed, "RTLNitro.de" davon vollstaendiger),
+# "RTLNitro.ch" ist dagegen nachweislich der SCHWEIZER Feed (andere
+# Sendungen, u.a. Teleshopping) - direkt die verifizierte deutsche ID
+# verwenden statt sich auf den (hier mehrdeutigen) Kern-Abgleich zu
+# verlassen, der bei mehreren Kandidaten ohne .de-Praeferenz bewusst
+# gar nichts liefert (kein Fallback-Risiko).
+# "GEO TV" wurde bewusst NICHT aufgenommen: deswird.org fuehrt dort
+# zwei "GEO Television" benannte IDs mit klar unterschiedlichem
+# Sendungsinhalt (GEOTV.de vs. GEO.de/"GEO Television") - welche davon
+# zum eigenen Playlist-Kanal passt, laesst sich ohne weitere Evidenz
+# nicht sicher bestimmen, daher lieber gar keine automatische
+# Zuordnung als eine geratene.
+_BEKANNTE_KERN_ALIASE = {
+    "RTLNITRO": "RTLNitro.de",
+}
+
+
 def deswird_kanal_finden(kanalname):
     """Sucht den deswird.org-Kanal, der am besten zu kanalname passt -
-    erst exakter Abgleich nach normalisiere_sendername(), dann ein
-    eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD, zuletzt unscharfer
-    difflib-Abgleich (siehe epg_lib.kanal_index_suchen()). Bei
+    zuerst eine einzelne, manuell verifizierte Marken-Alias-Ausnahme
+    (siehe _BEKANNTE_KERN_ALIASE), dann exakter Abgleich nach
+    normalisiere_sendername(), dann ein eindeutiger Kern-Abgleich ohne
+    HD/FHD/UHD/SD, zuletzt unscharfer difflib-Abgleich (siehe
+    epg_lib.kanal_index_suchen()). Bei
     mehreren Kanaelen mit identischem (Kern-)Namen wird die explizit
     mit ".de" gekennzeichnete Kanal-ID bevorzugt (siehe
     _de_id_bevorzugen()) statt den Treffer als mehrdeutig zu verwerfen.
@@ -247,6 +274,11 @@ def deswird_kanal_finden(kanalname):
                 # bisher, kein Fallback-Risiko eingehen.
                 kern_mehrdeutig.add(kern)
     kern_index = {k: v for k, v in kern_roh.items() if k not in kern_mehrdeutig}
+
+    eingabe_kern = normalisiere_sendername_kern(kanalname)
+    alias_site_id = _BEKANNTE_KERN_ALIASE.get(eingabe_kern)
+    if alias_site_id and any(k["site_id"] == alias_site_id for k in daten["kanaele"]):
+        return alias_site_id
 
     return kanal_index_suchen(kanalname, name_index, kern_index)
 
