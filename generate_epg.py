@@ -4,6 +4,7 @@ from xml.sax.saxutils import escape as _sax_escape
 import gzip
 import os
 import re
+import time
 import requests
 import xml.etree.ElementTree as ET
 
@@ -2391,27 +2392,63 @@ M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
 # Kanalnamen-Abgleich unten als auch m3u_playlist_abgleichen() laden
 # dieselbe (oft mehrere zehntausend Kanaele grosse) PROVIDER-Playlist -
 # ohne Cache wuerde sie zweimal pro Lauf komplett heruntergeladen,
-# was unnoetig Zeit kostet und das Risiko eines transienten Fehlers
-# (z.B. HTTPError bei einem der beiden Abrufe) verdoppelt.
+# was unnoetig Zeit kostet.
 _m3u_playlist_cache = {}
+
+# Mindestgroesse, ab der ein Abruf ueberhaupt als "eine echte Playlist"
+# gilt (siehe Retry-Logik unten) - bewusst weit unter der normalen
+# Groesse (mehrere zehntausend Kanaele) angesetzt, nur als grobes
+# Sicherheitsnetz gegen eine leere/abgeschnittene Antwort.
+_M3U_PROVIDER_MIN_ZEICHEN = 10_000
 
 
 def _m3u_playlist_roh_text_laden(url):
-    """Laedt (und cached pro URL) den rohen Text der M3U-Playlist. Wirft
-    bei jedem Fehler weiter - der Aufrufer entscheidet, wie er darauf
-    reagiert (Fallback/graceful degradation)."""
+    """Laedt (und cached pro URL/Lauf) den rohen Text der M3U-Playlist.
+    Ohne Cache wuerden der DYN-PPV-API-Kanalnamen-Abgleich und
+    m3u_playlist_abgleichen() dieselbe Datei zweimal pro Lauf
+    herunterladen - das lieferte als Nebeneffekt eine gewisse
+    Ausfallsicherheit gegen einen kurzen Aussetzer des Anbieters (schlug
+    ein Download leer/kaputt fehl, rettete der zweite, unabhaengige
+    Download die Daten meistens trotzdem). Nach der Zusammenlegung auf
+    einen Download fiel das komplett weg - bestaetigt durch einen realen
+    Lauf, bei dem alle ~9921 NAME:-Kanaele auf einen Schlag 0 Live-
+    Treffer hatten, obwohl vorherige/spaetere Laeufe wieder normal
+    funktionierten (eindeutig ein einmaliger Anbieter-Aussetzer, kein
+    dauerhafter Fehler). Deshalb hier bis zu drei Versuche: eine Antwort,
+    die kuerzer als _M3U_PROVIDER_MIN_ZEICHEN ist oder nicht mit
+    '#EXTM3U' beginnt, gilt als verdaechtig/kaputt und wird NICHT
+    gecached, stattdessen wird (mit kurzer Pause) erneut abgerufen.
+    Wirft nach dem letzten Versuch weiter - der Aufrufer entscheidet, wie
+    er darauf reagiert (Fallback/graceful degradation)."""
     if url in _m3u_playlist_cache:
         return _m3u_playlist_cache[url]
-    antwort = requests.get(url, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
-    antwort.raise_for_status()
-    gepuffert = ""
-    for chunk in antwort.iter_content(chunk_size=65536):
-        gepuffert += chunk.decode("utf-8", errors="ignore")
-        if len(gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
-            break
-    antwort.close()
-    _m3u_playlist_cache[url] = gepuffert
-    return gepuffert
+
+    letzter_fehler = None
+    for versuch in range(3):
+        if versuch > 0:
+            time.sleep(5)
+        try:
+            antwort = requests.get(url, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
+            antwort.raise_for_status()
+            gepuffert = ""
+            for chunk in antwort.iter_content(chunk_size=65536):
+                gepuffert += chunk.decode("utf-8", errors="ignore")
+                if len(gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
+                    break
+            antwort.close()
+        except Exception as e:
+            letzter_fehler = e
+            continue
+
+        if len(gepuffert) >= _M3U_PROVIDER_MIN_ZEICHEN and gepuffert.lstrip().startswith("#EXTM3U"):
+            _m3u_playlist_cache[url] = gepuffert
+            return gepuffert
+        letzter_fehler = ValueError(
+            f"Playlist-Antwort verdaechtig (Laenge {len(gepuffert)}, "
+            f"gueltiger #EXTM3U-Header: {gepuffert.lstrip().startswith('#EXTM3U')})"
+        )
+
+    raise letzter_fehler
 
 # ==========================================================
 # DYN PPV CHANNELS
