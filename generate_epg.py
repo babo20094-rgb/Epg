@@ -5,6 +5,7 @@ import gzip
 import os
 import re
 import resource
+import sys
 import time
 import requests
 import xml.etree.ElementTree as ET
@@ -98,6 +99,43 @@ from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
 from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
 from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
 from quellen.grand_epg import grand_kanal_finden, grand_hole_programme
+
+# ==========================================================
+# LOG-FILTER: einzelne Seitenabruf-Fehlschlaege + Laufzeit-Zeilen pro
+# Quelle aus dem sichtbaren Workflow-Log herausfiltern
+#
+# Beide Zeilenarten sind erwartetes, durch die Kaskade/Retry-Logik
+# bereits abgefangenes Rauschen (siehe quellen/_http.py, _parallel_
+# abrufen()) und kein Hinweis auf ein echtes Problem - die zusammen-
+# gefasste "Rate-Limit-/Fehler-Uebersicht pro Quelle" und die Laufzeit-
+# Tabelle am Laufende bleiben unveraendert sichtbar und reichen zur
+# Einschaetzung. Landen trotzdem vollstaendig in DEBUG_LOG_DATEI, damit
+# sie bei Bedarf (z.B. fuer eine gezielte Analyse) weiterhin einsehbar
+# sind, ohne den normalen Log-Lesefluss zu stoeren.
+# ==========================================================
+
+DEBUG_LOG_DATEI = "debug_log.txt"
+_GEFILTERTE_LOGZEILE = re.compile(r"fehlgeschlagen \(.*\), ueberspringe|^\[Laufzeit\] ")
+
+
+class _GefilterterStdout:
+    def __init__(self, echter_stdout, debug_datei):
+        self._echt = echter_stdout
+        self._debug = debug_datei
+
+    def write(self, text):
+        for zeile in text.splitlines(keepends=True):
+            if _GEFILTERTE_LOGZEILE.search(zeile):
+                self._debug.write(zeile)
+            else:
+                self._echt.write(zeile)
+
+    def flush(self):
+        self._echt.flush()
+        self._debug.flush()
+
+
+sys.stdout = _GefilterterStdout(sys.stdout, open(DEBUG_LOG_DATEI, "a", encoding="utf-8"))
 
 # Praefixe, bei denen die eigene Playlist (siehe Kommentar in
 # kanal_id_varianten()) nachweislich auch Sender mit null oder zwei

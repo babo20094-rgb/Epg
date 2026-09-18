@@ -4290,3 +4290,60 @@ fuer den betroffenen Sendernamen matcht (`deswird_kanal_finden()`
 direkt aufrufen), nicht nur den XML-Inhalt zum Kontrollzeitpunkt
 vergleichen - der Unterschied zeigt sich ggf. erst an Tagen, die die
 schwaechere Quelle nicht mehr abdeckt.
+
+## Pruefung Run #864 (18.09.2026): vereinzelte 429-Fehlschlaege bei
+## tvmovie.de/hoerzu.de folgenlos + Log-Filter fuer Detail-Rauschen
+
+Nutzer bat um Pruefung des letzten Workflow-Laufs auf Fehlschlaege/
+uebersprungene Sender. Log zeigte die neue (Run #863 eingefuehrte)
+Rate-Limit-/Fehler-Uebersicht:
+
+```
+www.hoerzu.de:  186 Versuche, 25x 429/503, 6 endgueltig fehlgeschlagen
+www.tvmovie.de: 140 Versuche, 24x 429/503, 6 endgueltig fehlgeschlagen
+```
+
+Konkret betroffen (nach allen 3 Retry-Versuchen in `quellen/_http.py`
+endgueltig gescheitert): TvMovie `prosieben-fun`/`prosieben-maxx`,
+Hoerzu `skycinemafamily`/`skycinemapremieren`.
+
+**Pruefung per generierter XML (nicht nur Log):** Fuer alle vier
+betroffenen Sender (`DE|PROSIEBEN FUN HD`, `DE|PROSIEBEN MAXX FHD`,
+`DE|SKY CINEMA FAMILY FHD`, `DE|SKY CINEMA PREMIEREN +24 FHD`) wurden
+trotzdem echte, individuelle Sendungstitel gefunden (z.B. "Panhandle",
+"WWE Rivals", "Werner – Volles Rooäää!!!", "Hallow Road") mit 3-4 Tagen
+Abdeckung - identisch zur Abdeckung unauffaelliger Vergleichssender
+(TLC HD, Sky Cinema Premieren HEVC: ebenfalls 4 Tage). Anders als beim
+TLC-HEVC-Fall oben (siehe vorheriger Abschnitt) gab es hier also KEINEN
+Abdeckungsverlust - die DE-Kaskade ist bei diesen Slugs automatisch auf
+Joyn-VOD/Magenta/iptv-epg.org durchgefallen und hat dort gleichwertige
+Daten gefunden. Die Fehlschlaege sind reines, durch die Kaskade bereits
+abgefangenes Rauschen ohne EPG-Auswirkung; Laufzeit-Mehrkosten durch die
+Retries sind ebenfalls vernachlaessigbar (laufen parallel zu den
+uebrigen Workern desselben Blocks).
+
+Zusaetzlich bestaetigt: die 429er treten nur sporadisch auf, nicht
+durchgaengig (bei hoerzu.de griffen 161 von 186 Versuchen direkt ohne
+Rate-Limiting).
+
+**Auf Nutzerwunsch:** Log-Rauschen entfernt (Anzeige der Sekunden-/RSS-
+Laufzeitzeilen und der einzelnen "fehlgeschlagen...ueberspringe"-
+Meldungen pro Sender staerte im sichtbaren Workflow-Log). Statt jede
+einzelne `print()`-Stelle in allen `quellen/*.py`-Modulen zu aendern,
+wurde `sys.stdout` in `generate_epg.py` (direkt nach den Imports) durch
+eine kleine `_GefilterterStdout`-Klasse ersetzt, die zeilenweise per
+Regex (`fehlgeschlagen \(.*\), ueberspringe` bzw. `^\[Laufzeit\] `)
+filtert: passende Zeilen gehen NICHT mehr an die echte Konsole, sondern
+in eine neue Datei `debug_log.txt` (in `.gitignore` aufgenommen, wird
+nie committet) - nur fuer eine gezielte Detail-Analyse bei Bedarf. Die
+zusammengefasste Rate-Limit-Uebersicht und die Laufzeit-Tabelle am
+Laufende (beide NICHT ueber `print()` pro Zeile, sondern als
+Abschluss-Block) bleiben davon unberuehrt normal sichtbar.
+
+**Lehre:** Ein einzelner Log-Filter auf Stream-Ebene (statt N einzelner
+Aenderungen in jedem Quellen-Modul) ist der wartungsaermere Weg, um
+bestimmte wiederkehrende Log-Zeilenmuster projektweit ein-/auszublenden
+- funktioniert nur sicher, weil `generate_epg.py` beim Testlauf
+(`pytest`) gar nicht importiert wird (die Tests patchen nur einzelne
+`quellen.<modul>.requests.get`), sonst haette die stdout-Umleitung auch
+die Testausgabe gefiltert.
