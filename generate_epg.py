@@ -3185,7 +3185,7 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 # naechste Quelle zurueck) nichts aendert.
 # ==========================================================
 
-PARALLEL_WORKER = 6
+PARALLEL_WORKER = 12
 
 # Sammelt fuer jede benannte Quelle (siehe _parallel_abrufen()/
 # _zeitmessung() Aufrufe unten) die gebrauchte Zeit in Sekunden und die
