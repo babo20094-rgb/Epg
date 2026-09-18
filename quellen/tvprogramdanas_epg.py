@@ -38,6 +38,7 @@ import html
 import os
 import re
 
+import threading
 import requests
 from quellen import _http
 
@@ -69,6 +70,12 @@ _TIMELINE_MUSTER = re.compile(
 _TAG_BLOCK_MUSTER = re.compile(r'<div id="schedule-(\d{4}-\d{2}-\d{2})" class="schedule-tab"')
 
 _kanalliste_cache = None
+# Schuetzt den Erstzugriff auf _kanalliste_cache: bei gleichzeitigem Zugriff aus
+# mehreren Threads (siehe _parallel_abrufen() in generate_epg.py)
+# wuerden ohne diese Sperre alle Threads gleichzeitig "noch nicht
+# geladen" sehen und dieselbe Datei jeder fuer sich parallel
+# herunterladen, statt dass nur einer laedt und die anderen warten.
+_kanalliste_cache_lock = threading.Lock()
 _seiten_cache = {}
 
 # Explizite Sperre fuer ARENA-SPORT-/SPORT-KLUB-Kanaele (analog zu
@@ -101,24 +108,30 @@ def tvprogramdanas_hole_kanalliste():
     if _kanalliste_cache is not None:
         return _kanalliste_cache
 
-    try:
-        kanaele = []
-        with open(KANALLISTE_DATEI, encoding="utf-8") as f:
-            for zeile in f:
-                zeile = zeile.strip()
-                if not zeile or "|" not in zeile:
-                    continue
-                slug, name = zeile.split("|", 1)
-                if not slug.strip() or not name.strip():
-                    continue
-                kanaele.append({"slug": slug.strip(), "name": name.strip()})
-        _kanalliste_cache = kanaele
-        return kanaele
-    except Exception as e:
-        print(f"TvProgramDanas-EPG: Kanalliste konnte nicht gelesen werden ({e}), ueberspringe.")
-        _kanalliste_cache = []
-        return []
+    with _kanalliste_cache_lock:
+        # Erneut pruefen: ein anderer Thread koennte das Laden
+        # bereits erledigt haben, waehrend dieser Thread auf die
+        # Sperre wartete.
+        if _kanalliste_cache is not None:
+            return _kanalliste_cache
 
+        try:
+            kanaele = []
+            with open(KANALLISTE_DATEI, encoding="utf-8") as f:
+                for zeile in f:
+                    zeile = zeile.strip()
+                    if not zeile or "|" not in zeile:
+                        continue
+                    slug, name = zeile.split("|", 1)
+                    if not slug.strip() or not name.strip():
+                        continue
+                    kanaele.append({"slug": slug.strip(), "name": name.strip()})
+            _kanalliste_cache = kanaele
+            return kanaele
+        except Exception as e:
+            print(f"TvProgramDanas-EPG: Kanalliste konnte nicht gelesen werden ({e}), ueberspringe.")
+            _kanalliste_cache = []
+            return []
 
 def tvprogramdanas_kanal_finden(kanalname):
     """Sucht den tvprogramdanas.net-Kanal, der am besten zu kanalname

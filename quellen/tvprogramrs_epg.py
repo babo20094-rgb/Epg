@@ -42,6 +42,7 @@ from datetime import datetime, timedelta, timezone
 import os
 import re
 
+import threading
 import requests
 from quellen import _http
 from zoneinfo import ZoneInfo
@@ -68,6 +69,12 @@ _ZEIT_PATTERN = re.compile(r'satnica">(\d{1,2}):(\d{2})</span>')
 _TITEL_PATTERN = re.compile(r'<p>(?:<a[^>]*>)?([^<]*)')
 
 _kanalliste_cache = None
+# Schuetzt den Erstzugriff auf _kanalliste_cache: bei gleichzeitigem Zugriff aus
+# mehreren Threads (siehe _parallel_abrufen() in generate_epg.py)
+# wuerden ohne diese Sperre alle Threads gleichzeitig "noch nicht
+# geladen" sehen und dieselbe Datei jeder fuer sich parallel
+# herunterladen, statt dass nur einer laedt und die anderen warten.
+_kanalliste_cache_lock = threading.Lock()
 _name_index = None
 _kern_index = None
 _programme_cache = {}
@@ -83,24 +90,30 @@ def _kanalliste_laden():
     if _kanalliste_cache is not None:
         return _kanalliste_cache
 
-    try:
-        kanaele = []
-        with open(KANALLISTE_DATEI, encoding="utf-8") as f:
-            for zeile in f:
-                zeile = zeile.strip()
-                if not zeile or zeile.count("|") != 2:
-                    continue
-                id_, slug, name = zeile.split("|")
-                if not id_.strip() or not slug.strip() or not name.strip():
-                    continue
-                kanaele.append({"id": id_.strip(), "slug": slug.strip(), "name": name.strip()})
-        _kanalliste_cache = kanaele
-        return kanaele
-    except Exception as e:
-        print(f"TvProgramRS-EPG: Kanalliste konnte nicht gelesen werden ({e}), ueberspringe.")
-        _kanalliste_cache = []
-        return []
+    with _kanalliste_cache_lock:
+        # Erneut pruefen: ein anderer Thread koennte das Laden
+        # bereits erledigt haben, waehrend dieser Thread auf die
+        # Sperre wartete.
+        if _kanalliste_cache is not None:
+            return _kanalliste_cache
 
+        try:
+            kanaele = []
+            with open(KANALLISTE_DATEI, encoding="utf-8") as f:
+                for zeile in f:
+                    zeile = zeile.strip()
+                    if not zeile or zeile.count("|") != 2:
+                        continue
+                    id_, slug, name = zeile.split("|")
+                    if not id_.strip() or not slug.strip() or not name.strip():
+                        continue
+                    kanaele.append({"id": id_.strip(), "slug": slug.strip(), "name": name.strip()})
+            _kanalliste_cache = kanaele
+            return kanaele
+        except Exception as e:
+            print(f"TvProgramRS-EPG: Kanalliste konnte nicht gelesen werden ({e}), ueberspringe.")
+            _kanalliste_cache = []
+            return []
 
 def _indizes_aufbauen():
     global _name_index, _kern_index

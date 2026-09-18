@@ -40,6 +40,7 @@ import gzip
 import re
 import xml.etree.ElementTree as ET
 
+import threading
 import requests
 from quellen import _http
 
@@ -51,6 +52,12 @@ REQUEST_TIMEOUT_SEKUNDEN = 45
 
 # Modul-weiter Cache: {"kanaele": [...], "programme": {kanal_id: [...]}}
 _daten_cache = None
+# Schuetzt den Erstzugriff auf _daten_cache: bei gleichzeitigem Zugriff aus
+# mehreren Threads (siehe _parallel_abrufen() in generate_epg.py)
+# wuerden ohne diese Sperre alle Threads gleichzeitig "noch nicht
+# geladen" sehen und dieselbe Datei jeder fuer sich parallel
+# herunterladen, statt dass nur einer laedt und die anderen warten.
+_daten_cache_lock = threading.Lock()
 
 HEADERS = {
     "User-Agent": (
@@ -73,64 +80,70 @@ def _xml_laden():
     if _daten_cache is not None:
         return _daten_cache
 
-    try:
-        response = _http.mit_retry(requests.get, URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
-        response.raise_for_status()
-        rohbytes = response.content
+    with _daten_cache_lock:
+        # Erneut pruefen: ein anderer Thread koennte das Laden
+        # bereits erledigt haben, waehrend dieser Thread auf die
+        # Sperre wartete.
+        if _daten_cache is not None:
+            return _daten_cache
 
         try:
-            xml_bytes = gzip.decompress(rohbytes)
-        except OSError:
-            xml_bytes = rohbytes
+            response = _http.mit_retry(requests.get, URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+            response.raise_for_status()
+            rohbytes = response.content
 
-        kanaele = []
-        programme = {}
+            try:
+                xml_bytes = gzip.decompress(rohbytes)
+            except OSError:
+                xml_bytes = rohbytes
 
-        kontext = ET.iterparse(__import__("io").BytesIO(xml_bytes), events=("end",))
-        for _, elem in kontext:
-            if elem.tag == "channel":
-                kanal_id = elem.get("id")
-                name_tag = elem.find("display-name")
-                name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
-                if kanal_id:
-                    kanaele.append({"site_id": kanal_id, "name": name})
-                elem.clear()
-            elif elem.tag == "programme":
-                kanal_id = elem.get("channel")
-                start_roh = elem.get("start")
-                stop_roh = elem.get("stop")
-                if kanal_id and start_roh and stop_roh:
-                    start = _xmltv_zeit_parsen(start_roh)
-                    stop = _xmltv_zeit_parsen(stop_roh)
-                    titel_tag = elem.find("title")
-                    titel = titel_tag.text.strip() if titel_tag is not None and titel_tag.text else ""
-                    if start is not None and stop is not None and titel:
-                        beschr_tag = elem.find("desc")
-                        beschreibung = beschr_tag.text.strip() if beschr_tag is not None and beschr_tag.text else ""
-                        icon_tag = elem.find("icon")
-                        bild = icon_tag.get("src") if icon_tag is not None else None
-                        programme.setdefault(kanal_id, []).append({
-                            "title": titel,
-                            "beschreibung": beschreibung,
-                            "bild": bild,
-                            "start": start,
-                            "stop": stop,
-                        })
-                elem.clear()
+            kanaele = []
+            programme = {}
 
-        for eintraege in programme.values():
-            eintraege.sort(key=lambda s: s["start"])
+            kontext = ET.iterparse(__import__("io").BytesIO(xml_bytes), events=("end",))
+            for _, elem in kontext:
+                if elem.tag == "channel":
+                    kanal_id = elem.get("id")
+                    name_tag = elem.find("display-name")
+                    name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
+                    if kanal_id:
+                        kanaele.append({"site_id": kanal_id, "name": name})
+                    elem.clear()
+                elif elem.tag == "programme":
+                    kanal_id = elem.get("channel")
+                    start_roh = elem.get("start")
+                    stop_roh = elem.get("stop")
+                    if kanal_id and start_roh and stop_roh:
+                        start = _xmltv_zeit_parsen(start_roh)
+                        stop = _xmltv_zeit_parsen(stop_roh)
+                        titel_tag = elem.find("title")
+                        titel = titel_tag.text.strip() if titel_tag is not None and titel_tag.text else ""
+                        if start is not None and stop is not None and titel:
+                            beschr_tag = elem.find("desc")
+                            beschreibung = beschr_tag.text.strip() if beschr_tag is not None and beschr_tag.text else ""
+                            icon_tag = elem.find("icon")
+                            bild = icon_tag.get("src") if icon_tag is not None else None
+                            programme.setdefault(kanal_id, []).append({
+                                "title": titel,
+                                "beschreibung": beschreibung,
+                                "bild": bild,
+                                "start": start,
+                                "stop": stop,
+                            })
+                    elem.clear()
 
-        print(f"IPTV-EPG.org-DE-EPG: {len(kanaele)} Kanaele, {len(programme)} Kanaele mit Sendungen geladen.")
+            for eintraege in programme.values():
+                eintraege.sort(key=lambda s: s["start"])
 
-        daten = {"kanaele": kanaele, "programme": programme}
-        _daten_cache = daten
-        return daten
-    except Exception as e:
-        print(f"IPTV-EPG.org-DE-EPG: Laden/Parsen fehlgeschlagen ({e}), ueberspringe.")
-        _daten_cache = {"kanaele": [], "programme": {}}
-        return _daten_cache
+            print(f"IPTV-EPG.org-DE-EPG: {len(kanaele)} Kanaele, {len(programme)} Kanaele mit Sendungen geladen.")
 
+            daten = {"kanaele": kanaele, "programme": programme}
+            _daten_cache = daten
+            return daten
+        except Exception as e:
+            print(f"IPTV-EPG.org-DE-EPG: Laden/Parsen fehlgeschlagen ({e}), ueberspringe.")
+            _daten_cache = {"kanaele": [], "programme": {}}
+            return _daten_cache
 
 def _xmltv_zeit_parsen(text):
     """Parst das XMLTV-Zeitformat 'YYYYMMDDHHMMSS +ZZZZ' zu einem

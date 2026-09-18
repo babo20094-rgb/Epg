@@ -32,6 +32,7 @@ from zoneinfo import ZoneInfo
 import difflib
 import re
 
+import threading
 import requests
 from quellen import _http
 from bs4 import BeautifulSoup
@@ -48,6 +49,12 @@ _ZEIT_PATTERN = re.compile(r"^\s*(\d{1,2})\.(\d{2})\s*$")
 
 # Modul-weiter Cache, analog zu telemach_epg.py.
 _kanalliste_cache = None
+# Schuetzt den Erstzugriff auf _kanalliste_cache: bei gleichzeitigem Zugriff aus
+# mehreren Threads (siehe _parallel_abrufen() in generate_epg.py)
+# wuerden ohne diese Sperre alle Threads gleichzeitig "noch nicht
+# geladen" sehen und dieselbe Datei jeder fuer sich parallel
+# herunterladen, statt dass nur einer laedt und die anderen warten.
+_kanalliste_cache_lock = threading.Lock()
 _programm_cache = {}
 
 
@@ -61,33 +68,40 @@ def siol_hole_kanalliste():
     if _kanalliste_cache is not None:
         return _kanalliste_cache
 
-    try:
-        response = _http.mit_retry(requests.get, f"{BASE_URL}/kanali", timeout=REQUEST_TIMEOUT_SEKUNDEN)
-        response.raise_for_status()
+    with _kanalliste_cache_lock:
+        # Erneut pruefen: ein anderer Thread koennte das Laden
+        # bereits erledigt haben, waehrend dieser Thread auf die
+        # Sperre wartete.
+        if _kanalliste_cache is not None:
+            return _kanalliste_cache
 
-        soup = BeautifulSoup(response.text, "html.parser")
-        kanaele = []
-        gesehen = set()
-        for link in soup.find_all("a", href=re.compile(r"^/kanal/[a-z0-9_-]+$")):
-            site_id = link["href"].rsplit("/", 1)[-1]
-            if site_id in gesehen:
-                continue
-            bild = link.find("img")
-            name = bild.get("alt") if bild else None
-            if not name:
-                continue
-            gesehen.add(site_id)
-            kanaele.append({"site_id": site_id, "name": name})
+        try:
+            response = _http.mit_retry(requests.get, f"{BASE_URL}/kanali", timeout=REQUEST_TIMEOUT_SEKUNDEN)
+            response.raise_for_status()
 
-        if not kanaele:
-            print("Siol-EPG: Kanalliste nicht gefunden/unerwartete Struktur, ueberspringe.")
+            soup = BeautifulSoup(response.text, "html.parser")
+            kanaele = []
+            gesehen = set()
+            for link in soup.find_all("a", href=re.compile(r"^/kanal/[a-z0-9_-]+$")):
+                site_id = link["href"].rsplit("/", 1)[-1]
+                if site_id in gesehen:
+                    continue
+                bild = link.find("img")
+                name = bild.get("alt") if bild else None
+                if not name:
+                    continue
+                gesehen.add(site_id)
+                kanaele.append({"site_id": site_id, "name": name})
 
-        _kanalliste_cache = kanaele
-        return kanaele
-    except Exception as e:
-        print(f"Siol-EPG: Kanalliste fehlgeschlagen ({e}), ueberspringe.")
-        _kanalliste_cache = []
-        return []
+            if not kanaele:
+                print("Siol-EPG: Kanalliste nicht gefunden/unerwartete Struktur, ueberspringe.")
+
+            _kanalliste_cache = kanaele
+            return kanaele
+        except Exception as e:
+            print(f"Siol-EPG: Kanalliste fehlgeschlagen ({e}), ueberspringe.")
+            _kanalliste_cache = []
+            return []
 
 
 # Feste Alias-Aufloesung fuer kurze, mehrdeutige mazedonische
@@ -124,7 +138,6 @@ _BEKANNTE_ALIASE = {
     # automatisch auch MK ab
     "HBO": "hbo",  # "HBO FHD" -> "HBO"
 }
-
 
 def siol_kanal_finden(kanalname):
     """Sucht den siol.net-Kanal, der am besten zu kanalname passt -

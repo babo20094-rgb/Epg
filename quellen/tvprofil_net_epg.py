@@ -35,6 +35,7 @@ import re
 import unicodedata
 import xml.etree.ElementTree as ET
 
+import threading
 import requests
 from quellen import _http
 
@@ -54,6 +55,12 @@ HEADERS = {
 # site_id (nur fuer tatsaechlich abgefragte Kanaele, nicht alle 56 auf
 # Vorrat).
 _kanalliste_cache = None
+# Schuetzt den Erstzugriff auf _kanalliste_cache: bei gleichzeitigem Zugriff aus
+# mehreren Threads (siehe _parallel_abrufen() in generate_epg.py)
+# wuerden ohne diese Sperre alle Threads gleichzeitig "noch nicht
+# geladen" sehen und dieselbe Datei jeder fuer sich parallel
+# herunterladen, statt dass nur einer laedt und die anderen warten.
+_kanalliste_cache_lock = threading.Lock()
 _programme_cache = {}
 
 
@@ -80,28 +87,34 @@ def _kanalliste_laden():
     if _kanalliste_cache is not None:
         return _kanalliste_cache
 
-    try:
-        response = _http.mit_retry(requests.get, KANALLISTE_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
-        response.raise_for_status()
-        wurzel = ET.fromstring(response.content)
+    with _kanalliste_cache_lock:
+        # Erneut pruefen: ein anderer Thread koennte das Laden
+        # bereits erledigt haben, waehrend dieser Thread auf die
+        # Sperre wartete.
+        if _kanalliste_cache is not None:
+            return _kanalliste_cache
 
-        kanaele = []
-        for kanal_tag in wurzel.findall("channel"):
-            site_id = kanal_tag.get("id")
-            name_tag = kanal_tag.find("display-name")
-            name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
-            if not site_id or not name:
-                continue
-            kanaele.append({"site_id": site_id, "name": name})
+        try:
+            response = _http.mit_retry(requests.get, KANALLISTE_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+            response.raise_for_status()
+            wurzel = ET.fromstring(response.content)
 
-        print(f"TvProfil.net-EPG: {len(kanaele)} Kanaele in der Kanalliste geladen.")
-        _kanalliste_cache = kanaele
-        return kanaele
-    except Exception as e:
-        print(f"TvProfil.net-EPG: Kanalliste laden fehlgeschlagen ({e}), ueberspringe.")
-        _kanalliste_cache = []
-        return _kanalliste_cache
+            kanaele = []
+            for kanal_tag in wurzel.findall("channel"):
+                site_id = kanal_tag.get("id")
+                name_tag = kanal_tag.find("display-name")
+                name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
+                if not site_id or not name:
+                    continue
+                kanaele.append({"site_id": site_id, "name": name})
 
+            print(f"TvProfil.net-EPG: {len(kanaele)} Kanaele in der Kanalliste geladen.")
+            _kanalliste_cache = kanaele
+            return kanaele
+        except Exception as e:
+            print(f"TvProfil.net-EPG: Kanalliste laden fehlgeschlagen ({e}), ueberspringe.")
+            _kanalliste_cache = []
+            return _kanalliste_cache
 
 def tvprofil_kanal_finden(kanalname):
     """Sucht den tvprofil.net-Kanal mit exakt (normalisiert) passendem
