@@ -1,0 +1,91 @@
+1|hrt-1|HTV1
+2|hrt-2|HTV2
+25|obn|OBN
+26|radio-televizija-bn|BN
+27|televizija-rs|RTRS
+31|alternativna-televizija-banja-luka|ATV
+41|radio-televizija-srbije-1|RTS1
+42|radio-televizija-srbije-2|RTS2
+44|o2|O2
+45|fox-crime|FOX Crime
+48|studio-b|Studio B
+49|cinemania-tv|Cinemania
+50|prva-srpska-televizija|Prva
+51|viasat-history|Viasat History
+52|viasat-explorer|Viasat Explorer
+53|tv-ultra|TV Ultra
+55|fox-life|FOX Life
+56|sk-1|SK1
+57|sk-2|SK2
+58|rt-vojvodina-1|RTV 1
+59|rt-vojvodina-2|RTV 2
+60|metropolis|Metropolis
+61|eurosport|Eurosport
+62|eurosport-2|Eurosport 2
+65|rtv-pink|PINK
+66|tv-pink-extra|PINK EXTRA
+69|happytv|HappyTV
+90|comedy-central|Comedy Central
+111|mtv-adria|MTV
+112|vh1|VH1
+117|extreme-sports-channel|Extreme Sports
+125|motorsport-tv|Motors
+131|cinestar-tv|CineStar TV
+132|hbo|HBO
+133|tv1000|TV1000
+134|hbo-comedy|HBO Comedy
+135|mgm-channel|MGM Channel
+136|cinemax|Cinemax
+137|universal-channel|Universal
+144|travel-channel|Travel
+145|national-geographic|National Geographic
+147|discovery-animal-planet|Animal Planet
+150|history-channel|History Channel
+154|cnn-europe|CNN
+155|discovery-europe|Discovery Europe
+156|discovery-science|Discovery Science
+157|discovery-world|Discovery World
+169|cartoon-network|Cartoon Network
+170|disney|Disney
+171|sci-fi-srbija|Sci Fi Srbija
+172|kopernikus|Kopernikus
+175|pink-kids|Pink Kids
+177|entertainment-channel|E!
+178|minimax|Minimax
+179|sos-kanal|SOS Kanal
+180|discovery-investigation|Discovery ID
+181|axn|AXN
+183|fashion-tv|Fashion TV
+184|arena-sport-1|Arena 1
+185|arena-sport-2|Arena 2
+186|arena-sport-3|Arena 3
+187|arena-sport-4|Arena 4
+188|pink-family|Pink Family
+189|discovery-tlc|TLC
+190|viasat-nature|Viasat Nature
+191|sk-3|SK3
+192|mini-ultra|Mini Ultra
+193|24kitchen|24Kitchen
+194|rts-3|RTS 3
+195|pink-2|PINK2
+196|fox|FOX
+197|nova|Nova
+198|prva-plus|Prva Plus
+199|arena-sport-5|Arena 5
+200|sk-4|SK4
+201|sk-5|SK5
+202|n1|N1
+203|grand|Grand
+204|cinemax-2|Cinemax 2
+205|fox-movies|Fox Movies
+206|al-jazeera-balkans|Al Jazeera
+207|top|Top
+208|nasa|Naša
+209|srpska-naucna-televizija|SNTV
+210|diva|Diva
+211|amc|AMC
+212|pikaboo|Pikaboo
+213|nickelodeon|Nickelodeon
+214|nickjr|NickJr
+215|baby-tv|Baby TV
+216|lov-i-ribolov|Lov i Ribolov

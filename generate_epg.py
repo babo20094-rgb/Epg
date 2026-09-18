@@ -80,6 +80,7 @@ from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
 from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
+from quellen.tvprogramrs_epg import tvprogramrs_kanal_finden, tvprogramrs_hole_programme
 from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
 from quellen.magentatv_mk_epg import magentatv_mk_kanal_finden, magentatv_mk_hole_programme
 from quellen.magentatv_me_epg import magentatv_me_kanal_finden, magentatv_me_hole_programme
@@ -4105,6 +4106,38 @@ for daten in tvprofil_sender:
 
     if programme:
         _echte_quelle_zaehlen("TvProfil.net")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVPROGRAM.RS: weiterer schmaler Fallback fuer HR/BA/RS/SI/MK/ME/MNG/
+# MO/CG-Sender, NACH TvProfil.net (siehe tvprogramrs_epg.py - 91
+# Kanaele, aber NUR exakter Name-/Kern-Abgleich ohne unscharfen
+# Fallback, siehe Moduldocstring dort). Deckt vor allem kleinere,
+# sonst unabgedeckte serbische Sender ab (Studio B, SOS Kanal, RTS 3,
+# Pink Extra/Family/Kids, Lov i Ribolov, Minimax, Cinemania, ...).
+# ==========================================================
+
+for daten in tvprofil_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        kanal = tvprogramrs_kanal_finden(daten["sender"])
+        if kanal is not None:
+            programme = tvprogramrs_hole_programme(kanal)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["tvprogramrs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("TvProgram.rs")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
