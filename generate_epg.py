@@ -81,6 +81,7 @@ from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
 from quellen.tvprogramrs_epg import tvprogramrs_kanal_finden, tvprogramrs_hole_programme
+from quellen.aladin_epg import aladin_kanal_finden, aladin_hole_programme
 from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
 from quellen.magentatv_mk_epg import magentatv_mk_kanal_finden, magentatv_mk_hole_programme
 from quellen.magentatv_me_epg import magentatv_me_kanal_finden, magentatv_me_hole_programme
@@ -4138,6 +4139,38 @@ for daten in tvprofil_sender:
 
     if programme:
         _echte_quelle_zaehlen("TvProgram.rs")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TV.ALADIN.INFO: weiterer schmaler Fallback fuer HR/BA/RS/SI/MK/ME/
+# MNG/MO/CG-Sender, NACH TvProgram.rs (siehe aladin_epg.py - 84
+# Kanaele, NUR exakter Name-/Kern-Abgleich ohne unscharfen Fallback).
+# Deckt u.a. alle Pink-Subkanaele (Action/Comedy/Film/Horror/Movies/
+# Premium/Romance/Thriller), STAR-Kanaele, Arena Premium/Sport, HBO
+# 2/3, CineStar-Subkanaele ab.
+# ==========================================================
+
+for daten in tvprofil_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        kanal = aladin_kanal_finden(daten["sender"])
+        if kanal is not None:
+            programme = aladin_hole_programme(kanal)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["aladin_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Aladin (tv.aladin.info)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

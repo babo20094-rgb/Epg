@@ -1,0 +1,84 @@
+tv-program-24kitchen|24Kitchen
+tv-program-amc|AMC
+tv-program-animal-planet|Animal Planet
+tv-program-arena-premium-1|Arena Premium 1
+tv-program-arena-premium-2|Arena Premium 2
+tv-program-arena-premium-3|Arena Premium 3
+tv-program-arena-sport-1|Arena Sport 1
+tv-program-arena-sport-2|Arena Sport 2
+tv-program-arena-sport-3|Arena Sport 3
+tv-program-b92|B92
+tv-program-bbc-news|BBC News
+tv-program-blic-tv|Blic TV
+tv-program-cartoon-network|Cartoon Network
+tv-program-cinemania|Cinemania
+tv-program-cinemax|Cinemax
+tv-program-cinemax-2|Cinemax 2
+tv-program-cinestar-action|CineStar Action
+tv-program-cinestar-comedy|CineStar Comedy
+tv-program-cinestar-fantasy|CineStar Fantasy
+tv-program-cinestar-tv-1|CineStar TV 1
+tv-program-cinestar-tv-2|CineStar TV 2
+tv-program-cnn|CNN
+tv-program-crime-invest|Crime &amp; Invest
+tv-program-cs-premiere-1|CS Premiere 1
+tv-program-cs-premiere-2|CS Premiere 2
+tv-program-discovery|Discovery
+tv-program-disney|Disney
+tv-program-disney-junior|Disney Junior
+tv-program-diva|Diva
+tv-program-eurosport-1|Eurosport 1
+tv-program-eurosport-2|Eurosport 2
+tv-program-happy|Happy
+tv-program-hbo|HBO
+tv-program-hbo-2|HBO 2
+tv-program-hbo-3|HBO 3
+tv-program-history|History
+tv-program-hrt-1|HRT 1
+tv-program-hrt-2|HRT 2
+tv-program-insajder-tv|Insajder TV
+tv-program-kitchen-tv|Kitchen TV
+tv-program-minimax|Minimax
+tv-program-n1|N1
+tv-program-nat-geo|Nat Geo
+tv-program-nat-geo-wild|Nat Geo Wild
+tv-program-nick-jr|Nick Jr.
+tv-program-nickelodeon|Nickelodeon
+tv-program-nicktoons|Nicktoons
+tv-program-nova-s|NOVA S
+tv-program-nova-series|Nova Series
+tv-program-pickbox-tv|Pickbox TV
+tv-program-pink|Pink
+tv-program-pink-action|Pink Action
+tv-program-pink-comedy|Pink Comedy
+tv-program-pink-family|Pink Family
+tv-program-pink-film|Pink Film
+tv-program-pink-horror|Pink Horror
+tv-program-pink-kids|Pink Kids
+tv-program-pink-movies|Pink Movies
+tv-program-pink-premium|Pink Premium
+tv-program-pink-romance|Pink Romance
+tv-program-pink-thriller|Pink Thriller
+tv-program-prva|Prva
+tv-program-prva-plus|Prva plus
+tv-program-rts-1|RTS 1
+tv-program-rts-2|RTS 2
+tv-program-rts-3|RTS 3
+tv-program-rtv-1|RTV 1
+tv-program-rtv-2|RTV 2
+tv-program-sci-fi|SCI FI
+tv-program-sos-kanal-plus|SOS Kanal Plus
+tv-program-star|STAR
+tv-program-star-crime|STAR Crime
+tv-program-star-life|STAR Life
+tv-program-star-movies|STAR Movies
+tv-program-studio-b|Studio B
+tv-program-superstar-tv|Superstar TV
+tv-program-superstar-tv-2|Superstar TV 2
+tv-program-superstar-tv-3|Superstar TV 3
+tv-program-tlc|TLC
+tv-program-travel|Travel
+tv-program-tv1000|TV1000
+tv-program-viasat-explore|Viasat Explore
+tv-program-viasat-history|Viasat History
+tv-program-viasat-nature|Viasat Nature
