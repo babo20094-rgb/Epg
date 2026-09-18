@@ -727,6 +727,21 @@ EVENT_MARKER_ENDE = ["end", "ended", "endet"]
 # auch bei Sendern anderer Anbieter (Bug September 2026 behoben).
 EVENT_ENDE_TEXT = "Spiel ist beendet, danke, dass Sie zugeschaut haben."
 
+# Generisches Kern-Muster fuer ALLE "<Land:> <Name> PPV <Nummer>"-
+# NAME:-Sendergruppen (DAZN/ESPN+/SOCCER/RTL+ PPV usw., nicht nur DYN/
+# STAIGE/DPLUS) - liefert bei Treffer den Markennamen (Gruppe 1, ohne
+# Land) und die Nummer (Gruppe 2). Wird als generischer Fallback NACH
+# den bereits bestehenden Spezialfaellen (DYN PPV/STAIGE PPV/DPLUS PPV
+# mit eigenem festen Anzeigenamen) geprueft, damit auch bei jeder
+# weiteren PPV-Sendergruppe (auf Zuruf, ohne Codeaenderung fuer jede
+# einzelne Marke) Team-vs-Team/Uhrzeit + hochgestellter Status
+# (ᴸⁱᵛᵉ/ᴺᵉˣᵗ/ᴮᵉᵉⁿᵈᵉᵗ) statt des generischen Abmoderationstexts oder
+# des rohen Anbietertexts angezeigt wird.
+PPV_KERN_MUSTER = re.compile(
+    r"^(?:[A-Za-z]{2}:\s*)?([A-Za-z0-9+.]+(?:\s+[A-Za-z0-9+.]+)*)\s*PPV\s*0*(\d+)$",
+    re.IGNORECASE,
+)
+
 
 def normalisiere_grossschreibung(text):
     """Wandelt grossgeschriebene WOERTER (nicht den ganzen Text auf
@@ -1277,6 +1292,19 @@ for zeile in zeilen:
             )
             if sport_deutschland_match:
                 event_titel = f"Sport Deutschland Ppv {sport_deutschland_match.group(1)} ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Alle uebrigen "<Land:> <Name> PPV <Nummer>"-Sendergruppen (DAZN/
+        # ESPN+/SOCCER/RTL+ PPV usw.) ohne erkanntes Event: einfach der
+        # normal geschriebene Sendername (inkl. Nr., z.B. "Espn+ Ppv 4")
+        # mit hochgestelltem "ᴺᵒ ᴸⁱᵛᵉ" am Ende - gleiche Konvention wie
+        # der generische "<Kurzname> ᴸⁱᵛᵉ"-Fallback weiter unten, nur mit
+        # korrektem "kein Live gerade"-Hinweis statt des irrefuehrenden
+        # "... ᴸⁱᵛᵉ" (der faelschlich IMMER "Live" suggerierte, auch im
+        # Leerlauf) - September 2026 auf Nutzerwunsch generalisiert.
+        if event_titel is None:
+            generic_ppv_idle_match = PPV_KERN_MUSTER.match(kurzname)
+            if generic_ppv_idle_match:
+                event_titel = f"{kanalname_normal_geschrieben(kurzname)} ᴺᵒ ᴸⁱᵛᵉ"
 
         # Alle uebrigen NAME:-Sender ohne bekanntes Anbieter-Muster
         # (z.B. "Premier League+ 1", kein Pipe-/Event-Mechanismus
@@ -2836,7 +2864,26 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
         # OHNE das Land aus dem Kern zu entfernen (Kern bleibt "DE: STAIGE
         # PPV N", siehe kern_und_event_extrahieren()).
         staige_ppv_match = re.match(r"^DE:\s*STAIGE\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
-        if (dyn_ppv_next_match or staige_ppv_match) and roh_marker in EVENT_MARKER_ENDE:
+        # DPLUS PPV (September 2026 hinzugefuegt, siehe sender.txt "NAME:
+        # DE: DPLUS PPV N" bzw. der Sonderfall "DE: D+ PPV 6"): gleiches
+        # Rohformat/gleiche Team-vs-Team-Extraktion wie DYN PPV/STAIGE PPV
+        # oben. Ohne diesen Match fiel der ENDED-Marker bei diesen Sendern
+        # auf den generischen Abmoderationstext zurueck statt auf die
+        # Teamnamen (Bug: Kanaele 2-5 zeigten nach Spielende keinen
+        # sinnvollen Inhalt mehr).
+        dplus_ppv_match = re.match(r"^DE:\s*DPLUS\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        # Alle UEBRIGEN "<Land:> <Name> PPV <Nummer>"-Sendergruppen
+        # (DAZN/ESPN+/SOCCER/RTL+ PPV usw.), die nicht bereits von einem
+        # der obigen Spezialfaelle erfasst sind - September 2026 auf
+        # Nutzerwunsch generalisiert (siehe PPV_KERN_MUSTER), damit
+        # Team-vs-Team/Uhrzeit + hochgestellter Status ueberall gilt,
+        # nicht nur bei DYN/STAIGE/DPLUS.
+        generic_ppv_match = None
+        if not (dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match):
+            generic_ppv_match = PPV_KERN_MUSTER.match(kurzname)
+
+        alle_matches = dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match or generic_ppv_match
+        if alle_matches and roh_marker in EVENT_MARKER_ENDE:
             # Kein fixer Abmoderationstext - stattdessen werden die
             # Teamnamen wie bei NEXT/LIVE extrahiert, nur mit "ᴮᵉᵉⁿᵈᵉᵗ"
             # als Suffix. Gelingt die Extraktion nicht, bleibt der beim
@@ -2867,6 +2914,22 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
             elif roh_marker in EVENT_MARKER_LIVE:
                 team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
                 event_titel = team_namen or f"Staige ({staige_ppv_match.group(1)}) ᴸⁱᵛᵉ"
+        elif dplus_ppv_match:
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"Dplus ({dplus_ppv_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Dplus ({dplus_ppv_match.group(1)}) ᴸⁱᵛᵉ"
+        elif generic_ppv_match:
+            name_label = normalisiere_grossschreibung(generic_ppv_match.group(1).title())
+            nummer_label = generic_ppv_match.group(2)
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"{name_label} ({nummer_label}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"{name_label} ({nummer_label}) ᴸⁱᵛᵉ"
 
         real_daten["event_titel"] = event_titel
         return True
@@ -2883,50 +2946,69 @@ def m3u_playlist_abgleichen(url, quelle_name):
 
     erledigte_keys = set()
     aktualisierte_sender = []
+    uebersprungene_zeilen = 0
     for zeile in gepuffert.splitlines():
         zeile = zeile.strip()
         if not zeile.startswith("#EXTINF") or "," not in zeile:
             continue
 
-        # Trennung von Attributen und Anzeigename NICHT am letzten Komma
-        # der Zeile (rsplit) vornehmen - manche Anbieter haben selbst ein
-        # Komma im rohen Live-Event-Namen eingebettet (z.B. "NEXT | WED,
-        # 9/2 - THE RICH EISEN SHOW | ... | US: ESPN+ PPV 4"), wodurch
-        # rsplit(",", 1) faelschlich den Namen ab dem eingebetteten Komma
-        # abschnitt statt ab dem echten Attribute/Name-Trenner. Alle
-        # #EXTINF-Attribute (tvg-id="...", group-title="...", ...) enden
-        # in einem schliessenden Anfuehrungszeichen - das erste Komma NACH
-        # dem letzten Anfuehrungszeichen ist daher der zuverlaessige
-        # Trenner, unabhaengig davon, ob der Name selbst Kommas enthaelt.
-        letztes_anfuehrungszeichen = zeile.rfind('"')
-        such_start = letztes_anfuehrungszeichen if letztes_anfuehrungszeichen != -1 else 0
-        komma_pos = zeile.find(",", such_start)
-        voller_name = (zeile[komma_pos + 1:] if komma_pos != -1 else zeile.rsplit(",", 1)[-1]).strip()
-        normalisierter_kern, real_daten, kurzname, event_teil = _kern_und_event_aus_rohname(voller_name)
-        if real_daten is None:
+        # Jede Zeile einzeln abgesichert (Bug September 2026 behoben): eine
+        # Exception bei EINER einzelnen Zeile (z.B. ein exotischer/
+        # kaputter Rohname, der z.B. dyn_next_team_namen() oder eine der
+        # Regex-Auswertungen zum Absturz bringt) durfte NICHT die gesamte
+        # Schleife abbrechen - vorher gab es hier keinerlei Absicherung,
+        # wodurch ALLE nach der fehlerhaften Zeile in der Playlist
+        # stehenden NAME:-Kanaele in diesem Lauf komplett ohne Live-
+        # Abgleich blieben (nur der Try/Except um den GESAMTEN Aufruf
+        # dieser Funktion fing das ab, aber erst nachdem bereits ein
+        # Grossteil der Kanaele uebersprungen wurde - sichtbares Symptom:
+        # einzelne, scheinbar zufaellige NAME:-Kanaele zeigten trotz
+        # eines echten laufenden Events keinen aktuellen Titel mehr).
+        try:
+            # Trennung von Attributen und Anzeigename NICHT am letzten Komma
+            # der Zeile (rsplit) vornehmen - manche Anbieter haben selbst ein
+            # Komma im rohen Live-Event-Namen eingebettet (z.B. "NEXT | WED,
+            # 9/2 - THE RICH EISEN SHOW | ... | US: ESPN+ PPV 4"), wodurch
+            # rsplit(",", 1) faelschlich den Namen ab dem eingebetteten Komma
+            # abschnitt statt ab dem echten Attribute/Name-Trenner. Alle
+            # #EXTINF-Attribute (tvg-id="...", group-title="...", ...) enden
+            # in einem schliessenden Anfuehrungszeichen - das erste Komma NACH
+            # dem letzten Anfuehrungszeichen ist daher der zuverlaessige
+            # Trenner, unabhaengig davon, ob der Name selbst Kommas enthaelt.
+            letztes_anfuehrungszeichen = zeile.rfind('"')
+            such_start = letztes_anfuehrungszeichen if letztes_anfuehrungszeichen != -1 else 0
+            komma_pos = zeile.find(",", such_start)
+            voller_name = (zeile[komma_pos + 1:] if komma_pos != -1 else zeile.rsplit(",", 1)[-1]).strip()
+            normalisierter_kern, real_daten, kurzname, event_teil = _kern_und_event_aus_rohname(voller_name)
+            if real_daten is None:
+                continue
+
+            # Die <channel id>/den Anzeigenamen direkt auf den kompletten
+            # aktuellen Rohnamen aus der Playlist setzen (egal ob gerade
+            # ein Event laeuft oder Leerlauf ist) - GENAU wie es der
+            # frueher genutzte externe EPG-Anbieter (myepg.top) gemacht
+            # hat, der fuer diese Kanaele nachweislich zuverlaessig
+            # automatisch zugeordnet wurde. Der stabile Kern bleibt nur
+            # als Fallback stehen, falls die eigene Playlist gerade nicht
+            # erreichbar ist oder der Sender darin fehlt (dann behaelt
+            # "kanal" seinen urspruenglichen sender.txt-Wert). Bewusster
+            # Trade-off (September 2026 auf Nutzerwunsch so entschieden):
+            # eine einmal in TiviMate manuell gesetzte Zuordnung ueberlebt
+            # dadurch nicht zwingend jeden Lauf, dafuer funktioniert die
+            # AUTOMATISCHE Zuordnung zuverlaessiger, was hier Prioritaet hat.
+            real_daten["kanal"] = voller_name
+
+            if _live_event_uebernehmen(kurzname, event_teil, real_daten):
+                erledigte_keys.add(normalisierter_kern)
+                aktualisierte_sender.append(real_daten["sender"])
+        except Exception:
+            uebersprungene_zeilen += 1
             continue
-
-        # Die <channel id>/den Anzeigenamen direkt auf den kompletten
-        # aktuellen Rohnamen aus der Playlist setzen (egal ob gerade
-        # ein Event laeuft oder Leerlauf ist) - GENAU wie es der
-        # frueher genutzte externe EPG-Anbieter (myepg.top) gemacht
-        # hat, der fuer diese Kanaele nachweislich zuverlaessig
-        # automatisch zugeordnet wurde. Der stabile Kern bleibt nur
-        # als Fallback stehen, falls die eigene Playlist gerade nicht
-        # erreichbar ist oder der Sender darin fehlt (dann behaelt
-        # "kanal" seinen urspruenglichen sender.txt-Wert). Bewusster
-        # Trade-off (September 2026 auf Nutzerwunsch so entschieden):
-        # eine einmal in TiviMate manuell gesetzte Zuordnung ueberlebt
-        # dadurch nicht zwingend jeden Lauf, dafuer funktioniert die
-        # AUTOMATISCHE Zuordnung zuverlaessiger, was hier Prioritaet hat.
-        real_daten["kanal"] = voller_name
-
-        if _live_event_uebernehmen(kurzname, event_teil, real_daten):
-            erledigte_keys.add(normalisierter_kern)
-            aktualisierte_sender.append(real_daten["sender"])
 
     if aktualisierte_sender:
         print(f"Live-Kanalabgleich ({quelle_name}): {len(aktualisierte_sender)} Sender mit echtem Live-Event aktualisiert.")
+    if uebersprungene_zeilen:
+        print(f"Live-Kanalabgleich ({quelle_name}): {uebersprungene_zeilen} Playlist-Zeile(n) wegen Fehler uebersprungen.")
 
     return erledigte_keys
 
