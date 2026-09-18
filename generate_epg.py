@@ -3794,39 +3794,43 @@ for _idx, daten in enumerate(tvpassport_sender):
 # gar nichts.
 # ==========================================================
 
-for daten in tvpassport_callsign_sender:
+def _tvpassport_callsign_abrufen(daten):
     programme = []
     try:
         site_id = epgshare_us_locals_kanal_finden(daten["sender"])
         if site_id is not None:
             programme = epgshare_us_locals_hole_programme(site_id, TVPASSPORT_TAGE)
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         programme = []
 
     if programme:
-        _echte_quelle_zaehlen("EpgshareUS-Locals")
-    else:
-        try:
-            site_id = tvpassport_kanal_finden_callsign(daten["sender"])
-            if site_id is not None:
-                programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
-            else:
-                pass  # log unterdrueckt: keine echten Programmdaten
-        except Exception as e:
-            pass  # log unterdrueckt: keine echten Programmdaten
-            programme = []
+        return ("EpgshareUS-Locals", programme)
 
-        if programme:
-            _echte_quelle_zaehlen("TVPassport-CallSign")
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
+    try:
+        site_id = tvpassport_kanal_finden_callsign(daten["sender"])
+        if site_id is not None:
+            programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+    except Exception:
+        programme = []
+
+    if programme:
+        return ("TVPassport-CallSign", programme)
+    return (None, [])
+
+
+_tvpassport_callsign_ergebnisse = _parallel_abrufen(
+    tvpassport_callsign_sender, _tvpassport_callsign_abrufen, name="TVPassport-CallSign/EpgshareUS-Locals",
+)
+
+for _idx, daten in enumerate(tvpassport_callsign_sender):
+    _quelle, programme = _tvpassport_callsign_ergebnisse[_idx]
 
     daten["tvpassport_intervalle"] = daten.get("tvpassport_intervalle", []) + [
         (p["start"], p["stop"]) for p in programme
     ]
 
     if programme:
+        _echte_quelle_zaehlen(_quelle)
         _schreibe_echte_programme(daten, programme)
 
 # ==========================================================
@@ -4120,16 +4124,19 @@ for _idx, daten in enumerate(mojmaxtv_sender):
 # passiert hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
 # ==========================================================
 
-for daten in siol_sender:
+def _siol_abrufen(daten):
+    """Fuehrt beide Netzwerk-Abrufe (Siol, dann Delo.si/SportKlub) fuer
+    EINEN SI-/MK-Sender aus und gibt eine Liste von (Quellenname,
+    Programme)-Tupeln zurueck - siehe _de_kaskade_abrufen() fuer das
+    gleiche Grundmuster (Schreiben ins XML bleibt sequenziell danach)."""
+    ergebnisse = []
+
     programme = []
     try:
         site_id = siol_kanal_finden(daten["sender"])
         if site_id is not None:
             programme = siol_hole_programme(site_id, SIOL_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         programme = []
 
     daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -4139,8 +4146,7 @@ for daten in siol_sender:
     _siol_geschrieben_intervalle = []
 
     if programme:
-        _echte_quelle_zaehlen("Siol")
-        _schreibe_echte_programme(daten, programme)
+        ergebnisse.append(("Siol", programme))
         _siol_geschrieben_intervalle.extend(daten["siol_intervalle"])
 
     # Delo.si (echte SLOWENISCHE Sport-Klub-Daten) als zweiter Versuch
@@ -4153,16 +4159,16 @@ for daten in siol_sender:
     # saudische Liga) - delo.si (tvspored.delo.si) hat dagegen eine
     # echte slowenische Sendungsliste und wird deshalb zuerst versucht.
     sportklub_programme = []
+    sportklub_quelle = None
     try:
         delo_slug = delo_si_kanal_finden(daten["sender"])
         if delo_slug is not None:
             sportklub_programme = delo_si_hole_programme(delo_slug)
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         sportklub_programme = []
 
     if sportklub_programme:
-        _echte_quelle_zaehlen("Delo.si (SK Slowenien)")
+        sportklub_quelle = "Delo.si (SK Slowenien)"
     else:
         # Sport Klub Kroatien (epgshare01.online) als letzter Fallback,
         # falls delo.si fuer diesen Sender einmal nichts liefert.
@@ -4170,16 +4176,11 @@ for daten in siol_sender:
             sportklub_site_id = sportklub_kanal_finden(daten["sender"])
             if sportklub_site_id is not None:
                 sportklub_programme = sportklub_hole_programme(sportklub_site_id, SIOL_TAGE)
-            else:
-                pass  # log unterdrueckt: keine echten Programmdaten
-        except Exception as e:
-            pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception:
             sportklub_programme = []
 
         if sportklub_programme:
-            _echte_quelle_zaehlen("SportKlub")
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
+            sportklub_quelle = "SportKlub"
 
     daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
 
@@ -4189,7 +4190,17 @@ for daten in siol_sender:
             if not ueberlappt_intervall(_siol_geschrieben_intervalle, p["start"], p["stop"])
         ]
         if neue_programme:
-            _schreibe_echte_programme(daten, neue_programme)
+            ergebnisse.append((sportklub_quelle, neue_programme))
+
+    return ergebnisse
+
+
+_siol_ergebnisse = _parallel_abrufen(siol_sender, _siol_abrufen, name="Siol/Delo.si/SportKlub")
+
+for _idx, daten in enumerate(siol_sender):
+    for _quelle, _programme in _siol_ergebnisse[_idx]:
+        _echte_quelle_zaehlen(_quelle)
+        _schreibe_echte_programme(daten, _programme)
 
 # ==========================================================
 # TVPROFIL.NET: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/MO/
@@ -4199,20 +4210,22 @@ for daten in siol_sender:
 # nur exakter Namensabgleich).
 # ==========================================================
 
-for daten in tvprofil_sender:
+def _tvprofil_abrufen(daten):
     if hat_aktive_echte_quelle(daten):
-        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
-
-    programme = []
+        return []  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
     try:
         site_id = tvprofil_kanal_finden(daten["sender"])
         if site_id is not None:
-            programme = tvprofil_hole_programme(site_id, TVPROFIL_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return tvprofil_hole_programme(site_id, TVPROFIL_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_tvprofil_ergebnisse = _parallel_abrufen(tvprofil_sender, _tvprofil_abrufen, name="TvProfil.net")
+
+for _idx, daten in enumerate(tvprofil_sender):
+    programme = _tvprofil_ergebnisse[_idx]
 
     daten["tvprofil_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -4231,20 +4244,22 @@ for daten in tvprofil_sender:
 # Pink Extra/Family/Kids, Lov i Ribolov, Minimax, Cinemania, ...).
 # ==========================================================
 
-for daten in tvprofil_sender:
+def _tvprogramrs_abrufen(daten):
     if hat_aktive_echte_quelle(daten):
-        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
-
-    programme = []
+        return []  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
     try:
         kanal = tvprogramrs_kanal_finden(daten["sender"])
         if kanal is not None:
-            programme = tvprogramrs_hole_programme(kanal)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return tvprogramrs_hole_programme(kanal)
+    except Exception:
+        pass
+    return []
+
+
+_tvprogramrs_ergebnisse = _parallel_abrufen(tvprofil_sender, _tvprogramrs_abrufen, name="TvProgram.rs")
+
+for _idx, daten in enumerate(tvprofil_sender):
+    programme = _tvprogramrs_ergebnisse[_idx]
 
     daten["tvprogramrs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
@@ -4652,20 +4667,22 @@ for daten in tubi_sender:
 # Arena Sport/Sport Klub) nicht an.
 # ==========================================================
 
-for daten in tvprogramdanas_sender:
+def _tvprogramdanas_abrufen(daten):
     if hat_aktive_echte_quelle(daten):
-        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
-
-    programme = []
+        return []  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
     try:
         slug = tvprogramdanas_kanal_finden(daten["sender"])
         if slug is not None:
-            programme = tvprogramdanas_hole_programme(slug, TVPROGRAMDANAS_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
+            return tvprogramdanas_hole_programme(slug, TVPROGRAMDANAS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_tvprogramdanas_ergebnisse = _parallel_abrufen(tvprogramdanas_sender, _tvprogramdanas_abrufen, name="tvprogramdanas.net")
+
+for _idx, daten in enumerate(tvprogramdanas_sender):
+    programme = _tvprogramdanas_ergebnisse[_idx]
 
     daten["tvprogramdanas_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
