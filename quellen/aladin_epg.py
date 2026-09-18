@@ -56,11 +56,22 @@ HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
         "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-    )
+    ),
+    # ZWINGEND: tv.aladin.info sitzt hinter Cloudflare und blockt jede
+    # Anfrage ohne Referer-Header mit 403 (bestaetigt: identische
+    # Anfrage nur mit zusaetzlichem Referer-Header liefert zuverlaessig
+    # 200 statt 403, live mehrfach reproduziert September 2026 - auch
+    # vom echten GitHub-Actions-Runner aus geblockt, nicht nur aus der
+    # Entwickler-Sandbox).
+    "Referer": "https://tv.aladin.info/",
 }
 
+# Die Seite liefert das class-Attribut je nach Abruf mal mit doppelten,
+# mal mit einfachen Anfuehrungszeichen (live beobachtet, vermutlich
+# zwei verschiedene Ausgabepfade/Cache-Varianten des Servers) - das
+# Muster ist deshalb bewusst anfuehrungszeichen-unabhaengig gehalten.
 _ZEILE_PATTERN = re.compile(
-    r'<td class="text-center strong[^"]*">(\d{1,2}):(\d{2})</td>'
+    r'<td class=[\'"]text-center strong[^\'"]*[\'"]>(\d{1,2}):(\d{2})</td>'
     r'<td[^>]*>(?:<span[^>]*></span>\s*)?([^<]*)</td>'
 )
 
