@@ -55,6 +55,7 @@ from epg_lib import (
     normalisiere_grossschreibung,
     baue_logo_index, finde_logo,
 )
+from quellen import _http
 from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
 from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
@@ -3200,6 +3201,14 @@ PARALLEL_WORKER = 12
 # Test nicht zeigten) bei PARALLEL_WORKER bleiben.
 GEDROSSELTE_QUELLE_WORKER = 6
 
+# TVPassport und mtel.ba waren im Lauf vom 18.09.2026 (siehe
+# QUELLEN_ZEITEN-Log) mit PARALLEL_WORKER=12 die beiden laengsten Bloecke
+# (184.6s/1070 Sender bzw. 123.2s/432 Sender), dabei aber OHNE jeden
+# 429/503-Fehler - versuchsweise auf mehr Worker angehoben, um die
+# Laufzeit zu druecken. Bei neuen 429/503-Fehlern im Log wieder auf
+# PARALLEL_WORKER zurueckstellen.
+ERHOEHTE_QUELLE_WORKER = 16
+
 # Sammelt fuer jede benannte Quelle (siehe _parallel_abrufen()/
 # _zeitmessung() Aufrufe unten) die gebrauchte Zeit in Sekunden und die
 # Anzahl verarbeiteter Sender - am Ende des Laufs als kurze Tabelle
@@ -3489,7 +3498,9 @@ def _klix_abrufen(daten):
 # oben) - die anschliessende, von den Ergebnissen vorheriger Quellen
 # abhaengige Ueberlappungs-/Schreiblogik bleibt unveraendert sequenziell.
 _telemach_ergebnisse = _parallel_abrufen(telemach_sender, _telemach_abrufen, name="Telemach")
-_mtel_ergebnisse = _parallel_abrufen(telemach_sender, _mtel_abrufen, name="mtel.ba")
+_mtel_ergebnisse = _parallel_abrufen(
+    telemach_sender, _mtel_abrufen, worker=ERHOEHTE_QUELLE_WORKER, name="mtel.ba"
+)
 _klix_ergebnisse = _parallel_abrufen(telemach_sender, _klix_abrufen, name="klix.ba")
 
 for _idx, daten in enumerate(telemach_sender):
@@ -3796,7 +3807,9 @@ def _tvpassport_abrufen(daten):
     return []
 
 
-_tvpassport_ergebnisse = _parallel_abrufen(tvpassport_sender, _tvpassport_abrufen, name="TVPassport")
+_tvpassport_ergebnisse = _parallel_abrufen(
+    tvpassport_sender, _tvpassport_abrufen, worker=ERHOEHTE_QUELLE_WORKER, name="TVPassport"
+)
 
 for _idx, daten in enumerate(tvpassport_sender):
     programme = _tvpassport_ergebnisse[_idx]
@@ -5177,3 +5190,16 @@ if QUELLEN_ZEITEN:
     for _name, _sekunden, _anzahl in sorted(QUELLEN_ZEITEN, key=lambda e: e[1], reverse=True):
         _anzahl_text = f", {_anzahl} Sender" if _anzahl is not None else ""
         print(f"  {_name}: {_sekunden:.1f}s{_anzahl_text}")
+
+# Fehler-/Rate-Limit-Uebersicht pro Host - macht Faelle wie die 429-Flut
+# bei hoerzu.de/tvmovie.de (September 2026, siehe docs/HISTORIE.md) direkt
+# im Log sichtbar, ohne den kompletten Rohlog nach "429"/"503" durchsuchen
+# zu muessen.
+_fehler_uebersicht = _http.fehler_uebersicht()
+if _fehler_uebersicht:
+    print("Rate-Limit-/Fehler-Uebersicht pro Quelle (Host):")
+    for _host, _versuche, _rate_limit, _fehlgeschlagen in _fehler_uebersicht:
+        print(
+            f"  {_host}: {_versuche} Versuche, {_rate_limit}x 429/503, "
+            f"{_fehlgeschlagen} endgueltig fehlgeschlagen"
+        )
