@@ -33,6 +33,7 @@ import re
 import xml.etree.ElementTree as ET
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -94,7 +95,7 @@ def _datei_holen(url):
         return _datei_cache[url]
 
     try:
-        response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         wurzel = ET.fromstring(response.content)
         _datei_cache[url] = wurzel
@@ -157,7 +158,7 @@ def _html_tag_holen(url_muster, tag):
         return _html_tag_cache[schluessel]
 
     try:
-        response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         _html_tag_cache[schluessel] = response.text
         return response.text

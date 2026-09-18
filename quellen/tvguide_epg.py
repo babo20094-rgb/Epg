@@ -35,6 +35,7 @@ import difflib
 from datetime import datetime, timedelta, timezone
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -73,7 +74,7 @@ def _segment_holen(start_unix):
         return _segment_cache[start_unix]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             f"{API_BASE}/{PROVIDER_ID}/web",
             params={"start": start_unix, "duration": SEGMENT_MINUTEN},
             headers=HEADERS,
@@ -107,7 +108,7 @@ def tvguide_hole_kanalliste():
     von {"site_id": sourceId, "name": ...}. Leere Liste bei jedem
     Fehler."""
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             f"{API_BASE}/serviceprovider/{PROVIDER_ID}/sources/web",
             headers=HEADERS,
             timeout=REQUEST_TIMEOUT_SEKUNDEN,

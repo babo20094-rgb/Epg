@@ -40,6 +40,7 @@ import html
 import re
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -98,7 +99,7 @@ def _tag_holen(tag):
         return _tag_cache[schluessel]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             URL_VORLAGE.format(datum=schluessel), headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
         response.raise_for_status()

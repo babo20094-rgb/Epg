@@ -4164,3 +4164,32 @@ naechsten geplanten Workflow-Lauf) ist KEIN Bug, sondern inhaerent am
 "Channel-ID = exakter Live-Rohname zum Generierungszeitpunkt"-Design
 (bewusster Trade-off, siehe an anderer Stelle in dieser Datei) - loest
 sich beim naechsten regulaeren Lauf von selbst.
+
+## September 2026: tv.aladin.info wieder entfernt - blockiert auch echte GitHub-Actions-Runner (403), wie zuvor schon mojtv.hr
+
+Beim Einbau von tv.aladin.info (siehe vorheriger Abschnitt in dieser
+Datei) war der 403-Fehler aus der Entwickler-Sandbox als
+umgebungsspezifisch eingestuft worden (Hoffnung: funktioniert wie
+PlutoTV trotzdem aus dem echten Runner). Log-Kontrolle des ersten
+echten GitHub-Actions-Laufs nach dem Einbau (`mcp__github__get_job_logs`)
+zeigte: JEDER einzelne Aladin-Seitenabruf schlaegt auch dort mit
+`403 Client Error: Forbidden` fehl (u.a. tv-program-n1, tv-program-tlc,
+tv-program-discovery, ...) - identisches Muster wie der bereits
+dokumentierte mojtv.hr-Fall (Cloudflare-aehnlicher Bot-Schutz, der
+generische Header/User-Agent nicht durchlaesst, unabhaengig von der
+Umgebung).
+
+**Fix:** Quelle komplett entfernt statt an Headern/Retry zu
+experimentieren (haette laut mojtv.hr-Praezedenzfall ohnehin nichts
+gebracht - der Retry-Wrapper `quellen/_http.py` wiederholt 4xx-Fehler
+bewusst NICHT, siehe Docstring dort). Entfernt: der Verarbeitungsblock
+in `generate_epg.py` (Import + Schleife ueber `tvprofil_sender`),
+`quellen/aladin_epg.py` und `quellen/aladin_kanalliste.txt`. pytest
+weiterhin gruen (96/96).
+
+**Lehre:** Ein 403 nur aus der Entwickler-Sandbox ist KEIN verlaesslicher
+Beleg dafuer, dass eine Quelle im echten Workflow funktioniert (siehe
+PlutoTV, wo das zufaellig stimmte) - nach dem Einbau einer aus der
+Sandbox nicht verifizierbaren Quelle IMMER den ersten echten
+GitHub-Actions-Lauf per `get_job_logs` auf Fehlermeldungen dieser Quelle
+pruefen, bevor sie als endgueltig funktionierend gilt.

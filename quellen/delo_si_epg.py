@@ -41,6 +41,7 @@ import re
 import unicodedata
 
 import requests
+from quellen import _http
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://tvspored.delo.si"
@@ -95,7 +96,7 @@ def _seite_holen(slug):
     url = f"{BASE_URL}/oddaje/{slug}/vsi/vsi/"
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             url,
             timeout=REQUEST_TIMEOUT_SEKUNDEN,
             headers={"User-Agent": "Mozilla/5.0"},

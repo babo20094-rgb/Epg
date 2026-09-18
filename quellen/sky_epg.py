@@ -31,6 +31,7 @@ from datetime import datetime, timedelta, timezone
 import difflib
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -68,7 +69,7 @@ def sky_hole_kanalliste(territory="DE"):
     headers = {"X-SkyOTT-Territory": territory}
 
     try:
-        regions_response = requests.get(
+        regions_response = _http.mit_retry(requests.get, 
             f"{HAWK_API_ENDPOINT}/regions",
             headers=headers,
             timeout=REQUEST_TIMEOUT_SEKUNDEN,
@@ -87,7 +88,7 @@ def sky_hole_kanalliste(territory="DE"):
                 continue
 
             try:
-                services_response = requests.get(
+                services_response = _http.mit_retry(requests.get, 
                     f"{HAWK_API_ENDPOINT}/services/{bouquet_id}/{sub_bouquet_id}",
                     headers=headers,
                     timeout=REQUEST_TIMEOUT_SEKUNDEN,
@@ -165,7 +166,7 @@ def sky_hole_programme(site_id, territory="DE", tage=2):
         tag = heute + timedelta(days=tag_index)
 
         try:
-            response = requests.get(
+            response = _http.mit_retry(requests.get, 
                 f"{HAWK_API_ENDPOINT}/schedule/{tag.strftime('%Y%m%d')}/{site_id}",
                 headers=headers,
                 timeout=REQUEST_TIMEOUT_SEKUNDEN,

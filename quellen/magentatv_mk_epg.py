@@ -40,6 +40,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 import requests
+from quellen import _http
 import uuid
 
 from epg_lib import normalisiere_sendername, normalisiere_sendername_kern
@@ -248,7 +249,7 @@ def _sitzung_starten():
     _sitzung_gestartet = True
     try:
         params = {"is_sso_enabled": "true", "app_language": "mk", "natco_code": "mk"}
-        requests.get(
+        _http.mit_retry(requests.get, 
             "https://tv-mk-prod.yo-digital.com/mk-bifrost/tenant/config", params=params,
             headers=_guest_headers("CONFIG"), timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
@@ -284,7 +285,7 @@ def _fenster_abrufen(datum, hour_offset):
         "natco_code": "mk",
     }
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             BASE_URL, params=params, headers=_guest_headers(), timeout=REQUEST_TIMEOUT_SEKUNDEN
         )
         response.raise_for_status()

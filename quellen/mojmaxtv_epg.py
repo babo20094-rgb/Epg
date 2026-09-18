@@ -33,6 +33,7 @@ import time
 import uuid
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -101,7 +102,7 @@ def mojmaxtv_hole_kanalliste():
         return _kanalliste_cache
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             CHANNELS_URL,
             params={
                 "channelMap_id": "",
@@ -249,7 +250,7 @@ def _hole_schedules_fuer_tag(datum):
 
     for offset in STUNDEN_OFFSETS:
         try:
-            response = requests.get(
+            response = _http.mit_retry(requests.get, 
                 SCHEDULES_URL,
                 params={
                     "date": datum_str,

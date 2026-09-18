@@ -81,7 +81,6 @@ from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
 from quellen.tvprogramrs_epg import tvprogramrs_kanal_finden, tvprogramrs_hole_programme
-from quellen.aladin_epg import aladin_kanal_finden, aladin_hole_programme
 from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
 from quellen.magentatv_mk_epg import magentatv_mk_kanal_finden, magentatv_mk_hole_programme
 from quellen.magentatv_me_epg import magentatv_me_kanal_finden, magentatv_me_hole_programme
@@ -3187,8 +3186,36 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 
 PARALLEL_WORKER = 12
 
+# Sammelt fuer jede benannte Quelle (siehe _parallel_abrufen()/
+# _zeitmessung() Aufrufe unten) die gebrauchte Zeit in Sekunden und die
+# Anzahl verarbeiteter Sender - am Ende des Laufs als kurze Tabelle
+# ausgegeben (siehe ganz unten bei der Gzip-Ausgabe), um Laufzeit-
+# Bottlenecks oder leise 0-Treffer-Quellen (wie zuletzt Samsung TV Plus/
+# mymedia.ba) schneller zu erkennen, ohne den Workflow-Log komplett
+# durchsuchen zu muessen.
+QUELLEN_ZEITEN = []
 
-def _parallel_abrufen(sender_liste, abruf_fn, worker=PARALLEL_WORKER):
+
+class _zeitmessung:
+    """Kontextmanager: misst die Laufzeit eines Codeblocks und traegt
+    sie unter `name` in QUELLEN_ZEITEN ein. `anzahl` (optional, z.B.
+    len(sender_liste)) wird mit ausgegeben."""
+
+    def __init__(self, name, anzahl=None):
+        self.name = name
+        self.anzahl = anzahl
+
+    def __enter__(self):
+        self._start = time.perf_counter()
+        return self
+
+    def __exit__(self, *exc):
+        sekunden = time.perf_counter() - self._start
+        QUELLEN_ZEITEN.append((self.name, sekunden, self.anzahl))
+        return False
+
+
+def _parallel_abrufen(sender_liste, abruf_fn, worker=PARALLEL_WORKER, name=None):
     """Fuehrt abruf_fn(daten) fuer jeden Eintrag in sender_liste parallel
     in mehreren Threads aus und gibt eine Liste von Ergebnissen in
     DERSELBEN Reihenfolge wie sender_liste zurueck (ThreadPoolExecutor.
@@ -3197,11 +3224,13 @@ def _parallel_abrufen(sender_liste, abruf_fn, worker=PARALLEL_WORKER):
     bisher schon in den einzelnen Verarbeitungsbloecken) - ein
     unerwarteter Fehler hier wuerde sonst den gesamten Lauf abbrechen,
     statt nur diesen einen Sender auf generisch zurueckfallen zu
-    lassen."""
+    lassen. `name` (optional) beschriftet die Laufzeitmessung in
+    QUELLEN_ZEITEN."""
     if not sender_liste:
         return []
-    with ThreadPoolExecutor(max_workers=min(worker, len(sender_liste))) as pool:
-        return list(pool.map(abruf_fn, sender_liste))
+    with _zeitmessung(name or abruf_fn.__name__, len(sender_liste)):
+        with ThreadPoolExecutor(max_workers=min(worker, len(sender_liste))) as pool:
+            return list(pool.map(abruf_fn, sender_liste))
 
 
 # ==========================================================
@@ -3431,9 +3460,9 @@ def _klix_abrufen(daten):
 # PARALLEL ueber alle telemach_sender hinweg (siehe _parallel_abrufen()
 # oben) - die anschliessende, von den Ergebnissen vorheriger Quellen
 # abhaengige Ueberlappungs-/Schreiblogik bleibt unveraendert sequenziell.
-_telemach_ergebnisse = _parallel_abrufen(telemach_sender, _telemach_abrufen)
-_mtel_ergebnisse = _parallel_abrufen(telemach_sender, _mtel_abrufen)
-_klix_ergebnisse = _parallel_abrufen(telemach_sender, _klix_abrufen)
+_telemach_ergebnisse = _parallel_abrufen(telemach_sender, _telemach_abrufen, name="Telemach")
+_mtel_ergebnisse = _parallel_abrufen(telemach_sender, _mtel_abrufen, name="mtel.ba")
+_klix_ergebnisse = _parallel_abrufen(telemach_sender, _klix_abrufen, name="klix.ba")
 
 for _idx, daten in enumerate(telemach_sender):
     _telemach_geschrieben_intervalle = []
@@ -3514,7 +3543,7 @@ def _sky_abrufen(daten):
     return []
 
 
-_sky_ergebnisse = _parallel_abrufen(sky_sender, _sky_abrufen)
+_sky_ergebnisse = _parallel_abrufen(sky_sender, _sky_abrufen, name="Sky")
 
 for _idx, daten in enumerate(sky_sender):
     programme = _sky_ergebnisse[_idx]
@@ -3739,7 +3768,7 @@ def _tvpassport_abrufen(daten):
     return []
 
 
-_tvpassport_ergebnisse = _parallel_abrufen(tvpassport_sender, _tvpassport_abrufen)
+_tvpassport_ergebnisse = _parallel_abrufen(tvpassport_sender, _tvpassport_abrufen, name="TVPassport")
 
 for _idx, daten in enumerate(tvpassport_sender):
     programme = _tvpassport_ergebnisse[_idx]
@@ -3818,7 +3847,7 @@ def _mts_abrufen(daten):
     return []
 
 
-_mts_ergebnisse = _parallel_abrufen(mts_sender, _mts_abrufen)
+_mts_ergebnisse = _parallel_abrufen(mts_sender, _mts_abrufen, name="mts.rs")
 
 for _idx, daten in enumerate(mts_sender):
     programme = _mts_ergebnisse[_idx]
@@ -3869,7 +3898,7 @@ def _mts_sportklub_abrufen(daten):
     return []
 
 
-_mts_sportklub_ergebnisse = _parallel_abrufen(mts_sender, _mts_sportklub_abrufen)
+_mts_sportklub_ergebnisse = _parallel_abrufen(mts_sender, _mts_sportklub_abrufen, name="SportKlub (RS)")
 
 for _idx, daten in enumerate(mts_sender):
     programme = _mts_sportklub_ergebnisse[_idx]
@@ -3916,7 +3945,7 @@ _mts_arena_sender = [
     if d["land"].strip().upper() == "RS"
     and re.match(r"^ARENA\s*SPORT\b", d["sender"].strip(), re.IGNORECASE)
 ]
-_mts_arena_ergebnisse = _parallel_abrufen(_mts_arena_sender, _mts_arena_abrufen)
+_mts_arena_ergebnisse = _parallel_abrufen(_mts_arena_sender, _mts_arena_abrufen, name="Arena Sport")
 
 for _idx, daten in enumerate(_mts_arena_sender):
     programme = _mts_arena_ergebnisse[_idx]
@@ -3954,7 +3983,7 @@ def _rtv_rs_abrufen(daten):
 
 
 _rtv_rs_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
-_rtv_rs_ergebnisse = _parallel_abrufen(_rtv_rs_sender, _rtv_rs_abrufen)
+_rtv_rs_ergebnisse = _parallel_abrufen(_rtv_rs_sender, _rtv_rs_abrufen, name="RTV RS")
 
 for _idx, daten in enumerate(_rtv_rs_sender):
     programme = _rtv_rs_ergebnisse[_idx]
@@ -3992,7 +4021,7 @@ def _a1_abrufen(daten):
     return []
 
 
-_a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen)
+_a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen, name="A1")
 
 for _idx, daten in enumerate(mojmaxtv_sender):
     programme = _a1_ergebnisse[_idx]
@@ -4028,7 +4057,7 @@ def _mojmaxtv_abrufen(daten):
     return []
 
 
-_mojmaxtv_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojmaxtv_abrufen)
+_mojmaxtv_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojmaxtv_abrufen, name="MojMaxTV")
 
 for _idx, daten in enumerate(mojmaxtv_sender):
     programme = _mojmaxtv_ergebnisse[_idx]
@@ -4065,7 +4094,7 @@ def _hr_sportklub_abrufen(daten):
     return []
 
 
-_hr_sportklub_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_sportklub_abrufen)
+_hr_sportklub_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_sportklub_abrufen, name="SportKlub (HR)")
 
 for _idx, daten in enumerate(mojmaxtv_sender):
     programme = _hr_sportklub_ergebnisse[_idx]
@@ -4226,38 +4255,6 @@ for daten in tvprofil_sender:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# TV.ALADIN.INFO: weiterer schmaler Fallback fuer HR/BA/RS/SI/MK/ME/
-# MNG/MO/CG-Sender, NACH TvProgram.rs (siehe aladin_epg.py - 84
-# Kanaele, NUR exakter Name-/Kern-Abgleich ohne unscharfen Fallback).
-# Deckt u.a. alle Pink-Subkanaele (Action/Comedy/Film/Horror/Movies/
-# Premium/Romance/Thriller), STAR-Kanaele, Arena Premium/Sport, HBO
-# 2/3, CineStar-Subkanaele ab.
-# ==========================================================
-
-for daten in tvprofil_sender:
-    if hat_aktive_echte_quelle(daten):
-        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
-
-    programme = []
-    try:
-        kanal = aladin_kanal_finden(daten["sender"])
-        if kanal is not None:
-            programme = aladin_hole_programme(kanal)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
-
-    daten["aladin_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-    if programme:
-        _echte_quelle_zaehlen("Aladin (tv.aladin.info)")
-        _schreibe_echte_programme(daten, programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
-
-# ==========================================================
 # IPTV-EPG.ORG (Mazedonien): LETZTER Fallback speziell fuer MK-Sender,
 # nach Siol und TvProfil.net (siehe mk_epg.py - 109 mazedonische
 # Kanaele, ~6 Tage Vorschau). Kein eigenes Praefix noetig.
@@ -4363,7 +4360,24 @@ for daten in magentatv_me_sender:
 # entfernt, 404 bei jedem Abruf.)
 # ==========================================================
 
-for daten in plutotv_sender:
+def _de_kaskade_abrufen(daten):
+    """Fuehrt ALLE Netzwerk-Abrufe der DE-Kaskade (Magenta-myTeamTV bei
+    MAGENTA-SPORT-PPV-Sendern, sonst deswird/PlutoTV/tvmovie/hoerzu/
+    Joyn-VOD/Search.ch/iptv-epg.org) fuer EINEN Sender aus und gibt eine
+    Liste von (Quellenname, bereits ueberlappungsgefilterte Programme)-
+    Tupeln in Ausfuehrungsreihenfolge zurueck - nur fuer Stufen, die
+    tatsaechlich etwas Neues gefunden haben. `daten["<quelle>_intervalle"]`
+    wird wie bisher direkt gesetzt (reiner Lese-/Schreibzugriff auf das
+    EIGENE, sender-spezifische Dict - unproblematisch aus mehreren
+    Threads heraus, siehe unten).
+
+    Das eigentliche Schreiben ins XML (_schreibe_echte_programme()/
+    _echte_quelle_zaehlen(), beide mit Seiteneffekt auf das GEMEINSAME
+    xml_teile/echte_quelle_zaehler) passiert bewusst NICHT hier, sondern
+    sequenziell danach im Hauptthread (siehe _parallel_abrufen()) - sonst
+    koennten mehrere Threads gleichzeitig in xml_teile schreiben."""
+    ergebnisse = []
+
     # "MAGENTA SPORT PPV N"-Sender ueberspringen deswird.org/PlutoTV/
     # tvmovie.de/hoerzu.de komplett und gehen direkt zu
     # myTeamTV (siehe magenta_myteam_epg.py) - deswird.org matcht diese
@@ -4378,15 +4392,14 @@ for daten in plutotv_sender:
             myteam_site_id = magenta_myteam_kanal_finden(daten["sender"])
             if myteam_site_id is not None:
                 programme = magenta_myteam_hole_programme(myteam_site_id, PLUTOTV_TAGE)
-        except Exception as e:
+        except Exception:
             programme = []
 
         daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
         if programme:
-            _echte_quelle_zaehlen("Magenta-myTeamTV")
-            _schreibe_echte_programme(daten, programme)
-        continue
+            ergebnisse.append(("Magenta-myTeamTV", programme))
+        return ergebnisse
 
     # ARD-Regionalsender-Alias: deswird.org/tvmovie.de/hoerzu.de fuehren
     # WDR/NDR/MDR/SWR/RBB/BR/HR nur als EINEN nationalen Sammelkanal,
@@ -4438,17 +4451,13 @@ for daten in plutotv_sender:
                 break
         if site_id is not None:
             programme = deswird_hole_programme(site_id, DESWIRD_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         programme = []
 
     daten["deswird_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("Deswird")
-        _schreibe_echte_programme(daten, programme)
+        ergebnisse.append(("Deswird", programme))
         _de_geschrieben_intervalle.extend(daten["deswird_intervalle"])
 
     # Pluto TV als zweiter Versuch fuer DE-Sender (siehe plutotv_epg.py) -
@@ -4459,10 +4468,7 @@ for daten in plutotv_sender:
         site_id = plutotv_kanal_finden(daten["sender"])
         if site_id is not None:
             programme = plutotv_hole_programme(site_id, PLUTOTV_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         programme = []
 
     daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
@@ -4470,11 +4476,8 @@ for daten in plutotv_sender:
     if programme:
         neue_programme = _ohne_bereits_geschriebene_ueberlappung(programme)
         if neue_programme:
-            _echte_quelle_zaehlen("PlutoTV")
-            _schreibe_echte_programme(daten, neue_programme)
+            ergebnisse.append(("PlutoTV", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
 
     # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
     # tvmovie_epg.py) - wird immer versucht, schreibt aber nur die
@@ -4484,10 +4487,7 @@ for daten in plutotv_sender:
         tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
         if tvmovie_site_id is not None:
             tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         tvmovie_programme = []
 
     daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
@@ -4495,8 +4495,7 @@ for daten in plutotv_sender:
     if tvmovie_programme:
         neue_programme = _ohne_bereits_geschriebene_ueberlappung(tvmovie_programme)
         if neue_programme:
-            _echte_quelle_zaehlen("TvMovie")
-            _schreibe_echte_programme(daten, neue_programme)
+            ergebnisse.append(("TvMovie", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
     # hoerzu.de als vierter Versuch fuer DE-Sender (siehe hoerzu_epg.py) -
@@ -4507,10 +4506,7 @@ for daten in plutotv_sender:
         hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
         if hoerzu_slug is not None:
             hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         hoerzu_programme = []
 
     daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
@@ -4518,8 +4514,7 @@ for daten in plutotv_sender:
     if hoerzu_programme:
         neue_programme = _ohne_bereits_geschriebene_ueberlappung(hoerzu_programme)
         if neue_programme:
-            _echte_quelle_zaehlen("Hoerzu")
-            _schreibe_echte_programme(daten, neue_programme)
+            ergebnisse.append(("Hoerzu", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
     # Joyn-VOD als fuenfter Versuch fuer DE-Sender (siehe joyn_vod_epg.py)
@@ -4535,10 +4530,7 @@ for daten in plutotv_sender:
         joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
         if joyn_vod_site_id is not None:
             joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         joyn_vod_programme = []
 
     daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
@@ -4546,8 +4538,7 @@ for daten in plutotv_sender:
     if joyn_vod_programme:
         neue_programme = _ohne_bereits_geschriebene_ueberlappung(joyn_vod_programme)
         if neue_programme:
-            _echte_quelle_zaehlen("Joyn-VOD")
-            _schreibe_echte_programme(daten, neue_programme)
+            ergebnisse.append(("Joyn-VOD", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
     # search.ch/tv als sechster Versuch - aktuell NUR fuer "BLUE SPORT 1"/
@@ -4561,10 +4552,7 @@ for daten in plutotv_sender:
         search_ch_slug = search_ch_kanal_finden(daten["sender"])
         if search_ch_slug is not None:
             search_ch_programme = search_ch_hole_programme(search_ch_slug, SEARCH_CH_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         search_ch_programme = []
 
     daten["search_ch_intervalle"] = [(p["start"], p["stop"]) for p in search_ch_programme]
@@ -4572,8 +4560,7 @@ for daten in plutotv_sender:
     if search_ch_programme:
         neue_programme = _ohne_bereits_geschriebene_ueberlappung(search_ch_programme)
         if neue_programme:
-            _echte_quelle_zaehlen("Search.ch")
-            _schreibe_echte_programme(daten, neue_programme)
+            ergebnisse.append(("Search.ch", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
     # iptv-epg.org als SIEBTER und letzter Versuch fuer DE-Sender (siehe
@@ -4586,10 +4573,7 @@ for daten in plutotv_sender:
         iptvepg_de_site_id = iptvepg_de_kanal_finden(daten["sender"])
         if iptvepg_de_site_id is not None:
             iptvepg_de_programme = iptvepg_de_hole_programme(iptvepg_de_site_id, IPTVEPG_DE_TAGE)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception:
         iptvepg_de_programme = []
 
     daten["iptvepg_de_intervalle"] = [(p["start"], p["stop"]) for p in iptvepg_de_programme]
@@ -4597,9 +4581,21 @@ for daten in plutotv_sender:
     if iptvepg_de_programme:
         neue_programme = _ohne_bereits_geschriebene_ueberlappung(iptvepg_de_programme)
         if neue_programme:
-            _echte_quelle_zaehlen("iptv-epg.org (DE)")
-            _schreibe_echte_programme(daten, neue_programme)
+            ergebnisse.append(("iptv-epg.org (DE)", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    return ergebnisse
+
+
+_de_kaskade_ergebnisse = _parallel_abrufen(
+    plutotv_sender, _de_kaskade_abrufen,
+    name="DE-Kaskade (deswird/Pluto/tvmovie/hoerzu/Joyn/Magenta/iptv-epg)",
+)
+
+for _idx, daten in enumerate(plutotv_sender):
+    for _quelle, _programme in _de_kaskade_ergebnisse[_idx]:
+        _echte_quelle_zaehlen(_quelle)
+        _schreibe_echte_programme(daten, _programme)
 
 # ==========================================================
 # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
@@ -5125,3 +5121,14 @@ if _name_kern_automatisch_bereinigt or _name_kern_duplikate_uebersprungen:
     )
 
 print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
+
+# Laufzeit-Uebersicht pro Quelle, absteigend nach Dauer - hilft, kuenftige
+# Bottlenecks (langsame/haengende Quellen) oder leise 0-Treffer-Quellen
+# (wie zuletzt Samsung TV Plus/mymedia.ba, siehe docs/HISTORIE.md) im
+# Workflow-Log schneller zu erkennen, ohne jede einzelne Quelle manuell
+# zu stoppen.
+if QUELLEN_ZEITEN:
+    print("Laufzeit pro Quelle:")
+    for _name, _sekunden, _anzahl in sorted(QUELLEN_ZEITEN, key=lambda e: e[1], reverse=True):
+        _anzahl_text = f", {_anzahl} Sender" if _anzahl is not None else ""
+        print(f"  {_name}: {_sekunden:.1f}s{_anzahl_text}")

@@ -43,6 +43,7 @@ darf einen Lauf niemals zum Absturz bringen.
 import difflib
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -95,7 +96,7 @@ def _rail_holen(land):
     sprache = _sprache_fuer_land(land)
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             API_URL,
             params={
                 "platform": "web",

@@ -33,6 +33,7 @@ import difflib
 import re
 
 import requests
+from quellen import _http
 from bs4 import BeautifulSoup
 
 from epg_lib import normalisiere_sendername, normalisiere_sendername_kern
@@ -61,7 +62,7 @@ def siol_hole_kanalliste():
         return _kanalliste_cache
 
     try:
-        response = requests.get(f"{BASE_URL}/kanali", timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, f"{BASE_URL}/kanali", timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
@@ -194,7 +195,7 @@ def _hole_events_fuer_kanal_und_tag(site_id, datum):
     url = f"{BASE_URL}/kanal/{site_id}/datum/{datum_str}"
 
     try:
-        response = requests.get(url, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, url, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")

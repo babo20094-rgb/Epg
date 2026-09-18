@@ -36,6 +36,7 @@ import os
 import re
 
 import requests
+from quellen import _http
 from bs4 import BeautifulSoup
 
 from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
@@ -118,7 +119,7 @@ def _seite_holen(slug):
         return _seite_cache[slug]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             BASE_URL.format(slug=slug), headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
         response.raise_for_status()

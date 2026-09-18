@@ -43,6 +43,7 @@ import os
 import re
 
 import requests
+from quellen import _http
 from zoneinfo import ZoneInfo
 
 from epg_lib import normalisiere_sendername, normalisiere_sendername_kern
@@ -157,7 +158,7 @@ def _seite_laden(kanal):
 
     try:
         url = BASE_URL.format(slug=kanal["slug"], id=kanal["id"])
-        response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         html = response.text
 

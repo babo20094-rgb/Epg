@@ -32,6 +32,7 @@ from datetime import datetime, timedelta
 import re
 
 import requests
+from quellen import _http
 from zoneinfo import ZoneInfo
 
 BASIS_URL = "https://search.ch/tv/"
@@ -76,7 +77,7 @@ def _seite_holen(slug):
         return _seite_cache[slug]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             BASIS_URL + slug, timeout=REQUEST_TIMEOUT_SEKUNDEN
         )
         response.raise_for_status()

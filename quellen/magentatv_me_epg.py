@@ -23,6 +23,7 @@ import re
 import uuid
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername, normalisiere_sendername_kern
 
@@ -88,7 +89,7 @@ def _sitzung_starten():
     _sitzung_gestartet = True
     try:
         params = {"is_sso_enabled": "true", "app_language": "me", "natco_code": "me"}
-        requests.get(
+        _http.mit_retry(requests.get, 
             f"{BASE_URL}/tenant/config", params=params,
             headers=_guest_headers("CONFIG"), timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
@@ -135,7 +136,7 @@ def _kanal_index_laden():
             "app_language": "me",
             "natco_code": "me",
         }
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             f"{BASE_URL}/epg/channel", params=params,
             headers=_guest_headers("EPG_CHANNEL"), timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
@@ -183,7 +184,7 @@ def _fenster_abrufen(datum, hour_offset):
         "natco_code": "me",
     }
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             f"{BASE_URL}/epg/channel/schedules", params=params,
             headers=_guest_headers("EPG_SCHEDULES"), timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )

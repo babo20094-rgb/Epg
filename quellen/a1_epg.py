@@ -29,6 +29,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername, normalisiere_sendername_kern
 
@@ -71,7 +72,7 @@ def a1_hole_kanalliste():
         return _kanalliste_cache
 
     try:
-        response = requests.get(CHANNELS_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, CHANNELS_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         daten = response.json()
         roh_kanaele = daten.get("channels", []) if isinstance(daten, dict) else []
@@ -168,7 +169,7 @@ def _hole_tag(site_id, datum):
 
     ergebnis = []
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             ENTRIES_URL,
             params={"channels": site_id, "date": datum_str},
             headers=HEADERS,

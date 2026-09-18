@@ -34,6 +34,7 @@ import re
 import uuid
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -95,7 +96,7 @@ def _magenta_neu_kanalliste():
         start = 1
         while start <= 1000:
             ende = start + 99
-            response = requests.get(
+            response = _http.mit_retry(requests.get, 
                 MPX_ALL_CHANNEL_STATIONS_FEED,
                 params={
                     "lang": "short-de",
@@ -154,7 +155,7 @@ def _magenta_neu_programme(site_id, tage=2):
         tag_ende = tag_start + timedelta(days=1)
 
         try:
-            response = requests.get(
+            response = _http.mit_retry(requests.get, 
                 MPX_ALL_CHANNEL_SCHEDULES_FEED,
                 params={
                     "byId": site_id,
@@ -214,7 +215,7 @@ def _magenta_alt_login():
         return _alt_auth_cache
 
     try:
-        response = requests.post(
+        response = _http.mit_retry(requests.post, 
             MAGENTA_ALT_AUTH_URL,
             data=(
                 '{"terminalid":"00:00:00:00:00:00","mac":"00:00:00:00:00:00",'
@@ -261,7 +262,7 @@ def _magenta_alt_kanalliste():
         return []
 
     try:
-        response = requests.post(
+        response = _http.mit_retry(requests.post, 
             MAGENTA_ALT_CHANNELS_URL,
             json={
                 "channelNamespace": 2,
@@ -313,7 +314,7 @@ def _magenta_alt_programme(site_id, tage=2):
         tag_ende = tag_start + timedelta(days=1)
 
         try:
-            response = requests.post(
+            response = _http.mit_retry(requests.post, 
                 MAGENTA_ALT_EPG_URL,
                 json={
                     "count": -1,

@@ -37,6 +37,7 @@ import os
 import re
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -133,7 +134,7 @@ def _tag_holen(site_id, tag):
     datum_text = tag.strftime("%Y-%m-%d")
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             URL_VORLAGE.format(kanal_id=site_id, datum=datum_text),
             headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )

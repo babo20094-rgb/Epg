@@ -25,6 +25,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 import requests
+from quellen import _http
 from zoneinfo import ZoneInfo
 
 URL = "https://grand.rs/tv-program/"
@@ -101,7 +102,7 @@ def _alle_tage_laden():
         return _programme_cache
 
     try:
-        response = requests.get(URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         response.encoding = "utf-8"
         html = response.text

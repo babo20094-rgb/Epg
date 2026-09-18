@@ -36,6 +36,7 @@ import json
 import re
 
 import requests
+from quellen import _http
 from bs4 import BeautifulSoup
 from zoneinfo import ZoneInfo
 
@@ -82,7 +83,7 @@ def _rs_schema_laden():
         return _rs_schema_cache
 
     try:
-        response = requests.get(RS_URL, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, RS_URL, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         match = re.search(r"window\.TV_SCHEMES\s*=\s*(\{.*?\});", response.text, re.DOTALL)
         if not match:
@@ -111,7 +112,7 @@ def _seite_holen(land):
     parameter = _LAND_PARAMETER[land]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             parameter["url"], timeout=REQUEST_TIMEOUT_SEKUNDEN
         )
         response.raise_for_status()

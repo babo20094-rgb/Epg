@@ -44,6 +44,7 @@ import re
 from datetime import datetime, timedelta, timezone
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -71,7 +72,7 @@ def _guide_holen(network_id, start_unix):
         return _raw_cache[schluessel]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             API_URL,
             params={"nid": network_id, "start": start_unix},
             timeout=REQUEST_TIMEOUT_SEKUNDEN,

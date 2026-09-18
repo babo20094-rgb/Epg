@@ -28,6 +28,7 @@ import difflib
 import os
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -96,7 +97,7 @@ def mtel_hole_kanalliste(platform="iptv"):
     kategorie = "tv-msat" if platform == "msat" else "tv-iptv"
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             CHANNELS_URL,
             params={
                 "pageSize": 999,
@@ -205,7 +206,7 @@ def mtel_hole_programme(site_id, tage=2):
         tag = heute + timedelta(days=tag_index)
 
         try:
-            response = requests.get(
+            response = _http.mit_retry(requests.get, 
                 EPG_URL,
                 params={
                     "platform": f"tv-{platform}",

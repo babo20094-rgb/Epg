@@ -29,6 +29,7 @@ import gzip
 import xml.etree.ElementTree as ET
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
 
@@ -57,7 +58,7 @@ def _xml_laden():
         return _daten_cache
 
     try:
-        response = requests.get(URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         rohbytes = response.content
 

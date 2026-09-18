@@ -36,6 +36,7 @@ import unicodedata
 import xml.etree.ElementTree as ET
 
 import requests
+from quellen import _http
 
 KANALLISTE_URL = "https://tvprofil.net/xmltv/data/channel-list.tvprofil.net.xml"
 PROGRAMM_URL_MUSTER = "https://tvprofil.net/xmltv/data/{site_id}/weekly_{site_id}_tvprofil.net.xml"
@@ -80,7 +81,7 @@ def _kanalliste_laden():
         return _kanalliste_cache
 
     try:
-        response = requests.get(KANALLISTE_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, KANALLISTE_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         wurzel = ET.fromstring(response.content)
 
@@ -140,7 +141,7 @@ def tvprofil_hole_programme(site_id, tage=3):
     if site_id not in _programme_cache:
         try:
             url = PROGRAMM_URL_MUSTER.format(site_id=site_id)
-            response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+            response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
             response.raise_for_status()
             wurzel = ET.fromstring(response.content)
 

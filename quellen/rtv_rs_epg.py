@@ -25,6 +25,7 @@ import re
 import unicodedata
 
 import requests
+from quellen import _http
 from bs4 import BeautifulSoup
 from zoneinfo import ZoneInfo
 
@@ -110,7 +111,7 @@ def _satnica_laden(slug):
 
     try:
         url = BASIS_URL.format(slug=slug)
-        response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")

@@ -30,6 +30,7 @@ import difflib
 import re
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -62,7 +63,7 @@ def _hole_tagesdaten(datum):
     try:
         seite = 0
         while True:
-            response = requests.get(
+            response = _http.mit_retry(requests.get, 
                 SEARCH_URL,
                 params={
                     "sort": "pozicija-rastuce",

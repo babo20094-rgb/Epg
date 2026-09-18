@@ -44,6 +44,7 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 import requests
+from quellen import _http
 from bs4 import BeautifulSoup
 
 from epg_lib import normalisiere_sendername
@@ -208,7 +209,7 @@ def _tag_seite_holen(site_id, tag):
     datum_str = tag.strftime("%Y-%m-%d")
     url = f"{BASE_URL}/{site_id}/{datum_str}"
     try:
-        response = requests.get(url, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, url, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         return BeautifulSoup(response.text, "html.parser")
     except Exception as e:

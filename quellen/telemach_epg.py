@@ -19,6 +19,7 @@ import difflib
 import re
 
 import requests
+from quellen import _http
 
 from epg_lib import (
     kanal_index_suchen,
@@ -91,7 +92,7 @@ def telemach_login():
         return _access_token_cache
 
     try:
-        response = requests.post(
+        response = _http.mit_retry(requests.post, 
             TOKEN_URL,
             headers={"Authorization": f"Basic {BASIC_TOKEN}"},
             timeout=REQUEST_TIMEOUT_SEKUNDEN,
@@ -124,7 +125,7 @@ def telemach_hole_kanalliste(country="ba"):
     parameter = _LAND_PARAMETER[country]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             CHANNELS_URL,
             params={
                 "channelType": "TV",
@@ -234,7 +235,7 @@ def telemach_hole_programme(site_id, country="ba", tage=3):
         bis = (tag + timedelta(days=1) - timedelta(seconds=1)).strftime("%Y-%m-%dT%H:%M:%S-00:00")
 
         try:
-            response = requests.get(
+            response = _http.mit_retry(requests.get, 
                 EPG_URL,
                 params={
                     "fromTime": von,

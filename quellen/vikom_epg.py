@@ -33,6 +33,7 @@ import html
 import re
 
 import requests
+from quellen import _http
 
 from epg_lib import normalisiere_sendername
 
@@ -107,7 +108,7 @@ def _dan_holen(dan):
         return _wochentag_cache[dan]
 
     try:
-        response = requests.get(
+        response = _http.mit_retry(requests.get, 
             URL_VORLAGE.format(dan=dan), headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
         response.raise_for_status()

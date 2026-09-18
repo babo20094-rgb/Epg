@@ -26,6 +26,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 import requests
+from quellen import _http
 from zoneinfo import ZoneInfo
 
 BASIS_URL = "https://program.blagovesti.tv/{tag}.html"
@@ -72,7 +73,7 @@ def _tag_laden(tag):
     Liste von {"start_lokal", "titel"}-Dicts, oder [] bei jedem Fehler."""
     try:
         url = BASIS_URL.format(tag=tag)
-        response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+        response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
         response.encoding = "utf-8"
         html = response.text
