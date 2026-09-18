@@ -1310,12 +1310,54 @@ def test_mojmaxtv_erfolgreicher_abruf_liefert_echte_sendungen(_mojmaxtv_cache_zu
         programme = mojmaxtv_epg.mojmaxtv_hole_programme(site_id, tage=1)
 
     # 8 3h-Zeitfenster pro Tag, das Mock liefert fuer jedes Fenster
-    # dieselbe eine Sendung zurueck.
-    assert len(programme) == 8
+    # dieselbe eine Sendung zurueck - die Dedup-Logik (siehe
+    # _hole_schedules_fuer_tag()) fasst das korrekt zu einer einzigen
+    # Sendung zusammen statt sie 8x zu wiederholen (Regressionstest
+    # fuer den echten MojMaxTV-Duplikat-Bug: die API liefert an jeder
+    # Fenstergrenze die dort noch laufende Sendung des Vorfensters
+    # zusaetzlich erneut mit, siehe Moduldocstring dort).
+    assert len(programme) == 1
     sendung = programme[0]
     assert sendung["title"] == "Vijesti"
     assert sendung["start"].tzinfo is not None
     assert sendung["stop"] > sendung["start"]
+
+
+def test_mojmaxtv_dedupliziert_ueberlappende_fenster_behaelt_echte_sendungen(_mojmaxtv_cache_zuruecksetzen):
+    """Regressionstest fuer den echten, live beobachteten MojMaxTV-
+    Duplikat-Bug (Arena Sport 8, September 2026): die API liefert an
+    jeder 3h-Fenstergrenze die dort noch laufende Sendung des
+    Vorfensters zusaetzlich erneut mit (identischer Titel/Start/Ende),
+    wird hier ueber zwei Fenster mit einer echten Ueberlappung plus
+    zwei echt unterschiedlichen Sendungen nachgebaut. Muss NUR das
+    echte Duplikat entfernen, beide unterschiedlichen Sendungen
+    bleiben erhalten."""
+    fenster_1 = _mock_response({
+        "channels": {
+            "42": [
+                {"description": "A", "start_time": "2026-08-10T00:00:00Z", "end_time": "2026-08-10T02:00:00Z"},
+                {"description": "B", "start_time": "2026-08-10T02:00:00Z", "end_time": "2026-08-10T04:00:00Z"},
+            ]
+        }
+    })
+    fenster_2 = _mock_response({
+        "channels": {
+            "42": [
+                # Echtes Duplikat (identisch zum letzten Eintrag aus Fenster 1):
+                {"description": "B", "start_time": "2026-08-10T02:00:00Z", "end_time": "2026-08-10T04:00:00Z"},
+                {"description": "C", "start_time": "2026-08-10T04:00:00Z", "end_time": "2026-08-10T07:00:00Z"},
+            ]
+        }
+    })
+    responses = [_mojmaxtv_channels_response(), fenster_1, fenster_2] + [
+        _mojmaxtv_schedule_response(mit_sendung=False) for _ in range(6)
+    ]
+    with patch("quellen.mojmaxtv_epg.requests.get", side_effect=responses):
+        site_id = mojmaxtv_epg.mojmaxtv_kanal_finden("RTL Hrvatska")
+        programme = mojmaxtv_epg.mojmaxtv_hole_programme(site_id, tage=1)
+
+    titel = [p["title"] for p in programme]
+    assert titel == ["A", "B", "C"]
 
 
 def test_mojmaxtv_sk_alias_matcht_nicht_faelschlich_bei_fehlendem_sport_klub(_mojmaxtv_cache_zuruecksetzen):

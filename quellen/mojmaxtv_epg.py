@@ -226,13 +226,26 @@ def _zeit_parsen(wert):
 def _hole_schedules_fuer_tag(datum):
     """Holt (und cached pro Datum) alle 3h-Zeitfenster fuer einen Tag
     und fuegt sie zu {station_id: [sendung, ...]} zusammen. Leeres
-    dict bei jedem Fehler/Teilfehler."""
+    dict bei jedem Fehler/Teilfehler.
+
+    Die API liefert pro Zeitfenster am Fensteranfang zusaetzlich noch
+    einmal die letzte, dort bereits laufende Sendung des VORHERIGEN
+    Fensters mit (bestaetigt live: Fenster 0-3 Uhr endet mit "02:00-
+    04:00 Lausanne", Fenster 3-6 Uhr beginnt erneut mit exakt "02:00-
+    04:00 Lausanne", identischer Titel/Start/Ende - offenbar bewusstes
+    API-Verhalten fuer Kontext, keine echte zweite Sendung). Da die
+    Fenster nur aneinandergehaengt werden, wird pro Sender anhand von
+    (start_time, end_time, description) dedupliziert, bevor die Liste
+    gespeichert wird - entfernt ausschliesslich echte 1:1-Duplikate,
+    zwei tatsaechlich verschiedene Sendungen haben nie exakt denselben
+    Start UND dasselbe Ende UND denselben Titel."""
     datum_str = datum.strftime("%Y-%m-%d")
 
     if datum_str in _schedule_cache:
         return _schedule_cache[datum_str]
 
     zusammengefasst = {}
+    _gesehen = {}
 
     for offset in STUNDEN_OFFSETS:
         try:
@@ -259,7 +272,18 @@ def _hole_schedules_fuer_tag(datum):
             for station_id, sendungen in kanal_dict.items():
                 if not isinstance(sendungen, list):
                     continue
-                zusammengefasst.setdefault(station_id, []).extend(sendungen)
+                ziel_liste = zusammengefasst.setdefault(station_id, [])
+                gesehene_schluessel = _gesehen.setdefault(station_id, set())
+                for sendung in sendungen:
+                    schluessel = (
+                        sendung.get("start_time"),
+                        sendung.get("end_time"),
+                        sendung.get("description"),
+                    )
+                    if schluessel in gesehene_schluessel:
+                        continue
+                    gesehene_schluessel.add(schluessel)
+                    ziel_liste.append(sendung)
         except Exception as e:
             print(f"MojMaxTV-EPG: Zeitfenster ({datum_str}, offset {offset}) fehlgeschlagen ({e}), ueberspringe Fenster.")
             continue
@@ -306,5 +330,21 @@ def mojmaxtv_hole_programme(site_id, tage=2):
             print(f"MojMaxTV-EPG: Programmabruf fuer Kanal {site_id} Tag {tag_index} fehlgeschlagen ({e}), ueberspringe Tag.")
             continue
 
-    alle_sendungen.sort(key=lambda s: s["start"])
-    return alle_sendungen
+    # Zusaetzliche Absicherung ueber den Tages-Cache in
+    # _hole_schedules_fuer_tag() hinaus: eine Sendung, die um
+    # Mitternacht herum laeuft, kann sowohl im letzten Zeitfenster des
+    # einen Tages als auch im ersten Zeitfenster des naechsten Tages
+    # auftauchen (zwei getrennte Tages-Caches, dort jeweils nicht als
+    # Duplikat erkennbar) - hier ueber alle Tage hinweg anhand von
+    # (start, stop, title) dedupliziert.
+    gesehen = set()
+    eindeutig = []
+    for sendung in alle_sendungen:
+        schluessel = (sendung["start"], sendung["stop"], sendung["title"])
+        if schluessel in gesehen:
+            continue
+        gesehen.add(schluessel)
+        eindeutig.append(sendung)
+
+    eindeutig.sort(key=lambda s: s["start"])
+    return eindeutig
