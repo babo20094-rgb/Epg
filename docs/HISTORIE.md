@@ -4247,3 +4247,46 @@ externer "shutdown signal"-Abbruch). Ausserdem koennen einzelne externe
 Quellen bei hoher Parallelitaet mit 429 reagieren, obwohl andere Quellen
 dieselbe Worker-Zahl klaglos vertragen - Worker-Zahl notfalls pro Block
 statt global tunen.
+
+## DE|TLC HEVC/FHD: deswird.org-Treffer verpasst, Fallback auf
+## tvmovie.de/hoerzu.de mit weniger Tagen Abdeckung (September 2026)
+
+Nutzer meldete, "DE|TLC HEVC" zeige in TiviMate teils ein anderes
+Programm als "DE|TLC HD" (das korrekt war). Live-Pruefung der
+generierten XML zeigte zum Kontrollzeitpunkt fuer BEIDE Kanaele
+inhaltlich dieselbe, korrekte laufende Sendung - der eigentliche
+Unterschied: "DE|TLC HD" bezog seine Daten von deswird.org (mehrere
+Tage im Voraus, bis 21.09.), "DE|TLC HEVC" dagegen nur von tvmovie.de/
+hoerzu.de (nur 1-2 Tage Abdeckung, bis 20.09.), weil deswird.org fuer
+"TLC HEVC" GAR KEINEN Treffer fand (auch nicht ueber den Kern-/Fuzzy-
+Fallback).
+
+**Ursache:** deswird.org fuehrt den Kanal unter drei verschiedenen IDs
+mit identischem Anzeigenamen "TLC" (TLC.ch/TLC/TLC.de, keinerlei HD/
+FHD/UHD/SD/HEVC-Suffix im Namen selbst). Der generische Kern-Abgleich
+(`normalisiere_sendername_kern()` entfernt HD/FHD/UHD/SD/HEVC) verwirft
+den Kern "TLC" bewusst als mehrdeutig, weil zwei der drei IDs (TLC vs.
+TLC.ch) beim ersten Vergleich ohne .de-Praeferenz kollidieren - dass die
+DRITTE ID (TLC.de) diese Mehrdeutigkeit eigentlich eindeutig zugunsten
+von TLC.de aufloest (wie bei der direkten Namenssuche "TLC" der Fall),
+wird von der Ambiguitaets-Pruefung nicht mehr rueckgaengig gemacht. Der
+unscharfe difflib-Fallback matchte "TLC HD" nur zufaellig (Aehnlichkeit
+0.75, knapp ueber dem Cutoff 0.72), waehrend "TLC HEVC"/"TLC FHD"
+(laengere Suffixe) klar darunter lagen (0.6) und GAR NICHTS fanden.
+
+**Fix:** `_BEKANNTE_KERN_ALIASE` in `deswird_epg.py` (bereits genutzt
+fuer RTL NITRO/KABEL1 DOKU/N24 DOKCU/SKY ONE) um `"TLC": "TLC.de"`
+ergaenzt - verifiziert per Live-Abgleich, dass TLC.de und die IDs ohne
+Laenderkuerzel dieselben deutschen Sendungen zeigen, TLC.ch dagegen der
+separate Schweizer Feed ist. "TLC HD"/"TLC HEVC"/"TLC FHD" (und jeder
+andere "TLC"-Sendername egal welches Land in der DE-Kaskade) matchen
+jetzt alle direkt auf TLC.de.
+
+**Lehre:** Ein als "korrekt" gemeldeter Sender kann trotzdem auf eine
+schwaechere Fallback-Quelle mit weniger Tagesabdeckung zurueckfallen,
+ohne dass es einen sichtbaren Fehler gibt - bei einer neuen "zeigt
+falsches Programm"-Meldung IMMER pruefen, WELCHE Quelle tatsaechlich
+fuer den betroffenen Sendernamen matcht (`deswird_kanal_finden()`
+direkt aufrufen), nicht nur den XML-Inhalt zum Kontrollzeitpunkt
+vergleichen - der Unterschied zeigt sich ggf. erst an Tagen, die die
+schwaechere Quelle nicht mehr abdeckt.
