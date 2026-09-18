@@ -94,6 +94,7 @@ from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
 from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
 from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
+from quellen.grand_epg import grand_kanal_finden, grand_hole_programme
 
 # Praefixe, bei denen die eigene Playlist (siehe Kommentar in
 # kanal_id_varianten()) nachweislich auch Sender mit null oder zwei
@@ -4650,6 +4651,37 @@ for daten in sender_daten:
 
     if programme:
         _echte_quelle_zaehlen("BN2 (rtvbn.tv)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# GRAND TV: einzeln gepruefter, eigenstaendiger serbischer Sender
+# (siehe grand_epg.py - rollierendes Wochenraster von
+# grand.rs/tv-program/). Kein eigenes Praefix noetig, matcht direkt
+# gegen den Sendernamen "GRAND TV" (mit HD/VIP/RAW-Zusaetzen), NICHT
+# "Grand 1"/"Grand 2" (eigenstaendige, andere Kanaele).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        marker = grand_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = grand_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["grand_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Grand TV (grand.rs)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
