@@ -248,6 +248,24 @@ _BEKANNTE_KERN_ALIASE = {
     # (Laenderkennzeichnung direkt im Namen statt als Suffix), einzige
     # vorhandene ID, keine Mehrdeutigkeit.
     "SKYONE": "Sky One D",
+    # "TLC" - deswird.org fuehrt den Sender unter drei IDs mit
+    # identischem Anzeigenamen "TLC" (TLC.ch/TLC/TLC.de, per Live-
+    # Abgleich September 2026 verifiziert: TLC.de und TLC zeigen
+    # dieselben deutschen Sendungen, TLC.ch ist der separate Schweizer
+    # Feed). Der Name selbst hat KEIN HD/FHD/UHD/SD/HEVC-Suffix, daher
+    # matcht "TLC HD" nur zufaellig ueber den unscharfen difflib-
+    # Fallback (Aehnlichkeit knapp ueber dem Cutoff), waehrend "TLC
+    # HEVC"/"TLC FHD" (laengere Suffixe, Aehnlichkeit unter dem
+    # Cutoff) dort GAR KEINEN Treffer fanden und auf die schwaecheren
+    # Quellen (tvmovie.de/hoerzu.de, nur ca. 1-2 statt mehrerer Tage
+    # Abdeckung) zurueckfielen, obwohl deswird.org echte Daten haette
+    # liefern koennen - der eigentliche Kern-Abgleich verwirft "TLC"
+    # zudem bewusst als mehrdeutig (TLC vs. TLC.ch ohne .de-Praeferenz
+    # zwischen den beiden), da die generische Ambiguitaets-Pruefung
+    # nicht "durchsieht", dass die dritte ID (TLC.de) die Mehrdeutigkeit
+    # bereits eindeutig zugunsten von TLC.de aufloest. Explizite Alias-
+    # Zuordnung wie bei RTL NITRO/KABEL1 DOKU/N24 DOKCU/SKY ONE.
+    "TLC": "TLC.de",
 }
 
 
