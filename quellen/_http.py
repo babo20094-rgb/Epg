@@ -31,12 +31,50 @@ Tests unbemerkt am Mock vorbeilaufen lassen.
 """
 
 import time
+from urllib.parse import urlparse
 
 import requests
 
 _VERSUCHE = 3
 _PAUSE_SEKUNDEN = 1.5
 _RATE_LIMIT_STATUS = (429, 503)
+
+# Zaehlt pro Host (z.B. "www.hoerzu.de"), wie oft ein Abruf insgesamt
+# versucht wurde, wie oft dabei ein 429/503 (Rate-Limiting) auftrat und
+# wie oft ein Abruf trotz aller Versuche endgueltig fehlgeschlagen ist -
+# ausgegeben als kurze Zusammenfassung am Laufende (siehe
+# fehler_uebersicht()/generate_epg.py), damit Faelle wie die 429-Flut bei
+# hoerzu.de/tvmovie.de (September 2026, siehe docs/HISTORIE.md) direkt
+# sichtbar sind, statt sie erst im kompletten Rohlog suchen zu muessen.
+_STATISTIK = {}
+
+
+def _host_aus_url(args):
+    if not args:
+        return "unbekannt"
+    try:
+        host = urlparse(args[0]).netloc
+        return host or "unbekannt"
+    except Exception:
+        return "unbekannt"
+
+
+def _statistik_eintrag(host):
+    return _STATISTIK.setdefault(host, {"versuche": 0, "rate_limit": 0, "fehlgeschlagen": 0})
+
+
+def fehler_uebersicht():
+    """Gibt die gesammelte Statistik als Liste von (host, versuche,
+    rate_limit_treffer, endgueltig_fehlgeschlagen) zurueck, absteigend
+    nach rate_limit_treffer sortiert - nur Hosts mit mindestens einem
+    429/503 oder einem endgueltigen Fehlschlag."""
+    ergebnis = [
+        (host, s["versuche"], s["rate_limit"], s["fehlgeschlagen"])
+        for host, s in _STATISTIK.items()
+        if s["rate_limit"] or s["fehlgeschlagen"]
+    ]
+    ergebnis.sort(key=lambda e: (e[2], e[3]), reverse=True)
+    return ergebnis
 
 
 def _rate_limit_pause(response, versuch):
@@ -60,8 +98,11 @@ def mit_retry(fn, *args, **kwargs):
     ConnectionError/Timeout sowie bei HTTP 429/503 (Rate-Limiting).
     Andere Fehler (inkl. HTTPError bei anderen Status-Codes) werden
     sofort weitergereicht."""
+    eintrag = _statistik_eintrag(_host_aus_url(args))
+
     letzter_fehler = None
     for versuch in range(1, _VERSUCHE + 1):
+        eintrag["versuche"] += 1
         try:
             response = fn(*args, **kwargs)
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
@@ -71,6 +112,7 @@ def mit_retry(fn, *args, **kwargs):
             continue
 
         if response.status_code in _RATE_LIMIT_STATUS:
+            eintrag["rate_limit"] += 1
             letzter_fehler = requests.exceptions.HTTPError(
                 f"{response.status_code} Client/Server Error (Rate-Limiting)",
                 response=response,
@@ -78,7 +120,10 @@ def mit_retry(fn, *args, **kwargs):
             if versuch < _VERSUCHE:
                 time.sleep(_rate_limit_pause(response, versuch))
                 continue
+            eintrag["fehlgeschlagen"] += 1
             return response
 
         return response
+
+    eintrag["fehlgeschlagen"] += 1
     raise letzter_fehler
