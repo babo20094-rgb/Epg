@@ -4087,3 +4087,80 @@ gesetzt - siehe CLAUDE.md, neue Dauerregel: schickt der Nutzer ein
 Logo + Sendername, gilt das automatisch fuer ALLE Suffix-Varianten
 dieses Kern-Sendernamens, auch kuenftig neu angelegte Zeilen, ohne
 erneute Nachfrage.
+
+## September 2026: DE| DPLUS PPV 2-5 (und NAME:-PPV-Kanaele generell) zeigten "Keine Information" - zwei getrennte Bugs im Live-Kanalabgleich gefunden
+
+**Meldung:** Nutzer berichtete, dass "DE| DISCOVERY+ PPV"/"DE: DPLUS PPV"
+Kanaele 2-5 "Keine Information" zeigen, waehrend Kanal 1/6/7/8 normal
+Events anzeigten. Erster Ansatz (Suche nach "DISCOVERY"+"PPV" in
+sender.txt) war ein Holzweg - die tatsaechlichen Eintraege heissen
+`NAME:DE: DPLUS PPV N` (1-100, ausser 6) bzw. `NAME:DE: D+ PPV 6`
+(Sonderfall, anderes - kern-vorne statt kern-hinten - Rohformat). Die
+Suche nach "D+"/"DISCOVERY" allein fand das nicht, erst eine breitere
+Suche nach "DPLUS PPV" foerderte die echten Zeilen zutage.
+
+**Erste Teilursache (kosmetisch, nicht der Hauptfehler):** In
+`_live_event_uebernehmen()` (generate_epg.py) gab es die spezielle
+Team-vs-Team-Extraktion fuer den `ENDED`-Marker (Rohformat "ENDED |
+Team A - Team B | Datum | Qualitaet | Kern") bisher NUR fuer die
+hartcodierten Muster `DYN PPV N` und `DE: STAIGE PPV N`. DPLUS PPV
+matchte keins von beiden und fiel deshalb auf den generischen
+Abmoderationstext ("Spiel ist beendet, danke...") zurueck statt die
+Team-Namen zu zeigen wie bei LIVE/NEXT. Zeigte sich live an den vom
+Nutzer bereitgestellten TiviMate-Screenshots: Rohname wechselte von
+"LIVE | Team A - Team B | ..." (Events wurden angezeigt) zu "ENDED |
+..." (kein sinnvoller Inhalt mehr).
+
+**Eigentlicher Hauptfehler (root cause):** `m3u_playlist_abgleichen()`
+iteriert ueber ALLE `#EXTINF`-Zeilen der kompletten PROVIDER-M3U-
+Playlist (zehntausende Zeilen) in einer einzigen Schleife OHNE
+Absicherung pro Zeile. Warf die Verarbeitung EINER einzigen Zeile eine
+Exception (z.B. ein exotischer/unerwartet formatierter Rohname, der
+z.B. `dyn_next_team_namen()` oder eine der Regex-Auswertungen zum
+Absturz bringt), brach die GESAMTE Schleife sofort ab - nur der aeussere
+Try/Except um den kompletten Funktionsaufruf (siehe DYN-PPV-Regression
+weiter oben in dieser Datei) fing das ab und loggte
+"Live-Kanalabgleich Fehler: <Typ>", aber schwieg darueber, dass bereits
+ALLE nach der fehlerhaften Zeile in der Playlist stehenden NAME:-Kanaele
+in diesem Lauf komplett ohne Live-Abgleich blieben (kein neuer
+Kanalname, kein neuer Sendungstitel). Erklaert exakt das beobachtete
+Muster: nur vereinzelte, scheinbar zufaellige Kanaele betroffen (deren
+Position in der Playlist NACH der auslösenden Zeile lag), bei mehreren
+Kategorien gleichzeitig (DYN PPV und DPLUS PPV je nach Reihenfolge in
+der Playlist) - und nur dort, wo tatsaechlich ein Event erkannt werden
+sollte (der Team-Namen-Extraktions-Code ist der komplexeste, damit
+fehleranfaelligste Pfad in der Schleife).
+
+**Fix (generate_epg.py):**
+1. Jede Playlist-Zeile in `m3u_playlist_abgleichen()` ist jetzt einzeln
+   per `try/except Exception` abgesichert - ein Fehler bei einer Zeile
+   ueberspringt NUR diese eine Zeile (Zaehler `uebersprungene_zeilen`,
+   wird geloggt), alle anderen Zeilen werden wie gewohnt weiter
+   verarbeitet statt den kompletten Rest des Laufs zu verlieren.
+2. Neues generisches `PPV_KERN_MUSTER` (Regex fuer "<Land:> <Name> PPV
+   <Nummer>") als Fallback NACH den bestehenden Spezialfaellen DYN
+   PPV/STAIGE PPV/DPLUS PPV (deren feste Bezeichnungen "Dyn Sport"/
+   "Staige"/"Dplus" unveraendert bleiben) - deckt jetzt automatisch
+   ALLE PPV-Sendergruppen ab (DAZN/ESPN+/SOCCER/RTL+ PPV usw.), nicht
+   nur einzeln hartcodierte Marken:
+   - Bei erkanntem NEXT/LIVE/ENDED-Marker: "Team A vs. Team B HH:MM
+     Uhr" mit hochgestelltem Status (ᴺᵉˣᵗ/ᴸⁱᵛᵉ/ᴮᵉᵉⁿᵈᵉᵗ) - auf
+     Nutzerwunsch bewusst OHNE Liga-/Wettbewerbsangabe (im Rohformat
+     der Anbieter i.d.R. ohnehin nicht separat vorhanden).
+   - Bei Leerlauf ("- NO EVENT STREAMING -" o.ae.): einfach der normal
+     geschriebene Sendername inkl. Nr. (`kanalname_normal_geschrieben()`)
+     mit hochgestelltem "ᴺᵒ ᴸⁱᵛᵉ" am Ende, statt des vorherigen
+     generischen "... ᴸⁱᵛᵉ"-Fallbacks, der faelschlich IMMER "Live"
+     suggerierte, auch im Leerlauf.
+   - Der feste Abmoderationstext ("Spiel ist beendet, danke, dass Sie
+     zugeschaut haben.") bleibt auf ausdruecklichen Nutzerwunsch als
+     Rueckfall-Text bestehen, falls bei ENDED keine Team-Namen aus dem
+     Rohtext extrahierbar sind (z.B. weniger als 2 Pipe-Segmente).
+
+pytest weiterhin gruen (96/96), Compile-Check sauber. Symptom
+"veroeffentlichte XML zeigt kurzzeitig noch alten LIVE-Rohnamen, obwohl
+der Anbieter selbst schon ENDED zeigt" (~1-3h Verzoegerung bis zum
+naechsten geplanten Workflow-Lauf) ist KEIN Bug, sondern inhaerent am
+"Channel-ID = exakter Live-Rohname zum Generierungszeitpunkt"-Design
+(bewusster Trade-off, siehe an anderer Stelle in dieser Datei) - loest
+sich beim naechsten regulaeren Lauf von selbst.
