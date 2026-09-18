@@ -3063,9 +3063,9 @@ RS|CARTOON NETWORK|Cartoon Network ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 RS|CARTOONITO|Cartoonito ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d030a60de2fbf83a.png
 RS|CARTOONITO ⱽᴵᴾ ᴿᴬᵂ|Cartoonito ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d030a60de2fbf83a.png
 RS|CBS REALITY|Cbs Reality ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/12296193f36e6d89.png
-RS|CINEMANIA|Cinemania ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b610543603489ed.png
+RS|CINEMANIA|Cinemania ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cinemania/cinemania.png
 RS|CINEMAX 2 HD|Cinemax 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9209b537e8fca789.png
-RS|CINEMAX HD|Cinemax Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b610543603489ed.png
+RS|CINEMAX HD|Cinemax Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ce17680885b1af00.png
 RS|CINESTAR ACTION|Cinestar Action ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/439b7fae61102375.png
 RS|CINESTAR COMEDY|Cinestar Comedy ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2192a93b4456c319.png
 RS|CINESTAR FANTASY|Cinestar Fantasy ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/43624a8771c9d97e.png
