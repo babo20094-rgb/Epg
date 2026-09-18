@@ -4193,3 +4193,57 @@ PlutoTV, wo das zufaellig stimmte) - nach dem Einbau einer aus der
 Sandbox nicht verifizierbaren Quelle IMMER den ersten echten
 GitHub-Actions-Lauf per `get_job_logs` auf Fehlermeldungen dieser Quelle
 pruefen, bevor sie als endgueltig funktionierend gilt.
+
+## September 2026: Parallelisierung von DE-Kaskade + 5 weiteren Bloecken - Thread-Race beim Erstladen der Kanallisten-Caches, danach Rate-Limiting bei tvmovie.de/hoerzu.de
+
+Zur Laufzeit-Optimierung wurden DE-Kaskade (deswird/Pluto/tvmovie/
+hoerzu/Joyn/Magenta/iptv-epg) sowie Siol/Delo.si/SportKlub, TvProfil.net,
+TvProgram.rs, tvprogramdanas.net und TVPassport-CallSign von
+sequenziellen Schleifen auf `_parallel_abrufen()` (ThreadPoolExecutor,
+analog zu Sky/Telemach/mts.rs) umgestellt.
+
+**Erster Fehlerkreis (mehrere externe Workflow-Abbrueche, "shutdown
+signal... manually started runner is canceled", KEIN Python-Traceback):**
+Ausfuehrlich per Live-Laufzeit-Log (`_zeitmessung`, sofortiges Drucken
+statt erst am Lauf-Ende) und RSS-Speicher-Logging (`resource.getrusage`)
+untersucht. Speichertheorie mit Live-Daten widerlegt (RSS lag bei nur
+~1,3 GB, weit unter dem 7-GB-Runner-Limit). Tatsaechliche Ursache: der
+Erstzugriff auf mehrere Modul-weite Kanallisten-/Datei-Caches
+(`_kanalliste_cache = None`/`_daten_cache = None` in u.a.
+`quellen/epgshare_us_locals_epg.py` - eine ~60-MB-Datei mit 60s Timeout)
+war NICHT thread-sicher. Vor der Parallelisierung wurden diese Module
+nie aus mehreren Threads gleichzeitig angefragt; jetzt sahen alle
+Worker-Threads beim allerersten Zugriff gleichzeitig "noch nicht
+geladen" und luden dieselbe (teils sehr grosse) Datei mehrfach parallel
+statt einmal. **Fix:** `threading.Lock` mit Double-Checked-Locking um
+den Erstladevorgang in `epgshare_us_locals_epg.py` und 9 weiteren
+betroffenen Modulen (deswird, plutotv, joyn_vod, iptvepg_de,
+magenta_myteam, siol, sportklub, tvprofil_net, tvprogramrs,
+tvprogramdanas) - nur ein Thread laedt, alle anderen warten und
+bekommen dasselbe Ergebnis.
+
+**Zweiter Fehlerkreis (nach dem Lock-Fix, erster erfolgreicher 12-
+Worker-Lauf):** Kein Absturz mehr, aber zwei Quellen reagieren auf 12
+gleichzeitige Anfragen mit deutlich mehr Fehlern statt echter Daten:
+- tvmovie.de/hoerzu.de (Teil der DE-Kaskade): HTTP 429 (Too Many
+  Requests), spuerbar weniger echte Treffer (Hoerzu 31 statt vorher 58,
+  TvMovie 71 statt vorher 86).
+- a1.hr (A1, HR-Quelle, war bereits VOR dieser Session parallelisiert):
+  fast durchgaengig HTTP 503 (Service Unavailable) und
+  Verbindungsfehler (491 Fehlschlaege bei nur 278 Sendern in der Liste),
+  Trefferquote von 123 auf 46 eingebrochen.
+
+Fix: eigene, niedrigere Worker-Zahl (`GEDROSSELTE_QUELLE_WORKER = 6`)
+fuer die DE-Kaskade UND fuer A1, waehrend alle anderen parallelisierten
+Bloecke (die dieses Rate-Limiting im Test nicht zeigten) bei
+`PARALLEL_WORKER = 12` bleiben.
+
+**Lehre:** Bei jeder neuen Parallelisierung eines bisher nur sequenziell
+genutzten Quellen-Moduls IMMER pruefen, ob dessen Kanallisten-/Datei-
+Cache (`global _x_cache`) thread-sicher ist (Double-Checked-Locking),
+BEVOR es unter `_parallel_abrufen()` haengt - sonst droht ein stiller,
+schwer zu diagnostizierender Thread-Race (kein Python-Fehler, nur ein
+externer "shutdown signal"-Abbruch). Ausserdem koennen einzelne externe
+Quellen bei hoher Parallelitaet mit 429 reagieren, obwohl andere Quellen
+dieselbe Worker-Zahl klaglos vertragen - Worker-Zahl notfalls pro Block
+statt global tunen.

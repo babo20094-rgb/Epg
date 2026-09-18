@@ -3187,6 +3187,19 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 
 PARALLEL_WORKER = 12
 
+# Manche Quellen antworten bei 12 gleichzeitigen Anfragen zunehmend mit
+# HTTP 429/503 (Too Many Requests/Service Unavailable) statt echter
+# Daten - sichtbar im Log des ersten produktiven 12-Worker-Laufs
+# (September 2026, siehe docs/HISTORIE.md):
+# - tvmovie.de/hoerzu.de (Teil der DE-Kaskade): deutlich weniger echte
+#   Treffer als vorher (Hoerzu 31 statt 58, TvMovie 71 statt 86).
+# - a1.hr (A1): fast durchgaengig 503/Verbindungsfehler (491 Fehlschlaege
+#   bei 278 Sendern), Trefferquote von 123 auf 46 eingebrochen.
+# Fuer diese ratenbegrenzten Quellen daher eine eigene, niedrigere
+# Worker-Zahl, waehrend alle anderen Quellen (die diese Drosselung im
+# Test nicht zeigten) bei PARALLEL_WORKER bleiben.
+GEDROSSELTE_QUELLE_WORKER = 6
+
 # Sammelt fuer jede benannte Quelle (siehe _parallel_abrufen()/
 # _zeitmessung() Aufrufe unten) die gebrauchte Zeit in Sekunden und die
 # Anzahl verarbeiteter Sender - am Ende des Laufs als kurze Tabelle
@@ -4040,7 +4053,7 @@ def _a1_abrufen(daten):
     return []
 
 
-_a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen, name="A1")
+_a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen, worker=GEDROSSELTE_QUELLE_WORKER, name="A1")
 
 for _idx, daten in enumerate(mojmaxtv_sender):
     programme = _a1_ergebnisse[_idx]
@@ -4618,7 +4631,7 @@ def _de_kaskade_abrufen(daten):
 
 
 _de_kaskade_ergebnisse = _parallel_abrufen(
-    plutotv_sender, _de_kaskade_abrufen,
+    plutotv_sender, _de_kaskade_abrufen, worker=GEDROSSELTE_QUELLE_WORKER,
     name="DE-Kaskade (deswird/Pluto/tvmovie/hoerzu/Joyn/Magenta/iptv-epg)",
 )
 
