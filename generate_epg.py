@@ -3212,6 +3212,13 @@ class _zeitmessung:
     def __exit__(self, *exc):
         sekunden = time.perf_counter() - self._start
         QUELLEN_ZEITEN.append((self.name, sekunden, self.anzahl))
+        # Sofort ausgeben (nicht erst in der Zusammenfassung ganz am
+        # Ende) - damit bei einem externen Abbruch mitten im Lauf
+        # (z.B. Ressourcenknappheit auf dem Runner) im Workflow-Log
+        # sichtbar bleibt, wie weit der Lauf tatsaechlich kam, statt
+        # komplett stumm zu wirken.
+        anzahl_text = f", {self.anzahl} Sender" if self.anzahl is not None else ""
+        print(f"[Laufzeit] {self.name}: {sekunden:.1f}s{anzahl_text}", flush=True)
         return False
 
 
