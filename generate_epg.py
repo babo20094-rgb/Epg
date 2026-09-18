@@ -4,6 +4,7 @@ from xml.sax.saxutils import escape as _sax_escape
 import gzip
 import os
 import re
+import resource
 import time
 import requests
 import xml.etree.ElementTree as ET
@@ -3218,7 +3219,14 @@ class _zeitmessung:
         # sichtbar bleibt, wie weit der Lauf tatsaechlich kam, statt
         # komplett stumm zu wirken.
         anzahl_text = f", {self.anzahl} Sender" if self.anzahl is not None else ""
-        print(f"[Laufzeit] {self.name}: {sekunden:.1f}s{anzahl_text}", flush=True)
+        # RSS-Speicherverbrauch (ru_maxrss ist unter Linux in KB) direkt
+        # mitloggen - Verdacht (September 2026, siehe docs/HISTORIE.md):
+        # wiederholte externe Abbrueche des GitHub-Actions-Runners mitten
+        # im Lauf, ohne Python-Fehler, deuten auf Speicherdruck hin. Mit
+        # dieser Messung wird das beim naechsten Abbruch nachweisbar,
+        # statt weiter zu raten.
+        speicher_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+        print(f"[Laufzeit] {self.name}: {sekunden:.1f}s{anzahl_text} (RSS: {speicher_mb:.0f} MB)", flush=True)
         return False
 
 
