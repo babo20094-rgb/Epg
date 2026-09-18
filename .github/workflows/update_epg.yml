@@ -16,6 +16,16 @@ on:
     - cron: '7 */3 * * *'
   workflow_dispatch:
 
+# Verhindert, dass zwei Laeufe gleichzeitig aktiv sind (z.B. ein
+# verspätet feuernder Schedule-Trigger ueberlappt mit einem manuellen
+# workflow_dispatch) - ein neuer Lauf wartet, bis der aktuelle fertig
+# ist, statt parallel auf demselben Runner-Kontingent zu konkurrieren
+# (Verdacht: Ursache fuer mehrere externe Laufabbrueche ohne jeden
+# Python-Fehler, September 2026, siehe docs/HISTORIE.md).
+concurrency:
+  group: update-epg
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
