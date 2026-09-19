@@ -224,6 +224,13 @@ _BEKANNTE_ALIASE = {
     normalisiere_sendername("AMASIA"): normalisiere_sendername(
         "Amasia - The Finest Art of Asian Movies"
     ),
+    # "leeres Land"-Format-Zeile in sender.txt (roher Playlist-Name mit
+    # eigenem Pipe-Zeichen, "PRIME|CRIME SCENE TV | DE ᴿᴬᵂ") - der
+    # komplette Rohname inkl. "PRIME" wird dort als Sendername gefuehrt,
+    # matcht daher nicht direkt auf den kurzen Rakuten-Titel.
+    normalisiere_sendername("PRIME|CRIME SCENE TV | DE ᴿᴬᵂ"): normalisiere_sendername(
+        "Crime Scene TV"
+    ),
 }
 
 
