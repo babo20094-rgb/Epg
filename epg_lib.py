@@ -2204,16 +2204,28 @@ DEFAULT_ALTERSFREIGABE = "6"
 
 # ==========================================================
 # Tagesraster: variable Blocklaengen statt starrer 2h-Slots.
-# Die 7 Bloecke ergeben zusammen 24h (6+3+3+2+4+4+2).
+# Die 10 Bloecke ergeben zusammen 24h (3+3+3+3+2+2+2+2+2+2).
+#
+# Frueher gab es einen 6h-Block (NACHT) und zwei 4h-Bloecke
+# (NACHMITTAG/ABEND) - im EPG-Raster (z.B. TiviMate) wirkte ein derart
+# langer Platzhalterblock mit identischem Text auffaellig "leer"
+# (Nutzer meldete konkret einen durchgehenden Block von 02:00-08:00
+# Uhr). Max. Blocklaenge jetzt auf 3h gedeckelt (NACHT/NACHMITTAG/ABEND
+# entsprechend aufgeteilt) - der Platzhaltertext selbst bleibt
+# unveraendert "<Sendername> ᴸⁱᵛᵉ" (bewusst kein abwechslungsreicher
+# Text, siehe docs/HISTORIE.md), nur kleinteiliger segmentiert.
 # ==========================================================
 
 TAGESRASTER = [
-    (6, "NACHT"),
+    (3, "NACHT FRUEH"),
+    (3, "NACHT SPAET"),
     (3, "MORGEN"),
     (3, "VORMITTAG"),
     (2, "MITTAG"),
-    (4, "NACHMITTAG"),
-    (4, "ABEND"),
+    (2, "NACHMITTAG FRUEH"),
+    (2, "NACHMITTAG SPAET"),
+    (2, "ABEND FRUEH"),
+    (2, "ABEND SPAET"),
     (2, "SPAETABEND"),
 ]
 
