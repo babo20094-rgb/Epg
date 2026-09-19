@@ -5087,3 +5087,43 @@ werden. Bei Auffaelligkeiten (z.B. doppelte Sendungen fuer denselben
 Sender/Zeitraum, oder ein Traceback aus einem der drei Hintergrund-
 Threads) als erstes verdaechtigen: die drei _gruppe_*()-Funktionen und
 die _zukunft_*.result()-Aufrufe.
+
+## RS|PICKBOX: neue Quelle pickbox.tv, siebter RS-Kaskaden-Schritt (September 2026)
+
+Nutzeranfrage: Prüfung, ob `https://pickbox.tv/sr/raspored/` echte
+Programmdaten für "RS|PICKBOX" liefert. Server-seitig gerenderte Seite
+(kein Bot-Schutz), liefert bereits in EINEM Abruf einen kompletten
+8-Tage-Sendeplan: ein Tages-Umschalter (`.epg-days-holders`, je ein
+Datum) plus gleich viele direkte Kind-`<div>`s unter
+`.epg-content-information` (JS-Slider-Slides, im HTML aber alle
+bereits vorhanden) mit den jeweiligen Tages-Sendungen
+(`.epg-article-item-holder`: Uhrzeit + lokaler/Original-Titel).
+Sendetage laufen von 06:00 bis in den naechsten Kalendertag hinein
+(TV-Sendetag-Konvention) - Mitternachts-Ueberlauf wird per
+Zeit-Ruecksprung-Erkennung behandelt (analog zu klix_epg.py). 194
+echte Sendungen ueber alle 8 Tage verifiziert.
+
+Neue Quelle `quellen/pickbox_epg.py` (`pickbox_kanal_finden()`/
+`pickbox_hole_programme()`, Aufbau analog zu `rtv_rs_epg.py`/
+`natgeo_epg.py`: einfacher Praefix-Vergleich auf "PICKBOX" nach
+VIP/RAW/HD/FHD-Entfernung, kein Fuzzy-Abgleich noetig, da nur ein
+einziger Kanal gefuehrt wird). Als siebter RS-Kaskaden-Schritt in
+`generate_epg.py` eingehaengt (nach mts.rs/SportKlub/Arena/RTV.rs/
+scifi.rs/NatGeo). Gilt automatisch fuer JEDE "RS|...PICKBOX..."-Zeile
+(aktuell nur "RS|PICKBOX"), auch fuer kuenftige Suffix-Varianten ohne
+weitere Aenderung.
+
+## Nachtrag: HR|PICKBOX TV ebenfalls ueber pickbox.tv (September 2026)
+
+Nutzeranfrage: Prueft, ob pickbox.tv auch fuer "HR|PICKBOX TV ⱽᴵᴾ ᴿᴬᵂ"
+echte Daten liefert. Bestaetigt: `https://pickbox.tv/hr/raspored/`
+(eigener Sprachpfad derselben Website, Titel "Pickbox TV kanal") liefert
+dieselbe Struktur mit einem eigenen, laengeren Sendeplan (15 Tage statt
+8 bei RS, 358 Sendungen verifiziert). `quellen/pickbox_epg.py` von
+einem festen Einzel-Slug auf einen Sprachpfad-Index umgebaut (`_SPRACHPFADE
+= {"rs": "sr", "hr": "hr"}`, Cache jetzt `{schluessel: programme}`) -
+`pickbox_kanal_finden()` prueft das "TV"-Suffix-Muster zuerst (matcht
+"Pickbox TV" -> "hr") und faellt sonst auf "Pickbox" -> "rs" zurueck.
+Neuer vierter HR-Kaskaden-Schritt in `generate_epg.py` (nach A1/
+MojMaxTV/SportKlub(HR), vor Siol). Gilt automatisch fuer JEDE
+"HR|...PICKBOX TV..."-Zeile, kein neues sender.txt-Praefix noetig.

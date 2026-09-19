@@ -100,6 +100,7 @@ from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_prog
 from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 from quellen.scifi_epg import scifi_kanal_finden, scifi_hole_programme
 from quellen.natgeo_epg import natgeo_kanal_finden, natgeo_hole_programme
+from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
@@ -4296,6 +4297,45 @@ for _idx, daten in enumerate(_natgeo_sender):
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
+# PICKBOX.TV (RS-Fallback): siebter Versuch fuer alle RS-Sender, deren
+# Name auf "Pickbox" passt (siehe pickbox_epg.py - eigene, server-
+# seitig gerenderte Programmseite mit komplettem 8-Tage-Sendeplan in
+# einem Abruf, weder in mts.rs noch SportKlub/Arena/RTV.rs/scifi.rs/
+# NatGeo enthalten). Kein eigenes Praefix noetig. Wird immer versucht,
+# schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _pickbox_abrufen(daten):
+    try:
+        slug = pickbox_kanal_finden(daten["sender"])
+        if slug is not None:
+            return pickbox_hole_programme(slug, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_pickbox_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_pickbox_ergebnisse = _parallel_abrufen(_pickbox_sender, _pickbox_abrufen, name="Pickbox")
+
+for _idx, daten in enumerate(_pickbox_sender):
+    programme = _pickbox_ergebnisse[_idx]
+
+    daten["pickbox_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Pickbox")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
 # A1 (Kroatien): ERSTER Versuch fuer alle HR-Sender, VOR MojMaxTV
 # (siehe a1_epg.py). Oeffentliche, loginfreie API von www.a1.hr -
 # liefert echte Beschreibungstexte, bereits normal geschriebene Titel
@@ -4401,6 +4441,44 @@ for _idx, daten in enumerate(mojmaxtv_sender):
         ]
         if neue_programme:
             _echte_quelle_zaehlen("SportKlub")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# PICKBOX.TV (HR-Fallback): vierter Versuch fuer alle HR-Sender, deren
+# Name auf "Pickbox TV" passt (siehe pickbox_epg.py - eigene, server-
+# seitig gerenderte Programmseite, laeuft auf derselben Website wie der
+# RS-Kanal "Pickbox", nur anderer Sprachpfad). Kein eigenes Praefix
+# noetig. Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _hr_pickbox_abrufen(daten):
+    try:
+        schluessel = pickbox_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return pickbox_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_hr_pickbox_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_pickbox_abrufen, name="Pickbox (HR)")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _hr_pickbox_ergebnisse[_idx]
+
+    daten["pickbox_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Pickbox")
             _schreibe_echte_programme(daten, neue_programme)
             daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
