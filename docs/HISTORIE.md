@@ -4504,3 +4504,15 @@ Nutzeranfragen zu mehreren BA-Sendern ohne echte Programmdaten geprueft:
   Eintraegen dort) - ein Eintrag wuerde die bosnische K3-Daten faelschlich
   auch auf "MK|K3" anwenden. Offen, Entscheidung des Nutzers noch
   ausstehend.
+
+## BA|K3 / MK|K3: gleicher Sender bestätigt, echte Programmdaten ergänzt (September 2026)
+
+Nachtrag zum vorherigen Abschnitt: Nutzer bestätigte, dass "BA|K3" und
+"MK|K3" derselbe Sender sind, nur unter verschiedenen Laender-Praefixen
+gefuehrt (kein Kollisionsrisiko). Der bereits in epg_ripper_RS1.xml.gz
+gefundene Kanal "K3" (67 Sendungen, echte Titel wie "Vijesti", "Gastro
+bar", "Lovački savjeti") wurde daraufhin in die `open_epg`-Whitelist
+aufgenommen - deckt automatisch beide Laender-Praefixe ab (Whitelist
+prueft rein namensbasiert ohne Landbezug). "BA|K3 PRNJAVOR" bleibt
+davon unberuehrt (eigener, unterschiedlicher normalisierter Name
+"K3PRNJAVOR", weiterhin kein Treffer bei irgendeiner Quelle).

@@ -155,6 +155,13 @@ _WHITELIST = {
     # den Sendernamen selbst als Titel, also keine echten Sendungen -
     # bewusst NICHT fuer "BA|GLAS DRINE" verwendet.)
     normalisiere_sendername("RTV PODRINJE"): ("RS", "TV.Podrinje.rs"),
+    # "K3" (BA|K3 und MK|K3 sind laut Nutzer derselbe Sender, nur unter
+    # verschiedenen Laender-Praefixen gefuehrt) - in epg_ripper_RS1.xml.gz
+    # gefunden (67 Sendungen, echte Titel wie "Vijesti", "Gastro bar",
+    # "Lovački savjeti"). Bewusst NICHT fuer "BA|K3 PRNJAVOR" verwendet
+    # (eigener, normalisiert unterschiedlicher Sendername "K3PRNJAVOR",
+    # kein Treffer bei irgendeiner Quelle).
+    normalisiere_sendername("K3"): ("RS", "K3.rs"),
     # "Hayat 2" (echte Sendung "7plus", Hayat-TV-Talkshow) = Hayat Plus.
     normalisiere_sendername("Hayat Plus"): ("BA", "Hayat.2.ba"),
     # "RTV HIT" (Inhalt bestaetigt Brcko-Bezug) = Hit TV/Hit Brcko -
