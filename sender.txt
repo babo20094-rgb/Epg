@@ -145,7 +145,7 @@ BA|RTVHB|Rtvhb ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 BA|RTVIS ⱽᴵᴾ ᴿᴬᵂ|Rtvis ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/958b355c1d63d13d.png
 BA|SEVDAH|Sevdah ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b41ce4a166a2587.png
 BA|SHOPTEL ⱽᴵᴾ ᴿᴬᵂ|Shoptel ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d4c243e6219a93bd212afd88900231bc3df48222.png
-BA|SIMIC TV ⱽᴵᴾ ᴿᴬᵂ|Simic Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SIMIC.png
+BA|SIMIC TV ⱽᴵᴾ ᴿᴬᵂ|Simic Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/simic_tv/simic_tv.png
 BA|SUPER TV MEDIA TUZLA ⱽᴵᴾ ᴿᴬᵂ|Super Tv Media Tuzla ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/super_tv_media_tuzla/super_tv_media_tuzla.png
 BA|TB1 ⱽᴵᴾ ᴿᴬᵂ|Tb1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f462a2fc400fe1c4210b6c69ee6634745faaa05f.png
 BA|TELEVIZIJA 5|Televizija 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c2d164430b0cad7d.png
@@ -18309,7 +18309,7 @@ BA| TV SLON EXTRA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 BA| MY TV||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4378ec54e89976f3d92f89adf9b86424a57ff978.png
 BA| RTV DOBOJ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0ae5e6a51885f58f18fe8aad2b8db5adef9f9672.png
 BA| ELTA 1||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d65a53d44cad47b87f47c5008b0cd361eb5e1813.png
-BA| TV SIMIĆ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c475046f1ce6468129cffa77b11d0dbb380a6163.png
+BA| TV SIMIĆ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/simic_tv/simic_tv.png
 BA| BN TV HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a7477c4ac1fd1ff7a172aa31d6bf4c266ad3477d.png
 BA| DOBRA EXLUSIVE||Auto
 BA| SEHARA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03b130fe9b9b191b599bb827417b854f3519ddbf.png
@@ -18330,7 +18330,7 @@ BA|RTV BANJA LUKA|Rtv Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/
 BA|GLAS DRINE|Glas Drine ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3289f77c49a81f937aa26c6b092adf22eca4a183.png
 BA|HIT TV VIP RAW|Hit TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac16628d1e360bc4b609a415e7f7361643501739.png
 BA|K3 PRNJAVOR|K3 Prnjavor ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dc1a4254675bae84f3f6434dab44fb9e2da591e1.png
-BA|SIMIC TV|Simic TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c475046f1ce6468129cffa77b11d0dbb380a6163.png
+BA|SIMIC TV|Simic TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/simic_tv/simic_tv.png
 BA|RTV SLON|Rtv Slon ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rtv_slon/rtv_slon.png
 BA|RTV USK|Rtv Usk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/aa282381af3b98c8b231dbffbb6441c6e8f91c76.png
 BA|MEKA TV|Meka TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/59c91bade88678ee3e87e9ac06f86aafc297c55b.png

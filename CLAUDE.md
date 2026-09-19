@@ -171,6 +171,9 @@ Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
   - `RTV SLON` (jede Groß-/Kleinschreibung, jedes Suffix wie
     ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) → `logos/rtv_slon/rtv_slon.png` (NICHT
     `TV SLON EXTRA` - eigenständiger, anderer Sendername/Kanal)
+  - `SIMIC TV`/`TV SIMIĆ` (jede Groß-/Kleinschreibung, mit oder ohne
+    Akzent auf dem C, jedes Suffix wie ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) →
+    `logos/simic_tv/simic_tv.png`
 
 ## Architektur-Überblick
 
