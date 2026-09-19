@@ -2201,7 +2201,7 @@ MO|ARENA PREMIUM 5|Arena Premium 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 MO|ARENA TENIS|Arena Tenis ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912894.png
 MO|ARENASPORT 1|Arenasport 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 MO|ARENASPORT 10|Arenasport 10 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
-MO|ARENASPORT 1X2|Arenasport 1X2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
+MO|ARENASPORT 1X2|Arenasport 1X2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_1x2/arena_1x2.png
 MO|ARENASPORT 2|Arenasport 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
 MO|ARENASPORT 3|Arenasport 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7ce3562be9a2f63d.png
 MO|ARENASPORT 4|Arenasport 4 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bf62f976cf7f1d6a.png
@@ -3000,7 +3000,7 @@ RS|AMC HD|Amc Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Ep
 RS|ANIMAL PLANET|Animal Planet ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 RS|ANIMAL PLANET HD|Animal Planet Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 RS|ANIMAL PLANET ⱽᴵᴾ ᴿᴬᵂ|Animal Planet ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
-RS|ARENA 1X2 ⱽᴵᴾ ᴿᴬᵂ|Arena 1X2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1d9f35eca7c3b0d7.png
+RS|ARENA 1X2 ⱽᴵᴾ ᴿᴬᵂ|Arena 1X2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_1x2/arena_1x2.png
 RS|ARENA ESPORT|Arena Esport ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ff3f4fe40ca315f.png
 RS|ARENA ESPORT ⱽᴵᴾ ᴿᴬᵂ|Arena Esport ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ff3f4fe40ca315f.png
 RS|ARENA FIGHT|Arena Fight ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b52b20e258e98d46.png
@@ -3017,7 +3017,7 @@ RS|ARENA SPORT 1 PREMIUM HD|Arena Sport 1 Premium Hd ᴸⁱᵛᵉ|https://raw.gi
 RS|ARENA SPORT 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 RS|ARENA SPORT 10|Arena Sport 10 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
 RS|ARENA SPORT 10 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 10 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c1b5c60320443e6e.png
-RS|ARENA SPORT 1x2 HD|Arena Sport 1X2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/33ccf781e173e648.png
+RS|ARENA SPORT 1x2 HD|Arena Sport 1X2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_1x2/arena_1x2.png
 RS|ARENA SPORT 2|Arena Sport 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
 RS|ARENA SPORT 2 HD|Arena Sport 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6748174ce7c0d50f.png
 RS|ARENA SPORT 2 PREMIUM|Arena Sport 2 Premium ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_sport_rs_premium/2.png
@@ -3093,7 +3093,7 @@ RS|EUROSPORT 2 FHD|Eurosport 2 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 RS|EUROSPORT 2 HD|Eurosport 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb3d9e4e080c72ed.png
 RS|EUROSPORT 2 ⱽᴵᴾ ᴿᴬᵂ|Eurosport 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb3d9e4e080c72ed.png
 RS|FIGHT NETWORK|Fight Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/411f878ace6507fc.png
-RS|FILMBOX ARTHOUSE ⱽᴵᴾ ᴿᴬᵂ|Filmbox Arthouse ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/244894b32c4738ce.png
+RS|FILMBOX ARTHOUSE ⱽᴵᴾ ᴿᴬᵂ|Filmbox Arthouse ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filmbox_festival/filmbox_festival.png
 RS|FILMBOX EXTRA|Filmbox Extra ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92268fc386d443f2.png
 RS|FILMBOX EXTRA ⱽᴵᴾ ᴿᴬᵂ|Filmbox Extra ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/92268fc386d443f2.png
 RS|FILMBOX PREMIUM HD|Filmbox Premium Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/30e4bf52ec5f1b42.png
@@ -3103,7 +3103,7 @@ RS|FOOD NETWORK|Food Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo
 RS|GAMETOON  ⱽᴵᴾ ᴿᴬᵂ|Gametoon  ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8cb991bba59fada.png
 RS|GRAND 1 ⱽᴵᴾ ᴿᴬᵂ|Grand 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7bf4f8b37a971c1c.png
 RS|GRAND 2|Grand 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a66d7cd95049615f.png
-RS|GRAND TV|Grand Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6952b1c6f6aedf79.png
+RS|GRAND TV|Grand Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/grand_tv/grand_tv.png
 RS|HAPPY DRUSTVO|Happy Drustvo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2cdef3b47f827474.png
 RS|HAPPY REALITY 1 ⱽᴵᴾ ᴿᴬᵂ|Happy Reality 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a2663a2252597759.png
 RS|HAPPY REALITY 2 ⱽᴵᴾ ᴿᴬᵂ|Happy Reality 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/794da5ff53203ad0.png

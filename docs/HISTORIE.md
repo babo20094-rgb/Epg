@@ -4645,3 +4645,83 @@ per Proxy-Fehler blockiert, gleiches Muster wie beim Al-Jazeera-
 Balkans-Fund weiter oben) - der Kanal-Treffer selbst ist aber
 bestaetigt (site_id existiert), im echten Workflow-Lauf sollte der
 Programmabruf normal funktionieren.
+
+## RS|INVESTIGATION DISCOVERY ID: Alias auf "ID" bei mts.rs (September 2026)
+
+Nutzeranfrage nach mojtv.hr/tvprofil.net-Pruefung (beide erfolglos):
+Nutzer lieferte einen `.mht`-Snapshot von mts.rs/tv-vodic/epg mit
+Query "ID" - der Kanal heisst dort tatsaechlich nur knapp "ID" (Logo-
+Alt-Text im HTML bestaetigt), mit echten Sendungstiteln ("Ubistva na
+dan utakmice", "Ubica medju prijateljima", "Snimci iz istraga", ...).
+Der volle sender.txt-Name "INVESTIGATION DISCOVERY ID" ist fuer den
+Fuzzy-Abgleich viel zu unterschiedlich vom kurzen "ID" (faellt unter
+den 0.72-difflib-Cutoff) - ein generischer Cutoff-Fix waere fuer einen
+derart kurzen Zielnamen ("ID") ausserdem riskant (Fehltreffer-Gefahr
+bei anderen kurzen Kanalnamen). Neuer fester Alias in `quellen/
+mts_epg.py` (`_BEKANNTE_ALIASE`, analog zu den TB1/SIMIC-TV-Aliasen):
+"Investigation Discovery ID"/"Investigation Discovery" -> "ID", nur
+fuer den EXAKTEN Alias-Lookup nach erfolglosem Fuzzy-Versuch. Laeuft
+automatisch ueber die bestehende RS-Kaskade (mts.rs ist der erste
+automatische RS-Schritt), kein Aenderungsbedarf in generate_epg.py.
+Live-Verifikation in dieser Sandbox nicht moeglich (mts.rs aktuell per
+Proxy-Fehler blockiert, gleiches wiederkehrende Muster wie bei mtel.ba
+weiter oben) - der Fund selbst ist aber durch den Nutzer-Snapshot
+zweifelsfrei belegt.
+
+## RS|GRAND 1: Alias auf Grand TV bei mts.rs (September 2026)
+
+Nutzeranfrage: "RS|GRAND 1" zeigte Platzhalter, obwohl "RS|GRAND TV"
+(automatisch ueber dieselbe mts.rs-Kaskade) bereits echte Daten zeigt.
+Nutzer bestaetigte per manuellem Test (Sendername testweise auf "Grand
+TV" umgestellt): korrektes Programm erscheint - "Grand 1" existiert bei
+mts.rs offenbar nicht als eigener Kanal, sondern ist derselbe Kanal wie
+"Grand TV". Neuer fester Alias in `quellen/mts_epg.py`
+(`_BEKANNTE_ALIASE`): "Grand 1" -> "Grand TV". Laeuft automatisch ueber
+die bestehende RS-Kaskade. "RS|GRAND 2" davon NICHT betroffen (eigener,
+bislang nicht bestaetigter Sender - keine Annahme ohne Beleg).
+
+## RS|FILMBOX ARTHOUSE: Alias auf "Filmbox+ Festival" bei mts.rs (September 2026)
+
+Nutzeranfrage: "RS|FILMBOX ARTHOUSE" sendet in der eigenen Playlist
+tatsaechlich "Filmbox Festival"-Inhalte (Sender wurde clientseitig
+umbenannt/rebrandet). mts.rs fuehrt den zugehoerigen echten Kanal unter
+"Filmbox+ festival" (Logo-Alt-Text + echte Filmtitel im vom Nutzer
+gelieferten `.mht`-Snapshot bestaetigt, u.a. "Doctor Blood's Coffin",
+"Rage at Dawn", "Too Late for Tears"). Neuer fester Alias in
+`quellen/mts_epg.py` (`_BEKANNTE_ALIASE`): "Filmbox Arthouse" ->
+"Filmbox+ Festival". KEINE Aenderung an `sender.txt` noetig - der
+Alias reicht, die bestehende Zeile zieht automatisch ueber die
+RS-Kaskade die richtigen Daten, der Anzeigename in sender.txt bleibt
+unveraendert "FILMBOX ARTHOUSE".
+
+## RS|TIMELESS DIZI CHANNEL: Alias auf "Dizi" bei mts.rs (September 2026)
+
+Nutzeranfrage: "RS|TIMELESS DIZI CHANNEL" zeigte Platzhalter, mts.rs
+fuehrt den Kanal laut Nutzer nur unter dem kurzen Namen "Dizi". Neuer
+fester Alias in `quellen/mts_epg.py` (`_BEKANNTE_ALIASE`): "Timeless
+Dizi Channel" -> "Dizi", analog zu den bisherigen mts.rs-Alias-Faellen
+(TB1/ID/Grand 1/Filmbox Arthouse). Laeuft automatisch ueber die
+bestehende RS-Kaskade, keine Aenderung an sender.txt noetig.
+
+## RS|ARENA 1X2: Alias bei arena_epg.py (tvarenasport.com), bewusst NICHT ueber mts.rs (September 2026)
+
+Nutzeranfrage: "RS|ARENA 1X2" zeigte Platzhalter, Nutzer verwies auf
+echte Daten bei mts.rs unter "Arena Sport 1x2". WICHTIG: mts.rs wird
+fuer JEDEN Sendernamen, der mit "ARENA SPORT" beginnt, bewusst per
+`_ARENA_SPORT_GUARD` uebersprungen (siehe frueherer Eintrag weiter
+oben - nachgewiesener ~4h-Zeitversatz gegenueber der echten Quelle).
+"RS|ARENA 1X2" selbst faellt zwar NICHT unter dieses Muster (kein
+"SPORT" im sender.txt-Namen), aber statt den mts.rs-Umweg zu nehmen
+wurde stattdessen `arena_epg.py` (tvarenasport.com, die nachweislich
+korrekte Quelle) geprueft - und kennt den Kanal bereits, nur unter dem
+volleren Namen "Arena Sport 1x2 Serbia" (site_id "1x2", 6 echte
+Live-Sport-Sendungen verifiziert, u.a. "Engleska Liga: Multiprenos").
+Das angehaengte "Serbia" drueckte die difflib-Aehnlichkeit unter den
+0.72-Cutoff (0.59 statt sonst ausreichenden Werten). Neuer, auf Land
+"RS" beschraenkter Alias in `quellen/arena_epg.py`
+(`_BEKANNTE_ALIASE`, Schluessel `(land, normalisierter_name)`): "Arena
+1X2" -> "Arena Sport 1x2 Serbia". "RS|ARENA SPORT 1x2 HD" (mit "Sport"
+im Namen) matcht bereits OHNE Alias direkt gegen denselben Kanal (nur
+"Serbia" fehlt dort nicht als Stoerfaktor, da der Name laenger/naeher
+ist) - keine Aenderung dafuer noetig. "MO|ARENASPORT 1X2" laeuft ueber
+eine andere Kaskade (Montenegro), davon nicht betroffen.

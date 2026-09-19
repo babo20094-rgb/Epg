@@ -174,6 +174,9 @@ Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
   - `SIMIC TV`/`TV SIMIĆ` (jede Groß-/Kleinschreibung, mit oder ohne
     Akzent auf dem C, jedes Suffix wie ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) →
     `logos/simic_tv/simic_tv.png`
+  - `ARENA 1X2`/`ARENASPORT 1X2`/`ARENA SPORT 1X2` (jede Groß-/
+    Kleinschreibung, mit/ohne Leerzeichen, jedes Land/Suffix wie
+    ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) → `logos/arena_1x2/arena_1x2.png`
 
 ## Architektur-Überblick
 

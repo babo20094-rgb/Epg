@@ -140,6 +140,33 @@ _SPORT_KLUB_GUARD = re.compile(r"^SPORT\s*KLUB\b", re.IGNORECASE)
 # generate_epg.py als Fallback fuer RS-Sender eingehaengt.
 _ARENA_SPORT_GUARD = re.compile(r"^ARENA\s*SPORT\b", re.IGNORECASE)
 
+# "RS|INVESTIGATION DISCOVERY ID" (sender.txt) heisst bei mts.rs nur
+# knapp "ID" (Logo-Alt-Text bestaetigt, Nutzer-Screenshot September
+# 2026: echte Titel wie "Ubistva na dan utakmice"/"Ubica medju
+# prijateljima") - der volle Sendername ist fuer den Fuzzy-Abgleich viel
+# zu unterschiedlich vom kurzen "ID" (faellt unter den 0.72-Cutoff, ein
+# 2-Zeichen-Name waere fuer den Fuzzy-Pfad ohnehin zu riskant, siehe
+# epg_lib.kanal_index_suchen()). Bekannte, bestaetigte Zuordnung, nur
+# fuer den EXAKTEN Alias-Lookup verwendet (kein Fuzzy-Risiko fuer andere
+# Sender).
+_BEKANNTE_ALIASE = {
+    normalisiere_sendername("Investigation Discovery ID"): normalisiere_sendername("ID"),
+    normalisiere_sendername("Investigation Discovery"): normalisiere_sendername("ID"),
+    # "RS|GRAND 1" ist laut Nutzer derselbe Sender wie "RS|GRAND TV"
+    # (manueller Test: Umbenennen auf "Grand TV" zeigte das korrekte
+    # Programm) - mts.rs fuehrt beide offenbar nur unter dem einen
+    # Kanal "Grand TV", "Grand 1" selbst existiert dort nicht separat.
+    normalisiere_sendername("Grand 1"): normalisiere_sendername("Grand TV"),
+    # "RS|FILMBOX ARTHOUSE" sendet laut Nutzer tatsaechlich "Filmbox
+    # Festival"-Inhalte (umbenannt/rebrandet) - bei mts.rs unter "Filmbox+
+    # festival" gefuehrt (Logo-Alt-Text + echte Filmtitel im Nutzer-
+    # Snapshot bestaetigt, z.B. "Doctor Blood's Coffin"/"Rage at Dawn").
+    normalisiere_sendername("Filmbox Arthouse"): normalisiere_sendername("Filmbox+ Festival"),
+    # "RS|TIMELESS DIZI CHANNEL" laeuft bei mts.rs laut Nutzer nur unter
+    # dem kurzen Namen "Dizi" (September 2026, Nutzeranfrage).
+    normalisiere_sendername("Timeless Dizi Channel"): normalisiere_sendername("Dizi"),
+}
+
 
 def mts_kanal_finden(kanalname):
     """Sucht den mts.rs-Kanal, der am besten zu kanalname passt - erst
@@ -175,6 +202,10 @@ def mts_kanal_finden(kanalname):
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
     if aehnliche:
         return name_index[aehnliche[0]]
+
+    alias_schluessel = _BEKANNTE_ALIASE.get(ziel_schluessel)
+    if alias_schluessel and alias_schluessel in name_index:
+        return name_index[alias_schluessel]
 
     return None
 

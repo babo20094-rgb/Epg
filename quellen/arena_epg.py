@@ -198,6 +198,14 @@ def arena_hole_kanalliste(land="HR"):
 
 _QUALITAETS_SUFFIX = re.compile(r"\b(?:HD|FHD|UHD|SD)\b", re.IGNORECASE)
 
+# "RS|ARENA 1X2" (sender.txt) heisst bei tvarenasport.com "Arena Sport
+# 1x2 Serbia" - das angehaengte "Serbia" drueckt die difflib-Aehnlichkeit
+# unter den 0.72-Cutoff (0.59 statt z.B. 0.76 ohne "Serbia"), daher ohne
+# Alias kein automatischer Treffer (September 2026, Nutzeranfrage).
+_BEKANNTE_ALIASE = {
+    ("RS", normalisiere_sendername("Arena 1X2")): normalisiere_sendername("Arena Sport 1x2 Serbia"),
+}
+
 
 def arena_kanal_finden(kanalname, land="HR"):
     """Sucht den Arena-Sport-Kanal, der am besten zu kanalname passt -
@@ -233,6 +241,10 @@ def arena_kanal_finden(kanalname, land="HR"):
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
     if aehnliche:
         return name_index[aehnliche[0]]
+
+    alias_schluessel = _BEKANNTE_ALIASE.get((land.strip().upper(), ziel_schluessel))
+    if alias_schluessel and alias_schluessel in name_index:
+        return name_index[alias_schluessel]
 
     return None
 
