@@ -28,6 +28,7 @@ niemals zum Absturz bringen.
 
 from datetime import datetime, timedelta, timezone
 
+import re
 import xml.etree.ElementTree as ET
 
 import requests
@@ -131,6 +132,18 @@ def _xmltv_zeit_parsen(text):
         return None
 
 
+# "THE WICKED TUNA CHANNEL" (PRIME|THE WICKED TUNA CHANNEL RAW) matchte
+# per unscharfem Abgleich faelschlich auf den voellig anderen Kanal
+# "The NBA Channel" (72.7% Aehnlichkeit, knapp ueber dem 0.72-Cutoff -
+# beide teilen sich nur die generische Umrahmung "THE ... CHANNEL",
+# Nutzer meldete konkret NBA-Inhalte statt Angelshow-Programm auf
+# diesem Sender, September 2026). Tubi fuehrt "Wicked Tuna" ohnehin
+# nicht (kein exakter/Kern-Treffer) - der Fuzzy-Pfad wird fuer diesen
+# Namen deshalb komplett uebersprungen, analog zum SPORT-KLUB/ARENA-
+# SPORT-Guard-Muster in mts_epg.py.
+_WICKED_TUNA_GUARD = re.compile(r"WICKED\s*TUNA", re.IGNORECASE)
+
+
 def tubi_kanal_finden(kanalname):
     """Sucht den Tubi-Kanal, der am besten zu kanalname passt - erst
     exakter Abgleich nach normalisiere_sendername(), dann ein
@@ -146,6 +159,9 @@ def tubi_kanal_finden(kanalname):
         schluessel = normalisiere_sendername(kanal["name"])
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
+
+    if _WICKED_TUNA_GUARD.search(kanalname):
+        return name_index.get(normalisiere_sendername(kanalname))
 
     kern_index = kern_index_aufbauen(daten["kanaele"], "name", "site_id")
 

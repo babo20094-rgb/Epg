@@ -375,6 +375,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "magentatv_me": ["magentatv_me_intervalle"],
     "tvprogramdanas": ["tvprogramdanas_intervalle"],
     "open_epg": ["open_epg_intervalle"],
+    "epgshare_us_universal": ["epgshare_us_universal_intervalle"],
     "ba_stanice": ["ba_stanice_intervalle"],
     "blagovesti": ["blagovesti_intervalle"],
     "rtvbn": ["rtvbn_intervalle"],
@@ -2090,6 +2091,16 @@ for zeile in zeilen:
     # andere Sender (insbesondere Arena Sport/Sport Klub).
     if open_epg_kanal_finden(eintrag["sender"]) is not None:
         eintrag["open_epg"] = True
+    # epgshare_us_epg.py UNIVERSAL (unabhaengig vom Land, wie open_epg
+    # oben): urspruenglich nur als zweiter Versuch fuer TVGUIDE:-Sender
+    # eingehaengt (siehe TVGUIDE-Block), deckt aber auch einzelne
+    # PRIME/GO-Sender ab, die kein TVGUIDE:-Praefix haben (z.B.
+    # "MAGELLANTV NOW", Nutzeranfrage September 2026). Bewusst kein
+    # Laendercode-Flag - epgshare_us_kanal_finden() prueft selbst nur
+    # per exaktem Namens-/Alias-Abgleich (siehe Modul-Docstring), kein
+    # Fuzzy-Risiko fuer andere Sender.
+    if epgshare_us_kanal_finden(eintrag["sender"]) is not None:
+        eintrag["epgshare_us_universal"] = True
     # ba_stanice_epg.py: einzeln gepruefte, eigenstaendige Webseiten
     # bosnischer Regionalsender (z.B. RTV Vogosca) mit eigener kleiner
     # XMLTV-Datei. Bewusst kein Laendercode-Flag, sondern exakter
@@ -3395,6 +3406,7 @@ plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
 tubi_sender = [d for d in sender_daten if d.get("tubi")]
 tvprogramdanas_sender = [d for d in sender_daten if d.get("tvprogramdanas")]
 open_epg_sender = [d for d in sender_daten if d.get("open_epg")]
+epgshare_us_universal_sender = [d for d in sender_daten if d.get("epgshare_us_universal")]
 ba_stanice_sender = [d for d in sender_daten if d.get("ba_stanice")]
 
 
@@ -4851,6 +4863,35 @@ for daten in open_epg_sender:
 
     if programme:
         _echte_quelle_zaehlen("open-epg.com")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# EPGSHARE01.ONLINE (US2, UNIVERSAL): ALLERENGSTER Fallback fuer
+# PRIME/GO-Sender ohne TVGUIDE:-Praefix, die epgshare_us_kanal_finden()
+# trotzdem per exaktem Namens-/Alias-Abgleich kennt (siehe
+# epgshare_us_epg.py). Laeuft ungated durch hat_aktive_echte_quelle(),
+# aus demselben Grund wie bei open-epg.com oben.
+# ==========================================================
+
+for daten in epgshare_us_universal_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        us2_site_id = epgshare_us_kanal_finden(daten["sender"])
+        if us2_site_id is not None:
+            programme = epgshare_us_hole_programme(us2_site_id, TVGUIDE_TAGE)
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["epgshare_us_universal_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("EpgshareUS")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

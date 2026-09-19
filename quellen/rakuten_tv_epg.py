@@ -231,6 +231,10 @@ _BEKANNTE_ALIASE = {
     normalisiere_sendername("PRIME|CRIME SCENE TV | DE ᴿᴬᵂ"): normalisiere_sendername(
         "Crime Scene TV"
     ),
+    # "GRJNGO - WESTERNFILME"/"Grjngo-Westernfilme" (sender.txt) vs.
+    # "grjngo-german" (Rakuten-Kanaltitel schlicht "Grjngo") - decken
+    # denselben Sender ab wie das bereits funktionierende "GRJNGO".
+    normalisiere_sendername("GRJNGO - WESTERNFILME"): normalisiere_sendername("GRJNGO"),
 }
 
 
