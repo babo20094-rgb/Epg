@@ -4759,3 +4759,37 @@ eigener Fuzzy-Match-Blocker (difflib bewertet Reihenfolge stark) - bei
 "zeigt Platzhalter trotz vermutlich gleichem Sender" IMMER auch auf
 umgestellte Wortreihenfolge pruefen, nicht nur auf fehlende/zusaetzliche
 Woerter.
+
+## RS|SYFY: neue Quelle scifi.rs, fuenfter RS-Kaskaden-Schritt (September 2026)
+
+Nutzeranfrage: Prüfung, ob `https://scifi.rs/schedule/19-09-2026` echte
+Programmdaten fuer "RS| SYFY" liefert. Die Seite selbst ist eine reine
+React-SPA (Vite-Bundle, "EPG Schedule" von NBCUniversal) ohne Server-
+Side-Rendering - der HTML-Response an jeden Pfad ist identisch (SPA-
+Fallback). Im JS-Bundle (`assets/index-*.js`) fanden sich eingebettete
+Konstanten `VITE_CDN_URL="https://d16grqjkf2kebt.cloudfront.net"` und
+`VITE_EPGNAME="sci-fi-serbia"`, zusammengesetzt zum Muster
+`${VITE_CDN_URL}/${VITE_EPGNAME}/${datum}.json` (Datum als
+`DD-MM-YYYY`) - eine oeffentliche, unauthentifizierte CloudFront-JSON-
+Datei PRO Kalendertag (kein mehrtaegiger Endpunkt), mit Feldern
+`time`, `duration` (Minuten), `title`, `synopsis._` (Beschreibung).
+Verifiziert per curl: 19 echte Sendungen fuer den 19.09.2026 (u.a.
+"Čari", "Krupna riba", "XXX: Povratak Zandera Kejdža").
+
+Neue Quelle `quellen/scifi_epg.py` (`scifi_kanal_finden()`/
+`scifi_hole_programme()`, Aufbau analog zu `rtv_rs_epg.py`: einfacher
+Praefix-Vergleich auf "SYFY" nach VIP/RAW/HD/FHD-Entfernung, kein
+Fuzzy-Abgleich noetig, da nur ein einziger Kanal gefuehrt wird). Als
+fuenfter RS-Kaskaden-Schritt in `generate_epg.py` eingehaengt (nach
+mts.rs/SportKlub/Arena/RTV.rs, gleiche Luecken-Fuellungs-Logik ueber
+`_rs_geschrieben_intervalle`). Kein eigenes sender.txt-Praefix noetig -
+gilt automatisch fuer JEDE "RS|...SYFY..."-Zeile (aktuell nur
+"RS| SYFY", aber auch kuenftige HD/FHD/VIP-RAW-Varianten ohne weitere
+Aenderung).
+
+Lehre: Bei einer React-SPA ohne sichtbare Programmdaten im HTML zuerst
+das JS-Bundle nach eingebetteten `VITE_*`/`REACT_APP_*`-Konstanten und
+Template-Strings mit "schedule"/"epg"/"json" durchsuchen (`grep -oE`
+auf `` `...` ``-Template-Literale) - viele NBCU-/CMS-Widgets laden
+ihre Daten als statische, unauthentifizierte JSON-Dateien direkt von
+CloudFront statt ueber eine klassische REST-API.
