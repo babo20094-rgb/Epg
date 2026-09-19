@@ -4971,3 +4971,57 @@ Alle Original-Tests aus `test_generate_epg.py` fuer diese Module
 wurden manuell mit denselben Mock-Daten nachgestellt und liefern
 identische Ergebnisse wie vorher, zusaetzlich liefern jetzt auch
 HD/FHD-Suffix-Varianten (wo vorher keine) korrekte Treffer.
+
+## DE|HR HD: MAGENTA:-Opt-in-Praefix entfernt, jetzt echte Daten ueber hoerzu.de (September 2026)
+
+Nutzeranfrage nach Durchsicht der generierten XML auf DE-Sender mit
+Platzhalter: "MAGENTA:DE| HR HD" (Hessischer Rundfunk) zeigte nur
+Platzhalter, obwohl es fuer denselben Sender bereits eine ANDERE Zeile
+("DE|Hr HD Hessischer Rundfunk") gibt, die echte Daten ueber hoerzu.de
+bekommt (`hoerzu_kanal_finden("HR HD")` matcht direkt auf Slug "hr",
+30 echte Sendungen verifiziert, u.a. "hessenschau"). Ursache: die
+`MAGENTA:`-Zeile ist ein bewusst enges Opt-in-Praefix (siehe
+CLAUDE.md-Quellen-Uebersicht) - sie fragt AUSSCHLIESSLICH die Magenta-
+API ab (`magenta_kanal_finden("HR HD")` liefert `None`, Magenta fuehrt
+diesen Kanal nicht) und bekommt NICHT automatisch die normale DE-
+Kaskade (deswird/PlutoTV/tvmovie/hoerzu/...) als Fallback - anders als
+eine normale `DE|...`-Zeile ohne Praefix.
+
+Fix: `MAGENTA:DE| HR HD|<Logo>` in `sender.txt` zu einer normalen
+`DE|HR HD|Hr Hd ᴸⁱᵛᵉ|<Logo>`-Zeile umgewandelt (Opt-in-Praefix
+entfernt) - laeuft jetzt automatisch durch die volle DE-Kaskade und
+bekommt echte Daten ueber hoerzu.de. Lehre: Ein `MAGENTA:`/`SKY:`/o.ae.
+Opt-in-Praefix lohnt sich nur, wenn dieser Anbieter den Sender
+TATSAECHLICH fuehrt - sonst faellt die Zeile komplett aus der
+automatischen DE-Kaskade heraus und bekommt (anders als ein
+Zustaendigkeits-Flag wie bei den RS-Faellen) ueberhaupt keinen
+Fallback. Bei Platzhalter-Verdacht bei einer Opt-in-praefixierten Zeile
+immer zuerst pruefen, ob dieselbe Zeile OHNE Praefix (also die
+automatische Kaskade) bessere Ergebnisse liefern wuerde.
+
+## Weitere DE-Opt-in-Zeilen geprueft (September 2026)
+
+Nach dem HR-HD-Fund alle `MAGENTA:DE`/`SKY:DE`/`DAZN:DE`-Zeilen
+stichprobenartig gegen die jeweilige Opt-in-Quelle UND die automatische
+DE-Kaskade getestet:
+
+- **Gefixt**: `MAGENTA:DE| YU-GI-OH!` - Magenta kennt den Sender nicht,
+  `deswird.org` aber schon (`deswird_kanal_finden("YU-GI-OH!")` ->
+  "Yu-Gi-Oh", 41 echte Sendungen verifiziert). Gleicher Fix wie bei
+  HR HD: Praefix entfernt, jetzt normale `DE|YU-GI-OH!|Yu-Gi-Oh! ᴸⁱᵛᵉ|
+  <Logo>`-Zeile.
+- **Bereits in Ordnung** (Magenta liefert direkt echte Daten, kein Fix
+  noetig): `PROSIEBENSAT.1 FHD`, `SR`, `SONY CHANNEL FHD`.
+- **Echtes Abdeckungsloch, kein Praefix-Bug** (in KEINER verfuegbaren
+  Quelle gefunden): `BILD+ EVENT FAME FIGHTING`, `SKY:DE|GEO TV HD`,
+  `SKY:DE|DAZN Lacrosse TV` (selbst DAZNs eigene, nur 14 Kanaele
+  umfassende Kanalliste kennt "Lacrosse TV" nicht).
+- **Nebenbefund, bewusst NICHT gefixt** (aktuell harmlos): Bei
+  `SONY CHANNEL FHD` matchen `tvmovie_kanal_finden()`/
+  `deswird_kanal_finden()` faelschlich auf "Disney Channel" statt Sony
+  Channel - unschaedlich, weil die Magenta-Opt-in-Zeile diese beiden
+  Quellen gar nicht erst aufruft. Waere erst relevant, falls das
+  MAGENTA:-Praefix hier jemals entfernt wird - dann muesste zuerst noch
+  ein Alias/Guard gegen diesen Fehltreffer ergaenzt werden, nicht nur
+  das Praefix gestrichen werden (anders als bei HR HD/YU-GI-OH!, wo die
+  automatische Kaskade sauber matcht).

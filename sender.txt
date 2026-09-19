@@ -16987,8 +16987,8 @@ TVPASSPORT:US|Telemundo (KXTQ) Lubbock, TX|https://raw.githubusercontent.com/bab
 TVGUIDE:US|TODAY ALL DAY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1ec1dcb633cfd9ac9351cd41f242f0b4e1be7daa.png
 #DE| MAGENTA TV
 MAGENTA:DE| BILD+ EVENT FAME FIGHTING|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/bild_fame_fighting/bild_fame_fighting.png
-MAGENTA:DE| HR HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/205055542907f459a6cd4a6b52c07b3263f4fb76.png
-MAGENTA:DE| YU-GI-OH!|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2c9d2bad9822f2bc3dd0e13c7be2b358f08f812f.png
+DE|HR HD|Hr Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/205055542907f459a6cd4a6b52c07b3263f4fb76.png
+DE|YU-GI-OH!|Yu-Gi-Oh! ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2c9d2bad9822f2bc3dd0e13c7be2b358f08f812f.png
 MAGENTA:DE| SR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6d3bcbf55e15cbe01fbe6374227a7aca10af343c.png
 SKY:DE|AXN BLACK HD|https://logo.m3uassets.com/axnblack.png|DE| AXN BLACK HD
 MAGENTA:DE| SONY CHANNEL FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5aa294634bd005cbb4a34485e8d0afc2a6d8c2b8.png
