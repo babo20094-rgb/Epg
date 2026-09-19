@@ -42,6 +42,11 @@ CHANNELS_URL = "https://mtel.ba/hybris/ecommerce/b2c/v1/products/channels/search
 # eine Sender betroffen ist.
 _BEKANNTE_ALIASE = {
     normalisiere_sendername("SIMIC TV"): normalisiere_sendername("TV Simic"),
+    # "BA|TB1" ist laut Nutzer derselbe Sender wie "Herceg TV", nur unter
+    # dem alten Markennamen ("TB1" = frueherer Name von Herceg TV) -
+    # September 2026, Nutzeranfrage. Mtel fuehrt den Kanal nur unter dem
+    # neuen Namen "Herceg TV" (site_id "iptv#ch-41-herceg-tv").
+    normalisiere_sendername("TB1"): normalisiere_sendername("Herceg TV"),
 }
 EPG_URL = "https://mtel.ba/hybris/ecommerce/b2c/v1/products/channels/epg"
 

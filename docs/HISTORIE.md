@@ -4626,3 +4626,22 @@ bietet kein Tages-/Bereichs-Endpoint an), `_jahresdaten_holen()`
 uebernimmt aus dem Regex-Ergebnis aber jetzt NUR noch die tatsaechlich
 benoetigten ~5 Tage (heute -1 bis heute +tage) in den Cache, alle
 anderen ~360 Tage werden sofort verworfen statt unnoetig vorgehalten.
+
+## BA|TB1: Alias auf Herceg TV bei mtel.ba (September 2026)
+
+Nutzeranfrage: "BA|TB1" ist derselbe Sender wie "Herceg TV" (bereits
+per TELEMACH:BA|HERCEG TV|... opt-in eingetragen), nur unter dem alten
+Markennamen "TB1". mtel.ba fuehrt den Kanal nur unter dem neuen Namen
+"Herceg TV" (site_id "iptv#ch-41-herceg-tv") - "TB1" alleine ist fuer
+den Fuzzy-Abgleich zu unterschiedlich (kein Treffer). Neuer fester
+Alias in `quellen/mtel_epg.py` (`_BEKANNTE_ALIASE`, analog zum
+bestehenden SIMIC-TV-Alias): "TB1" -> "Herceg TV" - deckt automatisch
+beide sender.txt-Suffix-Varianten ab ("BA|TB1 ⱽᴵᴾ ᴿᴬᵂ"/"BA|TB1 VIP
+RAW", VIP/RAW werden vor dem Alias-Lookup entfernt). Läuft automatisch
+ueber die bestehende BA-Kaskade, kein Aenderungsbedarf in
+generate_epg.py. Live-Verifikation der tatsaechlichen Sendungsdaten in
+dieser Sandbox nicht moeglich (mtel.ba-Programmabruf-Endpoint aktuell
+per Proxy-Fehler blockiert, gleiches Muster wie beim Al-Jazeera-
+Balkans-Fund weiter oben) - der Kanal-Treffer selbst ist aber
+bestaetigt (site_id existiert), im echten Workflow-Lauf sollte der
+Programmabruf normal funktionieren.
