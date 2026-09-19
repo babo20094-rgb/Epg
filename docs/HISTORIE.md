@@ -4516,3 +4516,28 @@ aufgenommen - deckt automatisch beide Laender-Praefixe ab (Whitelist
 prueft rein namensbasiert ohne Landbezug). "BA|K3 PRNJAVOR" bleibt
 davon unberuehrt (eigener, unterschiedlicher normalisierter Name
 "K3PRNJAVOR", weiterhin kein Treffer bei irgendeiner Quelle).
+
+## BA|RTV HERCEG BOSNE: eigene neue Quelle rtv-hb.com angebunden (September 2026)
+
+Telemach/mtel.ba/klix.ba kannten "RTV Herceg Bosne" nachweislich nicht
+(gezielt getestet, kein Treffer bei keiner der drei Quellen). Nutzer
+lieferte einen Screenshot/`.mht`-Export der Sender-eigenen Seite
+`https://rtv-hb.com/tv-vodic`, die auf `https://rtv-hb.com/tv-program/
+<wochentag>` (bosnisch: ponedjeljak/utorak/srijeda/petak/subota/
+nedjelja) einen echten Wochenplan mit Uhrzeit, Titel und Beschreibung
+fuehrt - live erreichbar, kein Login. Besonderheit: fuer Donnerstag
+liefert `/tv-program/cetvrtak` einen 404, der Tag ist nur ueber den
+internen Pfad `/node/714` erreichbar.
+
+Neues Modul `quellen/rtvhb_epg.py` (BeautifulSoup-Parsing der
+`li.list-group-item`-Eintraege, Felder `field-time-schedule-tv`/
+`field-title-schedule-tv`/`field-description`), als VIERTER Versuch in
+die automatische BA-Kaskade in `generate_epg.py` eingehaengt (nach
+Telemach/mtel.ba/klix.ba, gleiches "nur unbedeckte Zeitfenster
+schreiben"-Prinzip). Da rtv-hb.com nur diesen einen Kanal fuehrt, gibt
+es keine echte Kanalsuche wie bei den anderen Quellen - `rtvhb_kanal_
+finden()` prueft nur per `normalisiere_sendername()` + difflib-
+Aehnlichkeit, ob der sender.txt-Name ueberhaupt "RTV Herceg Bosne"
+meint (deckt automatisch auch leicht abweichende Schreibweisen wie "TV
+Herceg Bosne"/"Radiotelevizija Herceg-Bosne" ab, falls der Sender
+kuenftig unter anderem Namen erneut angelegt wird).

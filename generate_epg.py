@@ -60,6 +60,7 @@ from quellen import _http
 from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
 from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
+from quellen.rtvhb_epg import rtvhb_kanal_finden, rtvhb_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
 from quellen.a1_epg import a1_kanal_finden, a1_hole_programme
 from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
@@ -354,7 +355,7 @@ def ueberlappt_intervall(intervalle, start, ende):
 # *_intervalle-Felder zu (mehrere bei Faellen mit Fallback-Kette, z.B.
 # Telemach -> mtel.ba -> klix.ba oder PlutoTV -> tvmovie.de).
 _ECHTE_QUELLEN_INTERVALLE = {
-    "telemach": ["telemach_intervalle", "mtel_intervalle", "klix_intervalle"],
+    "telemach": ["telemach_intervalle", "mtel_intervalle", "klix_intervalle", "rtvhb_intervalle"],
     "sky": ["sky_intervalle"],
     "sky_wow": ["sky_intervalle"],
     "magenta": ["magenta_intervalle"],
@@ -3358,6 +3359,7 @@ def _parallel_abrufen(sender_liste, abruf_fn, worker=PARALLEL_WORKER, name=None)
 TELEMACH_TAGE = 3
 MTEL_TAGE = 2
 KLIX_TAGE = 3
+RTVHB_TAGE = 3
 SKY_TAGE = 2
 MAGENTA_TAGE = 2
 ARENA_TAGE = 2
@@ -3562,6 +3564,18 @@ def _klix_abrufen(daten):
     return []
 
 
+def _rtvhb_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        if rtvhb_kanal_finden(suchname):
+            return rtvhb_hole_programme(RTVHB_TAGE)
+    except Exception:
+        pass
+    return []
+
+
 # Alle drei BA-Quellen (Telemach/mtel.ba/klix.ba) werden fuer JEDEN
 # Sender IMMER der Reihe nach versucht (nicht mehr abgebrochen, sobald
 # die erste Quelle etwas liefert) - eine Quelle mit nur TEILWEISER
@@ -3580,6 +3594,7 @@ _mtel_ergebnisse = _parallel_abrufen(
     telemach_sender, _mtel_abrufen, worker=ERHOEHTE_QUELLE_WORKER, name="mtel.ba"
 )
 _klix_ergebnisse = _parallel_abrufen(telemach_sender, _klix_abrufen, name="klix.ba")
+_rtvhb_ergebnisse = _parallel_abrufen(telemach_sender, _rtvhb_abrufen, name="rtv-hb.com")
 
 for _idx, daten in enumerate(telemach_sender):
     _telemach_geschrieben_intervalle = []
@@ -3634,6 +3649,25 @@ for _idx, daten in enumerate(telemach_sender):
             neue_programme = _telemach_ohne_ueberlappung(klix_programme)
             if neue_programme:
                 _echte_quelle_zaehlen("klix.ba")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+        # rtv-hb.com als vierter Versuch fuer BA-Sender (siehe
+        # rtvhb_epg.py) - nur ein einziger Kanal ("RTV Herceg Bosne"),
+        # rtvhb_kanal_finden() prueft daher nur, ob der Sendername
+        # ueberhaupt gemeint ist, statt eine site_id zu liefern. Wird
+        # immer versucht, schreibt aber nur die noch unbedeckten
+        # Zeitfenster.
+        rtvhb_programme = _rtvhb_ergebnisse[_idx]
+
+        daten["rtvhb_intervalle"] = [(p["start"], p["stop"]) for p in rtvhb_programme]
+
+        if rtvhb_programme:
+            neue_programme = _telemach_ohne_ueberlappung(rtvhb_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("rtv-hb.com")
                 _schreibe_echte_programme(daten, neue_programme)
                 _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
         else:
