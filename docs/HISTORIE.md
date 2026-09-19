@@ -4855,3 +4855,49 @@ Playlist-Abkuerzung "NGC" (National Geographic Channel) geschrieben.
 um die Alternative `NGC` ergaenzt (`^(NATIONAL\s*GEO(GRAPHIC)?|NGC)
 \s*WILD\b` bzw. ohne WILD) - matcht jetzt sowohl den vollen Namen als
 auch die Abkuerzung, in beiden Faellen mit/ohne "WILD"-Zusatz.
+
+## Systemischer Fix: mts.rs matchte HD/FHD-Suffix-Varianten nicht (September 2026)
+
+Nutzerbeobachtung nach mehreren einzelnen HD-Suffix-Faellen (siehe
+"RS|HRAM TV HD"-Eintrag oben): "viele gleiche Sender matchen nicht -
+zbs hat der eine ohne Suffix echte Programmdaten, derselbe MIT Suffix
+(z.B. HD) nur Platzhalter" - Verdacht auf ein systemisches statt ein
+Einzelfall-Problem. Ursache gefunden: `mts_epg.py` (der mit Abstand
+groesste RS-Kaskaden-Schritt, ~60 RS-Zeilen) hatte eine eigene,
+handgeschriebene `mts_kanal_finden()`-Logik (exakter Abgleich +
+difflib-Fuzzy + Alias-Dict) OHNE den bereits vorhandenen, generischen
+Kern-Fallback aus `epg_lib.kanal_index_suchen()`
+(`normalisiere_sendername_kern()` entfernt HD/FHD/UHD/SD als eigene
+Woerter). Ohne diesen Fallback druecken kurze Sendernamen + ein
+zusaetzliches "HD"/"FHD" den difflib-Aehnlichkeitswert regelmaessig
+unter den 0.72-Cutoff (z.B. "IDHD" vs. "ID" nur 0.67 Ratio) - der
+Sender OHNE Suffix matcht exakt, dieselbe Zeile MIT Suffix faellt
+komplett durch und bekommt nur die generische Platzhalter-EPG.
+`arena_epg.py` hatte dieses Problem bereits selbst geloest (eigene
+Suffix-Entfernung vor dem Abgleich, siehe `_QUALITAETS_SUFFIX`), war
+aber nicht auf `mts_epg.py` uebertragen worden.
+
+Fix: `mts_kanal_finden()` in `quellen/mts_epg.py` auf
+`epg_lib.kanal_index_suchen()` + `kern_index_aufbauen()` umgebaut
+(gleicher generischer Baustein wie bei telemach_epg.py/tubi_epg.py/
+plutotv_epg.py/tvmovie_epg.py/deswird_epg.py) - Reihenfolge bleibt
+exakter Abgleich -> eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD ->
+Fuzzy-Abgleich -> bekannte Aliase. `kern_index_aufbauen()` nimmt
+mehrdeutige Kern-Schluessel (z.B. echte getrennte HD/SD-Kanaele bei
+mts.rs, falls vorhanden) bewusst NICHT auf, kein Fehltreffer-Risiko
+fuer Sender, die tatsaechlich getrennte Qualitaets-Varianten haben.
+Mit gemocktem Kanal-Index verifiziert: "RTS 1 HD" und "ID HD" matchen
+jetzt korrekt gegen dieselbe site_id wie "RTS 1"/"ID" ohne Suffix,
+"ARENA SPORT 1 HD" bleibt weiterhin komplett ausgefiltert
+(_ARENA_SPORT_GUARD unveraendert).
+
+Lehre: Wenn ein Fix fuer "Suffix-Variante matcht nicht" (Alias,
+Guard, Suffix-Strip) in EINER Quelle gefunden wird, immer pruefen, ob
+dieselbe Klasse von Problem auch in anderen `*_kanal_finden()`-
+Funktionen auftreten kann, die KEINE gemeinsame Hilfsfunktion nutzen -
+insbesondere `mts_epg.py`/`sportklub_epg.py`/`arena_epg.py` haben
+historisch jede ihre eigene, leicht unterschiedliche Matching-Logik
+statt durchgaengig `epg_lib.kanal_index_suchen()` zu verwenden. Ein
+Blick auf `grep -L kanal_index_suchen quellen/*_epg.py` (Quellen OHNE
+den generischen Baustein) zeigt schnell, wo sich handgeschriebene
+Matching-Logik noch verstecken kann.

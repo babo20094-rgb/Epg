@@ -26,13 +26,12 @@ from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
-import difflib
 import re
 
 import requests
 from quellen import _http
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
 
 SEARCH_URL = "https://mts.rs/hybris/ecommerce/b2c/v1/products/search"
 
@@ -178,12 +177,16 @@ _BEKANNTE_ALIASE = {
 
 def mts_kanal_finden(kanalname):
     """Sucht den mts.rs-Kanal, der am besten zu kanalname passt - erst
-    exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
-    difflib-Abgleich (gleiche Vorgehensweise wie telemach_kanal_finden()).
-    "SPORT KLUB"/"ARENA SPORT"-Namen werden vorher ausgefiltert (siehe
-    _SPORT_KLUB_GUARD/_ARENA_SPORT_GUARD) - fuer beide hat mts.rs keine
-    zuverlaessigen eigenen Daten. Gibt die (URL-encodete) site_id zurueck
-    oder None."""
+    exakter Abgleich nach normalisiere_sendername(), dann ein
+    eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD (kanal_index_suchen()
+    - behebt den Fall "Sender ohne Qualitaets-Suffix matcht, dieselbe
+    Zeile MIT Suffix wie 'HD' nicht", z.B. bei kurzen Namen faellt ein
+    zusaetzliches "HD" den Fuzzy-Score sonst unter den 0.72-Cutoff),
+    zuletzt unscharfer difflib-Abgleich auf dem vollen Namen (gleiche
+    Vorgehensweise wie telemach_kanal_finden()). "SPORT KLUB"/"ARENA
+    SPORT"-Namen werden vorher ausgefiltert (siehe _SPORT_KLUB_GUARD/
+    _ARENA_SPORT_GUARD) - fuer beide hat mts.rs keine zuverlaessigen
+    eigenen Daten. Gibt die (URL-encodete) site_id zurueck oder None."""
     kanaele = mts_hole_kanalliste()
     if not kanaele:
         return None
@@ -204,12 +207,11 @@ def mts_kanal_finden(kanalname):
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
 
-    if ziel_schluessel in name_index:
-        return name_index[ziel_schluessel]
+    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
 
-    aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
-    if aehnliche:
-        return name_index[aehnliche[0]]
+    treffer = kanal_index_suchen(kanalname, name_index, kern_index)
+    if treffer is not None:
+        return treffer
 
     alias_schluessel = _BEKANNTE_ALIASE.get(ziel_schluessel)
     if alias_schluessel and alias_schluessel in name_index:
