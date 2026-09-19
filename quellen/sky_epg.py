@@ -28,12 +28,10 @@ bringen.
 
 from datetime import datetime, timedelta, timezone
 
-import difflib
-
 import requests
 from quellen import _http
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
 
 HAWK_API_ENDPOINT = "https://awk.epgsky.com/hawk/linear"
 
@@ -118,15 +116,16 @@ def sky_hole_kanalliste(territory="DE"):
 
 def sky_kanal_finden(kanalname, territory="DE"):
     """Sucht den Sky-Kanal, der am besten zu kanalname passt - erst
-    exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
-    difflib-Abgleich (gleiche Vorgehensweise wie telemach_kanal_finden()/
-    mtel_kanal_finden()). Gibt die site_id (sid) zurueck oder None."""
+    exakter Abgleich nach normalisiere_sendername(), dann ein
+    eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD (behebt den Fall
+    "Sender ohne Qualitaets-Suffix matcht, dieselbe Zeile MIT Suffix
+    wie 'HD' nicht", siehe docs/HISTORIE.md), zuletzt ein laengen-
+    abgesicherter unscharfer difflib-Abgleich (epg_lib.
+    kanal_index_suchen(), gleiche Vorgehensweise wie
+    telemach_kanal_finden()/mtel_kanal_finden()). Gibt die site_id
+    (sid) zurueck oder None."""
     kanaele = sky_hole_kanalliste(territory)
     if not kanaele:
-        return None
-
-    ziel_schluessel = normalisiere_sendername(kanalname)
-    if not ziel_schluessel:
         return None
 
     name_index = {}
@@ -135,14 +134,8 @@ def sky_kanal_finden(kanalname, territory="DE"):
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
 
-    if ziel_schluessel in name_index:
-        return name_index[ziel_schluessel]
-
-    aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
-    if aehnliche:
-        return name_index[aehnliche[0]]
-
-    return None
+    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
+    return kanal_index_suchen(kanalname, name_index, kern_index)
 
 
 def sky_hole_programme(site_id, territory="DE", tage=2):

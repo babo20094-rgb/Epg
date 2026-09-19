@@ -46,7 +46,7 @@ from datetime import datetime, timedelta, timezone
 import requests
 from quellen import _http
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, normalisiere_sendername_kern, kern_index_aufbauen
 
 API_URL = "https://www.freeview.co.uk/api/tv-guide"
 
@@ -157,7 +157,10 @@ def _fuzzy_treffer_sicher(ziel_schluessel, treffer_schluessel):
 
 def freeview_kanal_finden(kanalname):
     """Sucht den Freeview-Kanal, der am besten zu kanalname passt - erst
-    exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
+    exakter Abgleich nach normalisiere_sendername(), dann ein
+    eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD (behebt den Fall
+    "Sender ohne Qualitaets-Suffix matcht, dieselbe Zeile MIT Suffix
+    wie 'HD' nicht", siehe docs/HISTORIE.md), zuletzt unscharfer
     difflib-Abgleich (gleiche Vorgehensweise wie die anderen Quellen),
     zusaetzlich abgesichert durch _fuzzy_treffer_sicher() (siehe dort).
     Gibt die site_id ("64257#<service_id>") zurueck oder None."""
@@ -177,6 +180,11 @@ def freeview_kanal_finden(kanalname):
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]
+
+    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
+    ziel_kern = normalisiere_sendername_kern(kanalname)
+    if ziel_kern and ziel_kern in kern_index:
+        return kern_index[ziel_kern]
 
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
     if aehnliche and _fuzzy_treffer_sicher(ziel_schluessel, aehnliche[0]):

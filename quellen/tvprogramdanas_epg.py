@@ -42,7 +42,7 @@ import threading
 import requests
 from quellen import _http
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, normalisiere_sendername_kern, kern_index_aufbauen
 
 URL_VORLAGE = "https://www.tvprogramdanas.net/{slug}"
 
@@ -135,8 +135,14 @@ def tvprogramdanas_hole_kanalliste():
 
 def tvprogramdanas_kanal_finden(kanalname):
     """Sucht den tvprogramdanas.net-Kanal, der am besten zu kanalname
-    passt - erst exakter Abgleich nach normalisiere_sendername(), sonst
-    unscharfer difflib-Abgleich. Gibt den Slug zurueck oder None."""
+    passt - erst exakter Abgleich nach normalisiere_sendername(), dann
+    ein eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD (behebt den Fall
+    "Sender ohne Qualitaets-Suffix matcht, dieselbe Zeile MIT Suffix
+    wie 'HD' nicht", siehe docs/HISTORIE.md), zuletzt unscharfer
+    difflib-Abgleich mit bewusst strengerem Cutoff (0.85 statt der
+    sonst ueblichen 0.72 - dieser Kanalliste fehlen viele Sender, ein
+    lockererer Cutoff fuehrte hier zu Fehltreffern). Gibt den Slug
+    zurueck oder None."""
     kanaele = tvprogramdanas_hole_kanalliste()
     if not kanaele:
         return None
@@ -162,6 +168,11 @@ def tvprogramdanas_kanal_finden(kanalname):
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]
+
+    kern_index = kern_index_aufbauen(kanaele, "name", "slug")
+    ziel_kern = normalisiere_sendername_kern(kanalname)
+    if ziel_kern and ziel_kern in kern_index:
+        return kern_index[ziel_kern]
 
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.85)
     if aehnliche:

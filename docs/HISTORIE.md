@@ -4901,3 +4901,73 @@ statt durchgaengig `epg_lib.kanal_index_suchen()` zu verwenden. Ein
 Blick auf `grep -L kanal_index_suchen quellen/*_epg.py` (Quellen OHNE
 den generischen Baustein) zeigt schnell, wo sich handgeschriebene
 Matching-Logik noch verstecken kann.
+
+## Fix auf alle betroffenen Laender ausgeweitet: 10 weitere Quellen (September 2026)
+
+Nutzerfrage nach dem mts.rs-Fix: "sollte man das auf andere Laender
+anwenden?" - Audit per `grep -L kanal_index_suchen quellen/*_epg.py`
+(siehe Lehre oben) plus manuelle Pruefung jeder Datei auf eigene
+Suffix-Absicherung ergab 10 weitere Quellen mit demselben strukturellen
+Muster (handgeschriebener exakter+fuzzy Abgleich ohne Kern-Fallback):
+
+- `mtel_epg.py` (BA)
+- `klix_epg.py` (BA)
+- `rtvhb_epg.py` (HR/BA, RTV Herceg Bosne)
+- `mojmaxtv_epg.py` (HR)
+- `magenta_epg.py` (DE)
+- `sky_epg.py` (DE/GB)
+- `tvguide_epg.py` (US)
+- `tvpassport_epg.py` (US)
+- `dazn_epg.py` (beliebiges Land)
+- `freeview_epg.py` (GB)
+- `hoerzu_epg.py` (DE)
+- `tvprogramdanas_epg.py` (RS, alternative Quelle)
+
+Bereits vorher geschuetzt (nicht angefasst): `telemach_epg.py`,
+`tubi_epg.py`, `plutotv_epg.py`, `tvmovie_epg.py`, `deswird_epg.py`,
+`mk_epg.py`, `siol_epg.py`, `iptvepg_de_epg.py`, `arena_epg.py`
+(eigene Suffix-Entfernung), `rtv_rs_epg.py`/`sportklub_epg.py`
+(Nummern-/Wort-Extraktion statt Namensvergleich, kein Suffix-Risiko).
+
+Jede der 10 Dateien wurde einzeln auf `epg_lib.kanal_index_suchen()` +
+`kern_index_aufbauen()` umgebaut (bzw. bei bestehenden Sonderfaellen
+mit eigenem, staerkerem Cutoff/Guard nur der Kern-Schritt ergaenzt,
+OHNE den Rest anzufassen) und JEWEILS EINZELN mit gemockten Daten
+gegen ihre bestehenden Guards/Aliase/Regressionstests verifiziert,
+bevor zur naechsten Datei gewechselt wurde:
+
+- `mojmaxtv_epg.py`: Sport-Klub-Guard (nur exakter Treffer erlaubt,
+  kein Fuzzy) unveraendert, Alias-Aufloesung ("NOVA HD"->"Nova TV" etc.)
+  weiterhin korrekt.
+- `freeview_epg.py`: `_fuzzy_treffer_sicher()`-Zusatzabsicherung (BBC-
+  Regionalradios) unveraendert erhalten, Kern-Schritt nur VOR dem
+  bestehenden abgesicherten Fuzzy-Schritt eingefuegt.
+- `tvprogramdanas_epg.py`: bewusst strengerer Cutoff (0.85 statt 0.72)
+  unveraendert beibehalten (NICHT durch kanal_index_suchen() mit
+  Standard-Cutoff 0.72 ersetzt), alle drei Guards (Arena Sport/Sport
+  Klub/SK-Kurzform) unveraendert.
+- `tvpassport_epg.py`: `tvpassport_kanal_finden_callsign()` (separater,
+  exakter Call-Sign-Abgleich) unangetastet gelassen; echte getrennte
+  HD/SD-Kanaele derselben Lokalstation bleiben dank
+  `kern_index_aufbauen()`s Ambiguitaets-Schutz weiterhin sicher.
+- `mtel_epg.py`: beim Testen zusaetzlich einen VORHANDENEN, bisher
+  unentdeckten Fehltreffer gefunden und mitbehoben - "RTS 1 HD" matchte
+  (schon VOR diesem Umbau) per unscharfem Abgleich faelschlich auf den
+  komplett unabhaengigen statischen Kanal "HRT 1 HD" (Ratio 0.83, "RTS"
+  vs. "HRT" nur 2 vertauschte Buchstaben). Grund: der manuelle Fuzzy-
+  Fallback verglich den vollen Namen ohne die in
+  `epg_lib.kanal_index_suchen()` eingebaute Kurzname-Absicherung (<=8
+  Zeichen -> Praefix-Pflicht, siehe deren Docstring). Durch den Umbau
+  auf `kanal_index_suchen()` jetzt automatisch mitbehoben. Der Alias-
+  Mechanismus ("TB1"->"Herceg TV") musste dafuer angepasst werden: bei
+  bekanntem Alias wird jetzt der ALIAS-Schluessel (nicht der
+  Original-Name) fuer den Kern-/Fuzzy-Fallback verwendet, da die
+  statische Kanalliste "Herceg TV" tatsaechlich nur als "Herceg TV HD"
+  fuehrt (nur per Kern-Abgleich erreichbar).
+- `sky_epg.py`: dabei nebenbei ein totes doppeltes `return None` nach
+  dem echten `return` entfernt (kosmetisch, keine Verhaltensaenderung).
+
+Alle Original-Tests aus `test_generate_epg.py` fuer diese Module
+wurden manuell mit denselben Mock-Daten nachgestellt und liefern
+identische Ergebnisse wie vorher, zusaetzlich liefern jetzt auch
+HD/FHD-Suffix-Varianten (wo vorher keine) korrekte Treffer.

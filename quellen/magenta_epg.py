@@ -29,14 +29,13 @@ dieses Modul darf einen Lauf niemals zum Absturz bringen.
 
 from datetime import datetime, timedelta, timezone
 
-import difflib
 import re
 import uuid
 
 import requests
 from quellen import _http
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
 
 REQUEST_TIMEOUT_SEKUNDEN = 20
 
@@ -409,16 +408,16 @@ def magenta_hole_kanalliste():
 
 def magenta_kanal_finden(kanalname):
     """Sucht den Magenta-Kanal, der am besten zu kanalname passt - erst
-    exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
-    difflib-Abgleich (gleiche Vorgehensweise wie sky_kanal_finden()/
+    exakter Abgleich nach normalisiere_sendername(), dann ein
+    eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD (behebt den Fall
+    "Sender ohne Qualitaets-Suffix matcht, dieselbe Zeile MIT Suffix
+    wie 'HD' nicht", siehe docs/HISTORIE.md), zuletzt ein laengen-
+    abgesicherter unscharfer difflib-Abgleich (epg_lib.
+    kanal_index_suchen(), gleiche Vorgehensweise wie sky_kanal_finden()/
     telemach_kanal_finden()). Gibt {"quelle": "neu"|"alt", "site_id":...}
     zurueck oder None, wenn keine Quelle etwas findet."""
     kanaele = magenta_hole_kanalliste()
     if not kanaele:
-        return None
-
-    ziel_schluessel = normalisiere_sendername(kanalname)
-    if not ziel_schluessel:
         return None
 
     name_index = {}
@@ -427,13 +426,8 @@ def magenta_kanal_finden(kanalname):
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
 
-    site_id = None
-    if ziel_schluessel in name_index:
-        site_id = name_index[ziel_schluessel]
-    else:
-        aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
-        if aehnliche:
-            site_id = name_index[aehnliche[0]]
+    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
+    site_id = kanal_index_suchen(kanalname, name_index, kern_index)
 
     if site_id is None:
         return None

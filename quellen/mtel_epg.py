@@ -24,13 +24,12 @@ Ueberschneidungen immer massgeblich.
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
-import difflib
 import os
 
 import requests
 from quellen import _http
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, kanal_index_suchen, kern_index_aufbauen
 
 CHANNELS_URL = "https://mtel.ba/hybris/ecommerce/b2c/v1/products/channels/search"
 
@@ -143,9 +142,13 @@ def mtel_hole_kanalliste(platform="iptv"):
 
 def mtel_kanal_finden(kanalname, platform="iptv"):
     """Sucht den Mtel-Kanal, der am besten zu kanalname passt - erst
-    exakter Abgleich nach normalisiere_sendername(), sonst unscharfer
-    difflib-Abgleich (gleiche Vorgehensweise wie telemach_kanal_finden()).
-    Gibt die site_id ("<platform>#<code>") zurueck oder None.
+    exakter Abgleich (inkl. bekannter Aliase), dann ein eindeutiger
+    Kern-Abgleich ohne HD/FHD/UHD/SD (behebt den Fall "Sender ohne
+    Qualitaets-Suffix matcht, dieselbe Zeile MIT Suffix wie 'HD'
+    nicht" - gleiches Muster wie beim mts.rs-Fix, siehe
+    docs/HISTORIE.md), zuletzt ein laengen-abgesicherter unscharfer
+    difflib-Abgleich (siehe epg_lib.kanal_index_suchen()). Gibt die
+    site_id ("<platform>#<code>") zurueck oder None.
 
     Der Namensindex wird zusaetzlich um die statische Namenserweiterung
     (siehe mtel_kanalliste.txt) ergaenzt - bei Ueberschneidung gewinnt
@@ -161,7 +164,12 @@ def mtel_kanal_finden(kanalname, platform="iptv"):
     ziel_schluessel = normalisiere_sendername(kanalname)
     if not ziel_schluessel:
         return None
-    ziel_schluessel = _BEKANNTE_ALIASE.get(ziel_schluessel, ziel_schluessel)
+
+    praefix = f"{platform}#"
+    alle_kanaele = list(kanaele) + [
+        kanal for kanal in _mtel_hole_statische_kanalliste()
+        if kanal["site_id"].startswith(praefix)
+    ]
 
     name_index = {}
     for kanal in kanaele:
@@ -169,22 +177,22 @@ def mtel_kanal_finden(kanalname, platform="iptv"):
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
 
-    praefix = f"{platform}#"
-    for kanal in _mtel_hole_statische_kanalliste():
-        if not kanal["site_id"].startswith(praefix):
-            continue
+    for kanal in alle_kanaele[len(kanaele):]:
         schluessel = normalisiere_sendername(kanal["name"])
         if schluessel:
             name_index.setdefault(schluessel, kanal["site_id"])
 
-    if ziel_schluessel in name_index:
-        return name_index[ziel_schluessel]
+    alias_schluessel = _BEKANNTE_ALIASE.get(ziel_schluessel)
+    if alias_schluessel and alias_schluessel in name_index:
+        return name_index[alias_schluessel]
 
-    aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
-    if aehnliche:
-        return name_index[aehnliche[0]]
-
-    return None
+    kern_index = kern_index_aufbauen(alle_kanaele, "name", "site_id")
+    # Bei bekanntem Alias wird der ALIAS-Schluessel (nicht der urspruengliche
+    # Name) fuer den Kern-/Fuzzy-Fallback verwendet - z.B. matcht "TB1"
+    # (Alias-Ziel "Herceg TV") sonst nicht gegen den echten statischen
+    # Eintrag "Herceg TV HD" (nur per Kern-Abgleich, da "HD" den exakten
+    # Vergleich verhindert).
+    return kanal_index_suchen(alias_schluessel or kanalname, name_index, kern_index)
 
 
 def _zeit_parsen(wert):

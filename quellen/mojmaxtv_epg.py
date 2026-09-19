@@ -35,7 +35,7 @@ import uuid
 import requests
 from quellen import _http
 
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, normalisiere_sendername_kern, kern_index_aufbauen
 
 APP_KEY = "GWaBW4RTloLwpUgYVzOiW5zUxFLmoMj5"
 NATCO_KEY = "l2lyvGVbUm2EKJE96ImQgcc8PKMZWtbE"
@@ -175,7 +175,7 @@ def mojmaxtv_kanal_finden(kanalname):
     # statt kroatischem Sport-Klub-Programm). Fuer BEIDE Namensvarianten
     # wird deshalb NUR noch ein exakter Treffer akzeptiert - kein
     # unscharfer Fallback, lieber kein Treffer als ein falscher.
-    sk_match = re.match(r"^(?:SK|SPORT\s*KLUB)\s*0*(\d+)$", kanalname.strip(), re.IGNORECASE)
+    sk_match = re.match(r"^(?:SK|SPORT\s*KLUB)\s*0*(\d+)(?:\s*(?:HD|FHD|UHD|SD))?$", kanalname.strip(), re.IGNORECASE)
     if sk_match:
         kanalname = f"Sport Klub {sk_match.group(1)}"
         ziel_schluessel = normalisiere_sendername(kanalname)
@@ -200,6 +200,15 @@ def mojmaxtv_kanal_finden(kanalname):
 
     if ziel_schluessel in name_index:
         return name_index[ziel_schluessel]
+
+    # Eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD (behebt den Fall
+    # "Sender ohne Qualitaets-Suffix matcht, dieselbe Zeile MIT Suffix
+    # wie 'HD' nicht", siehe docs/HISTORIE.md), erst DANACH der
+    # unscharfe Fallback.
+    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
+    ziel_kern = normalisiere_sendername_kern(kanalname)
+    if ziel_kern and ziel_kern in kern_index:
+        return kern_index[ziel_kern]
 
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
     if aehnliche:

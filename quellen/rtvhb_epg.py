@@ -42,7 +42,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from quellen import _http
-from epg_lib import normalisiere_sendername
+from epg_lib import normalisiere_sendername, normalisiere_sendername_kern
 
 BASIS_URL = "https://rtv-hb.com"
 
@@ -83,17 +83,23 @@ HEADERS = {
 _tag_cache = {}
 
 _BEKANNTE_SCHLUESSEL = {normalisiere_sendername(n) for n in _BEKANNTE_NAMEN}
+_BEKANNTE_KERN_SCHLUESSEL = {normalisiere_sendername_kern(n) for n in _BEKANNTE_NAMEN}
 
 
 def rtvhb_kanal_finden(kanalname):
     """Prueft, ob kanalname "RTV Herceg Bosne" meint (auch bei leicht
-    abweichender Schreibweise) - gibt True/False zurueck. Es gibt nur
-    diesen einen Kanal auf rtv-hb.com, daher keine echte Kanalsuche."""
+    abweichender Schreibweise ODER mit HD/FHD/UHD/SD-Suffix, siehe
+    docs/HISTORIE.md) - gibt True/False zurueck. Es gibt nur diesen
+    einen Kanal auf rtv-hb.com, daher keine echte Kanalsuche."""
     ziel_schluessel = normalisiere_sendername(kanalname)
     if not ziel_schluessel:
         return False
 
     if ziel_schluessel in _BEKANNTE_SCHLUESSEL:
+        return True
+
+    ziel_kern = normalisiere_sendername_kern(kanalname)
+    if ziel_kern and ziel_kern in _BEKANNTE_KERN_SCHLUESSEL:
         return True
 
     aehnliche = difflib.get_close_matches(
