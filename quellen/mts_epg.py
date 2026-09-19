@@ -165,6 +165,14 @@ _BEKANNTE_ALIASE = {
     # "RS|TIMELESS DIZI CHANNEL" laeuft bei mts.rs laut Nutzer nur unter
     # dem kurzen Namen "Dizi" (September 2026, Nutzeranfrage).
     normalisiere_sendername("Timeless Dizi Channel"): normalisiere_sendername("Dizi"),
+    # "RS|HRAM TV HD" ist laut Nutzer derselbe Sender wie "RS|TV HRAM
+    # ⱽᴵᴾ ᴿᴬᵂ" (letzterer zeigt bereits echtes Programm ueber mts.rs,
+    # da "TV Hram" dort exakt so gefuehrt wird). Reine Wortumstellung
+    # ("Hram TV" vs. "TV Hram") plus "HD"-Suffix druecken den
+    # normalisierten Namen jedoch auf einen anderen Schluessel als den
+    # exakten mts.rs-Namen, der unscharfe Abgleich liegt mit vertauschter
+    # Wortreihenfolge ebenfalls unter dem 0.72-Cutoff (September 2026).
+    normalisiere_sendername("Hram TV HD"): normalisiere_sendername("TV Hram"),
 }
 
 

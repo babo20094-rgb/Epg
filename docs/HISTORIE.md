@@ -4741,3 +4741,21 @@ Funktionsaufrufen aus `epg_lib.py` in `generate_epg.py` immer pruefen,
 ob der Name auch im Import-Block oben eingetragen ist - ein fehlender
 Import faellt lokal beim Schreiben nicht auf, sondern erst zur Laufzeit
 (hier erst nach ca. 20 Min. Workflow-Laufzeit, kurz vor Ende).
+
+## RS|HRAM TV HD: Alias auf "TV Hram" bei mts.rs (September 2026)
+
+Nutzeranfrage: "RS|TV HRAM ⱽᴵᴾ ᴿᴬᵂ" zeigt echtes Programm, "RS|HRAM TV
+HD" (derselbe Sender, andere Wortreihenfolge im Playlist-Namen) nur
+Platzhalter. Ursache: mts.rs fuehrt den Kanal exakt als "TV Hram" -
+"TV Hram ⱽᴵᴾ ᴿᴬᵂ" matcht nach `normalisiere_sendername()` (VIP/RAW
+werden entfernt) exakt gegen "TVHRAM". "Hram TV HD" normalisiert
+dagegen zu "HRAMTVHD" - gleiche Buchstaben, aber vertauschte
+Wortreihenfolge, dadurch faellt auch der unscharfe difflib-Abgleich
+(Ratio ~0.57-0.67) unter den 0.72-Cutoff. Neuer exakter Alias in
+`quellen/mts_epg.py` (`_BEKANNTE_ALIASE`): "Hram TV HD" ->
+"TV Hram". Lehre: Vertauschte Wortreihenfolge zwischen Playlist-Name
+und echtem Quellennamen ist wie zu grosse Laengenunterschiede ein
+eigener Fuzzy-Match-Blocker (difflib bewertet Reihenfolge stark) - bei
+"zeigt Platzhalter trotz vermutlich gleichem Sender" IMMER auch auf
+umgestellte Wortreihenfolge pruefen, nicht nur auf fehlende/zusaetzliche
+Woerter.
