@@ -101,17 +101,27 @@ from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
 from quellen.grand_epg import grand_kanal_finden, grand_hole_programme
 
 # ==========================================================
-# LOG-FILTER: einzelne Seitenabruf-Fehlschlaege + Laufzeit-Zeilen pro
-# Quelle aus dem sichtbaren Workflow-Log herausfiltern
+# LOG-FILTER: einzelne Seitenabruf-Fehlschlaege + die detaillierten
+# "[Laufzeit] ..."-Zeilen (inkl. RSS-Speicherwert) aus dem sichtbaren
+# Workflow-Log herausfiltern
 #
 # Beide Zeilenarten sind erwartetes, durch die Kaskade/Retry-Logik
-# bereits abgefangenes Rauschen (siehe quellen/_http.py, _parallel_
-# abrufen()) und kein Hinweis auf ein echtes Problem - die zusammen-
-# gefasste "Rate-Limit-/Fehler-Uebersicht pro Quelle" und die Laufzeit-
-# Tabelle am Laufende bleiben unveraendert sichtbar und reichen zur
-# Einschaetzung. Landen trotzdem vollstaendig in DEBUG_LOG_DATEI, damit
-# sie bei Bedarf (z.B. fuer eine gezielte Analyse) weiterhin einsehbar
-# sind, ohne den normalen Log-Lesefluss zu stoeren.
+# bereits abgefangenes Rauschen (siehe quellen/_http.py) bzw. reine
+# Detail-Messwerte und kein Hinweis auf ein echtes Problem - die
+# zusammengefasste "Rate-Limit-/Fehler-Uebersicht pro Quelle" und die
+# Laufzeit-Tabelle am Laufende bleiben unveraendert sichtbar und
+# reichen zur Einschaetzung. Landen trotzdem vollstaendig in
+# DEBUG_LOG_DATEI, damit sie bei Bedarf (z.B. fuer eine gezielte
+# Analyse) weiterhin einsehbar sind, ohne den normalen Log-Lesefluss
+# zu stoeren.
+#
+# Damit trotz der gefilterten Zeilen keine langen, wirkenden Luecken
+# im sichtbaren Log entstehen (Nutzer-Feedback September 2026): jede
+# Quelle gibt jetzt zusaetzlich einen kurzen, NICHT gefilterten
+# Start-Marker ohne jegliche Detailzahlen aus (siehe _zeitmessung()
+# weiter unten, "Rufe <Quelle> ab...") - reine Lebenszeichen, halten
+# den Log-Fluss waehrend der ca. 20-25 Minuten Laufzeit sichtbar am
+# Laufen, ohne die eigentlichen Messwerte preiszugeben.
 # ==========================================================
 
 DEBUG_LOG_DATEI = "debug_log.txt"
@@ -3279,6 +3289,11 @@ class _zeitmessung:
 
     def __enter__(self):
         self._start = time.perf_counter()
+        # Kurzer, NICHT gefilterter Start-Marker (siehe LOG-FILTER-
+        # Kommentar oben) - haelt den sichtbaren Log waehrend des Laufs
+        # am Fliessen, ohne die eigentlichen Messwerte/Zahlen zu zeigen
+        # (die kommen erst am Laufende in der Zusammenfassung).
+        print(f"Rufe {self.name} ab...", flush=True)
         return self
 
     def __exit__(self, *exc):
@@ -5216,10 +5231,10 @@ with gzip.open("Epg_365_Tage.xml.gz", "wb") as f:
 
 gesamt_echte_daten = sum(echte_quelle_zaehler.values())
 if echte_quelle_zaehler:
-    zusammenfassung = ", ".join(
-        f"{quelle}: {anzahl}" for quelle, anzahl in sorted(echte_quelle_zaehler.items())
-    )
-    print(f"Echte Programmdaten fuer {gesamt_echte_daten} Sender geladen ({zusammenfassung}).")
+    print(f"Echte Programmdaten pro Quelle ({gesamt_echte_daten} Sender gesamt):")
+    for quelle, anzahl in sorted(echte_quelle_zaehler.items()):
+        print(f"  {quelle}: {anzahl} Sender")
+        print()
 
 if _name_kern_automatisch_bereinigt or _name_kern_duplikate_uebersprungen:
     print(
@@ -5239,6 +5254,7 @@ if QUELLEN_ZEITEN:
     for _name, _sekunden, _anzahl in sorted(QUELLEN_ZEITEN, key=lambda e: e[1], reverse=True):
         _anzahl_text = f", {_anzahl} Sender" if _anzahl is not None else ""
         print(f"  {_name}: {_sekunden:.1f}s{_anzahl_text}")
+        print()
 
 # Fehler-/Rate-Limit-Uebersicht pro Host - macht Faelle wie die 429-Flut
 # bei hoerzu.de/tvmovie.de (September 2026, siehe docs/HISTORIE.md) direkt
@@ -5252,3 +5268,4 @@ if _fehler_uebersicht:
             f"  {_host}: {_versuche} Versuche, {_rate_limit}x 429/503, "
             f"{_fehlgeschlagen} endgueltig fehlgeschlagen"
         )
+        print()
