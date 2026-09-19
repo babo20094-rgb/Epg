@@ -1,0 +1,32 @@
+name: Diagnose mojtv.hr (temporaer)
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Kanal-URL"
+        required: false
+        default: "https://mojtv.hr/m2/tv-program/kanal.aspx?id=641"
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhaengigkeiten installieren
+        run: |
+          pip install curl_cffi playwright
+          python -m playwright install --with-deps chromium
+
+      - name: 1) curl_cffi (TLS-Impersonation) gegen direkte URLs testen
+        run: python3 .github/workflows/_diagnose_tmp/step1.py
+
+      - name: 2) Playwright headless - Seite rendern + Netzwerk-Requests mitschneiden
+        run: python3 .github/workflows/_diagnose_tmp/step2.py "${{ inputs.url }}"
