@@ -4541,3 +4541,35 @@ Aehnlichkeit, ob der sender.txt-Name ueberhaupt "RTV Herceg Bosne"
 meint (deckt automatisch auch leicht abweichende Schreibweisen wie "TV
 Herceg Bosne"/"Radiotelevizija Herceg-Bosne" ab, falls der Sender
 kuenftig unter anderem Namen erneut angelegt wird).
+
+## Al Jazeera Balkans/America: Fallback auf Al Jazeera English (Freeview) (September 2026)
+
+Nutzeranfrage: "Al Jazeera Balkans" zeigte trotz automatischer BA-
+Kaskade nur Platzhalter. Gezielt geprueft: Telemach (BA+HR), klix.ba,
+rtv-hb.com, MojMaxTV (HR) - kein Treffer bei irgendeiner Quelle;
+mtel.ba kennt den Kanal zwar (`iptv#ch-25-al-jazeera-balkans`/
+`iptv#ch-228-al-jazeera-balkans-hd`), lieferte in dieser Sandbox aber
+keine verifizierbaren Sendungsdaten (Proxy-Problem, kein API-Fehler -
+im echten Workflow-Lauf ggf. trotzdem nutzbar, daher als Quelle
+unveraendert in der Kaskade belassen).
+
+Auf ausdruecklichen Nutzerwunsch ("Suche nach Programmdaten von dem
+normalen Englischen Al Jazeera Sender und verzweige sie zu meinen
+Sendern"): neuer, fest verdrahteter, ALLERLETZTER Fallback in
+`generate_epg.py` (nach OPEN-EPG.COM, vor EPGSHARE01 US2) fuer eine
+kleine feste Whitelist ("Al Jazeera Balkans", "Al Jazeera Balkans FHD",
+"Al Jazeera America HD") - holt die echten Programmdaten von "Al
+Jazeera English" ueber die bereits vorhandene Freeview-UK-API
+(`freeview_epg.py`, site_id `64257#16278`, 111 Sendungen/3 Tage
+verifiziert) und wendet sie an. Per explizitem Land-Check
+(`daten["land"] in ("BA", "US")`) NUR auf die beiden BA-Zeilen sowie
+"US|AL JAZEERA AMERICA HD" beschraenkt, NICHT auf "HR|AL JAZEERA
+BALKANS ⱽᴵᴾ ᴿᴬᵂ" (gleicher normalisierter Sendername wie die BA-
+Zeilen, aber auf ausdruecklichen Nutzerwunsch ausgeschlossen). "US|AL
+JAZEERA AMERICA HD" zunaechst versehentlich entfernt, auf Nachfrage
+wieder aufgenommen: laut Nutzer laeuft in seiner eigenen Playlist unter
+diesem (offiziell 2016 eingestellten) Namen tatsaechlich der normale
+Al-Jazeera-Live-Stream, die Zuordnung passt also inhaltlich. Bewusste
+inhaltliche Substitution (nicht dieselbe Sendung wie ein etwaiges
+lokalisiertes Original), aber besser als ein reiner "ᴸⁱᵛᵉ"-Platzhalter.
+Nur EIN Freeview-Abruf pro Lauf (gecached).

@@ -380,6 +380,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "ba_stanice": ["ba_stanice_intervalle"],
     "blagovesti": ["blagovesti_intervalle"],
     "rtvbn": ["rtvbn_intervalle"],
+    "aljazeera_en": ["aljazeera_en_intervalle"],
 }
 
 
@@ -4897,6 +4898,68 @@ for daten in open_epg_sender:
 
     if programme:
         _echte_quelle_zaehlen("open-epg.com")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# AL JAZEERA ENGLISH (Freeview): ALLERENGSTER, fest verdrahteter
+# Fallback NUR fuer eine kleine feste Whitelist von "Al Jazeera"-
+# Sendern, die bei JEDER anderen Quelle durchgefallen sind
+# (Nutzeranfrage September 2026: "Al Jazeera Balkans" zeigte trotz BA-
+# Kaskade nur Platzhalter; Telemach/mtel.ba/klix.ba/rtv-hb.com/
+# open-epg.com kennen den Sender nicht). Auf Nutzerwunsch ausdruecklich
+# die internationale Marke "Al Jazeera English" (echte Programmdaten
+# ueber die Freeview-UK-API, siehe freeview_epg.py) als Ersatzquelle
+# fuer "BA|AL JAZEERA BALKANS(FHD)" sowie "US|AL JAZEERA AMERICA HD"
+# (laut Nutzer laeuft unter diesem eingestellten Namen in seiner
+# eigenen Playlist tatsaechlich der normale Al-Jazeera-Live-Stream,
+# daher inhaltlich passend). Bewusst NICHT fuer "HR|AL JAZEERA
+# BALKANS ⱽᴵᴾ ᴿᴬᵂ" (gleicher normalisierter Sendername wie die BA-
+# Zeilen, aber auf ausdruecklichen Nutzerwunsch ausgeschlossen - siehe
+# Land-Check unten). Wird NUR EINMAL pro Lauf abgerufen (gecached),
+# dann auf alle passenden Sender angewandt - laeuft bewusst OHNE
+# eigenes FREEVIEW:-Praefix in sender.txt (anders als die normale,
+# rein opt-in gedachte Freeview-Quelle, siehe deren Modul-Docstring).
+# ==========================================================
+_ALJAZEERA_EN_WHITELIST = {
+    normalisiere_sendername("Al Jazeera Balkans"),
+    normalisiere_sendername("Al Jazeera Balkans FHD"),
+    normalisiere_sendername("Al Jazeera America HD"),
+}
+
+_aljazeera_en_programme_cache = None
+
+
+def _aljazeera_en_programme_holen():
+    global _aljazeera_en_programme_cache
+    if _aljazeera_en_programme_cache is not None:
+        return _aljazeera_en_programme_cache
+    programme = []
+    try:
+        site_id = freeview_kanal_finden("Al Jazeera English")
+        if site_id is not None:
+            programme = freeview_hole_programme(site_id, FREEVIEW_TAGE)
+    except Exception:
+        programme = []
+    _aljazeera_en_programme_cache = programme
+    return programme
+
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() not in ("BA", "US"):
+        continue
+    if normalisiere_sendername(daten["sender"]) not in _ALJAZEERA_EN_WHITELIST:
+        continue
+
+    daten["aljazeera_en"] = True
+    programme = _aljazeera_en_programme_holen()
+    daten["aljazeera_en_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Al Jazeera English (Freeview)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
