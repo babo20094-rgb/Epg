@@ -54,6 +54,7 @@ from epg_lib import (
     sender_hash,
     kanalname_normal_geschrieben,
     normalisiere_grossschreibung,
+    normalisiere_sendername,
     baue_logo_index, finde_logo,
 )
 from quellen import _http

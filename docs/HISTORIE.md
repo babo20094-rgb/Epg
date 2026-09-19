@@ -4725,3 +4725,19 @@ im Namen) matcht bereits OHNE Alias direkt gegen denselben Kanal (nur
 "Serbia" fehlt dort nicht als Stoerfaktor, da der Name laenger/naeher
 ist) - keine Aenderung dafuer noetig. "MO|ARENASPORT 1X2" laeuft ueber
 eine andere Kaskade (Montenegro), davon nicht betroffen.
+
+## Workflow-Absturz: NameError "normalisiere_sendername" nicht importiert (September 2026)
+
+Workflow-Run brach nach dem Tubi-EPG-Schritt mit
+`NameError: name 'normalisiere_sendername' is not defined` in
+`generate_epg.py` Zeile 4928 ab (Aufruf u.a. in der Al-Jazeera-Balkans-
+Whitelist-Logik und beim Meka-TV-Vergleich, Zeilen ~4929-5000).
+Ursache: Die Funktion ist in `epg_lib.py` definiert und wird an
+mehreren Stellen in `generate_epg.py` verwendet, fehlte aber im
+`from epg_lib import (...)`-Block am Dateianfang (Zeilen 47-58) - vermutlich
+beim Hinzufuegen der Aljazeera/Meka-TV-Sonderlogik vergessen. Fix:
+`normalisiere_sendername` zur Import-Liste ergaenzt. Lehre: Bei neuen
+Funktionsaufrufen aus `epg_lib.py` in `generate_epg.py` immer pruefen,
+ob der Name auch im Import-Block oben eingetragen ist - ein fehlender
+Import faellt lokal beim Schreiben nicht auf, sondern erst zur Laufzeit
+(hier erst nach ca. 20 Min. Workflow-Laufzeit, kurz vor Ende).
