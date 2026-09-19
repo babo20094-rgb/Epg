@@ -66,7 +66,7 @@ BA|ARENA SPORT 6 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 6 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ
 BA|ARENA SPORT PREMIUM 1 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dbb6b402649ea86cd75aef2bd8c414ffd7c39422.png
 BA|ARENA SPORT PREMIUM 2 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9a9b465f6023c6192214a29cc123ced5b7a38c7f.png
 BA|ARENA SPORT PREMIUM 3 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport Premium 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6f72dc4e4c0d8418c54546fce7c92ee5a438762e.png
-BA|ATV BANJA LUKA|Atv Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2cb7cd4b4e070592.png
+BA|ATV BANJA LUKA|Atv Banja Luka ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38a8bbe53b6fe46fe5e87559b7a162a0c040cfe1.png
 BA|BHT|Bht ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d2a566874088cf02.png
 BA|BHT1 ⱽᴵᴾ ᴿᴬᵂ|Bht1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d2a566874088cf02.png
 BA|BIR TV ⱽᴵᴾ ᴿᴬᵂ|Bir Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/af0de72e8e3fe877.png
