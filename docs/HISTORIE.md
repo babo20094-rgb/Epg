@@ -4793,3 +4793,65 @@ Template-Strings mit "schedule"/"epg"/"json" durchsuchen (`grep -oE`
 auf `` `...` ``-Template-Literale) - viele NBCU-/CMS-Widgets laden
 ihre Daten als statische, unauthentifizierte JSON-Dateien direkt von
 CloudFront statt ueber eine klassische REST-API.
+
+## RS|NATIONAL GEO(GRAPHIC): neue Quelle natgeotv.com, sechster RS-Kaskaden-Schritt (September 2026)
+
+Nutzeranfrage: Prüfung, ob `https://www.natgeotv.com/rs/tv-program/natgeo`
+echte Programmdaten fuer alle "RS|NATIONAL GEO(GRAPHIC)..."-Varianten
+liefert. Anders als scifi.rs ist diese Seite server-seitig gerendert
+(kein SPA-Fallback) - das Programm-Raster steckt direkt im HTML als
+`<li class="acilia-schedule-event" data-datetime-timestamp="..."
+data-end-timestamp="...">`-Bloecke (Unix-Timestamps in Sekunden,
+direkt als UTC verwendbar), mit Titel im `<h3>` und Episoden-Zeile
+(`<h4>`) + volle Beschreibung (`<p>`) im zugehoerigen Akkordeon-Panel.
+Ein einzelner Seitenabruf liefert bereits 4 Tage (heute + 3
+Folgetage, 84 Sendungen verifiziert) - kein mehrfacher Abruf noetig.
+
+Wichtig: natgeotv.com/rs fuehrt NUR eine Programmseite fuer den
+Hauptkanal "natgeo" - "National Geo(graphic) WILD" ist ein eigener,
+anderer Sender OHNE eigene Seite auf dieser Domain (kein
+`/rs/tv-program/natgeowild` o.ae., 404) und bleibt daher bewusst
+ausgenommen (`_WILD_GUARD` in `quellen/natgeo_epg.py`, exakt wie beim
+RTV.rs/Sport-Klub-Guard-Muster).
+
+Neue Quelle `quellen/natgeo_epg.py` (`natgeo_kanal_finden()`/
+`natgeo_hole_programme()`, Aufbau analog zu `rtv_rs_epg.py`: einfacher
+Praefix-Vergleich auf "NATIONAL GEO(GRAPHIC)" nach VIP/RAW/HD/FHD-
+Entfernung, WILD-Ausschluss zuerst geprueft). Als sechster RS-
+Kaskaden-Schritt in `generate_epg.py` eingehaengt (nach mts.rs/
+SportKlub/Arena/RTV.rs/scifi.rs). Gilt automatisch fuer JEDE
+"RS|...NATIONAL GEO(GRAPHIC)..."-Zeile ausser "...WILD..." (aktuell
+"RS|NATIONAL GEO", "RS|NATIONAL GEOGRAPHIC FHD", "RS|NATIONAL
+GEOGRAPHIC ⱽᴵᴾ ᴿᴬᵂ"), auch fuer kuenftige Suffix-Varianten ohne
+weitere Aenderung.
+
+## Nachtrag: RS|NATIONAL GEO(GRAPHIC) WILD doch ueber natgeotv.com (September 2026)
+
+Kurz nach obigem Eintrag stellte sich heraus: natgeotv.com/rs fuehrt
+den Wild-Kanal doch, nur unter einem anderen Slug -
+`https://www.natgeotv.com/rs/tv-program/nationalgeographicwild`
+(101 Sendungen verifiziert, `natgeo` selbst blieb bei `/rs/tv-program/
+natgeo`). Der zuvor als "gibt es nicht" dokumentierte 404-Test war
+also nur ein falscher Slug-Rateversuch (`natgeowild`/`natgeo-wild`/
+`wild`), nicht der eigentliche Beweis fuer "keine eigene Seite".
+`quellen/natgeo_epg.py` wurde daraufhin von einem festen Einzel-Slug
+auf einen Slug-Index (`_SLUGS = {"natgeo": "natgeo", "wild":
+"nationalgeographicwild"}`, Cache jetzt `{slug_schluessel:
+programme}`) umgebaut - `natgeo_kanal_finden()` prueft das WILD-Muster
+zuerst und liefert `"wild"` statt `None`. Gilt jetzt automatisch fuer
+ALLE "RS|...NATIONAL GEO(GRAPHIC)..."-Zeilen inkl. "...WILD..."
+(kein Ausschluss mehr). Lehre: Ein 404 auf 2-3 geratenen URL-Pfaden
+ist kein Beweis, dass eine Quelle fehlt - beim naechsten Mal zuerst
+die Navigation/Sitemap der Zielseite selbst nach dem echten Slug
+durchsuchen, bevor eine Variante als "nicht abgedeckt" dokumentiert
+wird.
+
+## Nachtrag 2: "NGC"/"NGC WILD" als Playlist-Abkuerzung erkannt (September 2026)
+
+Nutzeranfrage: "RS|NGC HD" und "RS|NGC WILD HD" sind dieselben Sender
+wie "National Geo(graphic)"/"...Wild", nur mit der gaengigen
+Playlist-Abkuerzung "NGC" (National Geographic Channel) geschrieben.
+`_NATGEO_WILD_PATTERN`/`_NATGEO_PATTERN` in `quellen/natgeo_epg.py`
+um die Alternative `NGC` ergaenzt (`^(NATIONAL\s*GEO(GRAPHIC)?|NGC)
+\s*WILD\b` bzw. ohne WILD) - matcht jetzt sowohl den vollen Namen als
+auch die Abkuerzung, in beiden Faellen mit/ohne "WILD"-Zusatz.

@@ -98,6 +98,7 @@ from quellen.open_epg_epg import open_epg_kanal_finden, open_epg_hole_programme
 from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_programme
 from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 from quellen.scifi_epg import scifi_kanal_finden, scifi_hole_programme
+from quellen.natgeo_epg import natgeo_kanal_finden, natgeo_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
@@ -4197,6 +4198,45 @@ for _idx, daten in enumerate(_scifi_sender):
         ]
         if neue_programme:
             _echte_quelle_zaehlen("scifi.rs")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# NATGEOTV.COM (RS-Fallback): sechster Versuch fuer alle RS-Sender,
+# deren Name auf "National Geo(graphic)" bzw. "National Geo(graphic)
+# Wild" passt (siehe natgeo_epg.py - eigene, server-seitig gerenderte
+# Programmseite je Kanal, weder in mts.rs noch SportKlub/Arena/
+# RTV.rs/scifi.rs enthalten). Kein eigenes Praefix noetig. Wird immer
+# versucht, schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _natgeo_abrufen(daten):
+    try:
+        slug = natgeo_kanal_finden(daten["sender"])
+        if slug is not None:
+            return natgeo_hole_programme(slug, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_natgeo_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_natgeo_ergebnisse = _parallel_abrufen(_natgeo_sender, _natgeo_abrufen, name="NatGeo")
+
+for _idx, daten in enumerate(_natgeo_sender):
+    programme = _natgeo_ergebnisse[_idx]
+
+    daten["natgeo_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("NatGeo")
             _schreibe_echte_programme(daten, neue_programme)
             daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
