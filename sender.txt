@@ -2389,7 +2389,7 @@ NA|BRIDGEPORT ISLANDERS|Bridgeport Islanders ᴸⁱᵛᵉ|https://raw.githubus
 NA|SHERBROOKE PHŒNIX|Sherbrooke Phœnix ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/PPV/HOCKEYLEAGUE.png
 
 ##### PPV (aus Playlist) #####
-SPT|GLORY BOXING 07-10-2023|Glory Boxing 07-10-2023 ᴸⁱᵛᵉ|
+SPT|GLORY BOXING 07-10-2023|Glory Boxing 07-10-2023 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/glory/glory.png
 PPV|EVENT 1 (BK)|Event 1 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
 PPV|EVENT 2 (BK)|Event 2 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
 PPV|EVENT 3 (BK)|Event 3 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
@@ -3597,7 +3597,7 @@ UK|COLORS HEVC FHD|Colors Hevc Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 UK|COLORS HEVC HD|Colors Hevc Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/colors_tv.png
 UK|SONY MAX HEVC FHD|Sony Max Hevc Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/sony_max.png
 UK|SONY MAX HEVC HD|Sony Max Hevc Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/sony_max.png
-UK|U&W HD|U&W Hd ᴸⁱᵛᵉ|
+UK|U&W HD|U&W Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uw/uw.png
 UK|BEIN SPORTS ASIA 2|Bein Sports Asia 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/bein_sports.png
 UK|BEIN SPORTS ASIA 3|Bein Sports Asia 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/bein_sports.png
 UK|ZEE TV HEVC FHD|Zee Tv Hevc Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/zee_tv.png
@@ -5013,12 +5013,12 @@ SKY:GB|TNT SPORT 3 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/l
 ##### US (aus Playlist) #####
 US|A&E HD|A&E Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/ae_network.png
 US|AT&T SPORTSNET SOUTHWEST HD|At&T Sportsnet Southwest Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/att_sportsnet.png
-US|FOX 24 SANTA BARBARA CA (KKFX)|Fox 24 Santa Barbara Ca (Kkfx) ᴸⁱᵛᵉ|
+US|FOX 24 SANTA BARBARA CA (KKFX)|Fox 24 Santa Barbara Ca (Kkfx) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/fox_generic/fox_generic.png
 US|HEROES & ICONS|Heroes & Icons ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/heroes_and_icons.png
 US|ID WEST HD|Id West Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/investigation_discovery.png
 US|PBS (WGBH) MA | BOSTON|Pbs (Wgbh) Ma | Boston ᴸⁱᵛᵉ|
 US|PBS NY | NEW YORK (WNET)|Pbs Ny | New York (Wnet) ᴸⁱᵛᵉ|
-US|A WEALTH OF ENT. HD|A Wealth Of Ent. Hd ᴸⁱᵛᵉ|
+US|A WEALTH OF ENT. HD|A Wealth Of Ent. Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/awe/awe.png
 US|A&E HD|A&E Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/ae_network.png
 US|ABC EAST HD|Abc East Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/abc.png
 US|ABC WEST HD|Abc West Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/abc.png
@@ -5026,9 +5026,9 @@ US|AL JAZEERA AMERICA HD|Al Jazeera America Hd ᴸⁱᵛᵉ|https://raw.githubus
 US|BLOOMBERG EUROPE HD|Bloomberg Europe Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/bloomberg_tv.png
 US|BLOOMBERG USA HD|Bloomberg Usa Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/bloomberg_tv.png
 US|BLUE ANT ENTERTAINMENT|Blue Ant Entertainment ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/blue_ant_entertainment.png
-US|BLUE ANT EXTREME|Blue Ant Extreme ᴸⁱᵛᵉ|
+US|BLUE ANT EXTREME|Blue Ant Extreme ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/blue_ant_extreme/blue_ant_extreme.png
 US|BNN HD|Bnn Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/bnn_bloomberg.png
-US|CBN NEWS CHANNEL HD|Cbn News Channel Hd ᴸⁱᵛᵉ|
+US|CBN NEWS CHANNEL HD|Cbn News Channel Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/cbn_news/cbn_news.png
 US|CBS EAST HD|Cbs East Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/cbs.png
 US|CBS WEST HD|Cbs West Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/cbs.png
 US|CINEMAX ACTION 2 HD|Cinemax Action 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/cinemax.png
@@ -5038,16 +5038,16 @@ US|CNBC EUROPE|Cnbc Europe ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20
 US|CNN HD (1)|Cnn Hd (1) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/cnn.png
 US|CNN HD (2)|Cnn Hd (2) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/cnn.png
 US|CW HD|Cw Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/the_cw.png
-US|CW PIX11 CANADA|Cw Pix11 Canada ᴸⁱᵛᵉ|
-US|DISCOVERY HOME HEALTH|Discovery Home Health ᴸⁱᵛᵉ|
+US|CW PIX11 CANADA|Cw Pix11 Canada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pix11/pix11.png
+US|DISCOVERY HOME HEALTH|Discovery Home Health ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/discovery_channel.png
 US|DISCOVERY ID WEST HD|Discovery Id West Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/investigation_discovery.png
-US|DISCOVERY SCIENCE HEVC (NL)|Discovery Science Hevc (Nl) ᴸⁱᵛᵉ|
+US|DISCOVERY SCIENCE HEVC (NL)|Discovery Science Hevc (Nl) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/discovery_science/discovery_science.png
 US|DISCOVERY THEATER HD|Discovery Theater Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/discovery_channel.png
 US|DIY HD|Diy Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/diy_network.png
 US|DW ENGLISH HD|Dw English Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/deutsche_welle.png
-US|EPIX 2 HD|Epix 2 Hd ᴸⁱᵛᵉ|
-US|EPIX DRIVE IN|Epix Drive In ᴸⁱᵛᵉ|
-US|EPIX HITS|Epix Hits ᴸⁱᵛᵉ|
+US|EPIX 2 HD|Epix 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epix/epix.png
+US|EPIX DRIVE IN|Epix Drive In ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epix/epix.png
+US|EPIX HITS|Epix Hits ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/epix/epix.png
 US|FASHION TV FHD HEVC|Fashion Tv Fhd Hevc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/fashion_tv.png
 US|FOX EAST HD|Fox East Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/fox_broadcasting.png
 US|FOX LIFE HD (EX)|Fox Life Hd (Ex) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/fox_life.png
@@ -5061,22 +5061,22 @@ US|HEROS & ICONS HD|Heros & Icons Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.
 US|KTLA HD|Ktla Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/ktla.png
 US|LIFETIME MOVIE HD|Lifetime Movie Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/lmn.png
 US|MAGNOLIA UHD|Magnolia Uhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/magnolia_network.png
-US|MOVIETIME CANADA|Movietime Canada ᴸⁱᵛᵉ|
+US|MOVIETIME CANADA|Movietime Canada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/movietime/movietime.png
 US|MUCH MUSIC CANADA|Much Music Canada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/muchmusic.png
 US|NAT GEO WEST HD|Nat Geo West Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/nat_geo.png
 US|NBC EAST HD|Nbc East Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/nbc.png
 US|NBC NEWS HD|Nbc News Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/nbc_news.png
 US|NBC WEST HD|Nbc West Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/nbc.png
-US|NEWS 12|News 12 ᴸⁱᵛᵉ|
+US|NEWS 12|News 12 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/news12/news12.png
 US|NEWS MAX 2 HD|News Max 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/newsmax.png
 US|ONE AMERICAN NEWS HD|One American News Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/oann.png
-US|PEACH TREE CANADA|Peach Tree Canada ᴸⁱᵛᵉ|
+US|PEACH TREE CANADA|Peach Tree Canada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/peachtree/peachtree.png
 US|RUSSIA TODAY NEWS HD|Russia Today News Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/rt_news.png
 US|SHOWCASE HD|Showcase Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/showcase_ca.png
-US|STAR SELECT MOVIES HD|Star Select Movies Hd ᴸⁱᵛᵉ|
+US|STAR SELECT MOVIES HD|Star Select Movies Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/star_movies/star_movies.png
 US|TBS EAST HD|Tbs East Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/tbs.png
-US|TMN 2 CANADA|Tmn 2 Canada ᴸⁱᵛᵉ|
-US|TMN 3 CANADA|Tmn 3 Canada ᴸⁱᵛᵉ|
+US|TMN 2 CANADA|Tmn 2 Canada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tmn/tmn.png
+US|TMN 3 CANADA|Tmn 3 Canada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tmn/tmn.png
 US|VICELAND HD (UK)|Viceland Hd (Uk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/viceland.png
 US|W NETWORK CANADA|W Network Canada ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/w_network.png
 US|WGN|Wgn ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/wgn.png
@@ -5085,7 +5085,7 @@ US|ZEE CAFE HD|Zee Cafe Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20
 |##### NEWS NETWORK #####|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/kategorie_trenner/kategorie_trenner.png
 TVGUIDE:US|AMERICA HEROES HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/22c9402ff627c182.png
 TVGUIDE:US|FOX BUSINESS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e11237ce5363f6ea.png
-TVGUIDE:US|GAME SHOW NETWORK HD|
+TVGUIDE:US|GAME SHOW NETWORK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/game_show_network/game_show_network.png
 TVGUIDE:US|SMITHSONIAN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbefa5d572b03c30.png
 TVGUIDE:US|SMITHSONIAN WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbefa5d572b03c30.png
 TVGUIDE:US|STARZ CINEMA WEST HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/942e1bcce9b7a62e.png
@@ -12402,7 +12402,7 @@ NAME:DE: SPORT DEUTSCHLAND PPV 96|https://raw.githubusercontent.com/babo20094-rg
 NAME:DE: SPORT DEUTSCHLAND PPV 97|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sport_deutschland/97.png
 NAME:DE: SPORT DEUTSCHLAND PPV 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sport_deutschland/98.png
 NAME:DE: SPORT DEUTSCHLAND PPV 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sport_deutschland/99.png
-NAME:DIRTVISION  08|
+NAME:DIRTVISION  08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd3544412c64f092.png
 NAME::Milb  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  33|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
@@ -13150,7 +13150,7 @@ NAME:NFL TEAMS| FOX REDSKINS  BALTIMORE MD|https://raw.githubusercontent.com/bab
 NAME:NFL TEAMS| FOX SAINTS NEW ORLEANS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/no.png
 NAME:NFL TEAMS| FOX SEAHAWKS SEATTLE WA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/sea.png
 NAME:NFL TEAMS| FOX VIKINGS MINNEAPOLIS MN|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nfl_teams/min.png
-NAME:NHL LIVE||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
+NAME:NHL LIVE||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nhltv/nhltv.png
 NAME:NHL LIVE| 17 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d03f07a943ba94de576a797db0496d4d9152834.png
 NAME:NHL LIVE| 18 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/022021e6d4233ff3cc881159145422b20134d7f1.png
 NAME:NHL REPLAY 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3d03f07a943ba94de576a797db0496d4d9152834.png
@@ -13216,10 +13216,10 @@ NAME:NHL | 12 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/e
 NAME:NHL | 13 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ec908a81afc453442bb6004e6f0937638e8bfadb.png
 NAME:NHL | 14 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/540a8e2d4a75c27b40537f1d584016a7d1b0088e.png
 NAME:NHL | 15 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3d03f07a943ba94de576a797db0496d4d9152834.png
-NAME:NIFL 1|
-NAME:NIFL 2|
-NAME:NIFL 3|
-NAME:NIFL 4|
+NAME:NIFL 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nifl/nifl.png
+NAME:NIFL 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nifl/nifl.png
+NAME:NIFL 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nifl/nifl.png
+NAME:NIFL 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nifl/nifl.png
 NAME:NIFL 5|http://103.176.90.95/images/1434214.png
 NAME:NIFL 6|http://103.176.90.95/images/1434213.png
 NAME:NIFL 7|http://103.176.90.95/images/1434212.png
@@ -13278,19 +13278,19 @@ NAME:OHL 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/exter
 NAME:OHL 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/95316798ceeba47aade7833d229f4588f98d3934.png
 NAME::Milb  60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:PBR RidePass :Flo Racing  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
-NAME:PDC Board 01|
-NAME:PDC Board 02|
-NAME:PDC Board 03|
-NAME:PDC Board 04|
-NAME:PDC Board 05|
+NAME:PDC Board 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc_board/pdc_board.png
+NAME:PDC Board 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc_board/pdc_board.png
+NAME:PDC Board 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc_board/pdc_board.png
+NAME:PDC Board 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc_board/pdc_board.png
+NAME:PDC Board 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc_board/pdc_board.png
 NAME:PDC Board 06|http://103.176.90.95/images/1556645.png
 NAME:PDC Board 07|http://103.176.90.95/images/1556646.png
 NAME:PDC Board 8|http://103.176.90.95/images/1556647.png
-NAME:PDCTV 1|
-NAME:PDCTV 2|
-NAME:PDCTV 3|
-NAME:PDCTV 4|
-NAME:PDCTV 5|
+NAME:PDCTV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc/pdc.png
+NAME:PDCTV 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc/pdc.png
+NAME:PDCTV 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc/pdc.png
+NAME:PDCTV 4|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc/pdc.png
+NAME:PDCTV 5|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pdc/pdc.png
 NAME:PSF 09 | Match 9|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
 NAME:PSF01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
 NAME:PSF02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/87f1d3959478835489158e81231da612c9de9018.png
@@ -13454,13 +13454,13 @@ NAME::Milb  41|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ex
 NAME::MLS  02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME::Milb  45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME::Milb  62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
-NAME:Super League Plus Event 1|
-NAME:Super League Plus Event 2|
+NAME:Super League Plus Event 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/superleague_plus/superleague_plus.png
+NAME:Super League Plus Event 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/superleague_plus/superleague_plus.png
 NAME:Super League Plus | Event 3 Toulouse Olympique vs Bradford Bulls // UK Sat 29 Aug 7:50pm // ET Sat 29 Aug 2:50pm|http://103.176.90.95/images/1455579.png
 NAME:Super League Plus | Event 4 Warrington Wolves v Castleford Tigers | Round 5 | Betfred Super League // UK Sat 21 Mar 3:55pm // ET Sat 21 Mar 10:55am|http://103.176.90.95/images/1455578.png
-NAME:Supercross 1|
-NAME:Supercross 2|
-NAME:Supercross 3|
+NAME:Supercross 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/supercross/supercross.png
+NAME:Supercross 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/supercross/supercross.png
+NAME:Supercross 3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/supercross/supercross.png
 NAME::Flo College  01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f397fc0dcfb2ca75644ad9179e085050e305e070.png
 NAME:TC+ 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:TC+ 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
@@ -16796,8 +16796,8 @@ HR| TV ZAPAD HD|Tv Zapad HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2
 US| NXT|Nxt ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/528f9433d6ffdacf1bd98f556f32fba5015b3855.png
 US| MUBI|Mubi ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mubi.png
 US| FLING|Fling ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4a03c89309014aff2f145b15114fc9f65eae2814.png
-US| EROS|Eros ᴸⁱᵛᵉ|
-US| DEKKOO|Dekkoo ᴸⁱᵛᵉ|
+US| EROS|Eros ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/eros/eros.png
+US| DEKKOO|Dekkoo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/dekkoo/dekkoo.png
 ##### UK CHAMPIONSHIP #####
 |CHAMP | Wrexham|Wrexham ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_championship/championship.png
 |CHAMP | Burnley|Burnley ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uk_championship/championship.png
@@ -16965,8 +16965,8 @@ TVPASSPORT:US|Investigation Discovery USA HD - Eastern|AUTO|US| ID HD
 TVPASSPORT:US|Investigation Discovery USA HD - Pacific|AUTO|US| ID WEST HD
 #UK| ENTERTAINMENT
 SKY:GB|Sky One|AUTO|UK| SKY SHOWCASE FHD
-SKY:GB|Sky Sci-Fi||UK-NOWTV| SKY SCI-FI FHD
-SKY:GB|Sky Sci-Fi||UK-NOWTV| SKY SCI-FI HD
+SKY:GB|Sky Sci-Fi|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d8b222479c5e8e6.png|UK-NOWTV| SKY SCI-FI FHD
+SKY:GB|Sky Sci-Fi|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8d8b222479c5e8e6.png|UK-NOWTV| SKY SCI-FI HD
 #US| FOX NETWORK
 TVPASSPORT:US|FOX (KKFX) Santa Barbara, CA HD|AUTO|US| FOX 24 SANTA BARBARA CA (KKFX)
 #US| DIREC TV GO
@@ -17650,7 +17650,7 @@ US| NBC 4 WASHINGTON DC (Y)||https://raw.githubusercontent.com/babo20094-rgb/Epg
 US| NBC 7 WASHINGTON NC (WITN)
 UK| KIDZ BOP-DIRECT HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/kidzbop.png
 UK| KIDZ ONLY!-DIRECT HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/kids_toys.png
-FREEVIEW:GB| CINEMANIA HOLLYWOOD 4K|
+FREEVIEW:GB| CINEMANIA HOLLYWOOD 4K|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/856109179a5c67c9.png
 UK| UFC HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cf7131e0ae300c2ff44e260030ac653f7e0c8790.png
 UK| EDGE SPORT FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b8cd44c92e4a2d6d5cabf6dcef45c15bf11e5d42.png
 DE| EB PEPPA WUTZ FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/65c53df9ac8553d6523bf536b8b6139dd06b334d.png
@@ -17809,7 +17809,7 @@ DE|DELUXE DEUTSCHPOP|Deluxe Deutschpop ᴸⁱᵛᵉ|https://raw.githubuserconten
 DE|COOL SUMMER CHANNEL|Cool Summer Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32396ca494e95101dd91f8cd412cc643ee51b07a.png
 DE|XITE ROCK X METAL|Xite Rock X Metal ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/11a60b1f0240b3bb8e7dff9fd27f01867e45c513.png
 DE|FANTASJA|Fantasja ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5df2ef8f05809e1a690a30eeec73bbc86068da3d.png
-TUBU|NBA FAST CHANNEL RAW|Nba Fast Channel ᴸⁱᵛᵉ|
+TUBU|NBA FAST CHANNEL RAW|Nba Fast Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/nba/nba.png
 US|ABC 28 KAMC LUBBOCK TX|Abc 28 Kamc Lubbock Tx ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/851ce5e5be9b95c270f1e92e066e73a51e032339.png
 US|ABC 33 SPRINGFIELD MO KSPR|Abc 33 Springfield Mo Kspr ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b138096b838f55db339c1583f29a3bcd393788f0.png
 US|CBS 30 FARGO ND KXJB|Cbs 30 Fargo Nd Kxjb ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/KXJB-LD2_2024.webp/250px-KXJB-LD2_2024.webp.png
@@ -17881,7 +17881,7 @@ UK|RTE NEWS NOW||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 UK|RT UK HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/31e2a9bc21e5b1b2c0463a5de867355fb9ab40a5.png
 UK|W!-Watch FHD|
 UK|RTE 1 HEVC FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38a47e56d070deb29bcc267ec47b48340e376ece.png
-FREEVIEW:GB|Praise Tv Network|
+FREEVIEW:GB|Praise Tv Network|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/praise_tv/praise_tv.png
 FREEVIEW:GB|N4 Iceland HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/13e7f69e1f1336b23d2c241b93203e34384d5a7b.png
 US|THE CROWN ᴿᴬᵂ| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
 US|FOX 39 LAREDO TX (KXOF)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
@@ -18205,7 +18205,7 @@ MO|WOW MONTENEGRO||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 MO|TV PARTIZAN||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d54ca9f270b7a2cb4a98f8efd8fe16fe4f7525b3.png
 MO|TEUTA TV||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20bb9391092db7ee3994573dc51f4be4dabe3834.png
 MO|TB1||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f462a2fc400fe1c4210b6c69ee6634745faaa05f.png
-MO|SARAJEVO TV| |
+MO|SARAJEVO TV| |https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tvsa/tvsa.png
 MO|RTV HN||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/28a6dec8bed0e6417704ff2bccd90acd22c8368c.png
 MO|NICK MUSIC||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f1291849d6923485a5bfb2c8946f5b27d4abb8e1.png
 MO|NBA TV||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/32360fdc1b3ca0b6f5681f0896b30cf3dd43ef86.png
@@ -18233,14 +18233,14 @@ MK|FOX LIVE|Fox Live ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rg
 MK|FOX HD|Fox HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ee2cd75fecf2b5f93b6154a0ffa01bcf1310807c.png
 MK|DISCOVERY CHANNEL MULTI SUB|Discovery Channel Multi Sub ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/discovery.png
 MK|FILM BOX PLUS|Film Box Plus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8da8e4d818246b73bb563b61c9a9d2dd446be325.png
-MK|HUGO 2 TV|Hugo 2 TV ᴸⁱᵛᵉ|
-MK|HUGO TV HD|Hugo TV HD ᴸⁱᵛᵉ|
+MK|HUGO 2 TV|Hugo 2 TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hugo/hugo.png
+MK|HUGO TV HD|Hugo TV HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hugo/hugo.png
 MK|MTM TV|Mtm TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fd145ea7454d6e17d75df126baf91841ac24f208.png
 MK|MPT SOBRANISKI HD|Mpt Sobraniski HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mrt_sobraniski/mrt_sobraniski.png
 MK|K3|K3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bdedf704590fc607c223e40e7e9b972c8ceacd31.png
-MK|O2 OHRID HD|O2 Ohrid HD ᴸⁱᵛᵉ|
+MK|O2 OHRID HD|O2 Ohrid HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/o2_ohrid/o2_ohrid.png
 MK|KTV KAVADARCI|Ktv Kavadarci ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/ktv_kavadarci.png
-MK|MEGA BITOLA HD|Mega Bitola HD ᴸⁱᵛᵉ|
+MK|MEGA BITOLA HD|Mega Bitola HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mega_bitola/mega_bitola.png
 MK|TV2 GOSTIVAR|Tv2 Gostivar ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/25348e41507b0827adb2e8c5c2f9d6e33749f5d6.png
 MK|TV KUMANOVO|TV Kumanovo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/636a371359a6d752593cef6817ff10e7a62e9112.png
 MK|KLAN MACEDONIA|Klan Macedonia ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6e26a3a68fd2959fa93b860514a85d47f0532dc7.png
@@ -18292,7 +18292,7 @@ HR| DISCOVERY ⱽᴵᴾ ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-r
 HR| DISCOVERY VIP RAW||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f068d2cb7058abac88ae3d9eaad68e1464fc6e40.png
 HR| NICK JUNIOR||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/386cb493fb1aec1cf3d3a83624eb925a08c805ef.png
 HR|KREATOR HD|Kreator HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3f409abb130fb0ea4e519c89573f19c7c1e5b44b.png
-HR|GINIX|Ginix ᴸⁱᵛᵉ|
+HR|GINIX|Ginix ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ginx/ginx.png
 HR|HAJDUK TV|Hajduk TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hajduk_tv/hajduk_tv.png
 HR|TREND AND KARLOVAC|Trend And Karlovac ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/trend_tv_karlovac.png
 HR|TREND TV HD|Trend TV HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38f7b3c59ac5138c76062eca111f054fd35945bb.png
@@ -18395,7 +18395,7 @@ RS|INVESTIGATION DISCOVERY ID ⱽᴵᴾ ᴿᴬᵂ|Investigation Discovery Id ᴸ
 RS|GAMETOON ⱽᴵᴾ ᴿᴬᵂ|Gametoon ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b8cb991bba59fada1eec3c6c4f2ab9018339f926.png
 RS|DOX ⱽᴵᴾ ᴿᴬᵂ|Dox ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/dd550736f1fab4e1a0365e03dbe95f8921f5fe57.png
 RS| PARTIZAN TV ⱽᴵᴾ ᴿᴬᵂ|Partizan TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fdf2dea6b2fb20ca88809e0f94f0318f49c585b6.png
-RS|TV ZVEZDA ⱽᴵᴾ ᴿᴬᵂ|TV Zvezda ᴸⁱᵛᵉ|
+RS|TV ZVEZDA ⱽᴵᴾ ᴿᴬᵂ|TV Zvezda ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_zvezda/tv_zvezda.png
 RS|LFCTV ⱽᴵᴾ ᴿᴬᵂ|Lfctv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b4dd715020a5a473a1a4c5729062c197fb337473.png
 RS|EURO CINEMA 1 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (1) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f0858cd06617fbbb8e4c52e72c8371dc1db25699.png
 RS|EURO CINEMA 2 ⱽᴵᴾ ᴿᴬᵂ|Euro Cinema (2) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2ff2c1dda9e23f5c7b30d1a16165e205b5e1cda8.png
@@ -18406,7 +18406,7 @@ RS|SLOBODNA TV ⱽᴵᴾ ᴿᴬᵂ|Slobodna TV ᴸⁱᵛᵉ|https://raw.githubus
 RS|KUVO TV ⱽᴵᴾ ᴿᴬᵂ|Kuvo TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a8bfab69680d95796f08e299df63ac36a0eec857.png
 RS|EKO VIZIJA ⱽᴵᴾ ᴿᴬᵂ|Eko Vizija ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/14ecac73208c5fdb442f7e61f5d9b7ddd1d8dab8.png
 RS|DISNEY CHANNEL|Disney Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/925a988cfbf8e4817b9f00480024dc4dd68ab844.png
-RS|PAROVI LIVE|Parovi Live ᴸⁱᵛᵉ|
+RS|PAROVI LIVE|Parovi Live ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/parovi/parovi.png
 RS|NGC HD|Ngc HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5029beb9f887683cff0300f62c9571395253ce3e.png
 RS|DOCU BOX|Docu Box ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0c373fec0b6587103c6ef8ea8502f7bce3a17f02.png
 RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9c7d3bc40fe9dd7addf80087fa4b2420f3e343f8.png
@@ -18477,7 +18477,7 @@ TUBI|WANTED:DEAD OR ALIVE RAW|Wanted:dead Or Alive ᴸⁱᵛᵉ|https://raw.gith
 TUBI|UNIQUE LIVES RAW|Unique Lives ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2def2fb1dcde744b05ba56ca517f9de60820c1ea.png
 TUBI|LIVING WITH EVIL RAW|Living With Evil ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/living_with_evil.png
 TUBI|LOVE MARRIAGE RAW|Love Marriage ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/227339c9db16fe2f51052012853e18668ee7e488.png
-TUBI|HAGERRY RAW|Hagerry ᴸⁱᵛᵉ|
+TUBI|HAGERRY RAW|Hagerry ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/hagerty/hagerty.png
 TUBI|FBI FILES RAW|Fbi Files ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/45dfdb8691eb41bbe1e8d50924efa9ad434a9e19.png
 TUBI|MRBEAST RAW|Mrbeast ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0b02ba5bc920ef9f1878c0da6a7c299a4379c96.png
 TUBI|NASCAR RAW|Nascar ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nascar.png
@@ -18651,7 +18651,7 @@ PRIME|AMAZON LIVE RAW|Amazon Live ᴸⁱᵛᵉ|https://raw.githubusercontent.com
 PRIME|AMERICAN GLADIATORS RAW|American Gladiators ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4e3601cb49d4f0bebba1fe9b819e32d9d47e2714.png
 PRIME|BACHELOR NATION RAW|Bachelor Nation ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/the_bachelor.png
 PRIME|BBC FOOD RAW|Bbc Food ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/07ff09809e5f087d7d6716da78c791c9b5f93900.png
-PRIME|BLACK LOVE RAW|Black Love ᴸⁱᵛᵉ|
+PRIME|BLACK LOVE RAW|Black Love ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/blk_prime/blk_prime.png
 PRIME|CARTOON REWIND RAW|Cartoon Rewind ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/film_reel.png
 PRIME|CHAOS ON CAM BY A E RAW|Chaos On Cam By A E ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/chaos_on_cam.png
 PRIME|CNN EXPRESS RAW|Cnn Express ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1559c1ae44826c5f50e4c60b9fbab940c144db48.png
@@ -18666,7 +18666,7 @@ PRIME|ESPN OCHO RAW|Espn Ocho ᴸⁱᵛᵉ|https://raw.githubusercontent.com/bab
 PRIME|EXTREME EXPEDITIONS RAW|Extreme Expeditions ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wilderness.png
 PRIME|EXTREME JOBS BY LIONSGATE RAW|Extreme Jobs By Lionsgate ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8d004782eeda5440ed21a0af6b8d0905a22adaf2.png
 PRIME|EXTREM LIVNG RAW|Extrem Livng ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wilderness.png
-PRIME|FILMRISE BLACK TV RAW|Filmrise Black TV ᴸⁱᵛᵉ|
+PRIME|FILMRISE BLACK TV RAW|Filmrise Black TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/filmrise/filmrise.png
 PRIME|FUNNY FAVORITES RAW|Funny Favorites ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/comedy_masks.png
 PRIME|HI YAH RAW|Hi Yah ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/57991c947ba4239d19953927b885e84c5e753137.png
 PRIME|HISTORY UNDISCOVERED RAW|History Undiscovered ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/history_mysteries.png
@@ -18931,7 +18931,7 @@ SKY:DE|SKY SPORT BUNDESLIGA 7 FHD|https://raw.githubusercontent.com/babo20094-rg
 SKY:DE|SKY SPORT BUNDESLIGA 8 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_8.png
 SKY:DE|SKY SPORT BUNDESLIGA 9 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_9.png
 SKY:DE|SKY SPORT BUNDESLIGA 10 FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_sport/sky_sport_bundesliga_10.png
-SKY:DE|DAZN Lacrosse TV|
+SKY:DE|DAZN Lacrosse TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/dazn_generic/dazn_generic.png
 SKY:DE|SKY BUNDESLIGA 6 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_bundesliga/sky_bundesliga_6.png
 
 ##### PLAYLIST-KATEGORIE-TRENNER (aus Playlist, keine echten Sender - nur Platzhaltertext statt "Keine Information") #####

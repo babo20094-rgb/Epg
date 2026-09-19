@@ -4347,3 +4347,45 @@ bestimmte wiederkehrende Log-Zeilenmuster projektweit ein-/auszublenden
 (`pytest`) gar nicht importiert wird (die Tests patchen nur einzelne
 `quellen.<modul>.requests.get`), sonst haette die stdout-Umleitung auch
 die Testausgabe gefiltert.
+
+## RS|PINK RED HD / RS|RED TV: echte Programmdaten ueber epgshare01.online gefunden (September 2026)
+
+Nutzer meldete, `RS|PINK RED HD` zeige keine echten Programmdaten,
+lieferte als Beweis einen `.mht`-Browser-Snapshot von mojtv.hr
+("Red TV", 19.09.2026) mit echten Sendungstiteln/-zeiten.
+
+**mojtv.hr selbst weiterhin nicht nutzbar:** Live-Test bestaetigte den
+bereits dokumentierten Cloudflare-Block (HTTP 403 auf den exakten
+Snapshot-Pfad `mojtv.hr/m2/tv-program/kanal.aspx?...`) - der Snapshot
+funktioniert nur, weil er ueber einen echten Browser gespeichert wurde,
+nicht automatisierbar fuer den Workflow.
+
+**Tatsaechliche Loesung:** `epg_ripper_RS1.xml.gz` (epgshare01.online,
+bereits als `open_epg_epg.py`-Whitelist-Quelle fuer 18 andere RS-Sender
+im Einsatz) enthaelt den gesuchten Sender unter ZWEI separaten IDs -
+"RED TV (Pink 2 HD)" (`RED.TV.(Pink.2.HD).rs`, 45 Sendungen) und "Red
+TV" (`Red.TV.rs`, 42 Sendungen). Live abgeglichen: Sendungstitel/-zeiten
+stimmen exakt mit dem Nutzer-Snapshot ueberein ("Whatzuuuuup", "Osveta",
+"Elita Pregled dana", "Indijana Dzons i poslednji krstaski pohod", ...).
+Beide Whitelist-Eintraege in `open_epg_epg.py` ergaenzt:
+`"PINK RED HD" -> ("RS", "RED.TV.(Pink.2.HD).rs")` und
+`"RED TV" -> ("RS", "Red.TV.rs")`. "RS|RED TV ⱽᴵᴾ ᴿᴬᵂ" normalisiert auf
+denselben Schluessel wie "RED TV" (VIP/RAW-Suffix wird von
+`normalisiere_sendername()` entfernt) und braucht daher keinen eigenen
+Eintrag - live verifiziert, matcht ebenfalls auf `Red.TV.rs`.
+
+`MO|RED TV` (Montenegro, andere Land-Kaskade/Telemach) bewusst NICHT
+angefasst - `open_epg_epg.py` hat aktuell keine `_LAND_URL` fuer MO,
+und ob der Sender dort bereits ueber Telemach echte Daten bekommt, war
+aus der Entwickler-Sandbox nicht pruefbar (Telemach dort nicht
+erreichbar, siehe frueherer Abschnitt zu diesem Thema).
+
+**Lehre:** Ein vom Nutzer mitgebrachter Browser-Snapshot einer
+blockierten Seite beweist zuverlaessig, DASS es echte Programmdaten
+gibt - ersetzt aber nicht die Suche nach einer tatsaechlich
+automatisierbaren Quelle. Bei einem RS-Sender ohne Daten immer zuerst
+die bereits vorhandenen `epgshare01.online`-Sammel-Dateien (RS1/BA1)
+direkt nach abweichenden Anzeigenamen/Marken-Assoziationen durchsuchen
+(hier: "Pink 2 HD" als alternativer Markenname fuer denselben Sender),
+bevor eine neue Quelle gesucht oder ein Sender als "nicht abdeckbar"
+abgehakt wird.

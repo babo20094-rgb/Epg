@@ -3247,6 +3247,17 @@ GEDROSSELTE_QUELLE_WORKER = 6
 # PARALLEL_WORKER zurueckstellen.
 ERHOEHTE_QUELLE_WORKER = 16
 
+# TVPassport blieb im Lauf vom 18.09.2026 (Run #864, 16 Worker) weiterhin
+# OHNE jeden 429/503-Fehler (siehe Rate-Limit-/Fehler-Uebersicht im Log:
+# nur hoerzu.de/tvmovie.de gelistet) und war mit 249.6s/1070 Sendern
+# weiterhin der laengste Block - noch mehr Luft nach oben. Eigene,
+# hoehere Konstante NUR fuer TVPassport (statt ERHOEHTE_QUELLE_WORKER
+# weiter global anzuheben, das wuerde ungewollt auch mtel.ba mit
+# erhoehen, das bei 16 Workern bereits gut laeuft und nicht angefasst
+# werden sollte). Bei neuen 429/503-Fehlern im Log wieder auf
+# ERHOEHTE_QUELLE_WORKER zurueckstellen.
+TVPASSPORT_WORKER = 24
+
 # Sammelt fuer jede benannte Quelle (siehe _parallel_abrufen()/
 # _zeitmessung() Aufrufe unten) die gebrauchte Zeit in Sekunden und die
 # Anzahl verarbeiteter Sender - am Ende des Laufs als kurze Tabelle
@@ -3846,7 +3857,7 @@ def _tvpassport_abrufen(daten):
 
 
 _tvpassport_ergebnisse = _parallel_abrufen(
-    tvpassport_sender, _tvpassport_abrufen, worker=ERHOEHTE_QUELLE_WORKER, name="TVPassport"
+    tvpassport_sender, _tvpassport_abrufen, worker=TVPASSPORT_WORKER, name="TVPassport"
 )
 
 for _idx, daten in enumerate(tvpassport_sender):

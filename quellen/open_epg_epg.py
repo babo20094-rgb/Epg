@@ -134,6 +134,19 @@ _WHITELIST = {
     normalisiere_sendername("Hit TV"): ("BA", "RTV.HIT.ba"),
     normalisiere_sendername("Hit Brcko"): ("BA", "RTV.HIT.ba"),
     normalisiere_sendername("Hit Televizija Brcko"): ("BA", "RTV.HIT.ba"),
+    # "RED TV"/"PINK RED HD" (RS) - September 2026 geprueft: Nutzer
+    # lieferte einen echten mojtv.hr-Snapshot als Beweis fuer vorhandene
+    # Programmdaten (mojtv.hr selbst als Live-Quelle nicht nutzbar, siehe
+    # docs/HISTORIE.md - Cloudflare-Block). In epg_ripper_RS1.xml.gz
+    # (epgshare01.online) gefunden: "RED TV (Pink 2 HD)" (58 Sendungen)
+    # und separat "Red TV" (42 Sendungen) - Sendungstitel/-zeiten decken
+    # sich exakt mit dem Nutzer-Snapshot (u.a. "Whatzuuuuup", "Osveta",
+    # "Elita Pregled dana", "Indijana Dzons i poslednji krstaski pohod").
+    # "RED TV VIP RAW" normalisiert auf denselben Schluessel wie "RED TV"
+    # (VIP/RAW-Suffix wird von normalisiere_sendername() entfernt),
+    # braucht daher keinen eigenen Eintrag.
+    normalisiere_sendername("PINK RED HD"): ("RS", "RED.TV.(Pink.2.HD).rs"),
+    normalisiere_sendername("RED TV"): ("RS", "Red.TV.rs"),
 }
 
 _datei_cache = {}
