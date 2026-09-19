@@ -4573,3 +4573,18 @@ Al-Jazeera-Live-Stream, die Zuordnung passt also inhaltlich. Bewusste
 inhaltliche Substitution (nicht dieselbe Sendung wie ein etwaiges
 lokalisiertes Original), aber besser als ein reiner "ᴸⁱᵛᵉ"-Platzhalter.
 Nur EIN Freeview-Abruf pro Lauf (gecached).
+
+## BA|ATV BANJA LUKA: echte Programmdaten via Telemach-Alias gefunden (September 2026)
+
+Korrektur/Nachtrag zu einem frueheren Eintrag ("BA|ATV BANJA LUKA...
+bei keiner integrierten Quelle gefunden"): Nutzeranfrage deckte auf,
+dass der Sender bei Telemach existiert, nur nicht unter dem
+sender.txt-Namen "ATV Banja Luka" auffindbar war. Der landesweite
+bosnische Sender ATV (Alternativna televizija, Hauptsitz Banja Luka)
+ist bei Telemach als "Alternativna TV (BIH)" (site_id 32) gelistet -
+zu unterschiedlich fuer den bestehenden difflib-Cutoff. Neuer fester
+Alias in `quellen/telemach_epg.py` (`_BEKANNTE_ALIASE`, analog zum
+bestehenden RTCG->TVCG-Alias): "ATV Banja Luka" -> "Alternativna TV".
+Verifiziert: 70 echte Sendungen/2 Tage, u.a. "ATV vijesti" bestaetigt
+den richtigen Kanal. Kein Aenderungsbedarf in generate_epg.py - laeuft
+automatisch ueber die bestehende BA-Telemach-Kaskade.

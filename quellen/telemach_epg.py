@@ -54,6 +54,18 @@ _RTCG_ALIAS_MUSTER = re.compile(r"^RTV?CG\b", re.IGNORECASE)
 def _rtcg_alias(kanalname):
     return _RTCG_ALIAS_MUSTER.sub("TVCG", kanalname or "", count=1)
 
+
+# "BA|ATV BANJA LUKA" (sender.txt) ist der landesweite bosnische Sender
+# ATV (Alternativna televizija, Hauptsitz Banja Luka) - bei Telemach
+# aber nur unter dem offiziellen Vollnamen "Alternativna TV (BIH)"
+# gefuehrt, nicht unter "ATV Banja Luka" (zu unterschiedlich fuer den
+# Fuzzy-Abgleich). Bekannte, bestaetigte Zuordnung (September 2026,
+# Nutzeranfrage - echte Sendungen inkl. "ATV vijesti" verifiziert),
+# analog zum RTCG-Alias oben.
+_BEKANNTE_ALIASE = {
+    normalisiere_sendername("ATV Banja Luka"): normalisiere_sendername("Alternativna TV"),
+}
+
 BASIC_TOKEN = (
     "MjdlMTFmNWUtODhlMi00OGU0LWJkNDItOGUxNWFiYmM2NmY1OjEyejJzMXJ3bXdhZmsxMGNkdzl0cjloOWFjYjZwdjJoZDhscXZ0aGc="
 )
@@ -189,6 +201,10 @@ def telemach_kanal_finden(kanalname, country="ba"):
     treffer = kanal_index_suchen(kanalname, name_index, kern_index)
     if treffer is None and _RTCG_ALIAS_MUSTER.match((kanalname or "").strip()):
         treffer = kanal_index_suchen(_rtcg_alias(kanalname), name_index, kern_index)
+    if treffer is None:
+        alias_schluessel = _BEKANNTE_ALIASE.get(normalisiere_sendername(kanalname))
+        if alias_schluessel and alias_schluessel in name_index:
+            treffer = name_index[alias_schluessel]
     return treffer
 
 
