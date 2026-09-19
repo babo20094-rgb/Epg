@@ -61,6 +61,7 @@ from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
 from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
 from quellen.rtvhb_epg import rtvhb_kanal_finden, rtvhb_hole_programme
+from quellen.makkahlive_epg import makkahlive_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
 from quellen.a1_epg import a1_kanal_finden, a1_hole_programme
 from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
@@ -381,6 +382,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "blagovesti": ["blagovesti_intervalle"],
     "rtvbn": ["rtvbn_intervalle"],
     "aljazeera_en": ["aljazeera_en_intervalle"],
+    "makkahlive": ["makkahlive_intervalle"],
 }
 
 
@@ -4960,6 +4962,49 @@ for daten in sender_daten:
 
     if programme:
         _echte_quelle_zaehlen("Al Jazeera English (Freeview)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MAKKAH LIVE (BA|MEKA TV): ALLERENGSTER, fest verdrahteter Fallback
+# NUR fuer diesen einen 24/7-Dauerstream-Sender (siehe
+# makkahlive_epg.py - Nutzeranfrage September 2026, Screenshot bestaetigt
+# eine mehrtaegige Gebetszeiten-Tabelle auf makkahlive.net). Kein
+# klassisches EPG-Matching noetig (nur EIN Kanal), Pseudo-Sendeplan aus
+# echten taeglichen Gebetszeiten (Sabah/Podne/Ikindija/Akšam/Jacija
+# namaz + Fuellbloecke "Uživo prijenos iz Harama"). Wird NUR EINMAL
+# pro Lauf abgerufen (gecached).
+# ==========================================================
+_makkahlive_programme_cache = None
+
+
+def _makkahlive_programme_holen():
+    global _makkahlive_programme_cache
+    if _makkahlive_programme_cache is not None:
+        return _makkahlive_programme_cache
+    try:
+        programme = makkahlive_hole_programme(TELEMACH_TAGE)
+    except Exception:
+        programme = []
+    _makkahlive_programme_cache = programme
+    return programme
+
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() != "BA":
+        continue
+    if normalisiere_sendername(daten["sender"]) != normalisiere_sendername("Meka TV"):
+        continue
+
+    daten["makkahlive"] = True
+    programme = _makkahlive_programme_holen()
+    daten["makkahlive_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Makkah Live (Gebetszeiten)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

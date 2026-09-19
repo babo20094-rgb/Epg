@@ -4588,3 +4588,41 @@ bestehenden RTCG->TVCG-Alias): "ATV Banja Luka" -> "Alternativna TV".
 Verifiziert: 70 echte Sendungen/2 Tage, u.a. "ATV vijesti" bestaetigt
 den richtigen Kanal. Kein Aenderungsbedarf in generate_epg.py - laeuft
 automatisch ueber die bestehende BA-Telemach-Kaskade.
+
+## BA|MEKA TV: Pseudo-Sendeplan aus echten Gebetszeiten (makkahlive.net) (September 2026)
+
+Nutzeranfrage: "BA|MEKA TV" ist ein 24/7-Dauerstream aus der Grossen
+Moschee in Mekka - kein klassisches Sendungsformat, daher zunaechst
+als "keine echten Programmdaten moeglich" eingeschaetzt
+(makkahlive.net/ selbst zeigt nur den Livestream + eine "Prayer
+Times"-Unterseite, deren Zeiten beim ersten Check leer schienen).
+Nutzer widersprach mit Screenshot: die Unterseite
+`https://makkahlive.net/en/prayer-times/saudi-arabia/makkah` zeigt
+tatsaechlich eine mehrtaegige/monatliche Tabelle mit allen sechs
+taeglichen Zeiten (Fajr/Sunrise/Dhuhr/Asr/Maghrib/Isha) - beim
+direkten Abruf per requests waren die Zeiten nur deshalb nicht per
+einfachem Text-Regex sichtbar, weil sie NICHT in sichtbarem HTML-Text
+stehen, sondern als escapter JSON-String im Next.js-RSC-Seiten-Payload
+eingebettet sind (kompletter Jahreskalender, 365 Tage, Umm-al-Qura-
+Methode) - mit dem richtigen Regex-Muster (escapte Anfuehrungszeichen
+`\":\"`) sauber extrahierbar, verifiziert (365 Tage geparst).
+
+Neues Modul `quellen/makkahlive_epg.py`: baut aus den fuenf taeglichen
+Gebetszeiten (Sunrise zaehlt nicht als Gebet) einen luckenlosen
+Pseudo-Sendeplan - je Gebetszeit ein kurzer "<Name> namaz"-Block
+(NAMAZ_DAUER = 20 Minuten, Schaetzwert, echte Sendedauer nicht exakt
+bekannt), dazwischen durchgehend "Uživo prijenos iz Harama" als
+Fuellblock (keine Luecken, kein "Keine Information"-Platzhalter mehr).
+Als ALLERENGSTER, fest verdrahteter Fallback NUR fuer "BA|MEKA TV" in
+generate_epg.py eingehaengt (nach dem Al-Jazeera-English-Block), EIN
+HTTP-Abruf pro Lauf (gecached). Bewusst inhaltlich eine andere Art
+Quelle als die uebrigen TV-EPG-Quellen (Gebetszeiten statt echter
+Sendungstitel), aber fuer einen 24/7-Gebetsstream die naheliegende und
+tatsaechlich zutreffende Darstellung.
+
+Nachtrag (Nutzerfeedback direkt danach): der HTTP-Abruf selbst laedt
+zwar zwangslaeufig immer die komplette Jahrestabelle mit (die Seite
+bietet kein Tages-/Bereichs-Endpoint an), `_jahresdaten_holen()`
+uebernimmt aus dem Regex-Ergebnis aber jetzt NUR noch die tatsaechlich
+benoetigten ~5 Tage (heute -1 bis heute +tage) in den Cache, alle
+anderen ~360 Tage werden sofort verworfen statt unnoetig vorgehalten.
