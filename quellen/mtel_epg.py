@@ -33,6 +33,16 @@ from quellen import _http
 from epg_lib import normalisiere_sendername
 
 CHANNELS_URL = "https://mtel.ba/hybris/ecommerce/b2c/v1/products/channels/search"
+
+# "BA|SIMIC TV" (sender.txt) heisst bei Mtel "TV Simic" - die beiden
+# normalisierten Schluessel ("SIMICTV" vs. "TVSIMIC", vertauschte
+# Wortreihenfolge) liegen mit 0.714 knapp UNTER dem 0.72-Fuzzy-Cutoff,
+# werden daher OHNE Alias nicht automatisch gefunden (September 2026,
+# Nutzeranfrage). Kein generischer Fix am Cutoff noetig, da nur dieser
+# eine Sender betroffen ist.
+_BEKANNTE_ALIASE = {
+    normalisiere_sendername("SIMIC TV"): normalisiere_sendername("TV Simic"),
+}
 EPG_URL = "https://mtel.ba/hybris/ecommerce/b2c/v1/products/channels/epg"
 
 REQUEST_TIMEOUT_SEKUNDEN = 20
@@ -146,6 +156,7 @@ def mtel_kanal_finden(kanalname, platform="iptv"):
     ziel_schluessel = normalisiere_sendername(kanalname)
     if not ziel_schluessel:
         return None
+    ziel_schluessel = _BEKANNTE_ALIASE.get(ziel_schluessel, ziel_schluessel)
 
     name_index = {}
     for kanal in kanaele:

@@ -138,6 +138,23 @@ _WHITELIST = {
     # gefunden (168 Sendungen), bei keiner anderen Quelle abgedeckt.
     normalisiere_sendername("N1 BH"): ("BA", "N1.HD.(BH)/(BIH).ba"),
     normalisiere_sendername("N1 BH HD"): ("BA", "N1.HD.(BH)/(BIH).ba"),
+    # "BA|N1 ⱽᴵᴾ ᴿᴬᵂ" normalisiert nur auf "N1" (kein "BH" im Rohnamen)
+    # - eigener Eintrag noetig, da der obige Schluessel "N1 BH" nicht
+    # trifft. Dieselbe Quelle/derselbe Kanal wie oben.
+    normalisiere_sendername("N1"): ("BA", "N1.HD.(BH)/(BIH).ba"),
+    # "BA|TV SA" (Nutzeranfrage September 2026) = Televizija Sarajevo -
+    # in derselben BA1-Datei gefunden (141 Sendungen, u.a. "Muzika na
+    # TVSA" bestaetigt den Sender), bei keiner anderen Quelle
+    # abgedeckt (tvprogramdanas.net hat einen "tvsa"-Slug, aber ohne
+    # jede Sendung).
+    normalisiere_sendername("TV SA"): ("BA", "TV.Sarajevo.HD.(BH).ba"),
+    # "BA|RTV PODRINJE" (Nutzeranfrage September 2026) - in derselben
+    # RS1-Datei als "TV Podrinje" gefunden (68 Sendungen, echte
+    # vielfaeltige Titel), bei keiner anderen Quelle abgedeckt. (Der
+    # ebenfalls in RS1 gefundene Kanal "TV Drina" liefert dagegen NUR
+    # den Sendernamen selbst als Titel, also keine echten Sendungen -
+    # bewusst NICHT fuer "BA|GLAS DRINE" verwendet.)
+    normalisiere_sendername("RTV PODRINJE"): ("RS", "TV.Podrinje.rs"),
     # "Hayat 2" (echte Sendung "7plus", Hayat-TV-Talkshow) = Hayat Plus.
     normalisiere_sendername("Hayat Plus"): ("BA", "Hayat.2.ba"),
     # "RTV HIT" (Inhalt bestaetigt Brcko-Bezug) = Hit TV/Hit Brcko -

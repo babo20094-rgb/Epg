@@ -4453,3 +4453,54 @@ in der URL ist ein starkes Warnsignal fuer Session-Bindung - immer
 explizit verifizieren (mehrere Snapshots mit unterschiedlichen Werten
 vergleichen, oder ein Test-Request ohne Token), bevor eine Quelle als
 automatisierbar eingestuft wird.
+
+## BA|N1, BA|TV SA, BA|RTV PODRINJE, BA|SIMIC TV: echte Programmdaten gefunden (September 2026)
+
+Nutzeranfragen zu mehreren BA-Sendern ohne echte Programmdaten geprueft:
+
+- **BA|N1 / BA|N1 ⱽᴵᴾ ᴿᴬᵂ**: in epg_ripper_BA1.xml.gz (epgshare01.online)
+  als "N1 HD (BH)/(BIH)" gefunden, 168 Sendungen. Zwei Whitelist-
+  Eintraege in `open_epg_epg.py` noetig ("N1 BH"/"N1 BH HD" UND separat
+  "N1" ohne "BH" - "N1 ⱽᴵᴾ ᴿᴬᵂ" normalisiert auf den blossen Rohnamen
+  ohne "BH").
+- **BA|TV SA**: = Televizija Sarajevo, in derselben BA1-Datei gefunden
+  (141 Sendungen, u.a. "Muzika na TVSA" bestaetigt den Sender).
+  tvprogramdanas.net hat zwar einen "tvsa"-Slug, aber ohne jede
+  Sendung (leerer Programmblock) - epgshare01.online BA1 ist hier die
+  einzige echte Quelle.
+- **BA|RTV PODRINJE**: in epg_ripper_RS1.xml.gz als "TV Podrinje"
+  gefunden (68 Sendungen, echte vielfaeltige Titel wie "Film",
+  "Kuhinjica", "Crtani film", "V.O.A"). Der ebenfalls in RS1 gefundene
+  Kanal "TV Drina" (moeglicher Kandidat fuer "BA|GLAS DRINE") liefert
+  dagegen NUR den Sendernamen selbst als Titel bei jeder Sendung, also
+  keine echten Sendungsdaten - bewusst NICHT verwendet, "BA|GLAS DRINE"
+  bleibt Platzhalter.
+- **BA|SIMIC TV (+ ⱽᴵᴾ ᴿᴬᵂ)**: bei mtel.ba als "TV Simic" gefunden
+  (32 Sendungen), wurde aber vom bestehenden Fuzzy-Abgleich NICHT
+  automatisch gefunden - die normalisierten Schluessel "SIMICTV" vs.
+  "TVSIMIC" (vertauschte Wortreihenfolge) liegen mit einer difflib-
+  Aehnlichkeit von 0.714 knapp UNTER dem 0.72-Cutoff. Fix: expliziter
+  Alias-Eintrag (`_BEKANNTE_ALIASE`) in `mtel_epg.py`, analog zum
+  bereits bestehenden Alias-Muster in `rakuten_tv_epg.py` - kein
+  generischer Cutoff-Eingriff, da nur dieser eine Sender betroffen war.
+
+**Weitere gepruefte Sender ohne Aenderung:**
+- **BA|RTV USK (+ ⱽᴵᴾ ᴿᴬᵂ)** und **BA|RTV SLON (+ ⱽᴵᴾ ᴿᴬᵂ)**: matchen
+  bereits automatisch exakt (tvprogramdanas/mtel/klix bzw.
+  tvprogramdanas), keine Code-Aenderung noetig. RTV USK zeigt aktuell
+  trotzdem nur Platzhalter, weil die gefundenen Kanaele bei
+  tvprogramdanas.net UND klix.ba zwar existieren, aber momentan mit
+  leerem Sendeplan hinterlegt sind (verifiziert: Seite/API antwortet,
+  aber liefert 0 Sendungen) - kein Bug, echte Datenluecke bei der
+  Quelle selbst.
+- **BA|ATV BANJA LUKA**, **BA|K3 PRNJAVOR**: bei keiner integrierten
+  Quelle (epgshare01.online BA1/RS1, tvprogramdanas, tvprofil.net,
+  tvprogramrs, mtel, klix, telemach) gefunden, bleiben Platzhalter.
+- **BA|K3 (+ ⱽᴵᴾ ᴿᴬᵂ)**: in RS1 als "K3" gefunden (67 Sendungen, echte
+  Titel), ABER bewusst NICHT eingebaut: der normalisierte Schluessel
+  "K3" ist identisch mit dem von "MK|K3" (eigener, unabhaengiger
+  mazedonischer Sender), und `open_epg_kanal_finden()` prueft rein
+  namensbasiert OHNE Landbezug (wie bei allen anderen Whitelist-
+  Eintraegen dort) - ein Eintrag wuerde die bosnische K3-Daten faelschlich
+  auch auf "MK|K3" anwenden. Offen, Entscheidung des Nutzers noch
+  ausstehend.
