@@ -5127,3 +5127,31 @@ einem festen Einzel-Slug auf einen Sprachpfad-Index umgebaut (`_SPRACHPFADE
 Neuer vierter HR-Kaskaden-Schritt in `generate_epg.py` (nach A1/
 MojMaxTV/SportKlub(HR), vor Siol). Gilt automatisch fuer JEDE
 "HR|...PICKBOX TV..."-Zeile, kein neues sender.txt-Praefix noetig.
+
+## BA|TV DUGAPLUS: neue Quelle tvdugaplus.com, fuenfter BA-Kaskaden-Schritt (September 2026)
+
+Nutzeranfrage: Prüfung, ob `https://www.tvdugaplus.com/o-nama/
+programska-sema/` echte Programmdaten fuer "BA|TV DUGAPLUS" liefert.
+Besonderheit gegenueber allen anderen echten Quellen in diesem Projekt:
+die Seite liefert KEINEN tagesaktuellen Sendeplan, sondern einen
+STATISCHEN, woechentlich identisch wiederkehrenden Rahmenplan (ein
+Abschnitt pro Wochentag "Ponedeljak".."Nedelja", derselbe Plan gilt
+jede Woche). Die meisten Zeitbloecke sind ohnehin nur generisches
+"Muzički program" (Musikprogramm) ohne eigenen Titel - nur eine
+Handvoll fester Sendungen pro Tag (z.B. "Jutarnji program", "Izbor za
+hit dana") haben einen eigenen Namen. Nutzer wollte es trotz des
+geringen Mehrwerts gegenueber der generischen Platzhalter-EPG
+angebunden haben.
+
+Neue Quelle `quellen/tvdugaplus_epg.py` (`tvdugaplus_kanal_finden()`/
+`tvdugaplus_hole_programme()`): laedt den Wochenplan EINMAL pro Lauf,
+parst ihn nach Wochentag (Ueberschrift `<h4>`) und Zeit+Titel
+(`<p>HH:MM Titel</p>`), und PROJIZIERT ihn dann auf die tatsaechlich
+angefragten Kalendertage (`datetime.weekday()` -> passender
+Wochentags-Abschnitt). Einfacher Praefix-Vergleich auf "TV DUGA(-)
+PLUS" nach VIP/RAW/HD/FHD-Entfernung, kein Fuzzy-Abgleich noetig (nur
+ein Kanal). Als fuenfter BA-Kaskaden-Schritt in `generate_epg.py`
+eingehaengt (nach Telemach/mtel.ba/klix.ba/rtv-hb.com, gleiches
+Luecken-Fuellungs-Prinzip ueber `_telemach_ohne_ueberlappung()`).
+Lokal verifiziert: 25 Eintraege im 2-Tage-Fenster, korrekter
+Mitternachts-Uebergang zwischen Wochentagen.

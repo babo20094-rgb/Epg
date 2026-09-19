@@ -63,6 +63,7 @@ from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
 from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
 from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
 from quellen.rtvhb_epg import rtvhb_kanal_finden, rtvhb_hole_programme
+from quellen.tvdugaplus_epg import tvdugaplus_kanal_finden, tvdugaplus_hole_programme
 from quellen.makkahlive_epg import makkahlive_hole_programme
 from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
 from quellen.a1_epg import a1_kanal_finden, a1_hole_programme
@@ -3398,6 +3399,7 @@ TELEMACH_TAGE = 3
 MTEL_TAGE = 2
 KLIX_TAGE = 3
 RTVHB_TAGE = 3
+TVDUGAPLUS_TAGE = 2
 SKY_TAGE = 2
 MAGENTA_TAGE = 2
 ARENA_TAGE = 2
@@ -3619,6 +3621,19 @@ def _rtvhb_abrufen(daten):
     return []
 
 
+def _tvdugaplus_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        slug = tvdugaplus_kanal_finden(suchname)
+        if slug is not None:
+            return tvdugaplus_hole_programme(slug, TVDUGAPLUS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
 # Alle drei BA-Quellen (Telemach/mtel.ba/klix.ba) werden fuer JEDEN
 # Sender IMMER der Reihe nach versucht (nicht mehr abgebrochen, sobald
 # die erste Quelle etwas liefert) - eine Quelle mit nur TEILWEISER
@@ -3638,6 +3653,7 @@ _mtel_ergebnisse = _parallel_abrufen(
 )
 _klix_ergebnisse = _parallel_abrufen(telemach_sender, _klix_abrufen, name="klix.ba")
 _rtvhb_ergebnisse = _parallel_abrufen(telemach_sender, _rtvhb_abrufen, name="rtv-hb.com")
+_tvdugaplus_ergebnisse = _parallel_abrufen(telemach_sender, _tvdugaplus_abrufen, name="tvdugaplus.com")
 
 for _idx, daten in enumerate(telemach_sender):
     _telemach_geschrieben_intervalle = []
@@ -3711,6 +3727,25 @@ for _idx, daten in enumerate(telemach_sender):
             neue_programme = _telemach_ohne_ueberlappung(rtvhb_programme)
             if neue_programme:
                 _echte_quelle_zaehlen("rtv-hb.com")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+        # tvdugaplus.com als fuenfter Versuch fuer BA-Sender (siehe
+        # tvdugaplus_epg.py) - nur ein einziger Kanal ("TV Dugaplus"),
+        # liefert einen statischen, woechentlich wiederkehrenden
+        # Rahmenplan (kein tagesaktueller Sendeplan wie bei den
+        # uebrigen Quellen, siehe Modul-Docstring). Wird immer
+        # versucht, schreibt aber nur die noch unbedeckten Zeitfenster.
+        tvdugaplus_programme = _tvdugaplus_ergebnisse[_idx]
+
+        daten["tvdugaplus_intervalle"] = [(p["start"], p["stop"]) for p in tvdugaplus_programme]
+
+        if tvdugaplus_programme:
+            neue_programme = _telemach_ohne_ueberlappung(tvdugaplus_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("tvdugaplus.com")
                 _schreibe_echte_programme(daten, neue_programme)
                 _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
         else:
