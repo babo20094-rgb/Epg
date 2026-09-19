@@ -114,7 +114,7 @@ def _wochenplan_laden():
         response = _http.mit_retry(requests.get, BASIS_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
 
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(response.text, "lxml")
         container = soup.select_one(".entry-content")
 
         plan = {}

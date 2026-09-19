@@ -102,6 +102,8 @@ from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 from quellen.scifi_epg import scifi_kanal_finden, scifi_hole_programme
 from quellen.natgeo_epg import natgeo_kanal_finden, natgeo_hole_programme
 from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
+from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
+from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
@@ -4082,6 +4084,349 @@ def _gruppe_tvpassport():
 _zukunft_tvpassport = _HINTERGRUND_POOL.submit(_gruppe_tvpassport)
 
 # ==========================================================
+# DESWIRD / PLUTOTV / TVMOVIE / HOERZU / JOYN-VOD: automatischer
+# Abgleich fuer alle DE-Sender (siehe deswird_epg.py, plutotv_epg.py,
+# tvmovie_epg.py, hoerzu_epg.py, joyn_vod_epg.py). Kein eigenes
+# Praefix noetig, einzige automatischen Quellen fuer DE - deswird.org
+# als primaere Quelle (beste Abdeckung/Qualitaet, mehrere Tage im
+# Voraus), Pluto TV als zweiter Versuch, tvmovie.de als dritter
+# Versuch, hoerzu.de als vierter Versuch, Joyn-VOD als fuenfter und
+# letzter Versuch, jeweils nur wenn die vorherige(n) Quelle(n) nichts
+# gefunden haben. Ohne jegliche DE-Zeile in sender.txt passiert hier
+# gar nichts.
+# (Samsung TV Plus war frueher hier als fuenfter Versuch eingehaengt -
+# September 2026 dauerhaft entfernt, der Host hat die XMLTV-Datei
+# entfernt, 404 bei jedem Abruf.)
+#
+# WICHTIG (September 2026, Performance-Fix): dieser Block wird bewusst
+# HIER, direkt nach dem TVPassport-Hintergrund-Submit, in den
+# Hintergrund geschickt (statt wie zuvor erst nach der kompletten
+# RS/HR/BA/SI/MK-Laenderkaskade) - er hatte sonst fast keine Zeit mehr,
+# um mit dem sequenziellen Hauptthread zu ueberlappen, und lief real
+# fast komplett zusaetzlich obendrauf statt parallel dazu (siehe
+# docs/HISTORIE.md, Nachtrag zur Parallelisierung).
+# ==========================================================
+
+def _de_kaskade_abrufen(daten):
+    """Fuehrt ALLE Netzwerk-Abrufe der DE-Kaskade (Magenta-myTeamTV bei
+    MAGENTA-SPORT-PPV-Sendern, sonst deswird/PlutoTV/tvmovie/hoerzu/
+    Joyn-VOD/Search.ch/iptv-epg.org) fuer EINEN Sender aus und gibt eine
+    Liste von (Quellenname, bereits ueberlappungsgefilterte Programme)-
+    Tupeln in Ausfuehrungsreihenfolge zurueck - nur fuer Stufen, die
+    tatsaechlich etwas Neues gefunden haben. `daten["<quelle>_intervalle"]`
+    wird wie bisher direkt gesetzt (reiner Lese-/Schreibzugriff auf das
+    EIGENE, sender-spezifische Dict - unproblematisch aus mehreren
+    Threads heraus, siehe unten).
+
+    Das eigentliche Schreiben ins XML (_schreibe_echte_programme()/
+    _echte_quelle_zaehlen(), beide mit Seiteneffekt auf das GEMEINSAME
+    xml_teile/echte_quelle_zaehler) passiert bewusst NICHT hier, sondern
+    sequenziell danach im Hauptthread (siehe _parallel_abrufen()) - sonst
+    koennten mehrere Threads gleichzeitig in xml_teile schreiben."""
+    ergebnisse = []
+
+    # "MAGENTA SPORT PPV N"-Sender ueberspringen deswird.org/PlutoTV/
+    # tvmovie.de/hoerzu.de komplett und gehen direkt zu
+    # myTeamTV (siehe magenta_myteam_epg.py) - deswird.org matcht diese
+    # Sender sonst per unscharfem Abgleich faelschlich auf den voellig
+    # anderen, echten Basis-Kanal "MagentaSport" und liefert dessen
+    # generischen "MagentaSport Programmübersicht"-Platzhaltertext, der
+    # als "echter Treffer" durchgeht und myTeamTV nie zum Zug kommen
+    # laesst (Bug September 2026 behoben).
+    if re.match(r"^MAGENTA\s*SPORT\s*PPV\s*\d+", daten["sender"], re.IGNORECASE):
+        programme = []
+        try:
+            myteam_site_id = magenta_myteam_kanal_finden(daten["sender"])
+            if myteam_site_id is not None:
+                programme = magenta_myteam_hole_programme(myteam_site_id, PLUTOTV_TAGE)
+        except Exception:
+            programme = []
+
+        daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            ergebnisse.append(("Magenta-myTeamTV", programme))
+        return ergebnisse
+
+    # ARD-Regionalsender-Alias: deswird.org/tvmovie.de/hoerzu.de fuehren
+    # WDR/NDR/MDR/SWR/RBB/BR/HR nur als EINEN nationalen Sammelkanal,
+    # nicht die einzelnen sender.txt-Regional-/Studio-Varianten (z.B.
+    # "WDR DORTMUND HD"/"NDR MECKLENBURG-VORPOMMERN HD") - der normale
+    # Namensabgleich fand dafuer nie einen Treffer, obwohl der jeweilige
+    # Sender selbst (nur ohne Regionalfenster) real existiert. Fuer
+    # GENAU diese festen ARD-Kuerzel wird bei fehlendem Direkttreffer
+    # zusaetzlich der blosse Sender-Kern (ohne Regional-/Studioname)
+    # als zweiter Suchbegriff probiert - kein Fehltreffer-Risiko, da nur
+    # dieser feste, kurze Kuerzel-Satz betroffen ist.
+    _ard_regional_treffer = re.match(
+        r"^(WDR|NDR|MDR|SWR|RBB|BR|HR)\b", daten["sender"], re.IGNORECASE
+    )
+    _deswird_suchbegriffe = [daten["sender"]]
+    if _ard_regional_treffer and _ard_regional_treffer.group(0) != daten["sender"]:
+        _deswird_suchbegriffe.append(_ard_regional_treffer.group(1))
+
+    # Alle sieben DE-Quellen werden IMMER der Reihe nach versucht (nicht
+    # mehr abgebrochen, sobald die erste Quelle irgendetwas liefert) -
+    # frueher beendete ein Treffer bei deswird.org die Kaskade komplett,
+    # auch wenn deswird.org nur einen TEIL des Tages abdeckte (z.B. nur
+    # vormittags/nachmittags). Der unbedeckte Rest bekam dann faelschlich
+    # den generischen "<Sender> ᴸⁱᵛᵉ"-Platzhaltertext, obwohl z.B.
+    # hoerzu.de fuer genau dieses Zeitfenster echte Daten gehabt haette
+    # (September 2026 an "SIXX HD" entdeckt: deswird.org deckte nur
+    # 00:00-13:30 und 20:05-24:00 Uhr ab, hoerzu.de aber den kompletten
+    # Tag). Jede nachfolgende Quelle wird jetzt IMMER befragt; ihre
+    # Sendungen werden nur dort tatsaechlich ins XML geschrieben, wo sie
+    # NICHT mit einer bereits von einer frueheren Quelle geschriebenen
+    # Sendung ueberlappen (_ohne_bereits_geschriebene_ueberlappung()) -
+    # keine doppelten/widerspruechlichen <programme>-Eintraege fuer
+    # denselben Zeitpunkt, aber echte Luecken werden jetzt mit echten
+    # Daten der naechsten Quelle statt mit dem generischen Text gefuellt.
+    _de_geschrieben_intervalle = []
+
+    def _ohne_bereits_geschriebene_ueberlappung(programme_liste):
+        return [
+            p for p in programme_liste
+            if not ueberlappt_intervall(_de_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+
+    programme = []
+    try:
+        site_id = None
+        for _suchbegriff in _deswird_suchbegriffe:
+            site_id = deswird_kanal_finden(_suchbegriff)
+            if site_id is not None:
+                break
+        if site_id is not None:
+            programme = deswird_hole_programme(site_id, DESWIRD_TAGE)
+    except Exception:
+        programme = []
+
+    daten["deswird_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        ergebnisse.append(("Deswird", programme))
+        _de_geschrieben_intervalle.extend(daten["deswird_intervalle"])
+
+    # Pluto TV als zweiter Versuch fuer DE-Sender (siehe plutotv_epg.py) -
+    # wird immer versucht, schreibt aber nur die Zeitfenster, die
+    # deswird.org (falls es etwas fand) noch NICHT abgedeckt hat.
+    programme = []
+    try:
+        site_id = plutotv_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = plutotv_hole_programme(site_id, PLUTOTV_TAGE)
+    except Exception:
+        programme = []
+
+    daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(programme)
+        if neue_programme:
+            ergebnisse.append(("PlutoTV", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
+    # tvmovie_epg.py) - wird immer versucht, schreibt aber nur die
+    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
+    tvmovie_programme = []
+    try:
+        tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
+        if tvmovie_site_id is not None:
+            tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
+    except Exception:
+        tvmovie_programme = []
+
+    daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
+
+    if tvmovie_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(tvmovie_programme)
+        if neue_programme:
+            ergebnisse.append(("TvMovie", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # hoerzu.de als vierter Versuch fuer DE-Sender (siehe hoerzu_epg.py) -
+    # wird immer versucht, schreibt aber nur die Zeitfenster, die noch
+    # von keiner vorherigen Quelle abgedeckt sind.
+    hoerzu_programme = []
+    try:
+        hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
+        if hoerzu_slug is not None:
+            hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
+    except Exception:
+        hoerzu_programme = []
+
+    daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
+
+    if hoerzu_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(hoerzu_programme)
+        if neue_programme:
+            ergebnisse.append(("Hoerzu", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # Joyn-VOD als fuenfter Versuch fuer DE-Sender (siehe joyn_vod_epg.py)
+    # - deckt Joyns eigene thematische Serien-/Doku-"Sender" ab (z.B.
+    # "Ancient Aliens", "Der letzte Bulle"), die keiner der vorherigen
+    # vier Quellen kennt. Wird immer versucht, schreibt aber nur die
+    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
+    # (Samsung TV Plus war frueher hier eingehaengt - September 2026
+    # dauerhaft entfernt, der Host hat die XMLTV-Datei entfernt, 404 bei
+    # jedem Abruf.)
+    joyn_vod_programme = []
+    try:
+        joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
+        if joyn_vod_site_id is not None:
+            joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
+    except Exception:
+        joyn_vod_programme = []
+
+    daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
+
+    if joyn_vod_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(joyn_vod_programme)
+        if neue_programme:
+            ergebnisse.append(("Joyn-VOD", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # search.ch/tv als sechster Versuch - aktuell NUR fuer "BLUE SPORT 1"/
+    # "BLUE SPORT 2" (siehe search_ch_epg.py, festes Mapping ohne
+    # Fuzzy-Abgleich). Keiner der vorherigen fuenf DE-Quellen fuehrt
+    # diese Schweizer Swisscom-Sportkanaele. Wird immer versucht,
+    # schreibt aber nur die Zeitfenster, die noch von keiner vorherigen
+    # Quelle abgedeckt sind.
+    search_ch_programme = []
+    try:
+        search_ch_slug = search_ch_kanal_finden(daten["sender"])
+        if search_ch_slug is not None:
+            search_ch_programme = search_ch_hole_programme(search_ch_slug, SEARCH_CH_TAGE)
+    except Exception:
+        search_ch_programme = []
+
+    daten["search_ch_intervalle"] = [(p["start"], p["stop"]) for p in search_ch_programme]
+
+    if search_ch_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(search_ch_programme)
+        if neue_programme:
+            ergebnisse.append(("Search.ch", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # iptv-epg.org als SIEBTER und letzter Versuch fuer DE-Sender (siehe
+    # iptvepg_de_epg.py) - deckt u.a. ARD-Regionalstudios (WDR/MDR/NDR/
+    # rbb) ab, die deswird.org nur als bundesweiten Sammelkanal kennt.
+    # Wird immer versucht, schreibt aber nur die Zeitfenster, die noch
+    # von keiner vorherigen Quelle abgedeckt sind.
+    iptvepg_de_programme = []
+    try:
+        iptvepg_de_site_id = iptvepg_de_kanal_finden(daten["sender"])
+        if iptvepg_de_site_id is not None:
+            iptvepg_de_programme = iptvepg_de_hole_programme(iptvepg_de_site_id, IPTVEPG_DE_TAGE)
+    except Exception:
+        iptvepg_de_programme = []
+
+    daten["iptvepg_de_intervalle"] = [(p["start"], p["stop"]) for p in iptvepg_de_programme]
+
+    if iptvepg_de_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(iptvepg_de_programme)
+        if neue_programme:
+            ergebnisse.append(("iptv-epg.org (DE)", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # Rakuten TV als ACHTER und letzter Versuch fuer DE-Sender (siehe
+    # rakuten_tv_epg.py) - deckt viele generische Themen-/Nischenkanaele
+    # ab (z.B. "Red Bull TV", "Top Gear", "Naruto", "GLORY Kickboxing"),
+    # die keine der vorherigen sieben Quellen kennt (Nutzeranfrage
+    # September 2026, Rakuten-TV-Browser-Snapshot als Hinweis). Wird
+    # immer versucht, schreibt aber nur die Zeitfenster, die noch von
+    # keiner vorherigen Quelle abgedeckt sind.
+    rakuten_tv_programme = []
+    try:
+        rakuten_tv_site_id = rakuten_tv_kanal_finden(daten["sender"])
+        if rakuten_tv_site_id is not None:
+            rakuten_tv_programme = rakuten_tv_hole_programme(rakuten_tv_site_id, RAKUTEN_TV_TAGE)
+    except Exception:
+        rakuten_tv_programme = []
+
+    daten["rakuten_tv_intervalle"] = [(p["start"], p["stop"]) for p in rakuten_tv_programme]
+
+    if rakuten_tv_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(rakuten_tv_programme)
+        if neue_programme:
+            ergebnisse.append(("Rakuten TV", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    return ergebnisse
+
+
+def _gruppe_de_kaskade_und_tubi():
+    """DE-Kaskade + Tubi (teilen sich PRIME-Sender-Ueberschneidungen,
+    siehe Tubi-Kommentar unten - muessen daher im SELBEN Thread in
+    dieser Reihenfolge bleiben) als eine Funktion, damit sie ueber
+    _HINTERGRUND_POOL zeitgleich mit dem noch laufenden TVPassport-/
+    Sky-Hintergrund-Thread UND allen nachfolgenden sequenziellen
+    Bloecken (MTS/Telemach/A1/Siol/MK/Blagovesti/BN2/GrandTV/
+    open-epg/...) laufen kann.
+    tvprogramdanas.net bleibt bewusst AUSSERHALB dieser Funktion (siehe
+    dortiger Kommentar) - es braucht die HIER geschriebenen Ergebnisse
+    UND die Ergebnisse aller vorherigen, bereits synchron im
+    Hauptthread abgeschlossenen Laender-Kaskaden (mts.rs/A1/Siol/MK)."""
+    _de_kaskade_ergebnisse = _parallel_abrufen(
+        plutotv_sender, _de_kaskade_abrufen, worker=GEDROSSELTE_QUELLE_WORKER,
+        name="DE-Kaskade (deswird/Pluto/tvmovie/hoerzu/Joyn/Magenta/iptv-epg)",
+    )
+
+    for _idx, daten in enumerate(plutotv_sender):
+        for _quelle, _programme in _de_kaskade_ergebnisse[_idx]:
+            _echte_quelle_zaehlen(_quelle)
+            _schreibe_echte_programme(daten, _programme)
+
+    # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
+    # tubi_epg.py - community-gepflegte, loginfreie XMLTV-Datei mit
+    # echten Tubi-TV-Sendungen und Kanal-Icons). Kein eigenes Praefix
+    # noetig. Ohne jegliche PRIME-Zeile in sender.txt passiert hier gar
+    # nichts.
+    for daten in tubi_sender:
+        # PRIME-Sender laufen zusaetzlich durch die DE-Kaskade (siehe
+        # oben, deswird.org/Pluto TV/tvmovie.de/hoerzu.de) - hat die
+        # bereits echte Daten gefunden UND geschrieben, wird Tubi hier
+        # uebersprungen, damit dieselben Sendungen nicht doppelt ins
+        # XML geschrieben werden.
+        if any(daten.get(feld) for feld in (
+            "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
+            "hoerzu_intervalle",
+        )):
+            continue
+
+        programme = []
+        try:
+            site_id = tubi_kanal_finden(daten["sender"])
+            if site_id is not None:
+                programme = tubi_hole_programme(site_id, TUBI_TAGE)
+                # Kanal-Icon von Tubi uebernehmen, aber nur wenn noch kein
+                # manuelles Logo in sender.txt gesetzt wurde (leeres Feld
+                # oder der "AUTO"-Marker fuer die spaetere automatische
+                # Logo-Suche).
+                if daten["logo"].strip().upper() in ("", LOGO_AUTO_MARKER):
+                    tubi_icon = tubi_kanal_icon(site_id)
+                    if tubi_icon:
+                        daten["logo"] = tubi_icon
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
+        daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            _echte_quelle_zaehlen("Tubi")
+            _schreibe_echte_programme(daten, programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+
+_zukunft_de_kaskade = _HINTERGRUND_POOL.submit(_gruppe_de_kaskade_und_tubi)
+
+# ==========================================================
 # MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
 # der Parsing-Kommentar oben bei "Automatischer Abgleich fuer RS/HR/
 # SI-Sender"). Kein eigenes Praefix noetig. Ohne jegliche RS-Zeile in
@@ -4371,6 +4716,45 @@ for _idx, daten in enumerate(_pickbox_sender):
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
+# RTL.HR (RS-Fallback): achter Versuch fuer alle RS-Sender, deren Name
+# auf "RTL Adria" passt (siehe rtl_hr_epg.py - eigene, server-seitig
+# gerenderte 8-Tage-Programmseite, weder in mts.rs noch SportKlub/
+# Arena/RTV.rs/scifi.rs/NatGeo/Pickbox enthalten). Kein eigenes
+# Praefix noetig. Wird immer versucht, schreibt aber nur die noch
+# unbedeckten Zeitfenster.
+# ==========================================================
+
+def _rtl_hr_rs_abrufen(daten):
+    try:
+        schluessel = rtl_hr_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return rtl_hr_hole_programme(schluessel, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_rtl_hr_rs_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_rtl_hr_rs_ergebnisse = _parallel_abrufen(_rtl_hr_rs_sender, _rtl_hr_rs_abrufen, name="RTL Adria (RS)")
+
+for _idx, daten in enumerate(_rtl_hr_rs_sender):
+    programme = _rtl_hr_rs_ergebnisse[_idx]
+
+    daten["rtl_hr_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("RTL Adria")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
 # A1 (Kroatien): ERSTER Versuch fuer alle HR-Sender, VOR MojMaxTV
 # (siehe a1_epg.py). Oeffentliche, loginfreie API von www.a1.hr -
 # liefert echte Beschreibungstexte, bereits normal geschriebene Titel
@@ -4514,6 +4898,81 @@ for _idx, daten in enumerate(mojmaxtv_sender):
         ]
         if neue_programme:
             _echte_quelle_zaehlen("Pickbox")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RTL.HR (HR-Fallback): fuenfter Versuch fuer alle HR-Sender, deren
+# Name auf "RTL Adria" passt (siehe rtl_hr_epg.py - eigene, server-
+# seitig gerenderte 8-Tage-Programmseite). Kein eigenes Praefix noetig.
+# Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _rtl_hr_hr_abrufen(daten):
+    try:
+        schluessel = rtl_hr_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return rtl_hr_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_rtl_hr_hr_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _rtl_hr_hr_abrufen, name="RTL Adria (HR)")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _rtl_hr_hr_ergebnisse[_idx]
+
+    daten["rtl_hr_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("RTL Adria")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# INDEX.HR (HR-Fallback): sechster Versuch fuer 26 feste HR-Sender
+# (siehe mojtv_index_epg.py - spiegelt mojtv.hr, das per Cloudflare aus
+# GitHub Actions blockiert wird, index.hr selbst aber nicht). Exakter
+# Namensabgleich (kein Fuzzy-Abgleich, siehe Modul-Kommentar). Kein
+# eigenes Praefix noetig. Wird immer versucht, schreibt aber nur die
+# noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _mojtv_index_abrufen(daten):
+    try:
+        schluessel = mojtv_index_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return mojtv_index_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mojtv_index_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojtv_index_abrufen, name="index.hr (mojtv.hr)")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _mojtv_index_ergebnisse[_idx]
+
+    daten["mojtv_index_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("index.hr (mojtv.hr)")
             _schreibe_echte_programme(daten, neue_programme)
             daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
@@ -4760,340 +5219,6 @@ for daten in magentatv_me_sender:
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
-
-# ==========================================================
-# DESWIRD / PLUTOTV / TVMOVIE / HOERZU / JOYN-VOD: automatischer
-# Abgleich fuer alle DE-Sender (siehe deswird_epg.py, plutotv_epg.py,
-# tvmovie_epg.py, hoerzu_epg.py, joyn_vod_epg.py). Kein eigenes
-# Praefix noetig, einzige automatischen Quellen fuer DE - deswird.org
-# als primaere Quelle (beste Abdeckung/Qualitaet, mehrere Tage im
-# Voraus), Pluto TV als zweiter Versuch, tvmovie.de als dritter
-# Versuch, hoerzu.de als vierter Versuch, Joyn-VOD als fuenfter und
-# letzter Versuch, jeweils nur wenn die vorherige(n) Quelle(n) nichts
-# gefunden haben. Ohne jegliche DE-Zeile in sender.txt passiert hier
-# gar nichts.
-# (Samsung TV Plus war frueher hier als fuenfter Versuch eingehaengt -
-# September 2026 dauerhaft entfernt, der Host hat die XMLTV-Datei
-# entfernt, 404 bei jedem Abruf.)
-# ==========================================================
-
-def _de_kaskade_abrufen(daten):
-    """Fuehrt ALLE Netzwerk-Abrufe der DE-Kaskade (Magenta-myTeamTV bei
-    MAGENTA-SPORT-PPV-Sendern, sonst deswird/PlutoTV/tvmovie/hoerzu/
-    Joyn-VOD/Search.ch/iptv-epg.org) fuer EINEN Sender aus und gibt eine
-    Liste von (Quellenname, bereits ueberlappungsgefilterte Programme)-
-    Tupeln in Ausfuehrungsreihenfolge zurueck - nur fuer Stufen, die
-    tatsaechlich etwas Neues gefunden haben. `daten["<quelle>_intervalle"]`
-    wird wie bisher direkt gesetzt (reiner Lese-/Schreibzugriff auf das
-    EIGENE, sender-spezifische Dict - unproblematisch aus mehreren
-    Threads heraus, siehe unten).
-
-    Das eigentliche Schreiben ins XML (_schreibe_echte_programme()/
-    _echte_quelle_zaehlen(), beide mit Seiteneffekt auf das GEMEINSAME
-    xml_teile/echte_quelle_zaehler) passiert bewusst NICHT hier, sondern
-    sequenziell danach im Hauptthread (siehe _parallel_abrufen()) - sonst
-    koennten mehrere Threads gleichzeitig in xml_teile schreiben."""
-    ergebnisse = []
-
-    # "MAGENTA SPORT PPV N"-Sender ueberspringen deswird.org/PlutoTV/
-    # tvmovie.de/hoerzu.de komplett und gehen direkt zu
-    # myTeamTV (siehe magenta_myteam_epg.py) - deswird.org matcht diese
-    # Sender sonst per unscharfem Abgleich faelschlich auf den voellig
-    # anderen, echten Basis-Kanal "MagentaSport" und liefert dessen
-    # generischen "MagentaSport Programmübersicht"-Platzhaltertext, der
-    # als "echter Treffer" durchgeht und myTeamTV nie zum Zug kommen
-    # laesst (Bug September 2026 behoben).
-    if re.match(r"^MAGENTA\s*SPORT\s*PPV\s*\d+", daten["sender"], re.IGNORECASE):
-        programme = []
-        try:
-            myteam_site_id = magenta_myteam_kanal_finden(daten["sender"])
-            if myteam_site_id is not None:
-                programme = magenta_myteam_hole_programme(myteam_site_id, PLUTOTV_TAGE)
-        except Exception:
-            programme = []
-
-        daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-        if programme:
-            ergebnisse.append(("Magenta-myTeamTV", programme))
-        return ergebnisse
-
-    # ARD-Regionalsender-Alias: deswird.org/tvmovie.de/hoerzu.de fuehren
-    # WDR/NDR/MDR/SWR/RBB/BR/HR nur als EINEN nationalen Sammelkanal,
-    # nicht die einzelnen sender.txt-Regional-/Studio-Varianten (z.B.
-    # "WDR DORTMUND HD"/"NDR MECKLENBURG-VORPOMMERN HD") - der normale
-    # Namensabgleich fand dafuer nie einen Treffer, obwohl der jeweilige
-    # Sender selbst (nur ohne Regionalfenster) real existiert. Fuer
-    # GENAU diese festen ARD-Kuerzel wird bei fehlendem Direkttreffer
-    # zusaetzlich der blosse Sender-Kern (ohne Regional-/Studioname)
-    # als zweiter Suchbegriff probiert - kein Fehltreffer-Risiko, da nur
-    # dieser feste, kurze Kuerzel-Satz betroffen ist.
-    _ard_regional_treffer = re.match(
-        r"^(WDR|NDR|MDR|SWR|RBB|BR|HR)\b", daten["sender"], re.IGNORECASE
-    )
-    _deswird_suchbegriffe = [daten["sender"]]
-    if _ard_regional_treffer and _ard_regional_treffer.group(0) != daten["sender"]:
-        _deswird_suchbegriffe.append(_ard_regional_treffer.group(1))
-
-    # Alle sieben DE-Quellen werden IMMER der Reihe nach versucht (nicht
-    # mehr abgebrochen, sobald die erste Quelle irgendetwas liefert) -
-    # frueher beendete ein Treffer bei deswird.org die Kaskade komplett,
-    # auch wenn deswird.org nur einen TEIL des Tages abdeckte (z.B. nur
-    # vormittags/nachmittags). Der unbedeckte Rest bekam dann faelschlich
-    # den generischen "<Sender> ᴸⁱᵛᵉ"-Platzhaltertext, obwohl z.B.
-    # hoerzu.de fuer genau dieses Zeitfenster echte Daten gehabt haette
-    # (September 2026 an "SIXX HD" entdeckt: deswird.org deckte nur
-    # 00:00-13:30 und 20:05-24:00 Uhr ab, hoerzu.de aber den kompletten
-    # Tag). Jede nachfolgende Quelle wird jetzt IMMER befragt; ihre
-    # Sendungen werden nur dort tatsaechlich ins XML geschrieben, wo sie
-    # NICHT mit einer bereits von einer frueheren Quelle geschriebenen
-    # Sendung ueberlappen (_ohne_bereits_geschriebene_ueberlappung()) -
-    # keine doppelten/widerspruechlichen <programme>-Eintraege fuer
-    # denselben Zeitpunkt, aber echte Luecken werden jetzt mit echten
-    # Daten der naechsten Quelle statt mit dem generischen Text gefuellt.
-    _de_geschrieben_intervalle = []
-
-    def _ohne_bereits_geschriebene_ueberlappung(programme_liste):
-        return [
-            p for p in programme_liste
-            if not ueberlappt_intervall(_de_geschrieben_intervalle, p["start"], p["stop"])
-        ]
-
-    programme = []
-    try:
-        site_id = None
-        for _suchbegriff in _deswird_suchbegriffe:
-            site_id = deswird_kanal_finden(_suchbegriff)
-            if site_id is not None:
-                break
-        if site_id is not None:
-            programme = deswird_hole_programme(site_id, DESWIRD_TAGE)
-    except Exception:
-        programme = []
-
-    daten["deswird_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-    if programme:
-        ergebnisse.append(("Deswird", programme))
-        _de_geschrieben_intervalle.extend(daten["deswird_intervalle"])
-
-    # Pluto TV als zweiter Versuch fuer DE-Sender (siehe plutotv_epg.py) -
-    # wird immer versucht, schreibt aber nur die Zeitfenster, die
-    # deswird.org (falls es etwas fand) noch NICHT abgedeckt hat.
-    programme = []
-    try:
-        site_id = plutotv_kanal_finden(daten["sender"])
-        if site_id is not None:
-            programme = plutotv_hole_programme(site_id, PLUTOTV_TAGE)
-    except Exception:
-        programme = []
-
-    daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-    if programme:
-        neue_programme = _ohne_bereits_geschriebene_ueberlappung(programme)
-        if neue_programme:
-            ergebnisse.append(("PlutoTV", neue_programme))
-            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-
-    # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
-    # tvmovie_epg.py) - wird immer versucht, schreibt aber nur die
-    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
-    tvmovie_programme = []
-    try:
-        tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
-        if tvmovie_site_id is not None:
-            tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
-    except Exception:
-        tvmovie_programme = []
-
-    daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
-
-    if tvmovie_programme:
-        neue_programme = _ohne_bereits_geschriebene_ueberlappung(tvmovie_programme)
-        if neue_programme:
-            ergebnisse.append(("TvMovie", neue_programme))
-            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-
-    # hoerzu.de als vierter Versuch fuer DE-Sender (siehe hoerzu_epg.py) -
-    # wird immer versucht, schreibt aber nur die Zeitfenster, die noch
-    # von keiner vorherigen Quelle abgedeckt sind.
-    hoerzu_programme = []
-    try:
-        hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
-        if hoerzu_slug is not None:
-            hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
-    except Exception:
-        hoerzu_programme = []
-
-    daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
-
-    if hoerzu_programme:
-        neue_programme = _ohne_bereits_geschriebene_ueberlappung(hoerzu_programme)
-        if neue_programme:
-            ergebnisse.append(("Hoerzu", neue_programme))
-            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-
-    # Joyn-VOD als fuenfter Versuch fuer DE-Sender (siehe joyn_vod_epg.py)
-    # - deckt Joyns eigene thematische Serien-/Doku-"Sender" ab (z.B.
-    # "Ancient Aliens", "Der letzte Bulle"), die keiner der vorherigen
-    # vier Quellen kennt. Wird immer versucht, schreibt aber nur die
-    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
-    # (Samsung TV Plus war frueher hier eingehaengt - September 2026
-    # dauerhaft entfernt, der Host hat die XMLTV-Datei entfernt, 404 bei
-    # jedem Abruf.)
-    joyn_vod_programme = []
-    try:
-        joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
-        if joyn_vod_site_id is not None:
-            joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
-    except Exception:
-        joyn_vod_programme = []
-
-    daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
-
-    if joyn_vod_programme:
-        neue_programme = _ohne_bereits_geschriebene_ueberlappung(joyn_vod_programme)
-        if neue_programme:
-            ergebnisse.append(("Joyn-VOD", neue_programme))
-            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-
-    # search.ch/tv als sechster Versuch - aktuell NUR fuer "BLUE SPORT 1"/
-    # "BLUE SPORT 2" (siehe search_ch_epg.py, festes Mapping ohne
-    # Fuzzy-Abgleich). Keiner der vorherigen fuenf DE-Quellen fuehrt
-    # diese Schweizer Swisscom-Sportkanaele. Wird immer versucht,
-    # schreibt aber nur die Zeitfenster, die noch von keiner vorherigen
-    # Quelle abgedeckt sind.
-    search_ch_programme = []
-    try:
-        search_ch_slug = search_ch_kanal_finden(daten["sender"])
-        if search_ch_slug is not None:
-            search_ch_programme = search_ch_hole_programme(search_ch_slug, SEARCH_CH_TAGE)
-    except Exception:
-        search_ch_programme = []
-
-    daten["search_ch_intervalle"] = [(p["start"], p["stop"]) for p in search_ch_programme]
-
-    if search_ch_programme:
-        neue_programme = _ohne_bereits_geschriebene_ueberlappung(search_ch_programme)
-        if neue_programme:
-            ergebnisse.append(("Search.ch", neue_programme))
-            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-
-    # iptv-epg.org als SIEBTER und letzter Versuch fuer DE-Sender (siehe
-    # iptvepg_de_epg.py) - deckt u.a. ARD-Regionalstudios (WDR/MDR/NDR/
-    # rbb) ab, die deswird.org nur als bundesweiten Sammelkanal kennt.
-    # Wird immer versucht, schreibt aber nur die Zeitfenster, die noch
-    # von keiner vorherigen Quelle abgedeckt sind.
-    iptvepg_de_programme = []
-    try:
-        iptvepg_de_site_id = iptvepg_de_kanal_finden(daten["sender"])
-        if iptvepg_de_site_id is not None:
-            iptvepg_de_programme = iptvepg_de_hole_programme(iptvepg_de_site_id, IPTVEPG_DE_TAGE)
-    except Exception:
-        iptvepg_de_programme = []
-
-    daten["iptvepg_de_intervalle"] = [(p["start"], p["stop"]) for p in iptvepg_de_programme]
-
-    if iptvepg_de_programme:
-        neue_programme = _ohne_bereits_geschriebene_ueberlappung(iptvepg_de_programme)
-        if neue_programme:
-            ergebnisse.append(("iptv-epg.org (DE)", neue_programme))
-            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-
-    # Rakuten TV als ACHTER und letzter Versuch fuer DE-Sender (siehe
-    # rakuten_tv_epg.py) - deckt viele generische Themen-/Nischenkanaele
-    # ab (z.B. "Red Bull TV", "Top Gear", "Naruto", "GLORY Kickboxing"),
-    # die keine der vorherigen sieben Quellen kennt (Nutzeranfrage
-    # September 2026, Rakuten-TV-Browser-Snapshot als Hinweis). Wird
-    # immer versucht, schreibt aber nur die Zeitfenster, die noch von
-    # keiner vorherigen Quelle abgedeckt sind.
-    rakuten_tv_programme = []
-    try:
-        rakuten_tv_site_id = rakuten_tv_kanal_finden(daten["sender"])
-        if rakuten_tv_site_id is not None:
-            rakuten_tv_programme = rakuten_tv_hole_programme(rakuten_tv_site_id, RAKUTEN_TV_TAGE)
-    except Exception:
-        rakuten_tv_programme = []
-
-    daten["rakuten_tv_intervalle"] = [(p["start"], p["stop"]) for p in rakuten_tv_programme]
-
-    if rakuten_tv_programme:
-        neue_programme = _ohne_bereits_geschriebene_ueberlappung(rakuten_tv_programme)
-        if neue_programme:
-            ergebnisse.append(("Rakuten TV", neue_programme))
-            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
-
-    return ergebnisse
-
-
-def _gruppe_de_kaskade_und_tubi():
-    """DE-Kaskade + Tubi (teilen sich PRIME-Sender-Ueberschneidungen,
-    siehe Tubi-Kommentar unten - muessen daher im SELBEN Thread in
-    dieser Reihenfolge bleiben) als eine Funktion, damit sie ueber
-    _HINTERGRUND_POOL zeitgleich mit den noch laufenden TVPassport-/
-    Sky-Hintergrund-Threads UND den nachfolgenden sequenziellen
-    Bloecken (Blagovesti/BN2/GrandTV/open-epg/...) laufen koennen.
-    tvprogramdanas.net bleibt bewusst AUSSERHALB dieser Funktion (siehe
-    dortiger Kommentar) - es braucht die HIER geschriebenen Ergebnisse
-    UND die Ergebnisse aller vorherigen, bereits synchron im
-    Hauptthread abgeschlossenen Laender-Kaskaden (mts.rs/A1/Siol/MK)."""
-    _de_kaskade_ergebnisse = _parallel_abrufen(
-        plutotv_sender, _de_kaskade_abrufen, worker=GEDROSSELTE_QUELLE_WORKER,
-        name="DE-Kaskade (deswird/Pluto/tvmovie/hoerzu/Joyn/Magenta/iptv-epg)",
-    )
-
-    for _idx, daten in enumerate(plutotv_sender):
-        for _quelle, _programme in _de_kaskade_ergebnisse[_idx]:
-            _echte_quelle_zaehlen(_quelle)
-            _schreibe_echte_programme(daten, _programme)
-
-    # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
-    # tubi_epg.py - community-gepflegte, loginfreie XMLTV-Datei mit
-    # echten Tubi-TV-Sendungen und Kanal-Icons). Kein eigenes Praefix
-    # noetig. Ohne jegliche PRIME-Zeile in sender.txt passiert hier gar
-    # nichts.
-    for daten in tubi_sender:
-        # PRIME-Sender laufen zusaetzlich durch die DE-Kaskade (siehe
-        # oben, deswird.org/Pluto TV/tvmovie.de/hoerzu.de) - hat die
-        # bereits echte Daten gefunden UND geschrieben, wird Tubi hier
-        # uebersprungen, damit dieselben Sendungen nicht doppelt ins
-        # XML geschrieben werden.
-        if any(daten.get(feld) for feld in (
-            "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
-            "hoerzu_intervalle",
-        )):
-            continue
-
-        programme = []
-        try:
-            site_id = tubi_kanal_finden(daten["sender"])
-            if site_id is not None:
-                programme = tubi_hole_programme(site_id, TUBI_TAGE)
-                # Kanal-Icon von Tubi uebernehmen, aber nur wenn noch kein
-                # manuelles Logo in sender.txt gesetzt wurde (leeres Feld
-                # oder der "AUTO"-Marker fuer die spaetere automatische
-                # Logo-Suche).
-                if daten["logo"].strip().upper() in ("", LOGO_AUTO_MARKER):
-                    tubi_icon = tubi_kanal_icon(site_id)
-                    if tubi_icon:
-                        daten["logo"] = tubi_icon
-            else:
-                pass  # log unterdrueckt: keine echten Programmdaten
-        except Exception as e:
-            pass  # log unterdrueckt: keine echten Programmdaten
-            programme = []
-
-        daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-        if programme:
-            _echte_quelle_zaehlen("Tubi")
-            _schreibe_echte_programme(daten, programme)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-
-
-_zukunft_de_kaskade = _HINTERGRUND_POOL.submit(_gruppe_de_kaskade_und_tubi)
 
 # ==========================================================
 # TVPROGRAMDANAS.NET: BREITESTER, ALLERLETZTER Fallback fuer HR/BA/RS/

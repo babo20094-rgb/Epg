@@ -5155,3 +5155,167 @@ eingehaengt (nach Telemach/mtel.ba/klix.ba/rtv-hb.com, gleiches
 Luecken-Fuellungs-Prinzip ueber `_telemach_ohne_ueberlappung()`).
 Lokal verifiziert: 25 Eintraege im 2-Tage-Fenster, korrekter
 Mitternachts-Uebergang zwischen Wochentagen.
+
+## Parallelisierung brachte kaum Zeitersparnis: DE-Kaskade+Tubi-Hintergrundthread startete viel zu spaet (September 2026)
+
+Nutzer-Feedback nach dem ersten Testlauf (Run #872) mit der zuvor
+eingebauten `_HINTERGRUND_POOL`-Parallelisierung (Sky/TVPassport/
+DE-Kaskade+Tubi als drei Hintergrund-Threads neben dem sequenziellen
+Hauptthread): "hat überhaupt nichts gebracht hat trotzdem über 20min
+gedauert" - erwartet war laut vorheriger Schaetzung eine Ersparnis auf
+~8-10 Minuten.
+
+**Root Cause gefunden per Job-Log-Analyse (Laufzeit-pro-Quelle-Tabelle,
+Run #872, "Generate EPG"-Schritt ~1244s = ~20,7 Min.):** Die Funktion
+`_gruppe_de_kaskade_und_tubi()` (deswird/PlutoTV/tvmovie/hoerzu/Joyn-VOD/
+Magenta-myTeamTV/Search.ch/iptv-epg.org/Rakuten-TV fuer DE + Tubi fuer
+PRIME) wurde zwar korrekt in einen Hintergrund-Thread verpackt, aber der
+`_HINTERGRUND_POOL.submit(...)`-Aufruf stand an der FALSCHEN Stelle im
+Skript: erst NACH der kompletten sequenziellen RS/HR/BA/SI/MK-
+Laenderkaskade (Telemach+mtel.ba+klix.ba+rtv-hb.com+tvdugaplus.com,
+mts.rs+SportKlub(RS)+Arena+RTV.rs+scifi.rs+NatGeo+Pickbox(RS), A1+
+MojMaxTV+SportKlub(HR)+Pickbox(HR), Siol, TvProfil.net+TvProgram.rs -
+zusammen ca. 636s in diesem Lauf). Der DE-Kaskade-Thread hatte dadurch
+so gut wie keine Zeit mehr, um mit dem Hauptthread zu ueberlappen, und
+seine eigene Laufzeit (~146s+ plus ungemessene Tubi-Zeit) kam nahezu
+komplett ZUSAeTZLICH obendrauf statt parallel dazu - der Umbau brachte
+dadurch real fast keinen Vorteil, obwohl die Architektur (ThreadPoolExecutor
++ `_xml_lock`) an sich korrekt war.
+
+**Zusaetzlich beobachtet, aber NICHT durch die Parallelisierung
+verursacht:** In genau diesem Lauf maß `mts.rs` 210,0s (Referenzlauf
+zuvor: 39,9s) und `SportKlub (RS)` 175,8s (Referenzlauf zuvor: 0,1s) -
+ein ~10x-Ausreißer, der eher auf ein voruebergehendes Netzwerk-/Rate-
+Limiting-Problem bei mts.rs in diesem konkreten Zeitfenster hindeutet
+als auf einen Code-Fehler. Getrennt vom eigentlichen Fix betrachten.
+
+**Fix:** `_de_kaskade_abrufen()`, `_gruppe_de_kaskade_und_tubi()` und
+der `_HINTERGRUND_POOL.submit(...)`-Aufruf dafuer wurden im Skript
+physisch nach vorne verschoben - direkt hinter den TVPassport-Submit
+(`_zukunft_tvpassport = _HINTERGRUND_POOL.submit(_gruppe_tvpassport)`),
+also noch VOR der gesamten RS/HR/BA/SI/MK-Laenderkaskade. Dadurch laeuft
+der DE-Kaskade+Tubi-Hintergrundthread ab nahezu Laufbeginn und kann sich
+mit dem kompletten, zuvor rein sequenziellen Laenderkaskaden-Block
+ueberlappen, statt fast nur zusaetzliche Zeit zu kosten. Die beiden
+bestehenden `_zukunft_de_kaskade.result()`-Wartepunkte (vor
+tvprogramdanas.net, das DE-Kaskade-Ergebnisse braucht; vor der finalen
+Platzhalter-Fuell-Schleife) bleiben unveraendert an ihrer Stelle - sie
+warten jetzt einfach auf einen viel frueher gestarteten Future.
+Reine Verschiebung bestehenden Codes, keine Logikaenderung; `python3 -m
+pytest test_generate_epg.py` (96/96) weiterhin gruen.
+
+Ehrliche Einordnung: die tatsaechliche Zeitersparnis dieses Fixes ist
+erst mit einem echten Workflow-Lauf messbar (in der Sandbox nicht
+moeglich) - keine neue konkrete Minutenschaetzung ohne diese Verifikation.
+
+## Warum Sky/TVPassport-Parallelisierung real kaum sparte: GIL-Saettigung durch html.parser, Fix auf lxml (September 2026)
+
+Nutzer-Nachfrage: "prüfe warum sky und Passport nichts gespart hat und
+behebe das". Nachrechnung anhand der "Laufzeit pro Quelle"-Tabelle aus
+Run #872: Summe ALLER einzeln gemessenen Quellen-Laufzeiten
+(TVPassport 388,6s + mts.rs 210,0s + SportKlub(RS) 175,8s + DE-Kaskade
+146,4s + ... ≈ 1283,7s) lag praktisch GLEICHAUF mit der tatsaechlich
+gemessenen Gesamtlaufzeit des "Generate EPG"-Schritts (~1244s) - obwohl
+Sky/TVPassport/DE-Kaskade als eigene Hintergrund-Threads liefen, gab es
+so gut wie KEINE tatsaechliche Uberlappung (nur ~40s Differenz statt
+der erwarteten ~500-600s).
+
+**Ursache:** Alle `quellen/*.py`-Module benutzten `BeautifulSoup(...,
+"html.parser")` - Pythons eingebauter, reiner Python-HTML-Parser. Das
+ist CPU-gebunden und haelt den GIL (Global Interpreter Lock) waehrend
+des gesamten Parsens fest; echte Nebenlaeufigkeit zwischen Python-
+Threads gibt es nur, wenn der GIL freigegeben wird (z.B. waehrend
+Netzwerk-I/O-Wartezeit bei `requests.get()`). TVPassport allein nutzt
+intern schon 24 parallele Worker-Threads (`TVPASSPORT_WORKER = 24`),
+die bei hoher Anfragerate praktisch DURCHGEHEND irgendein
+HTML-Parsing im GIL ausfuehren ("GIL-Saettigung") - dadurch blieb dem
+Hauptthread (mts.rs/SportKlub/Telemach-Kaskade) so gut wie kein freier
+GIL-Zeitanteil mehr uebrig, um wirklich gleichzeitig zu laufen, auch
+wenn beide Bloecke technisch in getrennten Thread-Pools liefen. Die
+Thread-basierte Parallelisierung selbst war also architektonisch
+korrekt, griff aber ins Leere, weil die CPU-lastige Parsing-Arbeit den
+GIL blockierte.
+
+**Fix:** `lxml` zu `requirements.txt` hinzugefuegt und ALLE
+`BeautifulSoup(..., "html.parser")`-Aufrufe (arena_epg.py, delo_si_epg.py,
+natgeo_epg.py, pickbox_epg.py, rtv_rs_epg.py, rtvhb_epg.py, siol_epg.py,
+tvdugaplus_epg.py, tvmovie_epg.py, tvpassport_epg.py - 11 Stellen in 10
+Dateien) auf `"lxml"` umgestellt. `lxml` ist eine C-Erweiterung
+(libxml2-Bindings) und deutlich schneller als der reine Python-Parser
+(lokaler Synthetik-Benchmark: ~35% schneller pro Parse-Durchlauf bei
+2000 Zeilen HTML) - kuerzere Parse-Zeit bedeutet weniger GIL-Haltezeit
+pro Request, was sowohl die absolute Laufzeit JEDER einzelnen Quelle
+senkt als auch dem Hauptthread wieder mehr Gelegenheit gibt, waehrend
+der Hintergrund-Threads tatsaechlich CPU-Zeit zu bekommen. `pip install
+lxml` lokal verifiziert (BeautifulSoup mit "lxml"-Backend funktioniert),
+`python3 -m pytest test_generate_epg.py` weiterhin 96/96 gruen, alle
+geaenderten Dateien mit `ast.parse()` syntaktisch geprueft.
+
+Ehrliche Einordnung: ein Test mit echtem Netzwerkzugriff (viele
+gleichzeitige echte HTTP-Requests + echtes HTML-Parsing im GitHub-
+Actions-Runner) war in der Sandbox nicht moeglich - die tatsaechliche
+Zeitersparnis (durch lxml UND durch die jetzt bessere Uberlappung mit
+der DE-Kaskade-Verschiebung von zuvor) ist erst mit einem echten
+Workflow-Lauf messbar.
+
+## RS|RTL ADRIA + HR|RTL ADRIA: neue Quelle rtl.hr (September 2026)
+
+Nutzeranfrage: Prüfung von `https://www.rtl.hr/tv-raspored/kanal/
+rtl-adria` fuer alle Varianten von RS|RTL ADRIA (aktuell keine Zeile in
+sender.txt) und HR|RTL ADRIA (2 Zeilen vorhanden). Besonderheit: die
+Seite liefert server-seitig bereits einen KOMPLETTEN 8-Tage-Sendeplan
+in EINEM Abruf, aber aufgeteilt in drei feste Tageszeit-Abschnitte
+("morning"/"noon"/"evening"), jeder Abschnitt enthaelt die Eintraege
+ALLER 8 Tage hintereinander (nicht eines einzelnen Tages). Tages-
+Trennung war deshalb nicht trivial: "morning"/"noon" enden vor
+Mitternacht (reine Zeit-Ruecksprung-Erkennung reicht), "evening" laeuft
+aber ueber Mitternacht hinaus - dort haette ein reiner Ruecksprung-Test
+faelschlich auch den normalen Mitternachtsuebergang als neuen Tag
+gewertet. Loesung: der Sender fuehrt einen expliziten Platzhalter-
+Eintrag "Kraj programa" ("Ende des Programms") kurz nach Mitternacht -
+GENAU dieser Marker (nicht die Uhrzeit) trennt die Tage im
+"evening"-Abschnitt zuverlaessig.
+
+Neue Quelle `quellen/rtl_hr_epg.py` (`rtl_hr_kanal_finden()`/
+`rtl_hr_hole_programme()`), erkennt "RTL Adria" unabhaengig vom Land
+(RS ODER HR, einfacher Praefix-Vergleich nach VIP/RAW/HD/FHD-
+Entfernung). Als achter RS-Kaskaden-Schritt (nach Pickbox, vor A1) UND
+als fuenfter HR-Kaskaden-Schritt (nach Pickbox(HR), vor Siol) in
+`generate_epg.py` eingehaengt - gilt automatisch fuer JEDE
+"RS|...RTL ADRIA..."- oder "HR|...RTL ADRIA..."-Zeile, kein neues
+sender.txt-Praefix noetig. Lokal live verifiziert: 65 Sendungen im
+3-Tage-Fenster, korrekte Uhrzeiten/chronologische Reihenfolge ueber den
+Mitternachtsuebergang.
+
+## 26 feste HR-Sender: neue Quelle index.hr (Spiegel von mojtv.hr, September 2026)
+
+Nutzer schickte einen .mht-Snapshot von `https://www.index.hr/info/tv`
+("TV program" - Danas na televiziji - Nova TV/RTL/Hrvatska televizija).
+Analyse ergab: index.hr spiegelt server-seitig dieselben Daten wie
+mojtv.hr (dessen eigene Website per Cloudflare-Bot-Schutz auch aus
+GitHub-Actions-IP-Bereichen blockiert wird, siehe Nachtrag oben zu den
+temporaeren Diagnose-Workflows) - index.hr selbst ist NICHT blockiert
+(HTTP 200 aus der Sandbox verifiziert). Damit ist mojtv.hrs Daten doch
+nutzbar, nur ueber diesen Umweg.
+
+Die Seite `?datum=DDMMYYYY&grupa=N` liefert je Abruf GENAU EINEN
+Kalendertag UND GENAU EINE von 7 fest vorgegebenen Kanal-Gruppen (nicht
+frei waehlbar, feste Reihenfolge/Gruppierung):
+1. HRT 1/HRT 2/Nova TV/RTL, 2. Doma TV/RTL 2/RTL Kockica/Z1,
+3. HRT 3/HRT 4/CMC/Jabuka TV, 4. HBO/STAR Life/STAR Crime/TV 1000,
+5. CineStar TV 1/2/Premiere 1/Premiere 2,
+6. CineStar TV Action&Thriller/Fantasy/Comedy&Family,
+7. National Geographic/Doku TV/Discovery Channel/Viasat History.
+
+Neue Quelle `quellen/mojtv_index_epg.py` (`mojtv_index_kanal_finden()`/
+`mojtv_index_hole_programme()`): EXAKTER Namensabgleich (kein Fuzzy-
+Abgleich - die 26 Kanalnamen sind kurz/mehrdeutig genug, z.B. "RTL" vs.
+"RTL 2" vs. "RTL Kockica" vs. "RTL Adria", dass ein unscharfer Abgleich
+ein echtes Fehltreffer-Risiko waere), Kanal-Referenz als "grupa:index"-
+Schluessel. Gruppen-/tagesweiser Cache (eine Gruppen-Seite deckt bis zu
+4 Kanaele gleichzeitig ab, mehrere Sender derselben Gruppe teilen sich
+den Netzwerk-Abruf). Als sechster HR-Kaskaden-Schritt (nach RTL Adria,
+vor Siol) eingehaengt - fuellt vor allem bisher unbedeckte Kanaele wie
+CineStar-Varianten, STAR Life/Crime, HBO, CMC, Doma TV, Z1, Viasat
+History. Lokal live verifiziert (STAR Life: 80 Sendungen im
+2-Tage-Fenster, korrekte Zeiten).

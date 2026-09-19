@@ -114,7 +114,7 @@ def _satnica_laden(slug):
         response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
 
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(response.text, "lxml")
 
         rohe_eintraege = []
         for tab in soup.select("li.nav-item[data-date]"):

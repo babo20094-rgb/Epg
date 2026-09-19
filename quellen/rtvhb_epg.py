@@ -138,7 +138,7 @@ def _seite_holen(pfad):
             requests.get, BASIS_URL + pfad, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN,
         )
         response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(response.text, "lxml")
         _tag_cache[pfad] = soup
         return soup
     except Exception as e:

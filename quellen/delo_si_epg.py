@@ -103,7 +103,7 @@ def _seite_holen(slug):
         )
         response.raise_for_status()
 
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(response.text, "lxml")
         events = soup.find_all(attrs={"itemtype": "https://schema.org/BroadcastEvent"})
 
         rohe_sendungen = []

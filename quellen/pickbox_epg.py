@@ -111,7 +111,7 @@ def _seite_laden(schluessel):
         response = _http.mit_retry(requests.get, url, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
 
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(response.text, "lxml")
 
         tage_daten = []
         for holder in soup.select(".epg-days-holders"):

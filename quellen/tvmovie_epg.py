@@ -203,7 +203,7 @@ def _sendung_parsen(anker):
 
 
 def _seite_parsen(html):
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, "lxml")
 
     ergebnis = []
     for anker in soup.select("a.bx-epg-broadcast"):

@@ -79,7 +79,7 @@ def siol_hole_kanalliste():
             response = _http.mit_retry(requests.get, f"{BASE_URL}/kanali", timeout=REQUEST_TIMEOUT_SEKUNDEN)
             response.raise_for_status()
 
-            soup = BeautifulSoup(response.text, "html.parser")
+            soup = BeautifulSoup(response.text, "lxml")
             kanaele = []
             gesehen = set()
             for link in soup.find_all("a", href=re.compile(r"^/kanal/[a-z0-9_-]+$")):
@@ -211,7 +211,7 @@ def _hole_events_fuer_kanal_und_tag(site_id, datum):
         response = _http.mit_retry(requests.get, url, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
 
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(response.text, "lxml")
         rohe_sendungen = []
         for link in soup.find_all("a", href=re.compile(rf"^/kanal/{re.escape(site_id)}/oddaja/")):
             zeit_div = link.find("div", class_="w-[70px]")

@@ -116,7 +116,7 @@ def _seite_holen(land):
             parameter["url"], timeout=REQUEST_TIMEOUT_SEKUNDEN
         )
         response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(response.text, "lxml")
         _seite_cache[land] = soup
         return soup
     except Exception as e:

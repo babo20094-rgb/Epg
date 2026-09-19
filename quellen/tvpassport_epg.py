@@ -206,7 +206,7 @@ def _tag_seite_holen(site_id, tag):
     try:
         response = _http.mit_retry(requests.get, url, timeout=REQUEST_TIMEOUT_SEKUNDEN)
         response.raise_for_status()
-        return BeautifulSoup(response.text, "html.parser")
+        return BeautifulSoup(response.text, "lxml")
     except Exception as e:
         print(f"TVPassport-EPG: Seitenabruf ({url}) fehlgeschlagen ({e}), ueberspringe Tag.")
         return None
