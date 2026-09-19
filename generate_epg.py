@@ -6,6 +6,7 @@ import os
 import re
 import resource
 import sys
+import threading
 import time
 import requests
 import xml.etree.ElementTree as ET
@@ -980,9 +981,22 @@ def _wirkt_wie_rohtext_muell(text):
 # kompakte Zusammenfassung ausgegeben (siehe ganz unten im Skript).
 echte_quelle_zaehler = {}
 
+# Schuetzt echte_quelle_zaehler/xml_teile/_echte_programme_index (siehe
+# _schreibe_echte_programme()/_verlaengere_vorherige_sendung() weiter
+# unten) gegen gleichzeitige Schreibzugriffe - noetig, seit einzelne
+# GROSSE, nachweislich voneinander unabhaengige Verarbeitungsbloecke
+# (Sky/TVPassport/DE-Kaskade, siehe _HINTERGRUND_POOL) in eigenen
+# Threads laufen, statt wie bisher alle sequenziell im Hauptthread.
+# Innerhalb eines Blocks war das Schreiben schon immer nur im
+# aufrufenden Thread passiert (siehe Docstring von
+# _de_kaskade_abrufen()) - der Lock schuetzt jetzt zusaetzlich gegen
+# das gleichzeitige Schreiben ZWEIER verschiedener Bloecke.
+_xml_lock = threading.Lock()
+
 
 def _echte_quelle_zaehlen(quelle):
-    echte_quelle_zaehler[quelle] = echte_quelle_zaehler.get(quelle, 0) + 1
+    with _xml_lock:
+        echte_quelle_zaehler[quelle] = echte_quelle_zaehler.get(quelle, 0) + 1
 
 # ==========================================================
 # sender.txt lesen
@@ -3287,6 +3301,23 @@ ERHOEHTE_QUELLE_WORKER = 16
 # ERHOEHTE_QUELLE_WORKER zurueckstellen.
 TVPASSPORT_WORKER = 24
 
+# Separater Executor NUR fuer die drei grossen, nachweislich
+# voneinander unabhaengigen Verarbeitungsbloecke Sky/TVPassport/
+# DE-Kaskade (siehe deren _gruppe_*()-Funktionen weiter unten) - laesst
+# sie zeitgleich mit dem Rest der (weiterhin rein sequenziellen)
+# Laender-Kaskaden (Telemach/mts.rs/A1/Siol/...) im Hintergrund laufen,
+# statt wie bisher strikt nacheinander. Diese drei Bloecke pruefen bzw.
+# beeinflussen an keiner Stelle dieselben sender.txt-Zeilen/daten-Dicts
+# wie die uebrigen Kaskaden (RS/HR/BA/SI/MK haben eigene, disjunkte
+# Sender-Listen) - nur der GEMEINSAME xml_teile/echte_quelle_zaehler-
+# Zustand wird angefasst, dafuer sorgt _xml_lock (siehe oben). Bewusst
+# NICHT auf noch mehr Bloecke ausgeweitet: Telemach/mts.rs haben eine
+# echte Abhaengigkeit (ME/MNG/MO/CG-Sender teilen sich
+# daten["telemach_intervalle"] als Startbestand fuer die RS-Luecken-
+# Fuellung, siehe dortiger Kommentar) und duerfen NICHT parallel dazu
+# laufen.
+_HINTERGRUND_POOL = ThreadPoolExecutor(max_workers=3)
+
 # Sammelt fuer jede benannte Quelle (siehe _parallel_abrufen()/
 # _zeitmessung() Aufrufe unten) die gebrauchte Zeit in Sekunden und die
 # Anzahl verarbeiteter Sender - am Ende des Laufs als kurze Tabelle
@@ -3479,29 +3510,33 @@ def kuerze_beschreibung(text, max_laenge=BESCHREIBUNG_MAX_LAENGE):
 def _schreibe_echte_programme(daten, programme):
     """Haengt die uebergebenen echten Programmdaten (Telemach ODER
     mtel.ba, gleiches dict-Format) als <programme>-Eintraege an
-    xml_teile an."""
+    xml_teile an. Durch _xml_lock abgesichert (siehe dort) - xml_teile/
+    _echte_programme_index werden inzwischen aus mehreren Threads
+    heraus beschrieben (Sky/TVPassport/DE-Kaskade, siehe
+    _HINTERGRUND_POOL)."""
     kanal_ids = kanal_id_varianten(daten["kanal"])
-    for p in programme:
-        start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
-        stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
-        titel_text = normalisiere_grossschreibung(kuerze_beschreibung(p["title"]))
-        titel_escaped = escape(titel_text)
-        beschr_text = normalisiere_grossschreibung(kuerze_beschreibung(p["beschreibung"] or p["title"]))
-        beschr_escaped = escape(beschr_text)
-        # Bewusst KEIN <sub-title> mehr: manche Player (z.B. TiviMate)
-        # haengen den Untertitel im kompakten Wochenraster direkt hinter
-        # den Titel an, wodurch trotz gekuerztem Titel wieder ein langer
-        # Text in der Zeile stand. Nur der Titel soll dort sichtbar
-        # sein - die volle Beschreibung bleibt im <desc>-Feld erhalten
-        # und ist ueber die Detailansicht weiterhin abrufbar.
-        icon_tag = f' <icon src="{escape(p["bild"])}"/>' if p.get("bild") else ""
-        for kanal_id in kanal_ids:
-            xml_teile.append(
-                f' <programme start="{start_str}" stop="{stop_str}" channel="{escape(kanal_id)}">'
-                f' <title lang="de">{titel_escaped}</title>'
-                f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
-            )
-            _echte_programme_index[(kanal_id, stop_str)] = len(xml_teile) - 1
+    with _xml_lock:
+        for p in programme:
+            start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
+            stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
+            titel_text = normalisiere_grossschreibung(kuerze_beschreibung(p["title"]))
+            titel_escaped = escape(titel_text)
+            beschr_text = normalisiere_grossschreibung(kuerze_beschreibung(p["beschreibung"] or p["title"]))
+            beschr_escaped = escape(beschr_text)
+            # Bewusst KEIN <sub-title> mehr: manche Player (z.B. TiviMate)
+            # haengen den Untertitel im kompakten Wochenraster direkt hinter
+            # den Titel an, wodurch trotz gekuerztem Titel wieder ein langer
+            # Text in der Zeile stand. Nur der Titel soll dort sichtbar
+            # sein - die volle Beschreibung bleibt im <desc>-Feld erhalten
+            # und ist ueber die Detailansicht weiterhin abrufbar.
+            icon_tag = f' <icon src="{escape(p["bild"])}"/>' if p.get("bild") else ""
+            for kanal_id in kanal_ids:
+                xml_teile.append(
+                    f' <programme start="{start_str}" stop="{stop_str}" channel="{escape(kanal_id)}">'
+                    f' <title lang="de">{titel_escaped}</title>'
+                    f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
+                )
+                _echte_programme_index[(kanal_id, stop_str)] = len(xml_teile) - 1
 
 
 def _verlaengere_vorherige_sendung(kanal, alter_stop, neuer_stop):
@@ -3515,19 +3550,20 @@ def _verlaengere_vorherige_sendung(kanal, alter_stop, neuer_stop):
     alter_stop_str = alter_stop.strftime("%Y%m%d%H%M%S +0000")
     neuer_stop_str = neuer_stop.strftime("%Y%m%d%H%M%S +0000")
     gefunden = False
-    for kanal_id in kanal_id_varianten(kanal):
-        schluessel = (kanal_id, alter_stop_str)
-        idx = _echte_programme_index.get(schluessel)
-        if idx is None:
-            continue
-        alt_attribut = f'stop="{alter_stop_str}"'
-        neu_attribut = f'stop="{neuer_stop_str}"'
-        if alt_attribut not in xml_teile[idx]:
-            continue
-        xml_teile[idx] = xml_teile[idx].replace(alt_attribut, neu_attribut, 1)
-        del _echte_programme_index[schluessel]
-        _echte_programme_index[(kanal_id, neuer_stop_str)] = idx
-        gefunden = True
+    with _xml_lock:
+        for kanal_id in kanal_id_varianten(kanal):
+            schluessel = (kanal_id, alter_stop_str)
+            idx = _echte_programme_index.get(schluessel)
+            if idx is None:
+                continue
+            alt_attribut = f'stop="{alter_stop_str}"'
+            neu_attribut = f'stop="{neuer_stop_str}"'
+            if alt_attribut not in xml_teile[idx]:
+                continue
+            xml_teile[idx] = xml_teile[idx].replace(alt_attribut, neu_attribut, 1)
+            del _echte_programme_index[schluessel]
+            _echte_programme_index[(kanal_id, neuer_stop_str)] = idx
+            gefunden = True
     return gefunden
 
 
@@ -3700,18 +3736,26 @@ def _sky_abrufen(daten):
     return []
 
 
-_sky_ergebnisse = _parallel_abrufen(sky_sender, _sky_abrufen, name="Sky")
+def _gruppe_sky():
+    """Kompletter Sky-Verarbeitungsblock (Abruf + Schreiben) als eine
+    Funktion, damit er ueber _HINTERGRUND_POOL zeitgleich mit den
+    uebrigen, unabhaengigen Laender-Kaskaden laufen kann (siehe
+    _HINTERGRUND_POOL-Kommentar oben)."""
+    _sky_ergebnisse = _parallel_abrufen(sky_sender, _sky_abrufen, name="Sky")
 
-for _idx, daten in enumerate(sky_sender):
-    programme = _sky_ergebnisse[_idx]
+    for _idx, daten in enumerate(sky_sender):
+        programme = _sky_ergebnisse[_idx]
 
-    daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+        daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
-    if programme:
-        _echte_quelle_zaehlen("Sky")
-        _schreibe_echte_programme(daten, programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
+        if programme:
+            _echte_quelle_zaehlen("Sky")
+            _schreibe_echte_programme(daten, programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+
+_zukunft_sky = _HINTERGRUND_POOL.submit(_gruppe_sky)
 
 # ==========================================================
 # WOW|SKY SPORT BUNDESLIGA N: derselbe echte Sky-HAWK-API-Kanal wie die
@@ -3925,21 +3969,6 @@ def _tvpassport_abrufen(daten):
     return []
 
 
-_tvpassport_ergebnisse = _parallel_abrufen(
-    tvpassport_sender, _tvpassport_abrufen, worker=TVPASSPORT_WORKER, name="TVPassport"
-)
-
-for _idx, daten in enumerate(tvpassport_sender):
-    programme = _tvpassport_ergebnisse[_idx]
-
-    daten["tvpassport_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-    if programme:
-        _echte_quelle_zaehlen("TVPassport")
-        _schreibe_echte_programme(daten, programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
-
 # ==========================================================
 # EPGSHARE-US-LOCALS / TVPASSPORT (Call-Sign): automatischer Abgleich
 # fuer alle "CITY|"-Sender (lokale US-Sender mit Call-Sign im Namen).
@@ -3977,20 +4006,44 @@ def _tvpassport_callsign_abrufen(daten):
     return (None, [])
 
 
-_tvpassport_callsign_ergebnisse = _parallel_abrufen(
-    tvpassport_callsign_sender, _tvpassport_callsign_abrufen, name="TVPassport-CallSign/EpgshareUS-Locals",
-)
+def _gruppe_tvpassport():
+    """Kompletter TVPassport(+Call-Sign)-Verarbeitungsblock (Abruf +
+    Schreiben) als eine Funktion, damit er ueber _HINTERGRUND_POOL
+    zeitgleich mit den uebrigen, unabhaengigen Laender-Kaskaden laufen
+    kann (siehe _HINTERGRUND_POOL-Kommentar oben) - mit Abstand der
+    laengste Einzelblock (~379s), daher besonders lohnend."""
+    _tvpassport_ergebnisse = _parallel_abrufen(
+        tvpassport_sender, _tvpassport_abrufen, worker=TVPASSPORT_WORKER, name="TVPassport"
+    )
 
-for _idx, daten in enumerate(tvpassport_callsign_sender):
-    _quelle, programme = _tvpassport_callsign_ergebnisse[_idx]
+    for _idx, daten in enumerate(tvpassport_sender):
+        programme = _tvpassport_ergebnisse[_idx]
 
-    daten["tvpassport_intervalle"] = daten.get("tvpassport_intervalle", []) + [
-        (p["start"], p["stop"]) for p in programme
-    ]
+        daten["tvpassport_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
-    if programme:
-        _echte_quelle_zaehlen(_quelle)
-        _schreibe_echte_programme(daten, programme)
+        if programme:
+            _echte_quelle_zaehlen("TVPassport")
+            _schreibe_echte_programme(daten, programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+    _tvpassport_callsign_ergebnisse = _parallel_abrufen(
+        tvpassport_callsign_sender, _tvpassport_callsign_abrufen, name="TVPassport-CallSign/EpgshareUS-Locals",
+    )
+
+    for _idx, daten in enumerate(tvpassport_callsign_sender):
+        _quelle, programme = _tvpassport_callsign_ergebnisse[_idx]
+
+        daten["tvpassport_intervalle"] = daten.get("tvpassport_intervalle", []) + [
+            (p["start"], p["stop"]) for p in programme
+        ]
+
+        if programme:
+            _echte_quelle_zaehlen(_quelle)
+            _schreibe_echte_programme(daten, programme)
+
+
+_zukunft_tvpassport = _HINTERGRUND_POOL.submit(_gruppe_tvpassport)
 
 # ==========================================================
 # MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
@@ -4861,61 +4914,73 @@ def _de_kaskade_abrufen(daten):
     return ergebnisse
 
 
-_de_kaskade_ergebnisse = _parallel_abrufen(
-    plutotv_sender, _de_kaskade_abrufen, worker=GEDROSSELTE_QUELLE_WORKER,
-    name="DE-Kaskade (deswird/Pluto/tvmovie/hoerzu/Joyn/Magenta/iptv-epg)",
-)
+def _gruppe_de_kaskade_und_tubi():
+    """DE-Kaskade + Tubi (teilen sich PRIME-Sender-Ueberschneidungen,
+    siehe Tubi-Kommentar unten - muessen daher im SELBEN Thread in
+    dieser Reihenfolge bleiben) als eine Funktion, damit sie ueber
+    _HINTERGRUND_POOL zeitgleich mit den noch laufenden TVPassport-/
+    Sky-Hintergrund-Threads UND den nachfolgenden sequenziellen
+    Bloecken (Blagovesti/BN2/GrandTV/open-epg/...) laufen koennen.
+    tvprogramdanas.net bleibt bewusst AUSSERHALB dieser Funktion (siehe
+    dortiger Kommentar) - es braucht die HIER geschriebenen Ergebnisse
+    UND die Ergebnisse aller vorherigen, bereits synchron im
+    Hauptthread abgeschlossenen Laender-Kaskaden (mts.rs/A1/Siol/MK)."""
+    _de_kaskade_ergebnisse = _parallel_abrufen(
+        plutotv_sender, _de_kaskade_abrufen, worker=GEDROSSELTE_QUELLE_WORKER,
+        name="DE-Kaskade (deswird/Pluto/tvmovie/hoerzu/Joyn/Magenta/iptv-epg)",
+    )
 
-for _idx, daten in enumerate(plutotv_sender):
-    for _quelle, _programme in _de_kaskade_ergebnisse[_idx]:
-        _echte_quelle_zaehlen(_quelle)
-        _schreibe_echte_programme(daten, _programme)
+    for _idx, daten in enumerate(plutotv_sender):
+        for _quelle, _programme in _de_kaskade_ergebnisse[_idx]:
+            _echte_quelle_zaehlen(_quelle)
+            _schreibe_echte_programme(daten, _programme)
 
-# ==========================================================
-# TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
-# tubi_epg.py - community-gepflegte, loginfreie XMLTV-Datei mit echten
-# Tubi-TV-Sendungen und Kanal-Icons). Kein eigenes Praefix noetig.
-# Ohne jegliche PRIME-Zeile in sender.txt passiert hier gar nichts.
-# ==========================================================
+    # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
+    # tubi_epg.py - community-gepflegte, loginfreie XMLTV-Datei mit
+    # echten Tubi-TV-Sendungen und Kanal-Icons). Kein eigenes Praefix
+    # noetig. Ohne jegliche PRIME-Zeile in sender.txt passiert hier gar
+    # nichts.
+    for daten in tubi_sender:
+        # PRIME-Sender laufen zusaetzlich durch die DE-Kaskade (siehe
+        # oben, deswird.org/Pluto TV/tvmovie.de/hoerzu.de) - hat die
+        # bereits echte Daten gefunden UND geschrieben, wird Tubi hier
+        # uebersprungen, damit dieselben Sendungen nicht doppelt ins
+        # XML geschrieben werden.
+        if any(daten.get(feld) for feld in (
+            "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
+            "hoerzu_intervalle",
+        )):
+            continue
 
-for daten in tubi_sender:
-    # PRIME-Sender laufen zusaetzlich durch die DE-Kaskade (siehe oben,
-    # deswird.org/Pluto TV/tvmovie.de/hoerzu.de) - hat die bereits echte
-    # Daten gefunden UND geschrieben, wird Tubi hier uebersprungen,
-    # damit dieselben Sendungen nicht doppelt ins XML geschrieben
-    # werden.
-    if any(daten.get(feld) for feld in (
-        "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
-        "hoerzu_intervalle",
-    )):
-        continue
+        programme = []
+        try:
+            site_id = tubi_kanal_finden(daten["sender"])
+            if site_id is not None:
+                programme = tubi_hole_programme(site_id, TUBI_TAGE)
+                # Kanal-Icon von Tubi uebernehmen, aber nur wenn noch kein
+                # manuelles Logo in sender.txt gesetzt wurde (leeres Feld
+                # oder der "AUTO"-Marker fuer die spaetere automatische
+                # Logo-Suche).
+                if daten["logo"].strip().upper() in ("", LOGO_AUTO_MARKER):
+                    tubi_icon = tubi_kanal_icon(site_id)
+                    if tubi_icon:
+                        daten["logo"] = tubi_icon
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
 
-    programme = []
-    try:
-        site_id = tubi_kanal_finden(daten["sender"])
-        if site_id is not None:
-            programme = tubi_hole_programme(site_id, TUBI_TAGE)
-            # Kanal-Icon von Tubi uebernehmen, aber nur wenn noch kein
-            # manuelles Logo in sender.txt gesetzt wurde (leeres Feld
-            # oder der "AUTO"-Marker fuer die spaetere automatische
-            # Logo-Suche).
-            if daten["logo"].strip().upper() in ("", LOGO_AUTO_MARKER):
-                tubi_icon = tubi_kanal_icon(site_id)
-                if tubi_icon:
-                    daten["logo"] = tubi_icon
+        daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            _echte_quelle_zaehlen("Tubi")
+            _schreibe_echte_programme(daten, programme)
         else:
             pass  # log unterdrueckt: keine echten Programmdaten
-    except Exception as e:
-        pass  # log unterdrueckt: keine echten Programmdaten
-        programme = []
 
-    daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
-    if programme:
-        _echte_quelle_zaehlen("Tubi")
-        _schreibe_echte_programme(daten, programme)
-    else:
-        pass  # log unterdrueckt: keine echten Programmdaten
+_zukunft_de_kaskade = _HINTERGRUND_POOL.submit(_gruppe_de_kaskade_und_tubi)
 
 # ==========================================================
 # TVPROGRAMDANAS.NET: BREITESTER, ALLERLETZTER Fallback fuer HR/BA/RS/
@@ -4924,7 +4989,17 @@ for daten in tubi_sender:
 # Quelle (hat_aktive_echte_quelle()) - fuellt ausschliesslich noch
 # unbedeckte Platzhalter-Sender, ruehrt laufende Quellen (insbesondere
 # Arena Sport/Sport Klub) nicht an.
+#
+# WICHTIG: wartet hier BEWUSST auf den DE-Kaskade/Tubi-Hintergrund-
+# Thread (siehe _HINTERGRUND_POOL) - hat_aktive_echte_quelle() prueft
+# u.a. die DORT gesetzten *_intervalle-Felder (deswird/plutotv/tvmovie/
+# hoerzu/... via "plutotv"-Flag) fuer DE/GO-Sender. Ohne dieses .result()
+# koennte tvprogramdanas.net faelschlich DE-Sender als "noch unbedeckt"
+# behandeln, obwohl die DE-Kaskade nur zeitlich noch nicht fertig war.
 # ==========================================================
+
+_zukunft_de_kaskade.result()
+
 
 def _tvprogramdanas_abrufen(daten):
     if hat_aktive_echte_quelle(daten):
@@ -5326,6 +5401,20 @@ for daten in sender_daten:
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
+
+# Wartet hier auf ALLE drei Hintergrund-Bloecke (siehe
+# _HINTERGRUND_POOL-Kommentar oben) - Sky/TVPassport/DE-Kaskade
+# schreiben alle in dieselben *_intervalle-Felder, die die folgende
+# Luecken-Fuellung (alle_echten_intervalle()/hat_aktive_echte_quelle())
+# pro Sender auswertet. _zukunft_de_kaskade wurde zwar schon vor
+# tvprogramdanas.net abgewartet, .result() auf einem bereits fertigen
+# Future ist aber verlustfrei (liefert sofort den gecachten Wert) - hier
+# trotzdem nochmal aufgefuehrt, damit diese Stelle für sich lesbar
+# bleibt und nicht von der Reihenfolge weiter oben abhaengt.
+_zukunft_sky.result()
+_zukunft_tvpassport.result()
+_zukunft_de_kaskade.result()
+_HINTERGRUND_POOL.shutdown(wait=True)
 
 # ==========================================================
 # STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).

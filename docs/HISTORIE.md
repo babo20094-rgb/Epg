@@ -5025,3 +5025,65 @@ DE-Kaskade getestet:
   ein Alias/Guard gegen diesen Fehltreffer ergaenzt werden, nicht nur
   das Praefix gestrichen werden (anders als bei HR HD/YU-GI-OH!, wo die
   automatische Kaskade sauber matcht).
+
+## Workflow-Laufzeit: Sky/TVPassport/DE-Kaskade parallelisiert (September 2026)
+
+Nutzerwunsch: Workflow-Laufzeit (~25-30 Min.) verkuerzen. Analyse der
+"Laufzeit pro Quelle"-Tabelle (siehe QUELLEN_ZEITEN-Log, Run #871)
+zeigte: TVPassport (378.7s), die komplette DE-Kaskade (156.4s) und Sky
+(91.0s) sind die drei mit Abstand groessten Bloecke (zusammen ~626s von
+~1530s Gesamtlaufzeit) und liefen bisher STRIKT SEQUENZIELL nacheinander
+im Hauptthread, obwohl sie keine gemeinsamen sender.txt-Zeilen/daten-
+Dicts mit den uebrigen Kaskaden (Telemach/mts.rs/A1/Siol/MK) teilen.
+
+Gefundene echte Abhaengigkeit, die eine vollstaendige Parallelisierung
+ALLER Bloecke verhindert: Telemach/mts.rs teilen sich fuer ME/MNG/MO/CG-
+Sender `daten["telemach_intervalle"]` als Startbestand der RS-Luecken-
+Fuellung - Telemach MUSS vor mts.rs abgeschlossen sein. Diese beiden
+(und die uebrigen Laender-Kaskaden RS/HR/BA/SI/MK) bleiben deshalb
+bewusst UNVERAENDERT sequenziell.
+
+Umsetzung (nur Sky/TVPassport/DE-Kaskade+Tubi):
+- Neuer, dauerhaft laufender `_HINTERGRUND_POOL` (ThreadPoolExecutor,
+  max_workers=3, siehe generate_epg.py).
+- `_xml_lock` (threading.Lock) schuetzt `xml_teile`/
+  `_echte_programme_index`/`echte_quelle_zaehler` gegen gleichzeitige
+  Schreibzugriffe aus mehreren Threads (`_schreibe_echte_programme()`,
+  `_verlaengere_vorherige_sendung()`, `_echte_quelle_zaehlen()`) - vorher
+  war das Schreiben nur EINFACH-Thread-sicher (siehe Docstring von
+  `_de_kaskade_abrufen()`), jetzt zusaetzlich MEHRFACH-Thread-sicher.
+- Sky (`_gruppe_sky()`) und TVPassport+CallSign (`_gruppe_tvpassport()`)
+  werden direkt nach ihrer Definition an `_HINTERGRUND_POOL` uebergeben -
+  laufen ab dort im Hintergrund, waehrend der Hauptthread ganz normal mit
+  mts.rs/A1/Siol/MK weitermacht.
+- DE-Kaskade+Tubi (`_gruppe_de_kaskade_und_tubi()`, MUSSEN im selben
+  Thread bleiben - Tubi ueberspringt PRIME-Sender, die die DE-Kaskade
+  bereits abgedeckt hat) werden an ihrer bisherigen Stelle im Skript
+  (nach mts.rs/A1/Siol/MK) ebenfalls an den Pool uebergeben.
+- `tvprogramdanas.net` (haengt ueber `hat_aktive_echte_quelle()` von
+  ALLEN vorherigen Quellen ab, auch DE-Kaskade) wartet EXPLIZIT
+  (`_zukunft_de_kaskade.result()`) auf den DE-Kaskade-Hintergrund-Thread,
+  bevor es startet - sonst koennte es DE-Sender faelschlich als
+  "noch unbedeckt" behandeln.
+- Ganz am Ende, vor der finalen Luecken-Fuellung (Platzhalter-Logik, die
+  `alle_echten_intervalle()`/`hat_aktive_echte_quelle()` fuer JEDEN
+  Sender auswertet), warten alle drei Futures nochmal explizit
+  (verlustfrei, falls schon fertig) - erst danach darf die generische
+  Platzhalter-Logik entscheiden, welche Zeitfenster noch leer sind.
+
+Erwartete Ersparnis: die drei Bloecke laufen jetzt groesstenteils
+zeitgleich mit den ~314s Hauptthread-Arbeit (Telemach/mts.rs/A1/Siol/
+TvProfil/TvProgram.rs/MK/MagentaTV) statt zusaetzlich dazu - grobe
+Schaetzung ca. 8-10 Minuten Gesamtlaufzeit statt ~25-30 Minuten (genauer
+Wert erst nach einem echten Workflow-Lauf mit dem neuen Code bekannt).
+
+Verifiziert vor dem Push: `python3 -m pytest test_generate_epg.py`
+(96/96 bestanden, unveraendert), `python3 -c "import ast; ast.parse(...)"`
+(Syntax OK). Ein vollstaendiger Testlauf mit echtem Netzwerkzugriff war
+in der Sandbox NICHT moeglich (Netzwerk blockiert) - die eigentliche
+Verifikation (Laufzeit + Korrektheit/keine doppelten <programme>-
+Eintraege) muss beim naechsten echten Workflow-Lauf im Log geprueft
+werden. Bei Auffaelligkeiten (z.B. doppelte Sendungen fuer denselben
+Sender/Zeitraum, oder ein Traceback aus einem der drei Hintergrund-
+Threads) als erstes verdaechtigen: die drei _gruppe_*()-Funktionen und
+die _zukunft_*.result()-Aufrufe.
