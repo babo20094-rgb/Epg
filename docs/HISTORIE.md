@@ -4389,3 +4389,67 @@ direkt nach abweichenden Anzeigenamen/Marken-Assoziationen durchsuchen
 (hier: "Pink 2 HD" als alternativer Markenname fuer denselben Sender),
 bevor eine neue Quelle gesucht oder ein Sender als "nicht abdeckbar"
 abgehakt wird.
+
+## Neue Quelle: Rakuten TV (DE) + ARD Plus Krimi/Lindenstrasse + Amazon Prime Video Live-TV verworfen (September 2026)
+
+**ARD PLUS KRIMI DE (Nutzeranfrage):** In `open-epg.com/germany.xml.gz`
+unter dem vollen Markennamen "ARDPlusKrimiklassiker.de" gefunden (60
+Sendungen, u.a. "Bordertown"/"Grossstadtrevier"). Im selben Zuge auch
+"ARD PLUS LINDENSTRASSE" gefunden ("ARDPlusLindenstrasse.de", 60
+Sendungen). Beide als neue Eintraege in `open_epg_epg.py`s
+`_WHITELIST` ergaenzt (JOYN- und PRIME-Variante decken sich, da der
+Namensabgleich landunabhaengig ist).
+
+**Rakuten TV (Nutzer-Snapshot als Hinweis):** Nutzer lieferte einen
+Browser-Snapshot von rakuten.tv/de/live_channels/... - Recherche nach
+vergleichbaren Open-Source-EPG-Projekten (github.com/dp247/
+rakuten-uk-epg) deckte die zugrunde liegende, oeffentliche, login-freie
+API auf (`gizmo.rakuten.tv/v3/live_channels`). Fuer `market_code=de`
+liefert sie 157 Kanaele MIT bereits eingebetteten Sendungsdaten
+(`live_programs`-Feld) - kein separater Programmabruf pro Kanal noetig.
+`classification_id=307` ("NC", deutscher Marktstandard) musste ueber
+den zusaetzlichen `/v3/classifications`-Endpoint ermittelt werden (der
+UK-Wert 18 aus dem Referenzprojekt funktioniert fuer DE nicht, jeder
+Markt hat eigene IDs).
+
+**Deutlicher Parallelisierungs-Gewinn nachgewiesen:** 4 Ergebnisseiten
+sequenziell abgerufen brauchten 27,2s, exakt dieselben 4 Seiten
+PARALLEL (4 Worker) nur 0,7s - die API antwortet pro einzelnem
+sequenziellem Request auffaellig langsam (vermutlich serverseitiges
+Rate-Limiting/Warteschlangen-Verhalten pro Verbindung), paralleles
+Abrufen umgeht das komplett. Neues Modul `quellen/rakuten_tv_epg.py`
+laedt daher alle Seiten ueber `ThreadPoolExecutor` parallel (erste
+Seite einzeln fuer die Gesamt-Seitenzahl, Rest parallel).
+
+Live-Abgleich gegen `sender.txt` ergab 84 Zeilen-Treffer (~45
+verschiedene Sender, mehrfach unter JOYN/PRIME-Varianten), u.a. Red
+Bull TV (52 Sendungen), Top Gear (50), Naruto (109), GLORY Kickboxing
+(12), Fashion TV, Tennis Channel, Yu-Gi-Oh!, Mr. Bean - Live Action.
+Als ACHTE und letzte Stufe der DE-Kaskade eingehaengt (`generate_epg.py`,
+nach iptv-epg.org/DE), exakter Namensabgleich (kein Fuzzy - viele kurze,
+generische Kanalnamen wie "Krimi" haetten sonst ein hohes
+Fehltreffer-Risiko).
+
+**Amazon Prime Video Live-TV bewusst NICHT umgesetzt:** Nutzer lieferte
+ebenfalls zwei Browser-Snapshots von amazon.de/gp/video/livetv mit
+echten Sendedaten (z.B. "Will & Grace"-Episoden mit exakten Zeiten).
+Die zugrunde liegende API (`primevideo.com/api/getLandingPage`)
+erfordert zwingend einen `serviceToken`, live ohne Token getestet:
+Fehlerseite ("That shouldn't have happened"). Die beiden vom Nutzer
+gelieferten Snapshots enthielten außerdem zwei UNTERSCHIEDLICHE Tokens
+(an die jeweilige eingeloggte Amazon-Session gebunden, nicht statisch/
+oeffentlich) - bestaetigt, dass eine dauerhafte Automatisierung ein
+persoenliches Amazon-Konto (Zugangsdaten oder staendig neu zu
+erneuernder Session-Token) als GitHub-Secret erfordern wuerde. Bewusst
+abgelehnt (Sicherheitsrisiko fuer das private Amazon/Prime-Konto des
+Nutzers in einem oeffentlichen Repo) - Nutzer hat dem zugestimmt.
+
+**Lehre:** Bei einem vom Nutzer mitgebrachten Snapshot einer
+JS-lastigen Seite (React/SPA) immer zuerst nach einem bereits
+existierenden Open-Source-EPG-Projekt fuer dieselbe Plattform suchen
+(oft schon reverse-engineered, siehe Rakuten) - deutlich schneller als
+selbst durch Netzwerk-Tabs zu graben. Ein Login-Formular/serviceToken
+in der URL ist ein starkes Warnsignal fuer Session-Bindung - immer
+explizit verifizieren (mehrere Snapshots mit unterschiedlichen Werten
+vergleichen, oder ein Test-Request ohne Token), bevor eine Quelle als
+automatisierbar eingestuft wird.

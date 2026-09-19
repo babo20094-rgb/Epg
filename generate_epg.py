@@ -80,6 +80,7 @@ from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
 from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
 from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
+from quellen.rakuten_tv_epg import rakuten_tv_kanal_finden, rakuten_tv_hole_programme
 from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
 from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
 from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
@@ -366,7 +367,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle", "rtv_rs_intervalle"],
     "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle", "rakuten_tv_intervalle"],
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
     "mk": ["mk_intervalle"],
@@ -3368,6 +3369,7 @@ MK_TAGE = 3
 MAGENTATV_MK_TAGE = 2
 MAGENTATV_ME_TAGE = 2
 IPTVEPG_DE_TAGE = 2
+RAKUTEN_TV_TAGE = 2
 TVPROGRAMDANAS_TAGE = 3
 VIKOM_TAGE = 7
 MYMEDIA_TAGE = 3
@@ -4702,6 +4704,29 @@ def _de_kaskade_abrufen(daten):
         neue_programme = _ohne_bereits_geschriebene_ueberlappung(iptvepg_de_programme)
         if neue_programme:
             ergebnisse.append(("iptv-epg.org (DE)", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # Rakuten TV als ACHTER und letzter Versuch fuer DE-Sender (siehe
+    # rakuten_tv_epg.py) - deckt viele generische Themen-/Nischenkanaele
+    # ab (z.B. "Red Bull TV", "Top Gear", "Naruto", "GLORY Kickboxing"),
+    # die keine der vorherigen sieben Quellen kennt (Nutzeranfrage
+    # September 2026, Rakuten-TV-Browser-Snapshot als Hinweis). Wird
+    # immer versucht, schreibt aber nur die Zeitfenster, die noch von
+    # keiner vorherigen Quelle abgedeckt sind.
+    rakuten_tv_programme = []
+    try:
+        rakuten_tv_site_id = rakuten_tv_kanal_finden(daten["sender"])
+        if rakuten_tv_site_id is not None:
+            rakuten_tv_programme = rakuten_tv_hole_programme(rakuten_tv_site_id, RAKUTEN_TV_TAGE)
+    except Exception:
+        rakuten_tv_programme = []
+
+    daten["rakuten_tv_intervalle"] = [(p["start"], p["stop"]) for p in rakuten_tv_programme]
+
+    if rakuten_tv_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(rakuten_tv_programme)
+        if neue_programme:
+            ergebnisse.append(("Rakuten TV", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
     return ergebnisse

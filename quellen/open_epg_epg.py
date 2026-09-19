@@ -77,6 +77,17 @@ _WHITELIST = {
     # Joyn-VOD/search.ch/iptv-epg.org, siehe generate_epg.py) und auch
     # nicht bei tvprogramdanas.net gefunden, aber bei open-epg.com/
     # germany.xml.gz mit gut gefuellten Sendeplaenen (25-166 Sendungen).
+    # "ARD PLUS KRIMI"/"ARD PLUS KRIMI DE" (JOYN/PRIME) - September 2026
+    # geprueft (Nutzeranfrage): in open-epg.com/germany.xml.gz unter dem
+    # vollen Markennamen "ARDPlusKrimiklassiker.de" gefunden (60
+    # Sendungen, u.a. "Bordertown"/"Grossstadtrevier"), nicht unter dem
+    # kuerzeren sender.txt-Namen selbst - kein anderer Sender in dieser
+    # Whitelist heisst nur "Krimi", daher unproblematisch trotz des
+    # kuerzeren Schluessels. "ARD PLUS LINDENSTRASSE" im selben Zuge
+    # gefunden (ebenfalls 60 Sendungen, "Lindenstrasse").
+    normalisiere_sendername("ARD PLUS KRIMI DE"): ("DE", "ARDPlusKrimiklassiker.de"),
+    normalisiere_sendername("ARD PLUS KRIMI"): ("DE", "ARDPlusKrimiklassiker.de"),
+    normalisiere_sendername("ARD PLUS LINDENSTRASSE"): ("DE", "ARDPlusLindenstrasse.de"),
     normalisiere_sendername("Big Brother Classics"): ("DE", "BigBrotherClassics.de"),
     normalisiere_sendername("Curiosity Now"): ("DE", "CuriosityNow.de"),
     normalisiere_sendername("FIFA+"): ("DE", "FIFAplus.de"),
