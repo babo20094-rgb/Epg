@@ -214,10 +214,24 @@ def _daten_laden():
             return _daten_cache
 
 
+# Bekannte Faelle, bei denen der sender.txt-Kurzname NICHT exakt dem
+# vollen Rakuten-TV-Titel entspricht (z.B. "AMASIA" in sender.txt vs.
+# "Amasia - The Finest Art of Asian Movies" bei Rakuten) - einzeln
+# gepflegt statt eines generischen Fuzzy-Abgleichs, um bei den vielen
+# kurzen/generischen Kanalnamen (siehe Modul-Docstring) kein
+# Fehltreffer-Risiko einzugehen.
+_BEKANNTE_ALIASE = {
+    normalisiere_sendername("AMASIA"): normalisiere_sendername(
+        "Amasia - The Finest Art of Asian Movies"
+    ),
+}
+
+
 def rakuten_tv_kanal_finden(kanalname):
     """Sucht den Rakuten-TV-Kanal per EXAKTEM Namensabgleich (nach
     normalisiere_sendername(), kein Fuzzy-Anteil - siehe Modul-
-    Docstring). Gibt die Kanal-ID zurueck oder None."""
+    Docstring) oder ueber die feste Alias-Liste oben. Gibt die
+    Kanal-ID zurueck oder None."""
     daten = _daten_laden()
     if not daten or not daten["kanaele"]:
         return None
@@ -225,6 +239,7 @@ def rakuten_tv_kanal_finden(kanalname):
     ziel_schluessel = normalisiere_sendername(kanalname)
     if not ziel_schluessel:
         return None
+    ziel_schluessel = _BEKANNTE_ALIASE.get(ziel_schluessel, ziel_schluessel)
 
     name_index = {}
     for kanal in daten["kanaele"]:
