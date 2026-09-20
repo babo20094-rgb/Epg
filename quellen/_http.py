@@ -30,6 +30,7 @@ mockt - ein Wechsel auf eine Session-Methode haette alle bestehenden
 Tests unbemerkt am Mock vorbeilaufen lassen.
 """
 
+import threading
 import time
 from urllib.parse import urlparse
 
@@ -38,6 +39,28 @@ import requests
 _VERSUCHE = 3
 _PAUSE_SEKUNDEN = 1.5
 _RATE_LIMIT_STATUS = (429, 503)
+
+# Begrenzt GLEICHZEITIGE Requests pro Host (unabhaengig davon, wie viele
+# Worker-Threads der aufrufenden Quelle insgesamt parallel laufen) -
+# hoerzu.de/tvmovie.de reagieren bei zu vielen gleichzeitigen Anfragen
+# mit einer 429/503-Flut (September 2026, siehe docs/HISTORIE.md:
+# DE-Kaskade lief in Run #874 dadurch 463s statt der ueblichen ~150s,
+# weil jeder Rate-Limit-Treffer einen eigenen Retry-Backoff ausloest).
+# Ein Semaphore pro Host statt eines globalen Workerzahl-Downgrades,
+# damit NUR die tatsaechlich betroffenen Hosts gedrosselt werden, ohne
+# die restliche DE-Kaskade (deswird/PlutoTV/Joyn-VOD/...) zu verlangsamen.
+_MAX_GLEICHZEITIG_PRO_HOST = 3
+_HOST_SEMAPHOREN = {}
+_HOST_SEMAPHOREN_LOCK = threading.Lock()
+
+
+def _semaphore_fuer_host(host):
+    with _HOST_SEMAPHOREN_LOCK:
+        semaphore = _HOST_SEMAPHOREN.get(host)
+        if semaphore is None:
+            semaphore = threading.Semaphore(_MAX_GLEICHZEITIG_PRO_HOST)
+            _HOST_SEMAPHOREN[host] = semaphore
+        return semaphore
 
 # Zaehlt pro Host (z.B. "www.hoerzu.de"), wie oft ein Abruf insgesamt
 # versucht wurde, wie oft dabei ein 429/503 (Rate-Limiting) auftrat und
@@ -98,15 +121,21 @@ def mit_retry(fn, *args, **kwargs):
     ConnectionError/Timeout sowie bei HTTP 429/503 (Rate-Limiting).
     Andere Fehler (inkl. HTTPError bei anderen Status-Codes) werden
     sofort weitergereicht."""
-    eintrag = _statistik_eintrag(_host_aus_url(args))
+    host = _host_aus_url(args)
+    eintrag = _statistik_eintrag(host)
+    semaphore = _semaphore_fuer_host(host)
 
     letzter_fehler = None
     for versuch in range(1, _VERSUCHE + 1):
         eintrag["versuche"] += 1
-        try:
-            response = fn(*args, **kwargs)
-        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
-            letzter_fehler = e
+        with semaphore:
+            try:
+                response = fn(*args, **kwargs)
+            except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
+                letzter_fehler = e
+                response = None
+
+        if response is None:
             if versuch < _VERSUCHE:
                 time.sleep(_PAUSE_SEKUNDEN)
             continue

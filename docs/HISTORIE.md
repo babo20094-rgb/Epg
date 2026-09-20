@@ -5319,3 +5319,38 @@ vor Siol) eingehaengt - fuellt vor allem bisher unbedeckte Kanaele wie
 CineStar-Varianten, STAR Life/Crime, HBO, CMC, Doma TV, Z1, Viasat
 History. Lokal live verifiziert (STAR Life: 80 Sendungen im
 2-Tage-Fenster, korrekte Zeiten).
+
+## Rate-Limiting bei hoerzu.de/tvmovie.de: Pro-Host-Nebenlaeufigkeits-Limit in _http.py (September 2026)
+
+Nutzerfrage nach Run #874 ("Kann man das mit hoerzu beheben?"): die
+DE-Kaskade brauchte in diesem Lauf 463,3s statt der ueblichen ~150s,
+weil hoerzu.de bei 179 Versuchen 30x mit 429/503 (Rate-Limiting)
+antwortete - jeder Treffer loest in `_http.mit_retry()` einen eigenen
+Backoff (`_PAUSE_SEKUNDEN * Versuch`, ggf. laenger bei Retry-After-
+Header) aus, was sich bei GEDROSSELTE_QUELLE_WORKER=6 gleichzeitig
+laufenden DE-Kaskade-Threads schnell aufsummiert.
+
+**Fix:** `quellen/_http.py` begrenzt jetzt zusaetzlich zur bestehenden
+Retry-Logik die Zahl GLEICHZEITIGER Requests PRO HOST auf 3
+(`_MAX_GLEICHZEITIG_PRO_HOST`, ueber ein `threading.Semaphore` je Host,
+lazy angelegt in `_semaphore_fuer_host()`) - unabhaengig davon, wie
+viele Worker-Threads der jeweiligen Quelle insgesamt parallel laufen.
+Bewusst ein Semaphore PRO HOST statt einer globalen Reduzierung von
+GEDROSSELTE_QUELLE_WORKER, damit nur die tatsaechlich rate-limitenden
+Hosts (hoerzu.de/tvmovie.de) gedrosselt werden, ohne die uebrigen
+DE-Kaskade-Quellen (deswird.org/PlutoTV/Joyn-VOD/Magenta-myTeamTV/...),
+die kein Rate-Limiting zeigen, unnoetig zu verlangsamen. Der Semaphore
+wickelt NUR den eigentlichen `fn(*args, **kwargs)`-Aufruf ein (nicht
+die Retry-Schleife selbst), damit ein wartender Thread waehrend seines
+eigenen Backoffs den Slot fuer andere freigibt.
+
+Lokal mit einem Mock-Threading-Test verifiziert (10 gleichzeitige
+Aufrufe an denselben Host, gemessene maximale Ist-Nebenlaeufigkeit
+korrekt bei 3 gedeckelt). `python3 -m pytest test_generate_epg.py`
+weiterhin 96/96 gruen.
+
+Ehrliche Einordnung: ob dies die 429/503-Rate bei hoerzu.de im naechsten
+echten Lauf tatsaechlich senkt, ist erst mit einem neuen Workflow-Lauf
+pruefbar - der Fix reduziert die SELBST verursachte Anfragelast, kann
+aber serverseitige Drosselung unabhaengig vom eigenen Anfragemuster
+nicht garantiert vollstaendig vermeiden.
