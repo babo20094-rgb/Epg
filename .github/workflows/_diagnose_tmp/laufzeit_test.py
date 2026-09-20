@@ -245,42 +245,58 @@ def main():
         f"TVPASSPORT={len(tvp_namen)}"
     )
 
+    # (titel, sender_liste, produktions_worker, hoeher_worker_oder_None, funktion)
+    # hoeher_worker: probeweise erhoehte Worker-Zahl, NUR fuer diesen
+    # Diagnose-Lauf - aendert nichts an generate_epg.py. None = nicht
+    # erneut testen (TVPassport bereits im ersten Diagnose-Lauf bei
+    # 16/24/32 als identisch gemessen, DE-Kaskade/A1 laufen hier ohnehin
+    # schon mit der erhoehten Zahl als einzigem Wert).
     stufen = [
-        ("Telemach", ba_namen, PARALLEL_WORKER, _telemach_worker),
-        ("mtel.ba", ba_namen, ERHOEHTE_QUELLE_WORKER, _mtel_worker),
-        ("klix.ba", ba_namen, PARALLEL_WORKER, _klix_worker),
-        ("Sky", sky_namen, PARALLEL_WORKER, _sky_worker),
-        ("TVPassport", tvp_namen, TVPASSPORT_WORKER, _tvpassport_worker),
-        ("DE-Kaskade (hoerzu.de/tvmovie.de)", de_namen, DE_KASKADE_WORKER, _de_kaskade_worker),
-        ("mts.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(mts_kanal_finden, mts_hole_programme, 2)),
-        ("SportKlub (RS)", rs_namen, PARALLEL_WORKER, _einfacher_worker(sportklub_kanal_finden, sportklub_hole_programme, 2)),
-        ("Arena Sport", rs_namen, PARALLEL_WORKER, _arena_worker),
-        ("RTV.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(rtv_rs_kanal_finden, rtv_rs_hole_programme, 2)),
-        ("scifi.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(scifi_kanal_finden, scifi_hole_programme, 2)),
-        ("NatGeo", rs_namen, PARALLEL_WORKER, _einfacher_worker(natgeo_kanal_finden, natgeo_hole_programme, 2)),
-        ("AXN Adria", rs_namen, PARALLEL_WORKER, _einfacher_worker(axn_kanal_finden, axn_hole_programme, 2)),
-        ("Pickbox", rs_namen, PARALLEL_WORKER, _einfacher_worker(pickbox_kanal_finden, pickbox_hole_programme, 2)),
-        ("RTL Adria (RS)", rs_namen, PARALLEL_WORKER, _einfacher_worker(rtl_hr_kanal_finden, rtl_hr_hole_programme, 2)),
-        ("A1", hr_namen, DE_KASKADE_WORKER, _einfacher_worker(a1_kanal_finden, a1_hole_programme, 6)),
-        ("MojMaxTV", hr_namen, PARALLEL_WORKER, _einfacher_worker(mojmaxtv_kanal_finden, mojmaxtv_hole_programme, 2)),
-        ("SportKlub (HR)", hr_namen, PARALLEL_WORKER, _einfacher_worker(sportklub_kanal_finden, sportklub_hole_programme, 2)),
-        ("Pickbox (HR)", hr_namen, PARALLEL_WORKER, _einfacher_worker(pickbox_kanal_finden, pickbox_hole_programme, 2)),
-        ("RTL Adria (HR)", hr_namen, PARALLEL_WORKER, _einfacher_worker(rtl_hr_kanal_finden, rtl_hr_hole_programme, 2)),
-        ("index.hr (mojtv.hr)", hr_namen, PARALLEL_WORKER, _einfacher_worker(mojtv_index_kanal_finden, mojtv_index_hole_programme, 2)),
-        ("Siol/Delo.si/SportKlub", si_namen, PARALLEL_WORKER, _siol_worker),
-        ("TvProfil.net", rs_namen, PARALLEL_WORKER, _einfacher_worker(tvprofil_kanal_finden, tvprofil_hole_programme, 3)),
-        ("TvProgram.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(tvprogramrs_kanal_finden, tvprogramrs_hole_programme, 1)),
-        ("tvprogramdanas.net", rs_namen, PARALLEL_WORKER, _einfacher_worker(tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme, 3)),
+        ("Telemach", ba_namen, PARALLEL_WORKER, 20, _telemach_worker),
+        ("mtel.ba", ba_namen, ERHOEHTE_QUELLE_WORKER, 24, _mtel_worker),
+        ("klix.ba", ba_namen, PARALLEL_WORKER, 20, _klix_worker),
+        ("Sky", sky_namen, PARALLEL_WORKER, 20, _sky_worker),
+        ("TVPassport", tvp_namen, TVPASSPORT_WORKER, None, _tvpassport_worker),
+        ("DE-Kaskade (hoerzu.de/tvmovie.de)", de_namen, DE_KASKADE_WORKER, None, _de_kaskade_worker),
+        ("mts.rs", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(mts_kanal_finden, mts_hole_programme, 2)),
+        ("SportKlub (RS)", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(sportklub_kanal_finden, sportklub_hole_programme, 2)),
+        ("Arena Sport", rs_namen, PARALLEL_WORKER, 20, _arena_worker),
+        ("RTV.rs", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(rtv_rs_kanal_finden, rtv_rs_hole_programme, 2)),
+        ("scifi.rs", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(scifi_kanal_finden, scifi_hole_programme, 2)),
+        ("NatGeo", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(natgeo_kanal_finden, natgeo_hole_programme, 2)),
+        ("AXN Adria", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(axn_kanal_finden, axn_hole_programme, 2)),
+        ("Pickbox", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(pickbox_kanal_finden, pickbox_hole_programme, 2)),
+        ("RTL Adria (RS)", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(rtl_hr_kanal_finden, rtl_hr_hole_programme, 2)),
+        ("A1", hr_namen, DE_KASKADE_WORKER, None, _einfacher_worker(a1_kanal_finden, a1_hole_programme, 6)),
+        ("MojMaxTV", hr_namen, PARALLEL_WORKER, 20, _einfacher_worker(mojmaxtv_kanal_finden, mojmaxtv_hole_programme, 2)),
+        ("SportKlub (HR)", hr_namen, PARALLEL_WORKER, 20, _einfacher_worker(sportklub_kanal_finden, sportklub_hole_programme, 2)),
+        ("Pickbox (HR)", hr_namen, PARALLEL_WORKER, 20, _einfacher_worker(pickbox_kanal_finden, pickbox_hole_programme, 2)),
+        ("RTL Adria (HR)", hr_namen, PARALLEL_WORKER, 20, _einfacher_worker(rtl_hr_kanal_finden, rtl_hr_hole_programme, 2)),
+        ("index.hr (mojtv.hr)", hr_namen, PARALLEL_WORKER, 20, _einfacher_worker(mojtv_index_kanal_finden, mojtv_index_hole_programme, 2)),
+        ("Siol/Delo.si/SportKlub", si_namen, PARALLEL_WORKER, 20, _siol_worker),
+        ("TvProfil.net", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(tvprofil_kanal_finden, tvprofil_hole_programme, 3)),
+        ("TvProgram.rs", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(tvprogramrs_kanal_finden, tvprogramrs_hole_programme, 1)),
+        ("tvprogramdanas.net", rs_namen, PARALLEL_WORKER, 20, _einfacher_worker(tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme, 3)),
     ]
 
+    # Baut die tatsaechliche Test-Reihenfolge: pro Stufe erst der
+    # aktuelle Produktions-Worker-Wert, DANN (falls angegeben) der
+    # probeweise erhoehte Wert direkt danach - so lassen sich beide
+    # Werte pro Quelle unmittelbar vergleichen.
+    durchlaeufe = []
+    for titel, namen, worker, hoeher, fn in stufen:
+        durchlaeufe.append((titel, namen, worker, fn))
+        if hoeher is not None:
+            durchlaeufe.append((f"{titel} (erhoeht)", namen, hoeher, fn))
+
     ergebnisse = []
-    for i, (titel, namen, worker, fn) in enumerate(stufen):
+    for i, (titel, namen, worker, fn) in enumerate(durchlaeufe):
         if not namen:
             print(f"\n=== {titel}: uebersprungen (keine Sender in der Stichprobe) ===")
             continue
         dauer = _stufe_testen(titel, namen, worker, fn)
         ergebnisse.append((titel, worker, len(namen), dauer))
-        if i < len(stufen) - 1:
+        if i < len(durchlaeufe) - 1:
             print(f"Pause {PAUSE_ZWISCHEN_STUFEN_SEKUNDEN}s vor der naechsten Stufe...", flush=True)
             time.sleep(PAUSE_ZWISCHEN_STUFEN_SEKUNDEN)
 
