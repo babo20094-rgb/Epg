@@ -93,26 +93,28 @@ def fehler_uebersicht():
     return ergebnis
 
 
-_RETRY_AFTER_MAX_SEKUNDEN = 5
+_RETRY_AFTER_MAX_SEKUNDEN = 30
 
 def _rate_limit_pause(response, versuch):
     """Bestimmt die Wartezeit vor dem naechsten Versuch nach einem
     429/503: nutzt den Retry-After-Header (Sekunden), falls vorhanden
     und plausibel, sonst einen mit jedem Versuch steigenden Backoff.
-    Auf _RETRY_AFTER_MAX_SEKUNDEN gedeckelt (statt bisher 30s) - ein
-    Sender, der nach diesem kuerzeren Warten immer noch nicht durchkommt,
-    faellt einfach graceful auf die naechste Kaskaden-Stufe zurueck
-    (z.B. hoerzu.de -> Joyn-VOD), verliert dabei keine Daten, nur
-    potenziell ein paar echte Sendungen von der langsameren Quelle -
-    spart aber bei vielen gleichzeitigen 429ern (siehe hoerzu.de/
-    tvmovie.de-Faelle in docs/HISTORIE.md) spuerbar Laufzeit.
+
+    WICHTIG (September 2026, siehe docs/HISTORIE.md "Run #878 wieder
+    ueber 20 Minuten"): ein testweiser 5s-Deckel wurde wieder
+    zurueckgenommen - die 429/503-Rate bei tvmovie.de stieg danach in
+    JEDEM beobachteten Lauf, statt zu sinken (60 statt vorher max. 43
+    Treffer). Plausibler Mechanismus: kuerzeres Warten fuehrt zu
+    schnelleren erneuten Anfragen waehrend einer bereits laufenden
+    Rate-Limiting-Phase, was die Serverlast eher erhoeht statt sie
+    abklingen zu lassen ("Retry-Storm"-Antipattern) - strukturell
+    derselbe Fehler wie beim verworfenen Pro-Host-Semaphore-Versuch.
+    _RETRY_AFTER_MAX_SEKUNDEN ist deshalb wieder auf 30 (Original-Wert).
 
     Gibt (wartezeit, hatte_retry_after_header) zurueck - das zweite
     Element ist reines Debug-Signal fuer fehler_uebersicht() (siehe
-    dort), damit sichtbar wird, ob der Server ueberhaupt einen
-    Retry-After-Header schickt (nur dann kann der Deckel ueberhaupt
-    etwas bewirken - ohne Header liegt die eigene Backoff-Formel
-    sowieso immer unter dem Deckel)."""
+    dort), damit sichtbar bleibt, ob/wie oft ein Server ueberhaupt einen
+    Retry-After-Header schickt."""
     retry_after = response.headers.get("Retry-After") if response is not None else None
     if retry_after:
         try:
@@ -123,7 +125,7 @@ def _rate_limit_pause(response, versuch):
                 return _RETRY_AFTER_MAX_SEKUNDEN, True
         except ValueError:
             pass
-    return min(_PAUSE_SEKUNDEN * versuch, _RETRY_AFTER_MAX_SEKUNDEN), False
+    return _PAUSE_SEKUNDEN * versuch, False
 
 
 def mit_retry(fn, *args, **kwargs):

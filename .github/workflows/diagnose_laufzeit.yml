@@ -1,0 +1,42 @@
+name: Diagnose Laufzeit/Worker-Skalierung (temporaer)
+
+on:
+  workflow_dispatch:
+    inputs:
+      de_worker:
+        description: "Worker-Zahlen fuer die DE-Kaskade (hoerzu.de/tvmovie.de), Komma-getrennt"
+        required: false
+        default: "3,6,9,12"
+      de_stichprobe:
+        description: "Anzahl DE/GO/PRIME/JOYN/WOW-Sender fuer die Stichprobe"
+        required: false
+        default: "250"
+      tvpassport_worker:
+        description: "Worker-Zahlen fuer TVPassport, Komma-getrennt (leer = ueberspringen)"
+        required: false
+        default: "16,24,32"
+      tvpassport_stichprobe:
+        description: "Anzahl TVPASSPORT:-Sender fuer die Stichprobe (0 = ueberspringen)"
+        required: false
+        default: "200"
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhaengigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Worker-Skalierung testen (schreibt/committet NICHTS)
+        run: >
+          python3 .github/workflows/_diagnose_tmp/laufzeit_test.py
+          "${{ inputs.de_worker }}" "${{ inputs.de_stichprobe }}"
+          "${{ inputs.tvpassport_worker }}" "${{ inputs.tvpassport_stichprobe }}"

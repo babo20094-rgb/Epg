@@ -56,6 +56,7 @@ from epg_lib import (
     kanalname_normal_geschrieben,
     normalisiere_grossschreibung,
     normalisiere_sendername,
+    normalisiere_sendername_kern,
     baue_logo_index, finde_logo,
 )
 from quellen import _http
@@ -392,6 +393,8 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "rtvbn": ["rtvbn_intervalle"],
     "aljazeera_en": ["aljazeera_en_intervalle"],
     "makkahlive": ["makkahlive_intervalle"],
+    "cinestar_action_rs": ["cinestar_action_rs_intervalle"],
+    "cinestar_comedy_rs": ["cinestar_comedy_rs_intervalle"],
 }
 
 
@@ -5449,6 +5452,100 @@ for daten in sender_daten:
 
     if programme:
         _echte_quelle_zaehlen("Makkah Live (Gebetszeiten)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# CINESTAR ACTION (RS): derselbe echte Kanal wie HR|CINESTAR ACTION,
+# nur regionale Playlist-Kopie mit anderem Laender-Praefix (Nutzerauftrag
+# September 2026, "beide Laender-Sender zeigen dasselbe Programm").
+# HR|CINESTAR ACTION bekommt bereits automatisch echte Programmdaten
+# ueber die normale HR-Kaskade (mojmaxtv_kanal_finden() findet "CineStar
+# Action" bei MojMaxTV per exaktem Namensabgleich, siehe dortiger
+# Kommentar/docs/HISTORIE.md). Statt eine zweite, komplett unabhaengige
+# echte Quelle fuer den RS-Sender zu suchen, wird hier bewusst NUR der
+# bestehende MojMaxTV-Treffer fuer den FESTEN Namen "CineStar Action"
+# wiederverwendet (kein Fuzzy-Abgleich mit dem RS-Sendernamen selbst -
+# das waere unnoetig fehleranfaellig fuer eine reine 1:1-Kanalgleichheit).
+# ==========================================================
+
+_cinestar_action_rs_kern = normalisiere_sendername_kern("CineStar Action")
+_cinestar_action_rs_site_id = None
+_cinestar_action_rs_site_id_geladen = False
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() != "RS":
+        continue
+    if normalisiere_sendername_kern(daten["sender"]) != _cinestar_action_rs_kern:
+        continue
+
+    if not _cinestar_action_rs_site_id_geladen:
+        try:
+            _cinestar_action_rs_site_id = mojmaxtv_kanal_finden("CineStar Action")
+        except Exception:
+            _cinestar_action_rs_site_id = None
+        _cinestar_action_rs_site_id_geladen = True
+
+    daten["cinestar_action_rs"] = True
+    programme = []
+    if _cinestar_action_rs_site_id is not None:
+        try:
+            programme = mojmaxtv_hole_programme(_cinestar_action_rs_site_id, MTS_TAGE)
+        except Exception:
+            programme = []
+    daten["cinestar_action_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("CineStar Action (RS, ueber MojMaxTV)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# CINESTAR COMEDY (RS): derselbe echte Kanal wie MojMaxTV's "CineStar
+# Comedy" (Nutzerauftrag September 2026, live gegen cinestartvchannels.rs/
+# raspored/ verifiziert - identische Sendungen "Kauboji"/"Jahač zmaja"
+# zur selben Uhrzeit). Anders als bei CINESTAR ACTION gibt es hier
+# KEINEN bereits automatisch versorgten HR-Sender mit exakt demselben
+# Namen (HR fuehrt nur "CINESTAR TV COMEDY & FAMILY", ein ANDERER,
+# eigenstaendiger Kanal) - MojMaxTV wird deshalb direkt und gezielt fuer
+# den festen Namen "CineStar Comedy" abgefragt, exakt gleiches Muster
+# wie beim CINESTAR-ACTION-Block oben.
+# ==========================================================
+
+_cinestar_comedy_rs_kern = normalisiere_sendername_kern("CineStar Comedy")
+_cinestar_comedy_rs_site_id = None
+_cinestar_comedy_rs_site_id_geladen = False
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() != "RS":
+        continue
+    if normalisiere_sendername_kern(daten["sender"]) != _cinestar_comedy_rs_kern:
+        continue
+
+    if not _cinestar_comedy_rs_site_id_geladen:
+        try:
+            _cinestar_comedy_rs_site_id = mojmaxtv_kanal_finden("CineStar Comedy")
+        except Exception:
+            _cinestar_comedy_rs_site_id = None
+        _cinestar_comedy_rs_site_id_geladen = True
+
+    daten["cinestar_comedy_rs"] = True
+    programme = []
+    if _cinestar_comedy_rs_site_id is not None:
+        try:
+            programme = mojmaxtv_hole_programme(_cinestar_comedy_rs_site_id, MTS_TAGE)
+        except Exception:
+            programme = []
+    daten["cinestar_comedy_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("CineStar Comedy (RS, ueber MojMaxTV)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

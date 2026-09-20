@@ -5639,3 +5639,120 @@ Lokal mit echtem Netzwerkzugriff verifiziert: 412 Sendungen ueber 14
 Tage geladen, Zeitzonen-Umrechnung korrekt (06:00 Europe/Belgrade ->
 04:00 UTC im September/CEST), "AXN"/"AXN SPIN" korrekt NICHT erkannt.
 96/96 Tests gruen, Syntax geprueft.
+
+## RS|CINESTAR ACTION zeigt dasselbe echte Programm wie HR|CINESTAR ACTION (September 2026)
+
+Nutzerauftrag (nach kurzer Recherche zu cinestartvchannels.rs/raspored/,
+die dann als unnoetig abgebrochen wurde): RS|CINESTAR ACTION soll
+dasselbe echte Programm zeigen wie HR|CINESTAR ACTION - beide Laender-
+Zeilen sind derselbe echte Kanal, nur unterschiedliche Playlist-Praefixe.
+
+Beim Pruefen zeigte sich: HR|CINESTAR ACTION bekommt schon LAENGST
+automatisch echte Programmdaten - `mojmaxtv_kanal_finden("CINESTAR
+ACTION")` findet den Kanal bei MojMaxTV per exaktem Namensabgleich
+(nicht ueber mojtv_index_epg.py, das nur "CINESTAR TV ACTION &
+THRILLER" kennt - ein ANDERER, eigenstaendiger Kanal). Live-Abgleich
+gegen cinestartvchannels.rs/raspored/ bestaetigte dieselben Sendungen
+("Sat očaja", "Paranoja" zur selben Uhrzeit) - MojMaxTV fuehrt also
+tatsaechlich den echten, korrekten Feed.
+
+**Fix:** Statt eine zweite, unabhaengige echte Quelle fuer den RS-Sender
+zu suchen, wird der bestehende MojMaxTV-Treffer fuer den FESTEN Namen
+"CineStar Action" einfach wiederverwendet - neuer Block in
+`generate_epg.py` (nach Makkah Live, vor dem Standard-EPG-Abschnitt):
+fuer jeden RS-Sender, dessen Kern-Name (`normalisiere_sendername_kern()`,
+also mit/ohne HD/FHD/VIP/RAW-Zusaetzen) exakt "CineStar Action"
+entspricht, wird `mojmaxtv_kanal_finden("CineStar Action")` (fester
+String, NICHT der RS-Sendername selbst - unnoetig, da 1:1-Kanal-
+gleichheit bereits feststeht) einmalig aufgeloest und das Ergebnis via
+`mojmaxtv_hole_programme()` fuer alle passenden RS-Sender wiederverwendet
+(gecachte site_id, kein doppelter Netzwerk-Abruf). Neuer Flag-Eintrag
+`"cinestar_action_rs": ["cinestar_action_rs_intervalle"]` in
+`_ECHTE_QUELLEN_INTERVALLE`, damit `hat_aktive_echte_quelle()` diesen
+Sender korrekt als "bereits abgedeckt" erkennt.
+
+Lokal verifiziert: Kern-Abgleich erkennt "CINESTAR ACTION"/"CINESTAR
+ACTION HD"/"CINESTAR ACTION ⱽᴵᴾ ᴿᴬᵂ" korrekt als denselben Kanal, "CINESTAR
+TV ACTION & THRILLER" korrekt NICHT (anderer Kanal). 96/96 Tests gruen,
+Syntax geprueft.
+
+## RS|CINESTAR COMEDY zeigt echtes Programm ueber MojMaxTV (September 2026)
+
+Gleicher Nutzerauftrag wie bei CINESTAR ACTION, diesmal fuer CINESTAR
+COMEDY, nach Live-Abgleich gegen cinestartvchannels.rs/raspored/
+("Kauboji"/"Jahač zmaja" zur selben Uhrzeit bei MojMaxTV UND auf der
+Website). Anders als bei CINESTAR ACTION gibt es hier KEINEN bereits
+automatisch versorgten HR-Sender mit exakt demselben Namen (HR fuehrt
+nur "CINESTAR TV COMEDY & FAMILY" - ein anderer, eigenstaendiger
+Kanal) - `mojmaxtv_kanal_finden("CineStar Comedy")` wird deshalb direkt
+und gezielt fuer den festen Namen abgefragt, exakt dasselbe Muster wie
+beim CINESTAR-ACTION-Block (neuer Flag-Eintrag
+`"cinestar_comedy_rs": ["cinestar_comedy_rs_intervalle"]` in
+`_ECHTE_QUELLEN_INTERVALLE`).
+
+Kern-Abgleich verifiziert: "CINESTAR COMEDY"/"CINESTAR COMEDY HD"/
+"CINESTAR COMEDY ⱽᴵᴾ ᴿᴬᵂ" korrekt als derselbe Kanal, "CINESTAR TV COMEDY
+& FAMILY" korrekt NICHT. 96/96 Tests gruen, Syntax geprueft.
+
+## Run #878 wieder ueber 20 Minuten trotz Rueckbau - Retry-Cap moeglicherweise kontraproduktiv (September 2026)
+
+Nutzerfrage nach Run #878 (mit dem vollstaendigen HR-Kaskade-Rueckbau
+UND dem 5s-Retry-Cap aus den beiden vorigen Eintraegen): Gesamtlaufzeit
+war 20:34 Minuten ("Generate EPG": 19:38) - wieder deutlich ueber der
+erwarteten ~16:30-17:00-Minuten-Marke, obwohl der Code inhaltlich (bis
+auf den Retry-Cap) wieder dem Stand von Run #874/#876 entsprach.
+
+**Befund aus dem Log:**
+- DE-Kaskade: 666,2s - der bisher SCHLECHTESTE Wert ueberhaupt (schlechter
+  als sogar die Semaphore-Regression in Run #875 mit 640,8s).
+- tvmovie.de: 60x 429/503 (vorher max. 42-43x in allen bisherigen Laeufen
+  dieser Session) - mit dem neuen Debug-Tracking sichtbar: 196,0s Retry-
+  Wartezeit gesamt, davon 42x mit echtem Retry-After-Header (bestaetigt:
+  tvmovie.de schickt den Header tatsaechlich meistens).
+- TVPassport: 460,9s - ebenfalls klar erhoeht gegenueber der Basislinie
+  (310,6s in Run #874/#876), OBWOHL TVPassport nichts mit hoerzu.de/
+  tvmovie.de zu tun hat und in diesem Lauf wieder nur 3 statt 4
+  Hintergrund-Bloecke liefen (HR-Kaskade-Rueckbau war zu diesem Zeitpunkt
+  bereits aktiv) - spricht dafuer, dass ein Teil der Verschlechterung
+  schlicht TAGESAKTUELLE externe Variabilitaet ist (Serverlast bei
+  TVPassport/allgemeine Netzwerkbedingungen), NICHT ursaechlich mit
+  unseren Code-Aenderungen zusammenhaengt.
+- Der tvmovie.de-Teil der Verschlechterung (60 statt max. 43 Treffer)
+  faellt dagegen zeitlich GENAU mit der Einfuehrung des 5s-Retry-Caps
+  zusammen - plausibler Mechanismus: kuerzeres Warten fuehrt zu
+  SCHNELLEREN erneuten Anfragen waehrend einer bereits laufenden
+  Rate-Limiting-Phase, was die Serverlast in der Drosselungsphase eher
+  erhoeht statt sie abklingen zu lassen ("Retry-Storm"-Antipattern) -
+  strukturell derselbe Fehler wie beim Pro-Host-Semaphore-Versuch: ein
+  Eingriff, der die Wartezeit VERKUERZT, kann bei aktivem Rate-Limiting
+  das Gegenteil des beabsichtigten Effekts bewirken.
+
+**Einordnung:** die Datenlage ist nicht eindeutig (echte externe
+Variabilitaet UND ein moeglicher Retry-Cap-Nebeneffekt ueberlagern
+sich in einem einzelnen Lauf), aber der Trend seit dem 5s-Cap zeigt bei
+JEDEM bisherigen Lauf mit diesem Cap eine hoehere oder gleich hohe
+429-Rate bei tvmovie.de als zuvor - kein einziger Beleg, dass der Cap
+tatsaechlich Zeit spart. In Kombination mit den zwei vorherigen
+gescheiterten Optimierungsversuchen dieser Session (Pro-Host-Semaphore,
+HR-Kaskade-Parallelisierung) sollte hier vorsichtshalber zurueckgerudert
+werden, statt auf Basis eines einzelnen mehrdeutigen Laufs weiter zu
+optimieren.
+
+**Entscheidung (Nutzer):** 5s-Deckel zurueckgenommen, `_RETRY_AFTER_MAX_SEKUNDEN`
+wieder auf den Original-Wert 30 gesetzt (`_rate_limit_pause()` respektiert
+Retry-After-Header wieder bis 30s, kein Cap mehr). Das Debug-Tracking
+(`wartezeit_gesamt`/`retry_after_header_treffer` in der Rate-Limit-
+Uebersicht) bleibt bestehen - rein additiv, keine Verhaltensaenderung,
+liefert aber weiterhin Daten fuer zukuenftige Optimierungsversuche.
+96/96 Tests weiterhin gruen, Verhalten per Mock erneut verifiziert
+(Retry-After=10 -> 10.0s statt gedeckelter 5s).
+
+Damit steht `_http.py` inhaltlich wieder auf dem Stand von vor der
+kompletten heutigen Optimierungs-Serie (Pro-Host-Semaphore, HR-Kaskade-
+Parallelisierung, Retry-Cap) - alle drei Versuche wurden nach echten
+Workflow-Laeufen wieder verworfen. Lehre fuer kuenftige Session: Eingriffe
+in Nebenlaeufigkeit/Wartezeiten bei bereits aktivem Rate-Limiting sind in
+diesem Projekt bisher durchgehend kontraproduktiv gewesen - ein neuer
+Versuch in diese Richtung sollte nur mit sehr starker Evidenz (mehrere
+konsistente Laeufe) unternommen werden, nicht auf Basis einer einzelnen
+Theorie.
