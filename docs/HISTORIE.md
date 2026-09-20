@@ -5799,3 +5799,50 @@ weiterhin gruen, Syntax/YAML geprueft.
 
 `diagnose_laufzeit.yml` entsprechend vereinfacht (ein einziger
 `stichprobe`-Input statt vier Worker-/Stichprobe-Paaren).
+
+## Diagnose ergab Cache-Verzerrung + neuer Diagnose-Workflow mit ECHTER Nebenlaeufigkeit (September 2026)
+
+Der Lauf von `diagnose_laufzeit.yml` (voriger Eintrag) zeigte ein
+Mess-Artefakt: viele Quellen-Module cachen ihre Kanalliste modulweit
+(einmal geladen, im selben Skript-Prozess wiederverwendet) - der
+"(erhoeht)"-Durchlauf direkt nach dem normalen Durchlauf profitierte
+dadurch vom Cache des ersten Durchlaufs und wirkte faelschlich
+blitzschnell (z.B. "RTV.rs (erhoeht): 0.0s"), unabhaengig von der
+Worker-Zahl. Nur bei drei Quellen blieb die Zahl echter Netzwerk-
+Versuche zwischen beiden Durchlaeufen vergleichbar hoch (kein/kaum
+Cache-Effekt) - dort war die Messung echt:
+- Telemach: 12,1s @ 12 Worker -> 6,8s @ 20 Worker, 0x 429/503 in beiden.
+- Sky: 10,8s @ 12 Worker -> 4,9s @ 20 Worker, 0x 429/503 in beiden.
+- mtel.ba: 75,7s @ 16 Worker -> 56,7s @ 24 Worker, 0x 429/503 in beiden.
+
+Nutzer wies zusaetzlich zu Recht darauf hin: `laufzeit_test.py` testet
+jede Quelle ISOLIERT nacheinander - das entspricht NICHT der echten
+Produktion, wo Sky/TVPassport/DE-Kaskade GLEICHZEITIG im Hintergrund-
+Pool laufen, waehrend parallel dazu die restliche Laender-Kaskade
+sequenziell im Hauptthread laeuft. Eine isolierte Messung kann also
+nicht zeigen, ob eine hoehere Worker-Zahl auch unter echter
+gleichzeitiger Last (z.B. Sky UND Telemach UND DE-Kaskade gleichzeitig
+aktiv) noch verlustfrei bleibt.
+
+**Fix:** Statt eine zweite, parallele Kopie der Kaskaden-Logik zu
+pflegen, bekommen die vier Worker-Konstanten in `generate_epg.py`
+(`PARALLEL_WORKER`/`GEDROSSELTE_QUELLE_WORKER`/`ERHOEHTE_QUELLE_WORKER`/
+`TVPASSPORT_WORKER`) jeweils einen optionalen Override per
+Umgebungsvariable (`EPG_TEST_*`, Fallback = der bisherige feste
+Produktions-Wert). Der echte "Update EPG"-Workflow setzt diese
+Variablen nicht - an dessen Verhalten aendert sich dadurch NICHTS.
+
+Neuer Workflow `diagnose_echter_lauf.yml`: fuehrt `generate_epg.py`
+GENAU SO aus wie der echte Workflow (identischer Code, identische
+Hintergrund-Pool-Nebenlaeufigkeit), nur mit den `EPG_TEST_*`-Variablen
+gesetzt (Default im Workflow-Input: PARALLEL_WORKER=20,
+ERHOEHTE_QUELLE_WORKER=24) und OHNE den "Commit EPG"-Schritt - die
+erzeugten `Epg_365_Tage.xml(.gz)`-Dateien bleiben nur auf dem
+voruebergehenden Runner liegen und werden mit dessen Ende verworfen,
+es wird nichts nach main gepusht. Damit laesst sich die tatsaechliche
+Auswirkung erhoehter Worker unter echter Produktions-Nebenlaeufigkeit
+pruefen, bevor `generate_epg.py` selbst dauerhaft geaendert wird.
+
+96/96 Tests weiterhin gruen, Syntax/YAML geprueft, Env-Var-Defaults
+gegen die bisherigen festen Werte verifiziert (12/6/16/24 unveraendert,
+wenn keine EPG_TEST_*-Variable gesetzt ist).
