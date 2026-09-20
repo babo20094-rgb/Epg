@@ -5867,3 +5867,36 @@ DERSELBE Sender wie K3 - `open_epg_epg.py` bekam einen zusaetzlichen
 Alias-Eintrag `normalisiere_sendername("K3 Prnjavor") -> ("RS", "K3.rs")`.
 Alle drei Varianten (K3/K3 ⱽᴵᴾ ᴿᴬᵂ/K3 Prnjavor) matchen jetzt live
 verifiziert auf dieselbe Quelle. 96/96 Tests gruen.
+
+## Laufzeit-Diagnose-Serie abgeschlossen: liegt zu erheblichem Teil an externer Server-Last, nicht am Code (September 2026)
+
+Letzter Diagnose-Lauf (`diagnose_echter_lauf.yml`) mit UNVERAENDERTEN
+Produktionswerten (12/6/16/24 Worker, kein Retry-Cap, HR-Kaskade
+sequenziell - exakt derselbe Code wie beim ~17-Minuten-Referenzlauf
+mehrere Stunden zuvor) brauchte trotzdem 20:45 Minuten. Beweis: DE-
+Kaskade 665,1s (vs. 463,3s vorhin), TVPassport 445,8s (vs. 310,6s),
+A1 275s mit 126x 429/503 bei nur 802 Versuchen und 48 endgueltigen
+Fehlschlaegen (vs. praktisch 0 Fehlern in fruehen Laeufen desselben
+Tages). Da der Code zwischen beiden Laeufen identisch war, laesst
+sich die Verschlechterung eindeutig auf tageszeitabhaengige externe
+Serverlast bei a1.hr/tvmovie.de/tvpassport.com zurueckfuehren, NICHT
+auf eine unserer Code-Aenderungen - der fruehere ~17-Minuten-Lauf war
+zu einem erheblichen Teil guenstiges Timing, keine stabile Baseline.
+
+**Konsequenz (Nutzerentscheidung):** Laufzeit-Optimierung fuer diese
+Session eingestellt, alle temporaeren Diagnose-Workflows wieder
+entfernt (`diagnose_laufzeit.yml`, `diagnose_echter_lauf.yml`,
+`.github/workflows/_diagnose_tmp/`). Die vier EPG_TEST_*-Umgebungs-
+variablen-Hooks in `generate_epg.py` (PARALLEL_WORKER/
+GEDROSSELTE_QUELLE_WORKER/ERHOEHTE_QUELLE_WORKER/TVPASSPORT_WORKER)
+wurden ebenfalls zurueckgenommen - alle vier Konstanten sind wieder
+reine feste Werte (12/6/16/24) wie vor der gesamten Diagnose-Serie.
+`git diff` gegen den Stand vor der Diagnose-Serie zeigt fuer
+generate_epg.py keine Unterschiede mehr. 96/96 Tests gruen.
+
+**Fazit fuer kuenftige Sessions:** die Workflow-Laufzeit schwankt an
+diesem Tag nachweislich zwischen ~16 und ~25 Minuten bei UNVERAENDERTEM
+Code, abhaengig von der tagesaktuellen Auslastung externer Quellen
+(besonders a1.hr). Vor einer erneuten Optimierung sollte diese
+Schwankungsbreite als Normalzustand akzeptiert und nicht vorschnell
+einer einzelnen Code-Aenderung zugeschrieben werden.

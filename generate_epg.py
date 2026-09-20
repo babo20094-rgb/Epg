@@ -3275,17 +3275,7 @@ for i in range(1, DYN_PPV_ANZAHL + 1):
 # naechste Quelle zurueck) nichts aendert.
 # ==========================================================
 
-# Alle vier Worker-Konstanten unten lassen sich per Umgebungsvariable
-# ueberschreiben (Fallback = der bisherige feste Produktions-Wert, wenn
-# die Variable nicht gesetzt ist) - NUR fuer den Diagnose-Workflow
-# gedacht (siehe .github/workflows/diagnose_laufzeit.yml), der damit
-# probeweise erhoehte Werte gegen den ECHTEN generate_epg.py-Code (also
-# inklusive der echten Hintergrund-Pool-/Kaskaden-Nebenlaeufigkeit)
-# testen kann, ohne generate_epg.py selbst je zu veraendern. Der echte
-# Produktions-Workflow (update_epg.yml) setzt diese Variablen nicht,
-# daher aendert sich am realen Verhalten nichts, solange nicht bewusst
-# ein Diagnose-Lauf mit gesetzten Variablen gestartet wird.
-PARALLEL_WORKER = int(os.environ.get("EPG_TEST_PARALLEL_WORKER", 12))
+PARALLEL_WORKER = 12
 
 # Manche Quellen antworten bei 12 gleichzeitigen Anfragen zunehmend mit
 # HTTP 429/503 (Too Many Requests/Service Unavailable) statt echter
@@ -3298,7 +3288,7 @@ PARALLEL_WORKER = int(os.environ.get("EPG_TEST_PARALLEL_WORKER", 12))
 # Fuer diese ratenbegrenzten Quellen daher eine eigene, niedrigere
 # Worker-Zahl, waehrend alle anderen Quellen (die diese Drosselung im
 # Test nicht zeigten) bei PARALLEL_WORKER bleiben.
-GEDROSSELTE_QUELLE_WORKER = int(os.environ.get("EPG_TEST_GEDROSSELTE_QUELLE_WORKER", 6))
+GEDROSSELTE_QUELLE_WORKER = 6
 
 # TVPassport und mtel.ba waren im Lauf vom 18.09.2026 (siehe
 # QUELLEN_ZEITEN-Log) mit PARALLEL_WORKER=12 die beiden laengsten Bloecke
@@ -3306,7 +3296,7 @@ GEDROSSELTE_QUELLE_WORKER = int(os.environ.get("EPG_TEST_GEDROSSELTE_QUELLE_WORK
 # 429/503-Fehler - versuchsweise auf mehr Worker angehoben, um die
 # Laufzeit zu druecken. Bei neuen 429/503-Fehlern im Log wieder auf
 # PARALLEL_WORKER zurueckstellen.
-ERHOEHTE_QUELLE_WORKER = int(os.environ.get("EPG_TEST_ERHOEHTE_QUELLE_WORKER", 16))
+ERHOEHTE_QUELLE_WORKER = 16
 
 # TVPassport blieb im Lauf vom 18.09.2026 (Run #864, 16 Worker) weiterhin
 # OHNE jeden 429/503-Fehler (siehe Rate-Limit-/Fehler-Uebersicht im Log:
@@ -3317,7 +3307,7 @@ ERHOEHTE_QUELLE_WORKER = int(os.environ.get("EPG_TEST_ERHOEHTE_QUELLE_WORKER", 1
 # erhoehen, das bei 16 Workern bereits gut laeuft und nicht angefasst
 # werden sollte). Bei neuen 429/503-Fehlern im Log wieder auf
 # ERHOEHTE_QUELLE_WORKER zurueckstellen.
-TVPASSPORT_WORKER = int(os.environ.get("EPG_TEST_TVPASSPORT_WORKER", 24))
+TVPASSPORT_WORKER = 24
 
 # Separater Executor NUR fuer die drei grossen, nachweislich voneinander
 # unabhaengigen Verarbeitungsbloecke Sky/TVPassport/DE-Kaskade (siehe
