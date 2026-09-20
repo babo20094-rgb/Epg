@@ -5846,3 +5846,24 @@ pruefen, bevor `generate_epg.py` selbst dauerhaft geaendert wird.
 96/96 Tests weiterhin gruen, Syntax/YAML geprueft, Env-Var-Defaults
 gegen die bisherigen festen Werte verifiziert (12/6/16/24 unveraendert,
 wenn keine EPG_TEST_*-Variable gesetzt ist).
+
+## BA|K3: fehlende normale sender.txt-Zeile ergaenzt + BA|K3 PRNJAVOR doch derselbe Sender (September 2026)
+
+Nutzer meldete: "BA|K3" zeige nur Platzhalter, obwohl es schon einen
+Sender-Eintrag dafuer gab. Ursache gefunden: es gab NUR eine
+`TELEMACH:BA|K3`-Opt-in-Zeile (sucht in Telemachs Kanalliste nach "K3"),
+die aber ins Leere lief, weil Telemach diesen Sender nicht fuehrt -
+`open_epg_kanal_finden()` haette ihn laengst gefunden (siehe
+"BA|K3 / MK|K3"-Eintrag oben), wurde aber nie erreicht, da keine normale
+(praefixlose) "BA|K3"-Zeile existierte. Fix: `TELEMACH:BA|K3`-Zeile
+entfernt, stattdessen normale Zeile "BA|K3|K3 ᴸⁱᵛᵉ|<gleiches Logo>"
+angelegt (ganz oben in sender.txt) - bekommt jetzt automatisch echte
+Daten ueber die bestehende open-epg.com/K3.rs-Quelle.
+
+Ausserdem korrigierte der Nutzer die fruehere Einschaetzung zu
+"BA|K3 PRNJAVOR": entgegen der vorherigen Notiz (siehe "BA|K3 / MK|K3"-
+Eintrag oben, "kein Treffer bei irgendeiner Quelle") ist es laut Nutzer
+DERSELBE Sender wie K3 - `open_epg_epg.py` bekam einen zusaetzlichen
+Alias-Eintrag `normalisiere_sendername("K3 Prnjavor") -> ("RS", "K3.rs")`.
+Alle drei Varianten (K3/K3 ⱽᴵᴾ ᴿᴬᵂ/K3 Prnjavor) matchen jetzt live
+verifiziert auf dieselbe Quelle. 96/96 Tests gruen.

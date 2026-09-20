@@ -1,4 +1,5 @@
 |LOI 10: Drogheda United v Dundalk  start: 2026-08-28 19:45:00  stop: 2026-08-28 22:45:00|Loi 10 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
+BA|K3|K3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bdedf704590fc607c223e40e7e9b972c8ceacd31.png
 ##### DE| STAIGE PPV #####
 NAME:DE: STAIGE PPV 1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/staige_ppv/staige.png
 NAME:DE: STAIGE PPV 2|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/staige_ppv/staige.png
@@ -17016,7 +17017,6 @@ TELEMACH:RS|DM SAT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 TELEMACH:RS|MTV CLUB|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/mtv-club-rs.png
 TELEMACH:BA|ATV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38a8bbe53b6fe46fe5e87559b7a162a0c040cfe1.png
 TELEMACH:BA|HERCEG TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/12d7bfef1d0e6b077c2b54547e6b67f480e4b436.png
-TELEMACH:BA|K3|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bdedf704590fc607c223e40e7e9b972c8ceacd31.png
 TELEMACH:BA|RTV BPK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1bbeecd0facdf9efa2890af1d781605210a38765.png
 TELEMACH:BA|RTV HIT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2647169395b385706e00ac154daf400d88d5a091.png
 TELEMACH:BA|BIR TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ab9fe41d600197641c9be2a3101e780b4f9dfd04.png
