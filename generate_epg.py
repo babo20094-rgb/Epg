@@ -4433,6 +4433,252 @@ def _gruppe_de_kaskade_und_tubi():
 _zukunft_de_kaskade = _HINTERGRUND_POOL.submit(_gruppe_de_kaskade_und_tubi)
 
 # ==========================================================
+# A1 (Kroatien): ERSTER Versuch fuer alle HR-Sender, VOR MojMaxTV
+# (siehe a1_epg.py). Oeffentliche, loginfreie API von www.a1.hr -
+# liefert echte Beschreibungstexte, bereits normal geschriebene Titel
+# und ein laengeres Vorschau-Fenster als MojMaxTV, deckt aber
+# insgesamt weniger Kanaele ab - MojMaxTV/SportKlub bleiben Fallback
+# fuer alles, was A1 nicht kennt. Kein eigenes Praefix noetig.
+# ==========================================================
+
+def _a1_abrufen(daten):
+    try:
+        site_id = a1_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return a1_hole_programme(site_id, A1_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+# ==========================================================
+# MOJMAXTV: zweiter Versuch fuer alle HR-Sender (siehe mojmaxtv_epg.py).
+# Wird immer versucht (fuellt ggf. Luecken von A1), schreibt aber nur
+# die noch unbedeckten Zeitfenster. Kein eigenes Praefix noetig.
+# ==========================================================
+
+def _mojmaxtv_abrufen(daten):
+    try:
+        site_id = mojmaxtv_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+# ==========================================================
+# SPORTKLUB: dritter Versuch fuer alle HR-Sender (siehe sportklub_epg.py
+# - MojMaxTV fuehrt seit September 2026 keine "Sport Klub"-Kanaele mehr,
+# betrifft "HR|SK N"). Wird immer versucht, schreibt aber nur die noch
+# unbedeckten Zeitfenster. Kein eigenes Praefix noetig, laeuft
+# automatisch als Fallback innerhalb derselben mojmaxtv_sender-Liste.
+# ==========================================================
+
+def _hr_sportklub_abrufen(daten):
+    try:
+        site_id = sportklub_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return sportklub_hole_programme(site_id, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+# ==========================================================
+# PICKBOX.TV (HR-Fallback): vierter Versuch fuer alle HR-Sender, deren
+# Name auf "Pickbox TV" passt (siehe pickbox_epg.py - eigene, server-
+# seitig gerenderte Programmseite, laeuft auf derselben Website wie der
+# RS-Kanal "Pickbox", nur anderer Sprachpfad). Kein eigenes Praefix
+# noetig. Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _hr_pickbox_abrufen(daten):
+    try:
+        schluessel = pickbox_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return pickbox_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+# ==========================================================
+# RTL.HR (HR-Fallback): fuenfter Versuch fuer alle HR-Sender, deren
+# Name auf "RTL Adria" passt (siehe rtl_hr_epg.py - eigene, server-
+# seitig gerenderte 8-Tage-Programmseite). Kein eigenes Praefix noetig.
+# Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _rtl_hr_hr_abrufen(daten):
+    try:
+        schluessel = rtl_hr_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return rtl_hr_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+# ==========================================================
+# INDEX.HR (HR-Fallback): sechster Versuch fuer 26 feste HR-Sender
+# (siehe mojtv_index_epg.py - spiegelt mojtv.hr, das per Cloudflare aus
+# GitHub Actions blockiert wird, index.hr selbst aber nicht). Exakter
+# Namensabgleich (kein Fuzzy-Abgleich, siehe Modul-Kommentar). Kein
+# eigenes Praefix noetig. Wird immer versucht, schreibt aber nur die
+# noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _mojtv_index_abrufen(daten):
+    try:
+        schluessel = mojtv_index_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return mojtv_index_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+def _gruppe_hr_kaskade():
+    """Kompletter HR-Verarbeitungsblock (A1 -> MojMaxTV -> SportKlub HR ->
+    Pickbox HR -> RTL Adria HR -> index.hr, alle sechs auf derselben
+    mojmaxtv_sender-Liste) als eine Funktion, damit er wie Sky/
+    TVPassport/DE-Kaskade ueber _HINTERGRUND_POOL zeitgleich mit den
+    uebrigen, unabhaengigen Laender-Kaskaden laufen kann (siehe
+    _HINTERGRUND_POOL-Kommentar oben). WICHTIG: wird bewusst SOFORT nach
+    der DE-Kaskade eingehaengt (nicht erst nach der RS-Kaskade, wo der
+    Code urspruenglich sequenziell stand) - so ueberlappt sie mit der
+    KOMPLETTEN RS-Kaskade (Telemach/mtel.ba/klix.ba/mts.rs/SportKlub RS/
+    Arena Sport/RTV RS/scifi.rs/NatGeo/Pickbox/RTL Adria RS, zusammen
+    ~165s), statt nur mit dem kurzen Rest danach (Siol/TvProfil.net/
+    TvProgram.rs). Ein frueherer Versuch, den Block an seiner alten
+    Stelle (nach der RS-Kaskade) nur einzuhaengen, brachte praktisch
+    keine Zeitersparnis (Run #876: 16:17 statt 16:35 Minuten) - siehe
+    docs/HISTORIE.md. Die sechs Stufen UNTEREINANDER bleiben eine echte,
+    sequenzielle Luecken-Fuellungs-Kette (jede Stufe schreibt nur noch
+    unbedeckte Zeitfenster) - nur der gesamte Block als Ganzes laeuft
+    parallel zu den anderen drei."""
+    _a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen, worker=GEDROSSELTE_QUELLE_WORKER, name="A1")
+
+    for _idx, daten in enumerate(mojmaxtv_sender):
+        programme = _a1_ergebnisse[_idx]
+
+        daten["a1_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+        # Sammelt ueber die sechs HR-Fallback-Schritte hinweg, was
+        # bereits tatsaechlich geschrieben wurde - jede nachfolgende
+        # Quelle fuellt damit nur noch unbedeckte Zeitfenster, statt bei
+        # jeder Teilabdeckung komplett uebersprungen zu werden (gleiche
+        # Luecken-Fuellung wie in der DE-Kaskade, siehe dort).
+        daten["_hr_geschrieben_intervalle"] = []
+
+        if programme:
+            _echte_quelle_zaehlen("A1")
+            _schreibe_echte_programme(daten, programme)
+            daten["_hr_geschrieben_intervalle"].extend(daten["a1_intervalle"])
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+    _mojmaxtv_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojmaxtv_abrufen, name="MojMaxTV")
+
+    for _idx, daten in enumerate(mojmaxtv_sender):
+        programme = _mojmaxtv_ergebnisse[_idx]
+
+        daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            neue_programme = [
+                p for p in programme
+                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+            ]
+            if neue_programme:
+                _echte_quelle_zaehlen("MojMaxTV")
+                _schreibe_echte_programme(daten, neue_programme)
+                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+    _hr_sportklub_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_sportklub_abrufen, name="SportKlub (HR)")
+
+    for _idx, daten in enumerate(mojmaxtv_sender):
+        programme = _hr_sportklub_ergebnisse[_idx]
+
+        daten["sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            neue_programme = [
+                p for p in programme
+                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+            ]
+            if neue_programme:
+                _echte_quelle_zaehlen("SportKlub")
+                _schreibe_echte_programme(daten, neue_programme)
+                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+    _hr_pickbox_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_pickbox_abrufen, name="Pickbox (HR)")
+
+    for _idx, daten in enumerate(mojmaxtv_sender):
+        programme = _hr_pickbox_ergebnisse[_idx]
+
+        daten["pickbox_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            neue_programme = [
+                p for p in programme
+                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+            ]
+            if neue_programme:
+                _echte_quelle_zaehlen("Pickbox")
+                _schreibe_echte_programme(daten, neue_programme)
+                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+    _rtl_hr_hr_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _rtl_hr_hr_abrufen, name="RTL Adria (HR)")
+
+    for _idx, daten in enumerate(mojmaxtv_sender):
+        programme = _rtl_hr_hr_ergebnisse[_idx]
+
+        daten["rtl_hr_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            neue_programme = [
+                p for p in programme
+                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+            ]
+            if neue_programme:
+                _echte_quelle_zaehlen("RTL Adria")
+                _schreibe_echte_programme(daten, neue_programme)
+                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+    _mojtv_index_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojtv_index_abrufen, name="index.hr (mojtv.hr)")
+
+    for _idx, daten in enumerate(mojmaxtv_sender):
+        programme = _mojtv_index_ergebnisse[_idx]
+
+        daten["mojtv_index_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            neue_programme = [
+                p for p in programme
+                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+            ]
+            if neue_programme:
+                _echte_quelle_zaehlen("index.hr (mojtv.hr)")
+                _schreibe_echte_programme(daten, neue_programme)
+                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+
+_zukunft_hr_kaskade = _HINTERGRUND_POOL.submit(_gruppe_hr_kaskade)
+
+# ==========================================================
 # MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
 # der Parsing-Kommentar oben bei "Automatischer Abgleich fuer RS/HR/
 # SI-Sender"). Kein eigenes Praefix noetig. Ohne jegliche RS-Zeile in
@@ -4759,244 +5005,6 @@ for _idx, daten in enumerate(_rtl_hr_rs_sender):
             daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
-
-# ==========================================================
-# A1 (Kroatien): ERSTER Versuch fuer alle HR-Sender, VOR MojMaxTV
-# (siehe a1_epg.py). Oeffentliche, loginfreie API von www.a1.hr -
-# liefert echte Beschreibungstexte, bereits normal geschriebene Titel
-# und ein laengeres Vorschau-Fenster als MojMaxTV, deckt aber
-# insgesamt weniger Kanaele ab - MojMaxTV/SportKlub bleiben Fallback
-# fuer alles, was A1 nicht kennt. Kein eigenes Praefix noetig.
-# ==========================================================
-
-def _a1_abrufen(daten):
-    try:
-        site_id = a1_kanal_finden(daten["sender"])
-        if site_id is not None:
-            return a1_hole_programme(site_id, A1_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-# ==========================================================
-# MOJMAXTV: zweiter Versuch fuer alle HR-Sender (siehe mojmaxtv_epg.py).
-# Wird immer versucht (fuellt ggf. Luecken von A1), schreibt aber nur
-# die noch unbedeckten Zeitfenster. Kein eigenes Praefix noetig.
-# ==========================================================
-
-def _mojmaxtv_abrufen(daten):
-    try:
-        site_id = mojmaxtv_kanal_finden(daten["sender"])
-        if site_id is not None:
-            return mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-# ==========================================================
-# SPORTKLUB: dritter Versuch fuer alle HR-Sender (siehe sportklub_epg.py
-# - MojMaxTV fuehrt seit September 2026 keine "Sport Klub"-Kanaele mehr,
-# betrifft "HR|SK N"). Wird immer versucht, schreibt aber nur die noch
-# unbedeckten Zeitfenster. Kein eigenes Praefix noetig, laeuft
-# automatisch als Fallback innerhalb derselben mojmaxtv_sender-Liste.
-# ==========================================================
-
-def _hr_sportklub_abrufen(daten):
-    try:
-        site_id = sportklub_kanal_finden(daten["sender"])
-        if site_id is not None:
-            return sportklub_hole_programme(site_id, MOJMAXTV_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-# ==========================================================
-# PICKBOX.TV (HR-Fallback): vierter Versuch fuer alle HR-Sender, deren
-# Name auf "Pickbox TV" passt (siehe pickbox_epg.py - eigene, server-
-# seitig gerenderte Programmseite, laeuft auf derselben Website wie der
-# RS-Kanal "Pickbox", nur anderer Sprachpfad). Kein eigenes Praefix
-# noetig. Wird immer versucht, schreibt aber nur die noch unbedeckten
-# Zeitfenster.
-# ==========================================================
-
-def _hr_pickbox_abrufen(daten):
-    try:
-        schluessel = pickbox_kanal_finden(daten["sender"])
-        if schluessel is not None:
-            return pickbox_hole_programme(schluessel, MOJMAXTV_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-# ==========================================================
-# RTL.HR (HR-Fallback): fuenfter Versuch fuer alle HR-Sender, deren
-# Name auf "RTL Adria" passt (siehe rtl_hr_epg.py - eigene, server-
-# seitig gerenderte 8-Tage-Programmseite). Kein eigenes Praefix noetig.
-# Wird immer versucht, schreibt aber nur die noch unbedeckten
-# Zeitfenster.
-# ==========================================================
-
-def _rtl_hr_hr_abrufen(daten):
-    try:
-        schluessel = rtl_hr_kanal_finden(daten["sender"])
-        if schluessel is not None:
-            return rtl_hr_hole_programme(schluessel, MOJMAXTV_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-# ==========================================================
-# INDEX.HR (HR-Fallback): sechster Versuch fuer 26 feste HR-Sender
-# (siehe mojtv_index_epg.py - spiegelt mojtv.hr, das per Cloudflare aus
-# GitHub Actions blockiert wird, index.hr selbst aber nicht). Exakter
-# Namensabgleich (kein Fuzzy-Abgleich, siehe Modul-Kommentar). Kein
-# eigenes Praefix noetig. Wird immer versucht, schreibt aber nur die
-# noch unbedeckten Zeitfenster.
-# ==========================================================
-
-def _mojtv_index_abrufen(daten):
-    try:
-        schluessel = mojtv_index_kanal_finden(daten["sender"])
-        if schluessel is not None:
-            return mojtv_index_hole_programme(schluessel, MOJMAXTV_TAGE)
-    except Exception:
-        pass
-    return []
-
-
-def _gruppe_hr_kaskade():
-    """Kompletter HR-Verarbeitungsblock (A1 -> MojMaxTV -> SportKlub HR ->
-    Pickbox HR -> RTL Adria HR -> index.hr, alle sechs auf derselben
-    mojmaxtv_sender-Liste) als eine Funktion, damit er wie Sky/
-    TVPassport/DE-Kaskade ueber _HINTERGRUND_POOL zeitgleich mit den
-    uebrigen, unabhaengigen Laender-Kaskaden laufen kann (siehe
-    _HINTERGRUND_POOL-Kommentar oben) statt wie bisher erst nach der
-    kompletten RS-Kaskade sequenziell im Hauptthread. Die sechs Stufen
-    UNTEREINANDER bleiben eine echte, sequenzielle Luecken-Fuellungs-
-    Kette (jede Stufe schreibt nur noch unbedeckte Zeitfenster) - nur
-    der gesamte Block als Ganzes laeuft parallel zu den anderen drei."""
-    _a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen, worker=GEDROSSELTE_QUELLE_WORKER, name="A1")
-
-    for _idx, daten in enumerate(mojmaxtv_sender):
-        programme = _a1_ergebnisse[_idx]
-
-        daten["a1_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-        # Sammelt ueber die sechs HR-Fallback-Schritte hinweg, was
-        # bereits tatsaechlich geschrieben wurde - jede nachfolgende
-        # Quelle fuellt damit nur noch unbedeckte Zeitfenster, statt bei
-        # jeder Teilabdeckung komplett uebersprungen zu werden (gleiche
-        # Luecken-Fuellung wie in der DE-Kaskade, siehe dort).
-        daten["_hr_geschrieben_intervalle"] = []
-
-        if programme:
-            _echte_quelle_zaehlen("A1")
-            _schreibe_echte_programme(daten, programme)
-            daten["_hr_geschrieben_intervalle"].extend(daten["a1_intervalle"])
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-
-    _mojmaxtv_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojmaxtv_abrufen, name="MojMaxTV")
-
-    for _idx, daten in enumerate(mojmaxtv_sender):
-        programme = _mojmaxtv_ergebnisse[_idx]
-
-        daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-        if programme:
-            neue_programme = [
-                p for p in programme
-                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
-            ]
-            if neue_programme:
-                _echte_quelle_zaehlen("MojMaxTV")
-                _schreibe_echte_programme(daten, neue_programme)
-                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-
-    _hr_sportklub_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_sportklub_abrufen, name="SportKlub (HR)")
-
-    for _idx, daten in enumerate(mojmaxtv_sender):
-        programme = _hr_sportklub_ergebnisse[_idx]
-
-        daten["sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-        if programme:
-            neue_programme = [
-                p for p in programme
-                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
-            ]
-            if neue_programme:
-                _echte_quelle_zaehlen("SportKlub")
-                _schreibe_echte_programme(daten, neue_programme)
-                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-
-    _hr_pickbox_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_pickbox_abrufen, name="Pickbox (HR)")
-
-    for _idx, daten in enumerate(mojmaxtv_sender):
-        programme = _hr_pickbox_ergebnisse[_idx]
-
-        daten["pickbox_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-        if programme:
-            neue_programme = [
-                p for p in programme
-                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
-            ]
-            if neue_programme:
-                _echte_quelle_zaehlen("Pickbox")
-                _schreibe_echte_programme(daten, neue_programme)
-                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-
-    _rtl_hr_hr_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _rtl_hr_hr_abrufen, name="RTL Adria (HR)")
-
-    for _idx, daten in enumerate(mojmaxtv_sender):
-        programme = _rtl_hr_hr_ergebnisse[_idx]
-
-        daten["rtl_hr_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-        if programme:
-            neue_programme = [
-                p for p in programme
-                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
-            ]
-            if neue_programme:
-                _echte_quelle_zaehlen("RTL Adria")
-                _schreibe_echte_programme(daten, neue_programme)
-                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-
-    _mojtv_index_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojtv_index_abrufen, name="index.hr (mojtv.hr)")
-
-    for _idx, daten in enumerate(mojmaxtv_sender):
-        programme = _mojtv_index_ergebnisse[_idx]
-
-        daten["mojtv_index_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-
-        if programme:
-            neue_programme = [
-                p for p in programme
-                if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
-            ]
-            if neue_programme:
-                _echte_quelle_zaehlen("index.hr (mojtv.hr)")
-                _schreibe_echte_programme(daten, neue_programme)
-                daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
-        else:
-            pass  # log unterdrueckt: keine echten Programmdaten
-
-
-_zukunft_hr_kaskade = _HINTERGRUND_POOL.submit(_gruppe_hr_kaskade)
 
 # ==========================================================
 # SIOL: automatischer Abgleich fuer alle SI- UND MK-Sender (siehe

@@ -5436,3 +5436,45 @@ addiert zu werden) ist erst mit einem echten Workflow-Lauf messbar -
 nach der Semaphore-Regression bewusst zurueckhaltend formuliert, bis
 ein neuer Run (Run #876) die erwartete Verbesserung tatsaechlich
 bestaetigt.
+
+## HR-Kaskade brachte kaum Zeitersparnis - falsche Einhaenge-Stelle im Hintergrund-Pool (September 2026)
+
+Run #876 (siehe voriger Eintrag) bestaetigte: die HR-Kaskade in
+_HINTERGRUND_POOL zu haengen half kaum (16:17 statt 16:35 Minuten
+"Generate EPG"-Schritt, Gesamt-Workflow praktisch identisch zu Run
+#874 - vom Nutzer direkt korrekt als "kein großartiger Unterschied"
+erkannt). Log-Analyse zeigte die Ursache: `_zukunft_hr_kaskade` wurde
+an der ALTEN Code-Stelle submittet, wo A1 vorher sequenziell stand -
+das ist aber ERST NACH der kompletten RS-Kaskade (Telemach/mtel.ba/
+klix.ba/mts.rs/SportKlub RS/Arena Sport/RTV RS/scifi.rs/NatGeo/
+Pickbox/RTL Adria RS, zusammen ~165s). Der Hauptthread arbeitet
+strikt sequenziell bis zu dieser submit()-Zeile - die HR-Kaskade
+konnte also nur noch mit dem kurzen REST danach ueberlappen (Siol
+~111s + TvProfil.net/TvProgram.rs/tvprogramdanas.net ~8s), nicht mit
+der RS-Kaskade selbst. Log-Beleg: "Rufe A1 ab..." und "Rufe Siol...
+ab..." wurden in Run #876 buchstaeblich zur selben Sekunde
+(08:36:43.83x) geloggt.
+
+**Fix:** Der komplette HR-Kaskade-Block (sechs `_xxx_abrufen()`-
+Funktionen + `_gruppe_hr_kaskade()` + `_HINTERGRUND_POOL.submit(...)`)
+wurde im Code nach VORNE verschoben, direkt hinter
+`_zukunft_de_kaskade = _HINTERGRUND_POOL.submit(_gruppe_de_kaskade_und_tubi)`
+und damit VOR den Beginn der RS-Kaskade (mts.rs-Block). `mojmaxtv_sender`
+war zu diesem fruehen Zeitpunkt bereits vollstaendig aufgebaut (rein
+statische Liste aus sender_daten-Flags, siehe deren Definition ganz am
+Anfang der Worker-Konfiguration), also unveraendert sicher moeglich.
+Jetzt startet die HR-Kaskade zeitgleich mit Sky/TVPassport/DE-Kaskade
+und ueberlappt mit der GESAMTEN RS-Kaskade (~165s) statt nur mit deren
+kurzem Rest. Alle drei `.result()`-Absicherungen (vor TvProfil.net, vor
+tvprogramdanas.net, im finalen Sammel-Block) bleiben unveraendert an
+ihrer Stelle - sie sind reine Wartepunkte im Hauptthread und von der
+Position des submit()-Aufrufs selbst unabhaengig.
+
+96/96 Tests weiterhin gruen, Syntax gepueft. Lehre fuer kuenftige
+Hintergrund-Pool-Erweiterungen: die Zeitersparnis einer
+`_HINTERGRUND_POOL.submit()`-Parallelisierung haengt nicht nur davon
+ab, DASS ein Block unabhaengig ist, sondern auch davon, WO im
+sequenziellen Hauptthread-Code der submit()-Aufruf tatsaechlich steht -
+er ueberlappt nur mit dem, was NACH ihm noch sequenziell laeuft, nicht
+mit dem, was vorher schon durchgelaufen ist. Ergebnis erst mit dem
+naechsten echten Workflow-Lauf messbar.
