@@ -5354,3 +5354,85 @@ echten Lauf tatsaechlich senkt, ist erst mit einem neuen Workflow-Lauf
 pruefbar - der Fix reduziert die SELBST verursachte Anfragelast, kann
 aber serverseitige Drosselung unabhaengig vom eigenen Anfragemuster
 nicht garantiert vollstaendig vermeiden.
+
+## Pro-Host-Semaphore (siehe voriger Abschnitt) wieder zurueckgenommen - Regression statt Verbesserung (September 2026)
+
+Der obige Fix (max. 3 gleichzeitige Requests pro Host via
+`threading.Semaphore`) wurde in Run #875 scharf getestet - Ergebnis
+war eine klare Verschlechterung statt der erhofften Verbesserung:
+
+- DE-Kaskade: 640,8s (Run #875, MIT Semaphore) statt 463,3s (Run #874,
+  OHNE Semaphore) - also **langsamer**, nicht schneller.
+- Rate-Limit-Treffer bei tvmovie.de sogar von 10x auf 42x gestiegen
+  (nur hoerzu.de selbst ging von 30x auf 16x zurueck) - das eigentliche
+  Ziel (weniger 429/503) wurde in der Summe klar verfehlt.
+- Gesamtlaufzeit des Workflows dadurch von ca. 17 Minuten (Run #874)
+  auf ca. 28 Minuten (Run #875) hochgeschnellt - vom Nutzer nach dem
+  naechsten Lauf direkt bemerkt und gemeldet.
+
+Vermutliche Ursache: der Semaphore kappt die Nebenlaeufigkeit pro Host
+strikt auf 3 (statt der bisherigen bis zu 6 Worker bei
+GEDROSSELTE_QUELLE_WORKER), was bei ausbleibendem Rueckgang der
+429/503-Rate schlicht reine Wartezeit ohne Gegenwert addiert - die
+Zahl der noetigen Retry-Backoffs blieb (bzw. stieg sogar), zusaetzlich
+mussten Threads jetzt noch auf freie Semaphore-Slots warten.
+
+**Fix zurueckgenommen:** `quellen/_http.py` ist wieder auf den Stand vor
+diesem Semaphore-Versuch (kein Import von `threading`, kein
+`_semaphore_fuer_host()`, `mit_retry()` ohne `with semaphore:`-Block).
+96/96 Tests weiterhin gruen. hoerzu.de/tvmovie.de-Rate-Limiting bleibt
+ein offener, noch ungeloester Fall - naechster Ansatz sollte NICHT
+wieder pauschal die Nebenlaeufigkeit kappen, sondern z.B. gezielt am
+Request-Header/User-Agent/Timing ansetzen oder einfach akzeptieren,
+dass diese zwei DE-Kaskade-Stufen gelegentlich einzelne Sender an
+schwaechere Nachfolgestufen verlieren, statt die Gesamtlaufzeit dafuer
+zu opfern.
+
+## HR-Kaskade (A1/MojMaxTV/SportKlub/Pickbox/RTL Adria/index.hr) als viertes Mitglied in _HINTERGRUND_POOL (September 2026)
+
+Nutzerwunsch nach der zurueckgenommenen Semaphore-Regression: "noch was
+anderes, das den Workflow schneller macht, so wie bei Sky/TVPassport".
+Per Laufzeit-Log (Run #874) identifiziert: der komplette HR-Fallback-
+Block (A1 125,7s + MojMaxTV 47,0s + SportKlub HR 0,2s + Pickbox HR
+6,1s + RTL Adria HR 0,9s + index.hr 9,5s = ~189,4s) lief bisher NACH
+der kompletten RS-Kaskade strikt sequenziell im Hauptthread, obwohl er
+ausschliesslich auf `mojmaxtv_sender` (reine HR-Sender-Liste, per
+Land-Flag "HR" gesetzt) arbeitet und an keiner Stelle mts_sender/
+telemach_sender/sky_sender/tvpassport_sender/plutotv_sender liest oder
+schreibt - dieselbe Unabhaengigkeits-Bedingung, die bereits fuer die
+Sky/TVPassport/DE-Kaskade-Parallelisierung (siehe vorheriger
+HISTORIE-Eintrag "Sky/TVPassport/DE-Kaskade parallelisieren") galt.
+
+**Fix:** Die sechs HR-Fallback-Stufen (bereits vorher eine echte
+sequenzielle Luecken-Fuellungs-Kette UNTEREINANDER, bleibt so) wurden
+in eine neue `_gruppe_hr_kaskade()`-Funktion zusammengefasst und als
+viertes Mitglied ueber `_HINTERGRUND_POOL.submit()` eingehaengt
+(`_HINTERGRUND_POOL` dafuer von `max_workers=3` auf `4` erhoeht) -
+laeuft jetzt zeitgleich mit Sky/TVPassport/DE-Kaskade UND der weiterhin
+rein sequenziellen RS-Kaskade (Telemach/mtel.ba/mts.rs/...), statt erst
+danach zu beginnen.
+
+**Wichtige Nebenwirkung beachtet (Datenkorruptions-Risiko vermieden):**
+jeder HR-Sender traegt SOWOHL das `mojmaxtv`- ALS AUCH das
+`tvprofil`-Flag (dasselbe dict-Objekt, siehe die beiden
+Flag-Zuweisungen im Einlese-Block). Der TvProfil.net-Fallback (und
+TvProgram.rs direkt danach) prueft `hat_aktive_echte_quelle()`, was
+u.a. die von der HR-Kaskade gesetzten `a1_intervalle`/
+`mojmaxtv_intervalle`/etc.-Felder liest - lief die HR-Kaskade
+(wie jetzt) im Hintergrund weiter, waere ohne Gegenmassnahme ein Race
+moeglich: TvProfil.net haette einen HR-Sender faelschlich als "noch
+unbedeckt" behandelt und Daten geschrieben, die sich zeitlich mit der
+dann erst spaeter fertigen HR-Kaskade ueberschneiden (doppelte
+`<programme>`-Eintraege im XML fuer denselben Kanal/Zeitraum). Deshalb
+zusaetzlich `_zukunft_hr_kaskade.result()` direkt VOR dem
+TvProfil.net-Block eingefuegt (nicht erst vor tvprogramdanas.net, wo
+die DE-Kaskade ihr Pendant hat) - genau an der Stelle, an der die erste
+nachfolgende Stufe beginnt, die dieselben Sender-Dicts anfasst.
+
+96/96 Tests weiterhin gruen, Syntax geprueft (`ast.parse`). Ehrliche
+Einordnung: die tatsaechliche Zeitersparnis (~189s HR-Kaskade, die
+jetzt mit dem laengsten Hintergrund-Block DE-Kaskade ueberlappt statt
+addiert zu werden) ist erst mit einem echten Workflow-Lauf messbar -
+nach der Semaphore-Regression bewusst zurueckhaltend formuliert, bis
+ein neuer Run (Run #876) die erwartete Verbesserung tatsaechlich
+bestaetigt.
