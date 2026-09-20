@@ -60,16 +60,32 @@ def _host_aus_url(args):
 
 
 def _statistik_eintrag(host):
-    return _STATISTIK.setdefault(host, {"versuche": 0, "rate_limit": 0, "fehlgeschlagen": 0})
+    return _STATISTIK.setdefault(host, {
+        "versuche": 0, "rate_limit": 0, "fehlgeschlagen": 0,
+        # Debug-Zusatz (September 2026, siehe docs/HISTORIE.md
+        # "Retry-Wartezeit gedeckelt"): misst, wie viel Wartezeit die
+        # Rate-Limit-Retries TATSAECHLICH gekostet haben und ob die
+        # Server ueberhaupt einen Retry-After-Header schicken - ohne
+        # diese Zahlen war unklar, ob der 5s-Deckel in
+        # _rate_limit_pause() irgendetwas bewirkt oder wirkungslos ist
+        # (die eigene Backoff-Formel kommt ohne Header sowieso nie ueber
+        # 4.5s). Rein additiv, aendert nichts am Retry-Verhalten selbst.
+        "wartezeit_gesamt": 0.0,
+        "retry_after_header_treffer": 0,
+    })
 
 
 def fehler_uebersicht():
     """Gibt die gesammelte Statistik als Liste von (host, versuche,
-    rate_limit_treffer, endgueltig_fehlgeschlagen) zurueck, absteigend
-    nach rate_limit_treffer sortiert - nur Hosts mit mindestens einem
+    rate_limit_treffer, endgueltig_fehlgeschlagen, wartezeit_gesamt,
+    retry_after_header_treffer) zurueck, absteigend nach
+    rate_limit_treffer sortiert - nur Hosts mit mindestens einem
     429/503 oder einem endgueltigen Fehlschlag."""
     ergebnis = [
-        (host, s["versuche"], s["rate_limit"], s["fehlgeschlagen"])
+        (
+            host, s["versuche"], s["rate_limit"], s["fehlgeschlagen"],
+            s["wartezeit_gesamt"], s["retry_after_header_treffer"],
+        )
         for host, s in _STATISTIK.items()
         if s["rate_limit"] or s["fehlgeschlagen"]
     ]
@@ -77,19 +93,37 @@ def fehler_uebersicht():
     return ergebnis
 
 
+_RETRY_AFTER_MAX_SEKUNDEN = 5
+
 def _rate_limit_pause(response, versuch):
     """Bestimmt die Wartezeit vor dem naechsten Versuch nach einem
     429/503: nutzt den Retry-After-Header (Sekunden), falls vorhanden
-    und plausibel, sonst einen mit jedem Versuch steigenden Backoff."""
+    und plausibel, sonst einen mit jedem Versuch steigenden Backoff.
+    Auf _RETRY_AFTER_MAX_SEKUNDEN gedeckelt (statt bisher 30s) - ein
+    Sender, der nach diesem kuerzeren Warten immer noch nicht durchkommt,
+    faellt einfach graceful auf die naechste Kaskaden-Stufe zurueck
+    (z.B. hoerzu.de -> Joyn-VOD), verliert dabei keine Daten, nur
+    potenziell ein paar echte Sendungen von der langsameren Quelle -
+    spart aber bei vielen gleichzeitigen 429ern (siehe hoerzu.de/
+    tvmovie.de-Faelle in docs/HISTORIE.md) spuerbar Laufzeit.
+
+    Gibt (wartezeit, hatte_retry_after_header) zurueck - das zweite
+    Element ist reines Debug-Signal fuer fehler_uebersicht() (siehe
+    dort), damit sichtbar wird, ob der Server ueberhaupt einen
+    Retry-After-Header schickt (nur dann kann der Deckel ueberhaupt
+    etwas bewirken - ohne Header liegt die eigene Backoff-Formel
+    sowieso immer unter dem Deckel)."""
     retry_after = response.headers.get("Retry-After") if response is not None else None
     if retry_after:
         try:
             sekunden = float(retry_after)
-            if 0 < sekunden <= 30:
-                return sekunden
+            if 0 < sekunden <= _RETRY_AFTER_MAX_SEKUNDEN:
+                return sekunden, True
+            if sekunden > _RETRY_AFTER_MAX_SEKUNDEN:
+                return _RETRY_AFTER_MAX_SEKUNDEN, True
         except ValueError:
             pass
-    return _PAUSE_SEKUNDEN * versuch
+    return min(_PAUSE_SEKUNDEN * versuch, _RETRY_AFTER_MAX_SEKUNDEN), False
 
 
 def mit_retry(fn, *args, **kwargs):
@@ -118,7 +152,11 @@ def mit_retry(fn, *args, **kwargs):
                 response=response,
             )
             if versuch < _VERSUCHE:
-                time.sleep(_rate_limit_pause(response, versuch))
+                pause_sekunden, hatte_header = _rate_limit_pause(response, versuch)
+                eintrag["wartezeit_gesamt"] += pause_sekunden
+                if hatte_header:
+                    eintrag["retry_after_header_treffer"] += 1
+                time.sleep(pause_sekunden)
                 continue
             eintrag["fehlgeschlagen"] += 1
             return response

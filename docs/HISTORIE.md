@@ -5478,3 +5478,123 @@ sequenziellen Hauptthread-Code der submit()-Aufruf tatsaechlich steht -
 er ueberlappt nur mit dem, was NACH ihm noch sequenziell laeuft, nicht
 mit dem, was vorher schon durchgelaufen ist. Ergebnis erst mit dem
 naechsten echten Workflow-Lauf messbar.
+
+## HR-Kaskade im Hintergrund-Pool komplett zurueckgenommen (September 2026)
+
+Run #877 (mit der korrigierten Einhaenge-Stelle aus dem vorigen Eintrag)
+bestaetigte: die HR-Kaskade lief jetzt zwar tatsaechlich zeitgleich mit
+der kompletten RS-Kaskade (Log-Beleg: "Rufe A1 ab..." lief zur selben
+Sekunde wie "Rufe mts.rs ab..."), der GESAMTE Workflow wurde dadurch
+aber klar LANGSAMER statt schneller: 23:22 Minuten "Generate EPG"
+statt 16:17 (Run #876) bzw. 16:35 (Run #874, Referenzlauf vor allen
+HR-Kaskade-Versuchen). Auffaellig: nicht nur die HR-Kaskade selbst war
+langsamer, sondern auch die beiden GROESSTEN, davon voellig unabhaengigen
+Bloecke im selben Pool: DE-Kaskade 631,5s (statt 470,3s) und TVPassport
+461,7s (statt 310,6s) - TVPassport hat nichts mit hoerzu.de/tvmovie.de
+zu tun, laeuft aber trotzdem 1,5x langsamer, sobald ein vierter grosser
+Block gleichzeitig im selben Pool laeuft.
+
+**Wahrscheinliche Ursache:** GitHub-Actions-Standard-Runner (ubuntu-latest)
+haben nur sehr wenige vCPUs. Mit vier gleichzeitig laufenden
+`_gruppe_*()`-Bloecken, von denen jeder selbst nochmal 6-24
+Worker-Threads fuer BeautifulSoup/lxml-Parsing startet (CPU-gebunden,
+haelt den GIL), entsteht bei vier statt drei Bloecken deutlich mehr
+Thread-/GIL-Konkurrenz um dieselben wenigen Kerne - der Netzwerk-
+Overlap-Gewinn (HR-Kaskade ueberlappt jetzt korrekt mit ~165s
+RS-Kaskade) wird dadurch mehr als aufgefressen. Anders als bei Sky/
+TVPassport/DE-Kaskade (dort blieb die Gesamtlaufzeit bei drei
+Bloecken durchgehend stabil ueber mehrere Laeufe) kippt der Nutzen
+bei einem vierten Block offenbar ins Negative.
+
+**Fix (auf Nutzerwunsch: "mach das wie vorher, das war einigermassen
+in Ordnung mit knapp 17 min"):** Der komplette HR-Kaskade-Umbau der
+letzten beiden Eintraege wurde vollstaendig zurueckgenommen:
+- `_HINTERGRUND_POOL` wieder auf `max_workers=3` (nur Sky/TVPassport/
+  DE-Kaskade).
+- Die sechs HR-Fallback-Schritte (A1/MojMaxTV/SportKlub HR/Pickbox HR/
+  RTL Adria HR/index.hr) laufen wieder als normaler sequenzieller Code
+  im Hauptthread, an ihrer urspruenglichen Stelle (nach der kompletten
+  RS-Kaskade, vor Siol) - keine `_gruppe_hr_kaskade()`-Funktion, kein
+  `_zukunft_hr_kaskade`, keine der drei dafuer eingebauten
+  `.result()`-Absicherungen mehr noetig.
+- `git diff` gegen den letzten bekannt guten Stand (Commit "DE-Kaskade
+  fruehstarten...", Run #874, ~16:35 Minuten) zeigt danach NUR noch eine
+  rein kosmetische Verschiebung der `_siol_abrufen()`-Funktion (Position
+  im Code, keine Logikaenderung) - funktional wieder identisch.
+
+96/96 Tests weiterhin gruen. Lehre: nicht jeder nachweislich unabhaengige
+Verarbeitungsblock profitiert von `_HINTERGRUND_POOL` - ab einer
+gewissen Zahl gleichzeitiger CPU-lastiger Bloecke auf dem begrenzten
+GitHub-Actions-Runner kann zusaetzliche Parallelisierung den Lauf sogar
+verlangsamen. Vor einem erneuten Versuch in diese Richtung sollte die
+tatsaechliche Kernzahl des Runners ermittelt werden, statt aus der
+Unabhaengigkeit der Sender-Listen allein auf einen Zeitgewinn zu
+schliessen.
+
+## Retry-Wartezeit nach 429/503 auf 5s gedeckelt (September 2026)
+
+Nach den zwei gescheiterten Parallelitaets-Versuchen (siehe die beiden
+vorigen Eintraege) ein grundsaetzlich anderer, risikoaermerer Ansatz:
+statt mehr Nebenlaeufigkeit hinzuzufuegen, wird die tatsaechliche
+Wartezeit nach einem 429/503 reduziert. `_rate_limit_pause()` in
+`_http.py` konnte bisher bis zu 30s pro einzelnem Retry-Versuch warten
+(wenn der Server einen entsprechend hohen `Retry-After`-Header
+mitschickt), bei bis zu 3 Versuchen also theoretisch bis zu 90s pro
+Sender/Host-Kombination - bei 26-43 429/503-Treffern pro Lauf (siehe
+hoerzu.de/tvmovie.de) potenziell erheblich.
+
+**Fix:** Neue Konstante `_RETRY_AFTER_MAX_SEKUNDEN = 5` - sowohl der
+`Retry-After`-Header als auch der eigene Backoff (`_PAUSE_SEKUNDEN *
+versuch`) werden jetzt auf maximal 5s gedeckelt. Kein Eingriff in
+Thread-/Worker-Zahlen oder Nebenlaeufigkeit (im Unterschied zu den
+beiden vorherigen, gescheiterten Versuchen) - reines Kuerzen der
+Wartezeit innerhalb der bestehenden sequenziellen Retry-Schleife eines
+einzelnen Threads. Ein Sender, der nach dem kuerzeren Warten immer noch
+kein 200-OK bekommt, faellt wie gehabt graceful auf die naechste
+Kaskaden-Stufe zurueck (z.B. hoerzu.de -> Joyn-VOD) - kein Datenverlust,
+nur eine minimal hoehere Chance, dass ein einzelner Sender bei starkem
+Rate-Limiting auf eine schwaechere (aber weiterhin echte) Nachfolgequelle
+durchgereicht wird, statt es mit langem Warten doch noch bei der
+bevorzugten Quelle zu schaffen.
+
+96/96 Tests weiterhin gruen (keine dedizierten Tests fuer
+`_rate_limit_pause()` vorhanden, manuell mit Mock-Response verifiziert:
+Retry-After=3 -> 3.0s, Retry-After=30 -> gedeckelt auf 5s, kein Header
+bei versuch=1/2/3/10 -> 1.5s/3.0s/4.5s/gedeckelt auf 5s). Ergebnis
+(tatsaechliche Zeitersparnis bei gleichbleibender Datenabdeckung) erst
+mit einem echten Workflow-Lauf messbar.
+
+## Debug-Zusatz: tatsaechliche Retry-Wartezeit + Retry-After-Header-Treffer mitloggen (September 2026)
+
+Direkte Anschlussfrage des Nutzers zum vorigen Eintrag: wie viel
+Zeitersparnis der 5s-Deckel tatsaechlich bringt, laesst sich aus den
+bisherigen Logs NICHT ablesen - die Rate-Limit-/Fehler-Uebersicht zeigte
+bisher nur die Anzahl der 429/503-Treffer, nicht die dabei tatsaechlich
+verbrauchte Wartezeit, und auch nicht, ob hoerzu.de/tvmovie.de ueberhaupt
+einen `Retry-After`-Header schicken (ohne Header liegt die eigene
+Backoff-Formel `_PAUSE_SEKUNDEN * versuch` bei maximal 3 Versuchen
+sowieso nie ueber 4,5s - der 5s-Deckel waere dann komplett wirkungslos).
+
+**Fix:** `_rate_limit_pause()` gibt jetzt zusaetzlich zurueck, ob ein
+Retry-After-Header vorlag (`(wartezeit, hatte_header)` statt nur
+`wartezeit`). `mit_retry()` summiert pro Host die tatsaechlich
+verschlafene Wartezeit (`wartezeit_gesamt`) und zaehlt, wie oft dabei
+ein Retry-After-Header genutzt wurde (`retry_after_header_treffer`) -
+rein additive Statistik, aendert nichts am Retry-Verhalten selbst.
+`fehler_uebersicht()`/die Log-Ausgabe in `generate_epg.py` zeigen beide
+neuen Werte jetzt mit an, z.B.:
+
+```
+www.hoerzu.de: 190 Versuche, 26x 429/503, 0 endgueltig fehlgeschlagen,
+  47.3s Retry-Wartezeit gesamt (18x mit Retry-After-Header)
+```
+
+Damit laesst sich beim naechsten echten Lauf direkt ablesen, ob sich
+der 5s-Deckel lohnt (viele Header-Treffer + hohe Wartezeit-Summe) oder
+ob er kaum greift (wenige/keine Header-Treffer) - und der Deckel-Wert
+kann dann anhand echter Zahlen nachjustiert werden, statt weiter zu
+raten.
+
+96/96 Tests weiterhin gruen, Syntax geprueft, End-to-End mit einem
+gemockten 429-dann-200-Ablauf verifiziert (Retry-After=10 korrekt auf
+5s gedeckelt, `wartezeit_gesamt=5.0`, `retry_after_header_treffer=1`).
