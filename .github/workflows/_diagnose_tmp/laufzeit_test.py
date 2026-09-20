@@ -1,20 +1,29 @@
 """Temporaeres Diagnose-Skript (siehe diagnose_laufzeit.yml): testet
-verschiedene Worker-Zahlen fuer die DE-Kaskade (hoerzu.de/tvmovie.de,
-die bekannten Rate-Limiting-Kandidaten) und optional TVPassport gegen
-eine Stichprobe echter sender.txt-Sender - OHNE die komplette EPG zu
-generieren oder irgendetwas zu schreiben/committen.
+JEDE grosse automatische Laender-Kaskade einzeln gegen eine Stichprobe
+echter sender.txt-Sender, mit der jeweils in der Produktion genutzten
+Worker-Zahl (DE-Kaskade probeweise erhoeht, siehe DE_KASKADE_WORKER
+unten) - OHNE die komplette EPG zu generieren oder irgendetwas zu
+schreiben/committen. Reine Diagnose, aendert NICHTS an generate_epg.py.
 
-Nutzung: python3 laufzeit_test.py <de_worker_liste> <de_stichprobe>
-                                   <tvp_worker_liste> <tvp_stichprobe>
-z.B.:    python3 laufzeit_test.py "3,6,9,12" 250 "16,24,32" 200
+Nutzung: python3 laufzeit_test.py [stichprobe_n]
+z.B.:    python3 laufzeit_test.py 200
 
-WICHTIG: mehrere Worker-Stufen laufen NACHEINANDER im selben Skript -
-eine hoehere Stufe kann den Server bereits in einen gedrosselten
-Zustand versetzt haben, der die naechste Stufe kuenstlich schlechter
-aussehen laesst (Nachwirkung, nicht ursaechlich durch die Worker-Zahl
-selbst). Kurze Pause zwischen den Stufen mildert das, garantiert aber
-keine 100% saubere Trennung - Ergebnis ist eine Orientierung, kein
-Laborexperiment.
+Jede Quelle laeuft NACHEINANDER (mit kurzer Pause dazwischen) mit ihrer
+eigenen festen Worker-Zahl - kein Worker-Vergleich mehr wie in der
+ersten Version dieses Skripts (das Ergebnis von Run 1 zeigte bereits:
+DE-Kaskade profitiert kaum von >6 Workern, TVPassport ueberhaupt nicht
+von >16 - Details in docs/HISTORIE.md). Ziel jetzt: ein Gesamtbild ALLER
+Kaskaden auf einmal, um zu sehen, wo die Zeit in der Praxis wirklich
+hingeht, und ob eine leicht erhoehte DE-Kaskade-Worker-Zahl (9 statt der
+produktiven 6) unter halbwegs realistischer Last noch verlustfrei
+bleibt.
+
+WICHTIG: jede Stufe laeuft in diesem Skript isoliert (nicht wie in der
+echten Produktion mit mehreren Kaskaden gleichzeitig im Hintergrund-
+Pool) - die absoluten Zeiten sind deshalb NICHT direkt mit den
+"Laufzeit pro Quelle"-Werten aus einem echten Workflow-Lauf
+vergleichbar, wohl aber die RELATIVEN Unterschiede/429-Raten zwischen
+den Quellen.
 """
 
 import os
@@ -29,18 +38,49 @@ from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.getcwd())
 
 from quellen import _http
+from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
+from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
+from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
+from quellen.sky_epg import sky_kanal_finden, sky_hole_programme
 from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
 from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme
+from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
+from quellen.arena_epg import arena_kanal_finden, arena_hole_programme
+from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
+from quellen.scifi_epg import scifi_kanal_finden, scifi_hole_programme
+from quellen.natgeo_epg import natgeo_kanal_finden, natgeo_hole_programme
+from quellen.axn_epg import axn_kanal_finden, axn_hole_programme
+from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
+from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
+from quellen.a1_epg import a1_kanal_finden, a1_hole_programme
+from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
+from quellen.sportklub_epg import sportklub_kanal_finden, sportklub_hole_programme
+from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
+from quellen.siol_epg import siol_kanal_finden, siol_hole_programme
+from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
+from quellen.tvprogramrs_epg import tvprogramrs_kanal_finden, tvprogramrs_hole_programme
+from quellen.tvprogramdanas_epg import tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme
 
-PAUSE_ZWISCHEN_STUFEN_SEKUNDEN = 15
+PAUSE_ZWISCHEN_STUFEN_SEKUNDEN = 10
+
+# NUR fuer diesen Diagnose-Lauf probeweise erhoeht (Produktion bleibt bei
+# GEDROSSELTE_QUELLE_WORKER=6 in generate_epg.py, siehe Modul-Docstring -
+# diese Datei aendert NICHTS an generate_epg.py).
+DE_KASKADE_WORKER = 9
+
+PARALLEL_WORKER = 12
+ERHOEHTE_QUELLE_WORKER = 16
+TVPASSPORT_WORKER = 24
 
 
 def _sender_namen_lesen(praefixe, limit):
     """Liest bis zu `limit` Sendernamen aus sender.txt, deren Zeile mit
     einem der `praefixe` beginnt (z.B. "DE|", "TVPASSPORT:"). Rein
     string-basiert, keine Abhaengigkeit von generate_epg.py (das wuerde
-    beim Import sofort die komplette EPG-Generierung anstossen)."""
+    beim Import sofort die komplette EPG-Generierung anstossen). Bei
+    einem colon-Praefix (Opt-in-Format "PREFIX:<Land>|<Kanalname>|...")
+    ist der Kanalname das zweite Pipe-Feld, sonst das erste."""
     namen = []
     with open("sender.txt", "r", encoding="utf-8") as f:
         for zeile in f:
@@ -52,7 +92,7 @@ def _sender_namen_lesen(praefixe, limit):
                     rest = zeile[len(praefix):]
                     teile = rest.split("|")
                     if len(teile) >= 2:
-                        name = teile[1].strip() if praefix.startswith("TVPASSPORT") else teile[0].strip()
+                        name = teile[1].strip() if ":" in praefix else teile[0].strip()
                         if name:
                             namen.append(name)
                     break
@@ -75,6 +115,55 @@ def _statistik_delta(vorher, nachher):
         if delta["versuche"]:
             zeilen.append((host, delta))
     return zeilen
+
+
+def _einfacher_worker(kanal_finden, hole_programme, tage=2):
+    """Baut eine worker(name)-Funktion fuer das haeufigste Muster
+    kanal_finden(name) -> id_or_None, hole_programme(id, tage)."""
+    def worker(name):
+        try:
+            ergebnis = kanal_finden(name)
+            if ergebnis is not None:
+                hole_programme(ergebnis, tage)
+        except Exception:
+            pass
+    return worker
+
+
+def _telemach_worker(name):
+    try:
+        site_id = telemach_kanal_finden(name, "ba")
+        if site_id is not None:
+            telemach_hole_programme(site_id, "ba", 3)
+    except Exception:
+        pass
+
+
+def _mtel_worker(name):
+    try:
+        site_id = mtel_kanal_finden(name)
+        if site_id is not None:
+            mtel_hole_programme(site_id, 2)
+    except Exception:
+        pass
+
+
+def _klix_worker(name):
+    try:
+        site_id = klix_kanal_finden(name)
+        if site_id is not None:
+            klix_hole_programme(site_id, 3)
+    except Exception:
+        pass
+
+
+def _sky_worker(name):
+    try:
+        site_id = sky_kanal_finden(name, "DE")
+        if site_id is not None:
+            sky_hole_programme(site_id, "DE", 2)
+    except Exception:
+        pass
 
 
 def _de_kaskade_worker(name):
@@ -101,6 +190,24 @@ def _tvpassport_worker(name):
         pass
 
 
+def _arena_worker(name):
+    try:
+        site_id = arena_kanal_finden(name, "RS")
+        if site_id is not None:
+            arena_hole_programme(site_id, "RS", 2)
+    except Exception:
+        pass
+
+
+def _siol_worker(name):
+    try:
+        site_id = siol_kanal_finden(name)
+        if site_id is not None:
+            siol_hole_programme(site_id, 2)
+    except Exception:
+        pass
+
+
 def _stufe_testen(titel, namen, worker, abruf_fn):
     print(f"\n=== {titel}: {worker} Worker, {len(namen)} Sender ===", flush=True)
     vorher = _statistik_snapshot()
@@ -122,35 +229,64 @@ def _stufe_testen(titel, namen, worker, abruf_fn):
 
 
 def main():
-    de_worker_liste = [int(w) for w in sys.argv[1].split(",") if w.strip()] if len(sys.argv) > 1 else [6]
-    de_stichprobe_n = int(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2].strip() else 250
-    tvp_worker_liste = [int(w) for w in sys.argv[3].split(",") if w.strip()] if len(sys.argv) > 3 else []
-    tvp_stichprobe_n = int(sys.argv[4]) if len(sys.argv) > 4 and sys.argv[4].strip() else 0
+    n = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].strip() else 200
 
-    de_namen = _sender_namen_lesen(("DE|", "GO|", "PRIME|", "JOYN|", "WOW|"), de_stichprobe_n)
-    print(f"DE-Kaskade-Stichprobe: {len(de_namen)} Sender gelesen.")
+    ba_namen = _sender_namen_lesen(("BA|",), n)
+    rs_namen = _sender_namen_lesen(("RS|",), n)
+    hr_namen = _sender_namen_lesen(("HR|",), n)
+    si_namen = _sender_namen_lesen(("SI|",), n)
+    de_namen = _sender_namen_lesen(("DE|", "GO|", "PRIME|", "JOYN|", "WOW|"), n)
+    sky_namen = _sender_namen_lesen(("SKY:",), n)
+    tvp_namen = _sender_namen_lesen(("TVPASSPORT:",), n)
+
+    print(
+        f"Stichproben: BA={len(ba_namen)} RS={len(rs_namen)} HR={len(hr_namen)} "
+        f"SI={len(si_namen)} DE/GO/PRIME/JOYN/WOW={len(de_namen)} SKY={len(sky_namen)} "
+        f"TVPASSPORT={len(tvp_namen)}"
+    )
+
+    stufen = [
+        ("Telemach", ba_namen, PARALLEL_WORKER, _telemach_worker),
+        ("mtel.ba", ba_namen, ERHOEHTE_QUELLE_WORKER, _mtel_worker),
+        ("klix.ba", ba_namen, PARALLEL_WORKER, _klix_worker),
+        ("Sky", sky_namen, PARALLEL_WORKER, _sky_worker),
+        ("TVPassport", tvp_namen, TVPASSPORT_WORKER, _tvpassport_worker),
+        ("DE-Kaskade (hoerzu.de/tvmovie.de)", de_namen, DE_KASKADE_WORKER, _de_kaskade_worker),
+        ("mts.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(mts_kanal_finden, mts_hole_programme, 2)),
+        ("SportKlub (RS)", rs_namen, PARALLEL_WORKER, _einfacher_worker(sportklub_kanal_finden, sportklub_hole_programme, 2)),
+        ("Arena Sport", rs_namen, PARALLEL_WORKER, _arena_worker),
+        ("RTV.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(rtv_rs_kanal_finden, rtv_rs_hole_programme, 2)),
+        ("scifi.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(scifi_kanal_finden, scifi_hole_programme, 2)),
+        ("NatGeo", rs_namen, PARALLEL_WORKER, _einfacher_worker(natgeo_kanal_finden, natgeo_hole_programme, 2)),
+        ("AXN Adria", rs_namen, PARALLEL_WORKER, _einfacher_worker(axn_kanal_finden, axn_hole_programme, 2)),
+        ("Pickbox", rs_namen, PARALLEL_WORKER, _einfacher_worker(pickbox_kanal_finden, pickbox_hole_programme, 2)),
+        ("RTL Adria (RS)", rs_namen, PARALLEL_WORKER, _einfacher_worker(rtl_hr_kanal_finden, rtl_hr_hole_programme, 2)),
+        ("A1", hr_namen, DE_KASKADE_WORKER, _einfacher_worker(a1_kanal_finden, a1_hole_programme, 6)),
+        ("MojMaxTV", hr_namen, PARALLEL_WORKER, _einfacher_worker(mojmaxtv_kanal_finden, mojmaxtv_hole_programme, 2)),
+        ("SportKlub (HR)", hr_namen, PARALLEL_WORKER, _einfacher_worker(sportklub_kanal_finden, sportklub_hole_programme, 2)),
+        ("Pickbox (HR)", hr_namen, PARALLEL_WORKER, _einfacher_worker(pickbox_kanal_finden, pickbox_hole_programme, 2)),
+        ("RTL Adria (HR)", hr_namen, PARALLEL_WORKER, _einfacher_worker(rtl_hr_kanal_finden, rtl_hr_hole_programme, 2)),
+        ("index.hr (mojtv.hr)", hr_namen, PARALLEL_WORKER, _einfacher_worker(mojtv_index_kanal_finden, mojtv_index_hole_programme, 2)),
+        ("Siol/Delo.si/SportKlub", si_namen, PARALLEL_WORKER, _siol_worker),
+        ("TvProfil.net", rs_namen, PARALLEL_WORKER, _einfacher_worker(tvprofil_kanal_finden, tvprofil_hole_programme, 3)),
+        ("TvProgram.rs", rs_namen, PARALLEL_WORKER, _einfacher_worker(tvprogramrs_kanal_finden, tvprogramrs_hole_programme, 1)),
+        ("tvprogramdanas.net", rs_namen, PARALLEL_WORKER, _einfacher_worker(tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme, 3)),
+    ]
 
     ergebnisse = []
-    for i, worker in enumerate(de_worker_liste):
-        dauer = _stufe_testen(f"DE-Kaskade (hoerzu.de/tvmovie.de)", de_namen, worker, _de_kaskade_worker)
-        ergebnisse.append(("DE-Kaskade", worker, dauer))
-        if i < len(de_worker_liste) - 1:
+    for i, (titel, namen, worker, fn) in enumerate(stufen):
+        if not namen:
+            print(f"\n=== {titel}: uebersprungen (keine Sender in der Stichprobe) ===")
+            continue
+        dauer = _stufe_testen(titel, namen, worker, fn)
+        ergebnisse.append((titel, worker, len(namen), dauer))
+        if i < len(stufen) - 1:
             print(f"Pause {PAUSE_ZWISCHEN_STUFEN_SEKUNDEN}s vor der naechsten Stufe...", flush=True)
             time.sleep(PAUSE_ZWISCHEN_STUFEN_SEKUNDEN)
 
-    if tvp_worker_liste and tvp_stichprobe_n:
-        tvp_namen = _sender_namen_lesen(("TVPASSPORT:",), tvp_stichprobe_n)
-        print(f"\nTVPassport-Stichprobe: {len(tvp_namen)} Sender gelesen.")
-        for i, worker in enumerate(tvp_worker_liste):
-            dauer = _stufe_testen("TVPassport", tvp_namen, worker, _tvpassport_worker)
-            ergebnisse.append(("TVPassport", worker, dauer))
-            if i < len(tvp_worker_liste) - 1:
-                print(f"Pause {PAUSE_ZWISCHEN_STUFEN_SEKUNDEN}s vor der naechsten Stufe...", flush=True)
-                time.sleep(PAUSE_ZWISCHEN_STUFEN_SEKUNDEN)
-
-    print("\n=== Zusammenfassung ===")
-    for quelle, worker, dauer in ergebnisse:
-        print(f"  {quelle} @ {worker} Worker: {dauer:.1f}s")
+    print("\n=== Zusammenfassung (absteigend nach Dauer) ===")
+    for titel, worker, anzahl, dauer in sorted(ergebnisse, key=lambda e: e[3], reverse=True):
+        print(f"  {titel} @ {worker} Worker: {dauer:.1f}s ({anzahl} Sender)")
 
 
 if __name__ == "__main__":

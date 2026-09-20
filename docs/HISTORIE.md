@@ -5756,3 +5756,46 @@ diesem Projekt bisher durchgehend kontraproduktiv gewesen - ein neuer
 Versuch in diese Richtung sollte nur mit sehr starker Evidenz (mehrere
 konsistente Laeufe) unternommen werden, nicht auf Basis einer einzelnen
 Theorie.
+
+## Diagnose-Workflow auf ALLE Kaskaden ausgeweitet (September 2026)
+
+Erster Diagnose-Lauf (siehe voriger Eintrag) zeigte: DE-Kaskade
+(hoerzu.de/tvmovie.de) skaliert praktisch identisch bei 6/9/12 Workern
+(~4,6-4,7s fuer 250 Sender, keine 429/503 in diesem Zeitfenster),
+TVPassport zeigt bei 16/24/32 Workern KEINEN Unterschied (~72,5s fuer
+200 Sender in allen drei Faellen - offenbar server-antwortzeit-
+begrenzt, nicht worker-begrenzt).
+
+Nutzerauftrag als Konsequenz: TVPassport-Worker unveraendert lassen
+(mehr bringt nachweislich nichts), DE-Kaskade-Worker NUR IM DIAGNOSE-
+WORKFLOW probeweise auf 9 erhoehen (NICHT in generate_epg.py/der
+echten Produktion - `GEDROSSELTE_QUELLE_WORKER` bleibt dort bei 6),
+und den Diagnose-Workflow auf ALLE grossen automatischen Laender-
+Kaskaden ausweiten (nicht nur DE-Kaskade/TVPassport), um ein
+Gesamtbild zu bekommen, wo in der Praxis die Zeit hingeht.
+
+**Umsetzung:** `laufzeit_test.py` komplett neu geschrieben - testet
+jetzt nacheinander (mit 10s Pause dazwischen) 24 Kaskaden-Stufen:
+Telemach/mtel.ba/klix.ba (BA-Stichprobe), Sky (SKY:-Stichprobe),
+TVPassport (TVPASSPORT:-Stichprobe, Worker unveraendert 24), DE-Kaskade
+(DE/GO/PRIME/JOYN/WOW-Stichprobe, Worker probeweise 9 NUR HIER),
+mts.rs/SportKlub(RS)/Arena Sport/RTV.rs/scifi.rs/NatGeo/AXN Adria/
+Pickbox/RTL Adria(RS) (RS-Stichprobe), A1/MojMaxTV/SportKlub(HR)/
+Pickbox(HR)/RTL Adria(HR)/index.hr (HR-Stichprobe), Siol (SI-Stichprobe),
+TvProfil.net/TvProgram.rs/tvprogramdanas.net (RS-Stichprobe) - jede mit
+ihrer in der Produktion tatsaechlich genutzten Worker-Zahl (aus
+generate_epg.py abgeschrieben, dort aber nicht importiert - reine
+Konstanten-Duplizierung in der Diagnose-Datei, damit sie unabhaengig
+von generate_epg.py bleibt und dessen Import nicht die komplette EPG-
+Generierung anstossen wuerde).
+
+Signaturen aller 24 verwendeten `*_kanal_finden()`/`*_hole_programme()`-
+Funktionspaare per direktem Python-Aufruf (ohne try/except, das einen
+TypeError verschluckt haette) gegengeprueft - alle korrekt. Voller
+Netzwerktest lokal nicht moeglich (Sandbox-Proxy blockt einzelne Hosts
+wie mtel.ba), Fehlerbehandlung dabei aber als korrekt "graceful
+skip" bestaetigt (keine Exception bricht das Skript ab). 96/96 Tests
+weiterhin gruen, Syntax/YAML geprueft.
+
+`diagnose_laufzeit.yml` entsprechend vereinfacht (ein einziger
+`stichprobe`-Input statt vier Worker-/Stichprobe-Paaren).
