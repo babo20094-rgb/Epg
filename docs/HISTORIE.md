@@ -5598,3 +5598,44 @@ raten.
 96/96 Tests weiterhin gruen, Syntax geprueft, End-to-End mit einem
 gemockten 429-dann-200-Ablauf verifiziert (Retry-After=10 korrekt auf
 5s gedeckelt, `wartezeit_gesamt=5.0`, `retry_after_header_treffer=1`).
+
+## Neue echte EPG-Quelle axntv.rs fuer RS|AXN ADRIA (September 2026)
+
+Nutzerauftrag: axntv.rs/program-tv/ fuer "alle Varianten von RS|AXN
+ADRIA" einbinden. Die Seite liefert - server-seitig bereits gerendert -
+den kompletten 14-Tage-Sendeplan in einem einzigen Seitenabruf, pro Tag
+ein `<div class="day" id="YYYY-MM-DD_SRP">` mit den Sendungen darin
+(`<div class="program hNN">`, NN = Dauer in Minuten direkt aus der
+CSS-Klasse ablesbar - kein Ableiten aus der naechsten Sendung noetig,
+kein Mitternacht-Ueberlauf-Problem wie bei rtl_hr_epg.py, da das Datum
+explizit pro Tag-Div steht).
+
+**Wichtiger Stolperstein beim Verifizieren:** die Seite bettet ZWEI
+komplett unabhaengige Sendeplaene mit IDENTISCHEN Tages-IDs ein
+(Kollision auf Website-Seite) - "AXN Adria" in `<div id="AXNtimeline">`
+und ein zweiter Plan in `<div id="AXN_spintimeline">` weiter unten auf
+derselben Seite. Naiv per `soup.find(id=...)` gesucht, haette man nur
+das erste, mehrdeutige Match bekommen. Der zweite Plan
+(`AXN_spintimeline`) wurde beim Live-Check als inhaltlich NICHT zu einem
+AXN-Spin-Sendeplan passend erkannt (Lifestyle-/Immobilien-Titel wie
+"Prodaja najekskluzivnijih kuca" statt der erwarteten Action-Serien) -
+bewusst NICHT als RS|AXN SPIN-Quelle uebernommen, bis das separat
+geklaert ist (moeglicherweise ein Copy-Paste-Fehler auf Website-Seite
+oder ein falsch benannter Widget-Container fuer einen ganz anderen
+Kanal). `axn_epg.py` sucht deshalb GEZIELT nur innerhalb von
+`#AXNtimeline`.
+
+Neues Modul `quellen/axn_epg.py`: `axn_kanal_finden()` erkennt "AXN
+ADRIA" (mit HD/FHD/VIP/RAW-Zusaetzen, NFKD-Normalisierung wie bei den
+anderen RS-Fallback-Quellen) - bewusst NICHT blosses "AXN" oder "AXN
+SPIN" (eigenstaendige, andere Kanaele, siehe `_BEKANNTE_KERN_ALIASE`-
+Philosophie: unterschiedliche Sendernamen bleiben getrennt). Als
+neunter (vorher achter) Schritt der RS-Kaskade in `generate_epg.py`
+eingehaengt, nach NatGeo/vor Pickbox - `RS|AXN ADRIA` in `sender.txt`
+brauchte KEINE Aenderung (automatischer Land+Name-Abgleich wie bei
+scifi.rs/NatGeo, kein Opt-in-Praefix).
+
+Lokal mit echtem Netzwerkzugriff verifiziert: 412 Sendungen ueber 14
+Tage geladen, Zeitzonen-Umrechnung korrekt (06:00 Europe/Belgrade ->
+04:00 UTC im September/CEST), "AXN"/"AXN SPIN" korrekt NICHT erkannt.
+96/96 Tests gruen, Syntax geprueft.

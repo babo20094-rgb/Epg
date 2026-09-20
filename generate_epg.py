@@ -101,6 +101,7 @@ from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_prog
 from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
 from quellen.scifi_epg import scifi_kanal_finden, scifi_hole_programme
 from quellen.natgeo_epg import natgeo_kanal_finden, natgeo_hole_programme
+from quellen.axn_epg import axn_kanal_finden, axn_hole_programme
 from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
 from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
 from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
@@ -4688,7 +4689,46 @@ for _idx, daten in enumerate(_natgeo_sender):
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# PICKBOX.TV (RS-Fallback): siebter Versuch fuer alle RS-Sender, deren
+# AXNTV.RS (RS-Fallback): siebter Versuch fuer alle RS-Sender, deren
+# Name auf "AXN Adria" passt (siehe axn_epg.py - eigene, server-seitig
+# gerenderte 14-Tage-Programmseite, weder in mts.rs noch SportKlub/
+# Arena/RTV.rs/scifi.rs/NatGeo enthalten). Kein eigenes Praefix noetig.
+# Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _axn_abrufen(daten):
+    try:
+        schluessel = axn_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return axn_hole_programme(schluessel, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_axn_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_axn_ergebnisse = _parallel_abrufen(_axn_sender, _axn_abrufen, name="AXN Adria")
+
+for _idx, daten in enumerate(_axn_sender):
+    programme = _axn_ergebnisse[_idx]
+
+    daten["axn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("AXN Adria")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# PICKBOX.TV (RS-Fallback): achter Versuch fuer alle RS-Sender, deren
 # Name auf "Pickbox" passt (siehe pickbox_epg.py - eigene, server-
 # seitig gerenderte Programmseite mit komplettem 8-Tage-Sendeplan in
 # einem Abruf, weder in mts.rs noch SportKlub/Arena/RTV.rs/scifi.rs/
@@ -4727,7 +4767,7 @@ for _idx, daten in enumerate(_pickbox_sender):
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# RTL.HR (RS-Fallback): achter Versuch fuer alle RS-Sender, deren Name
+# RTL.HR (RS-Fallback): neunter Versuch fuer alle RS-Sender, deren Name
 # auf "RTL Adria" passt (siehe rtl_hr_epg.py - eigene, server-seitig
 # gerenderte 8-Tage-Programmseite, weder in mts.rs noch SportKlub/
 # Arena/RTV.rs/scifi.rs/NatGeo/Pickbox enthalten). Kein eigenes
