@@ -4809,91 +4809,6 @@ for _idx, daten in enumerate(_rtl_hr_rs_sender):
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# SIOL: automatischer Abgleich fuer alle SI- UND MK-Sender (siehe
-# siol_epg.py - HTML-Scraping, fragiler als die anderen Quellen). Kein
-# eigenes Praefix noetig. Ohne jegliche SI-/MK-Zeile in sender.txt
-# passiert hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
-# ==========================================================
-
-def _siol_abrufen(daten):
-    """Fuehrt beide Netzwerk-Abrufe (Siol, dann Delo.si/SportKlub) fuer
-    EINEN SI-/MK-Sender aus und gibt eine Liste von (Quellenname,
-    Programme)-Tupeln zurueck - siehe _de_kaskade_abrufen() fuer das
-    gleiche Grundmuster (Schreiben ins XML bleibt sequenziell danach)."""
-    ergebnisse = []
-
-    programme = []
-    try:
-        site_id = siol_kanal_finden(daten["sender"])
-        if site_id is not None:
-            programme = siol_hole_programme(site_id, SIOL_TAGE)
-    except Exception:
-        programme = []
-
-    daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
-    # Wird immer versucht (fuellt ggf. Luecken von Siol), schreibt aber
-    # nur die noch unbedeckten Zeitfenster - gleiche Luecken-Fuellung
-    # wie in der DE-Kaskade, siehe dort.
-    _siol_geschrieben_intervalle = []
-
-    if programme:
-        ergebnisse.append(("Siol", programme))
-        _siol_geschrieben_intervalle.extend(daten["siol_intervalle"])
-
-    # Delo.si (echte SLOWENISCHE Sport-Klub-Daten) als zweiter Versuch
-    # fuer SI-Sender nach siol.net - siol.net fuehrt selbst keine
-    # "Sport Klub"-Kanaele. WICHTIG (September 2026): Sport Klub
-    # Kroatien (epgshare01.online, siehe sportklub_epg.py) zeigt NICHT
-    # immer dasselbe Programm wie Sport Klub Slowenien (per Nutzer-
-    # Screenshot bestaetigt: echtes SI|SK1 zeigte "Ingolstadt -
-    # Aachen", die kroatischen Daten fuer "SK 1" zeigten zeitgleich die
-    # saudische Liga) - delo.si (tvspored.delo.si) hat dagegen eine
-    # echte slowenische Sendungsliste und wird deshalb zuerst versucht.
-    sportklub_programme = []
-    sportklub_quelle = None
-    try:
-        delo_slug = delo_si_kanal_finden(daten["sender"])
-        if delo_slug is not None:
-            sportklub_programme = delo_si_hole_programme(delo_slug)
-    except Exception:
-        sportklub_programme = []
-
-    if sportklub_programme:
-        sportklub_quelle = "Delo.si (SK Slowenien)"
-    else:
-        # Sport Klub Kroatien (epgshare01.online) als letzter Fallback,
-        # falls delo.si fuer diesen Sender einmal nichts liefert.
-        try:
-            sportklub_site_id = sportklub_kanal_finden(daten["sender"])
-            if sportklub_site_id is not None:
-                sportklub_programme = sportklub_hole_programme(sportklub_site_id, SIOL_TAGE)
-        except Exception:
-            sportklub_programme = []
-
-        if sportklub_programme:
-            sportklub_quelle = "SportKlub"
-
-    daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
-
-    if sportklub_programme:
-        neue_programme = [
-            p for p in sportklub_programme
-            if not ueberlappt_intervall(_siol_geschrieben_intervalle, p["start"], p["stop"])
-        ]
-        if neue_programme:
-            ergebnisse.append((sportklub_quelle, neue_programme))
-
-    return ergebnisse
-
-
-_siol_ergebnisse = _parallel_abrufen(siol_sender, _siol_abrufen, name="Siol/Delo.si/SportKlub")
-
-for _idx, daten in enumerate(siol_sender):
-    for _quelle, _programme in _siol_ergebnisse[_idx]:
-        _echte_quelle_zaehlen(_quelle)
-        _schreibe_echte_programme(daten, _programme)
-
-# ==========================================================
 # A1 (Kroatien): ERSTER Versuch fuer alle HR-Sender, VOR MojMaxTV
 # (siehe a1_epg.py). Oeffentliche, loginfreie API von www.a1.hr -
 # liefert echte Beschreibungstexte, bereits normal geschriebene Titel
@@ -5116,6 +5031,91 @@ for _idx, daten in enumerate(mojmaxtv_sender):
             daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SIOL: automatischer Abgleich fuer alle SI- UND MK-Sender (siehe
+# siol_epg.py - HTML-Scraping, fragiler als die anderen Quellen). Kein
+# eigenes Praefix noetig. Ohne jegliche SI-/MK-Zeile in sender.txt
+# passiert hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+def _siol_abrufen(daten):
+    """Fuehrt beide Netzwerk-Abrufe (Siol, dann Delo.si/SportKlub) fuer
+    EINEN SI-/MK-Sender aus und gibt eine Liste von (Quellenname,
+    Programme)-Tupeln zurueck - siehe _de_kaskade_abrufen() fuer das
+    gleiche Grundmuster (Schreiben ins XML bleibt sequenziell danach)."""
+    ergebnisse = []
+
+    programme = []
+    try:
+        site_id = siol_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = siol_hole_programme(site_id, SIOL_TAGE)
+    except Exception:
+        programme = []
+
+    daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    # Wird immer versucht (fuellt ggf. Luecken von Siol), schreibt aber
+    # nur die noch unbedeckten Zeitfenster - gleiche Luecken-Fuellung
+    # wie in der DE-Kaskade, siehe dort.
+    _siol_geschrieben_intervalle = []
+
+    if programme:
+        ergebnisse.append(("Siol", programme))
+        _siol_geschrieben_intervalle.extend(daten["siol_intervalle"])
+
+    # Delo.si (echte SLOWENISCHE Sport-Klub-Daten) als zweiter Versuch
+    # fuer SI-Sender nach siol.net - siol.net fuehrt selbst keine
+    # "Sport Klub"-Kanaele. WICHTIG (September 2026): Sport Klub
+    # Kroatien (epgshare01.online, siehe sportklub_epg.py) zeigt NICHT
+    # immer dasselbe Programm wie Sport Klub Slowenien (per Nutzer-
+    # Screenshot bestaetigt: echtes SI|SK1 zeigte "Ingolstadt -
+    # Aachen", die kroatischen Daten fuer "SK 1" zeigten zeitgleich die
+    # saudische Liga) - delo.si (tvspored.delo.si) hat dagegen eine
+    # echte slowenische Sendungsliste und wird deshalb zuerst versucht.
+    sportklub_programme = []
+    sportklub_quelle = None
+    try:
+        delo_slug = delo_si_kanal_finden(daten["sender"])
+        if delo_slug is not None:
+            sportklub_programme = delo_si_hole_programme(delo_slug)
+    except Exception:
+        sportklub_programme = []
+
+    if sportklub_programme:
+        sportklub_quelle = "Delo.si (SK Slowenien)"
+    else:
+        # Sport Klub Kroatien (epgshare01.online) als letzter Fallback,
+        # falls delo.si fuer diesen Sender einmal nichts liefert.
+        try:
+            sportklub_site_id = sportklub_kanal_finden(daten["sender"])
+            if sportklub_site_id is not None:
+                sportklub_programme = sportklub_hole_programme(sportklub_site_id, SIOL_TAGE)
+        except Exception:
+            sportklub_programme = []
+
+        if sportklub_programme:
+            sportklub_quelle = "SportKlub"
+
+    daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
+
+    if sportklub_programme:
+        neue_programme = [
+            p for p in sportklub_programme
+            if not ueberlappt_intervall(_siol_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+        if neue_programme:
+            ergebnisse.append((sportklub_quelle, neue_programme))
+
+    return ergebnisse
+
+
+_siol_ergebnisse = _parallel_abrufen(siol_sender, _siol_abrufen, name="Siol/Delo.si/SportKlub")
+
+for _idx, daten in enumerate(siol_sender):
+    for _quelle, _programme in _siol_ergebnisse[_idx]:
+        _echte_quelle_zaehlen(_quelle)
+        _schreibe_echte_programme(daten, _programme)
 
 # ==========================================================
 # TVPROFIL.NET: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/MO/
