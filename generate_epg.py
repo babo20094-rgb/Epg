@@ -238,6 +238,16 @@ def kanal_id_varianten(kanal):
             varianten = [kanal] if ohne == mit else [ohne, mit, mit_zwei]
         else:
             varianten = [mit]
+        # "CITY|"-Praefix ist rein technisch (aktiviert nur den
+        # Call-Sign-Abgleich, siehe generate_epg.py-Kommentar bei
+        # "land.strip().upper() == 'CITY'") und war bei diesen Sendern
+        # vorher NICHT Teil der ID (leeres-Land-Format, ID = nur der
+        # Sendername). Ohne diese Zusatzvariante verlieren bereits in
+        # TiviMate gespeicherte Kanalzuordnungen beim Umstellen von
+        # leerem Land auf "CITY|" ihre Zuordnung, da sich die ID
+        # aendert (Bug September 2026 behoben).
+        if land.upper() == "CITY":
+            varianten.append(rest)
     else:
         varianten = [kanal]
 
