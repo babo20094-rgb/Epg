@@ -5900,3 +5900,78 @@ Code, abhaengig von der tagesaktuellen Auslastung externer Quellen
 (besonders a1.hr). Vor einer erneuten Optimierung sollte diese
 Schwankungsbreite als Normalzustand akzeptiert und nicht vorschnell
 einer einzelnen Code-Aenderung zugeschrieben werden.
+
+## GEPLANT (noch nicht umgesetzt): Arena-Sport/Sport-Klub HR/RS-Vertauschung ueber Daten-Remapping statt ID-Alias loesen
+
+**Ausgangslage:** Bei manchen Arena-Sport-/Sport-Klub-Nummern benennt
+der IPTV-Anbieter selbst den Kanal in der M3U-Playlist mit dem
+FALSCHEN Land-Praefix (z.B. ein tatsaechlich kroatischer Stream heisst
+im rohen Playlist-Namen "RS| Arena Sport 4", obwohl es inhaltlich der
+kroatische "Arena Sport 4" ist). Der Nutzer hat das laengst manuell in
+seiner Playlist/TiviMate erkannt und die Anzeigenamen selbst korrigiert
+- die Zuordnung geht aber bei jedem TiviMate-Neuaufbau (Cache-Leerung,
+Playlist/EPG komplett neu eintragen, kein Backup) verloren, weil
+TiviMates automatischer Namensabgleich gegen den ROHEN (falschen)
+Anbieternamen matcht, nicht gegen die eigene Umbenennung (siehe auch
+Abschnitt "HR|SK->HR|SPORT KLUB-Umbenennung ... WICHTIGE LEHRE zu
+TiviMates Auto-Matching" weiter oben - dort wurde bewiesen, dass eine
+sender.txt-seitige ID-AENDERUNG bei einer echten Namenskollision NICHT
+hilft, weil dann zwei verschiedene, echte Sender denselben rohen
+Playlist-Namen beanspruchen wuerden).
+
+**Unterschied zum damaligen (gescheiterten) Loesungsversuch:** Statt
+die ID zu aendern (das wuerde wieder scheitern, da es fuer denselben
+rohen Namen ja tatsaechlich schon einen ECHTEN, anderen Sender gibt),
+soll NUR die inhaltliche Datenquelle hinter dem bestehenden, unveraen-
+derten sender.txt-Eintrag umgebogen werden:
+
+- `<channel id>` bleibt exakt der rohe (falsche) Anbietername, z.B.
+  `RS|ARENA SPORT 4` - dadurch matcht TiviMate weiterhin automatisch,
+  auch nach komplettem Neuaufbau ohne Backup, weil sich an der ID
+  nichts aendert.
+- Die **Programmdaten** hinter diesem Eintrag werden bewusst von der
+  jeweils ANDEREN, tatsaechlich zutreffenden Landes-Quelle bezogen
+  (im Beispiel: kroatische Arena-Sport-4-Daten statt der eigentlich
+  fuer "RS" zustaendigen serbischen Quelle).
+- Das `<display-name>`-Feld dieses Eintrags wird zusaetzlich auf den
+  vom Nutzer bevorzugten, korrekten Namen gesetzt (z.B. "HR| Arena
+  Sport 4"), damit auch die EPG-Anzeige/-Suche in TiviMate (nicht die
+  Senderliste selbst - die kommt weiterhin aus der Playlist/TiviMates
+  eigener Umbenennung) den korrekten Namen zeigt statt des rohen,
+  falschen Anbieternamens.
+
+**Wichtige Abgrenzung (Nutzer explizit informiert):** Der Sender-
+LISTENNAME in TiviMate selbst (was man beim Umschalten/in der Liste
+sieht) kommt weiterhin aus der Playlist bzw. aus einer vom Nutzer
+selbst in TiviMate vorgenommenen Umbenennung - das ist reine
+TiviMate-Client-Einstellung, die wir von hier aus nicht setzen koennen
+und die bei einem harten Neuaufbau ohne Backup ggf. wieder verloren
+geht. Nur Programmdaten UND das EPG-interne `<display-name>`-Feld sind
+das, was serverseitig zuverlaessig und dauerhaft (auch ohne Backup)
+garantiert werden kann.
+
+**Bestaetigt (Nutzerfrage 22.09.2026):** Da TiviMate rein nach dem
+ROHEN Namen matcht (nicht nach Playlist-Kategorie), gilt die Korrektur
+automatisch fuer JEDEN Playlist-Eintrag mit demselben rohen Namen,
+auch wenn derselbe Sender in einer anderen Kategorie/Gruppe der
+Playlist nochmal auftaucht und dort vom Nutzer nicht umbenannt wurde -
+Programmdaten und EPG-Name waeren dort ebenfalls korrekt, nur der
+Listenname in der nicht umbenannten Kategorie bliebe weiterhin roh/
+falsch (siehe Abgrenzung oben).
+
+**Voraussetzung vor Umsetzung (noch offen, Nutzer recherchiert):**
+1. Konkrete Liste: welche Arena-Sport-/Sport-Klub-Nummern sind wirklich
+   vertauscht (z.B. "Arena Sport 4 und 7 sind eigentlich HR, nicht RS").
+2. Pro betroffener Nummer verifizieren, dass es in der Playlist des
+   Nutzers KEINEN zweiten, ECHTEN Kanal mit demselben rohen Namen im
+   jeweils anderen Land gibt (sonst wuerde die Korrektur den echten
+   Kanal ueberschreiben/verdraengen).
+
+**Naechster Schritt:** Sobald der Nutzer die genaue Liste liefert
+(vermutlich in einer neuen Session), pro Kanal einzeln pruefen und in
+`generate_epg.py`/`sender.txt` die Datenquelle wie oben beschrieben
+umbiegen - NICHT pauschal fuer alle Arena-Sport-/Sport-Klub-Sender,
+nur fuer die konkret bestaetigten Faelle. Vor Umsetzung unbedingt
+`grep -rn` durch alle betroffenen `quellen/*.py`-Module (siehe Lehre
+im Abschnitt "HR|SK->HR|SPORT KLUB-Umbenennung" oben zu hart an alte
+Schreibweisen gekoppelten Fuzzy-Match-Sicherungen).
