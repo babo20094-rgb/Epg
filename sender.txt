@@ -2948,6 +2948,12 @@ PPV|EVENT 2 (BK)|Event 2 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/bab
 PPV|EVENT 3 (BK)|Event 3 (Bk) ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/fabccd21b3ee0361.png
 
 ##### PRIME (aus Playlist) #####
+PRIME|CRIME SCENE TV ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
+PRIME|FOX 2 SAN FRANCISCO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/eaaa6cb406fed0af.png
+PRIME|FOX 29 PHILADELPHIA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2cf6c435ee94f4bd.png
+PRIME|FOX 4 DALLAS FORT WORTH ᴿᴬᵂ||
+PRIME|FOX 5 WASHINGTON DC ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a75537ed730b9f9f.png
+PRIME|NBA TV HDTV ᴿᴬᵂ||
 PRIME|20/20 ᴿᴬᵂ|20/20 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/77797ae9ebeaf985b900b497f9e488a45c8bbab9.png
 PRIME|365BLK ᴿᴬᵂ|365Blk ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7dbe69d26fa899516599c0ae6c3299a85a7da823.png
 PRIME|3SAT ᴿᴬᵂ|3Sat ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/83b5fe05e04d2640.png

@@ -6122,3 +6122,67 @@ Leck-Risiko, da nur Debug-Text geloggt wird, niemals die URL/Zugangs-
 daten selbst - GitHub maskiert Secrets ohnehin nur bei exaktem String-
 Treffer, siehe bestehende Vorsichtsmassnahme in generate_epg.py zu
 Fehlermeldungen).
+
+**Bug 3 GELOEST (Ursache gefunden, Fix NOCH NICHT umgesetzt - bewusst
+zur expliziten Bestaetigung zurueckgestellt):** Der Diagnose-Workflow
+lief erfolgreich gegen die echte Playlist (PROVIDER-Secret). Ergebnis
+fuer "NAME:24/7 AL PACINO": nach dem Live-Kanalabgleich hat sich
+`daten["kanal"]` von "24/7 AL PACINO" auf **"UK| 24/7 AL PACINO"**
+veraendert - der bare NAME:-Sender wurde also mit einer FREEVIEW-
+artigen Playlist-Zeile ueberschrieben, nicht einfach nur "verloren".
+
+**Root Cause:** In `kern_und_event_extrahieren()` gilt ein reiner
+2-4-Buchstaben-Code direkt vor einem Pipe-Zeichen als Land-/Regions-
+Kuerzel (kein Event-Text) und wird ignoriert - Zweck: Faelle wie
+"NA| Bakersfield Condors" korrekt als Kern "Bakersfield Condors" zu
+erkennen. Verarbeitet `m3u_playlist_abgleichen()` beim Durchgehen der
+kompletten Roh-Playlist nun aber eine Zeile wie "UK| 24/7 AL PACINO"
+(ein voellig ANDERER, echter Kanal - vermutlich aus einer FREEVIEW/
+UK-Sendergruppe, unabhaengig von unserem bare "24/7 AL PACINO"-
+NAME:-Sender), wird "UK" hier faelschlich ALS Land-Kuerzel erkannt und
+ignoriert - der extrahierte "Kern" lautet dann ebenfalls "24/7 AL
+PACINO", identisch zu unserem eigenen Sender-Feld. Der Live-Abgleich
+findet daraufhin ueber `name_pipe_kanal_index` unseren bare NAME:-
+Sender, haelt die playlist-Zeile "UK| 24/7 AL PACINO" faelschlich fuer
+"denselben Kanal mit aktuellem Live-Namen" und ueberschreibt
+`daten["kanal"]` mit dem KOMPLETTEN Rohtext "UK| 24/7 AL PACINO" -
+identisch zum bereits beim September-2026-Bug dokumentierten Muster
+"HR|SK/RS|SPORT KLUB-Verwechslung" (siehe Abschnitt oben: zwei
+verschiedene, echte Sender kollidieren auf denselben abgeleiteten
+Kern). Der bare "24/7 AL PACINO"-Channel geht dadurch komplett
+verloren (keine <channel id="24/7 AL PACINO"> mehr), und es entsteht
+stattdessen ein DUPLIKAT von "UK| 24/7 AL PACINO", das FREEVIEW/
+TVGUIDE ohnehin schon separat und korrekt erzeugen.
+
+**Betrifft systematisch JEDEN bare NAME:-Sender, dessen Text auch als
+Suffix einer "<2-4-Buchstaben-Land>| <Text>"-Zeile irgendwo in der
+Playlist vorkommt** - nicht nur "24/7 X". Erklaert vermutlich alle
+~19 betroffenen Faelle (die 24/7-Reihe existiert offenbar mehrfach mit
+Land-Praefix in anderen Playlist-Gruppen wie UK/EN/US).
+
+**Vorgeschlagener Fix (NICHT umgesetzt, zur Pruefung/Freigabe in der
+naechsten Session):** In `m3u_playlist_abgleichen()` vor dem
+Ueberschreiben von `real_daten["kanal"]` zusaetzlich pruefen, ob der
+gefundene `kern_roh` NUR durch Abstreifen eines Land-Praefix-Codes
+entstanden ist (`ist_reiner_praefix_code` in `kern_und_event_
+extrahieren()`) UND der Ziel-Sender (`real_daten`) selbst KEIN
+Land-Praefix in seinem gespeicherten `kanal` hat (also ein bare
+NAME:-Sender ist, kein "XX| ..."-Muster) - in diesem Fall NICHT
+ueberschreiben (Sender ist zu unspezifisch/mehrdeutig fuer einen
+sicheren Live-Abgleich). Alternativ/zusaetzlich: generell nur dann
+ueberschreiben, wenn der volle Rohname (`voller_name`) NICHT selbst
+bereits als eigener anderer `sender_daten`-Eintrag mit `exakter_name`
+existiert (Kollisions-Schutz analog zum HR|SK-Fix, siehe "Lehre fuer
+aehnliche Faelle" im Abschnitt "HR|SK->HR|SPORT KLUB-Umbenennung"
+oben). VOR Umsetzung unbedingt gegen mehrere der betroffenen ~19
+Sender UND gegen die bereits funktionierenden ~10.450 anderen
+NAME:-Sender testen (siehe Diagnose-Skript-Technik oben, per exec()-
+Slicing aus generate_epg.py) - hohe Vorsicht angesichts der
+Erfahrungen aus diesem Abend (siehe CITY-Praefix-Vorfall weiter
+unten/oben in dieser Datei), NICHT ungeprueft direkt auf main pushen.
+
+**Aufraeumen:** `diagnose_playlist_abgleich.py` und `.github/
+workflows/diagnose_playlist.yml` wurden nach abgeschlossener Diagnose
+wieder aus dem Repo entfernt (rein temporaeres Hilfsmittel, siehe
+oben) - bei Bedarf fuer die Fix-Verifikation aus der Git-Historie
+(Commit 732851e) wiederherstellen.

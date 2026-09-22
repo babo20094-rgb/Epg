@@ -165,15 +165,22 @@ sys.stdout = _GefilterterStdout(sys.stdout, open(DEBUG_LOG_DATEI, "a", encoding=
 # Leerzeichen nach dem Pipe enthaelt - nur hier werden weiterhin alle
 # drei Leerzeichen-Varianten geschrieben, fuer alle anderen Praefixe
 # nur noch die Ein-Leerzeichen-Standardvariante.
-_LEERZEICHEN_AUSNAHME_PRAEFIXE = {"EN", "MK", "UFC", "EXYU", "RS"}
+_LEERZEICHEN_AUSNAHME_PRAEFIXE = {"EN", "MK", "UFC", "EXYU", "RS", "UK"}
 
 # Einzelne Kanaele ausserhalb der obigen Praefixe, die laut Playlist-
 # Abgleich trotzdem zwei Leerzeichen brauchen (bisher nur "DE|JUKEBOX
 # FHD" bekannt - DE selbst NICHT generell in die Praefixliste
 # aufgenommen, da DE mit weitem Abstand der groesste Praefix ist und
 # eine DE-Ausnahme die Groessenersparnis fast komplett zunichte machen
-# wuerde, siehe Chat-Analyse September 2026).
-_LEERZEICHEN_AUSNAHME_KANAELE = {"DE|JUKEBOX FHD"}
+# wuerde, siehe Chat-Analyse September 2026). "US" aus demselben Grund
+# NICHT generell aufgenommen (zweitgroesster Praefix, TVGUIDE:/
+# TVPASSPORT:-Kaskade) - stattdessen zwei konkret per Live-Playlist-
+# Abgleich (22.09.2026) bestaetigte Einzelfaelle ergaenzt.
+_LEERZEICHEN_AUSNAHME_KANAELE = {
+    "DE|JUKEBOX FHD",
+    "US|ABC MOLINE (WQAD)",
+    "US|NESN HD (bk)",
+}
 
 
 def kanal_id_varianten(kanal):
