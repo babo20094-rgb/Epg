@@ -2,10 +2,10 @@
 |TV| 20/20 ᴿᴬᵂ|20/20 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| 50 CENT ACTION CHANNEL ᴿᴬᵂ|50 Cent Action Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| A&E ᴿᴬᵂ|A&E ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| A3 NEW YORK 02 WCBS CBS ᴿᴬᵂ|A3 New York 02 Wcbs Cbs ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| A3 NEW YORK 04 WNBC NBC ᴿᴬᵂ|A3 New York 04 Wnbc Nbc ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| A3 NEW YORK 05 WNYW FOX ᴿᴬᵂ|A3 New York 05 Wnyw Fox ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| A3 NEW YORK 07 WABC ABC ᴿᴬᵂ|A3 New York 07 Wabc Abc ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 02 WCBS CBS ᴿᴬᵂ|A3 New York 02 Wcbs Cbs ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 04 WNBC NBC ᴿᴬᵂ|A3 New York 04 Wnbc Nbc ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 05 WNYW FOX ᴿᴬᵂ|A3 New York 05 Wnyw Fox ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 07 WABC ABC ᴿᴬᵂ|A3 New York 07 Wabc Abc ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ABC7 NEW YORK ᴿᴬᵂ|Abc7 New York ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ABC LOCALISH ᴿᴬᵂ|Abc Localish ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ABC NEWS LIVE ᴿᴬᵂ|Abc News Live ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
@@ -249,9 +249,9 @@ CITY|TV| A3 NEW YORK 07 WABC ABC ᴿᴬᵂ|A3 New York 07 Wabc Abc ᴿᴬᵂ ᴸ
 |TV| NET MOVIES ᴿᴬᵂ|Net Movies ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| NEWSMAX TV ᴿᴬᵂ|Newsmax Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| NEWSNATION ᴿᴬᵂ|Newsnation ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| NEW YORK, NY WEDW PBS 49 A3 ᴿᴬᵂ|New York, Ny Wedw Pbs 49 A3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| NEW YORK, NY WNET PBS 13 A3 ᴿᴬᵂ|New York, Ny Wnet Pbs 13 A3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| NEW YORK, NY WNJN PBS 50 A3 ᴿᴬᵂ|New York, Ny Wnjn Pbs 50 A3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| NEW YORK, NY WEDW PBS 49 A3 ᴿᴬᵂ|New York, Ny Wedw Pbs 49 A3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| NEW YORK, NY WNET PBS 13 A3 ᴿᴬᵂ|New York, Ny Wnet Pbs 13 A3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| NEW YORK, NY WNJN PBS 50 A3 ᴿᴬᵂ|New York, Ny Wnjn Pbs 50 A3 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| NEXT LEVEL SPORTS ᴿᴬᵂ|Next Level Sports ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| NFL NETWORK ᴿᴬᵂ|Nfl Network ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| NFL REDZONE ᴿᴬᵂ|Nfl Redzone ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
@@ -404,152 +404,152 @@ CITY|TV| NEW YORK, NY WNJN PBS 50 A3 ᴿᴬᵂ|New York, Ny Wnjn Pbs 50 A3 ᴿ�
 |TV| YU-GI-OH! ᴿᴬᵂ|Yu-Gi-Oh! ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ZONA TUDN ᴿᴬᵂ|Zona Tudn ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 ##### US| TV ᶜᶦᵗʸ ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####
-CITY|TV| A3 NEW YORK 02 WCBS CBS NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 02 Wcbs Cbs New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| A3 NEW YORK 04 WNBC NBC NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 04 Wnbc Nbc New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| A3 NEW YORK 05 WNYW FOX NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 05 Wnyw Fox New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| A3 NEW YORK 07 WABC ABC NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 07 Wabc Abc New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 02 WCBS CBS NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 02 Wcbs Cbs New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 04 WNBC NBC NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 04 Wnbc Nbc New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 05 WNYW FOX NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 05 Wnyw Fox New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| A3 NEW YORK 07 WABC ABC NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|A3 New York 07 Wabc Abc New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ABC7 BAY AREA SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|Abc7 Bay Area San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ABC7 CHICAGO CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Abc7 Chicago Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ABC7 NEW YORK NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|Abc7 New York New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ATLANTA, GA WABE PBS 30 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wabe Pbs 30 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ATLANTA, GA WAGA FOX 5 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Waga Fox 5 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ATLANTA, GA WABE PBS 30 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wabe Pbs 30 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ATLANTA, GA WAGA FOX 5 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Waga Fox 5 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ATLANTA, GA WANF IND 46 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wanf Ind 46 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ATLANTA, GA WGTV PBS 8 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wgtv Pbs 8 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ATLANTA, GA WSB ABC 2 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wsb Abc 2 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ATLANTA, GA WGTV PBS 8 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wgtv Pbs 8 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ATLANTA, GA WSB ABC 2 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wsb Abc 2 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| ATLANTA, GA WUPA CBS 69 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wupa Cbs 69 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ATLANTA, GA WXIA NBC 11 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wxia Nbc 11 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BINGHAMTON, NY WBGH NBC 20 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wbgh Nbc 20 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BINGHAMTON, NY WBNG CBS 12 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wbng Cbs 12 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BINGHAMTON, NY WICZ FOX 40 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wicz Fox 40 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BINGHAMTON, NY WIVT ABC 34 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wivt Abc 34 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BINGHAMTON, NY WSKG PBS 46 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wskg Pbs 46 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ATLANTA, GA WXIA NBC 11 A3 HD ATLANTA ᶜᶦᵗʸ ᴿᴬᵂ|Atlanta, Ga Wxia Nbc 11 A3 Hd Atlanta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BINGHAMTON, NY WBGH NBC 20 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wbgh Nbc 20 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BINGHAMTON, NY WBNG CBS 12 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wbng Cbs 12 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BINGHAMTON, NY WICZ FOX 40 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wicz Fox 40 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BINGHAMTON, NY WIVT ABC 34 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wivt Abc 34 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BINGHAMTON, NY WSKG PBS 46 A3 HD CAMBRIDGE ᶜᶦᵗʸ ᴿᴬᵂ|Binghamton, Ny Wskg Pbs 46 A3 Hd Cambridge ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| BOSTON, MA WBTS-CD NBC 10 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wbts-Cd Nbc 10 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BOSTON, MA WBZ CBS 4 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wbz Cbs 4 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BOSTON, MA WCVB ABC 5 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wcvb Abc 5 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BOSTON, MA WENH PBS 11 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wenh Pbs 11 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BOSTON, MA WFXT FOX 25 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wfxt Fox 25 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BOSTON, MA WGBH PBS 2 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wgbh Pbs 2 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| BOSTON, MA WMUR ABC 9 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wmur Abc 9 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHATTANOOGA, TN WDEF CBS 12 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wdef Cbs 12 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHATTANOOGA, TN WNGH PBS 18 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wngh Pbs 18 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHATTANOOGA, TN WRCB NBC 3 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wrcb Nbc 3 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHATTANOOGA, TN WTCI PBS 45 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wtci Pbs 45 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHATTANOOGA, TN WTVC ABC 9 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wtvc Abc 9 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHATTANOOGA, TN WTVC-D2 FOX 10 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wtvc-D2 Fox 10 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHICAGO, IL WBBM CBS 2 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wbbm Cbs 2 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHICAGO, IL WFLD FOX 32 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wfld Fox 32 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHICAGO, IL WLS ABC 7 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wls Abc 7 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHICAGO, IL WMAQ NBC 5 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wmaq Nbc 5 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHICAGO, IL WTTW PBS 11 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wttw Pbs 11 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| CHICAGO, IL WYIN PBS 56 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wyin Pbs 56 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DALLAS, TX KDFW FOX 4 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Kdfw Fox 4 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DALLAS, TX KERA PBS 13 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Kera Pbs 13 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BOSTON, MA WBZ CBS 4 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wbz Cbs 4 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BOSTON, MA WCVB ABC 5 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wcvb Abc 5 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BOSTON, MA WENH PBS 11 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wenh Pbs 11 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BOSTON, MA WFXT FOX 25 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wfxt Fox 25 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BOSTON, MA WGBH PBS 2 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wgbh Pbs 2 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| BOSTON, MA WMUR ABC 9 A3 HD BOSTON ᶜᶦᵗʸ ᴿᴬᵂ|Boston, Ma Wmur Abc 9 A3 Hd Boston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHATTANOOGA, TN WDEF CBS 12 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wdef Cbs 12 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHATTANOOGA, TN WNGH PBS 18 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wngh Pbs 18 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHATTANOOGA, TN WRCB NBC 3 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wrcb Nbc 3 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHATTANOOGA, TN WTCI PBS 45 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wtci Pbs 45 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHATTANOOGA, TN WTVC ABC 9 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wtvc Abc 9 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHATTANOOGA, TN WTVC-D2 FOX 10 A3 HD WASHINGTON ᶜᶦᵗʸ ᴿᴬᵂ|Chattanooga, Tn Wtvc-D2 Fox 10 A3 Hd Washington ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHICAGO, IL WBBM CBS 2 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wbbm Cbs 2 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHICAGO, IL WFLD FOX 32 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wfld Fox 32 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHICAGO, IL WLS ABC 7 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wls Abc 7 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHICAGO, IL WMAQ NBC 5 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wmaq Nbc 5 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHICAGO, IL WTTW PBS 11 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wttw Pbs 11 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| CHICAGO, IL WYIN PBS 56 A3 HD CHICAGO ᶜᶦᵗʸ ᴿᴬᵂ|Chicago, Il Wyin Pbs 56 A3 Hd Chicago ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DALLAS, TX KDFW FOX 4 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Kdfw Fox 4 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DALLAS, TX KERA PBS 13 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Kera Pbs 13 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| DALLAS, TX KFAA IND 29 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Kfaa Ind 29 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DALLAS, TX KTVT CBS 11 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Ktvt Cbs 11 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DALLAS, TX KXAS NBC 5 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Kxas Nbc 5 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DALLAS, TX WFAA ABC 8 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Wfaa Abc 8 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DAVENPORT, IA KQIN PBS 36 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Kqin Pbs 36 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DAVENPORT, IA KWQC NBC 6 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Kwqc Nbc 6 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DAVENPORT, IA WHBF CBS 4 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Whbf Cbs 4 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DAVENPORT, IA WQAD ABC 8 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Wqad Abc 8 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DAVENPORT, IA WQPT PBS 24 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Wqpt Pbs 24 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KBDI PBS 12 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kbdi Pbs 12 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KBDI PBS 12 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kbdi Pbs 12 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KCNC CBS 4 A3 HD (D10) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kcnc Cbs 4 A3 Hd (D10) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KCNC CBS 4 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kcnc Cbs 4 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KDVR FOX 31 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kdvr Fox 31 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KDVR FOX 31 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kdvr Fox 31 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KMGH ABC 7 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kmgh Abc 7 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KMGH ABC 7 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kmgh Abc 7 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KRMA PBS 6 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Krma Pbs 6 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KRMA PBS 6 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Krma Pbs 6 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KTVD MNT 20 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Ktvd Mnt 20 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KTVD MNT 20 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Ktvd Mnt 20 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KUSA NBC 9 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kusa Nbc 9 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| DENVER, CO KUSA NBC 9 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kusa Nbc 9 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| EUGENE, OR KEPB PBS 28 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kepb Pbs 28 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| EUGENE, OR KEZI ABC 9 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kezi Abc 9 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| EUGENE, OR KLSR FOX 34 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Klsr Fox 34 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| EUGENE, OR KMTR NBC 16 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kmtr Nbc 16 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| EUGENE, OR KVAL CBS 13 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kval Cbs 13 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREEN BAY, WI WBAY ABC 2 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wbay Abc 2 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREEN BAY, WI WFRV CBS 5 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wfrv Cbs 5 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREEN BAY, WI WGBA NBC 26 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wgba Nbc 26 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREEN BAY, WI WLUK FOX 11 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wluk Fox 11 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREEN BAY, WI WPNE PBS 38 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wpne Pbs 38 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREENWOOD, MS WABG ABC 6 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood, Ms Wabg Abc 6 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREENWOOD, MS WABG-D2 FOX 7 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood, Ms Wabg-D2 Fox 7 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| GREENWOOD, MS WMAO PBS 23 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood, Ms Wmao Pbs 23 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DALLAS, TX KTVT CBS 11 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Ktvt Cbs 11 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DALLAS, TX KXAS NBC 5 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Kxas Nbc 5 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DALLAS, TX WFAA ABC 8 A3 HD MIAMI ᶜᶦᵗʸ ᴿᴬᵂ|Dallas, Tx Wfaa Abc 8 A3 Hd Miami ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DAVENPORT, IA KQIN PBS 36 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Kqin Pbs 36 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DAVENPORT, IA KWQC NBC 6 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Kwqc Nbc 6 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DAVENPORT, IA WHBF CBS 4 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Whbf Cbs 4 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DAVENPORT, IA WQAD ABC 8 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Wqad Abc 8 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DAVENPORT, IA WQPT PBS 24 A3 HD LOS ANGELES ᶜᶦᵗʸ ᴿᴬᵂ|Davenport, Ia Wqpt Pbs 24 A3 Hd Los Angeles ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KBDI PBS 12 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kbdi Pbs 12 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KBDI PBS 12 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kbdi Pbs 12 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KCNC CBS 4 A3 HD (D10) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kcnc Cbs 4 A3 Hd (D10) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KCNC CBS 4 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kcnc Cbs 4 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KDVR FOX 31 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kdvr Fox 31 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KDVR FOX 31 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kdvr Fox 31 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KMGH ABC 7 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kmgh Abc 7 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KMGH ABC 7 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kmgh Abc 7 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KRMA PBS 6 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Krma Pbs 6 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KRMA PBS 6 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Krma Pbs 6 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KTVD MNT 20 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Ktvd Mnt 20 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KTVD MNT 20 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Ktvd Mnt 20 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KUSA NBC 9 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kusa Nbc 9 A3 Hd (D11) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| DENVER, CO KUSA NBC 9 A3 HD (D12) DENVER ᶜᶦᵗʸ ᴿᴬᵂ|Denver, Co Kusa Nbc 9 A3 Hd (D12) Denver ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| EUGENE, OR KEPB PBS 28 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kepb Pbs 28 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| EUGENE, OR KEZI ABC 9 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kezi Abc 9 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| EUGENE, OR KLSR FOX 34 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Klsr Fox 34 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| EUGENE, OR KMTR NBC 16 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kmtr Nbc 16 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| EUGENE, OR KVAL CBS 13 A3 HD BOULDER ᶜᶦᵗʸ ᴿᴬᵂ|Eugene, Or Kval Cbs 13 A3 Hd Boulder ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREEN BAY, WI WBAY ABC 2 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wbay Abc 2 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREEN BAY, WI WFRV CBS 5 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wfrv Cbs 5 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREEN BAY, WI WGBA NBC 26 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wgba Nbc 26 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREEN BAY, WI WLUK FOX 11 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wluk Fox 11 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREEN BAY, WI WPNE PBS 38 A3 HD GREENBAY ᶜᶦᵗʸ ᴿᴬᵂ|Green Bay, Wi Wpne Pbs 38 A3 Hd Greenbay ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREENWOOD, MS WABG ABC 6 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood, Ms Wabg Abc 6 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREENWOOD, MS WABG-D2 FOX 7 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood, Ms Wabg-D2 Fox 7 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| GREENWOOD, MS WMAO PBS 23 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood, Ms Wmao Pbs 23 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| GREENWOOD-GREENVILLE, MS WNBDLP NBC 33 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood-Greenville, Ms Wnbdlp Nbc 33 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| GREENWOOD-GREENVILLE, MS WXVT CBS 15 A3 HD TAMPA ᶜᶦᵗʸ ᴿᴬᵂ|Greenwood-Greenville, Ms Wxvt Cbs 15 A3 Hd Tampa ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| JACKSON, TN WBBJ ABC 7 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wbbj Abc 7 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| JACKSON, TN WBBJ-D2 CBS 8 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wbbj-D2 Cbs 8 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| JACKSON, TN WJKT FOX 16 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wjkt Fox 16 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| JACKSON, TN WLJT PBS 11 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wljt Pbs 11 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| JACKSON, TN WBBJ ABC 7 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wbbj Abc 7 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| JACKSON, TN WBBJ-D2 CBS 8 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wbbj-D2 Cbs 8 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| JACKSON, TN WJKT FOX 16 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wjkt Fox 16 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| JACKSON, TN WLJT PBS 11 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wljt Pbs 11 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| JACKSON, TN WNBJ NBC 6 A3 HD NASHVILLE ᶜᶦᵗʸ ᴿᴬᵂ|Jackson, Tn Wnbj Nbc 6 A3 Hd Nashville ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAFAYETTE, LA KADN FOX 15 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Kadn Fox 15 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAFAYETTE, LA KATC ABC 3 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Katc Abc 3 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAFAYETTE, LA KLAF NBC 62 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Klaf Nbc 62 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAFAYETTE, LA KLFY CBS 10 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Klfy Cbs 10 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAFAYETTE, LA KLPB PBS 24 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Klpb Pbs 24 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAKE CHARLES, LA KLTL PBS 18 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kltl Pbs 18 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAKE CHARLES, LA KPLC NBC 7 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kplc Nbc 7 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAKE CHARLES, LA KSWL CBS 17 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kswl Cbs 17 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAKE CHARLES, LA KVHP FOX 29 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kvhp Fox 29 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LAKE CHARLES, LA KVHP-D2 ABC 30 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kvhp-D2 Abc 30 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LEXINGTON, KY WDKY FOX 56 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wdky Fox 56 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LEXINGTON, KY WKLE PBS 46 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wkle Pbs 46 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LEXINGTON, KY WKYT CBS 27 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wkyt Cbs 27 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LEXINGTON, KY WLEX NBC 18 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wlex Nbc 18 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LEXINGTON, KY WTVQ ABC 36 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wtvq Abc 36 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LITTLE ROCK, AR KARK NBC 4 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Kark Nbc 4 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LITTLE ROCK, AR KATV ABC 7 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Katv Abc 7 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LITTLE ROCK, AR KETS PBS 2 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Kets Pbs 2 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| LITTLE ROCK, AR KTHV CBS 11 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Kthv Cbs 11 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| MACON, GA  WGXA-D2 ABC 25 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga  Wgxa-D2 Abc 25 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| MACON, GA WGXA FOX 24 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wgxa Fox 24 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| MACON, GA WMAZ CBS 13 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wmaz Cbs 13 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| MACON, GA WMGT NBC 41 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wmgt Nbc 41 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| MACON, GA WMUM PBS 29 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wmum Pbs 29 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| MIAMI, FL WPLG  IND 10 A3 HD MIAMI-FT.LAUDERDALE ᶜᶦᵗʸ ᴿᴬᵂ|Miami, Fl Wplg  Ind 10 A3 Hd Miami-Ft.Lauderdale ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| NEW YORK, NY WEDW PBS 49 A3 HD NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|New York, Ny Wedw Pbs 49 A3 Hd New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| NEW YORK, NY WNET PBS 13 A3 HD NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|New York, Ny Wnet Pbs 13 A3 Hd New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| NEW YORK, NY WNJN PBS 50 A3 HD NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|New York, Ny Wnjn Pbs 50 A3 Hd New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAFAYETTE, LA KADN FOX 15 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Kadn Fox 15 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAFAYETTE, LA KATC ABC 3 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Katc Abc 3 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAFAYETTE, LA KLAF NBC 62 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Klaf Nbc 62 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAFAYETTE, LA KLFY CBS 10 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Klfy Cbs 10 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAFAYETTE, LA KLPB PBS 24 A3 HD BROOKLYN ᶜᶦᵗʸ ᴿᴬᵂ|Lafayette, La Klpb Pbs 24 A3 Hd Brooklyn ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAKE CHARLES, LA KLTL PBS 18 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kltl Pbs 18 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAKE CHARLES, LA KPLC NBC 7 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kplc Nbc 7 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAKE CHARLES, LA KSWL CBS 17 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kswl Cbs 17 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAKE CHARLES, LA KVHP FOX 29 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kvhp Fox 29 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LAKE CHARLES, LA KVHP-D2 ABC 30 A3 HD MARIETTA ᶜᶦᵗʸ ᴿᴬᵂ|Lake Charles, La Kvhp-D2 Abc 30 A3 Hd Marietta ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LEXINGTON, KY WDKY FOX 56 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wdky Fox 56 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LEXINGTON, KY WKLE PBS 46 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wkle Pbs 46 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LEXINGTON, KY WKYT CBS 27 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wkyt Cbs 27 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LEXINGTON, KY WLEX NBC 18 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wlex Nbc 18 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LEXINGTON, KY WTVQ ABC 36 A3 HD PHOENIX ᶜᶦᵗʸ ᴿᴬᵂ|Lexington, Ky Wtvq Abc 36 A3 Hd Phoenix ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LITTLE ROCK, AR KARK NBC 4 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Kark Nbc 4 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LITTLE ROCK, AR KATV ABC 7 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Katv Abc 7 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LITTLE ROCK, AR KETS PBS 2 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Kets Pbs 2 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| LITTLE ROCK, AR KTHV CBS 11 A3 HD HOUSTON ᶜᶦᵗʸ ᴿᴬᵂ|Little Rock, Ar Kthv Cbs 11 A3 Hd Houston ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| MACON, GA  WGXA-D2 ABC 25 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga  Wgxa-D2 Abc 25 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| MACON, GA WGXA FOX 24 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wgxa Fox 24 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| MACON, GA WMAZ CBS 13 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wmaz Cbs 13 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| MACON, GA WMGT NBC 41 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wmgt Nbc 41 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| MACON, GA WMUM PBS 29 A3 HD SILVER SPRING ᶜᶦᵗʸ ᴿᴬᵂ|Macon, Ga Wmum Pbs 29 A3 Hd Silver Spring ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| MIAMI, FL WPLG  IND 10 A3 HD MIAMI-FT.LAUDERDALE ᶜᶦᵗʸ ᴿᴬᵂ|Miami, Fl Wplg  Ind 10 A3 Hd Miami-Ft.Lauderdale ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| NEW YORK, NY WEDW PBS 49 A3 HD NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|New York, Ny Wedw Pbs 49 A3 Hd New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| NEW YORK, NY WNET PBS 13 A3 HD NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|New York, Ny Wnet Pbs 13 A3 Hd New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| NEW YORK, NY WNJN PBS 50 A3 HD NEW YORK ᶜᶦᵗʸ ᴿᴬᵂ|New York, Ny Wnjn Pbs 50 A3 Hd New York ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| SALT LAKE CITY, UT KJZZ IND 14 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kjzz Ind 14 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SALT LAKE CITY, UT KSL NBC 5 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Ksl Nbc 5 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SALT LAKE CITY, UT KSTU FOX 13 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kstu Fox 13 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SALT LAKE CITY, UT KTVX ABC 4 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Ktvx Abc 4 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SALT LAKE CITY, UT KUED PBS 7 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kued Pbs 7 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SALT LAKE CITY, UT KUPX IND 16 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kupx Ind 16 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SALT LAKE CITY, UT KUTV CBS 2 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kutv Cbs 2 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SAN FRANCISCO, CA KGO ABC 7 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kgo Abc 7 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SAN FRANCISCO, CA KNTV NBC 11 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kntv Nbc 11 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SAN FRANCISCO, CA KPIX CBS 5 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kpix Cbs 5 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SAN FRANCISCO, CA KQED PBS 9 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kqed Pbs 9 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SAN FRANCISCO, CA KRCB PBS 22 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Krcb Pbs 22 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SAN FRANCISCO, CA KTVU FOX 2 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Ktvu Fox 2 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SEATTLE, WA KBTC PBS 28 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kbtc Pbs 28 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SEATTLE, WA KCPQ FOX 13 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kcpq Fox 13 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SEATTLE, WA KCTS PBS 9 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kcts Pbs 9 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SEATTLE, WA KING NBC 5 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa King Nbc 5 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SEATTLE, WA KIRO CBS 7 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kiro Cbs 7 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SEATTLE, WA KOMO ABC 4 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Komo Abc 4 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SALT LAKE CITY, UT KSL NBC 5 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Ksl Nbc 5 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SALT LAKE CITY, UT KSTU FOX 13 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kstu Fox 13 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SALT LAKE CITY, UT KTVX ABC 4 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Ktvx Abc 4 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SALT LAKE CITY, UT KUED PBS 7 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kued Pbs 7 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SALT LAKE CITY, UT KUPX IND 16 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kupx Ind 16 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SALT LAKE CITY, UT KUTV CBS 2 A3 HD PHILADELPHIA ᶜᶦᵗʸ ᴿᴬᵂ|Salt Lake City, Ut Kutv Cbs 2 A3 Hd Philadelphia ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SAN FRANCISCO, CA KGO ABC 7 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kgo Abc 7 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SAN FRANCISCO, CA KNTV NBC 11 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kntv Nbc 11 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SAN FRANCISCO, CA KPIX CBS 5 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kpix Cbs 5 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SAN FRANCISCO, CA KQED PBS 9 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Kqed Pbs 9 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SAN FRANCISCO, CA KRCB PBS 22 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Krcb Pbs 22 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SAN FRANCISCO, CA KTVU FOX 2 A3 HD SAN FRANCISCO ᶜᶦᵗʸ ᴿᴬᵂ|San Francisco, Ca Ktvu Fox 2 A3 Hd San Francisco ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SEATTLE, WA KBTC PBS 28 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kbtc Pbs 28 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SEATTLE, WA KCPQ FOX 13 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kcpq Fox 13 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SEATTLE, WA KCTS PBS 9 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kcts Pbs 9 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SEATTLE, WA KING NBC 5 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa King Nbc 5 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SEATTLE, WA KIRO CBS 7 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kiro Cbs 7 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SEATTLE, WA KOMO ABC 4 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Komo Abc 4 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| SEATTLE, WA KONG IND 16 A3 HD SEATTLE ᶜᶦᵗʸ ᴿᴬᵂ|Seattle, Wa Kong Ind 16 A3 Hd Seattle ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SPRINGFIELD, MA WGBY PBS 57 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wgby Pbs 57 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SPRINGFIELD, MA WGGB ABC 40 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wggb Abc 40 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SPRINGFIELD, MA WGGB-D2 FOX/MNT 6 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wggb-D2 Fox/Mnt 6 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SPRINGFIELD, MA WSHM CBS 3 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wshm Cbs 3 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| SPRINGFIELD, MA WWLP NBC 22 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wwlp Nbc 22 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ST. LOUIS, MO KETC PBS 9 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Ketc Pbs 9 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ST. LOUIS, MO KMOV CBS 4 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Kmov Cbs 4 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ST. LOUIS, MO KMOV-D2 ABC 30 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Kmov-D2 Abc 30 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ST. LOUIS, MO KSDK NBC 5 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Ksdk Nbc 5 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| ST. LOUIS, MO KTVI FOX 2 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Ktvi Fox 2 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| WHEELING, WV  WTOV-D2 FOX 10 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv  Wtov-D2 Fox 10 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SPRINGFIELD, MA WGBY PBS 57 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wgby Pbs 57 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SPRINGFIELD, MA WGGB ABC 40 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wggb Abc 40 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SPRINGFIELD, MA WGGB-D2 FOX/MNT 6 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wggb-D2 Fox/Mnt 6 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SPRINGFIELD, MA WSHM CBS 3 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wshm Cbs 3 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| SPRINGFIELD, MA WWLP NBC 22 A3 HD DETROIT ᶜᶦᵗʸ ᴿᴬᵂ|Springfield, Ma Wwlp Nbc 22 A3 Hd Detroit ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ST. LOUIS, MO KETC PBS 9 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Ketc Pbs 9 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ST. LOUIS, MO KMOV CBS 4 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Kmov Cbs 4 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ST. LOUIS, MO KMOV-D2 ABC 30 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Kmov-D2 Abc 30 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ST. LOUIS, MO KSDK NBC 5 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Ksdk Nbc 5 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| ST. LOUIS, MO KTVI FOX 2 A3 HD COLUMBUS ᶜᶦᵗʸ ᴿᴬᵂ|St. Louis, Mo Ktvi Fox 2 A3 Hd Columbus ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| WHEELING, WV  WTOV-D2 FOX 10 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv  Wtov-D2 Fox 10 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| WHEELING, WV PBS 65 (VIRTUAL) CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv Pbs 65 (Virtual) Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| WHEELING, WV WTOV NBC 9 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv Wtov Nbc 9 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| WHEELING, WV WTRF CBS 7 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv Wtrf Cbs 7 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
-CITY|TV| WHEELING, WV WTRF-D3 ABC 6 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv Wtrf-D3 Abc 6 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| WHEELING, WV WTOV NBC 9 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv Wtov Nbc 9 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| WHEELING, WV WTRF CBS 7 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv Wtrf Cbs 7 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
+|TV| WHEELING, WV WTRF-D3 ABC 6 A3 HD CLEVELAND ᶜᶦᵗʸ ᴿᴬᵂ|Wheeling, Wv Wtrf-D3 Abc 6 A3 Hd Cleveland ᶜᶦᵗʸ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |LOI 10: Drogheda United v Dundalk  start: 2026-08-28 19:45:00  stop: 2026-08-28 22:45:00|Loi 10 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/20232d2699b5b5f7bdd04684d464f92fdeef28e8.png
 BA|K3|K3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bdedf704590fc607c223e40e7e9b972c8ceacd31.png
 ##### DE| STAIGE PPV #####
