@@ -6186,3 +6186,66 @@ workflows/diagnose_playlist.yml` wurden nach abgeschlossener Diagnose
 wieder aus dem Repo entfernt (rein temporaeres Hilfsmittel, siehe
 oben) - bei Bedarf fuer die Fix-Verifikation aus der Git-Historie
 (Commit 732851e) wiederherstellen.
+
+**Zweiter Diagnose-Durchlauf (noch am selben Abend) - WICHTIGE
+Lehre zur Playlist-Quelle:** Der erste automatisierte Abgleich (oben)
+nutzte versehentlich die volle M3U-Playlist (`type=m3u_plus`) statt
+der reinen Live-Kanal-API (`action=get_live_streams`) - die M3U
+enthaelt zusaetzlich tausende VOD-/Serien-/Episodentitel (Filme,
+Koranrezitationen, einzelne Serienfolgen), die gar nicht als TV-Sender
+gedacht sind und die Diff-Liste massiv verfaelscht haben (249.503
+"fehlend" statt der echten Handvoll). **Lehre:** Fuer kuenftige
+Playlist-Abgleiche IMMER `action=get_live_streams` (liefert
+ausschliesslich `stream_type: "live"`) verwenden, NIEMALS die volle
+M3U-Exportdatei - letztere ist nur fuer TiviMate/den eigentlichen
+Player relevant, nicht fuer unseren Sender-Abgleich.
+
+Mit der korrekten Live-Kanal-Quelle (frisch abgerufen) plus der
+aktuell live gehosteten `Epg_365_Tage.xml.gz` ergab der sauber
+gefilterte Abgleich 282 echte Luecken, davon:
+- 35 dynamische PPV-/Event-Zeilen (ENDED/LIVE/NEXT/End - erwartet,
+  zeitpunktabhaengig, kein Bug)
+- 19 "24/7 X"-Sender (siehe Bug 3 oben, Fix noch offen)
+- 156 `PRIME|`-Zeilen (bereits durch den PRIME-Case-Fix oben behoben,
+  nur der letzte "Daily EPG update"-Lauf zum Diagnose-Zeitpunkt hatte
+  den Fix wegen Timing noch nicht mitbekommen - reine Verzoegerung,
+  kein neuer Bug)
+- **51 `UK|AMAZON UK EVENT 0-50`-Sender**: NEUER Leerzeichen-Bug
+  gefunden, exakt dasselbe Muster wie der bestehende EN/MK/UFC/EXYU/
+  RS-Fix (`_LEERZEICHEN_AUSNAHME_PRAEFIXE` in `generate_epg.py`) -
+  "UK" fehlte bisher in dieser Liste, obwohl `FREEVIEW:GB|...`-Zeilen
+  (1120 Stueck) und `SKY:GB|...`-Zeilen (304 Stueck) alle auf
+  `UK| ...` gemappt werden. **Fix:** "UK" zur Praefix-Liste ergaenzt
+  (additiv, kein Risiko fuer bestehende Zuordnungen, gleiches
+  bewaehrtes Muster).
+- **2 Einzelfaelle mit Leerzeichen-Mismatch:** `US|ABC MOLINE (WQAD)`
+  (Playlist: 2 Leerzeichen nach Pipe) und `US|NESN HD (bk)`
+  (dito) - "US" bewusst NICHT generell zur Praefix-Liste hinzugefuegt
+  (zweitgroesster Praefix nach DE, TVGUIDE:/TVPASSPORT:-Kaskade,
+  gleiche Begruendung wie bei DE oben) - stattdessen beide konkret in
+  `_LEERZEICHEN_AUSNAHME_KANAELE` ergaenzt.
+- **6 komplett neue, noch nie eingetragene PRIME-Sender** ergaenzt:
+  CRIME SCENE TV, FOX 2 SAN FRANCISCO, FOX 29 PHILADELPHIA, FOX 4
+  DALLAS FORT WORTH, FOX 5 WASHINGTON DC, NBA TV HDTV. Fuer FOX 4
+  DALLAS FORT WORTH und NBA TV HDTV ist KEIN bekanntes Logo vorhanden
+  (die entsprechenden TVPASSPORT:-Zeilen nutzen selbst nur den
+  "AUTO"-Marker) - Logo-Feld bewusst leer gelassen statt eine falsche
+  URL zu raten.
+- Rest (ca. 20 Zeilen: `UEFA | NN -`-Leerlaufzustaende, `NA|
+  VAL-D'OR FOREURS`, `GaaGo 06: ...`, `AU (STAN 101) | ...`,
+  `UK|SKY SPORTS ACTION HD`, `US| TELEMUNDO ...` mit Leerraum-
+  Sonderfaellen): NICHT weiter untersucht in dieser Session, vermutlich
+  einzelne Sonderfaelle (teils dynamische Event-Leerlaeufe, teils noch
+  ungeklaerte Formatierungs-Details) - fuer eine kuenftige Session
+  vorgemerkt, falls der Nutzer konkret danach fragt.
+
+Commit `9aceb38` enthaelt UK-Fix + 2 Einzelfaelle + 6 neue PRIME-
+Sender. Zusammen mit dem PRIME-Case-Fix (Commit `732851e`, 164
+Sender) und dem CRIME-SCENE-TV-Leerzeichen-Fix ergibt das an diesem
+Abend insgesamt rund 224 behobene/ergaenzte Sender-Zuordnungen -
+angesichts der vom Nutzer gemeldeten ~58 aktuell fehlenden
+TiviMate-Zuordnungen vermutlich weit mehr als ausreichend, exakte
+Deckung aber NICHT verifiziert (siehe Bug-3-Abschnitt: viele der
+gefixten Sender liefen vermutlich schon vorher ueber alte manuelle
+TiviMate-Zuordnung, sind also nicht 1:1 deckungsgleich mit den
+tatsaechlich aktuell fehlenden 58).
