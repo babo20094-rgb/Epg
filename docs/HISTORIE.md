@@ -5975,3 +5975,150 @@ nur fuer die konkret bestaetigten Faelle. Vor Umsetzung unbedingt
 `grep -rn` durch alle betroffenen `quellen/*.py`-Module (siehe Lehre
 im Abschnitt "HR|SK->HR|SPORT KLUB-Umbenennung" oben zu hart an alte
 Schreibweisen gekoppelten Fuzzy-Match-Sicherungen).
+
+## 22.09.2026: Live-Playlist-Abgleich per Xtream-API + zwei echte Bugs gefunden/behoben, ein dritter noch offen
+
+Der Nutzer hat versehentlich seine EPG-URL geloescht, ein altes
+TiviMate-Backup eingespielt und danach (auf schlechten Rat hin) die
+Quelle komplett neu aufgesetzt - dabei gingen ueber Wochen manuell in
+TiviMate gepflegte Zuordnungen (u.a. HR/RS Arena Sport verwechselt)
+verloren. Siehe eigener Abschnitt oben zur HR/RS-Vertauschung. Bei der
+Fehlersuche zu den seitdem fehlenden Sendern wurde erstmals per Xtream-
+Codes-API (`player_api.php?...&action=get_live_streams`, vom Nutzer
+zur Verfuegung gestellte Zugangsdaten) die AKTUELLE, komplette
+Roh-Playlist direkt abgerufen und automatisiert gegen die generierte
+`Epg_365_Tage.xml.gz` abgeglichen (alle `<channel id>` vs. alle
+Playlist-`name`-Felder) - eine neue, sehr wirksame Diagnosemethode fuer
+kuenftige "X Sender fehlen"-Meldungen: `curl` gegen die Playlist-API
+(Zugangsdaten vom Nutzer erfragen), Namen extrahieren, gegen die
+`<channel id>`-Menge der entpackten XML abgleichen.
+
+**Bug 1 (behoben): 164 `PRIME|`-Sender mit Case-Mismatch.** Die
+sender.txt-Zeilen hatten den Sendernamen in Title-Case (z.B. "PRIME|
+ABC11 North Carolina ᴿᴬᵂ"), der tatsaechliche Playlist-Rohname ist aber
+komplett grossgeschrieben ("PRIME| ABC11 NORTH CAROLINA ᴿᴬᵂ") - die
+`<channel id>` matchte dadurch nie automatisch gegen die Playlist.
+Fix: Sendername-Feld bei allen 164 betroffenen Zeilen auf den exakten
+Playlist-Rohnamen (Grossschreibung) korrigiert. WICHTIG (Nutzerfrage):
+Das aendert NICHTS an der im EPG-Raster angezeigten Schreibweise -
+`kanalname_normal_geschrieben()` normalisiert Titel/Beschreibung fuer
+die Anzeige ohnehin immer in normale Schreibweise, unabhaengig von der
+Schreibweise des internen `sender`-Feldes.
+
+**Wichtige Erkenntnis zur Einordnung:** Diese 164 waren zum Zeitpunkt
+des Fixes vermutlich NICHT Teil der von TiviMate aktuell gemeldeten
+fehlenden Sender - es handelt sich um laengst bestehende sender.txt-
+Zeilen, die der Nutzer hoechstwahrscheinlich vor Wochen bereits manuell
+in TiviMate zugeordnet hatte (die Zuordnung lief bisher ueber die
+gespeicherte manuelle Verknuepfung, nicht ueber automatischen String-
+Abgleich). Der Fix macht sie zusaetzlich automatisch matchbar - reine
+Zukunftsabsicherung fuer den Fall eines weiteren Neuaufbaus ohne
+Backup, kein unmittelbarer Effekt auf die aktuell fehlenden Sender.
+**Lehre:** Ein roher "existiert die ID exakt in der Playlist"-Abgleich
+findet IMMER mehr "fehlende" Sender, als TiviMate aktuell tatsaechlich
+als unzugeordnet meldet, weil viele davon durch alte manuelle
+TiviMate-Zuordnungen bereits abgedeckt sind - bei kuenftigen aehnlichen
+Analysen diesen Unterschied dem Nutzer sofort erklaeren, sonst wirkt
+die gefundene Zahl faelschlich viel groesser als das tatsaechliche
+Problem.
+
+**Bug 2 (behoben): PRIME| CRIME SCENE TV | DE fehlendes Leerzeichen.**
+Playlist hat zwei GETRENNTE Kanaele ("PRIME| CRIME SCENE TV ᴿᴬᵂ" UND
+"PRIME| CRIME SCENE TV | DE ᴿᴬᵂ" - eigener Kanal mit Pipe im Namen).
+Die "leeres Land"-Zeile in sender.txt hatte "PRIME|CRIME SCENE TV | DE
+ᴿᴬᵂ" OHNE Leerzeichen nach dem ersten Pipe - Fix: Leerzeichen ergaenzt.
+
+**Falscher Alarm (aufgeklaert):** 5 von 6 zunaechst als "komplett neu,
+noch nie eingetragen" identifizierten PRIME-Sender (unter anderem "FOX
+2 SAN FRANCISCO", "NBA TV HDTV") waren in Wahrheit bereits ueber
+`TVPASSPORT:US|...|AUTO|PRIME| <Name>`-Zeilen mit Anzeigename-Override
+korrekt abgedeckt - der erste automatisierte Abgleich hatte nur direkte
+`PRIME|`-Zeilen geprueft, nicht auch Overrides aus anderen Praefixen,
+die auf dieselbe Ziel-ID zeigen. **Lehre:** Bei kuenftigen Playlist-
+Abgleichen IMMER auch nach 4.-Feld-Overrides (`|AUTO|<Override>`) in
+allen Opt-in-Praefix-Zeilen suchen, bevor ein Sender als "komplett
+fehlend" gemeldet wird.
+
+**Bug 3 (NOCH OFFEN, nicht geloest): ~19 bare NAME:-Sender im "24/7
+X"-Format tauchen trotz nachweislich korrektem sender.txt-Eintrag NICHT
+im generierten XML auf** (z.B. "NAME:24/7 AL PACINO|<Logo>" - Playlist
+hat exakt "24/7 AL PACINO" als eigenen Kanal, andere Sender mit
+identischem Muster funktionieren, diese ~19 nicht). Debugging-Stand:
+- Per isoliertem Testlauf bestaetigt: Der Sender WIRD korrekt geparst
+  und landet korrekt in `sender_daten` mit `kanal == "24/7 AL PACINO"`
+  (`exakter_name`/`live_playlist_kern` beide `True`) - das Parsing
+  selbst (Zeilen ~1108-2269 in `generate_epg.py`) ist NICHT die
+  Fehlerquelle.
+- Kollision im `name_pipe_kanal_index` (normalisierter Kern als Key,
+  Zeile ~2719) als Ursache AUSGESCHLOSSEN - kein anderer Sender mit
+  identischem normalisiertem Kern gefunden, der Eintrag ist eindeutig.
+- Der eigentliche Verlust muss also zwischen dem Aufbau von
+  `sender_daten` und der finalen `<channel>`-Schreibschleife
+  (`for daten in sender_daten: ... for kanal_id in kanal_id_varianten(
+  daten["kanal"]): ...`, Zeile ~3143-3178) passieren - vermutlich
+  innerhalb des Live-Kanalabgleichs (`m3u_playlist_abgleichen()`
+  bzw. dem umgebenden try/except-Block), der `daten["kanal"]` fuer
+  `live_playlist_kern`-Sender live ueberschreiben kann. Konnte NICHT
+  isoliert nachgestellt werden, da dieser Schritt Zugriff auf die
+  echte `PROVIDER`-Umgebungsvariable (GitHub-Actions-Secret) braucht,
+  die in einer normalen Session nicht verfuegbar ist.
+- **Naechster Schritt:** Bei Gelegenheit gezielt `m3u_playlist_
+  abgleichen()` und den Live-Kanalabgleich-try/except-Block (ca. Zeile
+  3029-3131) durchgehen und pruefen, ob/wie fuer NAME:-Sender OHNE
+  Pipe im Namen (reine "24/7 X"-Bare-Names) etwas anders laeuft als
+  fuer die ~2250 anderen, erfolgreich funktionierenden "24/7 X"-Sender
+  im selben Format - z.B. per Debug-Print von `daten["kanal"]`
+  unmittelbar vor der Channel-Schreibschleife, mit echtem PROVIDER-
+  Secret (nur im GitHub-Actions-Workflow moeglich, nicht lokal/in
+  dieser Session).
+- Betrifft nur ~19 von ueber 18.900 Sendern (unter 0.1%) - bewusst
+  nicht weiter forciert in dieser Session, da spaet und die groesseren
+  Bugs (1+2, zusammen 165 Sender) bereits behoben sind.
+
+**Diagnose-Verfahren fuer kuenftige "X Sender fehlen"-Meldungen
+(Dauerregel, wichtig fuer die naechste Session):**
+
+1. Aktuelle Roh-Playlist per Xtream-Codes-API abrufen (Nutzer nach
+   `player_api.php?username=...&password=...&action=get_live_streams`-
+   Zugangsdaten fragen, falls nicht schon vorhanden) - JSON-Liste mit
+   `name`-Feld pro Kanal, ca. 19.000 Eintraege.
+2. Aktuelle `Epg_365_Tage.xml.gz` entpacken, ALLE `<channel id="...">`-
+   Werte extrahieren (HTML-Entities decodieren, z.B. `&amp;`).
+3. Set-Differenz bilden: Playlist-Namen, die NICHT exakt (case-sensitiv,
+   inkl. Leerzeichen) als `<channel id>` vorkommen.
+4. **KRITISCH, sonst falsche/zu hohe Fehlerzahl:** Bevor ein Name als
+   "komplett fehlend" gemeldet wird, IMMER zusaetzlich pruefen, ob er
+   bereits ueber das optionale 4. Feld (Anzeigename-/ID-Override) einer
+   ANDEREN Opt-in-Praefix-Zeile abgedeckt ist - nicht nur direkte
+   `<Land>|<Name>`-Zeilen zaehlen. Betrifft ALLE Opt-in-Praefixe mit
+   4.-Feld-Override-Unterstuetzung: `TELEMACH:`, `SKY:`, `MAGENTA:`,
+   `ARENA:`, `DAZN:`, `FREEVIEW:`, `TVGUIDE:`, `TVPASSPORT:` (siehe
+   Format-Uebersicht oben in dieser Datei/CLAUDE.md: `<PREFIX>:<Land>|
+   <Kanalname bei der Quelle>|<Logo-URL>[|<Anzeigename-Override>]`).
+   Praktisch: fuer jeden vermeintlich fehlenden Namen zusaetzlich
+   `grep -F '|<exakter Name>' sender.txt` (nicht nur `^<Land>|`-Anker)
+   pruefen, ob er als Override-4.-Feld irgendwo auftaucht.
+5. Auch klar kommunizieren, dass ein reiner ID-Abgleich MEHR "fehlende"
+   Sender findet, als TiviMate aktuell tatsaechlich als unzugeordnet
+   meldet (siehe Bug 1 oben, PRIME-Case-Fix) - viele "theoretisch nicht
+   automatisch matchende" Sender laufen in der Praxis laengst ueber
+   alte manuelle TiviMate-Zuordnungen. Immer den Unterschied zwischen
+   "wuerde bei komplettem Neu-Scan nicht automatisch matchen" und
+   "ist JETZT aktuell in TiviMate unzugeordnet" erklaeren.
+
+**Fuer die Live-Playlist-Abgleich-Diagnose (Bug 3 oben) fehlender
+Zugriff:** `m3u_playlist_abgleichen()`/der Live-Kanalabgleich-Block
+brauchen die `PROVIDER`-Umgebungsvariable (GitHub-Actions-Secret,
+NICHT in einer normalen Claude-Code-Session verfuegbar/auslesbar).
+Geplanter Ansatz fuer die naechste Session: ein einmaliger, kleiner
+Diagnose-Workflow (workflow_dispatch, temporaer, NICHT dauerhaft im
+Repo behalten) der ausschliesslich den relevanten Codeabschnitt mit
+Debug-Prints (z.B. `daten["kanal"]` unmittelbar vor/nach dem Live-
+Kanalabgleich fuer die betroffenen "24/7 X"-Sender) ausfuehrt und die
+Log-Ausgabe zurueckgibt - nutzt das BEREITS im Repo hinterlegte
+`PROVIDER`-Secret, KEINE neuen/zusaetzlichen Zugangsdaten des Nutzers
+noetig. Nach der Diagnose den Workflow wieder entfernen (kein Secret-
+Leck-Risiko, da nur Debug-Text geloggt wird, niemals die URL/Zugangs-
+daten selbst - GitHub maskiert Secrets ohnehin nur bei exaktem String-
+Treffer, siehe bestehende Vorsichtsmassnahme in generate_epg.py zu
+Fehlermeldungen).

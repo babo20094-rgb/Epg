@@ -3093,7 +3093,7 @@ PRIME|COURT TV LEGENDARY TRIALS ᴿᴬᵂ|Court Tv Legendary Trials ᴿᴬᵂ �
 PRIME|COURT TV ᴿᴬᵂ|Court Tv ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3d1a85dba0ecb195.png
 PRIME|CRIME & JUSTICE ᴿᴬᵂ|Crime & Justice ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e83e4822d44023b2d0ee73afbb48e502ed48932a.png
 PRIME|CRIME CULTS KILLERS BY A&E ᴿᴬᵂ|Crime Cults Killers By A&E ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920326.png
-|PRIME|CRIME SCENE TV | DE ᴿᴬᵂ|Crime Scene Tv De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
+|PRIME| CRIME SCENE TV | DE ᴿᴬᵂ|Crime Scene Tv De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
 PRIME|CRIME SCENES ᴿᴬᵂ|Crime Scenes ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920324.png
 PRIME|CRIMEN ᴿᴬᵂ|Crimen ᴿᴬᵂ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/FoxCrimeAU-Logo.svg/960px-FoxCrimeAU-Logo.svg.png
 PRIME|CRUNCHYROLL ᴿᴬᵂ|Crunchyroll ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32257354a45cf66ba898cc93af6d796622be56a4.png
@@ -19066,7 +19066,7 @@ PRIME| GHOSTS ARE REAL ᴿᴬᵂ|Ghosts Are Real ᴸⁱᵛᵉ|https://raw.github
 PRIME| CRIME + INVESTIGATION PLAY ᴿᴬᵂ|Crime + Investigation Play ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/56244656b933ce4875a787c13c239bf0a9b266b4.png
 PRIME| BAD GIRLS CLUB ᴿᴬᵂ|Bad Girls Club ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/13c7bf5e4229994b9def003a2cdb5699600e7b9a.png
 PRIME| CNN ORIGINALS ᴿᴬᵂ|Cnn Originals ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/560e033807f30f7d15ce533ba0571cde716adb1f.png
-PRIME| Cops En Español ᴿᴬᵂ|Cops En Español ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e4bad43210574b8594b747e2a21077ea1e6f8453.png
+PRIME|COPS EN ESPAÑOL ᴿᴬᵂ|Cops En Español ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e4bad43210574b8594b747e2a21077ea1e6f8453.png
 PRIME| CSI ᴿᴬᵂ|Csi ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/70ed78a1a8c07f650b26f9a22626c2cd80d29bbf.png
 PRIME| DESIGNATED SURVIVOR ᴿᴬᵂ|Designated Survivor ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9d9d20da7aeff8a3a3b2a19286f706bfddcde31c.png
 PRIME| DOG THE BOUNTY HUNTER ᴿᴬᵂ|Dog The Bounty Hunter ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a19427c5bc3ea37e24cd035af37768b29f98857f.png
@@ -19155,44 +19155,44 @@ PRIME| CRIME SCENE TV ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb
 PRIME| GHOST HUNTERS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1e0cd91a01fb5e842ae4915adee1091a8fd6fdc7.png
 PRIME| MONSTER JAM ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/41fc0a77c8864bea689266dbeb222dc5e09d56f0.png
 PRIME| NASH BRIDGES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3168e683e1e25a5fd6c0e59f39c14211b7a99caa.png
-PRIME| NBC 4 Washington News ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bc1cf3c7d83ed4efdde4031ebb3a52000eecbefe.png
+PRIME|NBC 4 WASHINGTON NEWS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bc1cf3c7d83ed4efdde4031ebb3a52000eecbefe.png
 PRIME| NBC 7 washington nc (WITN) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
-PRIME| The Dog Whisperer with Cesar Millan ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cesar_millan.png
-PRIME| Uefa Champions League ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ucl.png
-PRIME| Chasing Criminals ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
-PRIME| Celebrity Name Game ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b0932bb4ea958ef6e22ab5c7eea9bc970f4d0e72.png
-PRIME| CBS News Minnesota ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f09600fdff0999f58b0b2a6d4f10cc10ad5930e6.png
-PRIME| CBS News Chicago ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f004ee2b2f2a44c09173e54aca7b4738befd5441.png
-PRIME| CBS Harrisburg (WHP) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e330a0080b9b7fa5858444bb48132f2ead2634dd.png
-PRIME| CBS Grand Rapids (WWMT) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/309ee3dfd8ae850bee91ee22e5825d86577342c1.png
-PRIME| CBS Cincinnati News (WKRC) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/37647e0f9b6d71bb00ff664ae9e9a0599a8f1ab9.png
-PRIME| Buzzfeed Unsolved ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ec6d1569d17acda3ee252c6e1795a182e8299e02.png
-PRIME| Bosch ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a2ba7ed4842bbbc137c1e675be96ca644cc668af.png
-PRIME| Beyond Belief ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/beyond_belief.png
-PRIME| America's Dumbest Criminals ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a4968fdaa3258e0bea02325e9f914ce01a063a23.png
-PRIME| ABC13 Houston ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/42d1a38cbbe8966ce848d85c5d28320934c13546.png
-PRIME| ABC11 North Carolina ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/aebcdc092822fc094425493d64762795f039ad10.png
-PRIME| ABC7 Chicago ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f93ead1db1d499a7298e61e691274aaf1d7918c1.png
-PRIME| Jamie Oliver ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/jamie_oliver.png
-PRIME| Isn't It Romantic ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7adc3e98e5f69aebcdb6a686ae5d25c764bdaf21.png
-PRIME| Iron Chef ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6e8d07d86c6d3ea60e30c5e16600f72cad7e73d5.png
-PRIME| In The Garage ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/garage.png
-PRIME| Inside Edition ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/454ea6cc078473c78c9a25860cd128c5d9221f66.png
-PRIME| Harlem ᴿᴬᵂ|
-PRIME| Great American Adventures ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/alaska.png
-PRIME| Gameplay Roblox ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6f73cd5655d0c50a77cb738f3d9ff2be8e64fd02.png
-PRIME| Gameplay Minecraft ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/minecraft.png
-PRIME| Fox Grand Rapids News (WXMI) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/309ee3dfd8ae850bee91ee22e5825d86577342c1.png
-PRIME| Fox 26 Houston ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-PRIME| Forensic Files ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b3f19dc5d5b06d09c60fd5d0d7f0045408456e36.png
-PRIME| Family Unscripted ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/family.png
-PRIME| Don't Tell The Bride ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/db032db4c7adb31aadb04c43169c4d9d9d251836.png
-PRIME| Degrassi ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7d2ba3d696bb53f31d4bd3b52d6d26edf8d6059f.png
-PRIME| Dance Moms ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7db8a8b31f04daeeac4cc0905cd423dc93257cd5.png
-PRIME| Crime Thrillher ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7ca48ec5ffba81daa4e1e3c03b5a048f294c8322.png
-PRIME| Corner Gas ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/461618279112ed6c6b3b04a19ff6dedcec60d35b.png
-PRIME| NBC 10 Philadelphia News ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8b655b3313e005026ef50664b6a8627028dec867.png
-PRIME| The FBI Files ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/45dfdb8691eb41bbe1e8d50924efa9ad434a9e19.png
+PRIME|THE DOG WHISPERER WITH CESAR MILLAN ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cesar_millan.png
+PRIME|UEFA CHAMPIONS LEAGUE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/ucl.png
+PRIME|CHASING CRIMINALS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
+PRIME|CELEBRITY NAME GAME ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b0932bb4ea958ef6e22ab5c7eea9bc970f4d0e72.png
+PRIME|CBS NEWS MINNESOTA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f09600fdff0999f58b0b2a6d4f10cc10ad5930e6.png
+PRIME|CBS NEWS CHICAGO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f004ee2b2f2a44c09173e54aca7b4738befd5441.png
+PRIME|CBS HARRISBURG (WHP) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e330a0080b9b7fa5858444bb48132f2ead2634dd.png
+PRIME|CBS GRAND RAPIDS (WWMT) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/309ee3dfd8ae850bee91ee22e5825d86577342c1.png
+PRIME|CBS CINCINNATI NEWS (WKRC) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/37647e0f9b6d71bb00ff664ae9e9a0599a8f1ab9.png
+PRIME|BUZZFEED UNSOLVED ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ec6d1569d17acda3ee252c6e1795a182e8299e02.png
+PRIME|BOSCH ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/a2ba7ed4842bbbc137c1e675be96ca644cc668af.png
+PRIME|BEYOND BELIEF ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/beyond_belief.png
+PRIME|AMERICA'S DUMBEST CRIMINALS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a4968fdaa3258e0bea02325e9f914ce01a063a23.png
+PRIME|ABC13 HOUSTON ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/42d1a38cbbe8966ce848d85c5d28320934c13546.png
+PRIME|ABC11 NORTH CAROLINA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/aebcdc092822fc094425493d64762795f039ad10.png
+PRIME|ABC7 CHICAGO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f93ead1db1d499a7298e61e691274aaf1d7918c1.png
+PRIME|JAMIE OLIVER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/jamie_oliver.png
+PRIME|ISN'T IT ROMANTIC ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7adc3e98e5f69aebcdb6a686ae5d25c764bdaf21.png
+PRIME|IRON CHEF ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6e8d07d86c6d3ea60e30c5e16600f72cad7e73d5.png
+PRIME|IN THE GARAGE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/garage.png
+PRIME|INSIDE EDITION ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/454ea6cc078473c78c9a25860cd128c5d9221f66.png
+PRIME|HARLEM ᴿᴬᵂ|
+PRIME|GREAT AMERICAN ADVENTURES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/alaska.png
+PRIME|GAMEPLAY ROBLOX ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6f73cd5655d0c50a77cb738f3d9ff2be8e64fd02.png
+PRIME|GAMEPLAY MINECRAFT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/minecraft.png
+PRIME|FOX GRAND RAPIDS NEWS (WXMI) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/309ee3dfd8ae850bee91ee22e5825d86577342c1.png
+PRIME|FOX 26 HOUSTON ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+PRIME|FORENSIC FILES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b3f19dc5d5b06d09c60fd5d0d7f0045408456e36.png
+PRIME|FAMILY UNSCRIPTED ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/family.png
+PRIME|DON'T TELL THE BRIDE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/db032db4c7adb31aadb04c43169c4d9d9d251836.png
+PRIME|DEGRASSI ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7d2ba3d696bb53f31d4bd3b52d6d26edf8d6059f.png
+PRIME|DANCE MOMS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7db8a8b31f04daeeac4cc0905cd423dc93257cd5.png
+PRIME|CRIME THRILLHER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7ca48ec5ffba81daa4e1e3c03b5a048f294c8322.png
+PRIME|CORNER GAS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/461618279112ed6c6b3b04a19ff6dedcec60d35b.png
+PRIME|NBC 10 PHILADELPHIA NEWS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8b655b3313e005026ef50664b6a8627028dec867.png
+PRIME|THE FBI FILES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/45dfdb8691eb41bbe1e8d50924efa9ad434a9e19.png
 PRIME| TOP CHEF RAW||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c9941a1d96dd83c1e6d4f926a7db6c386f5dae77.png
 PRIME| NOW ROCK RAW||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/accbfcffe93512934279cc514075821842eb9fd0.png
 PRIME|20 20 RAW|20 20 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/77797ae9ebeaf985b900b497f9e488a45c8bbab9.png
@@ -19227,155 +19227,155 @@ PRIME|HOME CHRASHERS RAW|Home Chrashers ᴸⁱᵛᵉ|https://raw.githubuserconte
 PRIME|HORROR STORIES RAW|Horror Stories ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/horror.png
 PRIME|HOT ONES RAW|Hot Ones ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2853089c534f6e8fc797f8bbcd26aa2c6f115b97.png
 PRIME|HUNTER RAW|Hunter ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1196bd875ab4caa98a054038feae057993008ae3.png
-PRIME|World's Wildest Police Videos ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3b8524b5730ad62b6f4763a0c966aa6dd376461f.png
-PRIME|Turk on Video ᴿᴬᵂ|Turk On Video ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/turk_on_video.png
+PRIME|WORLD'S WILDEST POLICE VIDEOS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3b8524b5730ad62b6f4763a0c966aa6dd376461f.png
+PRIME|TURK ON VIDEO ᴿᴬᵂ|Turk On Video ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/turk_on_video.png
 PRIME|Nature ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9beec60a735dd72127d4374375fde8d14337cead.png
-PRIME|H&C Tv ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3e334aa34fe65b4b637178248caecbff92b9281c.png
+PRIME|H&C TV ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3e334aa34fe65b4b637178248caecbff92b9281c.png
 PRIME|Grjngo-Westernfilme ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cowboy.png
-PRIME|Ein Engel auf Erden ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/727606e36b344c05d89467e904b05125ac68354d.png
+PRIME|EIN ENGEL AUF ERDEN ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/727606e36b344c05d89467e904b05125ac68354d.png
 PRIME|CC ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/289b9be47f42325626448b3161246fef2725f671.png
-PRIME|Xite Rap Game ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e0c2a4d27839c65be13e29054a9db799f647847a.png
-PRIME|Xite R&B Feels ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/77176511f7606423eca2740ff580ee8347348b53.png
-PRIME|Xite Hip-Hop Evolution ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/609931dfc6a104c50a8b6fd1b6af10a8626b1a18.png
-PRIME|Xite 60s & 70s Groove ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2510ad922494e44a98ff1d3f7a61be555192027a.png
-PRIME|Western Bound Wrangled by INSP ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cowboy.png
-PRIME|Wendy Williams ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wendy_williams.png
-PRIME|Vevo R&B ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32dcdc6c42643b1269950e999f2adc7de2439f96.png
-PRIME|Vevo Hip-Hop ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38ced67eb5e9fd1114207ea0acd518fddf5e0f09.png
-PRIME|Untold Stories of the Er ᴿᴬᵂ||https://media.themoviedb.org/t/p/w500/l5hg2Qe15DuAdF2Apey8NKTDpNw.jpg
-PRIME|Ultimate Builds ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/construction.png
-PRIME|Tribunal Justice ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3354f7939eaf2b0f27f423d92de850b2acc75848.png
-PRIME|To Catch a Smuggler ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/21db2e9ce8c135a1e37c108c7de0f6f5d093d748.png
+PRIME|XITE RAP GAME ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e0c2a4d27839c65be13e29054a9db799f647847a.png
+PRIME|XITE R&B FEELS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/77176511f7606423eca2740ff580ee8347348b53.png
+PRIME|XITE HIP-HOP EVOLUTION ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/609931dfc6a104c50a8b6fd1b6af10a8626b1a18.png
+PRIME|XITE 60S & 70S GROOVE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2510ad922494e44a98ff1d3f7a61be555192027a.png
+PRIME|WESTERN BOUND WRANGLED BY INSP ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cowboy.png
+PRIME|WENDY WILLIAMS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wendy_williams.png
+PRIME|VEVO R&B ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32dcdc6c42643b1269950e999f2adc7de2439f96.png
+PRIME|VEVO HIP-HOP ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38ced67eb5e9fd1114207ea0acd518fddf5e0f09.png
+PRIME|UNTOLD STORIES OF THE ER ᴿᴬᵂ||https://media.themoviedb.org/t/p/w500/l5hg2Qe15DuAdF2Apey8NKTDpNw.jpg
+PRIME|ULTIMATE BUILDS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/construction.png
+PRIME|TRIBUNAL JUSTICE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3354f7939eaf2b0f27f423d92de850b2acc75848.png
+PRIME|TO CATCH A SMUGGLER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/21db2e9ce8c135a1e37c108c7de0f6f5d093d748.png
 PRIME|TMNT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02d9dada3489cf4f3476cb53defaf7c6f4eeb964.png
-PRIME|The Young Riders ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1374a25e0d844061ed1194794603a9357e3a20d0.png
-PRIME|The Repair Shop ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bc413bfe923137e9ad1b7520aa6a10c9ef6fc415.png
+PRIME|THE YOUNG RIDERS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1374a25e0d844061ed1194794603a9357e3a20d0.png
+PRIME|THE REPAIR SHOP ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bc413bfe923137e9ad1b7520aa6a10c9ef6fc415.png
 PRIME|The Real Mocoys ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3fcdd2633cb8159b3a97f11743b3704327c49056.png
-PRIME|The Outpost ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/26387c897326d030f48c5d9adcbdf91de29a46a3.png
-PRIME|The Osbournes ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/52b69a1908d445123b68f1ab68592d52678c3326.png
+PRIME|THE OUTPOST ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/26387c897326d030f48c5d9adcbdf91de29a46a3.png
+PRIME|THE OSBOURNES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/52b69a1908d445123b68f1ab68592d52678c3326.png
 PRIME|The incredible Dr Pol ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cab990ae052ea09f3fa735111bf0f89f2d496fc8.png
-PRIME|The Girls next Door ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8eb6951d262eef141eb160a082eddd6c53a671e6.png
-PRIME|The Doctors ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/351f9e684a2a3bb08e51a61ea082acf71bd689b4.png
-PRIME|The Dead Files ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0c87374afaff3bcfdd84210c0d0d788d6774fafe.png
-PRIME|The Bold and The Beautiful ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dd423f8d5abeaca5d3b04c9fe4cd21aca93addb8.png
+PRIME|THE GIRLS NEXT DOOR ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8eb6951d262eef141eb160a082eddd6c53a671e6.png
+PRIME|THE DOCTORS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/351f9e684a2a3bb08e51a61ea082acf71bd689b4.png
+PRIME|THE DEAD FILES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0c87374afaff3bcfdd84210c0d0d788d6774fafe.png
+PRIME|THE BOLD AND THE BEAUTIFUL ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/dd423f8d5abeaca5d3b04c9fe4cd21aca93addb8.png
 PRIME|T.D Jakes ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/td_jakes.png
-PRIME|Survive or Die ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wilderness.png
+PRIME|SURVIVE OR DIE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wilderness.png
 PRIME|Supernany ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/supernanny.png
-PRIME|Startalk ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/startalk.png
+PRIME|STARTALK ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/startalk.png
 PRIME|Spooks (MI-5)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/spooks.png
-PRIME|Speed Sport 1 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/racing.png
-PRIME|Space & Beyond ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/space.png
+PRIME|SPEED SPORT 1 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/racing.png
+PRIME|SPACE & BEYOND ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/space.png
 PRIME|Sheriffs EL Dorado County ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
-PRIME|Rustic Retreats ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cabin.png
-PRIME|Rugbypass Tv ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6954958c927b0013f31051cbe019a6e917e0936f.png
-PRIME|Rovr Pets ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pets.png
+PRIME|RUSTIC RETREATS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/cabin.png
+PRIME|RUGBYPASS TV ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6954958c927b0013f31051cbe019a6e917e0936f.png
+PRIME|ROVR PETS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pets.png
 PRIME|Relative Justice||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/b9e693d2fe4c39502dd3be2c669627c26d542b32.png
 PRIME|Reelz Famous and Imfamous
-PRIME|Rebelde ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/538994487f3f1da734f0dbdfec3fc4f80ba73367.png
+PRIME|REBELDE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/538994487f3f1da734f0dbdfec3fc4f80ba73367.png
 PRIME|Reality Tv-Shores ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
 PRIME|Reality TV-Competition ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
-PRIME|Reality Gone Wild ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
+PRIME|REALITY GONE WILD ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
 PRIME|Racer Selcet ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f7a6b53073edd32c0548fecaaaf8417d0edb0b8c.png
-PRIME|Primetime Soaps ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
-PRIME|Preschool Corner ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/kids_toys.png
-PRIME|Power Rangers ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7e16aa4408fdee6684d1a2a4a06ed2c82848a490.png
-PRIME|Places & Spaces ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/interior_design.png
-PRIME|Pink Panther ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f8d5fe707f8876c52d88980b082f6ef751815c48.png
+PRIME|PRIMETIME SOAPS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
+PRIME|PRESCHOOL CORNER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/kids_toys.png
+PRIME|POWER RANGERS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7e16aa4408fdee6684d1a2a4a06ed2c82848a490.png
+PRIME|PLACES & SPACES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/interior_design.png
+PRIME|PINK PANTHER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/f8d5fe707f8876c52d88980b082f6ef751815c48.png
 PRIME|Personal  Injury Court ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bcdf5fa99dcda567a1ffbc7114ebf22717a50f6c.png
-PRIME|Perform ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/40581464f8012d75f2c67642052bf7f9335aff5c.png
-PRIME|PBS Genealogy ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
-PRIME|PBS Drama ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1b416003dfa6ec3f88818e38f0b2c0475dc54b9c.png
-PRIME|PBS Documentaries ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7a84ab45785d49a1a953af60cc85fc3b12b6f427.png
-PRIME|Overtime ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2824be1ee4741b75f6eef5a9b2222562d70a6234.png
-PRIME|Noticias Univision 24/7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/noticias_univision.png
-PRIME|Nostalgic Hits ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/retro_tv.png
-PRIME|NBC Lx Home ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/7/70/NBC_LX_Home_2023.svg
-PRIME|NBC Comedy Vault ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e79608f637e66bf65722e74c196cd821d6226f3a.png
-PRIME|NBC Colorado Springs News (KOAA) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
-PRIME|NBC 7 San Diego News ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
-PRIME|NBC 6 South Florida News ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
-PRIME|NBC 5 Dallas-Fort Worth News ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/e/e0/KXAS_2023.svg
-PRIME|NBC 5 Chicago News ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
-PRIME|NBC 4 New York News ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
-PRIME|Nat Geo Sharks ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/natgeo.png
-PRIME|Mythical 24/7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mythical.png
-PRIME|Monsters Are Real ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/88c0e29a172fed44ec021c5030115acba1caf810.png
+PRIME|PERFORM ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/40581464f8012d75f2c67642052bf7f9335aff5c.png
+PRIME|PBS GENEALOGY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pbs.png
+PRIME|PBS DRAMA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1b416003dfa6ec3f88818e38f0b2c0475dc54b9c.png
+PRIME|PBS DOCUMENTARIES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7a84ab45785d49a1a953af60cc85fc3b12b6f427.png
+PRIME|OVERTIME ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2824be1ee4741b75f6eef5a9b2222562d70a6234.png
+PRIME|NOTICIAS UNIVISION 24/7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/noticias_univision.png
+PRIME|NOSTALGIC HITS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/retro_tv.png
+PRIME|NBC LX HOME ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/7/70/NBC_LX_Home_2023.svg
+PRIME|NBC COMEDY VAULT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e79608f637e66bf65722e74c196cd821d6226f3a.png
+PRIME|NBC COLORADO SPRINGS NEWS (KOAA) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
+PRIME|NBC 7 SAN DIEGO NEWS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
+PRIME|NBC 6 SOUTH FLORIDA NEWS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
+PRIME|NBC 5 DALLAS-FORT WORTH NEWS ᴿᴬᵂ||https://upload.wikimedia.org/wikipedia/commons/e/e0/KXAS_2023.svg
+PRIME|NBC 5 CHICAGO NEWS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
+PRIME|NBC 4 NEW YORK NEWS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
+PRIME|NAT GEO SHARKS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/natgeo.png
+PRIME|MYTHICAL 24/7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mythical.png
+PRIME|MONSTERS ARE REAL ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/88c0e29a172fed44ec021c5030115acba1caf810.png
 PRIME|Modern Innovation By History ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/interior_design.png
-PRIME|MGM Celebrates Black Cinema ᴿᴬᵂ|Mgm Celebrates Black Cinema ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mgm_hd.png
-PRIME|Medical Incredible ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/hospital.png
-PRIME|Matched Married Meet ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wedding_rings.png
-PRIME|Love Pets ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pets.png
-PRIME|Love Kills ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2327475950430f4bcde2ed785179f36a7a73c917.png
-PRIME|Love And Marriage ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3f06addd1645b1847d6181a25d2772c7ec0ffe5d.png
-PRIME|Long Lost Family ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6034a91ecb97a9be21c8bb55b40f7677ad3e50fa.png
-PRIME|Locked Up Abroad ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/banged_up_abroad.png
-PRIME|Live PD Presents ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/live_pd.png
-PRIME|Life Below Zero ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/785c53e825b3bd1b474888170e9e6d6d50decc25.png
-PRIME|Life and Legend of Wyatt Earp ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wyatt_earp.png
-PRIME|Lidia's Kitchen ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/98ad15316a5f56016da2fbf40a5803c1860faaad.png
-PRIME|Lawless ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cb65d565439c5f6fc7dcc731f7be900fa6bfe93e.png
-PRIME|Latino Vibes ᴿᴬᵂ|
-PRIME|Las 3 Marias ᴿᴬᵂ|
-PRIME|Kim's Convenience ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8c0718ca19dab4914ad0a8dcc26867f83ef7abf4.png
-PRIME|Karamo Presented By Nosey ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/karamo.png
-PRIME|Judge & Jury ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/111f60641367ee0f2eae4315e11408c498e592ff.png
-PRIME|JaJaJa ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fe1da23986522ce78d0aa4c83036d2e13cde71c9.png
-PRIME|I was Haunted ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/horror.png
+PRIME|MGM CELEBRATES BLACK CINEMA ᴿᴬᵂ|Mgm Celebrates Black Cinema ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/mgm_hd.png
+PRIME|MEDICAL INCREDIBLE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/hospital.png
+PRIME|MATCHED MARRIED MEET ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wedding_rings.png
+PRIME|LOVE PETS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/pets.png
+PRIME|LOVE KILLS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2327475950430f4bcde2ed785179f36a7a73c917.png
+PRIME|LOVE AND MARRIAGE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3f06addd1645b1847d6181a25d2772c7ec0ffe5d.png
+PRIME|LONG LOST FAMILY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6034a91ecb97a9be21c8bb55b40f7677ad3e50fa.png
+PRIME|LOCKED UP ABROAD ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/banged_up_abroad.png
+PRIME|LIVE PD PRESENTS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/live_pd.png
+PRIME|LIFE BELOW ZERO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/785c53e825b3bd1b474888170e9e6d6d50decc25.png
+PRIME|LIFE AND LEGEND OF WYATT EARP ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wyatt_earp.png
+PRIME|LIDIA'S KITCHEN ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/98ad15316a5f56016da2fbf40a5803c1860faaad.png
+PRIME|LAWLESS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cb65d565439c5f6fc7dcc731f7be900fa6bfe93e.png
+PRIME|LATINO VIBES ᴿᴬᵂ|
+PRIME|LAS 3 MARIAS ᴿᴬᵂ|
+PRIME|KIM'S CONVENIENCE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8c0718ca19dab4914ad0a8dcc26867f83ef7abf4.png
+PRIME|KARAMO PRESENTED BY NOSEY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/karamo.png
+PRIME|JUDGE & JURY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/111f60641367ee0f2eae4315e11408c498e592ff.png
+PRIME|JAJAJA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fe1da23986522ce78d0aa4c83036d2e13cde71c9.png
+PRIME|I WAS HAUNTED ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/horror.png
 PRIME|In Touch+ ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/df3c3c206b412bca20954ff3154ea39c0f69cfea.png
-PRIME|Impact Gospel ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/church.png
-PRIME|Hunter X Hunter ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/hunter_x_hunter.png
-PRIME|Grandes Parejas ᴿᴬᵂ|
-PRIME|Get Comedy ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/931ada44b68456fb7b26babc20aa1769e18cc250.png
-PRIME|General Hospital ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4ce2970cebd11b4bd220893c1239be8023ab6ad0.png
-PRIME|Galanes ᴿᴬᵂ|
+PRIME|IMPACT GOSPEL ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/church.png
+PRIME|HUNTER X HUNTER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/hunter_x_hunter.png
+PRIME|GRANDES PAREJAS ᴿᴬᵂ|
+PRIME|GET COMEDY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/931ada44b68456fb7b26babc20aa1769e18cc250.png
+PRIME|GENERAL HOSPITAL ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4ce2970cebd11b4bd220893c1239be8023ab6ad0.png
+PRIME|GALANES ᴿᴬᵂ|
 PRIME|FV AMC En Espanol US ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1c5240fa0da67749223e97ff6ef1bc1a3e8c15b6.png
-PRIME|Fox 35 Orlando ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-PRIME|Fox 32 Chicago ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/652e72c36921acf313d94d483d830d247a79364c.png
-PRIME|Fox 13 Tampa Bay ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-PRIME|Fox 13 Seattle ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-PRIME|Fox 11 Los Angeles ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-PRIME|Fox 10 Phoenix ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-PRIME|Fox 9 Minneapolis ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bc685cd5da2d05f5eae85159bd87a7b385caa22c.png
-PRIME|Fox 7 Austin ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
-PRIME|Fox 6 Milwaukee ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/17147658e1a7c7132f67f0b1b66b330488010a4d.png
-PRIME|Fox 5 Atlanta ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/53677e5a40f9ac44dc6770a8aa7d59063bd6a23e.png
-PRIME|Fox 2 Detroit ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d4ab63dc082c11f3ddc1ed443e7762e95bbeaa3f.png
-PRIME|Fgteev ᴿᴬᵂ|Fgteev ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/fgteev.png
+PRIME|FOX 35 ORLANDO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+PRIME|FOX 32 CHICAGO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/652e72c36921acf313d94d483d830d247a79364c.png
+PRIME|FOX 13 TAMPA BAY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+PRIME|FOX 13 SEATTLE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+PRIME|FOX 11 LOS ANGELES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+PRIME|FOX 10 PHOENIX ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+PRIME|FOX 9 MINNEAPOLIS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bc685cd5da2d05f5eae85159bd87a7b385caa22c.png
+PRIME|FOX 7 AUSTIN ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
+PRIME|FOX 6 MILWAUKEE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/17147658e1a7c7132f67f0b1b66b330488010a4d.png
+PRIME|FOX 5 ATLANTA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/53677e5a40f9ac44dc6770a8aa7d59063bd6a23e.png
+PRIME|FOX 2 DETROIT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d4ab63dc082c11f3ddc1ed443e7762e95bbeaa3f.png
+PRIME|FGTEEV ᴿᴬᵂ|Fgteev ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/fgteev.png
 PRIME|Faithfull Funny ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/comedy_masks.png
 PRIME|Extrem Makeover- Home Edition ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0cf95b9349c5c0b8dffa9ed9f18baed7cebfce5d.png
 PRIME|ET ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a2a7fb2a4ce6ae9c70a1017756bacb287aeabe06.png
-PRIME|Earthday 365 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/62f6247ef821637bf31fd73ea53a68c938fe6ed5.png
-PRIME|Dinos 24/7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/dinos.png
-PRIME|Death Valley Days ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/771e175379d4334d891ef42e5e9d48467d6406f5.png
-PRIME|Couples Court ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/couples_court.png
-PRIME|Cook's Country ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f1744a46b7ad574df685fd02aac45e64a6476db5.png
-PRIME|Como Dice El Dicho ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/78733cdccae80a2e1d513de04f525b2778baf4b3.png
-PRIME|Come Dine with Me ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6097ef61112719bdf7ba0d6d509c9d1131ff0320.png
-PRIME|Classic Car Auctions ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/garage.png
-PRIME|Cine Retro ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1365cd94861558d877381e59386ab2d4dcfbf86f.png
-PRIME|Cine De Oro ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/film_reel.png
-PRIME|Chris Hansen's Trublu Crime Network ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/to_catch_predator.png
-PRIME|CBS News Detroit ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/af433dacc3255822d7c39534acc2095a9bbf8d17.png
-PRIME|CBS News Colorado ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/241a8d635db11beb9fb8347b17b997875d2971cf.png
+PRIME|EARTHDAY 365 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/62f6247ef821637bf31fd73ea53a68c938fe6ed5.png
+PRIME|DINOS 24/7 ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/dinos.png
+PRIME|DEATH VALLEY DAYS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/771e175379d4334d891ef42e5e9d48467d6406f5.png
+PRIME|COUPLES COURT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/couples_court.png
+PRIME|COOK'S COUNTRY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f1744a46b7ad574df685fd02aac45e64a6476db5.png
+PRIME|COMO DICE EL DICHO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/78733cdccae80a2e1d513de04f525b2778baf4b3.png
+PRIME|COME DINE WITH ME ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/6097ef61112719bdf7ba0d6d509c9d1131ff0320.png
+PRIME|CLASSIC CAR AUCTIONS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/garage.png
+PRIME|CINE RETRO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1365cd94861558d877381e59386ab2d4dcfbf86f.png
+PRIME|CINE DE ORO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/film_reel.png
+PRIME|CHRIS HANSEN'S TRUBLU CRIME NETWORK ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/to_catch_predator.png
+PRIME|CBS NEWS DETROIT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/af433dacc3255822d7c39534acc2095a9bbf8d17.png
+PRIME|CBS NEWS COLORADO ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/241a8d635db11beb9fb8347b17b997875d2971cf.png
 PRIME|Caso Cebrado ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d5d9347558944199fa1129c8369497d5081b879d.png
-PRIME|Black Voices ᴿᴬᵂ|
-PRIME|BBC Comedy ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2adb219d3db8a0a382a8efbc58511f2d3b88ad90.png
-PRIME|Bargain Hunt ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/bargain_hunt.png
-PRIME|Are You Smarter than a 5th Grader? ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/smarter_5th_grader.png
-PRIME|Aqui Y Ahora ᴿᴬᵂ|Aqui Y Ahora ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/aqui_y_ahora.png
-PRIME|Antiques Road Trip ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4a01a833007feed8323b43cf389e20fc1896e14b.png
-PRIME|Anime X Hidive ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a9067f06e5e4845b615dfbba3d4ddefcbf948435.png
-PRIME|Animation Favorites ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/film_reel.png
-PRIME|American Ninja Warrior ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5b73e586f4ab0cc093a98ef0d67d791d9ca343bd.png
-PRIME|All Day Drama ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
-PRIME|Action News Jax (CBS47 / FOX30) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4c0425601875b2812fec57367ede2119398ab6c9.png
-PRIME|Acorn Tv Mysteries ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/325c11430296164320f06286227ede0696c0fd3f.png
-PRIME|ABC7 New York ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/beb4d3fe749d8b0ca6539b65db51864c1f3b78c0.png
-PRIME|ABC7 Bay Area ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/872d1a7746e1dacbb6e2110b9bd4f787210f17ed.png
-PRIME|90s Sitcom ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/retro_tv.png
-PRIME|80s Sitcom ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/retro_tv.png
-PRIME|60 Minutes ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8aaecff97e0552b5be210dc84bc2e9f52bc58b88.png
-PRIME|48 Hours ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/54b11b3bfb40f6295bb6ec652a0b316c68941369.png
-PRIME|24/7 Laughs ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/comedy_masks.png
+PRIME|BLACK VOICES ᴿᴬᵂ|
+PRIME|BBC COMEDY ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/2adb219d3db8a0a382a8efbc58511f2d3b88ad90.png
+PRIME|BARGAIN HUNT ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/bargain_hunt.png
+PRIME|ARE YOU SMARTER THAN A 5TH GRADER? ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/smarter_5th_grader.png
+PRIME|AQUI Y AHORA ᴿᴬᵂ|Aqui Y Ahora ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/aqui_y_ahora.png
+PRIME|ANTIQUES ROAD TRIP ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4a01a833007feed8323b43cf389e20fc1896e14b.png
+PRIME|ANIME X HIDIVE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a9067f06e5e4845b615dfbba3d4ddefcbf948435.png
+PRIME|ANIMATION FAVORITES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/film_reel.png
+PRIME|AMERICAN NINJA WARRIOR ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/5b73e586f4ab0cc093a98ef0d67d791d9ca343bd.png
+PRIME|ALL DAY DRAMA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/tv_camera.png
+PRIME|ACTION NEWS JAX (CBS47 / FOX30) ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/4c0425601875b2812fec57367ede2119398ab6c9.png
+PRIME|ACORN TV MYSTERIES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/325c11430296164320f06286227ede0696c0fd3f.png
+PRIME|ABC7 NEW YORK ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/beb4d3fe749d8b0ca6539b65db51864c1f3b78c0.png
+PRIME|ABC7 BAY AREA ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/872d1a7746e1dacbb6e2110b9bd4f787210f17ed.png
+PRIME|90S SITCOM ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/retro_tv.png
+PRIME|80S SITCOM ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/retro_tv.png
+PRIME|60 MINUTES ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8aaecff97e0552b5be210dc84bc2e9f52bc58b88.png
+PRIME|48 HOURS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/54b11b3bfb40f6295bb6ec652a0b316c68941369.png
+PRIME|24/7 LAUGHS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/comedy_masks.png
 #DE| SKY, MAGENTA TV BL, SP, TV ALGEMEIN
 DE| RTL CRIME||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e8aad3c6bc4c0cfeefb298f49833a6d6c64b1c6b.png
 SKY:DE|SKY CRIME FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_crime/sky_crime.png

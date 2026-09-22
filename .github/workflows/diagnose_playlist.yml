@@ -1,0 +1,37 @@
+name: Diagnose Playlist Abgleich (TEMPORAER)
+
+# TEMPORAERER Diagnose-Workflow, siehe docs/HISTORIE.md ("22.09.2026:
+# Live-Playlist-Abgleich per Xtream-API ... Bug 3"). Fuehrt
+# diagnose_playlist_abgleich.py aus, um den Verlust der ca. 19
+# "24/7 X"-NAME:-Sender waehrend des echten Live-Kanalabgleichs
+# (m3u_playlist_abgleichen(), braucht das PROVIDER-Secret) zu
+# untersuchen. Wird nach abgeschlossener Diagnose wieder aus dem Repo
+# entfernt (zusammen mit diagnose_playlist_abgleich.py) - kein Teil
+# des normalen EPG-Generierungslaufs.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Diagnose Live-Playlist-Abgleich
+        env:
+          PROVIDER: ${{ secrets.PROVIDER }}
+        run: |
+          python diagnose_playlist_abgleich.py
