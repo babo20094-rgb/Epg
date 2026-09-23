@@ -226,7 +226,26 @@ def kanal_id_varianten(kanal):
         for v in _kanal_id_varianten_basis(alias):
             if v not in varianten:
                 varianten.append(v)
+    # Unsichtbare Sonderzeichen (geschuetztes Leerzeichen U+00A0, Tab,
+    # Unicode-Richtungszeichen wie U+2069, ...) in echten Playlist-Namen
+    # (23.09.2026 gefunden, z.B. "US| THE BLAZE\xa0HD", "MLS Wrap
+    # Up⁩ @ ..."): unsere ID ist zwar zeichengenau, normalisiert
+    # der Player den Namen beim Einlesen aber, passt sie nicht mehr.
+    # Deshalb zusaetzlich eine bereinigte Variante (Sonderzeichen ->
+    # normales Leerzeichen bzw. entfernt, Leerraum zusammengefasst).
+    if _SONDER_LEERRAUM.search(kanal):
+        for v in list(varianten):
+            for bereinigt in (
+                re.sub(r"[ \t\xa0]+", " ", _UNSICHTBARE_ZEICHEN.sub("", v)).strip(),
+                _UNSICHTBARE_ZEICHEN.sub("", v).replace("\xa0", " ").replace("\t", " "),
+            ):
+                if bereinigt not in varianten:
+                    varianten.append(bereinigt)
     return varianten
+
+
+_UNSICHTBARE_ZEICHEN = re.compile("[​-‏‪-‮⁦-⁩﻿]")
+_SONDER_LEERRAUM = re.compile("[\t\xa0​-‏‪-‮⁦-⁩﻿]")
 
 
 def _kanal_id_varianten_basis(kanal):

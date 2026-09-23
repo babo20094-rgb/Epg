@@ -6304,3 +6304,23 @@ exakt, danach bis zum naechsten Lauf ggf. nicht. Das ist prinzipbedingt
 und kein Bug. Die Live-API liefert aktuell 18.911 Kanaele; die vom
 Nutzer in TiviMate gesehenen 18.940 enthalten vermutlich zusaetzlich
 Trenner-/Header-Zeilen oder mehrfach gezaehlte Favoriten.
+
+### Nachtrag 23.09.2026: TiviMate meldet 18.908 von 18.911 - Sonderzeichen-Varianten
+
+Nach dem Fix oben zeigte TiviMate 18.908 von 18.911 zugeordnet. Die
+lokale Simulation (Code + aktuelle Playlist) ergab 0 fehlende IDs, alle
+541 Header-Kanaele und alle IDs haben Programm. Erkenntnisse:
+- TiviMate ordnet ueber die Kanal-ID zu, nicht ueber `display-name`
+  (sonst wuerden ~380 Kanaele fehlen, deren display-name abweicht).
+- TiviMate behaelt Zuordnungen offenbar auch nach Umbenennung dynamischer
+  Event-Kanaele (sonst waeren ~170 statt 3 offen).
+- Verdacht fuer die 3: Playlist-Namen mit unsichtbaren Sonderzeichen
+  (U+00A0, Tab, U+2069), z.B. `US| THE BLAZE\xa0HD`, `US| PBS NJ |
+  NEW\xa0JERSEY\xa0(WNJT)`, `NA| BRIDGEPORT\xa0ISLANDERS`, `UK|
+  NAT\xa0GEO\xa0WILD\xa0SD`, `### NETFLIX ON AIR\xa0... ###`, `MLS Wrap
+  Up⁩ ...`, Tennis-Event mit Tab. Normalisiert der Player diese
+  Zeichen, passt die zeichengenaue ID nicht mehr. **Fix:**
+  `kanal_id_varianten()` gibt fuer solche Namen zusaetzlich bereinigte
+  Varianten aus (`_SONDER_LEERRAUM`/`_UNSICHTBARE_ZEICHEN`). Rein
+  additiv (+18 IDs, 0 verloren). Ob genau das die 3 waren, ist NICHT
+  verifiziert - nach dem naechsten Lauf Zaehlung in TiviMate pruefen.
