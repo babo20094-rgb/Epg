@@ -1,3 +1,5 @@
+US|DETROIT SPORTSNET|Detroit Sportsnet ᴸⁱᵛᵉ|
+NAME:AU (STAN 101)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1e5e5376b2e389794cbcedb30576a1205b799514.png
 ##### US| TV ᴿᴬᵂ ⁶⁰ᶠᵖˢ #####
 |TV| 20/20 ᴿᴬᵂ|20/20 ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
 |TV| 50 CENT ACTION CHANNEL ᴿᴬᵂ|50 Cent Action Channel ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_raw/tv_raw.png
@@ -13235,7 +13237,7 @@ NAME:GB: DAZN PPV 98|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/lo
 NAME:GB: DAZN PPV 99|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/14df7b48d5e390f6d4091d01e52c777548ff5a38.png
 NAME:GaaGo 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
 NAME:GaaGo 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
-NAME:GaaGo 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
+NAME:GaaGo 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
 NAME:GaaGo 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
 NAME:GaaGo 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
 NAME:GaaGo 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/01ae3aa8a4b66ac941e1c126b74a3d39fb7821cb.png
@@ -17843,7 +17845,7 @@ NA| UTICA COMETS|Utica Comets ᴸⁱᵛᵉ|https://raw.githubusercontent.com/bab
 NA| W-B/SCRANTON PENGUINS|W-B/scranton Penguins ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| VICTORIAVILLE TIGRES|Victoriaville Tigres ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| Sherbrooke Phoenix|Sherbrooke Phoenix ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
-NA| Val-d'Or Foreurs|Val-D'or Foreurs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
+NA| VAL-D'OR FOREURS|Val-D'or Foreurs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| SHAWINIGAN CATARACTES|Shawinigan Cataractes ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| SAINT JOHN SEA DOGS|Saint John Sea Dogs ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png
 NA| ROUYN-NORANDA HUSKIES|Rouyn-Noranda Huskies ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03067090f0122424be635afb322f2fc5277f3dc1.png

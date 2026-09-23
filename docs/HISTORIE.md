@@ -6249,3 +6249,58 @@ Deckung aber NICHT verifiziert (siehe Bug-3-Abschnitt: viele der
 gefixten Sender liefen vermutlich schon vorher ueber alte manuelle
 TiviMate-Zuordnung, sind also nicht 1:1 deckungsgleich mit den
 tatsaechlich aktuell fehlenden 58).
+
+## 23.09.2026: Restliche ~50 fehlende TiviMate-Zuordnungen behoben (Bug 3 "24/7" + UEFA-Leerlauf + Einzelfaelle)
+
+**Methode (fuer kuenftige Abgleiche wiederverwendbar):** Live-Kanalliste
+per `player_api.php?...&action=get_live_streams` (JSON) abrufen, daraus
+lokal eine M3U bauen, per `python3 -m http.server` bereitstellen und
+`PROVIDER` darauf zeigen lassen. Dann `generate_epg.py` per exec()-
+Slicing (Zeile 1 bis `kanal_index = {d["kanal"]: ...`, dann bis
+`# DYN LEERZEITEN`, siehe `diagnose_playlist_abgleich.py` in Commit
+`732851e`) ausfuehren und die geschriebenen `<channel id>` mit den
+Playlist-Namen vergleichen. Wichtig: `&quot;` beim Auslesen der IDs
+zurueckwandeln, sonst erscheinen Namen mit Anfuehrungszeichen
+faelschlich als fehlend. Ergebnis vorher: 49 fehlende Namen (nah an den
+vom Nutzer gemeldeten 58 in TiviMate), nachher: 0 - verloren ging
+dabei keine einzige bisherige ID ausser den zwei bewusst umbenannten.
+
+**Hauptursache (Bug 3 + UEFA + UFC 02):** `m3u_playlist_abgleichen()`
+setzte pro NAME:-Sender genau EINEN `kanal` ("letzter Rohname
+gewinnt"). Fuehrt die Playlist denselben Kern mehrfach (z.B. `UEFA |
+01 -` im Leerlauf in zwei Gruppen + `UEFA | 01 - Levski Sofia vs ...`
+in einer dritten), blieb nur einer zuordenbar. Bei den 21 "24/7 X"-
+Sendern kam hinzu, dass `UK| 24/7 X`/`US| 24/7 X` (feste IDs anderer
+Sender) per Kern auf den bare `NAME:24/7 X`-Sender fielen und dessen
+eigene ID verdraengten. **Fix:** alle Rohnamen je Sender sammeln,
+Rohnamen, die bereits feste ID eines anderen Senders sind, ignorieren,
+den ersten als `kanal` und die restlichen in `_KANAL_ALIASE` ablegen -
+`kanal_id_varianten()` gibt die Aliase ueberall mit aus (Channel +
+Programme). Rein additiv.
+
+**Einzelfaelle:**
+- `DE|  SKY SPORT TOP EVENT FHD` (2 Leerzeichen) -> in
+  `_LEERZEICHEN_AUSNAHME_KANAELE`.
+- `US| TELEMUNDO (WKTB) ATLANTA ` / `US| TELEMUNDO 11 (KFFX-DT2)
+  KENNEWICK ` enden beim Anbieter mit Leerzeichen -> neue Liste
+  `_NACHLAUFENDES_LEERZEICHEN_KANAELE` (zusaetzliche ID mit Leerzeichen
+  am Ende).
+- sender.txt: `NA| Val-d'Or Foreurs` -> `NA| VAL-D'OR FOREURS`
+  (Playlist schreibt gross), `NAME:GaaGo 6` -> `NAME:GaaGo 06`,
+  neu oben: `US|DETROIT SPORTSNET` (generisch, Logo leer = aus
+  Playlist) und `NAME:AU (STAN 101)` (fehlte zwischen STAN 100/102).
+
+- `escape()` schreibt Tabulator/Zeilenumbruch jetzt als `&#9;`/`&#10;`/
+  `&#13;` - XML-Parser machen aus einem rohen Tab in einem Attribut
+  sonst ein Leerzeichen, ein Playlist-Name mit Tab (Tennis-Event)
+  passte dadurch nicht mehr exakt.
+- Kontrolle per komplettem lokalen Lauf (`generate_epg.py` mit lokaler
+  M3U): XML valide, 35.350 Kanaele, alle mit Programm, 0 fehlende
+  Playlist-Namen (vor dem Tab-Fix: 1).
+
+**Grenze:** Dynamische Event-Kanaele (NEXT/ENDED/LIVE-Namen) wechseln
+ihren Namen zwischen zwei Laeufen - zum Laufzeitpunkt passen sie
+exakt, danach bis zum naechsten Lauf ggf. nicht. Das ist prinzipbedingt
+und kein Bug. Die Live-API liefert aktuell 18.911 Kanaele; die vom
+Nutzer in TiviMate gesehenen 18.940 enthalten vermutlich zusaetzlich
+Trenner-/Header-Zeilen oder mehrfach gezaehlte Favoriten.

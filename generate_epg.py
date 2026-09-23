@@ -42,7 +42,12 @@ def escape(text, *args, **kwargs):
     if text:
         text = _XML_UNGUELTIGE_ZEICHEN.sub("", text)
     if not args and "entities" not in kwargs:
-        return _sax_escape(text, {'"': "&quot;"})
+        # Tabulator/Zeilenumbruch als Zeichenreferenz: ein XML-Parser
+        # ersetzt sie in Attributwerten sonst durch ein Leerzeichen
+        # (Attributwert-Normalisierung), wodurch eine Kanal-ID wie
+        # "Tararudee, Lanlana<TAB> vs Park, ..." (echter Playlist-Name,
+        # 23.09.2026) nicht mehr exakt mit der Playlist uebereinstimmt.
+        return _sax_escape(text, {'"': "&quot;", "\t": "&#9;", "\n": "&#10;", "\r": "&#13;"})
     return _sax_escape(text, *args, **kwargs)
 
 from epg_lib import (
@@ -180,10 +185,51 @@ _LEERZEICHEN_AUSNAHME_KANAELE = {
     "DE|JUKEBOX FHD",
     "US|ABC MOLINE (WQAD)",
     "US|NESN HD (bk)",
+    "DE|SKY SPORT TOP EVENT FHD",
 }
+
+# Kanaele, deren Playlist-Name beim Anbieter mit einem Leerzeichen
+# ENDET (z.B. "US| TELEMUNDO (WKTB) ATLANTA " - per Live-Playlist-
+# Abgleich 23.09.2026 gefunden). sender.txt-Werte werden beim Einlesen
+# getrimmt, deshalb bekommen genau diese Kanaele zusaetzlich eine
+# ID-Variante mit angehaengtem Leerzeichen. Schluessel in derselben
+# Form wie bei _LEERZEICHEN_AUSNAHME_KANAELE ("LAND|REST", ohne
+# Leerzeichen nach dem Pipe).
+_NACHLAUFENDES_LEERZEICHEN_KANAELE = {
+    "US|TELEMUNDO (WKTB) ATLANTA",
+    "US|TELEMUNDO 11 (KFFX-DT2) KENNEWICK",
+}
+
+# Zusaetzliche Kanal-IDs je "kanal"-Wert, befuellt von
+# m3u_playlist_abgleichen(): fuehrt die eigene Playlist fuer denselben
+# NAME:-Sender MEHRERE unterschiedliche Rohnamen (z.B. "UEFA | 01 -" in
+# einer Gruppe im Leerlauf und "UEFA | 01 - Levski Sofia vs RB
+# Salzburg 5:45 pm" in einer anderen Gruppe mit laufendem Spiel),
+# konnte "kanal" frueher nur EINEN davon tragen - alle anderen
+# Playlist-Zeilen wurden in TiviMate nie zugeordnet (Bug 23.09.2026,
+# ~40 fehlende Zuordnungen). Jetzt werden alle weiteren Rohnamen hier
+# als Alias hinterlegt und von kanal_id_varianten() mit ausgegeben.
+_KANAL_ALIASE = {}
 
 
 def kanal_id_varianten(kanal):
+    """Alle Kanal-IDs fuer `kanal`: die Schreibweisen-Varianten aus
+    _kanal_id_varianten_basis(), bei Bedarf eine Variante mit
+    nachlaufendem Leerzeichen (_NACHLAUFENDES_LEERZEICHEN_KANAELE) und
+    die Varianten aller per Live-Playlist-Abgleich gefundenen weiteren
+    Rohnamen desselben Senders (_KANAL_ALIASE)."""
+    varianten = _kanal_id_varianten_basis(kanal)
+    schluessel = re.sub(r"\|\s*", "|", kanal.strip(), count=1)
+    if schluessel in _NACHLAUFENDES_LEERZEICHEN_KANAELE:
+        varianten = list(dict.fromkeys(varianten + [v + " " for v in varianten]))
+    for alias in _KANAL_ALIASE.get(kanal, ()):
+        for v in _kanal_id_varianten_basis(alias):
+            if v not in varianten:
+                varianten.append(v)
+    return varianten
+
+
+def _kanal_id_varianten_basis(kanal):
     """Gibt fuer eine Kanal-ID im "Land|Sender"-Muster (z.B. "UK|
     AMAZON UK EVENT 0" oder "UK|AMAZON UK EVENT 0") BEIDE moeglichen
     Schreibweisen zurueck - mit UND ohne Leerzeichen direkt nach dem
@@ -3054,6 +3100,13 @@ def m3u_playlist_abgleichen(url, quelle_name):
     erledigte_keys = set()
     aktualisierte_sender = []
     uebersprungene_zeilen = 0
+    gesammelte_namen = {}
+    feste_ids = {
+        kanal_id
+        for daten in sender_daten
+        if not daten.get("live_playlist_kern")
+        for kanal_id in kanal_id_varianten(daten["kanal"])
+    }
     for zeile in gepuffert.splitlines():
         zeile = zeile.strip()
         if not zeile.startswith("#EXTINF") or "," not in zeile:
@@ -3103,7 +3156,18 @@ def m3u_playlist_abgleichen(url, quelle_name):
             # eine einmal in TiviMate manuell gesetzte Zuordnung ueberlebt
             # dadurch nicht zwingend jeden Lauf, dafuer funktioniert die
             # AUTOMATISCHE Zuordnung zuverlaessiger, was hier Prioritaet hat.
-            real_daten["kanal"] = voller_name
+            #
+            # Mehrere Rohnamen je Sender (23.09.2026): statt "letzter
+            # gewinnt" werden ALLE Rohnamen gesammelt und nach der
+            # Schleife als "kanal" + Aliase (_KANAL_ALIASE) gesetzt.
+            # Ausgenommen sind Rohnamen, die bereits die feste ID eines
+            # ANDEREN Senders sind (z.B. "UK| 24/7 AL PACINO" vom
+            # FREEVIEW:GB-Sender) - die fielen frueher per Kern-Abgleich
+            # faelschlich auf den bare NAME:24/7 AL PACINO-Sender, der
+            # dadurch seine eigene ID "24/7 AL PACINO" verlor (Bug 3 in
+            # docs/HISTORIE.md, 21 "24/7 X"-Sender betroffen).
+            if voller_name not in feste_ids:
+                gesammelte_namen.setdefault(id(real_daten), (real_daten, []))[1].append(voller_name)
 
             if _live_event_uebernehmen(kurzname, event_teil, real_daten):
                 erledigte_keys.add(normalisierter_kern)
@@ -3111,6 +3175,12 @@ def m3u_playlist_abgleichen(url, quelle_name):
         except Exception:
             uebersprungene_zeilen += 1
             continue
+
+    for real_daten, namen in gesammelte_namen.values():
+        namen = list(dict.fromkeys(namen))
+        real_daten["kanal"] = namen[0]
+        if len(namen) > 1:
+            _KANAL_ALIASE[namen[0]] = namen[1:]
 
     if aktualisierte_sender:
         print(f"Live-Kanalabgleich ({quelle_name}): {len(aktualisierte_sender)} Sender mit echtem Live-Event aktualisiert.")
