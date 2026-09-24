@@ -2889,8 +2889,8 @@ MO|PRVA WORLD|Prva World ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 MO|RAI DUE|Rai Due ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd6cf634fc2f29be.png
 MO|RAI UNO|Rai Uno ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a22dbcb08e5e6c16.png
 MO|RED TV|Red Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d33c023a9a7e6ba.png
-MO|RT VOJVODINA 1|Rt Vojvodina 1 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912739.png
-MO|RT VOJVODINA 2|Rt Vojvodina 2 ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912738.png
+MO|RT VOJVODINA 1|Rt Vojvodina 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_1/rt_vojvodina_1_weiss.png
+MO|RT VOJVODINA 2|Rt Vojvodina 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_2/rt_vojvodina_2_weiss.png
 MO|RTCG 1|Rtcg 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/40443d4c5049338f.png
 MO|RTCG 2|Rtcg 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/73fb0ceaf2532deb.png
 MO|RTL 2|Rtl 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bc99c11aff34c400.png
@@ -3838,8 +3838,8 @@ RS|PRVA WORLD|Prva World ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 RS|PRVA WORLD ⱽᴵᴾ ᴿᴬᵂ|Prva World ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4d6ec33a53ca61e2.png
 RS|PRVA ⱽᴵᴾ ᴿᴬᵂ|Prva ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/eb6b5dd31c646e91.png
 RS|RED TV ⱽᴵᴾ ᴿᴬᵂ|Red Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0d33c023a9a7e6ba.png
-RS|RT VOJVODINA 1 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_1/rt_vojvodina_1.png
-RS|RT VOJVODINA 2 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_2/rt_vojvodina_2.png
+RS|RT VOJVODINA 1 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_1/rt_vojvodina_1_weiss.png
+RS|RT VOJVODINA 2 ⱽᴵᴾ ᴿᴬᵂ|Rt Vojvodina 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_2/rt_vojvodina_2_weiss.png
 RS|RTL LIVING|Rtl Living ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e653ed79a3d39c.png
 RS|RTL WORLD|Rtl World ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/320bb68a1c6ba18e.png
 RS|RTS 1 FHD|Rts 1 Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3ed8c6e2572183e5.png
@@ -3868,11 +3868,11 @@ RS|RTS TREZOR|Rts Trezor ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 RS|RTS TREZOR ⱽᴵᴾ ᴿᴬᵂ|Rts Trezor ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/45ba815827be0e33.png
 RS|RTS ZIVOT|Rts Zivot ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9566fd4d3f0bf9d8.png
 RS|RTS ŽIVOT ⱽᴵᴾ ᴿᴬᵂ|Rts Život ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9566fd4d3f0bf9d8.png
-RS|RTV  VOJVODINA 1|Rtv  Vojvodina 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb8fa84489b1126f.png
+RS|RTV  VOJVODINA 1|Rtv  Vojvodina 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_1/rt_vojvodina_1_weiss.png
 RS|RTV 101 ⱽᴵᴾ ᴿᴬᵂ|Rtv 101 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1982e9a5539c0e77.png
 RS|RTV NOVI PAZAR ⱽᴵᴾ ᴿᴬᵂ|Rtv Novi Pazar ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/65de1b84c7b0934f.png
-RS|RTV VOJVODINA 2|Rtv Vojvodina 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6b634926621eaf83.png
-RS|RTV VOJVODINA 2 HD|Rtv Vojvodina 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b611ad48c516a1c8.png
+RS|RTV VOJVODINA 2|Rtv Vojvodina 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_2/rt_vojvodina_2_weiss.png
+RS|RTV VOJVODINA 2 HD|Rtv Vojvodina 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rt_vojvodina_2/rt_vojvodina_2_weiss.png
 RS|SANDZAK TV|Sandzak Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1a780103bf89b215.png
 RS|SCI FI ⱽᴵᴾ ᴿᴬᵂ|Sci Fi ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c5ed9c8f97435532.png
 RS|SCIFI|Scifi ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cc1e57f7403bc07e.png

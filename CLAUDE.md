@@ -177,6 +177,11 @@ Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
   - `ARENA 1X2`/`ARENASPORT 1X2`/`ARENA SPORT 1X2` (jede Groß-/
     Kleinschreibung, mit/ohne Leerzeichen, jedes Land/Suffix wie
     ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) → `logos/arena_1x2/arena_1x2.png`
+  - `RT VOJVODINA 1`/`RTV VOJVODINA 1` bzw. `... 2` (jede Groß-/
+    Kleinschreibung, jedes Land/Suffix wie ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) →
+    `logos/rt_vojvodina_<N>/rt_vojvodina_<N>_weiss.png` (Version mit
+    weißem Hintergrund, damit die schwarze Schrift in TiviMate sichtbar
+    ist - NICHT die alten `rt_vojvodina_<N>.png` mit weißer Schrift)
 
 ## Architektur-Überblick
 
