@@ -12,6 +12,21 @@
 > und Fix dokumentiert. Bei neuen relevanten Erkenntnissen/Bugfixes: neuen
 > Abschnitt in `docs/HISTORIE.md` ergänzen (nicht in dieser Datei).
 
+## Modell-Vorgabe (STRENGE REGEL)
+
+- **Jede neue Session dieses Projekts MUSS mit dem Modell "Sonnet 5" und
+  Aufwandsstufe "Mittel" gestartet werden.** Das ist eine feste, dauerhafte
+  Vorgabe des Nutzers.
+- **Wichtige Einschränkung:** Diese Datei wird erst gelesen, NACHDEM eine
+  Session bereits mit einem bestimmten Modell gestartet ist - CLAUDE.md kann
+  die Modellwahl selbst nicht erzwingen (das entscheidet der Nutzer bzw. die
+  Umgebung beim Sessionstart, z. B. per `/model`). Diese Regel ist daher ein
+  Hinweis/Erinnerung: Stellt Claude zu Beginn einer Session fest, dass ein
+  anderes Modell als Sonnet 5 oder eine andere Aufwandsstufe als Mittel aktiv
+  ist, weist es den Nutzer kurz darauf hin und bittet ihn, mit `/model
+  claude-sonnet-5` (und ggf. der passenden Aufwandsstufe) neu zu starten -
+  Claude wechselt das Modell nicht eigenmächtig.
+
 ## Sprache
 
 - Claude antwortet in dieser Session **und in jeder neuen Session sofort und
