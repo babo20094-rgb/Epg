@@ -1,29 +1,44 @@
-"""Echte Programmdaten fuer MAGENTA SPORT PPV 1-18 - AUTOMATISCH fuer
-jeden "DE|MAGENTA SPORT PPV N HD/RAW"-Sender in sender.txt.
+"""Echte Programmdaten fuer MAGENTA SPORT PPV 1-18 / MYTEAM SPORT 1-18 -
+AUTOMATISCH fuer jeden "DE|MAGENTA SPORT PPV N HD/RAW"- ODER
+"DE|MYTEAM SPORT N HD"-Sender in sender.txt (beide Namensschemata
+bezeichnen dieselben 18 Kanaele, siehe unten).
 
 Hintergrund: Magentas eigene oeffentliche API (magenta_epg.py, MPX-Feed)
-fuehrt KEINE eigenen PPV-Kanaele - nur einen Basis-Kanal "MagentaSport"
-mit einem generischen "Programmübersicht"-Platzhalter alle 4h, keine
-echten Einzel-Event-Titel. Die Rohnamen dieser Sender in der eigenen
-IPTV-Playlist des Nutzers sind zudem komplett STATISCH (kein NEXT/LIVE/
-ENDED-Marker wie bei DYN PPV/DAZN PPV) - der `m3u_playlist_abgleichen()`-
-Live-Event-Mechanismus greift hier also strukturell nicht.
+fuehrt zwar KEINEN eigenen "MagentaSport"-Basiskanal mit Einzel-Event-
+Titeln (nur einen generischen "Programmübersicht"-Platzhalter alle 4h),
+seit September 2026 aber bestaetigt sehr wohl 18 eigene "Sport N -
+myTeamTV"-STATIONEN mit echten Team-vs-Team-Titeln (z.B. "LIVE: Kölner
+Haie - Eisbären Berlin") - dieselbe MPX-Feed-API, die auch die
+www.magenta.tv/tv-guide-Webseite selbst verwendet (Nutzerhinweis
+September 2026: Team-Namen fehlten im vorher genutzten epgshare01.online-
+Spiegel). Die Rohnamen dieser Sender in der eigenen IPTV-Playlist des
+Nutzers sind zudem komplett STATISCH (kein NEXT/LIVE/ENDED-Marker wie bei
+DYN PPV/DAZN PPV) - der `m3u_playlist_abgleichen()`-Live-Event-Mechanismus
+greift hier also strukturell nicht.
 
-Der oeffentliche, community-gepflegte XMLTV-Spiegel von epgshare01.online
-fuehrt Magentas PPV-Events stattdessen unter der Marke "myTeamTV" (die
-zugehoerige interne Magenta-Kanalgruppe: "Sport 1 - myTeamTV" bis "Sport
-18 - myTeamTV", Teil des allgemeinen DE1-Sammelfeeds
-`epg_ripper_DE1.xml.gz`, nicht ein eigener Feed) - Nummerierung 1-18
-entspricht exakt unseren "MAGENTA SPORT PPV N"-Sendern. Bestaetigt echte
-Daten (z.B. "Live: Champions Hockey League" auf Kanal 1).
+**Erster Versuch (bevorzugt): MPX-Feed-API direkt (via magenta_epg.py,
+"neu"-Quelle)** - liefert echte Team-vs-Team-Titel statt nur der
+Liga-/Wettbewerbsnamen. Kanalzuordnung ueber exakten Nummern-Vergleich
+gegen die "Sport N - myTeamTV"-Stationsnamen aus
+`magenta_hole_kanalliste()` (bereits modulweit gecacht, kein
+zusaetzlicher Netzwerk-Aufruf noetig, falls schon ein MAGENTA:-Sender im
+selben Lauf lief). Bewusst KEIN Fuzzy-/Kern-Abgleich wie bei
+`magenta_kanal_finden()` (das waere fuer automatisches, nicht Opt-in-
+Matching zu riskant) - nur exakter Nummern-Vergleich, kein
+Fehltreffer-Risiko.
 
-Genau wie bei plutotv_epg.py/sportklub_epg.py wird die komplette
-XMLTV-Datei nur EINMAL pro Lauf geladen (gefiltert auf die 18 Sport-N-
-myTeamTV-Kanaele, um den Speicherbedarf klein zu halten trotz des
-grossen Sammelfeeds), danach lokal gematcht ohne weitere Netzwerk-
-Aufrufe. Kanalzuordnung laeuft bewusst NICHT ueber Fuzzy-/Kern-Abgleich,
-sondern ueber einen exakten Nummern-Vergleich (Regex auf "MAGENTA SPORT
-PPV N") - kein Fehltreffer-Risiko.
+**Zweiter Versuch (Fallback, falls MPX nichts liefert): der oeffentliche,
+community-gepflegte XMLTV-Spiegel von epgshare01.online**, der Magentas
+PPV-Events ebenfalls unter der Marke "myTeamTV" fuehrt ("Sport 1 -
+myTeamTV" bis "Sport 18 - myTeamTV", Teil des allgemeinen DE1-
+Sammelfeeds `epg_ripper_DE1.xml.gz`) - liefert nur generische Liga-Titel
+ohne Teams (z.B. "Live: DEL"), aber immerhin noch echte Zeiten/
+Wettbewerbe, falls der MPX-Feed fuer diesen Kanal/Tag ausnahmsweise
+nichts hat. Genau wie bei plutotv_epg.py/sportklub_epg.py wird die
+komplette XMLTV-Datei nur EINMAL pro Lauf geladen (gefiltert auf die 18
+Sport-N-myTeamTV-Kanaele, um den Speicherbedarf klein zu halten trotz
+des grossen Sammelfeeds), danach lokal gematcht ohne weitere Netzwerk-
+Aufrufe.
 
 Degradiert nach dem gleichen Zero-Risk-Prinzip an JEDER Stelle graceful
 auf None/[]/leere Ergebnisse statt zu werfen: schlaegt der Download, das
@@ -42,6 +57,7 @@ import xml.etree.ElementTree as ET
 import threading
 import requests
 from quellen import _http
+from quellen.magenta_epg import magenta_hole_kanalliste, magenta_hole_programme
 
 URL = "https://epgshare01.online/epgshare01/epg_ripper_DE1.xml.gz"
 
@@ -63,9 +79,12 @@ HEADERS = {
     )
 }
 
-# "MAGENTA SPORT PPV N"/"MAGENTA SPORT PPV N HD/RAW" (eigene sender.txt-
-# Konvention) vs. "Sport N - myTeamTV" bei epgshare01.online.
-_SENDER_NUMMER_PATTERN = re.compile(r"^MAGENTA\s*SPORT\s*PPV\s*0*(\d+)", re.IGNORECASE)
+# "MAGENTA SPORT PPV N"/"MAGENTA SPORT PPV N HD/RAW" UND "MYTEAM SPORT N
+# HD" (beide eigene sender.txt-Konventionen fuer dieselben 18 Kanaele)
+# vs. "Sport N - myTeamTV" bei magenta.tv (MPX-Feed) UND epgshare01.online.
+_SENDER_NUMMER_PATTERN = re.compile(
+    r"^(?:MAGENTA\s*SPORT\s*PPV|MYTEAM\s*SPORT)\s*0*(\d+)", re.IGNORECASE
+)
 _KANAL_NUMMER_PATTERN = re.compile(r"^Sport\s*0*(\d+)\s*-\s*myTeamTV", re.IGNORECASE)
 
 
@@ -170,39 +189,75 @@ def _xmltv_zeit_parsen(text):
         return None
 
 
-def magenta_myteam_kanal_finden(kanalname):
-    """Sucht den myTeamTV-Kanal, der exakt zur sender.txt-Nummer
-    (MAGENTA SPORT PPV N) passt. Gibt die Kanal-ID zurueck oder None
-    (kein Fehltreffer-Risiko: nur exakter Nummern-Vergleich, kein
-    Fuzzy-Abgleich)."""
-    daten = _xml_laden()
-    if not daten or not daten["kanaele"]:
+def _mpx_kanal_finden(ziel_nummer):
+    """Sucht die "Sport N - myTeamTV"-Station mit passender Nummer in
+    der (modulweit gecachten) MPX-Kanalliste von magenta_epg.py. Gibt
+    die MPX-site_id zurueck oder None."""
+    try:
+        kanaele = magenta_hole_kanalliste()
+    except Exception:
+        return None
+    if not kanaele:
         return None
 
-    treffer = _SENDER_NUMMER_PATTERN.match(kanalname.strip())
-    if not treffer:
-        return None
-    ziel_nummer = treffer.group(1)
-
-    for kanal in daten["kanaele"]:
-        kanal_treffer = _KANAL_NUMMER_PATTERN.match(kanal["name"].strip())
+    for kanal in kanaele:
+        kanal_treffer = _KANAL_NUMMER_PATTERN.match((kanal.get("name") or "").strip())
         if kanal_treffer and kanal_treffer.group(1) == ziel_nummer:
             return kanal["site_id"]
 
     return None
 
 
-def magenta_myteam_hole_programme(site_id, tage=2):
-    """Liefert die bereits geladenen Programmdaten fuer den gegebenen
-    Kanal (site_id) aus dem Modul-Cache, begrenzt auf die naechsten
-    `tage` Tage ab heute (UTC). Leere Liste bei jedem Fehler oder wenn
-    keine Sendungen vorhanden sind. Der generische "myTeamTV: Momentan
-    kein Programm"-Platzhalter der Quelle selbst wird bewusst NICHT mehr
-    herausgefiltert (anders als frueher) - auf Nutzerwunsch soll bei
-    Leerlauf genau der Text erscheinen, den die Quelle selbst dafuer
-    liefert, statt eines selbst ausgedachten Ersatztextes."""
+def magenta_myteam_kanal_finden(kanalname):
+    """Sucht den myTeamTV-Kanal, der exakt zur sender.txt-Nummer
+    (MAGENTA SPORT PPV N ODER MYTEAM SPORT N) passt. Gibt ein Tupel
+    ("mpx"|"epgshare", site_id) zurueck oder None (kein Fehltreffer-
+    Risiko: nur exakter Nummern-Vergleich, kein Fuzzy-Abgleich). "mpx"
+    (magenta.tv MPX-Feed, echte Team-vs-Team-Titel) wird bevorzugt,
+    "epgshare" (epgshare01.online-Spiegel, nur generische Liga-Titel)
+    ist der Fallback, falls die MPX-Kanalliste fuer diese Nummer keinen
+    Treffer hat."""
+    treffer = _SENDER_NUMMER_PATTERN.match(kanalname.strip())
+    if not treffer:
+        return None
+    ziel_nummer = treffer.group(1)
+
+    mpx_site_id = _mpx_kanal_finden(ziel_nummer)
+    if mpx_site_id is not None:
+        return ("mpx", mpx_site_id)
+
+    daten = _xml_laden()
+    if not daten or not daten["kanaele"]:
+        return None
+
+    for kanal in daten["kanaele"]:
+        kanal_treffer = _KANAL_NUMMER_PATTERN.match(kanal["name"].strip())
+        if kanal_treffer and kanal_treffer.group(1) == ziel_nummer:
+            return ("epgshare", kanal["site_id"])
+
+    return None
+
+
+def magenta_myteam_hole_programme(kanal_ref, tage=2):
+    """Liefert Programmdaten fuer den gegebenen Kanal (Rueckgabewert von
+    magenta_myteam_kanal_finden()), begrenzt auf die naechsten `tage`
+    Tage ab heute (UTC). Leere Liste bei jedem Fehler oder wenn keine
+    Sendungen vorhanden sind."""
+    if not kanal_ref:
+        return []
+    quelle, site_id = kanal_ref
     if site_id is None:
         return []
+
+    if quelle == "mpx":
+        # MPX liefert kein eigenes <icon> je Sendung (siehe
+        # magenta_hole_programme()) - bleibt hier bewusst ohne
+        # nachtraeglich gesetztes Logo (anders als beim epgshare01-Zweig
+        # unten), kein Korrektheitsproblem, nur ein optisches Detail.
+        try:
+            return magenta_hole_programme({"quelle": "neu", "site_id": site_id}, tage)
+        except Exception:
+            return []
 
     daten = _xml_laden()
     if not daten:

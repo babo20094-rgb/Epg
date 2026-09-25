@@ -4312,20 +4312,21 @@ def _de_kaskade_abrufen(daten):
     koennten mehrere Threads gleichzeitig in xml_teile schreiben."""
     ergebnisse = []
 
-    # "MAGENTA SPORT PPV N"-Sender ueberspringen deswird.org/PlutoTV/
-    # tvmovie.de/hoerzu.de komplett und gehen direkt zu
-    # myTeamTV (siehe magenta_myteam_epg.py) - deswird.org matcht diese
-    # Sender sonst per unscharfem Abgleich faelschlich auf den voellig
-    # anderen, echten Basis-Kanal "MagentaSport" und liefert dessen
-    # generischen "MagentaSport Programmübersicht"-Platzhaltertext, der
-    # als "echter Treffer" durchgeht und myTeamTV nie zum Zug kommen
-    # laesst (Bug September 2026 behoben).
-    if re.match(r"^MAGENTA\s*SPORT\s*PPV\s*\d+", daten["sender"], re.IGNORECASE):
+    # "MAGENTA SPORT PPV N"/"MYTEAM SPORT N"-Sender (beide Namensschemata
+    # fuer dieselben 18 Kanaele, siehe magenta_myteam_epg.py) ueberspringen
+    # deswird.org/PlutoTV/tvmovie.de/hoerzu.de komplett und gehen direkt zu
+    # myTeamTV - deswird.org matcht diese Sender sonst per unscharfem
+    # Abgleich faelschlich auf den voellig anderen, echten Basis-Kanal
+    # "MagentaSport" und liefert dessen generischen "MagentaSport
+    # Programmübersicht"-Platzhaltertext, der als "echter Treffer"
+    # durchgeht und myTeamTV nie zum Zug kommen laesst (Bug September
+    # 2026 behoben).
+    if re.match(r"^(?:MAGENTA\s*SPORT\s*PPV|MYTEAM\s*SPORT)\s*\d+", daten["sender"], re.IGNORECASE):
         programme = []
         try:
-            myteam_site_id = magenta_myteam_kanal_finden(daten["sender"])
-            if myteam_site_id is not None:
-                programme = magenta_myteam_hole_programme(myteam_site_id, PLUTOTV_TAGE)
+            myteam_kanal_ref = magenta_myteam_kanal_finden(daten["sender"])
+            if myteam_kanal_ref is not None:
+                programme = magenta_myteam_hole_programme(myteam_kanal_ref, PLUTOTV_TAGE)
         except Exception:
             programme = []
 

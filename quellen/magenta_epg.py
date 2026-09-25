@@ -30,6 +30,7 @@ dieses Modul darf einen Lauf niemals zum Absturz bringen.
 from datetime import datetime, timedelta, timezone
 
 import re
+import threading
 import uuid
 
 import requests
@@ -73,6 +74,38 @@ _kanalliste_quelle = None
 
 # Cache fuer Login-Daten der alten API (nur einmal pro Lauf noetig).
 _alt_auth_cache = None
+
+# Programmdaten-Cache: {(quelle, site_id, tage): [...]}. Mehrere
+# sender.txt-Zeilen koennen auf DENSELBEN Magenta-Kanal zeigen (z.B.
+# "MAGENTA SPORT PPV 1 HD"/"... ᴿᴬᵂ"/"MYTEAM SPORT 1 HD" - drei Zeilen,
+# ein Kanal, siehe magenta_myteam_epg.py) - ohne diesen Cache wuerde
+# magenta_hole_programme() denselben Netzwerk-Abruf pro Zeile erneut
+# machen, statt das Ergebnis einmal pro Lauf zu teilen (Nutzeranfrage
+# September 2026, Performance).
+#
+# Locking bewusst PRO CACHE-SCHLUESSEL (nicht ein einzelner globaler
+# Lock wie beim Kanallisten-/XML-Cache in sportklub_epg.py/
+# magenta_myteam_epg.py): _de_kaskade_abrufen() in generate_epg.py ruft
+# mehrere Sender parallel aus verschiedenen Threads ab - ein einzelner
+# globaler Lock wuerde dabei AUCH Abrufe fuer voellig unterschiedliche
+# Kanaele unnoetig serialisieren, statt nur doppelte Abrufe fuer
+# DENSELBEN Kanal zu verhindern. _cache_lock schuetzt nur das kurze
+# Anlegen/Nachschlagen des jeweiligen Pro-Schluessel-Locks in
+# _cache_locks; der eigentliche (langsame) Netzwerk-Abruf laeuft dann
+# unter genau diesem einen Pro-Schluessel-Lock, waehrend andere Kanaele
+# weiterhin gleichzeitig abgerufen werden koennen.
+_programme_cache = {}
+_cache_lock = threading.Lock()
+_cache_locks = {}
+
+
+def _cache_lock_fuer(schluessel):
+    with _cache_lock:
+        lock = _cache_locks.get(schluessel)
+        if lock is None:
+            lock = threading.Lock()
+            _cache_locks[schluessel] = lock
+        return lock
 
 
 def _numerische_id(wert):
@@ -445,28 +478,41 @@ def magenta_hole_programme(kanal_ref, tage=2):
     kann trotzdem fehlschlagen - z.B. weil der Kanal keine Daten fuer den
     Tag hat). Liefert eine nach Startzeit sortierte Liste von {"title",
     "beschreibung", "bild", "start", "stop"} (UTC, tz-aware) - leere
-    Liste bei jedem Fehler oder wenn kanal_ref None/unvollstaendig ist."""
+    Liste bei jedem Fehler oder wenn kanal_ref None/unvollstaendig ist.
+    Wird pro (Quelle, Kanal, Tage)-Kombination nur EINMAL pro Lauf
+    tatsaechlich abgerufen (siehe _programme_cache oben) - mehrere
+    sender.txt-Zeilen fuer denselben Kanal teilen sich das Ergebnis."""
     if not kanal_ref or not kanal_ref.get("site_id"):
         return []
 
     quelle = kanal_ref.get("quelle")
     site_id = kanal_ref["site_id"]
+    cache_schluessel = (quelle, site_id, tage)
 
-    if quelle == "alt":
-        return _magenta_alt_programme(site_id, tage)
+    if cache_schluessel in _programme_cache:
+        return _programme_cache[cache_schluessel]
 
-    # Default/"neu": neue API zuerst versuchen.
-    programme = _magenta_neu_programme(site_id, tage)
-    if programme:
+    with _cache_lock_fuer(cache_schluessel):
+        # Erneut pruefen: ein anderer Thread koennte den Abruf fuer
+        # GENAU DIESEN Kanal bereits erledigt haben, waehrend dieser
+        # Thread auf den Pro-Schluessel-Lock wartete.
+        if cache_schluessel in _programme_cache:
+            return _programme_cache[cache_schluessel]
+
+        if quelle == "alt":
+            programme = _magenta_alt_programme(site_id, tage)
+        else:
+            # Default/"neu": neue API zuerst versuchen.
+            programme = _magenta_neu_programme(site_id, tage)
+            # Letzter Fallback: falls die alte API zufaellig denselben
+            # Kanal unter einer eigenen Kanalliste kennt, wird sie
+            # separat ueber ihre eigene Kanalsuche versucht - site_ids
+            # der beiden APIs sind NICHT kompatibel, daher hier ueber
+            # den Kanalnamen gar nicht moeglich ohne erneuten
+            # Namensabgleich. Da magenta_kanal_finden() bereits die alte
+            # API als Fallback nutzt, wenn die neue Kanalliste leer war,
+            # bleibt dieser Zweig bewusst leer (kein Cross-Match
+            # zwischen inkompatiblen site_id-Formaten).
+
+        _programme_cache[cache_schluessel] = programme
         return programme
-
-    # Letzter Fallback: falls die alte API zufaellig denselben Kanal
-    # unter einer eigenen Kanalliste kennt, wird sie separat ueber ihre
-    # eigene Kanalsuche versucht - site_ids der beiden APIs sind NICHT
-    # kompatibel, daher hier ueber den Kanalnamen gar nicht moeglich
-    # ohne erneuten Namensabgleich. Da magenta_kanal_finden() bereits
-    # die alte API als Fallback nutzt, wenn die neue Kanalliste leer
-    # war, bleibt dieser Zweig bewusst leer (kein Cross-Match zwischen
-    # inkompatiblen site_id-Formaten) - kanal_ref["quelle"] == "alt"
-    # wird bereits oben separat behandelt.
-    return []

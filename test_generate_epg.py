@@ -1510,21 +1510,28 @@ def _magenta_myteam_xml_response():
 
 def test_magenta_myteam_findet_ppv1_nicht_faelschlich_ppv10(_magenta_myteam_cache_zuruecksetzen):
     """Regressionstest: 'MAGENTA SPORT PPV 1' darf nicht auf 'Sport 10 -
-    myTeamTV' matchen (Nummern-Praefix-Kollision)."""
-    with patch("quellen.magenta_myteam_epg.requests.get", return_value=_magenta_myteam_xml_response()):
-        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD") == "Sport.1.-.myTeamTV.de"
-        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 10 HD") == "Sport.10.-.myTeamTV.de"
+    myTeamTV' matchen (Nummern-Praefix-Kollision). MPX-Kanalliste wird
+    hier bewusst leer gemockt, damit der (fuer diesen Test irrelevante)
+    epgshare01-Fallback-Zweig geprueft wird."""
+    with patch("quellen.magenta_myteam_epg.magenta_hole_kanalliste", return_value=[]), \
+         patch("quellen.magenta_myteam_epg.requests.get", return_value=_magenta_myteam_xml_response()):
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD") == ("epgshare", "Sport.1.-.myTeamTV.de")
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 10 HD") == ("epgshare", "Sport.10.-.myTeamTV.de")
         assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 99 HD") is None
         assert magenta_myteam_epg.magenta_myteam_kanal_finden("RTL HD") is None
+        # "MYTEAM SPORT N" ist dasselbe Namensschema wie "MAGENTA SPORT
+        # PPV N" (dieselben 18 Kanaele, siehe Moduldocstring).
+        assert magenta_myteam_epg.magenta_myteam_kanal_finden("MYTEAM SPORT 1 HD") == ("epgshare", "Sport.1.-.myTeamTV.de")
 
 
 def test_magenta_myteam_erfolgreicher_abruf_liefert_echte_sendungen_inkl_platzhalter(_magenta_myteam_cache_zuruecksetzen):
-    with patch("quellen.magenta_myteam_epg.requests.get", return_value=_magenta_myteam_xml_response()):
-        site_id = magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD")
-        programme = magenta_myteam_epg.magenta_myteam_hole_programme(site_id, tage=365)
+    with patch("quellen.magenta_myteam_epg.magenta_hole_kanalliste", return_value=[]), \
+         patch("quellen.magenta_myteam_epg.requests.get", return_value=_magenta_myteam_xml_response()):
+        kanal_ref = magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD")
+        programme = magenta_myteam_epg.magenta_myteam_hole_programme(kanal_ref, tage=365)
 
-        leer_site_id = magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 10 HD")
-        leer_programme = magenta_myteam_epg.magenta_myteam_hole_programme(leer_site_id, tage=365)
+        leer_kanal_ref = magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 10 HD")
+        leer_programme = magenta_myteam_epg.magenta_myteam_hole_programme(leer_kanal_ref, tage=365)
 
     assert len(programme) == 1
     assert programme[0]["title"] == "Live: Champions Hockey League"
@@ -1541,9 +1548,10 @@ def test_magenta_myteam_kaputtes_gzip_gibt_none_statt_exception(_magenta_myteam_
     kaputte_response.status_code = 200
     kaputte_response.content = b"kein gueltiges gzip/xml"
     kaputte_response.raise_for_status = lambda: None
-    with patch("quellen.magenta_myteam_epg.requests.get", return_value=kaputte_response):
+    with patch("quellen.magenta_myteam_epg.magenta_hole_kanalliste", return_value=[]), \
+         patch("quellen.magenta_myteam_epg.requests.get", return_value=kaputte_response):
         assert magenta_myteam_epg.magenta_myteam_kanal_finden("MAGENTA SPORT PPV 1 HD") is None
-        assert magenta_myteam_epg.magenta_myteam_hole_programme("Sport.1.-.myTeamTV.de") == []
+        assert magenta_myteam_epg.magenta_myteam_hole_programme(("epgshare", "Sport.1.-.myTeamTV.de")) == []
 
 
 # ==========================================================

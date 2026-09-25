@@ -5978,6 +5978,88 @@ nur fuer die konkret bestaetigten Faelle. Vor Umsetzung unbedingt
 im Abschnitt "HR|SK->HR|SPORT KLUB-Umbenennung" oben zu hart an alte
 Schreibweisen gekoppelten Fuzzy-Match-Sicherungen).
 
+## 25.09.2026: MAGENTA SPORT PPV/MYTEAM SPORT zeigen jetzt echte Team-Namen (MPX-Feed statt nur epgshare01-Spiegel)
+
+Der Nutzer meldete, dass Magenta-Sport-Sender im EPG-Raster nur noch
+generische Wettbewerbsnamen zeigen ("Live: Euroleague"/"Live: DEL") statt
+der eigentlichen Team-Paarung, und verwies auf `www.magenta.tv/tv-guide`
+als Beleg, dass es dort echte Daten gibt.
+
+**Ursache:** Die bisher genutzte Quelle (`magenta_myteam_epg.py`, siehe
+Abschnitt "MAGENTA SPORT PPV 1-18" weiter oben) liest den oeffentlichen
+epgshare01.online-Sammelfeed - dessen "Sport N - myTeamTV"-Eintraege
+fuehren im `<title>` nachweislich NUR den Wettbewerb, nie die Teams (per
+direktem Rohdaten-Abgleich verifiziert: `<title>Live: DEL</title>`,
+`<desc>Die Deutsche Eishockey Liga ist die höchste Spielklasse...</desc>`
+- keine Team-Info in irgendeinem Feld). Kein Bug in unserem Code, reine
+Beschraenkung dieser einen Quelle.
+
+**Analyse von magenta.tv/tv-guide:** Die Webseite ist eine SPA, laedt ihr
+Programm aber ueber dieselbe MPX-Feed-API (theplatform.eu), die
+`magenta_epg.py` fuer das Opt-in-Praefix `MAGENTA:` schon lange nutzt.
+Live geprueft: `_magenta_neu_kanalliste()` (magenta_epg.py) fuehrt bereits
+alle 18 "Sport N - myTeamTV"-Stationen als EIGENE Kanaele (nicht nur den
+einen generischen "MagentaSport"-Basiskanal), und
+`_magenta_neu_programme()` liefert fuer diese Stationen echte Team-vs-
+Team-Titel, z.B. "LIVE: Straubing Tigers - ERC Ingolstadt" oder "LIVE:
+Anadolu Efes Istanbul - Real Madrid" - exakt das, was vorher fehlte.
+
+**Fix:** `magenta_myteam_epg.py` versucht jetzt ZUERST die MPX-Feed-API
+(ueber `magenta_hole_kanalliste()`/`magenta_hole_programme()` aus
+`magenta_epg.py`, exakter Nummern-Vergleich gegen die "Sport N -
+myTeamTV"-Stationsnamen, bewusst OHNE den fuer Opt-in-Sender gedachten
+Fuzzy-Abgleich `magenta_kanal_finden()` - kein Fehltreffer-Risiko fuer
+automatisches Matching) und faellt nur bei leerem MPX-Ergebnis auf den
+bisherigen epgshare01-Spiegel zurueck (Redundanz, falls die MPX-API mal
+fuer einen Kanal/Tag nichts liefert). `magenta_myteam_kanal_finden()`
+gibt dafuer jetzt ein Tupel `("mpx"|"epgshare", site_id)` statt einer
+blossen site_id-Zeichenkette zurueck; `magenta_myteam_hole_programme()`
+entsprechend angepasst. Bestehende Tests in `test_generate_epg.py`
+aktualisiert (MPX-Kanalliste wird dort bewusst leer gemockt, um weiterhin
+gezielt den epgshare01-Fallback-Zweig zu pruefen).
+
+**Zusaetzlich (Nutzeranfrage):** Das zweite Namensschema
+`DE|MYTEAM SPORT N HD` (dieselben 18 Kanaele, andere sender.txt-
+Konvention, bisher NICHT erkannt) wird jetzt ebenfalls automatisch
+erkannt (`_SENDER_NUMMER_PATTERN` erweitert), inklusive dem Umleiten der
+deswird.org/PlutoTV/tvmovie.de/hoerzu.de-Kaskade direkt zu myTeamTV
+(gleicher Fix wie schon fuer "MAGENTA SPORT PPV N", siehe
+`generate_epg.py`, Kommentar "MAGENTA SPORT PPV N"/"MYTEAM SPORT N"-
+Sender ... ueberspringen deswird.org/PlutoTV/..."). Die vom Nutzer
+zusaetzlich erwaehnte Kategorie "MAGENTA RAW GOLD" hat in sender.txt
+keine eigenen Zeilen - gemeint sind die bereits bestehenden
+`DE|MAGENTA SPORT PPV N ᴿᴬᵂ`-Zeilen (RAW-Suffix-Variante derselben 18
+Kanaele), die vom bestehenden Nummern-Regex ohnehin schon mit abgedeckt
+werden.
+
+Live verifiziert: `MAGENTA SPORT PPV 1/4/18 HD`, `MAGENTA SPORT PPV 1
+ᴿᴬᵂ` und `MYTEAM SPORT 2 HD` finden alle den passenden MPX-Kanal und
+liefern echte Team-vs-Team-Sendungen, sobald ein Spiel angesetzt ist
+(sonst weiterhin der generische "myTeamTV: Momentan kein Programm"-Text
+der Quelle selbst, wie gewuenscht unveraendert). `python3 -m pytest
+test_generate_epg.py` weiterhin 96/96 gruen.
+
+**Performance-Nachtrag (gleicher Tag, Nutzeranfrage):** Da mehrere
+sender.txt-Zeilen auf denselben MPX-Kanal zeigen koennen (z.B. "MAGENTA
+SPORT PPV 1 HD"/"... ᴿᴬᵂ"/"MYTEAM SPORT 1 HD" - drei Zeilen, ein Kanal),
+loeste `magenta_hole_programme()` in `magenta_epg.py` denselben
+Netzwerk-Abruf bisher pro Zeile erneut aus (kein Cache). Neuer
+Programmdaten-Cache `{(quelle, site_id, tage): [...]}` behebt das: der
+tatsaechliche Abruf passiert nur noch EINMAL pro Kanal/Lauf, alle
+weiteren Zeilen fuer denselben Kanal bekommen das bereits geladene
+Ergebnis. Locking bewusst PRO CACHE-SCHLUESSEL (ein Lock je (quelle,
+site_id, tage)-Kombination, dynamisch angelegt in `_cache_locks`) statt
+eines einzelnen globalen Locks wie bei den bestehenden Feed-weiten
+Caches (sportklub_epg.py/magenta_myteam_epg.py) - ein globaler Lock
+wuerde sonst auch Abrufe fuer voellig UNTERSCHIEDLICHE Kanaele
+unnoetig serialisieren, obwohl `_de_kaskade_abrufen()` in
+generate_epg.py bewusst mehrere Sender parallel aus verschiedenen
+Threads abruft. Live verifiziert: 3 sender.txt-Zeilen fuer denselben
+Kanal ("MAGENTA SPORT PPV 1 HD"/"... ᴿᴬᵂ"/"MYTEAM SPORT 1 HD") lösen
+nur noch einen einzigen echten Abruf aus (`len(_programme_cache) == 1`
+nach allen drei Aufrufen). `python3 -m pytest test_generate_epg.py`
+weiterhin 96/96 gruen.
+
 ## 25.09.2026: Arena-Sport HR/RS/BA-Vertauschung umgesetzt (8 konkret bestaetigte Sender) + Sport-Klub-Fall war bereits geloest
 
 Der Nutzer hat die im Abschnitt oben ("GEPLANT...") geforderte konkrete
