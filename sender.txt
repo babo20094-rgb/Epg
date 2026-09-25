@@ -3937,8 +3937,8 @@ RS|TV PALMA PLUS ⱽᴵᴾ ᴿᴬᵂ|Tv Palma Plus ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ
 RS|TV PARTIZAN ⱽᴵᴾ ᴿᴬᵂ|Tv Partizan ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d54ca9f270b7a2cb4a98f8efd8fe16fe4f7525b3.png
 RS|TV TANJUG ⱽᴵᴾ ᴿᴬᵂ|Tv Tanjug ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f878efb83063f84a.png
 RS|TV TRSTENIK ⱽᴵᴾ ᴿᴬᵂ|Tv Trstenik ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8bbbb855569d88f0.png
-RS|VIASAT KINO|Viasat Kino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/viasat_kino/viasat_kino.png
-RS|VIASAT KINO ⱽᴵᴾ ᴿᴬᵂ|Viasat Kino ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/viasat_kino/viasat_kino.png
+RS|TV1000|Viasat Kino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/viasat_kino/viasat_kino.png
+RS|TV1000 ⱽᴵᴾ ᴿᴬᵂ|Viasat Kino ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/viasat_kino/viasat_kino.png
 RS|VESTI ⱽᴵᴾ ᴿᴬᵂ|Vesti ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/306e218b59fc1889.png
 RS|VIASAT EXPLORE|Viasat Explore ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/293c67b6c66ba5f5.png
 RS|VIASAT NATURE|Viasat Nature ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/55c669b439828851.png

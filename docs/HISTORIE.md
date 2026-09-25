@@ -6478,3 +6478,46 @@ lokale Simulation (Code + aktuelle Playlist) ergab 0 fehlende IDs, alle
   Varianten aus (`_SONDER_LEERRAUM`/`_UNSICHTBARE_ZEICHEN`). Rein
   additiv (+18 IDs, 0 verloren). Ob genau das die 3 waren, ist NICHT
   verifiziert - nach dem naechsten Lauf Zaehlung in TiviMate pruefen.
+
+### 25.09.2026: Erneut "18.908 von 18.911" gemeldet - diesmal verifiziert geloest (Ursache: eigener TV1000->VIASAT-KINO-Rename-Fehler)
+
+Der Nutzer meldete erneut exakt denselben Zaehlerstand. Diesmal per
+Xtream-Codes-API-Zugangsdaten (vom Nutzer direkt gegeben, temporaer
+verwendet und danach geloescht) exakt nach der oben beschriebenen
+Methode nachgestellt: `get_live_streams` (18.911 Kanaele), lokale M3U
+gebaut, `generate_epg.py` per Zeilen-Slice (1 bis kurz vor "# DYN
+LEERZEITEN", exakt wie beim 49er-Fix oben) mit `PROVIDER` auf die
+lokale M3U ausgefuehrt, alle geschriebenen `<channel id>`-Werte
+(HTML-entity-dekodiert) gegen alle 18.911 Playlist-Namen abgeglichen.
+
+**Ursache (diesmal eindeutig, nicht nur Verdacht):** GENAU 2 fehlende
+Namen, beide `RS| TV1000` bzw. `RS| TV1000 ⱽᴵᴾ ᴿᴬᵂ` - Ursache war die
+eigene Umbenennung von `RS|TV1000` zu `RS|VIASAT KINO` in sender.txt
+weiter oben in dieser Session (siehe Abschnitt "RS|TV1000 zu VIASAT
+KINO umbenannt..."). Dabei wurde die komplette sender.txt-Zeile
+umbenannt, also auch die `<channel id>` - der Anbieter selbst hat den
+rohen Playlist-Namen aber nie geaendert, TiviMate matcht weiterhin
+gegen "TV1000". **Exakt derselbe Bug-Typ wie beim Arena-Sport-Plan**
+(siehe Abschnitt "GEPLANT: Arena-Sport/Sport-Klub HR/RS-Vertauschung"):
+bei einer reinen Fehlbenennung durch den Anbieter darf die `<channel
+id>` NIE angefasst werden, nur Programmdaten/Anzeigename duerfen sich
+aendern.
+
+**Fix:** `sender.txt` auf `RS|TV1000`/`RS|TV1000 ⱽᴵᴾ ᴿᴬᵂ` als
+`<channel id>` zurueckgesetzt (Beschreibungsfeld "Viasat Kino ᴸⁱᵛᵉ" und
+Logo bleiben). Echte Viasat-Kino-Programmdaten bleiben automatisch
+erhalten, da `viasatkino_kanal_finden()` (siehe eigener Abschnitt weiter
+oben) "TV1000" von Anfang an bewusst als Alias mitfuehrt - genau fuer
+diesen Fall gebaut. Nach dem Fix: 0 von 18.911 Playlist-Namen fehlen
+(vorher exakt 2, identisch zu den oben genannten). Die dritte, in
+TiviMate schwankend gemeldete Nummer bleibt vermutlich der bekannte,
+prinzipbedingte Dynamik-Kanal-Effekt (siehe "Grenze" oben) - kein
+weiterer Handlungsbedarf ohne neue Evidenz.
+
+**Lehre fuer kuenftige Umbenennungswuensche ("Sender X ist eigentlich
+Y"):** Bevor eine sender.txt-Zeile umbenannt wird, IMMER pruefen, ob es
+sich um eine reine Fehlbenennung durch den Anbieter handelt (dann
+NUR Datenquelle/Anzeigename aendern, ID behalten - wie beim Arena-Sport-
+Plan) oder um einen wirklich neuen/unbekannten Sender ohne bestehende
+automatische Zuordnung (dann darf die ID sich aendern). Im Zweifel
+lieber fragen statt die ID vorschnell zu aendern.
