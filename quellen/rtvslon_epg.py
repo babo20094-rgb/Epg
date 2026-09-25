@@ -145,8 +145,14 @@ def rtvslon_hole_programme(tage=7):
             "title": eintrag["title"],
             "beschreibung": eintrag["beschreibung"],
             "bild": None,
-            "start": eintrag["start"],
-            "stop": stop,
+            # Nach UTC konvertieren, nicht Europe/Sarajevo belassen -
+            # generate_epg.py haengt beim Schreiben nur "+0000" an die
+            # (dann noch lokale) Uhrzeit an, statt sie umzurechnen - ohne
+            # diese Konvertierung landen alle Sendungen 1-2h zu spaet im
+            # EPG (gleicher Bug wie bei tvmovie_epg.py, September 2026,
+            # siehe docs/HISTORIE.md).
+            "start": eintrag["start"].astimezone(ZoneInfo("UTC")),
+            "stop": stop.astimezone(ZoneInfo("UTC")),
         })
 
     return ergebnis

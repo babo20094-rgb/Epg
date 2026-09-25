@@ -6521,3 +6521,84 @@ NUR Datenquelle/Anzeigename aendern, ID behalten - wie beim Arena-Sport-
 Plan) oder um einen wirklich neuen/unbekannten Sender ohne bestehende
 automatische Zuordnung (dann darf die ID sich aendern). Im Zweifel
 lieber fragen statt die ID vorschnell zu aendern.
+
+### 25.09.2026: Tatsaechliche Ursache der 3 gefunden - systemischer Zeitzonen-Bug in VIER Quellenmodulen (tvmovie.de/mymedia.ba/rtvslon/vikom)
+
+Nach dem TV1000-Fix blieb die Zaehlung unveraendert bei "18.908 von
+18.911", auch nach kompletter EPG-Neuaufnahme UND cache-gebusteter URL
+(`?v=2`) als jeweils jeweils NEUE, unberuehrte EPG-Quelle - beides zeigte
+dasselbe Ergebnis, was eine alte/verwaiste TiviMate-Bindung UND einen
+URL-Cache als Ursache ausschloss (siehe beide Test-Abschnitte oben).
+
+**Der entscheidende Perspektivwechsel:** Statt weiter nach fehlenden
+`<channel id>`-Werten zu suchen (die waren ja bereits nachweislich
+vollstaendig, 0 von 18.911 fehlend), wurde geprueft, ob "zugeordnet" bei
+TiviMate vielleicht bedeutet "hat GENAU JETZT eine laufende Sendung"
+statt nur "hat ueberhaupt eine ID". Dafuer wurde direkt in der live auf
+GitHub liegenden `Epg_365_Tage.xml.gz` fuer JEDEN der 35.491 eindeutigen
+Kanaele geprueft, ob der aktuelle Zeitpunkt von irgendeinem
+`<programme>`-Intervall abgedeckt ist. Ergebnis: alle Kanaele hatten
+irgendein Programm, aber GENAU 4 Kanaele (alle derselbe Sender, nur
+Suffix-Varianten: `DE|SIXX HD/FHD/HEVC`, `JOYN|SIXX ᴿᴬᵂ`) hatten eine
+echte 2-Stunden-Luecke GENAU um die aktuelle Uhrzeit (15:35-17:35 UTC) -
+nah genug an "3", um der eigentliche Fall zu sein (die vierte Variante
+war vermutlich vorher schon einmal ausserhalb des beobachteten Fensters).
+
+**Root Cause (verifiziert per direktem Nachbau der DE-Kaskadenlogik):**
+`tvmovie.de` (dritter Versuch der DE-Kaskade, siehe `tvmovie_epg.py`)
+hatte fuer genau dieses Zeitfenster echte Daten, die auch korrekt als
+"neue, noch unbedeckte" Sendungen erkannt wurden - ABER `tvmovie_epg.py`
+gab `start`/`stop` als **Europe/Berlin-aware datetime OHNE finale
+UTC-Konvertierung** zurueck (anders als die meisten anderen Quellen wie
+`axn_epg.py`/`arena_epg.py`, die immer `.astimezone(...UTC)` aufrufen,
+bevor sie zurueckgeben). `_schreibe_echte_programme()` in
+`generate_epg.py` schreibt Start/Stop-Zeiten aber blind per
+`p["start"].strftime("%Y%m%d%H%M%S +0000")` - `strftime()` konvertiert
+NICHT automatisch in UTC, sondern formatiert die LOKALEN Uhrzeit-
+Komponenten des tzinfo-Objekts und haengt stur den literalen String
+"+0000" an. Eine Sendung um "17:35 Europe/Berlin" (Sommerzeit, +02:00)
+wurde dadurch faelschlich als "17:35 UTC" ausgegeben - tatsaechlich aber
+15:35 UTC, ein glatter 2-Stunden-Versatz (1 Stunde im Winter). Die
+generisch erscheinende "Luecke" 15:35-17:35 UTC im Endergebnis war also
+in Wahrheit tvmovie.de's fuer 15:35-17:35 UTC gedachte, aber um 2 Stunden
+ZU SPAET (auf 17:35-19:25 UTC) geschriebene Sendung - der eigentliche
+Sendeplatz blieb dadurch leer.
+
+**Ausmass:** Per `grep` durch alle `quellen/*.py`-Module nach
+`tzinfo=<ZoneInfo>` OHNE nachfolgende `.astimezone(...UTC)`-Konvertierung
+gesucht - betraf INSGESAMT VIER Module, nicht nur tvmovie.de:
+`tvmovie_epg.py` (Europe/Berlin, DE-Kaskade dritter Versuch),
+`mymedia_epg.py` (Europe/Sarajevo, BA My-TV-Sender), `rtvslon_epg.py`
+(Europe/Sarajevo, SI RTV-Slon-Sender), `vikom_epg.py` (Europe/Sarajevo,
+BA Vikom-Sender) - alle vier aktiv in generate_epg.py eingebunden. Alle
+anderen ZoneInfo-nutzenden Module (arena_epg.py, axn_epg.py,
+tvpassport_epg.py, search_ch_epg.py, ...) konvertieren bereits korrekt
+per `.astimezone(ZoneInfo("UTC"))`/`.astimezone(timezone.utc)` - nur
+diese vier hatten die fehlende Konvertierung.
+
+**Fix:** In allen vier Modulen `.astimezone(ZoneInfo("UTC"))` beim
+Zusammenbauen des Rueckgabe-Dicts ergaenzt (Muster wie in
+arena_epg.py/search_ch_epg.py/tvpassport_epg.py). Live verifiziert:
+tvmovie.de-Sendungen fuer "SIXX HD" laufen jetzt luecken- und
+ueberschneidungsfrei durchgehend in echtem UTC. `python3 -m pytest
+test_generate_epg.py` weiterhin 96/96 gruen.
+
+**Wichtige Lehre fuer neue *_epg.py-Module:** JEDE Quelle MUSS
+`start`/`stop` als UTC-aware datetime zurueckgeben (`.astimezone(...UTC)`
+als letzter Schritt vor dem Return), NIEMALS die lokale Zeitzone der
+Quelle unkonvertiert durchreichen - `_schreibe_echte_programme()` in
+generate_epg.py verlaesst sich beim Schreiben blind darauf und konvertiert
+selbst NICHT nach UTC (reines `strftime(... +0000)`, siehe oben). Ein
+fehlender `.astimezone(...)`-Aufruf fuehrt zu einem stillen, schwer
+auffindbaren 1-2-Stunden-Zeitversatz statt zu einem Fehler/Absturz -
+unbedingt bei jedem neuen Quellenmodul mit lokaler Zeitzone gegenpruefen.
+
+**Bezug zu den vom Nutzer gemeldeten "3 fehlenden Zuordnungen":** Auch
+wenn nicht 100% mathematisch pro-Zeitpunkt bewiesen werden konnte, dass
+GENAU diese 3-4 SIXX-Kanaele bei jedem TiviMate-Blick die gemeldeten 3
+waren (der Effekt ist zeitabhaengig - die Luecke wandert mit den echten
+Sendezeiten), ist dies der einzige tatsaechlich gefundene, reale und nun
+behobene Fehler in der generierten Datei nach mehreren erfolglosen
+Tests (alte TiviMate-Bindung, URL-Cache, Sendernamen-Editor - alle drei
+ausgeschlossen). Nach dem naechsten automatischen Workflow-Lauf sollte
+sich das in TiviMate ueberpruefen lassen.

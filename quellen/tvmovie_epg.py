@@ -197,8 +197,17 @@ def _sendung_parsen(anker):
         "title": titel,
         "beschreibung": " / ".join(genre_teile),
         "bild": None,
-        "start": start,
-        "stop": stop,
+        # Nach UTC konvertieren (nicht nur Europe/Berlin belassen) -
+        # generate_epg.py schreibt start/stop ueber ein blosses
+        # strftime("... +0000") ohne eigene Konvertierung, das haengt bei
+        # einem nicht-UTC-tzinfo-Objekt einfach "+0000" an die LOKALE
+        # Uhrzeit an, statt sie umzurechnen. Ohne diese Konvertierung
+        # HIER landen alle tvmovie.de-Sendungen 1-2 Stunden (je nach
+        # Sommer-/Winterzeit) zu spaet im generierten EPG - entdeckt
+        # September 2026 an "DE|SIXX HD/FHD/HEVC" (2 Stunden Luecke
+        # genau zur aktuellen Uhrzeit, siehe docs/HISTORIE.md).
+        "start": start.astimezone(ZoneInfo("UTC")),
+        "stop": stop.astimezone(ZoneInfo("UTC")),
     }
 
 

@@ -165,8 +165,14 @@ def mymedia_hole_programme(tage=3):
                 "title": eintrag["title"],
                 "beschreibung": eintrag["beschreibung"],
                 "bild": None,
-                "start": start,
-                "stop": stop,
+                # Nach UTC konvertieren, nicht Europe/Sarajevo belassen -
+                # generate_epg.py haengt beim Schreiben nur "+0000" an die
+                # (dann noch lokale) Uhrzeit an, statt sie umzurechnen -
+                # ohne diese Konvertierung landen alle Sendungen 1-2h zu
+                # spaet im EPG (gleicher Bug wie bei tvmovie_epg.py,
+                # September 2026, siehe docs/HISTORIE.md).
+                "start": start.astimezone(ZoneInfo("UTC")),
+                "stop": stop.astimezone(ZoneInfo("UTC")),
             })
 
     ergebnis.sort(key=lambda s: s["start"])
