@@ -5901,6 +5901,8 @@ Code, abhaengig von der tagesaktuellen Auslastung externer Quellen
 Schwankungsbreite als Normalzustand akzeptiert und nicht vorschnell
 einer einzelnen Code-Aenderung zugeschrieben werden.
 
+## UMGESETZT (25.09.2026, siehe Abschnitt weiter unten): Arena-Sport/Sport-Klub HR/RS-Vertauschung ueber Daten-Remapping statt ID-Alias geloest
+
 ## GEPLANT (noch nicht umgesetzt): Arena-Sport/Sport-Klub HR/RS-Vertauschung ueber Daten-Remapping statt ID-Alias loesen
 
 **Ausgangslage:** Bei manchen Arena-Sport-/Sport-Klub-Nummern benennt
@@ -5975,6 +5977,76 @@ nur fuer die konkret bestaetigten Faelle. Vor Umsetzung unbedingt
 `grep -rn` durch alle betroffenen `quellen/*.py`-Module (siehe Lehre
 im Abschnitt "HR|SK->HR|SPORT KLUB-Umbenennung" oben zu hart an alte
 Schreibweisen gekoppelten Fuzzy-Match-Sicherungen).
+
+## 25.09.2026: Arena-Sport HR/RS/BA-Vertauschung umgesetzt (8 konkret bestaetigte Sender) + Sport-Klub-Fall war bereits geloest
+
+Der Nutzer hat die im Abschnitt oben ("GEPLANT...") geforderte konkrete
+Liste geliefert - pro Sender exakt Land + Sendername inkl. Suffix
+(HD/FHD/kein Suffix), da mehrere gleiche Nummern mit unterschiedlichen
+Suffixen existieren und nur die genannten Suffix-Varianten betroffen
+sind.
+
+**Sport-Klub-Teil der Anfrage (RS|SPORT KLUB 1-9 -> HR|SPORT KLUB 1-9):
+KEIN Code-Fix noetig, bereits automatisch korrekt.** Live geprueft:
+`sportklub_kanal_finden()` (siehe SportKlub-Abschnitt weiter oben)
+matcht JEDE "SPORT KLUB N"-Schreibweise (mit/ohne HD/FHD-Suffix, N=1-9)
+bereits gegen die kroatischen sportklub.hr-Kanaele (`SK.N.HD.(HR).ba`
+o.ae.) - `mts_kanal_finden()` filtert "SPORT KLUB"-Namen von vornherein
+komplett aus (`_SPORT_KLUB_GUARD`), sodass ausschliesslich die
+kroatische SportKlub-Quelle greift. Alle RS|SPORT KLUB 1-9-Sender
+bekommen also unabhaengig vom Suffix schon seit dem SportKlub-Fix
+(siehe Abschnitt "Sport Klub HR" oben) automatisch echte kroatische
+Daten.
+
+**Arena-Sport-Teil: 8 Sender umgebogen, neue zentrale Override-Tabelle
+`_ARENA_QUELLEN_UEBERSCHREIBUNG` in `generate_epg.py`** (Key: exaktes
+`(Land, SENDERNAME-GROSSGESCHRIEBEN-INKL-SUFFIX)`-Tupel, Value:
+Zielquelle):
+
+- `HR|ARENA SPORT 2 HD` -> Telemach BA "ARENA SPORT 2 HD" (site_id 2134)
+- `RS|ARENA SPORT 4 HD` -> Telemach BA "ARENA SPORT 4 HD" (site_id 2132)
+- `RS|ARENA SPORT 2 HD` -> Arena HR "ARENA SPORT 2 HD" (site_id 02)
+- `RS|ARENA SPORT 3 FHD` -> Arena HR "ARENA SPORT 3 FHD" (site_id 03)
+- `RS|ARENA SPORT 4 FHD` -> Arena HR "ARENA SPORT 4 FHD" (site_id 04)
+- `RS|ARENA SPORT 5` (OHNE Suffix, NICHT die zusaetzlich bestehende
+  "RS|ARENA SPORT 5 FHD"-Zeile) -> Arena HR "ARENA SPORT 5" (site_id 05)
+- `RS|ARENA SPORT 6 FHD` -> Arena HR "ARENA SPORT 6 FHD" (site_id 06)
+- `RS|ARENA SPORT 7 HD` -> Arena HR "ARENA SPORT 7 HD" (site_id 07)
+
+**Technische Umsetzung (wie im GEPLANT-Abschnitt oben beschrieben):**
+die sender.txt-Zeilen/`<channel id>` bleiben UNVERAENDERT - nur die drei
+Abrufschritte, die diese Sender normalerweise mit ihrer (falschen)
+Landesquelle befuellen wuerden, pruefen jetzt zuerst die Override-
+Tabelle:
+- `_mts_arena_abrufen()` (RS-Arena-Fallback, dritter Versuch in der
+  RS-Kaskade) - fuer die 6 "RS -> HR"-Faelle.
+- `_a1_abrufen()` (A1, ERSTER Versuch der HR-Kaskade) - gibt fuer
+  ueberschriebene HR-Sender bewusst SOFORT `[]` zurueck (kein A1-Abruf),
+  damit A1 nicht VOR dem eigentlichen Override-Schritt die falsche
+  native Quelle schreibt.
+- `_mojmaxtv_abrufen()` (MojMaxTV, zweiter Versuch der HR-Kaskade) -
+  loest hier den eigentlichen Override fuer `HR|ARENA SPORT 2 HD` auf
+  (Telemach BA).
+Alle drei nutzen die gemeinsame Hilfsfunktion
+`_arena_ueberschreibung_abrufen(daten, tage)`, die `(True, programme)`
+liefert (auch mit `programme=[]` bei Netzwerkfehler - dann NICHT auf die
+normale Quelle zurueckfallen, sonst wuerde wieder die falsche
+Landesquelle greifen) oder `(False, [])` fuer alle anderen, nicht
+ueberschriebenen Sender.
+
+**Live verifiziert (isolierter Testlauf, ohne kompletten Generierungs-
+lauf):** alle 8 Overrides liefern echte Sendungen aus der jeweils
+korrekten Zielquelle (13-35 Sendungen je Sender). `python3 -m pytest
+test_generate_epg.py` weiterhin 96/96 gruen.
+
+**Bewusst NICHT angefasst:** alle anderen Arena-Sport-/Sport-Klub-
+Nummern/Suffix-Varianten (z.B. `RS|ARENA SPORT 1`, `RS|ARENA SPORT 1
+HD`, `RS|ARENA SPORT 5 FHD`, `SI|ARENA SPORT 1 HD`, ...) laufen
+unveraendert ueber ihre bisherige, normale Landesquelle weiter - der
+Nutzer hat nur die oben gelisteten 8 Arena-Sport-Sender als tatsaechlich
+vertauscht bestaetigt. Kommt eine weitere konkrete Vertauschung dazu:
+neuen Eintrag in `_ARENA_QUELLEN_UEBERSCHREIBUNG` ergaenzen, exakt nach
+demselben (Land, GROSSGESCHRIEBENER-Sendername-inkl-Suffix)-Schema.
 
 ## 22.09.2026: Live-Playlist-Abgleich per Xtream-API + zwei echte Bugs gefunden/behoben, ein dritter noch offen
 

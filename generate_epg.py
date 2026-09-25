@@ -3576,6 +3576,71 @@ epgshare_us_universal_sender = [d for d in sender_daten if d.get("epgshare_us_un
 ba_stanice_sender = [d for d in sender_daten if d.get("ba_stanice")]
 
 
+# ==========================================================
+# ARENA-SPORT LAND-UEBERSCHREIBUNG (siehe docs/HISTORIE.md, Abschnitt
+# "GEPLANT: Arena-Sport/Sport-Klub HR/RS-Vertauschung ueber Daten-
+# Remapping statt ID-Alias loesen"): einzelne, vom Nutzer konkret
+# bestaetigte Arena-Sport-Sender, deren Live-Stream vom Anbieter mit dem
+# FALSCHEN Land-Praefix versehen ist (z.B. laeuft unter "RS|ARENA SPORT 4
+# HD" tatsaechlich derselbe Feed wie der bosnische "Arena Sport 4 HD").
+# Die sender.txt-ID/<channel id> bleibt bewusst UNVERAENDERT (TiviMate
+# matcht sonst nach einem Neuaufbau ohne Backup nicht mehr automatisch
+# gegen die eigene Playlist) - nur die dahinterliegende Datenquelle wird
+# umgebogen. Key: (sender.txt-Land, exakter Sendername inkl. Suffix wie
+# in sender.txt, GROSSGESCHRIEBEN), Value: (Quellenart, Kanalname bei der
+# jeweiligen Zielquelle).
+# "ARENA_HR": kroatische tvarenaprogram.com-Daten (arena_epg.py, Land
+# "HR", gleiche Quelle wie beim ARENA:-Praefix).
+# "TELEMACH_BA": bosnische Telemach-Daten (telemach_epg.py, Land "ba") -
+# tvarenasport.com kennt kein eigenes "BA"-Land, Telemach fuehrt die
+# Arena-Sport-Kanaele aber ebenfalls (siehe bestehende
+# "TELEMACH:BA|ARENA SPORT N HD"-Zeilen in sender.txt).
+# NUR fuer exakt diese Sender aktiv - kein pauschales Umbiegen aller
+# Arena-Sport-Sender, siehe Vorbedingung im HISTORIE.md-Abschnitt (pro
+# Kanal einzeln vom Nutzer bestaetigt).
+# ==========================================================
+
+_ARENA_QUELLEN_UEBERSCHREIBUNG = {
+    ("HR", "ARENA SPORT 2 HD"): ("TELEMACH_BA", "ARENA SPORT 2 HD"),
+    ("RS", "ARENA SPORT 4 HD"): ("TELEMACH_BA", "ARENA SPORT 4 HD"),
+    ("RS", "ARENA SPORT 2 HD"): ("ARENA_HR", "ARENA SPORT 2 HD"),
+    ("RS", "ARENA SPORT 3 FHD"): ("ARENA_HR", "ARENA SPORT 3 FHD"),
+    ("RS", "ARENA SPORT 4 FHD"): ("ARENA_HR", "ARENA SPORT 4 FHD"),
+    ("RS", "ARENA SPORT 5"): ("ARENA_HR", "ARENA SPORT 5"),
+    ("RS", "ARENA SPORT 6 FHD"): ("ARENA_HR", "ARENA SPORT 6 FHD"),
+    ("RS", "ARENA SPORT 7 HD"): ("ARENA_HR", "ARENA SPORT 7 HD"),
+}
+
+
+def _arena_ueberschreibung_abrufen(daten, tage):
+    """Prueft, ob dieser Sender in _ARENA_QUELLEN_UEBERSCHREIBUNG steht.
+    Gibt (True, programme) zurueck, wenn ja - `programme` kann dabei auch
+    [] sein (Netzwerkfehler/kein Treffer bei der Zielquelle), es darf dann
+    aber NICHT mehr auf die normale, laenderbasierte Quelle desselben
+    Senders zurueckgefallen werden (sonst wuerde wieder die falsche
+    Landesquelle greifen). Gibt (False, []) zurueck, wenn dieser Sender
+    NICHT ueberschrieben ist - dann laeuft der normale Abgleich wie
+    gewohnt weiter."""
+    schluessel = (daten["land"].strip().upper(), daten["sender"].strip().upper())
+    override = _ARENA_QUELLEN_UEBERSCHREIBUNG.get(schluessel)
+    if override is None:
+        return False, []
+
+    art, zielname = override
+    try:
+        if art == "ARENA_HR":
+            site_id = arena_kanal_finden(zielname, "HR")
+            if site_id is not None:
+                return True, arena_hole_programme(site_id, "HR", tage)
+        elif art == "TELEMACH_BA":
+            site_id = telemach_kanal_finden(zielname, "ba")
+            if site_id is not None:
+                return True, telemach_hole_programme(site_id, "ba", tage)
+    except Exception:
+        pass
+    return True, []
+
+
 BESCHREIBUNG_MAX_LAENGE = 150
 BESCHREIBUNG_SATZ_WORT_MINDEST = 6
 BESCHREIBUNG_SATZENDE_MUSTER = re.compile(r"(?<!\d)[.!?](?:\s+(?=[A-ZÀ-ÖØ-Þ])|$)")
@@ -4650,6 +4715,9 @@ for _idx, daten in enumerate(mts_sender):
 # ==========================================================
 
 def _mts_arena_abrufen(daten):
+    behandelt, programme = _arena_ueberschreibung_abrufen(daten, MTS_TAGE)
+    if behandelt:
+        return programme
     try:
         site_id = arena_kanal_finden(daten["sender"], "RS")
         if site_id is not None:
@@ -4967,6 +5035,12 @@ for _idx, daten in enumerate(_viasatkino_sender):
 # ==========================================================
 
 def _a1_abrufen(daten):
+    # Ueberschriebene Sender (siehe _ARENA_QUELLEN_UEBERSCHREIBUNG) werden
+    # bewusst NICHT hier, sondern erst im nachfolgenden MojMaxTV-Schritt
+    # aufgeloest - A1 wuerde sonst weiterhin die (falsche) native Land-
+    # Quelle fuer diesen Sender liefern, bevor die Umleitung greifen kann.
+    if (daten["land"].strip().upper(), daten["sender"].strip().upper()) in _ARENA_QUELLEN_UEBERSCHREIBUNG:
+        return []
     try:
         site_id = a1_kanal_finden(daten["sender"])
         if site_id is not None:
@@ -5003,6 +5077,9 @@ for _idx, daten in enumerate(mojmaxtv_sender):
 # ==========================================================
 
 def _mojmaxtv_abrufen(daten):
+    behandelt, programme = _arena_ueberschreibung_abrufen(daten, MOJMAXTV_TAGE)
+    if behandelt:
+        return programme
     try:
         site_id = mojmaxtv_kanal_finden(daten["sender"])
         if site_id is not None:
