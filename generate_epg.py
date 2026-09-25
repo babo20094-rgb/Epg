@@ -110,6 +110,7 @@ from quellen.natgeo_epg import natgeo_kanal_finden, natgeo_hole_programme
 from quellen.axn_epg import axn_kanal_finden, axn_hole_programme
 from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
 from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
+from quellen.viasatkino_epg import viasatkino_kanal_finden, viasatkino_hole_programme
 from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
@@ -4909,6 +4910,48 @@ for _idx, daten in enumerate(_rtl_hr_rs_sender):
         ]
         if neue_programme:
             _echte_quelle_zaehlen("RTL Adria")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# VIASATKINO.RS (RS-Fallback): zehnter Versuch fuer alle RS-Sender,
+# deren Name auf "VIASAT KINO" ODER den Alias "TV1000" passt (siehe
+# viasatkino_epg.py - eigene, server-seitig gerenderte Tagesplanseite
+# je Kanal, weder in mts.rs noch SportKlub/Arena/RTV.rs/scifi.rs/
+# NatGeo/AXN/Pickbox/RTL.hr enthalten). Kein eigenes Praefix noetig.
+# "TV1000" wird bewusst als Alias mitgefuehrt: derselbe Kanal wurde
+# umbenannt, damit ein versehentlicher alter Sendername in sender.txt
+# trotzdem dieselben echten Programmdaten bekommt. Wird immer versucht,
+# schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _viasatkino_abrufen(daten):
+    try:
+        schluessel = viasatkino_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return viasatkino_hole_programme(schluessel, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_viasatkino_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_viasatkino_ergebnisse = _parallel_abrufen(_viasatkino_sender, _viasatkino_abrufen, name="Viasat Kino")
+
+for _idx, daten in enumerate(_viasatkino_sender):
+    programme = _viasatkino_ergebnisse[_idx]
+
+    daten["viasatkino_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Viasat Kino")
             _schreibe_echte_programme(daten, neue_programme)
             daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
     else:
