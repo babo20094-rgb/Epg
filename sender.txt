@@ -14168,14 +14168,6 @@ NAME::Tennis  20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME::Tennis  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME::Tennis  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:Tunisie Vs France - 30-11-22|https://upload.wikimedia.org/wikipedia/fr/thumb/e/e3/2022_FIFA_World_Cup.svg/1713px-2022_FIFA_World_Cup.svg.png
-NAME:UEFA  | 01 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA  | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA  | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA  | 04  - Viking v Dinamo Zagreb 8:00 pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA  | 05 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA  | 08 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA  | 16 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA  | 19 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 01-  EUROPA CONFERENCE & LEAGUE DRAWS 6:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 04 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
