@@ -2677,9 +2677,9 @@ MK|SITEL|Sitel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 MK|SITEL FHD|Sitel Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8d52424a9808609.png
 MK|SITEL HD|Sitel Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d8d52424a9808609.png
 MK|SKAJ FOLK ⱽᴵᴾ ᴿᴬᵂ|Skaj Folk ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/EUROPE/SKAJ-FOLK.png
-MK|SKY FOLK|Sky Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aabb512d78369150.png
-MK|SKY FOLK HD|Sky Folk Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/aabb512d78369150.png
-MK|SKYFOLK MK|Skyfolk Mk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/aabb512d783691501f952f6b361b237035cb7a16.png
+MK|SKY FOLK|Sky Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_folk/sky_folk.png
+MK|SKY FOLK HD|Sky Folk Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_folk/sky_folk.png
+MK|SKYFOLK MK|Skyfolk Mk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/sky_folk/sky_folk.png
 MK|SPORTSKA TV|Sportska Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/be85488f6b315bff.png
 MK|STAR CHANNEL HD|Star Channel Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a111b275b42325ee.png
 MK|STAR CHANNEL ⱽᴵᴾ ᴿᴬᵂ|Star Channel ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a111b275b42325ee.png
@@ -2713,7 +2713,7 @@ MLB|MLB BIG INNING|Mlb Big Inning ᴸⁱᵛᵉ|https://raw.githubusercontent.com
 MNG|ADRIA TV ⱽᴵᴾ ᴿᴬᵂ|Adria Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/57a70bf7bc95944c.png
 MNG|BOIN TV ⱽᴵᴾ ᴿᴬᵂ|Boin Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/36151ec5ad434902.png
 MNG|CG PRVA|Cg Prva ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/76e3b76061dcf7b1.png
-MNG|GRADSKA TV ⱽᴵᴾ ᴿᴬᵂ|Gradska Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gradska_tv/gradska_tv.png
+MNG|GRADSKA TV ⱽᴵᴾ ᴿᴬᵂ|Gradska Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gradska_tv/gradska_tv_televizija.png
 MNG|MNESPORT 1 ⱽᴵᴾ ᴿᴬᵂ|Mnesport 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/23d29e858f66fc77.png
 MNG|MNESPORT 2 ⱽᴵᴾ ᴿᴬᵂ|Mnesport 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7d28d493f6a0305b.png
 MNG|MNESPORT 3 ⱽᴵᴾ ᴿᴬᵂ|Mnesport 3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2e331691d104f624.png
@@ -2753,7 +2753,7 @@ MO|ARENA PREMIUM 2|Arena Premium 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.co
 MO|ARENA PREMIUM 3|Arena Premium 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9ed255defa4ba2a5.png
 MO|ARENA PREMIUM 4|Arena Premium 4 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9ed255defa4ba2a5.png
 MO|ARENA PREMIUM 5|Arena Premium 5 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9ed255defa4ba2a5.png
-MO|ARENA TENIS|Arena Tenis ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912894.png
+MO|ARENA TENIS|Arena Tenis ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_tenis/arena_tenis.png
 MO|ARENASPORT 1|Arenasport 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 MO|ARENASPORT 10|Arenasport 10 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd9371134a890c5b.png
 MO|ARENASPORT 1X2|Arenasport 1X2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_1x2/arena_1x2.png
@@ -2800,7 +2800,7 @@ MO|FASHION TV 4K|Fashion Tv 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/ba
 MO|FOLK MELODY|Folk Melody ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5aafc035e5eeeeb4.png
 MO|FRANCE24 FRANCAIS|France24 Francais ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f75fe20ca924d3ac.png
 MO|FREEДОМ|Freeдом ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6dc2c1f0549ccc2d.png
-MO|GRADSKA TV|Gradska Tv ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912838.png
+MO|GRADSKA TV|Gradska Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gradska_tv/gradska_tv_televizija.png
 MO|H2|H2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a7f4baca460e1cb7.png
 MO|HAPPY REALITY 1|Happy Reality 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a2663a2252597759.png
 MO|HAPPY REALITY 2|Happy Reality 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/794da5ff53203ad0.png
@@ -2840,7 +2840,7 @@ MO|OTV VALENTINO MUSIC|Otv Valentino Music ᴸⁱᵛᵉ|https://raw.githubuserco
 MO|PARLAMENTARNI KANAL|Parlamentarni Kanal ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cd5cecaa43cb9718.png
 MO|PINK|Pink ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f051b3518f1b614e.png
 MO|PINK ACTION|Pink Action ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/db0e6f811a56f665.png
-MO|PINK BRAVO|Pink Bravo ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1912789.png
+MO|PINK BRAVO|Pink Bravo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pink_bravo/pink_bravo.png
 MO|PINK CLASSIC|Pink Classic ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7b764d19082e37a2.png
 MO|PINK COMEDY|Pink Comedy ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f4717ea48fdaa7ed.png
 MO|PINK CRIME&MYSTERY|Pink Crime&Mystery ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/421fc0644181e9ce6d4cf1690f9f2569e68952d2.png
@@ -3607,7 +3607,7 @@ RS|ARENA SPORT 8 HD|Arena Sport 8 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.
 RS|ARENA SPORT 8 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 8 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6ab3bcf9ab112c1e.png
 RS|ARENA SPORT 9 HD|Arena Sport 9 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5462890097510144.png
 RS|ARENA SPORT 9 ⱽᴵᴾ ᴿᴬᵂ|Arena Sport 9 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5462890097510144.png
-RS|ARENA TENIS|Arena Tenis ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1940257.png
+RS|ARENA TENIS|Arena Tenis ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_tenis/arena_tenis.png
 RS|AURORA TV|Aurora Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c0d2f2320d828a8b.png
 RS|AXN|Axn ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1d961881979b40f7.png
 RS|AXN ADRIA|Axn Adria ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c5d104a3bb4199b3.png
@@ -3740,7 +3740,7 @@ RS|PICKBOX|Pickbox ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/
 RS|PINK 3 INFO|Pink 3 Info ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e03eabf2f2e872a2.png
 RS|PINK ACTION|Pink Action ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/639a569f5870b846.png
 RS|PINK ACTION ⱽᴵᴾ ᴿᴬᵂ|Pink Action ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/db0e6f811a56f665.png
-RS|PINK BRAVO|Pink Bravo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/683be2eb32fdd481.png
+RS|PINK BRAVO|Pink Bravo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pink_bravo/pink_bravo.png
 RS|PINK CLASSIC|Pink Classic ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d91ee1c43d81d0cc.png
 RS|PINK CLASSIC ⱽᴵᴾ ᴿᴬᵂ|Pink Classic ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7b764d19082e37a2.png
 RS|PINK COMEDY|Pink Comedy ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/45dea27c41dd9eb3.png
