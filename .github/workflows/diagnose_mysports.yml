@@ -1,11 +1,12 @@
-name: Diagnose MySports (teleboy.ch)
+name: Diagnose MySports (mysports.ch)
 
-# Reiner Diagnose-Lauf: testet NUR, ob die teleboy.ch-API vom
-# GitHub-Actions-Runner aus erreichbar ist und echte Sendungsdaten
-# liefert (Verdacht September 2026: Geo-Blocking, siehe
-# quellen/mysports_teleboy_epg.py). Laeuft in Sekunden statt der
-# vollen ~25-30 Minuten des normalen "Update EPG"-Workflows, da NUR
-# dieses eine Modul aufgerufen wird statt der kompletten EPG-Generierung.
+# Reiner Diagnose-Lauf: testet NUR, ob die oeffentliche mysports.ch-API
+# (https://www.mysports.ch/api/epg) vom GitHub-Actions-Runner aus
+# erreichbar ist und echte Sendungsdaten liefert (siehe
+# quellen/mysports_epg.py - Nachfolger der wegen Geo-Blocking
+# verworfenen teleboy.ch-Quelle). Laeuft in Sekunden statt der vollen
+# ~25-30 Minuten des normalen "Update EPG"-Workflows, da NUR dieses
+# eine Modul aufgerufen wird statt der kompletten EPG-Generierung.
 on:
   workflow_dispatch:
 
@@ -27,14 +28,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Teste teleboy.ch-Erreichbarkeit
+      - name: Teste mysports.ch-Erreichbarkeit
         run: |
           python3 - <<'EOF'
-          from quellen.mysports_teleboy_epg import _STATION_IDS, mysports_hole_programme
+          from quellen.mysports_epg import mysports_kanal_finden, mysports_hole_programme
 
-          for nummer, station_id in sorted(_STATION_IDS.items(), key=lambda kv: kv[0]):
-              programme = mysports_hole_programme(station_id, tage=1)
+          for nummer in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "EDGE"]:
+              kanalname = f"MYSPORTS {nummer}"
+              channel_id = mysports_kanal_finden(kanalname)
+              if channel_id is None:
+                  print(f"MySports {nummer}: kein Kanal gefunden (erwartet bei '10')")
+                  continue
+              programme = mysports_hole_programme(channel_id)
               status = f"{len(programme)} Sendungen" if programme else "0 Sendungen (leer/blockiert)"
               beispiel = programme[0]["title"] if programme else "-"
-              print(f"MySports {nummer} (Station {station_id}): {status} | erstes Beispiel: {beispiel}")
+              print(f"MySports {nummer} ({channel_id}): {status} | erstes Beispiel: {beispiel}")
           EOF

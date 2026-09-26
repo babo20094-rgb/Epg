@@ -111,7 +111,7 @@ from quellen.axn_epg import axn_kanal_finden, axn_hole_programme
 from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
 from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
 from quellen.viasatkino_epg import viasatkino_kanal_finden, viasatkino_hole_programme
-from quellen.mysports_teleboy_epg import mysports_kanal_finden, mysports_hole_programme
+from quellen.mysports_epg import mysports_kanal_finden, mysports_hole_programme
 from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
@@ -4357,12 +4357,16 @@ def _de_kaskade_abrufen(daten):
 
     # "MYSPORTS <Nummer>"/"MYSPORTS EDGE"-Sender (CH) ueberspringen
     # deswird.org/PlutoTV/tvmovie.de/hoerzu.de komplett und gehen direkt
-    # zu teleboy.ch (siehe mysports_teleboy_epg.py) - deswird.org & Co.
+    # zu mysports.ch selbst (siehe mysports_epg.py) - deswird.org & Co.
     # kennen gar keinen echten "MySports"-Kanal, der unscharfe Abgleich
     # matchte "MYSPORTS" bisher faelschlich auf den voellig anderen
     # echten Sender "Sky Sport"/"eSports1" (aehnliche Buchstabenfolge),
     # der als "echter Treffer" durchging und dauerhaft falsche fremde
-    # Programmdaten anzeigte (Bug September 2026 behoben).
+    # Programmdaten anzeigte (Bug September 2026 behoben). Eine erste
+    # Version nutzte teleboy.ch als Quelle - lief lokal einwandfrei,
+    # wurde aber vom echten GitHub-Actions-Runner mit 403 Forbidden
+    # geblockt (Geo-/Cloud-IP-Sperre, siehe docs/HISTORIE.md) und wurde
+    # komplett durch die offizielle mysports.ch-eigene API ersetzt.
     if re.match(r"^MYSPORTS\s*(\d{1,2}|EDGE)\b", daten["sender"], re.IGNORECASE):
         programme = []
         try:
