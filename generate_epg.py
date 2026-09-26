@@ -111,6 +111,7 @@ from quellen.axn_epg import axn_kanal_finden, axn_hole_programme
 from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
 from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
 from quellen.viasatkino_epg import viasatkino_kanal_finden, viasatkino_hole_programme
+from quellen.mysports_teleboy_epg import mysports_kanal_finden, mysports_hole_programme
 from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
@@ -462,7 +463,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle", "rtv_rs_intervalle"],
     "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle", "rakuten_tv_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "mysports_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle", "rakuten_tv_intervalle"],
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
     "mk": ["mk_intervalle"],
@@ -4347,6 +4348,29 @@ def _de_kaskade_abrufen(daten):
 
         if programme:
             ergebnisse.append(("Magenta-myTeamTV", programme))
+        return ergebnisse
+
+    # "MYSPORTS <Nummer>"/"MYSPORTS EDGE"-Sender (CH) ueberspringen
+    # deswird.org/PlutoTV/tvmovie.de/hoerzu.de komplett und gehen direkt
+    # zu teleboy.ch (siehe mysports_teleboy_epg.py) - deswird.org & Co.
+    # kennen gar keinen echten "MySports"-Kanal, der unscharfe Abgleich
+    # matchte "MYSPORTS" bisher faelschlich auf den voellig anderen
+    # echten Sender "Sky Sport"/"eSports1" (aehnliche Buchstabenfolge),
+    # der als "echter Treffer" durchging und dauerhaft falsche fremde
+    # Programmdaten anzeigte (Bug September 2026 behoben).
+    if re.match(r"^MYSPORTS\s*(\d{1,2}|EDGE)\b", daten["sender"], re.IGNORECASE):
+        programme = []
+        try:
+            mysports_station_id = mysports_kanal_finden(daten["sender"])
+            if mysports_station_id is not None:
+                programme = mysports_hole_programme(mysports_station_id, PLUTOTV_TAGE)
+        except Exception:
+            programme = []
+
+        daten["mysports_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            ergebnisse.append(("MySports-Teleboy", programme))
         return ergebnisse
 
     # ARD-Regionalsender-Alias: deswird.org/tvmovie.de/hoerzu.de fuehren
