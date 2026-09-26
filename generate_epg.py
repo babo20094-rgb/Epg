@@ -3046,17 +3046,28 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
         # Teamnamen (Bug: Kanaele 2-5 zeigten nach Spielende keinen
         # sinnvollen Inhalt mehr).
         dplus_ppv_match = re.match(r"^DE:\s*DPLUS\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        # LEAGUES FOOTBALL PPV (September 2026 hinzugefuegt, siehe
+        # sender.txt "NAME: DE: LEAGUES FOOTBALL PPV N"): gleiches
+        # Rohformat/gleiche Team-vs-Team-Extraktion wie DYN PPV/STAIGE
+        # PPV/DPLUS PPV oben - eigener fester Match statt des generischen
+        # PPV_KERN_MUSTER-Fallbacks, damit dieselbe nachweislich
+        # funktionierende Behandlung wie bei den anderen festen PPV-
+        # Sondergruppen greift.
+        leagues_football_ppv_match = re.match(r"^DE:\s*LEAGUES\s*FOOTBALL\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
         # Alle UEBRIGEN "<Land:> <Name> PPV <Nummer>"-Sendergruppen
         # (DAZN/ESPN+/SOCCER/RTL+ PPV usw.), die nicht bereits von einem
         # der obigen Spezialfaelle erfasst sind - September 2026 auf
         # Nutzerwunsch generalisiert (siehe PPV_KERN_MUSTER), damit
         # Team-vs-Team/Uhrzeit + hochgestellter Status ueberall gilt,
-        # nicht nur bei DYN/STAIGE/DPLUS.
+        # nicht nur bei DYN/STAIGE/DPLUS/LEAGUES FOOTBALL.
         generic_ppv_match = None
-        if not (dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match):
+        if not (dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match or leagues_football_ppv_match):
             generic_ppv_match = PPV_KERN_MUSTER.match(kurzname)
 
-        alle_matches = dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match or generic_ppv_match
+        alle_matches = (
+            dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match
+            or leagues_football_ppv_match or generic_ppv_match
+        )
         if alle_matches and roh_marker in EVENT_MARKER_ENDE:
             # Kein fixer Abmoderationstext - stattdessen werden die
             # Teamnamen wie bei NEXT/LIVE extrahiert, nur mit "ᴮᵉᵉⁿᵈᵉᵗ"
@@ -3095,6 +3106,13 @@ def _live_event_uebernehmen(kurzname, event_teil, real_daten):
             elif roh_marker in EVENT_MARKER_LIVE:
                 team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
                 event_titel = team_namen or f"Dplus ({dplus_ppv_match.group(1)}) ᴸⁱᵛᵉ"
+        elif leagues_football_ppv_match:
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"Leagues Football ({leagues_football_ppv_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Leagues Football ({leagues_football_ppv_match.group(1)}) ᴸⁱᵛᵉ"
         elif generic_ppv_match:
             name_label = normalisiere_grossschreibung(generic_ppv_match.group(1).title())
             nummer_label = generic_ppv_match.group(2)
@@ -3199,22 +3217,9 @@ def m3u_playlist_abgleichen(url, quelle_name):
 
     for real_daten, namen in gesammelte_namen.values():
         namen = list(dict.fromkeys(namen))
-        # Stabiler sender.txt-Kern (VOR der Ueberschreibung unten) bleibt
-        # IMMER zusaetzlich als Alias erhalten - manche Anbieter (z.B.
-        # "DE: LEAGUES FOOTBALL PPV N") liefern NIE einen unverzierten
-        # Rohnamen (Leerlauf traegt bereits "- NO EVENT STREAMING -..."),
-        # wodurch "kanal" bisher bei JEDEM Zustandswechsel (Leerlauf <->
-        # Event) komplett neu und ohne stabilen Anker geschrieben wurde -
-        # TiviMates automatische Namens-Zuordnung ging dadurch bei jedem
-        # Spielbeginn/-ende verloren ("Keine Information" trotz aktivem
-        # Live-Abgleich, Bug September 2026 behoben).
-        stabiler_kern = real_daten["kanal"]
         real_daten["kanal"] = namen[0]
-        aliase = namen[1:]
-        if stabiler_kern not in namen:
-            aliase.append(stabiler_kern)
-        if aliase:
-            _KANAL_ALIASE[namen[0]] = aliase
+        if len(namen) > 1:
+            _KANAL_ALIASE[namen[0]] = namen[1:]
 
     if aktualisierte_sender:
         print(f"Live-Kanalabgleich ({quelle_name}): {len(aktualisierte_sender)} Sender mit echtem Live-Event aktualisiert.")
