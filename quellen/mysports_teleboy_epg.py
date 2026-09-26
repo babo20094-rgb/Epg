@@ -142,6 +142,13 @@ def _laden(station_id):
                 "stop": stop,
             })
         programme.sort(key=lambda p: p["start"])
+        if not programme:
+            # Diagnose (September 2026): API antwortete erfolgreich, lieferte
+            # aber 0 Sendungen - kein Fehler/Exception, daher sonst unsichtbar
+            # in den Workflow-Logs (Verdacht: Geo-Blocking von GitHub-Actions-
+            # Runnern seitens teleboy.ch, das mit leerem Ergebnis statt einem
+            # Fehlercode antwortet).
+            print(f"MySports-Teleboy-EPG (Station {station_id}): API-Antwort erfolgreich, aber 0 Sendungen erhalten.")
     except Exception as e:
         print(f"MySports-Teleboy-EPG (Station {station_id}): Laden/Parsen fehlgeschlagen ({e}), ueberspringe.")
         programme = []

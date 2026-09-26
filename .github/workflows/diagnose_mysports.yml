@@ -1,0 +1,40 @@
+name: Diagnose MySports (teleboy.ch)
+
+# Reiner Diagnose-Lauf: testet NUR, ob die teleboy.ch-API vom
+# GitHub-Actions-Runner aus erreichbar ist und echte Sendungsdaten
+# liefert (Verdacht September 2026: Geo-Blocking, siehe
+# quellen/mysports_teleboy_epg.py). Laeuft in Sekunden statt der
+# vollen ~25-30 Minuten des normalen "Update EPG"-Workflows, da NUR
+# dieses eine Modul aufgerufen wird statt der kompletten EPG-Generierung.
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Teste teleboy.ch-Erreichbarkeit
+        run: |
+          python3 - <<'EOF'
+          from quellen.mysports_teleboy_epg import _STATION_IDS, mysports_hole_programme
+
+          for nummer, station_id in sorted(_STATION_IDS.items(), key=lambda kv: kv[0]):
+              programme = mysports_hole_programme(station_id, tage=1)
+              status = f"{len(programme)} Sendungen" if programme else "0 Sendungen (leer/blockiert)"
+              beispiel = programme[0]["title"] if programme else "-"
+              print(f"MySports {nummer} (Station {station_id}): {status} | erstes Beispiel: {beispiel}")
+          EOF
