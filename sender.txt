@@ -12570,6 +12570,7 @@ NAME:DE: LEAGUES FOOTBALL PPV 56|https://raw.githubusercontent.com/babo20094-rgb
 NAME:DE: LEAGUES FOOTBALL PPV 57|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
 NAME:DE: LEAGUES FOOTBALL PPV 58|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
 NAME:DE: LEAGUES FOOTBALL PPV 59|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
+NAME:DE: LEAGUES FOOTBALL PPV 6|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
 NAME:DE: LEAGUES FOOTBALL PPV 60|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
 NAME:DE: LEAGUES FOOTBALL PPV 61|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
 NAME:DE: LEAGUES FOOTBALL PPV 62|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9858d231a1cb412451cf2136d8bd8c4296866e1a.png
