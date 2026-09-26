@@ -14169,6 +14169,8 @@ NAME::Tennis  24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME::Tennis  13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2337ced6b21bba6a5d79ff2dbdd25438e2ebd34e.png
 NAME:Tunisie Vs France - 30-11-22|https://upload.wikimedia.org/wikipedia/fr/thumb/e/e3/2022_FIFA_World_Cup.svg/1713px-2022_FIFA_World_Cup.svg.png
 NAME:UEFA | 01-  EUROPA CONFERENCE & LEAGUE DRAWS 6:00pm|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
+NAME:UEFA  | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
+NAME:UEFA | 02 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 03 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 04 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 05 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
@@ -14195,7 +14197,7 @@ NAME:UEFA | 28 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/
 NAME:UEFA | 29 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 30 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA | 31 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
-NAME:UEFA | 32 - ARSENAL - ATHLETIC CLUB BILBAO | Sat 09 Aug 15:45|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
+NAME:UEFA | 32 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UEFA |10 -|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/uefa/uefa.png
 NAME:UFC 00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
 NAME:UFC 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/e044a7029ad3839fea15839bb9f622ffe148dae9.png
