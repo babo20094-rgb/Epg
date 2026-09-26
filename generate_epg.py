@@ -3198,9 +3198,22 @@ def m3u_playlist_abgleichen(url, quelle_name):
 
     for real_daten, namen in gesammelte_namen.values():
         namen = list(dict.fromkeys(namen))
+        # Stabiler sender.txt-Kern (VOR der Ueberschreibung unten) bleibt
+        # IMMER zusaetzlich als Alias erhalten - manche Anbieter (z.B.
+        # "DE: LEAGUES FOOTBALL PPV N") liefern NIE einen unverzierten
+        # Rohnamen (Leerlauf traegt bereits "- NO EVENT STREAMING -..."),
+        # wodurch "kanal" bisher bei JEDEM Zustandswechsel (Leerlauf <->
+        # Event) komplett neu und ohne stabilen Anker geschrieben wurde -
+        # TiviMates automatische Namens-Zuordnung ging dadurch bei jedem
+        # Spielbeginn/-ende verloren ("Keine Information" trotz aktivem
+        # Live-Abgleich, Bug September 2026 behoben).
+        stabiler_kern = real_daten["kanal"]
         real_daten["kanal"] = namen[0]
-        if len(namen) > 1:
-            _KANAL_ALIASE[namen[0]] = namen[1:]
+        aliase = namen[1:]
+        if stabiler_kern not in namen:
+            aliase.append(stabiler_kern)
+        if aliase:
+            _KANAL_ALIASE[namen[0]] = aliase
 
     if aktualisierte_sender:
         print(f"Live-Kanalabgleich ({quelle_name}): {len(aktualisierte_sender)} Sender mit echtem Live-Event aktualisiert.")
