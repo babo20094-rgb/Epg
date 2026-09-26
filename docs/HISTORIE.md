@@ -6602,3 +6602,72 @@ behobene Fehler in der generierten Datei nach mehreren erfolglosen
 Tests (alte TiviMate-Bindung, URL-Cache, Sendernamen-Editor - alle drei
 ausgeschlossen). Nach dem naechsten automatischen Workflow-Lauf sollte
 sich das in TiviMate ueberpruefen lassen.
+
+## 26.09.2026: DE| LEAGUES FOOTBALL PPV (alle 100 Sender) zeigten dauerhaft "Keine Information" - falsche Theorien zuerst, echter Fix erst nach mehreren Fehlversuchen
+
+**Meldung:** Nutzer berichtete, dass ALLE 100 "DE: LEAGUES FOOTBALL PPV
+N"-Sender in TiviMate durchgehend "Keine Information" zeigten - weder
+Live-Event noch Platzhalter, komplett leer. Nutzer war sich sicher,
+dass es bis 1-2 Tage zuvor noch normal funktioniert hatte und dass die
+Ursache an einer aktuellen Code-/sender.txt-Aenderung liegen muss -
+nicht an Timing, Cache oder TiviMate selbst.
+
+**Falsche Faehrten (bitte NICHT wiederholen, alle einzeln widerlegt):**
+1. *"TiviMate zeigt eine alte, lokal gecachte Version"* - widerlegt:
+   Nutzer hatte bereits mehrfach TiviMate beendet, Cache geleert,
+   Playlist+EPG neu geladen, ohne Aenderung. Zusaetzlich zeigten
+   PARALLEL andere Kategorien (STAIGE PPV) in DERSELBEN, zeitgleich
+   geladenen Datei korrekt Live-Daten - ein reines Cache-Problem haette
+   das nicht erklaert.
+2. *"Reine Terminfrage/Timing-Luecke zwischen zwei Workflow-Laeufen"* -
+   war fuer 3 EINZELNE Sender (bei einem Status-Wechsel NEXT->LIVE
+   genau waehrend des Laufs) tatsaechlich korrekt und normal (siehe
+   unten), erklaerte aber NICHT, warum ALLE 100 Sender gleichzeitig
+   ueber Stunden hinweg leer blieben - das haette nur einzelne,
+   zufaellig gerade wechselnde Sender betroffen, nicht die komplette
+   Kategorie.
+3. *Erster "Fix" (spaeter wieder verworfen):* Ein zusaetzlicher
+   IMMER-stabiler Alias-Kanal (sender.txt-Kern als Zweit-ID neben dem
+   sich aendernden Live-Rohtext) wurde eingebaut, um den durch
+   Status-Wechsel entstehenden Ruecksetzer auf "keine ID mehr vorhanden"
+   abzufangen. Funktionierte technisch (Daten nachweislich vorhanden),
+   erzeugte aber in TiviMates Kanal-/EPG-Suche zwei optisch IDENTISCH
+   aussehende Eintraege pro Sender (gleicher Anzeigename, nur die
+   ID unterschiedlich) - fuer den Nutzer nicht unterscheidbar, deshalb
+   wieder komplett zurueckgebaut (siehe auch Punkt 5 unten).
+
+**Tatsaechliche Ursache/Fix:** "DE: LEAGUES FOOTBALL PPV N" lief bisher
+NICHT ueber einen eigenen festen Match wie DYN PPV/STAIGE PPV/DPLUS PPV
+(siehe `_live_event_uebernehmen()`), sondern ueber den GENERISCHEN
+`PPV_KERN_MUSTER`-Fallback fuer "alle uebrigen PPV-Sendergruppen".
+Isoliert getestet lieferte dieser Fallback zwar korrekte Ergebnisse -
+in der Praxis (echter GitHub-Actions-Lauf) blieb die Kategorie aber
+trotzdem leer. Fix: "DE: LEAGUES FOOTBALL PPV N" wurde ein EIGENER,
+fest verdrahteter Match-Zweig spendiert (identisches Muster wie
+STAIGE/DPLUS PPV, eigener `leagues_football_ppv_match`-Regex VOR dem
+generischen Fallback). Nach diesem Fix UND einem frischen Workflow-Lauf
+zeigten alle 100 Sender korrekt Live-Events. Ob der generische Fallback
+selbst einen (nicht isoliert reproduzierbaren) Bug hatte oder ob
+zusaetzlich schlicht der naechste frische Lauf noetig war, liess sich
+nicht zweifelsfrei trennen - **die feste Sonderfall-Behandlung ist der
+jetzt funktionierende, verifizierte Zustand.**
+
+**Bleibt bewusst bestehen (kein Bug, identisch bei DYN/STAIGE/DPLUS
+PPV):** Die `<channel id>` dieser Sender ist der komplette, sich bei
+JEDEM Status-Wechsel (NEXT->LIVE->ENDED) aendernde Live-Rohtext. In dem
+kurzen Fenster zwischen zwei Workflow-Laeufen, in dem sich der Status
+EINES einzelnen Spiels aendert, kann genau dieser eine Sender kurzzeitig
+"Keine Information" statt Platzhalter/altem Event zeigen (der alte
+Textbaustein existiert im neuen Lauf schlicht nicht mehr) - bis der
+naechste Lauf die neue Version erfasst. Auf ausdruecklichen Nutzerwunsch
+NICHT durch eine stabile Zusatz-ID behoben (siehe Punkt 3 oben) - der
+Nutzer wollte exakt dasselbe Verhalten wie bei den anderen PPV-Gruppen,
+nicht mehr und nicht weniger.
+
+**Lehre fuer naechstes Mal:** Bei "kompletter Sender-KATEGORIE zeigt
+durchgehend gar nichts" (nicht nur vereinzelte Sender) zuerst pruefen,
+ob die Sendergruppe bereits einen EIGENEN festen Match-Zweig hat wie
+ihre Nachbar-Gruppen (DYN/STAIGE/DPLUS PPV) - falls nicht und sie NUR
+ueber den generischen Fallback laeuft, dort zuerst ansetzen, statt
+Cache-/Timing-Theorien zu wiederholen, nachdem der Nutzer diese bereits
+mehrfach glaubhaft ausgeschlossen hat.
