@@ -111,7 +111,7 @@ from quellen.axn_epg import axn_kanal_finden, axn_hole_programme
 from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
 from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
 from quellen.viasatkino_epg import viasatkino_kanal_finden, viasatkino_hole_programme
-from quellen.mysports_epg import mysports_kanal_finden, mysports_hole_programme
+from quellen.mysports_epg import mysports_kanal_finden, mysports_hole_programme, motorvision_kanal_finden
 from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
@@ -4379,7 +4379,28 @@ def _de_kaskade_abrufen(daten):
         daten["mysports_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
         if programme:
-            ergebnisse.append(("MySports-Teleboy", programme))
+            ergebnisse.append(("MySports (mysports.ch)", programme))
+        return ergebnisse
+
+    # "MOTORVISION TV"-Sender (jede Qualitaets-/VIP-/RAW-Variante):
+    # dieselbe mysports.ch-API fuehrt "Motorvision TV" als eigenstaendigen
+    # Kanal (siehe motorvision_kanal_finden() in mysports_epg.py) -
+    # NICHT die anderen, eigenstaendigen Motorvision-Sender in
+    # sender.txt (Classic/More Than Sports/DE/.TV), die bleiben
+    # unveraendert bei der generischen DE-Kaskade.
+    if re.match(r"^MOTORVISION\s*TV\b", daten["sender"], re.IGNORECASE):
+        programme = []
+        try:
+            motorvision_channel_id = motorvision_kanal_finden(daten["sender"])
+            if motorvision_channel_id is not None:
+                programme = mysports_hole_programme(motorvision_channel_id, PLUTOTV_TAGE)
+        except Exception:
+            programme = []
+
+        daten["mysports_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            ergebnisse.append(("MySports (mysports.ch)", programme))
         return ergebnisse
 
     # ARD-Regionalsender-Alias: deswird.org/tvmovie.de/hoerzu.de fuehren

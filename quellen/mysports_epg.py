@@ -173,6 +173,29 @@ def mysports_kanal_finden(kanalname):
     return kanal_index.get(f"mysports{schluessel.lower()}")
 
 
+# "Motorvision TV" ist in derselben mysports.ch-API-Antwort als
+# eigenstaendiger Kanal enthalten (deutsche und franzoesische
+# Sprachvariante, Alias "motorvisiontvhdd"/"motorvisiontvhdf") - deckt
+# NUR den Kern "MOTORVISION TV" ab (mit beliebigem Qualitaets-Suffix
+# HD/FHD/UHD/HEVC/4K/...), bewusst NICHT die anderen, eigenstaendigen
+# Motorvision-Sender in sender.txt ("MOTORVISION CLASSIC", "MOTORVISION
+# MORE THAN SPORTS", "MOTORVISION DE", "MOTORVISION.TV" ohne "TV" als
+# eigenes Wort) - das sind andere, eigene Kanaele.
+_MOTORVISION_PATTERN = re.compile(r"^MOTORVISION\s*TV\b", re.IGNORECASE)
+
+
+def motorvision_kanal_finden(kanalname):
+    """Erkennt "MOTORVISION TV" (mit beliebigem Qualitaets-/VIP-/RAW-
+    Suffix) und gibt die deutsche mysports.ch-Kanal-ID dafuer zurueck,
+    sonst None."""
+    if not kanalname:
+        return None
+    if not _MOTORVISION_PATTERN.match(kanalname.strip()):
+        return None
+    kanal_index, _ = _laden()
+    return kanal_index.get("motorvisiontvhdd")
+
+
 def mysports_hole_programme(channel_id, tage=2):
     """Liefert die bereits geladenen Programmdaten fuer eine per
     mysports_kanal_finden() ermittelte Kanal-ID. Leere Liste bei jedem
