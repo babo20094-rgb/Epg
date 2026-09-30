@@ -1,0 +1,38 @@
+name: Cleanup History
+
+on:
+  schedule:
+    # Monatlich, am 15. um 04:30 UTC - setzt main auf EINEN Commit mit dem
+    # aktuellen Dateistand zurueck. Verhindert, dass die taeglich neu
+    # committete Epg_365_Tage.xml.gz (ca. 27 MB pro Version) das Repo
+    # immer weiter aufblaeht. Die Player-URL (main/Epg_365_Tage.xml.gz)
+    # bleibt dabei identisch. Die Code-Historie steht in docs/HISTORIE.md.
+    - cron: '30 4 15 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Gleiche Gruppe wie "Update EPG": beide Workflows laufen nie gleichzeitig,
+# damit kein Update-Push in die neu geschriebene Historie hineinlaeuft.
+concurrency:
+  group: update-epg
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Historie auf einen Commit zusammenfassen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          old=$(git rev-parse HEAD)
+          new=$(git commit-tree "$old^{tree}" -m "Repo-Historie bereinigt: alte EPG-Versionen entfernt, nur aktueller Stand")
+          git push --force-with-lease=main:"$old" origin "$new":refs/heads/main
