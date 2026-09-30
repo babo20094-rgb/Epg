@@ -1,0 +1,360 @@
+"""Automatische, echte Programmdaten von MojMaxTV (Hrvatski Telekom,
+Kroatien) - mojmaxtv.hrvatskitelekom.hr.
+
+AUTOMATISCH fuer jeden ganz normal in sender.txt eingetragenen Sender
+mit Land "HR" (kein eigenes Praefix noetig, gleiches Prinzip wie der
+BA/ME-Telemach-Autoabgleich in generate_epg.py) - bei ~42 HR-Zeilen in
+sender.txt ist das Volumen an zusaetzlichen API-Aufrufen pro Lauf
+ueberschaubar. Portiert aus dem config.js-Site-Plugin
+"mojmaxtv.hrvatskitelekom.hr" des iptv-org/epg-Projekts, angepasst auf
+requests statt axios/dayjs.
+
+Braucht keinen Nutzer-Login, aber jede Anfrage muss einen Satz
+signierter Header mitschicken (fester/eingebetteter App-Key, kein
+personenbezogenes Geheimnis). Anders als das Original wird hier bewusst
+KEIN Programm-Detail-Request pro Sendung nachgeladen (kein
+sub_title/season/episode/Cast) - nur title/beschreibung(leer)/start/
+stop, analog zur bewussten Vereinfachung in freeview_epg.py/
+tvguide_epg.py.
+
+Degradiert an JEDER Stelle graceful auf None/[] statt zu werfen:
+schlaegt Kanalsuche oder Programmabruf fehl, bekommt der betroffene
+Sender in generate_epg.py einfach die normale, kategoriebasierte
+generische EPG-Generierung wie jeder andere Sender - dieses Modul darf
+einen Lauf niemals zum Absturz bringen.
+"""
+
+from datetime import datetime, timedelta, timezone
+
+import difflib
+import hashlib
+import re
+import time
+import uuid
+
+import requests
+from quellen import _http
+
+from epg_lib import normalisiere_sendername, normalisiere_sendername_kern, kern_index_aufbauen
+
+APP_KEY = "GWaBW4RTloLwpUgYVzOiW5zUxFLmoMj5"
+NATCO_KEY = "l2lyvGVbUm2EKJE96ImQgcc8PKMZWtbE"
+API_ENDPOINT = "https://tv-hr-prod.yo-digital.com/hr-bifrost"
+
+CHANNELS_URL = f"{API_ENDPOINT}/epg/channel"
+SCHEDULES_URL = f"{API_ENDPOINT}/epg/channel/schedules"
+
+REQUEST_TIMEOUT_SEKUNDEN = 20
+
+STUNDEN_OFFSETS = (0, 3, 6, 9, 12, 15, 18, 21)
+
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+)
+
+# Modul-weit einmalig erzeugte IDs (analog zum "const DEVICE_ID =
+# crypto.randomUUID()" auf Modulebene in der JS-Referenz) - bleiben
+# fuer den ganzen Lauf gleich, die Tracking-ID wird pro Anfrage neu
+# erzeugt.
+_DEVICE_ID = str(uuid.uuid4())
+_SESSION_ID = str(uuid.uuid4())
+
+# Modul-weiter Cache, analog zu telemach_epg.py.
+_kanalliste_cache = None
+_schedule_cache = {}
+
+
+def _headers():
+    """Baut einen frischen, signierten Header-Satz fuer eine einzelne
+    Anfrage (Tracking-ID + x-txn-id-Hash jedes Mal neu, Device-/
+    Session-ID modul-weit stabil - siehe MCP-Aufgabenbeschreibung)."""
+    jetzt_ms = int(time.time() * 1000)
+    tracking_id = str(uuid.uuid4())
+
+    txn_quelle = f"{tracking_id}{_SESSION_ID}{_DEVICE_ID}{jetzt_ms}"
+    txn_id = hashlib.sha256(txn_quelle.encode("utf-8")).hexdigest()[:32]
+
+    return {
+        "app_key": APP_KEY,
+        "app_version": "02.0.1470",
+        "device-id": _DEVICE_ID,
+        "tenant": "tv",
+        "user-agent": USER_AGENT,
+        "origin": "https://mojmaxtv.hrvatskitelekom.hr",
+        "x-call-type": "GUEST_USER",
+        "x-call-time": str(jetzt_ms),
+        "x-request-session-id": _SESSION_ID,
+        "x-request-tracking-id": tracking_id,
+        "x-tv-step": "EPG_SCHEDULES",
+        "x-tv-flow": "EPG",
+        "x-user-agent": "web|web|Chrome-149|02.0.1470|1",
+        "x-txn-id": txn_id,
+    }
+
+
+def mojmaxtv_hole_kanalliste():
+    """Holt (und cached) die komplette MojMaxTV-Kanalliste als Liste
+    von {"site_id":..., "name":...}. Leere Liste bei jedem Fehler."""
+    global _kanalliste_cache
+
+    if _kanalliste_cache is not None:
+        return _kanalliste_cache
+
+    try:
+        response = _http.mit_retry(requests.get, 
+            CHANNELS_URL,
+            params={
+                "channelMap_id": "",
+                "includeVirtualChannels": "false",
+                "natco_key": NATCO_KEY,
+                "app_language": "hr",
+                "natco_code": "hr",
+            },
+            headers=_headers(),
+            timeout=REQUEST_TIMEOUT_SEKUNDEN,
+        )
+        response.raise_for_status()
+        daten = response.json()
+        roh_kanaele = daten.get("channels", []) if isinstance(daten, dict) else []
+
+        kanaele = []
+        for kanal in roh_kanaele:
+            station_id = kanal.get("station_id")
+            titel = kanal.get("title")
+            if not station_id or not titel:
+                continue
+            kanaele.append({"site_id": station_id, "name": titel})
+
+        _kanalliste_cache = kanaele
+        return kanaele
+    except Exception as e:
+        print(f"MojMaxTV-EPG: Kanalliste fehlgeschlagen ({e}), ueberspringe.")
+        _kanalliste_cache = []
+        return []
+
+
+# Feste Alias-Aufloesung fuer Sender, deren eigener sender.txt-Name so
+# weit vom MojMaxTV-Namen abweicht (Qualitaets-Suffix bei kurzem
+# Gesamtnamen, o.ae.), dass die difflib-Aehnlichkeit unter der
+# 0.72-Schwelle bleibt - einzeln per Live-Abgleich verifiziert
+# (September 2026). "NOVA HD" bewusst auf "Nova TV" statt "TV Nova"
+# gemappt: MojMaxTV fuehrt beide als getrennte Kanaele, "TV Nova"
+# liefert praktisch keine Sendungen ("Kraj programa"/Sendeschluss),
+# "Nova TV" dagegen ein volles Tagesraster.
+_BEKANNTE_ALIASE = {
+    "NOVAHD": "NOVATV",  # "NOVA HD" -> "Nova TV"
+    "DOMAHD": "DOMATV",  # "DOMA HD" -> "Doma TV"
+    "SPORTSKATV": "SPORTSKATELEVIZIJA",  # "SPORTSKA TV" -> "Sportska Televizija"
+}
+
+
+def mojmaxtv_kanal_finden(kanalname):
+    """Sucht den MojMaxTV-Kanal, der am besten zu kanalname passt -
+    erst feste Alias-Aufloesung (siehe _BEKANNTE_ALIASE), dann exakter
+    Abgleich nach normalisiere_sendername(), sonst
+    unscharfer difflib-Abgleich. Gibt die station_id zurueck oder
+    None."""
+    kanaele = mojmaxtv_hole_kanalliste()
+    if not kanaele:
+        return None
+
+    # "SK 1".."SK 10"/"SPORT KLUB 1".."SPORT KLUB 10" (sender.txt-Namen,
+    # z.B. "HR|SK 1" oder "HR|SPORT KLUB 1") vs. "Sport Klub 1" (voller
+    # Name bei MojMaxTV, FALLS vorhanden): die normalisierten Schluessel
+    # "SK1" vs. "SPORTKLUB1" liegen bei so kurzen Strings weit unter der
+    # difflib-Aehnlichkeits-Schwelle (0.72), ein exakter Treffer war
+    # deshalb nie moeglich.
+    # WICHTIG (Bug September 2026 behoben, September 2026 erneut
+    # aufgetreten nach der HR|SK->HR|SPORT KLUB-Umbenennung in
+    # sender.txt): MojMaxTV fuehrt inzwischen GAR KEINEN "Sport Klub"-
+    # Kanal mehr in der Kanalliste (nur noch Arena Sport 1-10 u.ae.) -
+    # der unscharfe difflib-Fallback unten matchte sowohl "SK 1" als
+    # auch (nach der Umbenennung) "SPORT KLUB 1" dadurch faelschlich auf
+    # voellig unabhaengige Kanaele (z.B. deutsche Reality-TV-Sendungen
+    # statt kroatischem Sport-Klub-Programm). Fuer BEIDE Namensvarianten
+    # wird deshalb NUR noch ein exakter Treffer akzeptiert - kein
+    # unscharfer Fallback, lieber kein Treffer als ein falscher.
+    sk_match = re.match(r"^(?:SK|SPORT\s*KLUB)\s*0*(\d+)(?:\s*(?:HD|FHD|UHD|SD))?$", kanalname.strip(), re.IGNORECASE)
+    if sk_match:
+        kanalname = f"Sport Klub {sk_match.group(1)}"
+        ziel_schluessel = normalisiere_sendername(kanalname)
+        for kanal in kanaele:
+            if normalisiere_sendername(kanal["name"]) == ziel_schluessel:
+                return kanal["site_id"]
+        return None
+
+    ziel_schluessel = normalisiere_sendername(kanalname)
+    if not ziel_schluessel:
+        return None
+
+    name_index = {}
+    for kanal in kanaele:
+        schluessel = normalisiere_sendername(kanal["name"])
+        if schluessel:
+            name_index.setdefault(schluessel, kanal["site_id"])
+
+    alias_ziel = _BEKANNTE_ALIASE.get(ziel_schluessel)
+    if alias_ziel and alias_ziel in name_index:
+        return name_index[alias_ziel]
+
+    if ziel_schluessel in name_index:
+        return name_index[ziel_schluessel]
+
+    # Eindeutiger Kern-Abgleich ohne HD/FHD/UHD/SD (behebt den Fall
+    # "Sender ohne Qualitaets-Suffix matcht, dieselbe Zeile MIT Suffix
+    # wie 'HD' nicht", siehe docs/HISTORIE.md), erst DANACH der
+    # unscharfe Fallback.
+    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
+    ziel_kern = normalisiere_sendername_kern(kanalname)
+    if ziel_kern and ziel_kern in kern_index:
+        return kern_index[ziel_kern]
+
+    aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
+    if aehnliche:
+        return name_index[aehnliche[0]]
+
+    return None
+
+
+def _zeit_parsen(wert):
+    """Parst die von der MojMaxTV-API gelieferten Zeitstempel (ISO
+    8601, ggf. mit "Z"-Suffix) zu einem tz-aware UTC-datetime. Gibt bei
+    jedem Parse-Fehler None zurueck."""
+    if not wert:
+        return None
+    try:
+        normalisiert = wert.replace("Z", "+00:00")
+        zeitpunkt = datetime.fromisoformat(normalisiert)
+        if zeitpunkt.tzinfo is None:
+            zeitpunkt = zeitpunkt.replace(tzinfo=timezone.utc)
+        return zeitpunkt.astimezone(timezone.utc)
+    except Exception:
+        return None
+
+
+def _hole_schedules_fuer_tag(datum):
+    """Holt (und cached pro Datum) alle 3h-Zeitfenster fuer einen Tag
+    und fuegt sie zu {station_id: [sendung, ...]} zusammen. Leeres
+    dict bei jedem Fehler/Teilfehler.
+
+    Die API liefert pro Zeitfenster am Fensteranfang zusaetzlich noch
+    einmal die letzte, dort bereits laufende Sendung des VORHERIGEN
+    Fensters mit (bestaetigt live: Fenster 0-3 Uhr endet mit "02:00-
+    04:00 Lausanne", Fenster 3-6 Uhr beginnt erneut mit exakt "02:00-
+    04:00 Lausanne", identischer Titel/Start/Ende - offenbar bewusstes
+    API-Verhalten fuer Kontext, keine echte zweite Sendung). Da die
+    Fenster nur aneinandergehaengt werden, wird pro Sender anhand von
+    (start_time, end_time, description) dedupliziert, bevor die Liste
+    gespeichert wird - entfernt ausschliesslich echte 1:1-Duplikate,
+    zwei tatsaechlich verschiedene Sendungen haben nie exakt denselben
+    Start UND dasselbe Ende UND denselben Titel."""
+    datum_str = datum.strftime("%Y-%m-%d")
+
+    if datum_str in _schedule_cache:
+        return _schedule_cache[datum_str]
+
+    zusammengefasst = {}
+    _gesehen = {}
+
+    for offset in STUNDEN_OFFSETS:
+        try:
+            response = _http.mit_retry(requests.get, 
+                SCHEDULES_URL,
+                params={
+                    "date": datum_str,
+                    "hour_offset": offset,
+                    "hour_range": 3,
+                    "channelMap_id": "",
+                    "filler": "true",
+                    "app_language": "hr",
+                    "natco_code": "hr",
+                },
+                headers=_headers(),
+                timeout=REQUEST_TIMEOUT_SEKUNDEN,
+            )
+            response.raise_for_status()
+            daten = response.json()
+            kanal_dict = daten.get("channels", {}) if isinstance(daten, dict) else {}
+            if not isinstance(kanal_dict, dict):
+                continue
+
+            for station_id, sendungen in kanal_dict.items():
+                if not isinstance(sendungen, list):
+                    continue
+                ziel_liste = zusammengefasst.setdefault(station_id, [])
+                gesehene_schluessel = _gesehen.setdefault(station_id, set())
+                for sendung in sendungen:
+                    schluessel = (
+                        sendung.get("start_time"),
+                        sendung.get("end_time"),
+                        sendung.get("description"),
+                    )
+                    if schluessel in gesehene_schluessel:
+                        continue
+                    gesehene_schluessel.add(schluessel)
+                    ziel_liste.append(sendung)
+        except Exception as e:
+            print(f"MojMaxTV-EPG: Zeitfenster ({datum_str}, offset {offset}) fehlgeschlagen ({e}), ueberspringe Fenster.")
+            continue
+
+    _schedule_cache[datum_str] = zusammengefasst
+    return zusammengefasst
+
+
+def mojmaxtv_hole_programme(site_id, tage=2):
+    """Holt Programmdaten fuer den gegebenen MojMaxTV-Kanal (station_id)
+    fuer `tage` aufeinanderfolgende Tage ab heute (UTC). Liefert eine
+    nach Startzeit sortierte Liste von {"title", "beschreibung", "bild",
+    "start", "stop"} - leere Liste bei jedem Fehler (Netzwerk, HTTP-
+    Status, unerwartetes JSON)."""
+    if not site_id:
+        return []
+
+    heute = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+
+    alle_sendungen = []
+
+    for tag_index in range(tage):
+        tag = heute + timedelta(days=tag_index)
+
+        try:
+            kanal_dict = _hole_schedules_fuer_tag(tag)
+            sendungen_roh = kanal_dict.get(site_id, []) or []
+
+            for sendung in sendungen_roh:
+                titel = sendung.get("description")
+                start = _zeit_parsen(sendung.get("start_time"))
+                stop = _zeit_parsen(sendung.get("end_time"))
+                if not titel or not start or not stop:
+                    continue
+
+                alle_sendungen.append({
+                    "title": titel,
+                    "beschreibung": "",
+                    "bild": None,
+                    "start": start,
+                    "stop": stop,
+                })
+        except Exception as e:
+            print(f"MojMaxTV-EPG: Programmabruf fuer Kanal {site_id} Tag {tag_index} fehlgeschlagen ({e}), ueberspringe Tag.")
+            continue
+
+    # Zusaetzliche Absicherung ueber den Tages-Cache in
+    # _hole_schedules_fuer_tag() hinaus: eine Sendung, die um
+    # Mitternacht herum laeuft, kann sowohl im letzten Zeitfenster des
+    # einen Tages als auch im ersten Zeitfenster des naechsten Tages
+    # auftauchen (zwei getrennte Tages-Caches, dort jeweils nicht als
+    # Duplikat erkennbar) - hier ueber alle Tage hinweg anhand von
+    # (start, stop, title) dedupliziert.
+    gesehen = set()
+    eindeutig = []
+    for sendung in alle_sendungen:
+        schluessel = (sendung["start"], sendung["stop"], sendung["title"])
+        if schluessel in gesehen:
+            continue
+        gesehen.add(schluessel)
+        eindeutig.append(sendung)
+
+    eindeutig.sort(key=lambda s: s["start"])
+    return eindeutig

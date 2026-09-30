@@ -1,0 +1,6468 @@
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta, timezone
+from xml.sax.saxutils import escape as _sax_escape
+import gzip
+import os
+import re
+import resource
+import sys
+import threading
+import time
+import requests
+import unicodedata
+import xml.etree.ElementTree as ET
+
+# XML 1.0 erlaubt nur Tab/Newline/CR sowie Codepoints ab #x20 (mit
+# Luecken bei den Surrogates und #xFFFE/#xFFFF) - alle anderen
+# Steuerzeichen (z.B. vereinzelte Muellbytes aus einer HTML-gescrapten
+# Quelle wie tvmovie.de/hoerzu.de/delo.si) machen die GESAMTE Datei
+# ungueltig ("not well-formed"), auch wenn nur EIN einziger Sender/eine
+# einzige Sendung betroffen ist. `xml.sax.saxutils.escape()` allein
+# entschaerft nur &/</>, entfernt aber keine illegalen Steuerzeichen -
+# `escape()` filtert deshalb ab jetzt zusaetzlich genau diese Zeichen
+# heraus, bevor escaped wird.
+_XML_UNGUELTIGE_ZEICHEN = re.compile(
+    "[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x84\x86-\x9f﷐-﷯￾￿]"
+)
+
+
+def escape(text, *args, **kwargs):
+    """Wie xml.sax.saxutils.escape(), entfernt zusaetzlich ungueltige
+    XML-Steuerzeichen UND escaped zusaetzlich das doppelte
+    Anfuehrungszeichen ("). Der Fix vom September 2026 (nur
+    Steuerzeichen entfernt) behob den "not well-formed"-Absturz NICHT
+    vollstaendig - Ursache war stattdessen ein rohes " in einem
+    Sender-/Kanalnamen (z.B. ein Team-Spitzname in Anfuehrungszeichen
+    in einem dynamischen Live-Event-Titel): escape() wird in diesem
+    Skript durchgaengig auch fuer XML-ATTRIBUTWERTE benutzt (z.B.
+    channel id="{escape(...)}"), xml.sax.saxutils.escape() escaped
+    per Default aber NUR &/</> - ein einzelnes " darin bricht das
+    umschliessende Attribut und macht die gesamte Datei ungueltig,
+    exakt an derselben Stelle bei jedem Lauf (deterministisch, da eine
+    stabile Kanal-ID betroffen ist, nicht wechselnder Sendungstext)."""
+    if text:
+        text = _XML_UNGUELTIGE_ZEICHEN.sub("", text)
+    if not args and "entities" not in kwargs:
+        # Tabulator/Zeilenumbruch als Zeichenreferenz: ein XML-Parser
+        # ersetzt sie in Attributwerten sonst durch ein Leerzeichen
+        # (Attributwert-Normalisierung), wodurch eine Kanal-ID wie
+        # "Tararudee, Lanlana<TAB> vs Park, ..." (echter Playlist-Name,
+        # 23.09.2026) nicht mehr exakt mit der Playlist uebereinstimmt.
+        return _sax_escape(text, {'"': "&quot;", "\t": "&#9;", "\n": "&#10;", "\r": "&#13;"})
+    return _sax_escape(text, *args, **kwargs)
+
+from epg_lib import (
+    KATEGORIEN, KATEGORIE_PRIORITAET,
+    DE_STANDARD, EXYU_STANDARD, EN_STANDARD,
+    EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
+    ALTERSFREIGABE, DEFAULT_ALTERSFREIGABE,
+    TAGESRASTER,
+    sender_anzeigename, standard_beschreibung, kategorie_label,
+    sender_hash,
+    kanalname_normal_geschrieben,
+    normalisiere_grossschreibung,
+    normalisiere_sendername,
+    normalisiere_sendername_kern,
+    baue_logo_index, finde_logo,
+)
+from quellen import _http
+from quellen.telemach_epg import telemach_kanal_finden, telemach_hole_programme
+from quellen.mtel_epg import mtel_kanal_finden, mtel_hole_programme
+from quellen.klix_epg import klix_kanal_finden, klix_hole_programme
+from quellen.rtvhb_epg import rtvhb_kanal_finden, rtvhb_hole_programme
+from quellen.tvdugaplus_epg import tvdugaplus_kanal_finden, tvdugaplus_hole_programme
+from quellen.makkahlive_epg import makkahlive_hole_programme
+from quellen.mts_epg import mts_kanal_finden, mts_hole_programme
+from quellen.a1_epg import a1_kanal_finden, a1_hole_programme
+from quellen.mojmaxtv_epg import mojmaxtv_kanal_finden, mojmaxtv_hole_programme
+from quellen.sportklub_epg import sportklub_kanal_finden, sportklub_hole_programme
+from quellen.delo_si_epg import delo_si_kanal_finden, delo_si_hole_programme
+from quellen.magenta_myteam_epg import magenta_myteam_kanal_finden, magenta_myteam_hole_programme
+from quellen.siol_epg import siol_kanal_finden, siol_hole_programme
+from quellen.sky_epg import sky_kanal_finden, sky_hole_programme
+from quellen.magenta_epg import magenta_kanal_finden, magenta_hole_programme
+from quellen.arena_epg import arena_kanal_finden, arena_hole_programme
+from quellen.dazn_epg import dazn_kanal_finden, dazn_hole_programme
+from quellen.freeview_epg import freeview_kanal_finden, freeview_hole_programme
+from quellen.tvguide_epg import tvguide_kanal_finden, tvguide_hole_programme
+from quellen.epgshare_us_epg import epgshare_us_kanal_finden, epgshare_us_hole_programme
+from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_programme, tvpassport_kanal_finden_callsign
+from quellen.epgshare_us_locals_epg import epgshare_us_locals_kanal_finden, epgshare_us_locals_hole_programme
+from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
+from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
+from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
+from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
+from quellen.rakuten_tv_epg import rakuten_tv_kanal_finden, rakuten_tv_hole_programme
+from quellen.deswird_epg import deswird_kanal_finden, deswird_hole_programme
+from quellen.tubi_epg import tubi_kanal_finden, tubi_hole_programme, tubi_kanal_icon
+from quellen.tvprofil_net_epg import tvprofil_kanal_finden, tvprofil_hole_programme
+from quellen.tvprogramrs_epg import tvprogramrs_kanal_finden, tvprogramrs_hole_programme
+from quellen.mk_epg import mk_kanal_finden, mk_hole_programme
+from quellen.magentatv_mk_epg import magentatv_mk_kanal_finden, magentatv_mk_hole_programme
+from quellen.magentatv_me_epg import magentatv_me_kanal_finden, magentatv_me_hole_programme
+from quellen.me_epg import me_kanal_finden, me_hole_programme
+from quellen.iptvepg_de_epg import iptvepg_de_kanal_finden, iptvepg_de_hole_programme
+from quellen.search_ch_epg import search_ch_kanal_finden, search_ch_hole_programme
+from quellen.tvprogramdanas_epg import tvprogramdanas_kanal_finden, tvprogramdanas_hole_programme
+from quellen.open_epg_epg import open_epg_kanal_finden, open_epg_hole_programme
+from quellen.ba_stanice_epg import ba_stanice_kanal_finden, ba_stanice_hole_programme
+from quellen.rtv_rs_epg import rtv_rs_kanal_finden, rtv_rs_hole_programme
+from quellen.scifi_epg import scifi_kanal_finden, scifi_hole_programme
+from quellen.natgeo_epg import natgeo_kanal_finden, natgeo_hole_programme
+from quellen.axn_epg import axn_kanal_finden, axn_hole_programme
+from quellen.pickbox_epg import pickbox_kanal_finden, pickbox_hole_programme
+from quellen.rtl_hr_epg import rtl_hr_kanal_finden, rtl_hr_hole_programme
+from quellen.viasatkino_epg import viasatkino_kanal_finden, viasatkino_hole_programme
+from quellen.mysports_epg import mysports_kanal_finden, mysports_hole_programme, motorvision_kanal_finden
+from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
+from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
+from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
+from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
+from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
+from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
+from quellen.grand_epg import grand_kanal_finden, grand_hole_programme
+
+# ==========================================================
+# LOG-FILTER: einzelne Seitenabruf-Fehlschlaege + die detaillierten
+# "[Laufzeit] ..."-Zeilen (inkl. RSS-Speicherwert) aus dem sichtbaren
+# Workflow-Log herausfiltern
+#
+# Beide Zeilenarten sind erwartetes, durch die Kaskade/Retry-Logik
+# bereits abgefangenes Rauschen (siehe quellen/_http.py) bzw. reine
+# Detail-Messwerte und kein Hinweis auf ein echtes Problem - die
+# zusammengefasste "Rate-Limit-/Fehler-Uebersicht pro Quelle" und die
+# Laufzeit-Tabelle am Laufende bleiben unveraendert sichtbar und
+# reichen zur Einschaetzung. Landen trotzdem vollstaendig in
+# DEBUG_LOG_DATEI, damit sie bei Bedarf (z.B. fuer eine gezielte
+# Analyse) weiterhin einsehbar sind, ohne den normalen Log-Lesefluss
+# zu stoeren.
+#
+# Damit trotz der gefilterten Zeilen keine langen, wirkenden Luecken
+# im sichtbaren Log entstehen (Nutzer-Feedback September 2026): jede
+# Quelle gibt jetzt zusaetzlich einen kurzen, NICHT gefilterten
+# Start-Marker ohne jegliche Detailzahlen aus (siehe _zeitmessung()
+# weiter unten, "Rufe <Quelle> ab...") - reine Lebenszeichen, halten
+# den Log-Fluss waehrend der ca. 20-25 Minuten Laufzeit sichtbar am
+# Laufen, ohne die eigentlichen Messwerte preiszugeben.
+# ==========================================================
+
+DEBUG_LOG_DATEI = "debug_log.txt"
+_GEFILTERTE_LOGZEILE = re.compile(r"fehlgeschlagen \(.*\), ueberspringe|^\[Laufzeit\] ")
+
+
+class _GefilterterStdout:
+    def __init__(self, echter_stdout, debug_datei):
+        self._echt = echter_stdout
+        self._debug = debug_datei
+
+    def write(self, text):
+        for zeile in text.splitlines(keepends=True):
+            if _GEFILTERTE_LOGZEILE.search(zeile):
+                self._debug.write(zeile)
+            else:
+                self._echt.write(zeile)
+
+    def flush(self):
+        self._echt.flush()
+        self._debug.flush()
+
+
+sys.stdout = _GefilterterStdout(sys.stdout, open(DEBUG_LOG_DATEI, "a", encoding="utf-8"))
+
+# Praefixe, bei denen die eigene Playlist (siehe Kommentar in
+# kanal_id_varianten()) nachweislich auch Sender mit null oder zwei
+# Leerzeichen nach dem Pipe enthaelt - nur hier werden weiterhin alle
+# drei Leerzeichen-Varianten geschrieben, fuer alle anderen Praefixe
+# nur noch die Ein-Leerzeichen-Standardvariante.
+_LEERZEICHEN_AUSNAHME_PRAEFIXE = {"EN", "MK", "UFC", "EXYU", "RS", "UK"}
+
+# Einzelne Kanaele ausserhalb der obigen Praefixe, die laut Playlist-
+# Abgleich trotzdem zwei Leerzeichen brauchen (bisher nur "DE|JUKEBOX
+# FHD" bekannt - DE selbst NICHT generell in die Praefixliste
+# aufgenommen, da DE mit weitem Abstand der groesste Praefix ist und
+# eine DE-Ausnahme die Groessenersparnis fast komplett zunichte machen
+# wuerde, siehe Chat-Analyse September 2026). "US" aus demselben Grund
+# NICHT generell aufgenommen (zweitgroesster Praefix, TVGUIDE:/
+# TVPASSPORT:-Kaskade) - stattdessen zwei konkret per Live-Playlist-
+# Abgleich (22.09.2026) bestaetigte Einzelfaelle ergaenzt.
+_LEERZEICHEN_AUSNAHME_KANAELE = {
+    "DE|JUKEBOX FHD",
+    "US|ABC MOLINE (WQAD)",
+    "US|NESN HD (bk)",
+    "DE|SKY SPORT TOP EVENT FHD",
+}
+
+# Kanaele, deren Playlist-Name beim Anbieter mit einem Leerzeichen
+# ENDET (z.B. "US| TELEMUNDO (WKTB) ATLANTA " - per Live-Playlist-
+# Abgleich 23.09.2026 gefunden). sender.txt-Werte werden beim Einlesen
+# getrimmt, deshalb bekommen genau diese Kanaele zusaetzlich eine
+# ID-Variante mit angehaengtem Leerzeichen. Schluessel in derselben
+# Form wie bei _LEERZEICHEN_AUSNAHME_KANAELE ("LAND|REST", ohne
+# Leerzeichen nach dem Pipe).
+_NACHLAUFENDES_LEERZEICHEN_KANAELE = {
+    "US|TELEMUNDO (WKTB) ATLANTA",
+    "US|TELEMUNDO 11 (KFFX-DT2) KENNEWICK",
+}
+
+# Zusaetzliche Kanal-IDs je "kanal"-Wert, befuellt von
+# m3u_playlist_abgleichen(): fuehrt die eigene Playlist fuer denselben
+# NAME:-Sender MEHRERE unterschiedliche Rohnamen (z.B. "UEFA | 01 -" in
+# einer Gruppe im Leerlauf und "UEFA | 01 - Levski Sofia vs RB
+# Salzburg 5:45 pm" in einer anderen Gruppe mit laufendem Spiel),
+# konnte "kanal" frueher nur EINEN davon tragen - alle anderen
+# Playlist-Zeilen wurden in TiviMate nie zugeordnet (Bug 23.09.2026,
+# ~40 fehlende Zuordnungen). Jetzt werden alle weiteren Rohnamen hier
+# als Alias hinterlegt und von kanal_id_varianten() mit ausgegeben.
+_KANAL_ALIASE = {}
+
+
+def kanal_id_varianten(kanal):
+    """Alle Kanal-IDs fuer `kanal`: die Schreibweisen-Varianten aus
+    _kanal_id_varianten_basis(), bei Bedarf eine Variante mit
+    nachlaufendem Leerzeichen (_NACHLAUFENDES_LEERZEICHEN_KANAELE) und
+    die Varianten aller per Live-Playlist-Abgleich gefundenen weiteren
+    Rohnamen desselben Senders (_KANAL_ALIASE)."""
+    varianten = _kanal_id_varianten_basis(kanal)
+    schluessel = re.sub(r"\|\s*", "|", kanal.strip(), count=1)
+    if schluessel in _NACHLAUFENDES_LEERZEICHEN_KANAELE:
+        varianten = list(dict.fromkeys(varianten + [v + " " for v in varianten]))
+    for alias in _KANAL_ALIASE.get(kanal, ()):
+        for v in _kanal_id_varianten_basis(alias):
+            if v not in varianten:
+                varianten.append(v)
+    # Eingebettetes, nicht escapetes Anfuehrungszeichen im rohen Live-
+    # Event-Namen (27.09.2026 gefunden, z.B. "DE: D+ PPV 6 - VUELTA A
+    # ESPAÑA | 17. ETAPPE MIT "THE BREAKAWAY" | Wed 04 Sep 14:29" - der
+    # Anbieter setzt den Songtitel/Teamnamen selbst in Anfuehrungszeichen,
+    # ohne sie zu escapen): unser Parser (m3u_playlist_abgleichen, siehe
+    # dort "letztes Anfuehrungszeichen"-Kommentar) liest bewusst den
+    # KOMPLETTEN Namen inkl. dieser Zeichen aus, TiviMate (wie die
+    # meisten M3U-Player) parst tvg-name dagegen offenbar mit einer
+    # simplen "bis zum naechsten Anfuehrungszeichen"-Regel und bricht dort
+    # vorzeitig ab - beide Namen weichen dadurch komplett voneinander ab
+    # und der Sender wird nie automatisch zugeordnet. Deshalb zusaetzlich
+    # eine bei diesem ersten eingebetteten " abgeschnittene Variante.
+    for v in list(varianten):
+        anfuehrungszeichen_pos = v.find('"')
+        if anfuehrungszeichen_pos != -1:
+            abgeschnitten = v[:anfuehrungszeichen_pos].rstrip()
+            if abgeschnitten and abgeschnitten not in varianten:
+                varianten.append(abgeschnitten)
+    # Unsichtbare Sonderzeichen (geschuetztes Leerzeichen U+00A0, Tab,
+    # Unicode-Richtungszeichen wie U+2069, ...) in echten Playlist-Namen
+    # (23.09.2026 gefunden, z.B. "US| THE BLAZE\xa0HD", "MLS Wrap
+    # Up⁩ @ ..."): unsere ID ist zwar zeichengenau, normalisiert
+    # der Player den Namen beim Einlesen aber, passt sie nicht mehr.
+    # Deshalb zusaetzlich eine bereinigte Variante (Sonderzeichen ->
+    # normales Leerzeichen bzw. entfernt, Leerraum zusammengefasst).
+    if _SONDER_LEERRAUM.search(kanal):
+        for v in list(varianten):
+            for bereinigt in (
+                re.sub(r"[ \t\xa0]+", " ", _UNSICHTBARE_ZEICHEN.sub("", v)).strip(),
+                _UNSICHTBARE_ZEICHEN.sub("", v).replace("\xa0", " ").replace("\t", " "),
+            ):
+                if bereinigt not in varianten:
+                    varianten.append(bereinigt)
+    # Hochgestellte Unicode-Buchstaben/Ziffern (ᴴᴰ, ⱽᴵᴾ ᴿᴬᵂ, ⁴ᴷ, ...) statt
+    # normaler Schreibweise bei Qualitaets-/Status-Suffixen: manche
+    # Playlist-Gruppen fuehren "HD"/"VIP RAW"/"4K" hochgestellt, andere
+    # normal - voellig uneinheitlich, ohne erkennbares Muster je Sender
+    # (26.09.2026 gefunden: sender.txt hatte "UK| COMEDY 24/7 HD", die
+    # Playlist aber "UK| COMEDY 24/7 ᴴᴰ" - TiviMate ordnete den Sender
+    # deshalb nie automatisch zu, obwohl der Eintrag inhaltlich korrekt
+    # war). Deshalb IMMER zusaetzlich beide Richtungen erzeugen: die
+    # hochgestellte Form ueber NFKC-Normalisierung -> normale Form, und
+    # umgekehrt normale Qualitaets-Suffix-Woerter -> hochgestellte Form.
+    for v in list(varianten):
+        normal = unicodedata.normalize("NFKC", v)
+        if normal not in varianten:
+            varianten.append(normal)
+        hochgestellt = _QUALITAETS_SUFFIX_MUSTER.sub(
+            lambda m: m.group(0).translate(_HOCHGESTELLT_TABELLE), normal
+        )
+        if hochgestellt not in varianten:
+            varianten.append(hochgestellt)
+    return varianten
+
+
+_UNSICHTBARE_ZEICHEN = re.compile("[​-‏‪-‮⁦-⁩﻿]")
+_SONDER_LEERRAUM = re.compile("[\t\xa0​-‏‪-‮⁦-⁩﻿]")
+
+# Nur ganze, gaengige Qualitaets-/Status-Woerter hochstellen (nicht
+# beliebige Sendernamen-Buchstaben) - bewusst eng gefasst, um keine
+# unbeabsichtigten Treffer in normalen Sendernamen zu erzeugen.
+_QUALITAETS_SUFFIX_MUSTER = re.compile(
+    r"\b(?:FHD|UHD|SD|HD|VIP|RAW|4K)\b"
+)
+_HOCHGESTELLT_TABELLE = str.maketrans(
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+    "ᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿˢᵀᵁⱽᵂˣʸᶻ⁰¹²³⁴⁵⁶⁷⁸⁹",
+)
+
+
+def _kanal_id_varianten_basis(kanal):
+    """Gibt fuer eine Kanal-ID im "Land|Sender"-Muster (z.B. "UK|
+    AMAZON UK EVENT 0" oder "UK|AMAZON UK EVENT 0") BEIDE moeglichen
+    Schreibweisen zurueck - mit UND ohne Leerzeichen direkt nach dem
+    Pipe-Zeichen. Grund: TiviMate matcht EPG-Kanaele beim automatischen
+    Zuordnen offenbar (auch) nach exaktem Namensvergleich mit der
+    eigenen Playlist - und in derselben Playlist schreiben
+    unterschiedliche Sender-Gruppen das uneinheitlich (manche
+    "DE| Sender", andere "DE|Sender", ohne erkennbares Muster). Damit
+    die automatische Zuordnung unabhaengig von der jeweils genutzten
+    Schreibweise funktioniert, wird derselbe Kanal/dieselbe Sendung
+    unter BEIDEN Varianten im EPG ausgegeben (Bug September 2026
+    behoben: einzelne Sender-Gruppen wie "UK|AMAZON UK EVENT" wurden
+    nie automatisch zugeordnet, weil unsere generierte ID immer das
+    Leerzeichen hatte, die Playlist des Nutzers dort aber keins).
+    Kanal-IDs ohne dieses "XX|..."-Muster (z.B. NAME:-Sender wie
+    "24/7 ALL RISE" oder "DE: DYN PPV 1" mit Doppelpunkt statt Pipe)
+    bleiben unveraendert - dort gibt es keine sinnvolle Alternativ-
+    Schreibweise.
+
+    Manche Playlist-Gruppen (beobachtet u.a. bei EN|, MK|, RS|, UFC|)
+    schreiben sogar ZWEI Leerzeichen nach dem Pipe (z.B. "EN|  EPIX")
+    statt keinem oder einem - ohne die zusaetzliche Zwei-Leerzeichen-
+    Variante wurden diese Sender trotz korrektem, laengst vorhandenem
+    sender.txt-Eintrag nie automatisch zugeordnet (Bug September 2026
+    behoben).
+
+    September 2026, Optimierung (Datei-Groesse/TiviMate-Ladezeit): ein
+    Abgleich der eigenen Playlist (18390 Kanaele, siehe Chat-Analyse)
+    zeigte, dass >99% aller Sender-Gruppen in der Praxis IMMER genau
+    EIN Leerzeichen nach dem Pipe verwenden - nur EN|, MK|, DE|, UFC|
+    und EXYU| enthalten vereinzelt Sender mit null oder zwei
+    Leerzeichen. Ein voller sender.txt-Abgleich gegen genau diese
+    Playlist ergab: von 5256 "Land|Sender"-Zeilen brauchten nur 24 (alle
+    innerhalb dieser 5 Praefixe) tatsaechlich die Zusatzvarianten - die
+    verbleibenden ~5230 waren bereits ueber die Ein-Leerzeichen-Variante
+    allein abgedeckt. Alle anderen Praefixe bekommen deshalb nur noch
+    die eine (Standard-)Variante statt aller drei - das reduziert
+    Kanal-/Sendungsanzahl in der generierten XML fuer den Grossteil der
+    Sender auf ein Drittel, ohne (laut diesem Abgleich) einen einzigen
+    aktuell funktionierenden Sender zu treffen. Zeigt sich spaeter bei
+    einer ANDEREN Playlist ein weiterer betroffener Praefix, einfach zu
+    _LEERZEICHEN_AUSNAHME_PRAEFIXE hinzufuegen.
+    """
+    # {2,5} statt {2,4}: deckt auch "PRIME|..." ab (5 Buchstaben) - ohne
+    # diese Erweiterung bekamen alle 915 PRIME|-Sender nie eine
+    # Leerzeichen-Variante, da die Praefix-Laenge nicht passte (Bug
+    # September 2026 behoben).
+    match = re.match(r"^([A-Za-z]{2,5})\|(\s*)(.+)$", kanal)
+    if match:
+        land, _leerzeichen, rest = match.groups()
+        mit = f"{land}| {rest}"
+        kanal_ohne_leerzeichen_normalisiert = f"{land.upper()}|{rest}"
+        if (
+            land.upper() in _LEERZEICHEN_AUSNAHME_PRAEFIXE
+            or kanal_ohne_leerzeichen_normalisiert in _LEERZEICHEN_AUSNAHME_KANAELE
+        ):
+            ohne = f"{land}|{rest}"
+            mit_zwei = f"{land}|  {rest}"
+            varianten = [kanal] if ohne == mit else [ohne, mit, mit_zwei]
+        else:
+            varianten = [mit]
+        # "CITY|"-Praefix ist rein technisch (aktiviert nur den
+        # Call-Sign-Abgleich, siehe generate_epg.py-Kommentar bei
+        # "land.strip().upper() == 'CITY'") und war bei diesen Sendern
+        # vorher NICHT Teil der ID (leeres-Land-Format, ID = nur der
+        # Sendername). Ohne diese Zusatzvariante verlieren bereits in
+        # TiviMate gespeicherte Kanalzuordnungen beim Umstellen von
+        # leerem Land auf "CITY|" ihre Zuordnung, da sich die ID
+        # aendert (Bug September 2026 behoben).
+        if land.upper() == "CITY":
+            varianten.append(rest)
+    else:
+        varianten = [kanal]
+
+    # Sonderfall "<Praefix> | <Nummer> -"-Kern (siehe
+    # kern_und_event_extrahieren(), z.B. "UEFA | 01 -"/"NHL | 05 -"):
+    # hier schreiben manche Playlist-Gruppen zusaetzlich unterschiedlich
+    # viele Leerzeichen VOR dem Pipe-Zeichen (z.B. "UEFA  | 01 -" mit
+    # zwei Leerzeichen zwischen Praefix und Pipe statt einem) - eine
+    # Spielart, die das Muster oben (Leerzeichen NUR nach dem Pipe)
+    # nicht abdeckt. Ohne diese Variante wurden solche Sender trotz
+    # korrektem sender.txt-Eintrag nie automatisch zugeordnet (Bug
+    # September 2026 behoben).
+    praefix_nn_match = re.fullmatch(r"([A-Za-z]{2,4})\s*\|\s*(\d+)\s*-\s*", kanal)
+    if praefix_nn_match:
+        praefix, nummer = praefix_nn_match.groups()
+        zusatz = [
+            f"{praefix}{vor}|{nach}{nummer} -"
+            for vor in ("", " ", "  ")
+            for nach in ("", " ", "  ")
+        ]
+        varianten = list(dict.fromkeys(varianten + zusatz))
+
+    # NOW TV (Skys Streaming-Ableger) und BBC iPlayer fuehren dasselbe
+    # Kanal-Lineup wie die SKY:GB-/FREEVIEW:GB-Sender (die als "UK|..."
+    # angezeigt werden), aber mit zusaetzlichem "-NOWTV"/"-BBCI"-Suffix
+    # am Laenderkuerzel in der Playlist (z.B. "UK-NOWTV| ALIBI HD" statt
+    # "UK|ALIBI HD", "UK-BBCI| BBC ONE EAST" statt "UK|BBC ONE EAST") -
+    # ohne diese Alias-Varianten wurden alle betroffenen Sender trotz
+    # vorhandener SKY:GB-/FREEVIEW:GB-Daten nie automatisch zugeordnet
+    # (Bug September 2026 behoben).
+    if kanal.upper().startswith("UK|"):
+        rest_uk = kanal[3:]
+        alias = [
+            f"UK-{suffix}|{sp}{rest_uk}"
+            for suffix in ("NOWTV", "BBCI")
+            for sp in ("", " ", "  ")
+        ]
+        varianten = list(dict.fromkeys(varianten + alias))
+
+    return varianten
+
+
+def segmente_ohne_ueberlappung(seg_start, seg_ende, ueberlappungs_fenster):
+    """Schneidet aus [seg_start, seg_ende) alle ueberlappenden Fenster
+    heraus und liefert die verbleibenden (ggf. mehreren) Teilstuecke
+    zurueck. Ohne Ueberlappung kommt genau [(seg_start, seg_ende)] zurueck,
+    bei voller Ueberdeckung eine leere Liste."""
+    segmente = [(seg_start, seg_ende)]
+    for fenster_start, fenster_ende in ueberlappungs_fenster:
+        neue_segmente = []
+        for s, e in segmente:
+            if fenster_ende <= s or fenster_start >= e:
+                neue_segmente.append((s, e))
+                continue
+            if fenster_start > s:
+                neue_segmente.append((s, fenster_start))
+            if fenster_ende < e:
+                neue_segmente.append((fenster_ende, e))
+        segmente = neue_segmente
+    return segmente
+
+
+def schreibe_programme_segmente(
+    xml_teile, segmente, kanal, titel_text, beschr_text, lang_code,
+    kategorie_key, land, ist_live,
+):
+    """Schreibt <programme>-Eintraege fuer die gegebenen Zeit-Segmente mit
+    identischem Titel/Beschreibung/Kategorie - genutzt sowohl fuer den
+    generischen Tagesraster-Block als auch fuer praezise erkannte Events,
+    damit die Segmentierung (Luecken-/Ueberlappungsvermeidung) an einer
+    Stelle gebuendelt ist."""
+    label = kategorie_label(kategorie_key, land)
+    category_tags = ""
+    if label:
+        category_tags += f' <category lang="{lang_code}">{escape(label)}</category>'
+    if ist_live:
+        live_label = {"de": "Live", "hr": "Uživo", "sl": "V živo", "mk": "Vo živo"}.get(lang_code, "Live")
+        category_tags += f' <category lang="{lang_code}">{escape(live_label)}</category>'
+
+    altersfreigabe = ALTERSFREIGABE.get(kategorie_key, DEFAULT_ALTERSFREIGABE)
+    rating_tag = f' <rating system="FSK"><value>{altersfreigabe}</value></rating>'
+
+    beschr_escaped = escape(beschr_text)
+    desc_tag = f' <desc lang="{lang_code}">{beschr_escaped}</desc>'
+    # Bei Live-Events/Vorberichten (DYN PPV, Clubber, ...) sind Titel und
+    # Beschreibung derselbe generierte Satz - ein zusaetzliches <sub-title>
+    # mit demselben Text liesse ihn im EPG-Raster doppelt erscheinen
+    # (manche Player wie TiviMate zeigen Titel UND Untertitel als eigene
+    # Zeile). Nur setzen, wenn sich Untertitel/Beschreibung tatsaechlich
+    # vom Titel unterscheiden (z.B. beim generischen Tagesraster-Block).
+    sub_title_tag = (
+        f' <sub-title lang="{lang_code}">{beschr_escaped}</sub-title>'
+        if beschr_escaped != titel_text else ""
+    )
+
+    kanal_ids = kanal_id_varianten(kanal)
+    for seg_start, seg_ende in segmente:
+        seg_start_str = seg_start.strftime("%Y%m%d%H%M%S +0000")
+        seg_ende_str = seg_ende.strftime("%Y%m%d%H%M%S +0000")
+        for kanal_id in kanal_ids:
+            xml_teile.append(
+                f' <programme start="{seg_start_str}" stop="{seg_ende_str}" channel="{escape(kanal_id)}">'
+                f' <title lang="{lang_code}">{titel_text}</title>'
+                f'{sub_title_tag}'
+                f'{desc_tag}{category_tags}{rating_tag} </programme> '
+            )
+
+
+def ueberlappt_intervall(intervalle, start, ende):
+    """Prueft, ob der Zeitraum [start, ende) mit irgendeinem (start, stop)-
+    Intervall aus `intervalle` echt zeitlich ueberlappt - NICHT nur, ob sie
+    auf denselben Kalendertag fallen. Wird fuer die "bereits echte Daten
+    vorhanden"-Sperre im generischen Tagesraster verwendet: manche echten
+    Quellen (z.B. tvmovie.de, laut Doku nur ca. 05:00-20:00 Uhr statt des
+    vollen Tages) decken nur einen TEIL eines Tages ab. Eine reine
+    Tages-Pruefung wuerde dann faelschlich den KOMPLETTEN Tag sperren und
+    die generische Fuellung fuer die unbedeckte Restzeit (z.B. den Abend)
+    verhindern - es bliebe dort komplett leer ("Keine Information")."""
+    for real_start, real_stop in intervalle:
+        if start < real_stop and ende > real_start:
+            return True
+    return False
+
+
+# Ordnet jedem "hat eine echte Quelle aktiv"-Flag in daten die zugehoerigen
+# *_intervalle-Felder zu (mehrere bei Faellen mit Fallback-Kette, z.B.
+# Telemach -> mtel.ba -> klix.ba oder PlutoTV -> tvmovie.de).
+_ECHTE_QUELLEN_INTERVALLE = {
+    "telemach": ["telemach_intervalle", "mtel_intervalle", "klix_intervalle", "rtvhb_intervalle"],
+    "sky": ["sky_intervalle"],
+    "sky_wow": ["sky_intervalle"],
+    "magenta": ["magenta_intervalle"],
+    "arena": ["arena_intervalle"],
+    "dazn": ["dazn_intervalle"],
+    "freeview": ["freeview_intervalle"],
+    "tvguide": ["tvguide_intervalle"],
+    "tvpassport": ["tvpassport_intervalle"],
+    "tvpassport_callsign": ["tvpassport_intervalle"],
+    "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle", "rtv_rs_intervalle"],
+    "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
+    "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "mysports_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle", "rakuten_tv_intervalle"],
+    "tubi": ["tubi_intervalle"],
+    "tvprofil": ["tvprofil_intervalle"],
+    "mk": ["mk_intervalle"],
+    "magentatv_mk": ["magentatv_mk_intervalle"],
+    "magentatv_me": ["magentatv_me_intervalle", "me_iptvepg_intervalle"],
+    "tvprogramdanas": ["tvprogramdanas_intervalle"],
+    "open_epg": ["open_epg_intervalle"],
+    "epgshare_us_universal": ["epgshare_us_universal_intervalle"],
+    "ba_stanice": ["ba_stanice_intervalle"],
+    "blagovesti": ["blagovesti_intervalle"],
+    "rtvbn": ["rtvbn_intervalle"],
+    "aljazeera_en": ["aljazeera_en_intervalle"],
+    "makkahlive": ["makkahlive_intervalle"],
+    "cinestar_action_rs": ["cinestar_action_rs_intervalle"],
+    "cinestar_comedy_rs": ["cinestar_comedy_rs_intervalle"],
+}
+
+
+def hat_aktive_echte_quelle(daten):
+    """True, wenn fuer diesen Sender mindestens eine echte EPG-Quelle
+    (Telemach, Sky, Magenta, Pluto TV/tvmovie.de, Tubi, ...) TATSAECHLICH
+    schon Sendungen geliefert hat - nicht nur, ob die Quelle fuer dieses
+    Land/diesen Sender grundsaetzlich zustaendig waere.
+
+    WICHTIG (Bugfix September 2026): vorher wurde nur das reine
+    Zustaendigkeits-Flag geprueft (z.B. "mk"=True fuer jeden MK-Sender,
+    unabhaengig vom Ergebnis). Da fuer MK/BA/RS/HR/ME/MNG/MO/CG immer
+    mindestens ein FRUEHERES Flag (Siol/mts/MojMaxTV/Telemach) gesetzt
+    ist, ueberspraengen sich die spaeteren Fallback-Stufen (TvProfil.net,
+    iptv-epg.org/MK, MagentaTV MK/ME) dadurch IMMER selbst - sie kamen
+    nie zum Zug, auch wenn die fruehere Quelle fuer den jeweiligen Sender
+    gar nichts gefunden hatte. Jetzt wird stattdessen geprueft, ob die zu
+    einem zustaendigen Flag gehoerenden *_intervalle-Felder tatsaechlich
+    schon Eintraege enthalten. Aendert NICHTS an Arena Sport/Sport Klub
+    (deren Quellen laufen ungated, ohne diesen Check, siehe
+    mts_sender/mojmaxtv_sender-Verarbeitungsbloecke)."""
+    for flag, felder in _ECHTE_QUELLEN_INTERVALLE.items():
+        if not daten.get(flag):
+            continue
+        if any(daten.get(feld) for feld in felder):
+            return True
+    return False
+
+
+def alle_echten_intervalle(daten):
+    """Sammelt alle (start, stop)-Intervalle aller fuer diesen Sender
+    aktiven echten Quellen in einer Liste, fuer den Ueberlappungs-Check
+    gegen einen einzelnen Zeitblock."""
+    ergebnis = []
+    for flag, felder in _ECHTE_QUELLEN_INTERVALLE.items():
+        if daten.get(flag):
+            for feld in felder:
+                ergebnis.extend(daten.get(feld, []))
+    return ergebnis
+
+
+def kern_und_event_extrahieren(voller_name):
+    """Trennt einen rohen Kanalnamen in (Kurzname/Kern, Event-Text) nach
+    der Pipe-Konvention: der Abschnitt NACH dem letzten Pipe-Zeichen gilt
+    als stabiler Kern (z.B. "DE: DYN PPV 1" -> "DYN PPV 1"), alles davor
+    als potenzieller Event-Text. Ohne Pipe wird auf das bekannte
+    DYN-PPV/FLO-RACING-Doppelpunkt-Muster zurueckgefallen. Wird sowohl
+    beim Einlesen von sender.txt als auch beim Auslesen der Live-
+    Kanalnamen aus der EPG-Anbieter-Datei verwendet."""
+    # Super League Plus-Sonderfall: die Event-Nummer steckt mal mit,
+    # mal ohne Pipe direkt hinter "Super League Plus" (Leerlauf:
+    # "Super League Plus | Event 5", live: "Super League Plus Event 1
+    # | Leeds Rhinos v Bradford Bulls | ..."), und seit einer Playlist-
+    # Umstellung (September 2026) auch ganz OHNE das Wort "Event" (nur
+    # noch "Super League Plus 03 | Warrington Wolves vs ..."). Das Wort
+    # "Event" ist daher optional - ein fester Regex auf die Nummer macht
+    # den Kern in allen drei Schreibweisen identisch ("Super League Plus
+    # Event N"), damit Leerlauf-Eintrag und Live-Playlist-Name
+    # zuverlaessig zusammenfinden - analog zum DYN-PPV/FLO-RACING-Muster
+    # unten, nur mit Pipe-Toleranz.
+    super_league_match = re.search(
+        r"SUPER\s*LEAGUE\s*PLUS.*?(?:EVENT\s*)?0*(\d+)", voller_name, re.IGNORECASE
+    )
+    if super_league_match:
+        kurzname = f"Super League Plus Event {super_league_match.group(1)}"
+        event_teil = voller_name[super_league_match.end():].strip(" |").strip()
+        return kurzname, event_teil
+
+    # "PRAEFIX | NN - Event | Zeit" mit ZWEITEM Pipe im Event-Text (z.B.
+    # UEFA | 32 - ARSENAL - ATHLETIC CLUB BILBAO | Sat 09 Aug 15:45, ein
+    # seit August stehengebliebener, aber vom Anbieter so gelieferter
+    # Name): der stabile Kern ist wie bei "UEFA | 01 - Team A vs Team B"
+    # "PRAEFIX | NN -", alles dahinter der Event-Text. Ohne diese Regel
+    # nimmt der Pipe-Zweig unten den Text nach dem LETZTEN Pipe ("Sat 09
+    # Aug 15:45") als Kern und findet keinen Sender (29.09.2026). Greift
+    # nur bei mind. zwei Pipes - Namen mit einem Pipe laufen unveraendert
+    # durch den Sonderfall weiter unten.
+    praefix_nn_event = re.match(r"^([A-Za-z]{2,4})\s*\|\s*(\d+)\s*-\s*(.*)$", voller_name)
+    if praefix_nn_event and voller_name.count("|") >= 2:
+        return (
+            f"{praefix_nn_event.group(1)} | {praefix_nn_event.group(2)} -",
+            praefix_nn_event.group(3).strip(),
+        )
+
+    if "|" in voller_name:
+        segmente = voller_name.split("|")
+        kern_roh = segmente[-1].strip()
+        event_teil = "|".join(segmente[:-1]).strip()
+        # Ein reiner 2-4-Buchstaben-Code vor dem Pipe (z.B. "NA| Bakersfield
+        # Condors") ist ein Land-/Regionskuerzel wie anderswo in sender.txt
+        # ("US|", "DE|", ...), kein echter Event-Text - echte Event-Texte
+        # sind immer deutlich laenger (Teamnamen, Uhrzeiten usw.).
+        praefix_roh = event_teil
+        ist_reiner_praefix_code = bool(re.fullmatch(r"[A-Za-z]{2,4}", praefix_roh))
+        if ist_reiner_praefix_code:
+            event_teil = ""
+        # Sonderfall "PRAEFIX | NN- Team A vs Team B ..." (z.B. UEFA| 01-
+        # Fenerbahce vs Roma 5:45pm): ein reiner Kurz-Praefix VOR dem
+        # Pipe gefolgt von einer Nummer-Bindestrich-Kombination direkt
+        # NACH dem Pipe, ohne weiteres Pipe-Zeichen zur Trennung von
+        # stabiler Nummer und wechselndem Event-Text. Ohne diese
+        # Sonderbehandlung wuerde der komplette Rest nach dem Pipe
+        # (Nummer UND Team-/Zeit-Text) faelschlich als kompletter,
+        # angeblich stabiler Kern gewertet - der aendert sich aber pro
+        # Spiel, wodurch nie ein Treffer gegen den in sender.txt
+        # hinterlegten Leerlauf-Kern ("UEFA | 01 -") zustande kam
+        # (sichtbares Symptom: "Keine Information" oder ein falscher
+        # Platzhalter-Titel eines KOLLIDIERENDEN anderen Praefixes mit
+        # derselben Nummer, z.B. "NHL Live" bei "UEFA | 17"/"18", weil
+        # der Praefix beim bisherigen Verhalten komplett verworfen
+        # wurde und die bloße Nummer allein nicht mehr eindeutig war).
+        # Nummer + Praefix werden deshalb zu einem stabilen,
+        # praefix-eindeutigen Kern rekombiniert ("UEFA | 01 -"), der
+        # Rest nach dem Bindestrich (falls vorhanden) wird Event-Text.
+        nn_bindestrich_match = (
+            re.match(r"^(\d+)\s*-\s*(.*)$", kern_roh) if ist_reiner_praefix_code else None
+        )
+        # Laender-Praefix ("DE: ", "US: ", ...) NUR bei DYN PPV/FLO
+        # RACING entfernen - das ist die historische Sonderkonvention
+        # dieser beiden Anbieter, deren sender.txt-Kernname schon immer
+        # OHNE Land gefuehrt wurde (siehe Sonderfall unten im
+        # No-Pipe-Zweig). Bei allen anderen "Land: Name N"-Sendern
+        # (SOCCER PPV, DAZN PPV, ESPN+ PPV, ...) bleibt das Land Teil
+        # des Kerns - sonst wuerden z.B. "DE: SOCCER PPV 43" und
+        # "US: SOCCER PPV 43" (zwei echte, aber verschiedene Kanaele
+        # unterschiedlicher Laender) auf denselben Index-Schluessel
+        # kollidieren und sich beim Live-Abgleich gegenseitig
+        # ueberschreiben (Bug September 2026 behoben).
+        kern_ohne_land = re.sub(r"^[A-Za-z]{2}\s*:\s*", "", kern_roh).strip()
+        if re.fullmatch(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", kern_ohne_land, re.IGNORECASE):
+            kurzname = kern_ohne_land
+        elif nn_bindestrich_match:
+            kurzname = f"{praefix_roh} | {nn_bindestrich_match.group(1)} -"
+            if nn_bindestrich_match.group(2).strip():
+                event_teil = nn_bindestrich_match.group(2).strip()
+        else:
+            kurzname = kern_roh
+    else:
+        kurzname_match = re.search(r"(DYN\s*PPV|FLO\s*RACING)\s*\d+", voller_name, re.IGNORECASE)
+        if kurzname_match:
+            # Immer den sauber erkannten Kern verwenden (Text NACH dem
+            # Muster, z.B. ein angehaengtes " :" wie bei "Flo Racing 01 :",
+            # wird bewusst verworfen statt Teil des Kerns zu bleiben) -
+            # sonst wuerde z.B. "Flo Racing 01 :" (Leerlauf-Schreibweise
+            # in sender.txt) NIE mit dem echten Live-Kern "Flo Racing  01"
+            # (aus einem Event-Namen wie "PBR RidePass :Flo Racing  01")
+            # uebereinstimmen, weil einmal der Rohtext samt Doppelpunkt
+            # und einmal nur der reine Kern normalisiert wuerde.
+            kurzname = kurzname_match.group(0)
+            event_teil = voller_name[:kurzname_match.start()].strip(" :").strip()
+            # Wie im Pipe-Zweig oben: bleibt nach dem Abschneiden nur ein
+            # reines 2-4-Buchstaben-Laenderkuerzel uebrig (z.B. "DE" aus
+            # "DE: DYN PPV 6"), ist das kein echter Event-Text, sondern
+            # nur das Laenderkuerzel vor dem Kern.
+            if re.fullmatch(r"[A-Za-z]{2,4}", event_teil):
+                event_teil = ""
+        else:
+            # Generisches Kern-AM-ENDE-Muster ohne Pipe (z.B. Milb, Flo
+            # College, Tennis, MLS, NBA Summer League): der stabile Kern
+            # steht als ":<Name(n)> <Nummer>" ganz am Zeilenende, alles
+            # davor ist der wechselnde Event-Text (z.B. "TAMIU vs West
+            # Alabama @ Aug 31 5:00 PM :Flo College  01" -> Kern
+            # "Flo College  01"). Ans Zeilenende ($) verankert, damit eine
+            # Uhrzeitangabe im Event-Text selbst (z.B. "5:00 PM") nicht
+            # faelschlich als Trenner genommen wird - nur der LETZTE
+            # Doppelpunkt vor einer schliessenden Zahl zaehlt. Ein
+            # erfolgloser Versuch hier ist risikofrei: der anschliessende
+            # Index-Lookup in name_pipe_kanal_index() schlaegt einfach
+            # fehl, wenn kein passender Sender registriert ist - kein
+            # Fehltreffer-Risiko wie bei einem unscharfen Abgleich.
+            ende_match = re.search(
+                r":\s*([A-Za-z][A-Za-z0-9+.]*(?:\s+[A-Za-z0-9+.]+)*\s+0*\d+)\s*$",
+                voller_name,
+            )
+            # WICHTIG (Bug September 2026 behoben): ein blosses 2-4-Buchstaben-
+            # Laenderkuerzel VOR dem gefundenen Doppelpunkt (z.B. "DE: RTL+ PPV
+            # 28", "US: ESPN+ PPV 7") ist die weit verbreitete "Land: Name PPV
+            # N"-Konvention OHNE Pipe (RTL+/SOCCER/ESPN+/DAZN/NETFLIX/MLS/FIFA+/
+            # B/R MAX SPORTS PPV usw., tausende Zeilen) - die faellt NICHT unter
+            # das neue Kern-am-Ende-Muster (das ist fuer Faelle mit echtem
+            # Event-Text VOR dem Kern gedacht, z.B. Milb/Flo College). Ohne
+            # diese Ausnahme wurde "DE"/"US" faelschlich als "Event-Text"
+            # interpretiert (sichtbares Symptom: der Sendungstitel zeigte nur
+            # noch "DE"/"US" statt des Kanalnamens) UND der eigentliche Kern
+            # verlor sein Laenderkuerzel, wodurch alle nachfolgenden Live-
+            # Playlist-Treffer fuer diese Sender-Gruppen ausblieben.
+            ende_match_land_praefix = (
+                ende_match
+                and re.fullmatch(r"[A-Za-z]{2,4}", voller_name[:ende_match.start()].strip(" :").strip())
+            )
+            if ende_match and not ende_match_land_praefix:
+                kurzname = ende_match.group(1).strip()
+                event_teil = voller_name[:ende_match.start()].strip(" :").strip()
+            else:
+                # Laender-Praefix bleibt hier bewusst Teil des Kerns
+                # (siehe Pipe-Zweig oben: nur DYN PPV/FLO RACING sind die
+                # Sonderfaelle ohne Land) - der Pipe-Zweig verwendet
+                # dieselbe Regel, damit z.B. "US: ESPN+ PPV 1" (sender.txt-
+                # Kernname) und der beim Live-Playlist-Abgleich aus
+                # "... | US: ESPN+ PPV 1" extrahierte Kern exakt
+                # uebereinstimmen, OHNE mit "DE: ESPN+ PPV 1" zu kollidieren.
+                kurzname = voller_name
+                event_teil = ""
+    return kurzname, event_teil
+
+
+def kern_vorne_und_event_extrahieren(voller_name):
+    """Gegenstueck zu kern_und_event_extrahieren() fuer Anbieter, die den
+    stabilen Kern VORNE im Kanalnamen fuehren statt hinten (z.B. Clubber:
+    "(IE) (Clubber 01) | Kerry GAA: Abbeydorney vs St Brendans (...)" ->
+    Kern "(IE) (Clubber 01)", Event-Text der Rest). Wird beim EPG-
+    Anbieter-Abgleich zusaetzlich zur Hinten-Konvention probiert, damit
+    beide Namensschemata ueber denselben generischen Mechanismus laufen,
+    ohne dass die Zuordnung anbieterspezifisch im Code verdrahtet ist.
+    Ohne Pipe im Namen gibt es keinen Kandidaten (None, ""), ausser fuer
+    bekannte Kern-vorne-Anbieter mit DOPPELPUNKT statt Pipe (z.B.
+    DirtVision: "DIRTVISION 01 : Knoxville Raceway 7:15 pm" -> Kern
+    "DIRTVISION 01", Event "Knoxville Raceway 7:15 pm"). Dafuer wird
+    gezielt nach bekannten Kern-Keywords gesucht, statt am ERSTEN
+    Doppelpunkt zu trennen - sonst wuerde eine Uhrzeitangabe im Event-
+    Text selbst (z.B. "7:15 pm") faelschlich als Trenner genommen."""
+    # Manche Anbieter haengen den Event-Text mit einem einzelnen
+    # Bindestrich DIREKT hinter die Kern-Nummer an, OHNE trennendes
+    # Pipe-Zeichen davor (z.B. "UK: VOLLEY PPV 1 - MELISSA/BRANDIE (CAN)
+    # VS MAEDER/KERNEN (SUI), WOMEN SEMIFINALS ON CC | OSTRAVA (CZE) |
+    # Sun 31 May 08:50 | 8K EXCLUSIVE" -> Kern "UK: VOLLEY PPV 1", Event
+    # der komplette Rest inkl. der spaeteren Pipes). Der bestehende
+    # dash_suffix-Zweig weiter unten greift hier nicht, da der Bindestrich
+    # nicht am ENDE des ersten Pipe-Abschnitts steht, sondern gleich nach
+    # der Nummer, gefolgt von langem Fliesstext mit eigenen Pipes. Das
+    # 2-4-Buchstaben-Laendercode-Praefix ist Pflicht (":" muss direkt nach
+    # dem Kuerzel folgen) - verhindert denselben Fehltreffer-Typ wie beim
+    # September-2026-Regressions-Bug ("DE: RTL+ PPV 28" hat KEINEN
+    # Bindestrich nach der Nummer und matcht hier nicht).
+    frueher_bindestrich_match = re.match(
+        r"^\s*([A-Za-z]{2,4}:\s*[A-Za-z][\w+./]*(?:\s+[\w+./]+)*\s+0*\d+)\s+-\s+(.*)$",
+        voller_name,
+    )
+    if frueher_bindestrich_match:
+        kurzname = frueher_bindestrich_match.group(1).strip()
+        event_teil = frueher_bindestrich_match.group(2).strip()
+        return kurzname, event_teil
+
+    # Manche Anbieter kombinieren BEIDE Trenner in einem Namen: Kern
+    # VORNE mit Doppelpunkt, aber der nachfolgende Event-Text enthaelt
+    # SELBST wieder Pipe-Zeichen (z.B. "Matchroom Event 01: British
+    # Open 2024 - Day 2 - T2 | The Centaur, Cheltenham | snooker | Tue
+    # 24 Sep 9:00:00 AM" - sender.txt-Kern ist "Matchroom Event 01").
+    # Der generische Pipe-Zweig unten trennt bisher blind am ERSTEN
+    # Pipe-Zeichen und haette den kompletten Text vor diesem Pipe
+    # (inkl. Event-Text) faelschlich als Kern uebernommen. Der generische
+    # Kern-vorne-Doppelpunkt-Fallback (weiter unten in dieser Funktion)
+    # wird deshalb HIER VORGEZOGEN, wenn er einen Treffer VOR dem ersten
+    # Pipe-Zeichen findet - der eigentliche Pipe-Zweig kommt dann gar
+    # nicht mehr zum Zug. Risikofrei: das Muster ist an ^ verankert (nur
+    # der allererste Doppelpunkt der Zeile zaehlt), eine Uhrzeitangabe
+    # im Event-Text (z.B. "9:00:00 AM") kommt immer erst deutlich
+    # spaeter und wird nie faelschlich als Kern-Trenner genommen.
+    # Zeichenklasse enthaelt bewusst auch "()": manche Kerne fuehren ein
+    # Klammer-Suffix (z.B. "BTN+ 1 HD (D)", "US (P+) Italy SerieA 6",
+    # "Fite TV 1 HD (D)") - ohne Klammern in der Zeichenklasse schlug
+    # der Match komplett fehl und der Kern wurde nie erkannt. Das
+    # Schluss-Element vor dem Doppelpunkt ist zusaetzlich EXPLIZIT
+    # entweder eine Zahl ODER ein Klammer-Suffix wie "(D)" - "BTN+ 1 HD
+    # (D)"/"Fite TV 1 HD (D)" enden NICHT auf eine Zahl, das reine
+    # Zahl-Erfordernis liess den Match sonst trotz erlaubter Klammern
+    # in der Zeichenklasse fehlschlagen (September 2026 behoben, siehe
+    # docs/HISTORIE.md).
+    if "|" in voller_name:
+        erster_pipe_index = voller_name.index("|")
+        vor_pipe = voller_name[:erster_pipe_index]
+        frueher_match = re.match(
+            r"^\s*([A-Za-z][A-Za-z0-9+.()]*(?:\s+[A-Za-z0-9+.()]+)*\s+(?:0*\d+|\([A-Za-z0-9]+\)))\s*:\s*(.*)$",
+            vor_pipe,
+        )
+        if frueher_match:
+            kurzname = frueher_match.group(1).strip()
+            event_teil = (frueher_match.group(2).strip() + " " + voller_name[erster_pipe_index:]).strip()
+            return kurzname, event_teil
+
+    if "|" in voller_name:
+        segmente = voller_name.split("|")
+        erster_teil = segmente[0].strip()
+        rest = "|".join(segmente[1:]).strip()
+
+        # Manche Anbieter haengen den Leerlauf-/Status-Text OHNE
+        # trennendes Pipe-Zeichen direkt an den Kern an (z.B. "AR: DAZN
+        # PPV 1 - NO EVENT STREAMING - | 8K EXCLUSIVE" - kein Pipe
+        # zwischen Kern und "- NO EVENT STREAMING -"). Ohne Sonder-
+        # behandlung bleibt der komplette erste Abschnitt inkl.
+        # Anhaengsel der vermeintliche Kern, der dann nie exakt mit dem
+        # sauberen sender.txt-Kern uebereinstimmt (beobachtet bei
+        # "AR: DAZN PPV N", sender.txt-Kern "AR: DAZN PPV 1" wurde nie
+        # erkannt). Ein angehaengter, in Bindestriche eingeschlossener
+        # Text ("- ... -" am Ende des ersten Abschnitts) wird deshalb
+        # abgetrennt und stattdessen dem Event-Text zugeschlagen -
+        # risikofrei: ohne dieses Muster gibt es keinen Treffer fuer die
+        # Regex, und ein falsch abgetrennter Kern findet beim
+        # anschliessenden Index-Lookup in name_pipe_kanal_index() einfach
+        # keinen Treffer (kein Fehltreffer-Risiko wie bei einem
+        # unscharfen Abgleich).
+        # Manche Anbieter haengen NUR einen einzelnen, abschliessenden
+        # Bindestrich als Trenner an (kein "- ... -"-Paar wie oben, z.B.
+        # "US: NETFLIX PPV 1 - | 8K EXCLUSIVE" - der Leerlauftext steht
+        # hier bereits hinter dem Pipe in "rest", der Bindestrich markiert
+        # nur das Ende des Kerns). Ohne diese Ergaenzung blieb der
+        # angehaengte Bindestrich Teil des vermeintlichen Kerns
+        # ("US: NETFLIX PPV 1 -"), der dadurch nie exakt mit dem sauberen
+        # sender.txt-Kern ("US: NETFLIX PPV 1") uebereinstimmte - derselbe
+        # Bug-Typ wie beim "- ... -"-Muster oben, nur ohne zweiten
+        # Bindestrich. Gleiche Risikofreiheit: ein falsch abgetrennter
+        # Kern findet beim Index-Lookup einfach keinen Treffer.
+        dash_suffix = re.search(r"\s+-\s+.+-\s*$", erster_teil) or re.search(r"\s+-\s*$", erster_teil)
+        if dash_suffix:
+            kurzname = erster_teil[:dash_suffix.start()].strip()
+            abgetrennt = erster_teil[dash_suffix.start():].strip(" -")
+            event_teil = " | ".join(t for t in (abgetrennt, rest) if t)
+        else:
+            kurzname = erster_teil
+            event_teil = rest
+        return kurzname, event_teil
+
+    match = re.match(r"^\s*(DIRTVISION\s*\d+|FA\s*PLAYER\s*\d+)\s*:\s*(.*)$", voller_name, re.IGNORECASE)
+    if match:
+        return match.group(1).strip(), match.group(2).strip()
+
+    # "LIVE EVENT N - ..." (z.B. "LIVE EVENT 07 - NO EVENT", "LIVE EVENT
+    # 06 - 9pm High Limit Racing Skagit") - eigene Bindestrich-Konvention
+    # ohne Land, weder Pipe noch Doppelpunkt. Eng auf "LIVE EVENT"
+    # begrenzt (nicht generisch auf jeden Bindestrich), um nicht
+    # denselben Fehltreffer-Typ wie beim generischen Doppelpunkt-Muster
+    # zu riskieren (siehe Regressions-Lehre oben).
+    live_event_match = re.match(r"^\s*(LIVE\s*EVENT\s*0*\d+)\s*-\s*(.*)$", voller_name, re.IGNORECASE)
+    if live_event_match:
+        return live_event_match.group(1).strip(), live_event_match.group(2).strip()
+
+    # Generisches Kern-VORNE-Muster ohne Pipe (z.B. NCAAF: "NCAAF 01:
+    # North Texas vs Charlotte @ Oct 24 7:00 PM" -> Kern "NCAAF 01").
+    # An ^ verankert, damit nur der ALLERERSTE Doppelpunkt der Zeile als
+    # Trenner zaehlt - eine Uhrzeitangabe im Event-Text (z.B. "7:00 PM")
+    # kommt immer erst NACH dem Kern und wird dadurch nie faelschlich
+    # als Trenner genommen. Ein erfolgloser Versuch ist risikofrei: der
+    # anschliessende Index-Lookup schlaegt einfach fehl, wenn kein
+    # passender Sender registriert ist.
+    generisch_match = re.match(
+        r"^\s*([A-Za-z][A-Za-z0-9+.()]*(?:\s+[A-Za-z0-9+.()]+)*\s+(?:0*\d+|\([A-Za-z0-9]+\)))\s*:\s*(.*)$",
+        voller_name,
+    )
+    if generisch_match:
+        return generisch_match.group(1).strip(), generisch_match.group(2).strip()
+
+    return None, ""
+
+# ==========================================================
+# ZENTRALE KONFIGURATION
+#
+# Alle frei "tunbaren" Werte an einer Stelle statt ueber die Datei
+# verstreut. Wer z.B. die EPG-Laenge, die Anzahl der DYN-PPV-Kanaele
+# oder das Event-Zeitfenster anpassen will, muss nur hier suchen.
+# ==========================================================
+
+# Wie viele Tage im Voraus das Standard-EPG (Tagesraster-Bloecke)
+# erzeugt wird. September 2026 von 3 auf 2 gesenkt (Datei-Groesse/
+# TiviMate-Ladezeit, siehe Chat-Analyse: generischer Platzhaltertext
+# machte ~54% aller Sendungseintraege aus, echte Quellen haben eigene,
+# unabhaengige Tage-Konstanten und sind davon nicht betroffen).
+ANZAHL_TAGE = 2
+
+# Anzahl der DYN-PPV-Kanaele (DE| DYN PPV 1 HD ... DE| DYN PPV N HD).
+DYN_PPV_ANZAHL = 20
+
+# Wie viele Tage im Voraus die "DYN Leerzeiten" (Platzhalter ohne
+# erkanntes Live-Event) vorbefuellt werden. Bleibt bewusst identisch
+# zu ANZAHL_TAGE, ist aber eigenstaendig konfigurierbar, falls die
+# Leerzeiten mal laenger/kuerzer als das Standard-EPG laufen sollen.
+DYN_LEERZEIT_TAGE = ANZAHL_TAGE
+
+# Standard-Logo fuer DYN-PPV-Kanaele, falls kein individuelles Logo
+# in dyn_ppv_logo_overrides hinterlegt ist.
+DYN_STANDARD_LOGO = "https://www.dslweb.de/public/resources/images/anbieter/dyn/dyn-teaser.jpg"
+
+# DYN Live-Events API: Liste von Endpunkten in Prioritaets-Reihenfolge.
+# Der erste erreichbare Endpunkt (HTTP 200) wird verwendet. Aktuell ist
+# nur der offizielle Endpunkt bekannt - die Liste ist aber vorbereitet,
+# falls spaeter ein Spiegel-/Fallback-Endpunkt hinzukommt (einfach als
+# weiteren String ergaenzen, keine Codeaenderung noetig).
+DYN_API_ENDPUNKTE = [
+    "https://streaming.contentdesk.sport/api/public/live-productions",
+]
+DYN_API_TIMEOUT_SEKUNDEN = 15
+
+# Bekannte Leerlauf-Platzhalter-Texte fuer NAME:-Sender (Pipe-
+# Konvention, siehe Einlese-Logik weiter unten). Enthaelt der
+# Event-Teil eines Kanalnamens einen dieser Texte (Gross-/
+# Kleinschreibung egal), gilt der Sender als "kein Event laeuft" -
+# es bleibt beim generischen Standardtext statt des Kanalnamen-
+# Fragments. Neue Anbieter mit eigenem Platzhaltertext (z.B. in
+# einer anderen Sprache) koennen hier einfach ergaenzt werden, ohne
+# die Einlese-Logik selbst anfassen zu muessen.
+LEERLAUF_MARKER = ["no event", "kein event", "nema eventa", "ni dogodka"]
+
+# Status-Marker, die manche Anbieter (z.B. myepg.top) als erstes
+# Pipe-Segment vor den eigentlichen Event-Namen setzen ("NEXT | ...",
+# "End | ..."). Werden erkannt und in verstaendlichen deutschen
+# EPG-Text uebersetzt statt den rohen englischen Marker anzuzeigen.
+EVENT_MARKER_NEXT = ["next"]
+EVENT_MARKER_LIVE = ["live"]
+EVENT_MARKER_ENDE = ["end", "ended", "endet"]
+# Bewusst anbieterneutral formuliert (kein Marken-Signatur wie "Ihr DYN
+# Sport Team") - formatiere_event_text() wird generisch fuer ALLE
+# NAME:-Sendergruppen verwendet (ESPN+/SOCCER/DAZN PPV usw.), nicht nur
+# fuer DYN PPV. Eine DYN-spezifische Signatur zeigte sich faelschlich
+# auch bei Sendern anderer Anbieter (Bug September 2026 behoben).
+EVENT_ENDE_TEXT = "Spiel ist beendet, danke, dass Sie zugeschaut haben."
+
+# Generisches Kern-Muster fuer ALLE "<Land:> <Name> PPV <Nummer>"-
+# NAME:-Sendergruppen (DAZN/ESPN+/SOCCER/RTL+ PPV usw., nicht nur DYN/
+# STAIGE/DPLUS) - liefert bei Treffer den Markennamen (Gruppe 1, ohne
+# Land) und die Nummer (Gruppe 2). Wird als generischer Fallback NACH
+# den bereits bestehenden Spezialfaellen (DYN PPV/STAIGE PPV/DPLUS PPV
+# mit eigenem festen Anzeigenamen) geprueft, damit auch bei jeder
+# weiteren PPV-Sendergruppe (auf Zuruf, ohne Codeaenderung fuer jede
+# einzelne Marke) Team-vs-Team/Uhrzeit + hochgestellter Status
+# (ᴸⁱᵛᵉ/ᴺᵉˣᵗ/ᴮᵉᵉⁿᵈᵉᵗ) statt des generischen Abmoderationstexts oder
+# des rohen Anbietertexts angezeigt wird.
+PPV_KERN_MUSTER = re.compile(
+    r"^(?:[A-Za-z]{2}:\s*)?([A-Za-z0-9+.]+(?:\s+[A-Za-z0-9+.]+)*)\s*PPV\s*0*(\d+)$",
+    re.IGNORECASE,
+)
+
+
+def normalisiere_grossschreibung(text):
+    """Wandelt grossgeschriebene WOERTER (nicht den ganzen Text auf
+    einmal - viele Anbieter-Kanalnamen mischen bereits normal
+    geschriebene Teamnamen mit durchgaengig grossgeschriebenen
+    Zusaetzen wie "8K EXCLUSIVE") in normale Gross-/Kleinschreibung um,
+    statt sie "schreiend" im EPG-Raster anzuzeigen. Kurze Kuerzel
+    (Laendercodes, Formatangaben wie "HD") und Woerter mit Ziffern
+    (z.B. "8K", "4K") bleiben unveraendert. Bereits gemischt oder klein
+    geschriebene Woerter (z.B. echte Eigennamen) werden nicht
+    angefasst."""
+    if not text:
+        return text
+
+    def wandel_wort(wort):
+        kern = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", wort)
+        if (
+            not kern
+            or kern != kern.upper()
+            or any(zeichen.isdigit() for zeichen in wort)
+            or len(kern) <= 3
+        ):
+            return wort
+        return wort.capitalize()
+
+    return " ".join(wandel_wort(w) for w in text.split(" "))
+
+
+def formatiere_event_text(event_teil):
+    """Erkennt einen bekannten Status-Marker (NEXT/END) im ersten Pipe-
+    Segment eines rohen Event-Texts und baut daraus verstaendlichen
+    deutschen EPG-Text: "NEXT | X" -> "Es folgt: X", "End | X" -> festen
+    Abmoderationstext. Ohne erkannten Marker (z.B. bei "Live | ...")
+    bleibt der Text unveraendert. Komplett grossgeschriebener Text wird
+    dabei normalisiert (siehe normalisiere_grossschreibung())."""
+    event_teil = normalisiere_grossschreibung(event_teil)
+    segmente = [s.strip() for s in event_teil.split("|")]
+    marker = segmente[0].lower() if segmente else ""
+
+    if marker in EVENT_MARKER_ENDE:
+        return EVENT_ENDE_TEXT
+
+    if marker in EVENT_MARKER_NEXT:
+        rest = " | ".join(s for s in segmente[1:] if s).strip()
+        if rest:
+            return f"Es folgt: {rest}"
+        return "Es folgt in Kürze ein neues Event"
+
+    return event_teil
+
+
+def dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ"):
+    """Extrahiert bei einem erkannten NEXT-/LIVE-Marker die Team-/Gegner-
+    Namen aus dem rohen Event-Text (z.B. "NEXT | Deutschland - Guinea |
+    Fri 21 Aug 18:10 CEST (DE) | 8K Exclusive" -> "Deutschland vs.
+    Guinea 18:10 Uhr ᴺᵉˣᵗ"), ohne Status-Marker, Wochentag/Datum oder
+    Wettbewerbs-/Rundenangabe. status_suffix haengt den erkannten Status
+    ans Ende an (ᴺᵉˣᵗ bei "NEXT", ᴸⁱᵛᵉ bei "LIVE" - vom Aufrufer
+    vorgegeben). Gibt None zurueck, wenn kein zweites Pipe-Segment
+    vorhanden ist (Fallback bleibt dem Aufrufer ueberlassen)."""
+    segmente = [s.strip() for s in event_teil.split("|") if s.strip()]
+    if len(segmente) < 2:
+        return None
+    teams = normalisiere_grossschreibung(segmente[1])
+    teams = re.sub(r"\s+-\s+", " vs. ", teams).strip()
+    if not teams:
+        return None
+
+    uhrzeit_treffer = re.search(r"\b([01]?\d|2[0-3]):([0-5]\d)\b", event_teil)
+    if uhrzeit_treffer:
+        return f"{teams} {uhrzeit_treffer.group(0)} Uhr {status_suffix}"
+    return f"{teams} {status_suffix}"
+
+# Automatische Logo-Suche: fehlt einem Sender in sender.txt/
+# logo_only.txt ein Logo, wird versucht, es automatisch ueber die
+# oeffentliche iptv-org-Kanaldatenbank zu finden (per Namensabgleich).
+# Kein Bezug zu einer konkreten IPTV-Quelle - rein oeffentliche
+# Metadaten (Kanalname -> Logo-URL). Bei Nichterreichbarkeit wird die
+# Suche automatisch uebersprungen (siehe Try/Except weiter unten).
+LOGO_AUTO_SUCHE_AKTIV = True
+LOGO_DB_CHANNELS_URL = "https://iptv-org.github.io/api/channels.json"
+LOGO_DB_LOGOS_URL = "https://iptv-org.github.io/api/logos.json"
+LOGO_DB_TIMEOUT_SEKUNDEN = 30
+LOGO_MATCH_MIN_SCORE = 0.72
+
+# Schluesselwort, das explizit ins Logo-Feld geschrieben werden muss,
+# damit die automatische Suche fuer GENAU diesen Sender ausgeloest
+# wird (z.B. "DE|Pro7||AUTO"). Ein einfach leeres Logo-Feld (wie es
+# bei den meisten 2-Pipe-Eintraegen "DE| Pro7" der Fall ist, wo das
+# Logo bisher schon direkt aus der Playlist selbst kommt) loest KEINE
+# automatische Suche aus - nur wer wirklich Hilfe beim Logo braucht,
+# schreibt das Schluesselwort explizit dazu.
+LOGO_AUTO_MARKER = "AUTO"
+
+# ==========================================================
+# XML starten (Teile werden gesammelt und am Ende gejoint,
+# statt bei jedem Schritt einen neuen String zu bauen)
+# ==========================================================
+
+xml_teile = ['<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n']
+
+# Index (kanal_id, stop_str) -> Position in xml_teile fuer bereits
+# geschriebene echte <programme>-Eintraege - ermoeglicht das
+# nachtraegliche Verlaengern einer vorherigen echten Sendung bis zum
+# Beginn der naechsten (siehe _verlaengere_vorherige_sendung()), statt
+# fuer eine kleine Datenluecke dazwischen einen eigenen
+# "<Sender> ᴸⁱᵛᵉ"-Platzhalterblock einzufuegen. Wird von
+# _schreibe_echte_programme() bei jedem Schreiben aktualisiert.
+_echte_programme_index = {}
+
+sender_daten = []
+
+# Automatische Datenmuell-/Duplikat-Erkennung fuer NAME:-Sender: manche
+# sender.txt-Zeilen tragen (durch fruehere fehlerhafte Kern-Erkennung
+# beim Playlist-Import) noch alten Roh-Event-Text im Kern statt des
+# stabilen Kerns (siehe CLAUDE.md, Abschnitt "Datenmuell"). Die
+# Extraktion weiter unten (kern_und_event_extrahieren()/
+# kern_vorne_und_event_extrahieren()) erkennt und bereinigt das bereits
+# fuer die ANGEZEIGTE Beschreibung - hier wird zusaetzlich automatisch
+# verhindert, dass so ein Datenmuell-Kern eine eigene, doppelte
+# <channel>-ID neben der laengst vorhandenen sauberen erzeugt: Wird bei
+# einer NAME:-Zeile Muell erkannt und abgetrennt, UND der uebrig
+# bleibende saubere Kern wurde bereits von einer anderen Zeile
+# registriert, wird diese Zeile komplett uebersprungen (Duplikat).
+# Wurde er noch nicht registriert, wird die Zeile trotzdem verwendet,
+# aber mit dem BEREINIGTEN Kern als <channel>-ID (statt des Roh-
+# Datenmuells) - dadurch matcht der Live-Playlist-Abgleich sofort
+# richtig, ganz ohne manuelle sender.txt-Korrektur.
+_name_kern_registry = {}
+_name_kern_duplikate_uebersprungen = 0
+_name_kern_automatisch_bereinigt = 0
+
+# Auf Modulebene (statt wie frueher innerhalb der Schleife neu
+# definiert), da sowohl der Vorab-Durchlauf (Registry-Vorbefuellung
+# unten) als auch die eigentliche NAME:-Verarbeitung weiter unten
+# dieselbe Funktion brauchen. Erkennt, ob ein abgetrennter Text-
+# Abschnitt wie echter Rohtext-Muell aussieht (Uhrzeit/Datum/
+# Jahreszahl, "vs", ein bekannter Leerlauf-/Event-Marker, oder mehr
+# als 4 Woerter) - siehe ausfuehrliche Erklaerung weiter unten bei der
+# NAME:-Verarbeitung.
+def _wirkt_wie_rohtext_muell(text):
+    if not text:
+        return False
+    # "1pm"/"10am" (Uhrzeit OHNE Doppelpunkt) zusaetzlich zur Doppelpunkt-
+    # Variante - NFL-Sender liefern Event-Texte inzwischen im Format
+    # "1pm Buccaneers at Bengals" (kein "vs.", kein Doppelpunkt, nur 4
+    # Woerter) - ohne diese Ergaenzung wirkte der Text faelschlich NICHT
+    # wie Muell, der Rollback verwarf dadurch den korrekt erkannten Kern
+    # (September 2026 behoben, siehe docs/HISTORIE.md).
+    if re.search(r"\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2}|\d{1,2}[./]\d{1,2}([./]\d{2,4})?|\b(19|20)\d{2}\b|\d{1,2}\s*(?:am|pm)\b", text, re.IGNORECASE):
+        return True
+    if re.search(r"\bvs\.?\b", text, re.IGNORECASE):
+        return True
+    if any(marker in text.lower() for marker in LEERLAUF_MARKER):
+        return True
+    # NUR pruefen, ob der ERSTE Pipe-Abschnitt EXAKT einem der Marker
+    # entspricht (wie im echten DYN-PPV-Rohformat "Live| Team A - Team B
+    # | ...", wo der Marker immer alleinstehend vor dem ersten Pipe
+    # steht) - NICHT mehr als reine Teilstring-Suche irgendwo im Text.
+    # Sonst wurden legitime, stabile Kanalnamen, die zufaellig eines
+    # dieser kurzen englischen Woerter enthalten (z.B. "NHL LIVE" als
+    # kompletter Kanalname, kein Live-Event-Marker), faelschlich als
+    # Rohtext-Muell erkannt - der Rollback verwarf dadurch den korrekt
+    # erkannten Kern und der Kanal landete kaputt/leer im XML (betraf
+    # "NHL LIVE|", "NHL LIVE| 17 -", "NHL LIVE| 18 -", September 2026
+    # behoben).
+    _erster_abschnitt = text.split("|", 1)[0].strip().lower()
+    if _erster_abschnitt in EVENT_MARKER_NEXT + EVENT_MARKER_LIVE + EVENT_MARKER_ENDE:
+        return True
+    if len(text.split()) > 4:
+        return True
+    return False
+
+# Zaehlt pro echter Quelle, wie viele Sender damit echte Programmdaten
+# bekommen haben - statt bei JEDEM einzelnen Sender eine eigene
+# Log-Zeile auszugeben (bei ~19.000 Sendern eine sehr lange, kaum
+# lesbare Liste im Workflow-Log). Am Ende des Laufs wird daraus eine
+# kompakte Zusammenfassung ausgegeben (siehe ganz unten im Skript).
+echte_quelle_zaehler = {}
+
+# Schuetzt echte_quelle_zaehler/xml_teile/_echte_programme_index (siehe
+# _schreibe_echte_programme()/_verlaengere_vorherige_sendung() weiter
+# unten) gegen gleichzeitige Schreibzugriffe - noetig, seit einzelne
+# GROSSE, nachweislich voneinander unabhaengige Verarbeitungsbloecke
+# (Sky/TVPassport/DE-Kaskade, siehe _HINTERGRUND_POOL) in eigenen
+# Threads laufen, statt wie bisher alle sequenziell im Hauptthread.
+# Innerhalb eines Blocks war das Schreiben schon immer nur im
+# aufrufenden Thread passiert (siehe Docstring von
+# _de_kaskade_abrufen()) - der Lock schuetzt jetzt zusaetzlich gegen
+# das gleichzeitige Schreiben ZWEIER verschiedener Bloecke.
+_xml_lock = threading.Lock()
+
+
+def _echte_quelle_zaehlen(quelle):
+    with _xml_lock:
+        echte_quelle_zaehler[quelle] = echte_quelle_zaehler.get(quelle, 0) + 1
+
+# ==========================================================
+# sender.txt lesen
+#
+# Format (bis zu 4 Spalten, alles nach Sender ist optional):
+#
+# Land|Sender
+# Land|Sender|Beschreibung
+# Land|Sender|Beschreibung|Logo-URL
+#
+# Wird kein Logo angegeben, wird KEIN <icon>-Tag erzeugt -
+# der Player/die Playlist behält dann ihr eigenes Logo.
+# ==========================================================
+
+try:
+    with open("sender.txt", "r", encoding="utf-8") as f:
+        zeilen = f.readlines()
+except FileNotFoundError:
+    raise SystemExit("Fehler: sender.txt wurde nicht gefunden.")
+
+# Normalisierter Vergleichsschluessel fuer die Datenmuell-/Duplikat-
+# Registry. Ein trainierender, alleinstehender Doppelpunkt (z.B. bei
+# "DIRTVISION 01 :"/"OHL 02 :" - der Doppelpunkt bleibt dort stehen,
+# weil kern_vorne_und_event_extrahieren() ihn nur entfernt, wenn
+# WIRKLICH Muell dahinter erkannt wird, sonst bleibt die Zeile
+# unveraendert) wird hier zusaetzlich entfernt, damit "DIRTVISION 01 :"
+# und das aus einer Datenmuell-Zeile bereinigte "DIRTVISION 01" (dort
+# wird der Doppelpunkt beim Abtrennen des erkannten Muells IMMER mit
+# entfernt) auf denselben Schluessel normalisieren - sonst wuerden
+# beide Schreibweisen faelschlich als unterschiedliche Kanaele gelten.
+def _name_kern_registry_key(text):
+    text = re.sub(r"\s+", " ", text.strip().lower())
+    text = re.sub(r"\s*:$", "", text)
+    return text
+
+# Vorab-Durchlauf NUR fuer die Datenmuell-/Duplikat-Registry (siehe
+# Kommentar oben bei _name_kern_registry): registriert zuerst ALLE
+# bereits sauberen NAME:-Kerne (wo nichts oder nur ein alleinstehender
+# fuehrender/abschliessender Doppelpunkt-Marker abgetrennt wird - siehe
+# _name_kern_registry_key oben), BEVOR die eigentliche Verarbeitung
+# unten beginnt. Ohne diesen Vorab-Durchlauf wuerde bei der Reihenfolge
+# "Datenmuell-Zeile steht VOR der sauberen Zeile in sender.txt" (in der
+# Praxis der haeufigere Fall, da Muell-Zeilen oft aus dem urspruenglichen
+# Playlist-Import stammen und saubere Ergaenzungen spaeter angehaengt
+# wurden) die Muell-Zeile faelschlich zuerst registriert und die
+# eigentlich bessere, saubere Zeile (meist mit funktionierendem, selbst
+# gehostetem Logo statt eines toten externen Links) als vermeintliches
+# Duplikat verworfen - genau umgekehrt vom gewuenschten Verhalten.
+for _vorab_zeile in zeilen:
+    _vorab_zeile = _vorab_zeile.strip()
+    if not _vorab_zeile.upper().startswith("NAME:"):
+        continue
+    _vorab_rest = _vorab_zeile[5:]
+    _vorab_teile = _vorab_rest.rsplit("|", 1)
+    if len(_vorab_teile) != 2:
+        continue
+    _vorab_voller_name = _vorab_teile[0].strip()
+    if not _vorab_voller_name:
+        continue
+    _vorab_kurzname, _vorab_event_teil = kern_und_event_extrahieren(_vorab_voller_name)
+    _vorab_hinten_zurueckgerollt = False
+    if _vorab_kurzname != _vorab_voller_name and _vorab_event_teil and not _wirkt_wie_rohtext_muell(_vorab_event_teil):
+        _vorab_kurzname, _vorab_event_teil = _vorab_voller_name, ""
+        _vorab_hinten_zurueckgerollt = True
+    # Gleicher Schutz wie bei der eigentlichen NAME:-Verarbeitung weiter
+    # unten (siehe dortiger ausfuehrlicher Kommentar): NUR versuchen,
+    # wenn das Kern-hinten-Muster oben WIRKLICH nichts gefunden hat,
+    # nicht wenn kurzname nur durch den bewussten Rollback direkt
+    # darueber zurueckgesetzt wurde - sonst wuerde der Vorab-Durchlauf
+    # einen anderen (kaputten) Kern registrieren als die eigentliche
+    # Verarbeitung spaeter tatsaechlich verwendet.
+    if _vorab_kurzname == _vorab_voller_name and not _vorab_hinten_zurueckgerollt:
+        _vorab_kern_vorne, _vorab_event_vorne = kern_vorne_und_event_extrahieren(_vorab_voller_name)
+        # Gleiche Leer-Ausnahme wie bei der eigentlichen NAME:-
+        # Verarbeitung weiter unten (siehe dortiger ausfuehrlicher
+        # Kommentar, z.B. "DIRTVISION 01 :" ohne Event-Text) - sonst
+        # wuerde der Vorab-Durchlauf hier einen anderen (unbereinigten)
+        # Kern registrieren als die eigentliche Verarbeitung spaeter
+        # tatsaechlich verwendet.
+        if _vorab_kern_vorne and (not _vorab_event_vorne or _wirkt_wie_rohtext_muell(_vorab_event_vorne)):
+            _vorab_kurzname, _vorab_event_teil = _vorab_kern_vorne, _vorab_event_vorne
+    # "sauber" heisst: entweder komplett unveraendert, oder es wurde nur
+    # ein leerer Event-Teil abgetrennt (reiner Doppelpunkt-Marker ohne
+    # jeglichen Text dahinter, z.B. ":Paramount+  02" oder "OHL 02 :")
+    # - ein NICHT-leerer Event-Teil bedeutet dagegen immer echten,
+    # abgetrennten Muelltext und zaehlt nicht als "sauber".
+    if not _vorab_event_teil:
+        _vorab_key = _name_kern_registry_key(_vorab_kurzname)
+        _name_kern_registry[_vorab_key] = True
+
+for zeile in zeilen:
+
+    zeile = zeile.strip()
+
+    if not zeile or zeile.startswith("#"):
+        continue
+
+    # NAME:-Präfix: für Sender, deren echter Playlist-Name selbst
+    # Pipe-Zeichen enthält (z.B. "- NO EVENT STREAMING - | 8K
+    # EXCLUSIVE | DE: DYN PPV 1"). Normales Land|Sender|Beschreibung|
+    # Logo-Format würde so einen Namen an den falschen Stellen
+    # zerschneiden. Bei "NAME:" wird stattdessen nur am LETZTEN Pipe
+    # der Zeile getrennt - alles davor ist der komplette, unveränderte
+    # Kanalname (wird 1:1 als id/display-name verwendet, keine
+    # Land|Sender-Rekonstruktion), alles danach das Logo.
+    if zeile.upper().startswith("NAME:"):
+        rest = zeile[5:]
+        teile_name = rest.rsplit("|", 1)
+
+        if len(teile_name) != 2:
+            continue
+
+        voller_name = teile_name[0].strip()
+        logo = teile_name[1].strip()
+
+        if not voller_name:
+            continue
+
+        # Für den Sendungstitel NICHT den kompletten Rohnamen
+        # wiederverwenden - der ist fast identisch mit dem Kanalnamen
+        # selbst (nur andere Groß-/Kleinschreibung). Viele Player
+        # (u.a. TiviMate) interpretieren einen Sendungstitel, der
+        # praktisch gleich dem Kanalnamen ist, als "keine echten
+        # Daten" und zeigen dann trotz vorhandener <title>/<desc>
+        # nur "Keine Information" an. Stattdessen wird der stabile
+        # Kern des Namens herausgelöst, falls vorhanden - das
+        # unterscheidet sich klar vom Kanalnamen.
+        #
+        # STANDARDISIERTE PIPE-KONVENTION (funktioniert automatisch
+        # fuer JEDEN Sender im NAME:-Format, unabhaengig vom Anbieter -
+        # kein hartcodiertes Anbieter-Muster wie "DYN PPV"/"FLO RACING"
+        # mehr noetig):
+        #
+        # Der Abschnitt NACH dem LETZTEN Pipe-Zeichen im Kanalnamen
+        # (vor dem Logo-Pipe) gilt als der feste, sich nicht
+        # aendernde "Kern" des Senders - z.B.
+        #   "ENDED | DEUTSCHLAND - GUINEA | IHF U18 WOMEN'S... | DE: DYN PPV 1"
+        #                                                         ^^^^^^^^^^^^^ Kern
+        # Alles DAVOR gilt automatisch als potenzieller Event-Text.
+        # Wer also einen neuen Sender (DAZN, ESPN, etc.) im NAME:-
+        # Format mit derselben Pipe-Konvention in sender.txt eintraegt
+        # ("<Event-Text, falls vorhanden> | ... | <Land>: <Kern-Sendername>|<Logo>"),
+        # bekommt automatisch dieselbe Event-Extraktion - ohne
+        # Code-Aenderung noetig.
+        #
+        # Ausnahme: Namen OHNE jegliches Pipe-Zeichen (z.B. Flo Racing
+        # im Doppelpunkt-Format "Sa 14:00 : Flo Racing 05" oder im
+        # Leerlauf nur "Flo Racing 03") - hier greift die Pipe-
+        # Konvention nicht, daher Fallback auf das bekannte
+        # DYN-PPV/FLO-RACING-Muster (siehe kern_und_event_extrahieren()).
+        #
+        # WICHTIG: Manche in sender.txt gespeicherten NAME:-Kerne
+        # enthalten selbst legitim ein Pipe-Zeichen als fester
+        # Namensbestandteil (z.B. "TNT SPORTS | Event 1" - kein
+        # Alt-Datenmuell, das ist der komplette, stabile Kanalname).
+        # Die generische Pipe-Konvention wuerde das faelschlich am
+        # letzten Pipe zerschneiden ("Event 1" als Kern, "TNT SPORTS"
+        # als vermeintlicher Event-Text -> falscher Sendungstitel statt
+        # des generischen Platzhalters). Die Selbstbereinigung wird
+        # deshalb NUR angewendet, wenn der abgetrennte Event-Teil auch
+        # WIRKLICH wie Rohtext-Muell aussieht (enthaelt eine Ziffer,
+        # "vs"/"vs.", einen bekannten Leerlauf-/Event-Marker, oder ist
+        # laenger als 4 Woerter) - alle bisher behobenen echten
+        # Datenmuell-Faelle (Milb/Flo College/ESPN+/STAN/UEFA, siehe
+        # CLAUDE.md) erfuellen mindestens eines dieser Merkmale.
+        # (Funktion _wirkt_wie_rohtext_muell() ist auf Modulebene
+        # definiert, siehe oben vor dem sender.txt-Vorab-Durchlauf -
+        # wird auch dort fuer die Registry-Vorbefuellung gebraucht.)
+
+        kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+        # WICHTIG: Nur zurueckrollen, wenn tatsaechlich ETWAS abgetrennt
+        # wurde, das nicht wie Rohtext-Muell aussieht (z.B. "TNT SPORTS |
+        # Event 1" - "TNT SPORTS" ist echter Namensbestandteil, kein
+        # Muell). Ist event_teil dagegen LEER (z.B. ":Tennis  04" oder
+        # ":Flo Racing  03" - nur ein fuehrender Doppelpunkt vor dem
+        # eigentlichen Kern, kein Event-Text), wurde nichts Fragliches
+        # abgeschnitten - der erkannte Kern (ohne den fuehrenden
+        # Doppelpunkt) ist dann garantiert richtig. Ohne diese
+        # Bedingung wurde der fuehrende Doppelpunkt faelschlich wieder
+        # Teil des gespeicherten Kerns, wodurch der spaetere Live-
+        # Playlist-Abgleich (der den Kern OHNE Doppelpunkt liefert) nie
+        # mehr treffen konnte - betraf z.B. ALLE 30 "US| TENNIS PPV"-
+        # Sender (September 2026 behoben).
+        _hinten_zurueckgerollt = False
+        if kurzname != voller_name and event_teil and not _wirkt_wie_rohtext_muell(event_teil):
+            kurzname, event_teil = voller_name, ""
+            _hinten_zurueckgerollt = True
+
+        # Kein Kern-hinten-Muster erkannt (kurzname unveraendert) ->
+        # zusaetzlich Kern-VORNE probieren (Clubber-Pipe-Konvention oder
+        # DirtVision-Doppelpunkt-Konvention, siehe
+        # kern_vorne_und_event_extrahieren()). Uebernehmen, wenn dabei
+        # wirklich ein Kern erkannt wurde UND entweder der abgetrennte
+        # Rest wie Rohtext-Muell aussieht ODER komplett LEER ist (z.B.
+        # "DIRTVISION 01 :" im Leerlauf-Zustand ohne Event-Text hinter
+        # dem Doppelpunkt - kern_vorne_und_event_extrahieren() liefert
+        # dann korrekt den Kern "DIRTVISION 01" mit leerem event_vorne).
+        # OHNE die Leer-Ausnahme wurde der leere event_vorne von
+        # _wirkt_wie_rohtext_muell() immer als "kein Muell" gewertet
+        # (siehe deren eigene "if not text: return False"), der korrekt
+        # erkannte Kern wurde dadurch verworfen und der komplette
+        # Rohtext MIT Doppelpunkt blieb als gespeicherter Kern stehen.
+        # Der Live-Playlist-Abgleich berechnet aus dem echten, laufenden
+        # Event-Namen (z.B. "DIRTVISION 01 : Sharon Speedway 6:30 PM")
+        # ueber dieselbe Funktion aber den SAUBEREN Kern "DIRTVISION 01"
+        # (dort ist event_vorne nicht leer, besteht die Muell-Pruefung
+        # problemlos) - die beiden nie identischen Kerne trafen sich
+        # dadurch nie (Bug: "Keine Information" trotz zugeordnetem
+        # Kanal bei ALLEN DIRTVISION-Nummern, September 2026 behoben).
+        # Kein Risiko fuer echte Namensbestandteile wie "TNT SPORTS |
+        # Event 1": dort ist der abgetrennte Rest ("Event 1") NICHT
+        # leer, die bisherige Muell-Pruefung bleibt fuer diesen Fall
+        # unveraendert wirksam.
+        # WICHTIG: NUR versuchen, wenn das Kern-hinten-Muster oben
+        # WIRKLICH nichts gefunden hat (kurzname war nie von voller_name
+        # verschieden) - NICHT, wenn kurzname nur durch den bewussten
+        # Rollback direkt oben (_hinten_zurueckgerollt) wieder auf
+        # voller_name zurueckgesetzt wurde. Sonst wird ein bereits
+        # korrekt erkannter und bestaetigter Kern-hinten-Treffer hier
+        # faelschlich nochmal versucht zu "verbessern" und dabei kaputt
+        # gemacht: bei sender.txt-Zeilen wie "NFL TEAMS| CBS RAIDERS LAS
+        # VEGAS NV" (Event-Teil "NFL TEAMS", kein Muell -> Rollback auf
+        # den vollen String) griff wegen dieses fehlenden Schutzes
+        # zusaetzlich noch die Kern-vorne-Erkennung, erkannte "NFL TEAMS"
+        # als Kern-vorne und "CBS RAIDERS LAS VEGAS NV" (>4 Woerter) als
+        # vermeintlichen Muell-Rest - der gespeicherte Kern kollabierte
+        # dadurch auf das blosse "NFL TEAMS", identisch fuer mehrere
+        # verschiedene Team-Sender gleichzeitig. Die automatische
+        # Duplikat-Erkennung verwarf dadurch 9 von 10 betroffenen Sendern
+        # komplett (kein <channel> im XML, in TiviMate nicht auffindbar),
+        # der letzte ueberlebende landete mit dem nutzlosen Kanalnamen
+        # "NFL TEAMS" (September 2026 behoben).
+        if kurzname == voller_name and not _hinten_zurueckgerollt:
+            kern_vorne, event_vorne = kern_vorne_und_event_extrahieren(voller_name)
+            if kern_vorne and (not event_vorne or _wirkt_wie_rohtext_muell(event_vorne)):
+                kurzname, event_teil = kern_vorne, event_vorne
+
+        # Land-Praefix wie "NA|", "US|" am ANFANG des Namens (nicht zu
+        # verwechseln mit echtem Event-Text vor dem Pipe) wird als Land
+        # fuer Sprache/Kategorie-Erkennung genutzt - z.B. bekommen
+        # NA-Sender dadurch englische statt deutsche Beschreibungen.
+        # Der Kanalname/die ID selbst bleibt trotzdem exakt der rohe
+        # Originaltext (wichtig fuers Playlist-Matching, falls dort ein
+        # Leerzeichen nach dem Pipe steht). Nur wenn kein echtes Event
+        # erkannt wurde (event_teil leer) greift das, sonst waere ein
+        # Land-Kuerzel vor einem echten Event faelschlich als Land
+        # missverstanden.
+        land = "DE"
+        land_praefix_match = re.match(r"^([A-Za-z]{2,4})\|", voller_name)
+        if land_praefix_match and not event_teil:
+            land = land_praefix_match.group(1).upper()
+
+        beschreibung, kategorie_key = standard_beschreibung(land, kurzname)
+
+        # Clubber-PPV-Kanaele explizit als SPORT einordnen: das
+        # Kurzwort "CLUB" (Teil von "CLUBBER") ist bereits als
+        # MUSIK-Keyword belegt (z.B. "NRJ Club") und steht in der
+        # Kategorie-Prioritaet vor SPORT - eine globale Erweiterung der
+        # Keyword-Liste wuerde diese Kollision fuer alle Sender
+        # riskieren, daher wird hier gezielt nur fuer Clubber die
+        # SPORT-Kategorie mit dem echten Kurznamen nachgebaut (gleiche
+        # Logik wie in standard_beschreibung(), nur fest auf SPORT).
+        if re.search(r"CLUBBER\s*\d+", kurzname, re.IGNORECASE):
+            kategorie_key = "SPORT"
+            sport_daten = KATEGORIEN["SPORT"]
+            hash_wert_sport = sender_hash(kurzname)
+            varianten_sport = sport_daten["DE"]
+            beschreibung = varianten_sport[hash_wert_sport % len(varianten_sport)].format(
+                sender=kurzname, label=sport_daten["label"]["DE"]
+            )
+
+        # Steht vor dem Kern zusaetzlicher, nicht-generischer Text ->
+        # Event laeuft, dieser Text wird als Sendungstitel/-
+        # beschreibung uebernommen. Steht nichts oder nur ein
+        # bekannter "NO EVENT"-Platzhalter davor -> Leerlauf, es
+        # bleibt beim generischen Standardtext (beschreibung s.o.).
+        event_titel = None
+
+        if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
+            event_titel = formatiere_event_text(event_teil)
+
+        # DYN-PPV-Kanaele mit erkanntem "NEXT"- oder "LIVE"-Marker: statt
+        # des rohen Anbietertexts (z.B. "Live| Team A - Team B | Fri 21
+        # Aug 18:10 CEST (DE) | 8K Exclusive") wird NUR "Team A vs. Team
+        # B HH:MM Uhr ᴸⁱᵛᵉ" angezeigt (siehe dyn_next_team_namen()) -
+        # ohne generischen "Dyn Sport (N)"-Praefix und ohne Datum/
+        # Zeitzone/Zusatztext. Ohne extrahierbare Teamnamen faellt es auf
+        # den generischen "Dyn Sport (N) ᴺᵉˣᵗ"-Text zurueck.
+        if event_titel is not None:
+            dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if dyn_ppv_next_match:
+                roh_segmente = [s.strip() for s in event_teil.split("|")]
+                roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+                if roh_marker in EVENT_MARKER_NEXT:
+                    team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                    event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+                elif roh_marker in EVENT_MARKER_LIVE:
+                    team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                    event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
+                elif roh_marker in EVENT_MARKER_ENDE:
+                    # Kein fixer Abmoderationstext bei DYN PPV - stattdessen
+                    # bleiben die Teamnamen stehen, nur mit "ᴮᵉᵉⁿᵈᵉᵗ" statt
+                    # ᴺᵉˣᵗ/ᴸⁱᵛᵉ als Suffix. Ohne extrahierbare Teamnamen faellt
+                    # es auf "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ" zurueck (siehe unten).
+                    team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴮᵉᵉⁿᵈᵉᵗ")
+                    event_titel = team_namen
+
+        # DYN-PPV-Kanaele ohne erkanntes Event: statt des rohen
+        # Anbieter-Platzhaltertexts ("- NO EVENT STREAMING - | 8K
+        # EXCLUSIVE") oder der generischen kategoriebasierten
+        # Beschreibung wird "Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ" angezeigt - gleiche
+        # Konvention wie bei DirtVision/Flo Racing unten.
+        if event_titel is None:
+            dyn_ppv_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if dyn_ppv_match:
+                event_titel = f"Dyn Sport ({dyn_ppv_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # STAIGE PPV ohne erkanntes Event: gleiche Konvention wie DYN PPV
+        # oben (z.B. "Staige (1) ᴺᵒ ᴸⁱᵛᵉ") statt des generischen
+        # "<Kurzname> ᴸⁱᵛᵉ"-Fallbacks weiter unten.
+        if event_titel is None:
+            staige_idle_match = re.match(r"^DE:\s*STAIGE\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if staige_idle_match:
+                event_titel = f"Staige ({staige_idle_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # LEAGUES FOOTBALL PPV ohne erkanntes Event: gleiche Konvention wie
+        # DYN/STAIGE PPV oben (z.B. "Leagues Football (1) ᴺᵒ ᴸⁱᵛᵉ") statt des
+        # generischen "DE: Leagues Football Ppv N ᴺᵒ ᴸⁱᵛᵉ"-Fallbacks weiter
+        # unten - auf Nutzerwunsch kompakter (kein "DE:"-Praefix, kein "PPV"
+        # im Anzeigetext).
+        if event_titel is None:
+            leagues_football_idle_match = re.match(
+                r"^DE:\s*LEAGUES\s*FOOTBALL\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE
+            )
+            if leagues_football_idle_match:
+                event_titel = f"Leagues Football ({leagues_football_idle_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # DirtVision-Kanaele ohne erkanntes Event: statt der generischen
+        # kategoriebasierten Beschreibung (s.o.) wird "Kanalname (Nr) ᴸⁱᵛᵉ"
+        # angezeigt (z.B. "DirtVision (1) ᴺᵒ ᴸⁱᵛᵉ") - gleiche Konvention wie
+        # bei den manuell eingetragenen Sendern in sender.txt.
+        if event_titel is None:
+            dirtvision_match = re.match(r"^DIRTVISION\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if dirtvision_match:
+                event_titel = f"DirtVision ({dirtvision_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Flo Racing-Kanaele ohne erkanntes Event: gleiche Konvention wie
+        # DirtVision oben (z.B. "Flo Racing (1) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            flo_racing_match = re.match(r"^FLO\s*RACING\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if flo_racing_match:
+                event_titel = f"Flo Racing ({flo_racing_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # FA Player-Kanaele ohne erkanntes Event: gleiche Konvention wie
+        # DirtVision/Flo Racing oben (z.B. "FA Player (1) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            fa_player_match = re.match(r"^FA\s*PLAYER\s*0*(\d+)$", kurzname, re.IGNORECASE)
+            if fa_player_match:
+                event_titel = f"FA Player ({fa_player_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Super League Plus-Kanaele ohne erkanntes Event: gleiche
+        # Konvention wie oben (z.B. "Super League Plus (1) ᴺᵒ ᴸⁱᵛᵉ").
+        if event_titel is None:
+            super_league_idle_match = re.match(
+                r"^Super League Plus Event (\d+)$", kurzname
+            )
+            if super_league_idle_match:
+                event_titel = f"Super League Plus ({super_league_idle_match.group(1)}) ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Sport-Deutschland-PPV-Kanaele ohne erkanntes Event: gleiche
+        # Konvention wie DYN PPV/FA Player/Super League Plus oben (z.B.
+        # "Sport Deutschland Ppv 1 ᴺᵒ ᴸⁱᵛᵉ") statt des generischen
+        # "... ᴸⁱᵛᵉ"-Fallbacks weiter unten - auf Nutzerwunsch.
+        if event_titel is None:
+            sport_deutschland_match = re.search(
+                r"SPORT\s*DEUTSCHLAND\s*PPV\s*0*(\d+)", kurzname, re.IGNORECASE
+            )
+            if sport_deutschland_match:
+                event_titel = f"Sport Deutschland Ppv {sport_deutschland_match.group(1)} ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Alle uebrigen "<Land:> <Name> PPV <Nummer>"-Sendergruppen (DAZN/
+        # ESPN+/SOCCER/RTL+ PPV usw.) ohne erkanntes Event: einfach der
+        # normal geschriebene Sendername (inkl. Nr., z.B. "Espn+ Ppv 4")
+        # mit hochgestelltem "ᴺᵒ ᴸⁱᵛᵉ" am Ende - gleiche Konvention wie
+        # der generische "<Kurzname> ᴸⁱᵛᵉ"-Fallback weiter unten, nur mit
+        # korrektem "kein Live gerade"-Hinweis statt des irrefuehrenden
+        # "... ᴸⁱᵛᵉ" (der faelschlich IMMER "Live" suggerierte, auch im
+        # Leerlauf) - September 2026 auf Nutzerwunsch generalisiert.
+        if event_titel is None:
+            generic_ppv_idle_match = PPV_KERN_MUSTER.match(kurzname)
+            if generic_ppv_idle_match:
+                event_titel = f"{kanalname_normal_geschrieben(kurzname)} ᴺᵒ ᴸⁱᵛᵉ"
+
+        # Alle uebrigen NAME:-Sender ohne bekanntes Anbieter-Muster
+        # (z.B. "Premier League+ 1", kein Pipe-/Event-Mechanismus
+        # vorhanden) UND ohne erkanntes Event: statt der generischen,
+        # kategoriebasierten Beschreibung (s.o.) wird "<Kurzname> ᴸⁱᵛᵉ"
+        # angezeigt - gleiche Konvention wie bei normalen sender.txt-
+        # Zeilen ohne echte Quelle (siehe CLAUDE.md), nur eben fuer
+        # Sender, deren exakter Playlist-Name per NAME:-Format
+        # uebernommen wird.
+        if event_titel is None:
+            event_titel = f"{kanalname_normal_geschrieben(kurzname)} ᴸⁱᵛᵉ"
+
+        # Automatische Datenmuell-/Duplikat-Erkennung (siehe Registry-
+        # Kommentar oben bei sender_daten). Wurde oben ein abweichender
+        # Kern extrahiert (kurzname != voller_name), als <channel>-ID
+        # statt des vollen Rohnamens verwenden - matcht dann sofort
+        # richtig gegen den Live-Playlist-Abgleich. Nur wenn dabei auch
+        # WIRKLICH ein nicht-leerer Muelltext abgetrennt wurde
+        # (event_teil), gilt die Zeile als Datenmuell-Kandidat und wird
+        # gegen die Registry geprueft: registrierte eine ANDERE Zeile
+        # bereits denselben bereinigten Kern, ist diese Zeile ein reines
+        # Duplikat und wird uebersprungen. Ein LEERER event_teil (nur
+        # ein alleinstehender Doppelpunkt-Marker wurde entfernt, z.B.
+        # ":Paramount+  02" oder "DIRTVISION 01 :") gilt dagegen immer
+        # als bereits sauber und wird NIE uebersprungen (sonst wuerde
+        # sich eine im Vorab-Durchlauf bereits registrierte, saubere
+        # Zeile hier faelschlich selbst als Duplikat verwerfen).
+        _kanal_id_fuer_eintrag = kurzname if kurzname != voller_name else voller_name
+        _registry_key = _name_kern_registry_key(kurzname)
+        if event_teil:
+            if _registry_key in _name_kern_registry:
+                _name_kern_duplikate_uebersprungen += 1
+                continue
+            _name_kern_registry[_registry_key] = True
+            _name_kern_automatisch_bereinigt += 1
+        else:
+            _name_kern_registry.setdefault(_registry_key, True)
+
+        sender_daten.append({
+            "kanal": _kanal_id_fuer_eintrag,
+            "land": land,
+            "sender": kurzname,
+            "beschreibung": beschreibung,
+            "logo": logo,
+            "exakter_name": True,
+            "live_playlist_kern": True,
+            "event_titel": event_titel,
+            "kategorie": kategorie_key
+        })
+        continue
+
+    # TELEMACH:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von der Telemach BA/ME-EPG-API bekommen sollen
+    # (siehe telemach_epg.py), statt der generischen kategoriebasierten
+    # Platzhaltertexte - z.B. weil der Sender in der eigenen TiviMate-
+    # Playlist gar kein EPG mitbringt. KEIN automatisches Matching
+    # gegen alle bosnischen/montenegrinischen Sender - nur Sender mit
+    # dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum bestehenden Land|Sender|...-Schema,
+    # nur mit Präfix und fest auf Land+Name+Logo begrenzt; optional ein
+    # 4. Feld zum Ueberschreiben des Anzeigenamens/der Kanal-ID, analog
+    # zu TVPASSPORT:/SKY: - nuetzlich, wenn die eigene Playlist den
+    # Sender unter einem abweichenden Namen fuehrt, z.B. mit HD-/Orts-
+    # Zusatz, aber Telemach ihn nur unter dem kurzen Namen kennt):
+    #
+    #   TELEMACH:<Land BA oder ME, optional, Default BA>|<Kanalname wie bei Telemach>|<Logo-URL>[|<Anzeigename-Override>]
+    #
+    # Beispiel:
+    #   TELEMACH:BA|BHT 1|https://example.com/logo.png
+    #   TELEMACH:|Sport Klub 1|                      (Land leer -> BA, ohne Logo)
+    #   TELEMACH:BA|ATV|https://example.com/logo.png|ATV HD Banja Luka
+    #
+    # Der Kanalname (2. Feld) wird OHNE Override als <channel> id/
+    # display-name verwendet (wie bei NAME:) UND immer als Suchbegriff
+    # gegen die Telemach-Kanalliste (telemach_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match) - mit Override wird
+    # weiterhin unter dem 2. Feld gesucht, aber unter dem 4. Feld
+    # angezeigt. Fuer die ersten bis zu 3 Tage werden - sofern Login/
+    # Kanalsuche/Programmabruf gelingen - echte Sendungen eingetragen;
+    # alle weiteren Tage (und bei jedem Fehlschlag der Telemach-Anfrage)
+    # fallen exakt auf die normale, generische Generierung zurück wie
+    # bei jedem anderen Sender.
+    if zeile.upper().startswith("TELEMACH:"):
+        rest = zeile[len("TELEMACH:"):]
+        teile_telemach = [x.strip() for x in rest.split("|")]
+
+        while len(teile_telemach) < 4:
+            teile_telemach.append("")
+
+        telemach_land = teile_telemach[0].upper() or "BA"
+        if telemach_land not in ("BA", "ME"):
+            telemach_land = "BA"
+
+        telemach_kanalname = teile_telemach[1]
+        telemach_logo = teile_telemach[2]
+        telemach_anzeigename = teile_telemach[3] or telemach_kanalname
+
+        if not telemach_kanalname:
+            continue
+
+        telemach_auto_beschreibung = f"{telemach_anzeigename.title()} ᴸⁱᵛᵉ"
+        telemach_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": f"{telemach_land}| {telemach_anzeigename}",
+            "land": telemach_land,
+            "sender": telemach_anzeigename,
+            "beschreibung": telemach_auto_beschreibung,
+            "logo": telemach_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": telemach_kategorie_key,
+            "telemach": {"country": telemach_land.lower(), "suchname": telemach_kanalname},
+        })
+        continue
+
+    # SKY:-Präfix: opt-in für EINZELNE Sender, die echte Programmdaten
+    # von der Sky-EPG-API bekommen sollen (siehe sky_epg.py), statt der
+    # generischen kategoriebasierten Platzhaltertexte. Im Unterschied
+    # zum TELEMACH:-Mechanismus gibt es hier BEWUSST KEIN automatisches
+    # Matching gegen alle Sender mit Land "DE"/"GB" - zu viele Zeilen in
+    # sender.txt, das wären zu viele API-Aufrufe pro Lauf und ein zu
+    # hohes Fehltreffer-Risiko. Nur Sender mit dieser Zeile bekommen die
+    # echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum TELEMACH:-Schema, optional ein 4.
+    # Feld fuer Playlist-Namen, die NICHT dem normalen "DE|"/"UK|"-
+    # Schema folgen):
+    #
+    #   SKY:<Territory, "DE" oder "GB", optional/Default "DE">|<Kanalname wie bei Sky>|<Logo-URL>
+    #   SKY:<Territory>|<Suchbegriff wie bei Sky>|<Logo-URL>|<Kompletter Playlist-Name/ID, falls abweichend>
+    #
+    # Beispiele:
+    #   SKY:DE|Sky Sport Bundesliga 1|https://example.com/logo.png
+    #   SKY:GB|Sky Showcase|https://example.com/logo.png
+    #   SKY:DE|SKY CRIME|https://example.com/logo.png|WOW| SKY CRIME ᴴᴰ ◉
+    #
+    # "DE" deckt technisch auch Oesterreich/Schweiz mit ab (Sky kennt
+    # dafuer kein eigenes Territory - "Sky Sport Austria"-Kanaele laufen
+    # ueber DE). Andere Werte als DE/GB fallen graceful auf "DE" zurück
+    # (siehe sky_epg.py).
+    #
+    # Der Kanalname (2. Feld) wird als Suchbegriff gegen die
+    # Sky-Kanalliste verwendet (sky_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match) UND - falls kein 4. Feld
+    # angegeben ist - 1:1 als <channel> id/display-name (wie bei
+    # NAME:/TELEMACH:). Manche Playlists benennen Sky-Buendel-Sender
+    # aber unter einem komplett anderen Praefix (z.B. "WOW| ..." statt
+    # "DE| .../UK| ...") - fuer genau diesen Fall kann das optionale 4.
+    # Feld den kompletten, echten Playlist-Namen 1:1 vorgeben, waehrend
+    # das 2. Feld weiterhin nur als Sky-Suchbegriff dient. Für die
+    # ersten bis zu 2 Tage werden - sofern Kanalsuche/Programmabruf
+    # gelingen - echte Sendungen eingetragen; alle weiteren Tage (und
+    # bei jedem Fehlschlag der Sky-Anfrage) fallen exakt auf die
+    # normale, generische Generierung zurück wie bei jedem anderen
+    # Sender.
+    if zeile.upper().startswith("SKY:"):
+        rest = zeile[len("SKY:"):]
+        # maxsplit=3: das optionale 4. Feld (ID-Override) darf selbst
+        # Pipe-Zeichen enthalten (z.B. "WOW| SKY CRIME ᴴᴰ ◉") - wird
+        # daher NICHT weiter zerschnitten, alles ab dem 3. Pipe bleibt
+        # als ein Stueck erhalten.
+        teile_sky = [x.strip() for x in rest.split("|", 3)]
+
+        while len(teile_sky) < 4:
+            teile_sky.append("")
+
+        sky_territory = teile_sky[0].upper() or "DE"
+        if sky_territory == "UK":
+            sky_territory = "GB"
+        if sky_territory not in ("DE", "GB"):
+            sky_territory = "DE"
+
+        sky_kanalname = teile_sky[1]
+        sky_logo = teile_sky[2]
+        sky_id_override = teile_sky[3]
+
+        if not sky_kanalname:
+            continue
+
+        # Anzeige-Land: Sky selbst kennt nur "GB" als Territory-Code
+        # (siehe sky_territory oben, wird 1:1 an sky_epg.py durchgereicht),
+        # aber in der eigenen IPTV-Playlist des Nutzers heissen britische
+        # Sender durchgehend "UK|..." statt "GB|..." - fuer die
+        # automatische TiviMate-Zuordnung muss die <channel> id/
+        # display-name daher "UK" zeigen, nicht "GB".
+        sky_anzeige_land = "UK" if sky_territory == "GB" else sky_territory
+
+        sky_auto_beschreibung = f"{sky_kanalname.title()} ᴸⁱᵛᵉ"
+        sky_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": sky_id_override if sky_id_override else f"{sky_anzeige_land}| {sky_kanalname}",
+            "land": sky_anzeige_land,
+            "sender": sky_kanalname,
+            "beschreibung": sky_auto_beschreibung,
+            "logo": sky_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": sky_kategorie_key,
+            "sky": {"territory": sky_territory},
+        })
+        continue
+
+    # MAGENTA:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von Magenta TV (Deutsche Telekom) bekommen sollen
+    # (siehe magenta_epg.py), statt der generischen kategoriebasierten
+    # Platzhaltertexte. Genau wie bei SKY: gibt es hier BEWUSST KEIN
+    # automatisches Matching gegen alle Sender mit Land "DE" - nur
+    # Sender mit dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:-Schema):
+    #
+    #   MAGENTA:<Territory, nur "DE" unterstützt/Default>|<Kanalname wie bei Magenta>|<Logo-URL>
+    #
+    # Beispiel:
+    #   MAGENTA:DE|RTL|https://example.com/logo.png
+    #
+    # Der Kanalname (2. Feld) wird 1:1 als <channel> id/display-name
+    # verwendet (wie bei NAME:/SKY:) UND als Suchbegriff gegen die
+    # Magenta-Kanalliste (magenta_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match). Dabei wird zuerst die
+    # neuere www.magenta.tv-API versucht, bei keinem Treffer/keinen
+    # Daten als zweiter Versuch die ältere web.magentatv.de-API (analog
+    # zum Telemach->mtel.ba-Fallback). Für die ersten bis zu 2 Tage
+    # werden - sofern eine der beiden Quellen etwas liefert - echte
+    # Sendungen eingetragen; alle weiteren Tage (und bei Fehlschlag
+    # beider Quellen) fallen exakt auf die normale, generische
+    # Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("MAGENTA:"):
+        rest = zeile[len("MAGENTA:"):]
+        teile_magenta = [x.strip() for x in rest.split("|")]
+
+        while len(teile_magenta) < 3:
+            teile_magenta.append("")
+
+        # Territory ist aktuell fest auf "DE" - andere Werte werden
+        # graceful ignoriert/auf "DE" zurückgesetzt (siehe magenta_epg.py).
+        magenta_territory = teile_magenta[0].upper() or "DE"
+        if magenta_territory != "DE":
+            magenta_territory = "DE"
+
+        magenta_kanalname = teile_magenta[1]
+        magenta_logo = teile_magenta[2]
+
+        if not magenta_kanalname:
+            continue
+
+        magenta_auto_beschreibung = f"{magenta_kanalname.title()} ᴸⁱᵛᵉ"
+        magenta_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": f"DE| {magenta_kanalname}",
+            "land": "DE",
+            "sender": magenta_kanalname,
+            "beschreibung": magenta_auto_beschreibung,
+            "logo": magenta_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": magenta_kategorie_key,
+            "magenta": True,
+        })
+        continue
+
+    # ARENA:-Präfix: opt-in für EINZELNE Sender, die echte Programmdaten
+    # von den HTML-gescrapten Arena-Sport-Seiten (siehe arena_epg.py)
+    # bekommen sollen, statt der generischen kategoriebasierten
+    # Platzhaltertexte. Genau wie bei SKY: gibt es hier BEWUSST KEIN
+    # automatisches Matching - nur Sender mit dieser Zeile bekommen die
+    # echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:-Schema):
+    #
+    #   ARENA:<Land HR oder RS>|<Kanalname, z.B. "Arena Sport 1">|<Logo-URL>
+    #
+    # Beispiele:
+    #   ARENA:HR|Arena Sport 1|https://example.com/logo.png
+    #   ARENA:RS|Arena Sport 2 Serbia|https://example.com/logo.png
+    #
+    # Land bestimmt, welche Seite gescrapt wird (HR -> tvarenasport.hr,
+    # RS -> tvarenasport.com) und welche Zeitzone gilt (HR: Europe/
+    # Budapest, RS: Europe/Belgrade). Unbekannte/leere Werte fallen
+    # graceful auf HR zurück. Der Kanalname (2. Feld) wird 1:1 als
+    # <channel> id/display-name verwendet UND als Suchbegriff gegen die
+    # Arena-Kanalliste (arena_kanal_finden(), erst exakt normalisiert,
+    # dann difflib-Fuzzy-Match). Für die verfügbaren Tage (bis zu
+    # ARENA_TAGE) werden - sofern Kanalsuche/Programmabruf gelingen -
+    # echte Sendungen eingetragen; alle weiteren Tage (und bei jedem
+    # Fehlschlag) fallen exakt auf die normale, generische Generierung
+    # zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("ARENA:"):
+        rest = zeile[len("ARENA:"):]
+        teile_arena = [x.strip() for x in rest.split("|")]
+
+        while len(teile_arena) < 3:
+            teile_arena.append("")
+
+        arena_land = teile_arena[0].upper() or "HR"
+        if arena_land not in ("HR", "RS"):
+            arena_land = "HR"
+
+        arena_kanalname = teile_arena[1]
+        arena_logo = teile_arena[2]
+
+        if not arena_kanalname:
+            continue
+
+        arena_auto_beschreibung = f"{arena_kanalname.title()} ᴸⁱᵛᵉ"
+        arena_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": f"{arena_land}| {arena_kanalname}",
+            "land": arena_land,
+            "sender": arena_kanalname,
+            "beschreibung": arena_auto_beschreibung,
+            "logo": arena_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": arena_kategorie_key,
+            "arena": {"land": arena_land},
+        })
+        continue
+
+    # DAZN:-Präfix: opt-in für EINZELNE Sender, die echte Programmdaten
+    # von der DAZN-Rail-API (siehe dazn_epg.py) bekommen sollen, statt der
+    # generischen kategoriebasierten Platzhaltertexte. Genau wie bei SKY:/
+    # ARENA: gibt es hier BEWUSST KEIN automatisches Matching - nur Sender
+    # mit dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:/ARENA:-Schema):
+    #
+    #   DAZN:<Land, 2-Buchstaben-Ländercode, optional, Default DE>|<Kanalname wie bei DAZN>|<Logo-URL>
+    #
+    # Beispiel:
+    #   DAZN:DE|DAZN 1 HD|https://example.com/logo.png
+    #
+    # Im Unterschied zu SKY: (nur "DE") und ARENA: (nur "HR"/"RS")
+    # unterstützt DAZN beliebige 2-Buchstaben-Ländercodes (die echte DAZN-
+    # API deckt viele Länder ab) - ein leerer oder ungültiger Wert fällt
+    # graceful auf "DE" zurück (siehe dazn_epg.py). Der Kanalname (2. Feld)
+    # wird 1:1 als <channel> id/display-name verwendet UND als Suchbegriff
+    # gegen die DAZN-Kanalliste (dazn_kanal_finden(), erst exakt
+    # normalisiert, dann difflib-Fuzzy-Match). DAZNs API liefert kein
+    # echtes mehrtägiges Datumsraster, sondern nur ihr aktuelles Now/Next/
+    # Later-Fenster (siehe dazn_epg.py-Docstring) - entsprechend dünn ist
+    # die Datenabdeckung in der Praxis. Alle weiteren Tage (und bei jedem
+    # Fehlschlag der DAZN-Anfrage) fallen exakt auf die normale,
+    # generische Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("DAZN:"):
+        rest = zeile[len("DAZN:"):]
+        teile_dazn = [x.strip() for x in rest.split("|")]
+
+        while len(teile_dazn) < 3:
+            teile_dazn.append("")
+
+        dazn_land = teile_dazn[0].lower() or "de"
+        if not (len(dazn_land) == 2 and dazn_land.isalpha()):
+            dazn_land = "de"
+
+        dazn_kanalname = teile_dazn[1]
+        dazn_logo = teile_dazn[2]
+
+        if not dazn_kanalname:
+            continue
+
+        dazn_auto_beschreibung = f"{dazn_kanalname.title()} ᴸⁱᵛᵉ"
+        dazn_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": f"{dazn_land.upper()}| {dazn_kanalname}",
+            "land": dazn_land.upper(),
+            "sender": dazn_kanalname,
+            "beschreibung": dazn_auto_beschreibung,
+            "logo": dazn_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": dazn_kategorie_key,
+            "dazn": {"land": dazn_land},
+        })
+        continue
+
+    # FREEVIEW:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von der Freeview-UK-TV-Guide-API (siehe
+    # freeview_epg.py) bekommen sollen, statt der generischen
+    # kategoriebasierten Platzhaltertexte. Genau wie bei SKY:/DAZN: gibt
+    # es hier BEWUSST KEIN automatisches Matching - nur Sender mit
+    # dieser Zeile bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:/DAZN:-Schema):
+    #
+    #   FREEVIEW:<Land, nur "GB" unterstützt, optional, Default GB>|<Kanalname wie bei Freeview>|<Logo-URL>
+    #
+    # Beispiel:
+    #   FREEVIEW:GB|BBC One|https://example.com/logo.png
+    #
+    # Es wird nur "GB" unterstützt (jeder andere Wert fällt still auf
+    # "GB" zurück). Der Kanalname (2. Feld) wird 1:1 als <channel>
+    # id/display-name verwendet UND als Suchbegriff gegen die Freeview-
+    # Kanalliste (freeview_kanal_finden(), erst exakt normalisiert, dann
+    # difflib-Fuzzy-Match). Die Kanalliste deckt nur die eine
+    # repräsentative Network-ID "Greater London" ab, also nur NATIONALE
+    # Kanäle, keine regionalen Opt-out-Varianten (siehe
+    # freeview_epg.py-Docstring). Jeder Fehlschlag der Freeview-Anfrage
+    # fällt exakt auf die normale, generische Generierung zurück wie bei
+    # jedem anderen Sender.
+    if zeile.upper().startswith("FREEVIEW:"):
+        rest = zeile[len("FREEVIEW:"):]
+        teile_freeview = [x.strip() for x in rest.split("|")]
+
+        while len(teile_freeview) < 3:
+            teile_freeview.append("")
+
+        freeview_land = teile_freeview[0].upper() or "GB"
+        if freeview_land == "UK":
+            freeview_land = "GB"
+        if freeview_land != "GB":
+            freeview_land = "GB"
+
+        # Anzeige-Land "UK" statt "GB" (siehe gleicher Kommentar beim
+        # SKY:-Block oben) - Freeview kennt intern ohnehin kein eigenes
+        # Territory-Konzept, freeview_epg.py deckt immer nur GB ab.
+        freeview_anzeige_land = "UK"
+
+        freeview_kanalname = teile_freeview[1]
+        freeview_logo = teile_freeview[2]
+
+        if not freeview_kanalname:
+            continue
+
+        freeview_auto_beschreibung = f"{freeview_kanalname.title()} ᴸⁱᵛᵉ"
+        freeview_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": f"{freeview_anzeige_land}| {freeview_kanalname}",
+            "land": freeview_anzeige_land,
+            "sender": freeview_kanalname,
+            "beschreibung": freeview_auto_beschreibung,
+            "logo": freeview_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": freeview_kategorie_key,
+            "freeview": True,
+        })
+        continue
+
+    # TVGUIDE:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von der TVGuide.com-US-API (siehe tvguide_epg.py)
+    # bekommen sollen, statt der generischen kategoriebasierten
+    # Platzhaltertexte. Genau wie bei SKY:/DAZN:/FREEVIEW: gibt es hier
+    # BEWUSST KEIN automatisches Matching - nur Sender mit dieser Zeile
+    # bekommen die echten Daten.
+    #
+    # SYNTAX (3 Felder, analog zum SKY:/DAZN:-Schema):
+    #
+    #   TVGUIDE:<Land, nur "US" unterstützt, optional, Default US>|<Kanalname wie bei TVGuide>|<Logo-URL>
+    #
+    # Beispiel:
+    #   TVGUIDE:US|CBS|https://example.com/logo.png
+    #
+    # Es wird nur "US" unterstützt (jeder andere Wert fällt still auf
+    # "US" zurück). Der Kanalname (2. Feld) wird 1:1 als <channel>
+    # id/display-name verwendet UND als Suchbegriff gegen die TVGuide-
+    # Kanalliste (tvguide_kanal_finden(), erst exakt normalisiert, dann
+    # difflib-Fuzzy-Match). Die Kanalliste deckt nur die eine fest
+    # hinterlegte, nationale providerId ab, keine lokalen/anbieter-
+    # spezifischen Sender (siehe tvguide_epg.py-Docstring). Jeder
+    # Fehlschlag der TVGuide-Anfrage fällt exakt auf die normale,
+    # generische Generierung zurück wie bei jedem anderen Sender.
+    if zeile.upper().startswith("TVGUIDE:"):
+        rest = zeile[len("TVGUIDE:"):]
+        # maxsplit=3: das optionale 4. Feld (ID-Override) darf selbst
+        # Pipe-Zeichen enthalten (z.B. "US| DIY CHANNEL HD").
+        teile_tvguide = [x.strip() for x in rest.split("|", 3)]
+
+        while len(teile_tvguide) < 4:
+            teile_tvguide.append("")
+
+        tvguide_land = teile_tvguide[0].upper() or "US"
+        if tvguide_land != "US":
+            tvguide_land = "US"
+
+        tvguide_kanalname = teile_tvguide[1]
+        tvguide_logo = teile_tvguide[2]
+        tvguide_id_override = teile_tvguide[3]
+
+        if not tvguide_kanalname:
+            continue
+
+        tvguide_auto_beschreibung = f"{tvguide_kanalname.title()} ᴸⁱᵛᵉ"
+        tvguide_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": tvguide_id_override if tvguide_id_override else f"{tvguide_land}| {tvguide_kanalname}",
+            "land": tvguide_land,
+            "sender": tvguide_kanalname,
+            "beschreibung": tvguide_auto_beschreibung,
+            "logo": tvguide_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": tvguide_kategorie_key,
+            "tvguide": True,
+        })
+        continue
+
+    # TVPASSPORT:-Präfix: opt-in für EINZELNE Sender, die echte
+    # Programmdaten von tvpassport.com (siehe tvpassport_epg.py) bekommen
+    # sollen, statt der generischen kategoriebasierten Platzhaltertexte.
+    # Genau wie bei TVGUIDE:/SKY:/DAZN:/FREEVIEW: gibt es hier BEWUSST
+    # KEIN automatisches Matching - nur Sender mit dieser Zeile bekommen
+    # die echten Daten. Im Unterschied zu TVGUIDE: (eine feste nationale
+    # Grundaufstellung) deckt tvpassport.com ~19.000 LOKALE US-Sender pro
+    # Stadt/Call-Sign ab (z. B. "FOX (KFFX) Yakima, WA").
+    #
+    # SYNTAX (3 Felder, analog zum TVGUIDE:-Schema, optional ein 4.
+    # Feld fuer Playlist-Namen, die NICHT dem "US| ..."-Schema folgen,
+    # analog zum SKY:-ID-Override):
+    #
+    #   TVPASSPORT:<Land, nur "US" unterstützt, optional, Default US>|<Kanalname wie bei TVPassport>|<Logo-URL>
+    #   TVPASSPORT:<Land>|<Suchbegriff wie bei TVPassport>|<Logo-URL>|<Kompletter Playlist-Name/ID, falls abweichend>
+    #
+    # Beispiele:
+    #   TVPASSPORT:US|FOX (KFFX) Yakima, WA|https://example.com/logo.png
+    #   TVPASSPORT:US|FOX (KTTV) Los Angeles, CA HD|https://example.com/logo.png|TUBI| FOX 11 LOS ANGELES ᴿᴬᵂ
+    #
+    # Es wird nur "US" unterstützt (jeder andere Wert fällt still auf
+    # "US" zurück). Der Kanalname (2. Feld) wird als Suchbegriff gegen
+    # die statische, im Repo mitgelieferte TVPassport-Kanalliste
+    # verwendet (tvpassport_kanal_finden(), erst exakt normalisiert,
+    # dann difflib-Fuzzy-Match) UND - falls kein 4. Feld angegeben ist -
+    # 1:1 als <channel> id/display-name. Manche Playlists benennen
+    # solche lokalen US-Sender aber unter einem komplett anderen
+    # Praefix (z.B. "TUBI| ..." statt "US| ...") - fuer genau diesen
+    # Fall kann das optionale 4. Feld den kompletten, echten Playlist-
+    # Namen 1:1 vorgeben. Jeder Fehlschlag der TVPassport-Anfrage fällt
+    # exakt auf die normale, generische Generierung zurück wie bei
+    # jedem anderen Sender.
+    if zeile.upper().startswith("TVPASSPORT:"):
+        rest = zeile[len("TVPASSPORT:"):]
+        # maxsplit=3: das optionale 4. Feld (ID-Override) darf selbst
+        # Pipe-Zeichen enthalten (z.B. "TUBI| FOX 11 LOS ANGELES ᴿᴬᵂ").
+        teile_tvpassport = [x.strip() for x in rest.split("|", 3)]
+
+        while len(teile_tvpassport) < 4:
+            teile_tvpassport.append("")
+
+        tvpassport_land = teile_tvpassport[0].upper() or "US"
+        if tvpassport_land != "US":
+            tvpassport_land = "US"
+
+        tvpassport_kanalname = teile_tvpassport[1]
+        tvpassport_logo = teile_tvpassport[2]
+        tvpassport_id_override = teile_tvpassport[3]
+
+        if not tvpassport_kanalname:
+            continue
+
+        tvpassport_auto_beschreibung = f"{tvpassport_kanalname.title()} ᴸⁱᵛᵉ"
+        tvpassport_kategorie_key = None
+
+        sender_daten.append({
+            "kanal": tvpassport_id_override if tvpassport_id_override else f"{tvpassport_land}| {tvpassport_kanalname}",
+            "land": tvpassport_land,
+            "sender": tvpassport_kanalname,
+            "beschreibung": tvpassport_auto_beschreibung,
+            "logo": tvpassport_logo,
+            "exakter_name": True,
+            "event_titel": None,
+            "kategorie": tvpassport_kategorie_key,
+            "tvpassport": True,
+        })
+        continue
+
+    # Leeres Land-Feld (Zeile beginnt mit "|"): fuer Sender, deren
+    # echter Playlist-Name selbst KEIN Land-Praefix hat (z.B.
+    # "24/7 GHOST ADVENTURES SCREAMING ROOM") oder deren Name selbst
+    # ein Pipe-Zeichen enthaelt (z.B. "US| GHOST ADVENTURES FHD" mit
+    # Leerzeichen nach dem Pipe als fester Teil des Playlist-Namens).
+    # Hier wird NUR an den LETZTEN ZWEI Pipes der Zeile getrennt
+    # (Beschreibung, Logo) - alles davor bleibt unveraendert der
+    # komplette Sendername, egal wie viele Pipes er selbst enthaelt.
+    # Ohne diese Ausnahme wuerde kanal = f"{land}|{sender}" faelschlich
+    # ein fuehrendes "|" einfuegen bzw. der Name wuerde am falschen
+    # Pipe zerschnitten - beides wuerde das Playlist-Matching
+    # verhindern.
+    if zeile.startswith("|"):
+        rechte_teile = [x.strip() for x in zeile[1:].rsplit("|", 2)]
+        while len(rechte_teile) < 3:
+            rechte_teile.append("")
+        # rsplit(maxsplit=2) liefert bei WENIGER als 2 Pipes im Rest zu
+        # wenige Elemente an der falschen Position (Logo wuerde in die
+        # Beschreibung-Spalte rutschen) - deshalb wird bei nur 1 Pipe
+        # (Sender + Logo, keine Beschreibung) die leere Beschreibung
+        # eingeschoben statt hinten angehaengt.
+        if "|" in zeile[1:] and zeile[1:].count("|") == 1:
+            sender, logo = rechte_teile[0], rechte_teile[1]
+            beschreibung = ""
+        else:
+            sender, beschreibung, logo = rechte_teile[0], rechte_teile[1], rechte_teile[2]
+        land = ""
+        kanal = sender
+        leeres_land_zeile = True
+    else:
+        leeres_land_zeile = False
+        teile = [x.strip() for x in zeile.split("|")]
+
+        while len(teile) < 4:
+            teile.append("")
+
+        land = teile[0]
+        sender = teile[1]
+        beschreibung = teile[2]
+        logo = teile[3]
+        kanal = f"{land}| {sender}"
+
+    auto_beschreibung, kategorie_key = standard_beschreibung(land, sender)
+
+    # "AUTO" ist im Beschreibungsfeld reserviert (analog zum Logofeld,
+    # siehe LOGO_AUTO_MARKER) - schuetzt vor dem haeufigen Tippfehler
+    # "Land|Sender|AUTO" (fehlender Pipe vor dem eigentlich gemeinten
+    # "Land|Sender||AUTO"), bei dem "AUTO" sonst versehentlich im
+    # Beschreibungsfeld statt im Logofeld landet und woertlich als
+    # Sendungstext erscheinen wuerde.
+    manueller_text = beschreibung if beschreibung.strip().upper() != LOGO_AUTO_MARKER else ""
+
+    if beschreibung == "" or beschreibung.strip().upper() == LOGO_AUTO_MARKER:
+        beschreibung = auto_beschreibung
+
+    # DAZN-Sender: im Gegensatz zu DYN PPV/Flo Racing aendert sich der
+    # Kanalname bei DAZN NICHT dynamisch (kein Event-Text im Namen
+    # selbst). Trotzdem soll hier nicht die generische, kategorie-
+    # basierte Standardbeschreibung erscheinen, sondern schlicht der
+    # eigentliche Kanalname selbst (z.B. "DAZN Bar 1 HD"), damit im
+    # EPG-Raster erkennbar ist, um welchen konkreten DAZN-Sender es
+    # sich handelt statt eines generischen Sport-Textes.
+    direkter_text_event_titel = kanalname_normal_geschrieben(sender) if "DAZN" in sender.upper() else None
+
+    # Manuell eingetragener Text im Beschreibungsfeld (3. Spalte) hat
+    # Vorrang vor allem anderen: wird 1:1 als Sendungstitel/-beschreibung
+    # uebernommen, ohne Kategorie-Text oder Variation - fuer Sender, bei
+    # denen einfach immer derselbe feste Text gewuenscht ist, statt der
+    # automatisch generierten, abwechslungsreichen Kategorie-Beschreibung.
+    if manueller_text:
+        direkter_text_event_titel = manueller_text
+
+    eintrag = {
+        "kanal": kanal,
+        "land": land,
+        "sender": sender,
+        "beschreibung": beschreibung,
+        "logo": logo,
+        "exakter_name": leeres_land_zeile,
+        "live_playlist_kern": leeres_land_zeile,
+        "event_titel": direkter_text_event_titel,
+        "kategorie": kategorie_key
+    }
+
+    # Automatischer Telemach-Abgleich fuer BA/ME-Sender: kein eigenes
+    # TELEMACH:-Prefix noetig - jeder ganz normal eingetragene Sender
+    # mit Land "BA" oder "ME" (bzw. den in sender.txt gebraeuchlichen
+    # Alias-Kuerzeln "MNG"/"CG" fuer Crna Gora/Montenegro) wird beim
+    # Generieren zusaetzlich per Name gegen die Telemach-Kanalliste
+    # geprueft (siehe telemach_epg.py und der Verarbeitungsblock bei
+    # "telemach_sender" weiter unten). Bei Treffer werden fuer die
+    # ersten bis zu 3 Tage echte Sendungen eingetragen, sonst faellt
+    # der Sender unveraendert auf die normale generische Beschreibung
+    # zurueck - reine Zusatzanreicherung ohne Risiko fuer bestehende
+    # Sender.
+    TELEMACH_LAND_ALIAS = {"BA": "ba", "ME": "me", "MNG": "me", "CG": "me", "MO": "me"}
+    if land.strip().upper() in TELEMACH_LAND_ALIAS:
+        eintrag["telemach"] = {"country": TELEMACH_LAND_ALIAS[land.strip().upper()]}
+
+    # Automatischer Abgleich fuer RS/HR/SI/MK-Sender: analog zum BA/ME-
+    # Telemach-Autoabgleich oben - kein eigenes Praefix noetig, jeder
+    # ganz normal eingetragene Sender mit Land "RS"/"HR"/"SI"/"MK" wird
+    # beim Generieren zusaetzlich per Name gegen die jeweilige Kanalliste
+    # geprueft (mts.rs/MojMaxTV/tv-spored.siol.net, siehe die
+    # Verarbeitungsbloecke bei "mts_sender"/"mojmaxtv_sender"/
+    # "siol_sender" weiter unten). Bei Treffer werden echte Sendungen
+    # eingetragen, sonst faellt der Sender unveraendert auf die normale
+    # generische Beschreibung zurueck - unabhaengige, sich gegenseitig
+    # ausschliessende Zusatzanreicherungen ohne Risiko fuer bestehende
+    # Sender. MK laeuft ueber dieselbe siol.net-Quelle wie SI (siol.net
+    # fuehrt eine kleine Zahl mazedonischer Sender wie Alfa TV/Alsat
+    # Macedonia/TV Sitel/MTV 1-3 zusaetzlich zu den slowenischen).
+    # mts.rs (Serbien) laeuft zusaetzlich auch fuer ME/MNG/MO/CG-Sender
+    # (Montenegro) mit: die montenegrinische Playlist fuehrt viele echte
+    # serbische/internationale Kanaele (Pink-Familie, RTS, B92, CNN,
+    # Discovery, Eurosport, Agro TV, Toxic TV, Balkan Trip, ...), die
+    # Telemach ME nicht kennt, mts.rs aber teilweise schon (live
+    # verifiziert, z.B. "Agro TV"). ARENA-SPORT/SPORT-KLUB-Namen werden
+    # bereits innerhalb von mts_kanal_finden() ausgefiltert (siehe
+    # _ARENA_SPORT_GUARD/_SPORT_KLUB_GUARD in mts_epg.py - fuer beide hat
+    # mts.rs unzuverlaessige/keine eigenen Daten), betrifft also auch hier
+    # automatisch die ME-ARENASPORT-Zeilen ohne Fehltreffer-Risiko.
+    if land.strip().upper() in ("RS", "ME", "MNG", "MO", "CG"):
+        eintrag["mts"] = True
+    if land.strip().upper() == "HR":
+        eintrag["mojmaxtv"] = True
+    if land.strip().upper() in ("SI", "MK"):
+        eintrag["siol"] = True
+    # "EXYU|Arena Adrenalin ..." ist derselbe echte Kanal wie mts.rs'
+    # "Arena Adrenalin" (RS) - gezielt NUR fuer diesen einen Sendernamen
+    # aktiviert, nicht pauschal fuer alle EXYU-Zeilen (siehe generelle
+    # "kein pauschales Durchsuchen"-Regel oben - EXYU ist eine breite,
+    # generische Playlist-Kategorie ohne Bezug zu einem einzelnen Land).
+    if land.strip().upper() == "EXYU" and re.match(r"^ARENA\s*ADRENALIN\b", eintrag["sender"], re.IGNORECASE):
+        eintrag["mts"] = True
+    # TvProfil.net: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/
+    # MO/CG-Sender, nach allen anderen Quellen (siehe tvprofil_net_epg.py -
+    # nur ~56 Kanaele, aber ein paar sonst nicht abgedeckte, z.B. Plava
+    # Vinkovačka, TV Zapad, CMC, Doma TV, Nova M). Nur exakter Namens-
+    # abgleich, kein Fehltreffer-Risiko fuer andere Zeilen.
+    if land.strip().upper() in ("HR", "BA", "RS", "SI", "MK", "ME", "MNG", "MO", "CG"):
+        eintrag["tvprofil"] = True
+    # tvprogramdanas.net: BREITESTER, ALLERLETZTER Fallback fuer HR/BA/
+    # RS/SI/MK/ME/MNG/MO/CG-Sender sowie GO/DE (siehe tvprogramdanas_
+    # epg.py - EXYU-Portal mit HR/RS/BA/MNG/MO/SI/MK-Sendern und diversen
+    # internationalen Pay-TV-Kanaelen wie HBO/Cinemax/Pink*/CineStar/
+    # FilmBox, keine eigene Kanalliste noetig, statische Datei aus allen
+    # Kategorien der Seite exportiert). Nur exakter/enger unscharfer
+    # Namensabgleich, Arena-Sport-/Sport-Klub-Kanaele sind bereits aus
+    # der Kanalliste ausgeschlossen (siehe Kommentar in
+    # tvprogramdanas_kanalliste.txt-Erzeugung) - laufen unveraendert
+    # weiter ueber arena_epg.py/sportklub_epg.py.
+    if land.strip().upper() in (
+        "HR", "BA", "RS", "SI", "MK", "ME", "MNG", "MO", "CG", "GO", "DE",
+    ):
+        eintrag["tvprogramdanas"] = True
+    # open-epg.com: ALLERENGSTER, ALLERLETZTER Fallback - NUR fuer die
+    # feste Whitelist einzelner Sender in open_epg_epg.py (aktuell
+    # "Animal Planet"/"MrezaZG" fuer HR), die nachweislich bei JEDER
+    # anderen Quelle durchfallen. Bewusst kein Laendercode-Flag wie bei
+    # den anderen Quellen - open_epg_kanal_finden() prueft selbst per
+    # exaktem Namensabgleich gegen die enge Whitelist, kein Risiko fuer
+    # andere Sender (insbesondere Arena Sport/Sport Klub).
+    if open_epg_kanal_finden(eintrag["sender"]) is not None:
+        eintrag["open_epg"] = True
+    # epgshare_us_epg.py UNIVERSAL (unabhaengig vom Land, wie open_epg
+    # oben): urspruenglich nur als zweiter Versuch fuer TVGUIDE:-Sender
+    # eingehaengt (siehe TVGUIDE-Block), deckt aber auch einzelne
+    # PRIME/GO-Sender ab, die kein TVGUIDE:-Praefix haben (z.B.
+    # "MAGELLANTV NOW", Nutzeranfrage September 2026). Bewusst kein
+    # Laendercode-Flag - epgshare_us_kanal_finden() prueft selbst nur
+    # per exaktem Namens-/Alias-Abgleich (siehe Modul-Docstring), kein
+    # Fuzzy-Risiko fuer andere Sender.
+    if epgshare_us_kanal_finden(eintrag["sender"]) is not None:
+        eintrag["epgshare_us_universal"] = True
+    # ba_stanice_epg.py: einzeln gepruefte, eigenstaendige Webseiten
+    # bosnischer Regionalsender (z.B. RTV Vogosca) mit eigener kleiner
+    # XMLTV-Datei. Bewusst kein Laendercode-Flag, sondern exakter
+    # Namensabgleich gegen eine enge Whitelist (analog zu open_epg).
+    if ba_stanice_kanal_finden(eintrag["sender"]) is not None:
+        eintrag["ba_stanice"] = True
+    # iptv-epg.org: LETZTER Fallback speziell fuer MK-Sender, nach Siol
+    # und TvProfil.net (siehe mk_epg.py - 109 mazedonische Kanaele,
+    # ~6 Tage Vorschau, live verifiziert u.a. an MRT 1). Kein eigenes
+    # Praefix noetig.
+    if land.strip().upper() == "MK":
+        eintrag["mk"] = True
+    # MagentaTV GO Nordmazedonien: LETZTER Fallback fuer MK (nach
+    # iptv-epg.org) UND zusaetzlich fuer BA/RS/HR-Sender, die im selben
+    # Balkan-Paket mitlaufen (siehe magentatv_mk_epg.py). Kein eigenes
+    # Praefix noetig.
+    if land.strip().upper() in ("MK", "BA", "RS", "HR"):
+        eintrag["magentatv_mk"] = True
+    # MagentaTV Montenegro: LETZTER Fallback fuer ME/MNG/MO/CG-Sender
+    # (nach Telemach/mtel.ba/klix.ba, siehe magentatv_me_epg.py - gleiche
+    # yo-digital.com-Plattform wie MK, eigener Mandant mit dynamischer
+    # Kanalliste). Kein eigenes Praefix noetig.
+    if land.strip().upper() in ("ME", "MNG", "MO", "CG"):
+        eintrag["magentatv_me"] = True
+    # Automatischer Call-Sign-Abgleich fuer "CITY|"-Sender (lokale US-
+    # Sender mit Call-Sign im Namen, z.B. "ABC KATC BROOKLYN") gegen
+    # tvpassport.com - siehe tvpassport_kanal_finden_callsign() in
+    # tvpassport_epg.py. Bewusst eine eigene, exakte Call-Sign-Suche statt
+    # des normalen Fuzzy-Abgleichs von tvpassport_kanal_finden(), da die
+    # Stadtangaben in dieser sender.txt-Gruppe oft falsch/generisch sind.
+    if land.strip().upper() == "CITY":
+        eintrag["tvpassport_callsign"] = True
+    # "PRIME" laeuft zusaetzlich zu Tubi (siehe unten) auch durch die
+    # deutsche Kaskade (deswird.org/Pluto TV/tvmovie.de/hoerzu.de/
+    # Samsung TV Plus) - der PRIME-Bereich der Playlist enthaelt neben
+    # US-Sendern auch deutschsprachige Kanaele (z.B. "X-Factor: Das
+    # Unfassbare", das als echter Live-Kanal bei Pluto TV DE existiert).
+    # Tubi wird zuerst probiert (siehe tubi_sender-Verarbeitung), erst
+    # danach die DE-Kaskade - kein Risiko fuer echte US-PRIME-Sender,
+    # da die Namenssuche pro Quelle unabhaengig ist und nur bei
+    # tatsaechlichem Treffer etwas eintraegt.
+    # "WOW" (die eigene Playlist-Kennzeichnung fuer den WOW/Sky-
+    # Streaming-Bereich, siehe z.B. den SKY:-Override "WOW| SKY CRIME
+    # ᴴᴰ ◉") laeuft ebenfalls durch die deutsche Kaskade - WOW-Sender
+    # sind inhaltlich deutsche Kanaele (z.B. "Cartoon Network", das
+    # als echter Kanal bei deswird.org existiert), fuer Sky-exklusive
+    # WOW-Sender bleibt zusaetzlich die explizite SKY:-Zeile mit
+    # Display-ID-Override die bevorzugte Loesung.
+    if land.strip().upper() in ("DE", "JOYN", "PRIME", "WOW"):
+        eintrag["plutotv"] = True
+
+    # "WOW|SKY SPORT ... ᴴᴰ ◉" (Bundesliga, 1-10, F1, Golf, Mix, Premier
+    # League, Tennis, Top Event, ...): derselbe echte Kanal wie die
+    # normalen "SKY:DE|SKY SPORT ... HD/FHD"-Opt-in-Zeilen (Sky HAWK-API,
+    # siehe sky_epg.py) - nur mit "WOW"-Praefix statt "DE" und
+    # zusaetzlichen Unicode-Suffixen (ᴴᴰ/◉) in der eigenen Playlist des
+    # Nutzers. Die deswird.org-Kaskade oben (plutotv-Flag) kennt diese
+    # Kanaele zwar teils dem Namen nach, liefert aber keinen Sendeplan
+    # dafuer - deshalb hier gezielt zusaetzlich Sky selbst aktiviert.
+    # Regex statt Fuzzy-Abgleich (kein Fehltreffer-Risiko): jeder Name,
+    # der mit "SKY SPORT" beginnt (deckt automatisch auch kuenftige
+    # WOW|SKY-SPORT-Varianten ab, nicht nur Bundesliga) - die Unicode-
+    # Suffixe (ᴴᴰ/◉) werden vor der Sky-Suche entfernt (siehe
+    # sky_wow_sender-Verarbeitungsblock weiter unten).
+    if land.strip().upper() == "WOW" and re.match(
+        r"^SKY\s*SPORT\b", eintrag["sender"], re.IGNORECASE
+    ):
+        eintrag["sky_wow"] = True
+
+    # Automatischer Tubi-TV-Abgleich fuer PRIME-/TUBI-/GO-Sender: analog
+    # zum PlutoTV-Autoabgleich fuer DE - kein eigenes Praefix noetig,
+    # jeder ganz normal eingetragene Sender mit Land "PRIME", "TUBI"
+    # oder "GO" wird beim Generieren zusaetzlich per Name gegen die
+    # Tubi-Kanalliste geprueft (siehe tubi_epg.py, Verarbeitungsblock
+    # bei "tubi_sender" weiter unten). Bei Treffer werden echte
+    # Sendungen UND ein passendes Kanal-Icon eingetragen, sonst faellt
+    # der Sender unveraendert auf die normale generische Beschreibung
+    # zurueck.
+    if land.strip().upper() in ("PRIME", "TUBI", "GO"):
+        eintrag["tubi"] = True
+
+    sender_daten.append(eintrag)
+
+# ==========================================================
+# logo_only.txt lesen (optional)
+#
+# Für Sender, bei denen NUR das Logo gesetzt/geändert werden
+# soll - z.B. weil das eigentliche EPG (die Programme) von
+# einer anderen Quelle kommt und nicht überschrieben werden soll.
+#
+# Zwei Zeilenformate werden unterstützt:
+#
+# 1) Normale Sender (Land + Sendername getrennt):
+#    Land|Sender|Logo-URL
+#    Land|Sender||Logo-URL   (gleiches Schema wie sender.txt)
+#
+# 2) Kanalnamen mit Pipe-Zeichen im Namen selbst (z.B. Namen wie
+#    "- NO EVENT STREAMING - | 8K EXCLUSIVE | DE: DYN PPV 1"):
+#    NAME:<kompletter Kanalname exakt wie in der Playlist>|Logo-URL
+#    Hier wird NUR das letzte "|" in der Zeile als Trenner zur
+#    Logo-URL verwendet - alles davor (nach "NAME:") ist der Name,
+#    egal wie viele Pipes darin vorkommen.
+#
+#    Das gilt auch für Sender mit täglich wechselndem Namen (z.B.
+#    Live-Event-Kanäle wie "(Victory+ 001) | VNL Men's Live Matches :
+#    France vs Belgium"). Hier reicht der stabile Teil in Klammern:
+#    NAME:(Victory+ 001)|Logo-URL
+#    oder kurz (funktioniert automatisch, sobald nur ein "|" in der
+#    Zeile vorkommt):
+#    (Victory+ 001)|Logo-URL
+#
+#    Ablauf für dieses Format:
+#    a) Zuerst wird per TEILSTRING-Suche (Groß-/Kleinschreibung egal)
+#       geprüft, ob ein Sender aus sender.txt diesen Text enthält.
+#       Bei Treffer(n) wird dort NUR das Logo überschrieben.
+#    b) Kein Treffer? Dann wird ein eigenständiger <channel>-Block
+#       angelegt - mit mehreren <display-name>-Varianten (mit und
+#       ohne Klammern), damit der Player den Sender trotz wechselndem
+#       vollen Namen per Teilstring zuordnen kann.
+#
+# - Steht der Sender bereits in sender.txt (Format 1), wird dort
+#   nur das Logo überschrieben (kein zusätzlicher Eintrag).
+# - Sonst wird nur ein <channel>-Block mit Icon angelegt - OHNE
+#   <programme>-Platzhalter, damit das echte EPG dieser Quelle
+#   erhalten bleibt.
+# ==========================================================
+
+kanal_index = {d["kanal"]: d for d in sender_daten}
+logo_only_channels = []
+gesehene_logo_only_kanaele = set()
+
+# Logo-Overrides für die fest eingebauten DYN-PPV-Kanäle (1-20).
+# Diese Kanäle existieren bereits als eigener <channel>-Block mit
+# eigener id ("DE| DYN PPV {i} HD") und bekommen dort auch ihre
+# Programme (Live-Events/Leerzeiten) zugewiesen. Ein Logo-Eintrag
+# in logo_only.txt für einen DYN-PPV-Sender darf deshalb KEINEN
+# eigenständigen neuen Channel erzeugen (sonst gehen die Programme
+# an der falschen, neuen Channel-id vorbei) - stattdessen wird hier
+# nur das Logo für die passende Nummer gemerkt.
+dyn_ppv_logo_overrides = {}
+DYN_PPV_MUSTER = re.compile(r"DYN\s*PPV\s*(\d+)", re.IGNORECASE)
+
+try:
+    with open("logo_only.txt", "r", encoding="utf-8") as f:
+        logo_only_zeilen = f.readlines()
+except FileNotFoundError:
+    logo_only_zeilen = []
+
+for zeile in logo_only_zeilen:
+
+    zeile = zeile.strip()
+
+    if not zeile or zeile.startswith("#"):
+        continue
+
+    ist_name_praefix = zeile.upper().startswith("NAME:")
+    roh_teile = zeile.split("|")
+
+    if ist_name_praefix or len(roh_teile) == 2:
+        # Kompletter/kurzer Name + Logo-URL, getrennt durch das LETZTE
+        # Pipe-Zeichen in der Zeile. "NAME:" Präfix ist optional - wird
+        # automatisch erkannt, wenn die Zeile nur ein einziges Pipe hat
+        # (z.B. "DE: DYN PPV 1|https://...") oder wenn "NAME:" davor steht
+        # (für Namen, die selbst mehrere Pipes enthalten).
+        rest = zeile[5:] if ist_name_praefix else zeile
+        teile_name = rest.rsplit("|", 1)
+
+        if len(teile_name) != 2:
+            continue
+
+        voller_name = teile_name[0].strip()
+        logo = teile_name[1].strip()
+
+        if not voller_name or not logo:
+            continue
+
+        # a) Teilstring-Treffer gegen bereits bekannte Sender aus
+        # sender.txt suchen (z.B. wenn nur "(Victory+ 001)" angegeben
+        # wird, der volle Sendername in sender.txt aber
+        # "(Victory+ 001) | VNL Men's Live Matches : ..." lautet).
+        suchtext = voller_name.lower()
+        treffer = [
+            d for d in sender_daten
+            if suchtext in d["sender"].lower()
+        ]
+
+        if treffer:
+            for d in treffer:
+                d["logo"] = logo
+            print(
+                f"logo_only.txt: '{voller_name}' per Teilstring auf "
+                f"{len(treffer)} Sender aus sender.txt angewendet."
+            )
+            continue
+
+        # b) Kein Treffer in sender.txt: prüfen, ob es sich um einen
+        # DYN-PPV-Sender handelt (z.B. "DE: DYN PPV 1"). Diese Kanäle
+        # gibt es weiter unten bereits fest mit eigener Channel-id und
+        # eigenen Programmen - hier deshalb NUR das Logo überschreiben,
+        # statt einen zweiten, konkurrierenden Channel anzulegen.
+        dyn_match = DYN_PPV_MUSTER.search(voller_name)
+        if dyn_match:
+            nummer = int(dyn_match.group(1))
+            dyn_ppv_logo_overrides[nummer] = logo
+            print(
+                f"logo_only.txt: '{voller_name}' als DYN-PPV-Logo-Override "
+                f"für Kanal {nummer} übernommen."
+            )
+            continue
+
+        # Sonst: eigenständigen Channel anlegen. Klammerinhalt zusätzlich
+        # als Alias ohne Klammern herauslösen, damit der Player mehr
+        # Chancen zur Zuordnung per Teilstring hat.
+        kanal = voller_name
+
+        if kanal not in gesehene_logo_only_kanaele:
+            aliase = [voller_name]
+
+            klammer_match = re.search(r"\(([^)]+)\)", voller_name)
+            if klammer_match:
+                klammer_inhalt = klammer_match.group(1).strip()
+                if klammer_inhalt and klammer_inhalt not in aliase:
+                    aliase.append(klammer_inhalt)
+
+            ohne_klammern = re.sub(r"[()]", "", voller_name).strip()
+            if ohne_klammern and ohne_klammern not in aliase:
+                aliase.append(ohne_klammern)
+
+            logo_only_channels.append({
+                "kanal": kanal,
+                "voller_name": voller_name,
+                "aliase": aliase,
+                "logo": logo
+            })
+            gesehene_logo_only_kanaele.add(kanal)
+
+        continue
+
+    # Format 1: Land|Sender|Logo bzw. Land|Sender||Logo
+    teile = [x.strip() for x in zeile.split("|")]
+
+    # Gleiches Spaltenschema wie sender.txt: Land|Sender|Beschreibung|Logo
+    # Die Beschreibung-Spalte wird hier ignoriert, das Logo ist immer
+    # die letzte (4.) Spalte. Wird nur "Land|Sender|Logo" mit 3 Spalten
+    # angegeben, ist das Logo dann Spalte 3.
+    while len(teile) < 4:
+        teile.append("")
+
+    land = teile[0]
+    sender = teile[1]
+    logo = teile[3] if teile[3] else teile[2]
+
+    if not logo:
+        continue
+
+    kanal = f"{land}|{sender}"
+
+    if kanal in kanal_index:
+        # Logo für bereits vorhandenen Sender überschreiben
+        kanal_index[kanal]["logo"] = logo
+    elif kanal not in gesehene_logo_only_kanaele:
+        # Neuer, eigenständiger Channel NUR mit Icon, ohne Programme
+        logo_only_channels.append({
+            "kanal": kanal,
+            "land": land,
+            "sender": sender,
+            "logo": logo
+        })
+        gesehene_logo_only_kanaele.add(kanal)
+
+# ==========================================================
+# AUTOMATISCHE LOGO-SUCHE (siehe LOGO_AUTO_SUCHE_AKTIV oben)
+#
+# Fuer alle Sender, die auch nach sender.txt UND logo_only.txt immer
+# noch kein Logo haben, wird hier versucht, automatisch ein
+# passendes Logo aus der oeffentlichen iptv-org-Kanaldatenbank zu
+# finden (Namensabgleich, kein Bezug zu einer konkreten IPTV-Quelle).
+# Manuelle Eintraege (sender.txt/logo_only.txt) haben IMMER Vorrang -
+# hier wird nur das Luecken-Ausfuellen fuer Sender ohne Logo gemacht.
+# Ist die Datenbank nicht erreichbar (kein Internet, Rate-Limit,
+# etc.), wird die Suche einfach uebersprungen - bestehende Sender
+# bleiben dann wie bisher ohne <icon>, es gibt keinen Fehlerabbruch.
+# ==========================================================
+
+if LOGO_AUTO_SUCHE_AKTIV and any(
+    d["logo"].strip().upper() == LOGO_AUTO_MARKER for d in sender_daten
+):
+    logo_name_index = None
+    logo_by_id = None
+
+    try:
+        channels_response = requests.get(LOGO_DB_CHANNELS_URL, timeout=LOGO_DB_TIMEOUT_SEKUNDEN)
+        logos_response = requests.get(LOGO_DB_LOGOS_URL, timeout=LOGO_DB_TIMEOUT_SEKUNDEN)
+
+        if channels_response.status_code == 200 and logos_response.status_code == 200:
+            logo_name_index, logo_by_id = baue_logo_index(
+                channels_response.json(), logos_response.json()
+            )
+        else:
+            print(
+                "Automatische Logo-Suche uebersprungen: Kanal-Datenbank "
+                f"nicht erreichbar (HTTP {channels_response.status_code}/"
+                f"{logos_response.status_code})."
+            )
+    except Exception as e:
+        print("Automatische Logo-Suche uebersprungen (Fehler beim Abruf):", e)
+
+    if logo_name_index:
+        anzahl_gefunden = 0
+        anzahl_angefragt = 0
+        for daten in sender_daten:
+            # NUR Sender mit explizitem "AUTO"-Marker im Logo-Feld
+            # werden angefragt - ein einfach leeres Logo-Feld (der
+            # Normalfall bei 2-Pipe-Eintraegen, wo TiviMate das Logo
+            # bereits direkt aus der Playlist zeigt) loest KEINE Suche
+            # aus, um bestehende Playlist-Logos nicht zu "stoeren".
+            if daten["logo"].strip().upper() != LOGO_AUTO_MARKER:
+                continue
+
+            anzahl_angefragt += 1
+            gefundenes_logo = finde_logo(
+                daten["sender"], daten.get("land", ""),
+                logo_name_index, logo_by_id,
+                min_score=LOGO_MATCH_MIN_SCORE
+            )
+            # Wird nichts gefunden, darf das Wort "AUTO" NICHT als
+            # (ungueltige) Logo-URL im XML landen - dann bleibt das
+            # Feld leer, wie es ein Sender ohne Logo-Angabe auch waere.
+            daten["logo"] = gefundenes_logo if gefundenes_logo else ""
+            if gefundenes_logo:
+                anzahl_gefunden += 1
+
+        print(
+            f"Automatische Logo-Suche: {anzahl_gefunden} von "
+            f"{anzahl_angefragt} angefragten Sender(n) ein Logo zugeordnet."
+        )
+
+# ==========================================================
+# <channel>-Blöcke für reine Logo-Einträge (kein Sender in
+# sender.txt) - nur Icon, keine Programme
+# ==========================================================
+
+for daten in logo_only_channels:
+    if "voller_name" in daten:
+        namen = daten.get("aliase") or [daten["voller_name"]]
+    else:
+        namen = [f"{daten['land']}| {daten['sender']}"]
+
+    xml_teile.append(f' <channel id="{escape(daten["kanal"])}">')
+
+    for name in namen:
+        xml_teile.append(f' <display-name>{escape(name)}</display-name>')
+
+    xml_teile.append(
+        f' <icon src="{escape(daten["logo"])}"/> </channel>\n'
+    )
+
+# ==========================================================
+# LIVE-KANALNAMEN AUS DER EIGENEN IPTV-PLAYLIST
+#
+# Manche IPTV-Anbieter pflegen die aktuellen Live-Event-Namen direkt
+# im Anzeigenamen der eigenen M3U-Playlist (z.B. Clubber: "(IE)
+# (Clubber 01) | Kerry GAA: Milltown/Castlemaine vs An Ghaeltacht
+# (2026-08-07 16:00:00)"). Das ist die einzige Quelle fuer Live-
+# Kanalnamen (Secret PROVIDER, optional) - ohne gesetztes
+# Secret bleibt es bei den generischen Kategorie-Platzhaltertexten.
+#
+# WICHTIG: diese beiden Konstanten muessen VOR dem DYN-PPV-Block
+# unten stehen (Bug September 2026 behoben: NameError, weil sie
+# frueher erst spaeter im Skript definiert wurden, aber schon hier
+# oben verwendet werden).
+# ==========================================================
+
+M3U_PROVIDER_TIMEOUT_SEKUNDEN = 120
+# Die Playlist enthaelt (anders als die myepg.top-Datei) ausschliesslich
+# Kanaldefinitionen, keine Programmdaten - daher reicht ein grosszuegiges,
+# aber festes Limit als Sicherheitsnetz gegen eine unerwartet riesige Datei.
+M3U_PROVIDER_MAX_ZEICHEN = 80_000_000
+
+# Modul-weiter Cache (pro URL/Lauf): sowohl der DYN-PPV-API-
+# Kanalnamen-Abgleich unten als auch m3u_playlist_abgleichen() laden
+# dieselbe (oft mehrere zehntausend Kanaele grosse) PROVIDER-Playlist -
+# ohne Cache wuerde sie zweimal pro Lauf komplett heruntergeladen,
+# was unnoetig Zeit kostet.
+_m3u_playlist_cache = {}
+
+# Mindestgroesse, ab der ein Abruf ueberhaupt als "eine echte Playlist"
+# gilt (siehe Retry-Logik unten) - bewusst weit unter der normalen
+# Groesse (mehrere zehntausend Kanaele) angesetzt, nur als grobes
+# Sicherheitsnetz gegen eine leere/abgeschnittene Antwort.
+_M3U_PROVIDER_MIN_ZEICHEN = 10_000
+
+
+def _m3u_playlist_roh_text_laden(url):
+    """Laedt (und cached pro URL/Lauf) den rohen Text der M3U-Playlist.
+    Ohne Cache wuerden der DYN-PPV-API-Kanalnamen-Abgleich und
+    m3u_playlist_abgleichen() dieselbe Datei zweimal pro Lauf
+    herunterladen - das lieferte als Nebeneffekt eine gewisse
+    Ausfallsicherheit gegen einen kurzen Aussetzer des Anbieters (schlug
+    ein Download leer/kaputt fehl, rettete der zweite, unabhaengige
+    Download die Daten meistens trotzdem). Nach der Zusammenlegung auf
+    einen Download fiel das komplett weg - bestaetigt durch einen realen
+    Lauf, bei dem alle ~9921 NAME:-Kanaele auf einen Schlag 0 Live-
+    Treffer hatten, obwohl vorherige/spaetere Laeufe wieder normal
+    funktionierten (eindeutig ein einmaliger Anbieter-Aussetzer, kein
+    dauerhafter Fehler). Deshalb hier bis zu drei Versuche: eine Antwort,
+    die kuerzer als _M3U_PROVIDER_MIN_ZEICHEN ist oder nicht mit
+    '#EXTM3U' beginnt, gilt als verdaechtig/kaputt und wird NICHT
+    gecached, stattdessen wird (mit kurzer Pause) erneut abgerufen.
+    Wirft nach dem letzten Versuch weiter - der Aufrufer entscheidet, wie
+    er darauf reagiert (Fallback/graceful degradation)."""
+    if url in _m3u_playlist_cache:
+        return _m3u_playlist_cache[url]
+
+    letzter_fehler = None
+    for versuch in range(3):
+        if versuch > 0:
+            time.sleep(5)
+        try:
+            antwort = requests.get(url, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
+            antwort.raise_for_status()
+            gepuffert = ""
+            for chunk in antwort.iter_content(chunk_size=65536):
+                gepuffert += chunk.decode("utf-8", errors="ignore")
+                if len(gepuffert) > M3U_PROVIDER_MAX_ZEICHEN:
+                    break
+            antwort.close()
+        except Exception as e:
+            letzter_fehler = e
+            continue
+
+        if len(gepuffert) >= _M3U_PROVIDER_MIN_ZEICHEN and gepuffert.lstrip().startswith("#EXTM3U"):
+            _m3u_playlist_cache[url] = gepuffert
+            return gepuffert
+        letzter_fehler = ValueError(
+            f"Playlist-Antwort verdaechtig (Laenge {len(gepuffert)}, "
+            f"gueltiger #EXTM3U-Header: {gepuffert.lstrip().startswith('#EXTM3U')})"
+        )
+
+    raise letzter_fehler
+
+# ==========================================================
+# DYN PPV CHANNELS
+# ==========================================================
+
+# Die ID/Anzeigename der 20 fest kodierten API-Kanaele war bisher immer
+# der hartcodierte String "DE| DYN PPV {i} HD" - anders als bei den
+# NAME:-Sendern (ESPN+/SOCCER/DAZN PPV usw.), deren ID seit September
+# 2026 direkt aus dem LIVE-Playlist-Namen des Nutzers uebernommen wird.
+# Weicht der tatsaechliche Playlist-Name auch nur minimal ab (ein
+# unsichtbares Zeichen, andere Leerzeichen-Stellung), matcht TiviMates
+# automatische Zuordnung nicht, obwohl der Name auf den ersten Blick
+# identisch aussieht - genau dieses Symptom wurde fuer die Kanaele 14-20
+# beobachtet (manuelle Zuordnung funktioniert und bleibt bestehen,
+# automatische nicht). Hier wird deshalb - analog zum NAME:-Mechanismus -
+# einmalig die eigene Playlist nach den 20 "DE| DYN PPV N HD"-Kanaelen
+# durchsucht und bei Treffer der exakte rohe Playlist-Name uebernommen;
+# ohne PROVIDER-Secret oder bei jedem Fehler (Netzwerk, kein Treffer)
+# bleibt der bisherige hartcodierte String als Fallback stehen - keine
+# Verhaltensaenderung fuer Nutzer ohne diese spezielle Playlist-Abweichung.
+dyn_ppv_api_playlist_namen = {}
+
+_m3u_url_fuer_dyn_ppv = os.environ.get("PROVIDER")
+if _m3u_url_fuer_dyn_ppv:
+    try:
+        _gepuffert = _m3u_playlist_roh_text_laden(_m3u_url_fuer_dyn_ppv)
+
+        for _zeile in _gepuffert.splitlines():
+            _zeile = _zeile.strip()
+            if not _zeile.startswith("#EXTINF") or "," not in _zeile:
+                continue
+            # Gleiche Trennlogik wie in m3u_playlist_abgleichen() (siehe
+            # dortiger Kommentar): erstes Komma NACH dem letzten
+            # Anfuehrungszeichen, nicht das letzte Komma der Zeile.
+            _letztes_anfuehrungszeichen = _zeile.rfind('"')
+            _such_start = _letztes_anfuehrungszeichen if _letztes_anfuehrungszeichen != -1 else 0
+            _komma_pos = _zeile.find(",", _such_start)
+            _voller_name = (_zeile[_komma_pos + 1:] if _komma_pos != -1 else _zeile.rsplit(",", 1)[-1]).strip()
+            _dyn_ppv_match = re.match(r"^DE\|\s*DYN\s*PPV\s*0*(\d{1,2})\s*HD$", _voller_name, re.IGNORECASE)
+            if _dyn_ppv_match:
+                _nummer = int(_dyn_ppv_match.group(1))
+                if 1 <= _nummer <= DYN_PPV_ANZAHL:
+                    dyn_ppv_api_playlist_namen[_nummer] = _voller_name
+
+        if dyn_ppv_api_playlist_namen:
+            print(
+                f"DYN-PPV-API-Kanalnamen: {len(dyn_ppv_api_playlist_namen)} von "
+                f"{DYN_PPV_ANZAHL} Kanaelen mit exaktem Playlist-Namen abgeglichen"
+            )
+    except Exception as e:
+        # Bewusst NUR der Exception-Typname, nie die Exception-Nachricht
+        # selbst: requests haengt bei Netzwerkfehlern (Timeout,
+        # ConnectionError, HTTPError) haeufig die volle Request-URL an
+        # die Fehlermeldung an - bei PROVIDER waere das die komplette
+        # M3U-URL samt Username/Passwort im Klartext. GitHub Actions
+        # maskiert Secrets nur bei exaktem String-Treffer; das hier
+        # macht ein Leck unmoeglich, unabhaengig von der Maskierung.
+        print(f"DYN-PPV-API-Kanalnamen-Abgleich Fehler: {type(e).__name__}")
+
+def dyn_ppv_kanal_ids(nummer):
+    """Alle Kanal-ID-Varianten fuer einen DYN-PPV-1-20-API-Kanal: sowohl
+    die feste, garantiert stabile Standard-ID ("DE| DYN PPV N HD") als
+    auch - falls per Live-Playlist-Abgleich gefunden - den exakten
+    aktuellen Rohnamen aus der Playlist (siehe dyn_ppv_api_playlist_namen
+    oben).
+
+    Frueher wurde bei einem Live-Treffer NUR NOCH der Live-Name
+    verwendet, die feste Standard-ID ging dabei komplett verloren -
+    weicht der gefundene Live-Name auch nur minimal vom tatsaechlichen,
+    aktuellen Playlist-Namen ab (z.B. durch einen kurzzeitigen Netzwerk-/
+    Parse-Fehler beim Fetch oder eine zwischenzeitliche Playlist-
+    Aenderung zwischen Abgleich und TiviMates eigenem Abruf), matchte
+    TiviMate ueberhaupt nichts mehr - obwohl die feste Standard-ID vorher
+    (vor Einfuehrung dieses Live-Abgleichs) IMMER zuverlaessig
+    funktioniert hatte. Jetzt werden beide Varianten gleichzeitig als
+    <channel>/<programme> ausgegeben (Vereinigung der
+    kanal_id_varianten() beider Texte) - kein Fehltreffer-Risiko, nur
+    zusaetzliche, strikt additive Trefferchancen."""
+    standard = f"DE| DYN PPV {nummer} HD"
+    ids = list(kanal_id_varianten(standard))
+    live_name = dyn_ppv_api_playlist_namen.get(nummer)
+    if live_name and live_name != standard:
+        for kanal_id in kanal_id_varianten(live_name):
+            if kanal_id not in ids:
+                ids.append(kanal_id)
+    return ids
+
+
+for i in range(1, DYN_PPV_ANZAHL + 1):
+    kanal = dyn_ppv_api_playlist_namen.get(i, f"DE| DYN PPV {i} HD")
+    logo_fuer_kanal = dyn_ppv_logo_overrides.get(
+        i,
+        f"https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/dyn_ppv/dyn_ppv_{i}.png",
+    )
+    # display-name zeigt jetzt "DE| " wie die echte ID und wie der
+    # tatsaechliche Name in der Playlist des Nutzers (bestaetigt per
+    # Playlist-Check: tvg-name="DE| DYN PPV 4 HD") - vorher fehlte das
+    # Laenderkuerzel im display-name, obwohl ID und Playlist-Name es
+    # beide hatten. Falls TiviMate beim automatischen Zuordnen den
+    # display-name statt der ID heranzieht, verhinderte genau diese
+    # Abweichung die Zuordnung trotz technisch passender ID (Bug
+    # September 2026 behoben).
+    for kanal_id in dyn_ppv_kanal_ids(i):
+        xml_teile.append(
+            f' <channel id="{escape(kanal_id)}"> <display-name>{escape(kanal)}</display-name> <icon src="{escape(logo_fuer_kanal)}"/> </channel> '
+        )
+
+# ==========================================================
+# DYN LIVE EVENTS
+# ==========================================================
+
+# Generischer Index ALLER NAME:-Sender (nicht nur DYN PPV) nach
+# normalisiertem Kernnamen - ermoeglicht es, den EPG-Anbieter-Abgleich
+# (siehe "DYN LIVE-KANALNAMEN VOM EPG-ANBIETER" weiter unten) spaeter
+# auch fuer weitere Kategorien (z.B. "US: SOCCER PPV" oder andere) ohne
+# erneute Codeaenderung zu nutzen: es reicht, den neuen Sender per
+# NAME:-Zeile in sender.txt einzutragen, sofern sein Kernname (Teil
+# nach dem letzten Pipe-Zeichen bzw. nach "Land: ") exakt mit dem
+# Kernnamen uebereinstimmt, den der Anbieter selbst im Kanalnamen fuehrt.
+name_pipe_kanal_index = {}
+for daten in sender_daten:
+    # Wichtig: NUR echte NAME:-/leere-Land-Zeilen (dynamische Live-
+    # Event-Kanaele, deren "kanal" absichtlich vom aktuellen Playlist-
+    # Rohnamen ueberschrieben werden soll) landen hier - NICHT jeder
+    # "exakter_name"-Eintrag. TELEMACH:/SKY:/MAGENTA:/ARENA:/DAZN:/
+    # FREEVIEW:/TVGUIDE:/TVPASSPORT: setzen "exakter_name" ebenfalls,
+    # haben aber einen STATISCHEN, verlaesslichen Kanalnamen - wurde
+    # frueher faelschlich mit indexiert, wodurch m3u_playlist_
+    # abgleichen() bei einer zufaelligen Kernnamen-Kollision mit einem
+    # voelling unabhaengigen dynamischen Live-Kanal in der eigenen
+    # Playlist (z.B. "DAZN 1 HD") deren "kanal" auf einen falschen
+    # Rohnamen ueberschrieb - der Sender verschwand dadurch komplett
+    # aus dem generierten <channel>-Verzeichnis (September 2026
+    # behoben, siehe CLAUDE.md).
+    if daten.get("live_playlist_kern"):
+        normalisierter_kern = re.sub(r"\s+", " ", daten["sender"]).strip().upper()
+        name_pipe_kanal_index[normalisierter_kern] = daten
+
+# Zeitfenster der API-Events je synthetischem "DE| DYN PPV N HD"-Kanal
+# (1-20) - wird unten bei den DYN LEERZEITEN gebraucht, um den
+# ueberlappenden Teil der stuendlichen Platzhalter auszuschneiden.
+dyn_synth_api_fenster = {}
+
+# Sammelt ECHTE API-Events UND Leerzeit-Platzhalter je Kanalnummer als
+# (start_dt, ende_dt, titel, beschreibung)-Tupel, statt sie sofort in
+# xml_teile zu schreiben - siehe Kommentar bei der Emission weiter unten
+# (Bug September 2026: echte Events lagen oft Wochen/Monate in der
+# Zukunft und wurden VOR den bei "heute 00:00 Uhr" beginnenden
+# Leerzeit-Platzhaltern geschrieben, wodurch die Startzeiten pro Kanal
+# in der Datei nicht mehr chronologisch aufsteigend waren - manche
+# EPG-Parser (u.a. TiviMate) brechen die Anzeige nach einem solchen
+# Rueckwaertssprung fuer diesen Kanal ab).
+dyn_kanal_programme = {}
+
+try:
+    response = None
+    letzter_fehler = None
+
+    for endpunkt in DYN_API_ENDPUNKTE:
+        try:
+            versuch = requests.get(endpunkt, timeout=DYN_API_TIMEOUT_SEKUNDEN)
+            if versuch.status_code == 200:
+                response = versuch
+                break
+            else:
+                letzter_fehler = f"{endpunkt} -> HTTP {versuch.status_code}"
+        except requests.RequestException as e:
+            letzter_fehler = f"{endpunkt} -> {e}"
+
+    if response is None:
+        raise RuntimeError(
+            f"Alle DYN-API-Endpunkte nicht erreichbar. Letzter Fehler: {letzter_fehler}"
+        )
+
+    if response.status_code == 200:
+        daten = response.json()
+
+        if len(daten) == 0:
+            print("Keine DYN Live-Events - Standardtext wird erstellt")
+        else:
+            # Vor der Round-Robin-Verteilung auf die 20 Kanaele nach
+            # Anstosszeit sortieren (September 2026, Nutzerwunsch): die
+            # API liefert Events in EIGENER, nicht-chronologischer
+            # Reihenfolge (vermutlich Erstellungsdatum des API-Eintrags),
+            # wodurch ein Spiel von uebermorgen zufaellig auf Kanal 1
+            # landen konnte, waehrend ein Spiel von heute auf Kanal 4
+            # landete - bei jedem Lauf zudem potenziell wieder anders
+            # verteilt, auch ohne inhaltliche Aenderung. Eine echte
+            # Kanal-Zuordnung ist mit dieser API grundsaetzlich nicht
+            # moeglich (kein Kanal-/Court-Feld in den Rohdaten - siehe
+            # docs/HISTORIE.md) - die chronologische Sortierung macht die
+            # Verteilung nur nachvollziehbarer/stabiler, nicht "richtig".
+            daten = sorted(daten, key=lambda event: event.get("scheduledAt") or "")
+
+            kanal_nummer = 1
+            real_kanal_nummer = 1
+
+            for event in daten:
+                titel = event.get("title", "Dyn Sport")
+
+                # Die API liefert kein eigenes Wettbewerb/Runde-Feld,
+                # aber "streamingUrl" enthaelt den vollen Eventnamen als
+                # Slug (z.B. ".../Spanien_Deutschland_IHF_U18_Womens_
+                # Junior_WM_Vorrunde_102341") - das entspricht (bis auf
+                # Satzzeichen) dem, was auch im echten Playlist-
+                # Kanalnamen steht. Falls vorhanden, wird daraus ein
+                # reichhaltigerer Titel gebaut statt des kurzen
+                # "title"-Felds.
+                streaming_url = event.get("streamingUrl")
+                if streaming_url:
+                    slug = streaming_url.rstrip("/").rsplit("/", 1)[-1]
+                    slug = re.sub(r"_\d+$", "", slug)
+                    voller_titel = slug.replace("_", " ").strip()
+                    if voller_titel:
+                        titel = voller_titel
+
+                beschreibung = event.get("description", titel)
+
+                start = event.get("scheduledAt")
+                ende = event.get("scheduledEnd")
+
+                if not start or not ende:
+                    continue
+
+                start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
+                ende_dt = datetime.fromisoformat(ende.replace("Z", "+00:00"))
+
+                startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
+                endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
+
+                dyn_kanal_programme.setdefault(kanal_nummer, []).append(
+                    (start_dt, ende_dt, titel, beschreibung)
+                )
+
+                dyn_synth_api_fenster.setdefault(kanal_nummer, []).append(
+                    (start_dt, ende_dt)
+                )
+
+                kanal_nummer += 1
+                if kanal_nummer > DYN_PPV_ANZAHL:
+                    kanal_nummer = 1
+
+except Exception as e:
+    print("DYN Fehler:", e)
+
+# ==========================================================
+# DYN PPV: ZUSAETZLICH BASKETBALL (Competitions-API)
+# ==========================================================
+# Der /live-productions-Endpunkt oben deckt nur Handball und
+# Tischtennis ab - Basketball fehlt dort komplett, obwohl die Spiele
+# laut /public/competitions/{id}/matches durchaus existieren (nur ohne
+# "liveProduction"-Verknuepfung, z.B. bei Sonderwettbewerben). Auf
+# ausdruecklichen Nutzerwunsch wird HIER zusaetzlich NUR Basketball
+# nachgeladen - kein Volleyball/Hockey/weitere Handball-/Tischtennis-
+# Wettbewerbe. Jeder Wettbewerb wird einzeln abgefragt; ein Fehler bei
+# einem einzelnen Wettbewerb ueberspringt nur diesen, kein Abbruch der
+# gesamten DYN-Verarbeitung.
+DYN_BASKETBALL_COMPETITION_IDS = {
+    "Qoi9d4XUraPLu9v9HzL8fk": "NCAA College Basketball",
+    "JnahjYBEhsfer9zCQbqicd": "easyCredit BBL",
+    "UuDL3pJ5GAHqnLmfu6kQov": "Netto BBL Pokal",
+}
+# Diese API liefert keine Endzeit, nur den Anstoss - eine
+# durchschnittliche Basketball-Spieldauer (inkl. Pausen/Verlaengerung)
+# wird stattdessen fest angenommen.
+DYN_BASKETBALL_SPIELDAUER = timedelta(hours=2)
+# Nur nahe Zukunft uebernehmen (die Competitions-API liefert teils
+# Spielplaene fuer Monate im Voraus) - konsistent mit dem sonstigen
+# Vorschau-Horizont dieses Skripts, statt hunderter kaum relevanter
+# Eintraege weit in der Zukunft.
+DYN_BASKETBALL_VORSCHAU_TAGE = 14
+
+basketball_kanal_nummer = 1
+jetzt_utc = datetime.now(timezone.utc)
+
+# Erst ALLE Spiele ueber alle drei Wettbewerbe hinweg sammeln, dann nach
+# Anstosszeit sortiert auf die 20 Kanaele verteilen (September 2026,
+# gleicher Grund/Nutzerwunsch wie bei der Handball/Tischtennis-Round-Robin
+# oben) - ohne diese Sortierung wurden Spiele in der Reihenfolge
+# Wettbewerb-fuer-Wettbewerb (erst alle NCAA-, dann alle BBL-Spiele usw.)
+# verteilt, was mit der tatsaechlichen Anstosszeit nichts zu tun hatte.
+basketball_spiele = []
+
+for competition_id, competition_name in DYN_BASKETBALL_COMPETITION_IDS.items():
+    try:
+        resp = requests.get(
+            f"https://streaming.contentdesk.sport/api/public/competitions/{competition_id}/matches",
+            timeout=DYN_API_TIMEOUT_SEKUNDEN,
+        )
+        resp.raise_for_status()
+        matches = resp.json().get("items", [])
+    except Exception as e:
+        print(f"DYN Basketball ({competition_name}) Fehler:", e)
+        continue
+
+    for match in matches:
+        start = match.get("scheduledAt")
+        if not start:
+            continue
+
+        start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
+        if not (jetzt_utc <= start_dt <= jetzt_utc + timedelta(days=DYN_BASKETBALL_VORSCHAU_TAGE)):
+            continue
+        ende_dt = start_dt + DYN_BASKETBALL_SPIELDAUER
+
+        heim = (match.get("homeClub") or {}).get("name", "").strip()
+        gast = (match.get("awayClub") or {}).get("name", "").strip()
+        titel = f"{heim} - {gast}".strip(" -") if (heim or gast) else competition_name
+
+        basketball_spiele.append((start_dt, ende_dt, titel))
+
+for start_dt, ende_dt, titel in sorted(basketball_spiele, key=lambda spiel: spiel[0]):
+    dyn_kanal_programme.setdefault(basketball_kanal_nummer, []).append(
+        (start_dt, ende_dt, titel, titel)
+    )
+
+    dyn_synth_api_fenster.setdefault(basketball_kanal_nummer, []).append(
+        (start_dt, ende_dt)
+    )
+
+    basketball_kanal_nummer += 1
+    if basketball_kanal_nummer > DYN_PPV_ANZAHL:
+        basketball_kanal_nummer = 1
+
+# ==========================================================
+# LIVE-KANALNAMEN VOM EPG-ANBIETER (alle NAME:-Sender, z.B. DYN PPV)
+# ==========================================================
+#
+# Statt Events per Round-Robin zu raten (unzuverlaessig - siehe
+# Clubber, wo sich das als falsch erwiesen hat), werden hier die
+# echten Live-Kanalnamen direkt aus der EPG-Datei des Nutzer-eigenen
+# EPG-Anbieters gelesen. Dieser Anbieter spiegelt die tatsaechlichen
+# Live-Playlist-Kanalnamen (inkl. Event-Text) direkt in seine
+# <channel>-Definitionen (bestaetigt am Beispiel "US: SOCCER PPV") -
+# das ist die echte, korrekte Zuordnung statt eines Ratens. Der
+# Abgleich laeuft ueber name_pipe_kanal_index und ist NICHT auf DYN PPV
+# beschraenkt: jeder Sender, der per NAME:-Zeile in sender.txt
+# eingetragen ist (Kernname exakt wie beim Anbieter), wird automatisch
+# erfasst - fuer weitere Kategorien (z.B. "US: SOCCER PPV") reicht ein
+# neuer NAME:-Eintrag in sender.txt, ohne dass hier Code geaendert
+# werden muss.
+#
+# Sicherheit: Die URLs enthalten persoenliche Zugangsdaten (uid/key) des
+# Nutzers und werden NIEMALS im Code/Repo hinterlegt, sondern kommen
+# ausschliesslich ueber Umgebungsvariablen (als GitHub Actions Secrets
+# gesetzt). Fehlt eine Variable (z.B. beim lokalen Testen), wird sie
+# einfach uebersprungen.
+#
+# Der Anbieter (myepg.top) liefert zwei getrennte Dateien - "World" und
+# "EU" - die unterschiedliche Kategorien abdecken (z.B. DYN PPV nur in
+# der EU-Datei, "US: SOCCER PPV" nur in der World-Datei). Damit der
+# Abgleich unabhaengig davon funktioniert, welche Kategorie in welcher
+# Datei steckt, werden beide abgefragt und die Treffer zusammengefuehrt.
+#
+# Jede Datei ist riesig (>150 MB entpackt), enthaelt aber ALLE
+# <channel>-Definitionen VOR dem allerersten <programme>-Tag - daher
+# wird nur gestreamt entpackt, bis das erste <programme> auftaucht,
+# und die Verbindung dann abgebrochen, statt die komplette Datei
+# herunterzuladen.
+
+def _kern_und_event_aus_rohname(voller_name):
+    """Versucht Kern-hinten- (DYN PPV, Flo Racing, ...), dann Kern-vorne-
+    Konvention (Clubber, ...) und gibt (normalisierter_kern, real_daten,
+    kurzname, event_teil) zurueck, oder (None, None, None, None) bei
+    keinem Treffer in name_pipe_kanal_index."""
+    kurzname, event_teil = kern_und_event_extrahieren(voller_name)
+    # Gleiches Rollback wie beim sender.txt-Einlesen (siehe dortige
+    # NAME:-Verarbeitung): sieht der abgetrennte "Event-Text" NICHT wie
+    # Rohtext-Muell aus (z.B. "NFL TEAMS" vor "| FOX PACKERS ST. LOUIS
+    # MO"), ist er ein echter, fester Namensbestandteil - der komplette
+    # Rohname bleibt dann der Kern. Ohne dieses Rollback wuerde hier ein
+    # anderer (verkuerzter) Kern berechnet als der beim Einlesen in
+    # name_pipe_kanal_index gespeicherte, wodurch der Live-Playlist-
+    # Abgleich fuer alle betroffenen Sender (z.B. "NFL TEAMS| <Team>")
+    # nie einen Treffer findet (Bug: automatische Zuordnung schlug fehl).
+    if kurzname != voller_name and event_teil and not _wirkt_wie_rohtext_muell(event_teil):
+        kurzname, event_teil = voller_name, ""
+    normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+    real_daten = name_pipe_kanal_index.get(normalisierter_kern)
+    if real_daten is None:
+        kurzname, event_teil = kern_vorne_und_event_extrahieren(voller_name)
+        if kurzname is None:
+            return None, None, None, None
+        normalisierter_kern = re.sub(r"\s+", " ", kurzname).strip().upper()
+        real_daten = name_pipe_kanal_index.get(normalisierter_kern)
+        if real_daten is None:
+            return None, None, None, None
+    return normalisierter_kern, real_daten, kurzname, event_teil
+
+
+def _live_event_uebernehmen(kurzname, event_teil, real_daten):
+    """Prueft, ob event_teil ein echtes Event ist (kein Leerlauf-Marker)
+    und traegt es bei Treffer in real_daten ein. Gibt True bei
+    Uebernahme zurueck. Bei Leerlauf (z.B. DYN-PPV-Platzhaltertext
+    "- NO EVENT STREAMING - | 8K EXCLUSIVE") bleibt real_daten
+    unveraendert - der beim Einlesen gesetzte Fallback ("Dyn Sport (N)
+    ᴺᵒ ᴸⁱᵛᵉ" bei DYN PPV, generischer Kategorietext sonst) bleibt
+    stehen, statt des rohen Platzhaltertexts."""
+    if event_teil and not any(marker in event_teil.lower() for marker in LEERLAUF_MARKER):
+        roh_segmente = [s.strip() for s in event_teil.split("|")]
+        roh_marker = roh_segmente[0].lower() if roh_segmente else ""
+
+        dyn_ppv_next_match = re.match(r"^DYN\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        # STAIGE PPV (September 2026 hinzugefuegt, siehe sender.txt "NAME:
+        # DE: STAIGE PPV N"): gleiches Rohformat/gleiche Team-vs-Team-
+        # Extraktion wie DYN PPV oben, nur mit eigenem Fallback-Text und
+        # OHNE das Land aus dem Kern zu entfernen (Kern bleibt "DE: STAIGE
+        # PPV N", siehe kern_und_event_extrahieren()).
+        staige_ppv_match = re.match(r"^DE:\s*STAIGE\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        # DPLUS PPV (September 2026 hinzugefuegt, siehe sender.txt "NAME:
+        # DE: DPLUS PPV N" bzw. der Sonderfall "DE: D+ PPV 6"): gleiches
+        # Rohformat/gleiche Team-vs-Team-Extraktion wie DYN PPV/STAIGE PPV
+        # oben. Ohne diesen Match fiel der ENDED-Marker bei diesen Sendern
+        # auf den generischen Abmoderationstext zurueck statt auf die
+        # Teamnamen (Bug: Kanaele 2-5 zeigten nach Spielende keinen
+        # sinnvollen Inhalt mehr).
+        dplus_ppv_match = re.match(r"^DE:\s*DPLUS\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        # LEAGUES FOOTBALL PPV (September 2026 hinzugefuegt, siehe
+        # sender.txt "NAME: DE: LEAGUES FOOTBALL PPV N"): gleiches
+        # Rohformat/gleiche Team-vs-Team-Extraktion wie DYN PPV/STAIGE
+        # PPV/DPLUS PPV oben - eigener fester Match statt des generischen
+        # PPV_KERN_MUSTER-Fallbacks, damit dieselbe nachweislich
+        # funktionierende Behandlung wie bei den anderen festen PPV-
+        # Sondergruppen greift.
+        leagues_football_ppv_match = re.match(r"^DE:\s*LEAGUES\s*FOOTBALL\s*PPV\s*0*(\d+)$", kurzname, re.IGNORECASE)
+        # Alle UEBRIGEN "<Land:> <Name> PPV <Nummer>"-Sendergruppen
+        # (DAZN/ESPN+/SOCCER/RTL+ PPV usw.), die nicht bereits von einem
+        # der obigen Spezialfaelle erfasst sind - September 2026 auf
+        # Nutzerwunsch generalisiert (siehe PPV_KERN_MUSTER), damit
+        # Team-vs-Team/Uhrzeit + hochgestellter Status ueberall gilt,
+        # nicht nur bei DYN/STAIGE/DPLUS/LEAGUES FOOTBALL.
+        generic_ppv_match = None
+        if not (dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match or leagues_football_ppv_match):
+            generic_ppv_match = PPV_KERN_MUSTER.match(kurzname)
+
+        alle_matches = (
+            dyn_ppv_next_match or staige_ppv_match or dplus_ppv_match
+            or leagues_football_ppv_match or generic_ppv_match
+        )
+        if alle_matches and roh_marker in EVENT_MARKER_ENDE:
+            # Kein fixer Abmoderationstext - stattdessen werden die
+            # Teamnamen wie bei NEXT/LIVE extrahiert, nur mit "ᴮᵉᵉⁿᵈᵉᵗ"
+            # als Suffix. Gelingt die Extraktion nicht, bleibt der beim
+            # Einlesen bereits gesetzte Fallback ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ"
+            # bzw. generischer "<Kurzname> ᴸⁱᵛᵉ"-Text bei STAIGE)
+            # unveraendert stehen - real_daten["event_titel"] wird dann
+            # NICHT auf None ueberschrieben (sonst faellt die Sendung auf
+            # den generischen kategoriebasierten Zufallstext zurueck, Bug
+            # August 2026 behoben).
+            team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴮᵉᵉⁿᵈᵉᵗ")
+            if team_namen:
+                real_daten["event_titel"] = team_namen
+            return True
+
+        event_titel = formatiere_event_text(event_teil)
+
+        if dyn_ppv_next_match:
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Dyn Sport ({dyn_ppv_next_match.group(1)}) ᴸⁱᵛᵉ"
+        elif staige_ppv_match:
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"Staige ({staige_ppv_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Staige ({staige_ppv_match.group(1)}) ᴸⁱᵛᵉ"
+        elif dplus_ppv_match:
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"Dplus ({dplus_ppv_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Dplus ({dplus_ppv_match.group(1)}) ᴸⁱᵛᵉ"
+        elif leagues_football_ppv_match:
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"Leagues Football ({leagues_football_ppv_match.group(1)}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"Leagues Football ({leagues_football_ppv_match.group(1)}) ᴸⁱᵛᵉ"
+        elif generic_ppv_match:
+            name_label = normalisiere_grossschreibung(generic_ppv_match.group(1).title())
+            nummer_label = generic_ppv_match.group(2)
+            if roh_marker in EVENT_MARKER_NEXT:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴺᵉˣᵗ")
+                event_titel = team_namen or f"{name_label} ({nummer_label}) ᴺᵉˣᵗ"
+            elif roh_marker in EVENT_MARKER_LIVE:
+                team_namen = dyn_next_team_namen(event_teil, status_suffix="ᴸⁱᵛᵉ")
+                event_titel = team_namen or f"{name_label} ({nummer_label}) ᴸⁱᵛᵉ"
+
+        real_daten["event_titel"] = event_titel
+        return True
+    return False
+
+
+def m3u_playlist_abgleichen(url, quelle_name):
+    """Laedt die M3U-Playlist des IPTV-Anbieters und uebertraegt fuer
+    jeden per Kernname matchenden NAME:-Sender (siehe
+    name_pipe_kanal_index) den aktuellen Anzeigenamen aus der
+    #EXTINF-Zeile als Sendungstitel. Gibt die Menge der normalisierten
+    Kern-Keys zurueck, die dabei ein echtes Event geliefert haben."""
+    gepuffert = _m3u_playlist_roh_text_laden(url)
+
+    erledigte_keys = set()
+    aktualisierte_sender = []
+    uebersprungene_zeilen = 0
+    gesammelte_namen = {}
+    feste_ids = {
+        kanal_id
+        for daten in sender_daten
+        if not daten.get("live_playlist_kern")
+        for kanal_id in kanal_id_varianten(daten["kanal"])
+    }
+    for zeile in gepuffert.splitlines():
+        zeile = zeile.strip()
+        if not zeile.startswith("#EXTINF") or "," not in zeile:
+            continue
+
+        # Jede Zeile einzeln abgesichert (Bug September 2026 behoben): eine
+        # Exception bei EINER einzelnen Zeile (z.B. ein exotischer/
+        # kaputter Rohname, der z.B. dyn_next_team_namen() oder eine der
+        # Regex-Auswertungen zum Absturz bringt) durfte NICHT die gesamte
+        # Schleife abbrechen - vorher gab es hier keinerlei Absicherung,
+        # wodurch ALLE nach der fehlerhaften Zeile in der Playlist
+        # stehenden NAME:-Kanaele in diesem Lauf komplett ohne Live-
+        # Abgleich blieben (nur der Try/Except um den GESAMTEN Aufruf
+        # dieser Funktion fing das ab, aber erst nachdem bereits ein
+        # Grossteil der Kanaele uebersprungen wurde - sichtbares Symptom:
+        # einzelne, scheinbar zufaellige NAME:-Kanaele zeigten trotz
+        # eines echten laufenden Events keinen aktuellen Titel mehr).
+        try:
+            # Trennung von Attributen und Anzeigename NICHT am letzten Komma
+            # der Zeile (rsplit) vornehmen - manche Anbieter haben selbst ein
+            # Komma im rohen Live-Event-Namen eingebettet (z.B. "NEXT | WED,
+            # 9/2 - THE RICH EISEN SHOW | ... | US: ESPN+ PPV 4"), wodurch
+            # rsplit(",", 1) faelschlich den Namen ab dem eingebetteten Komma
+            # abschnitt statt ab dem echten Attribute/Name-Trenner. Alle
+            # #EXTINF-Attribute (tvg-id="...", group-title="...", ...) enden
+            # in einem schliessenden Anfuehrungszeichen - das erste Komma NACH
+            # dem letzten Anfuehrungszeichen ist daher der zuverlaessige
+            # Trenner, unabhaengig davon, ob der Name selbst Kommas enthaelt.
+            letztes_anfuehrungszeichen = zeile.rfind('"')
+            such_start = letztes_anfuehrungszeichen if letztes_anfuehrungszeichen != -1 else 0
+            komma_pos = zeile.find(",", such_start)
+            voller_name = (zeile[komma_pos + 1:] if komma_pos != -1 else zeile.rsplit(",", 1)[-1]).strip()
+            normalisierter_kern, real_daten, kurzname, event_teil = _kern_und_event_aus_rohname(voller_name)
+            if real_daten is None:
+                continue
+
+            # Die <channel id>/den Anzeigenamen direkt auf den kompletten
+            # aktuellen Rohnamen aus der Playlist setzen (egal ob gerade
+            # ein Event laeuft oder Leerlauf ist) - GENAU wie es der
+            # frueher genutzte externe EPG-Anbieter (myepg.top) gemacht
+            # hat, der fuer diese Kanaele nachweislich zuverlaessig
+            # automatisch zugeordnet wurde. Der stabile Kern bleibt nur
+            # als Fallback stehen, falls die eigene Playlist gerade nicht
+            # erreichbar ist oder der Sender darin fehlt (dann behaelt
+            # "kanal" seinen urspruenglichen sender.txt-Wert). Bewusster
+            # Trade-off (September 2026 auf Nutzerwunsch so entschieden):
+            # eine einmal in TiviMate manuell gesetzte Zuordnung ueberlebt
+            # dadurch nicht zwingend jeden Lauf, dafuer funktioniert die
+            # AUTOMATISCHE Zuordnung zuverlaessiger, was hier Prioritaet hat.
+            #
+            # Mehrere Rohnamen je Sender (23.09.2026): statt "letzter
+            # gewinnt" werden ALLE Rohnamen gesammelt und nach der
+            # Schleife als "kanal" + Aliase (_KANAL_ALIASE) gesetzt.
+            # Ausgenommen sind Rohnamen, die bereits die feste ID eines
+            # ANDEREN Senders sind (z.B. "UK| 24/7 AL PACINO" vom
+            # FREEVIEW:GB-Sender) - die fielen frueher per Kern-Abgleich
+            # faelschlich auf den bare NAME:24/7 AL PACINO-Sender, der
+            # dadurch seine eigene ID "24/7 AL PACINO" verlor (Bug 3 in
+            # docs/HISTORIE.md, 21 "24/7 X"-Sender betroffen).
+            if voller_name not in feste_ids:
+                gesammelte_namen.setdefault(id(real_daten), (real_daten, []))[1].append(voller_name)
+
+            if _live_event_uebernehmen(kurzname, event_teil, real_daten):
+                erledigte_keys.add(normalisierter_kern)
+                aktualisierte_sender.append(real_daten["sender"])
+        except Exception:
+            uebersprungene_zeilen += 1
+            continue
+
+    for real_daten, namen in gesammelte_namen.values():
+        namen = list(dict.fromkeys(namen))
+        real_daten["kanal"] = namen[0]
+        if len(namen) > 1:
+            _KANAL_ALIASE[namen[0]] = namen[1:]
+
+    if aktualisierte_sender:
+        print(f"Live-Kanalabgleich ({quelle_name}): {len(aktualisierte_sender)} Sender mit echtem Live-Event aktualisiert.")
+    if uebersprungene_zeilen:
+        print(f"Live-Kanalabgleich ({quelle_name}): {uebersprungene_zeilen} Playlist-Zeile(n) wegen Fehler uebersprungen.")
+
+    return erledigte_keys
+
+
+if name_pipe_kanal_index:
+    m3u_url = os.environ.get("PROVIDER")
+    if m3u_url:
+        try:
+            treffer = m3u_playlist_abgleichen(m3u_url, "Live-Kanalabgleich")
+            print(
+                f"Live-Kanalabgleich: {len(treffer)} von "
+                f"{len(name_pipe_kanal_index)} NAME:-Kanaelen mit "
+                f"Live-Kanalnamen aktualisiert"
+            )
+        except Exception as e:
+            # Nur der Exception-Typname, nie die Nachricht selbst - siehe
+            # ausfuehrlicher Kommentar bei "DYN-PPV-API-Kanalnamen-
+            # Abgleich Fehler" oben (gleiches Leck-Risiko fuer die
+            # PROVIDER-URL samt Zugangsdaten).
+            print(f"Live-Kanalabgleich Fehler: {type(e).__name__}")
+
+# ==========================================================
+# <channel>-Blöcke schreiben (sender.txt, mit ggf.
+# überschriebenem Logo aus logo_only.txt)
+#
+# Bewusst ERST HIER (nach dem Live-Kanalabgleich oben), damit fuer
+# NAME:-Sender bereits die per Live-Playlist-Abgleich ggf.
+# ueberschriebene "kanal" (siehe m3u_playlist_abgleichen()) verwendet
+# wird - nicht mehr der urspruengliche statische Kern.
+# ==========================================================
+
+for daten in sender_daten:
+
+    # So wie er in der Playlist als tvg-name steht (z.B. "DE| RTL"),
+    # unverändert übernommen - das ist entscheidend für die
+    # automatische Sender-Zuordnung in TiviMate.
+    # Ausnahme: Einträge mit "exakter_name" (aus NAME:-Zeilen in
+    # sender.txt) haben ihren kompletten, echten Playlist-Namen
+    # bereits direkt in "kanal" stehen (bei erfolgreichem Live-
+    # Abgleich sogar den AKTUELLEN Live-Namen, siehe oben) - hier
+    # NICHT aus Land+Sender neu zusammenbauen, sonst geht der Name
+    # kaputt.
+    if daten.get("exakter_name"):
+        playlist_name = daten["kanal"]
+    else:
+        # Normalerweise identisch mit "Land| Sender" (siehe kanal-
+        # Zuweisung beim Einlesen), aber fuer HR|SK 1-10 kann "kanal"
+        # oben bereits auf den exakten Live-Playlist-Rohnamen
+        # ueberschrieben worden sein - der Anzeigename muss dann
+        # mitziehen, sonst weichen <channel id> und <display-name>
+        # voneinander ab (gleiches Bug-Muster wie bei DYN PPV, siehe
+        # Kommentar dort).
+        playlist_name = daten["kanal"]
+
+    # Fuer jede Kanal-ID-Variante (mit/ohne Leerzeichen nach dem Pipe-
+    # Zeichen, siehe kanal_id_varianten()) einen eigenen <channel>-
+    # Block schreiben, damit TiviMate unabhaengig von der in der
+    # jeweiligen Playlist-Gruppe genutzten Schreibweise automatisch
+    # zuordnen kann.
+    for kanal_id in kanal_id_varianten(daten["kanal"]):
+        xml_teile.append(
+            f' <channel id="{escape(kanal_id)}"> <display-name>{escape(playlist_name)}</display-name>'
+        )
+
+        # Icon wird NUR erzeugt, wenn ein Logo angegeben ist
+        # (aus sender.txt oder als Override aus logo_only.txt)
+        if daten["logo"]:
+            xml_teile.append(f' <icon src="{escape(daten["logo"])}"/>\n')
+
+        xml_teile.append(" </channel>\n")
+
+# ==========================================================
+# DYN LEERZEITEN
+#
+# Bewusst HIER geschrieben (gleich nach den <channel>-Bloecken, VOR der
+# grossen Tagesraster-Schleife fuer alle ~18.000 Sender) statt erst ganz
+# am Ende der Datei: die unkomprimierte Epg_365_Tage.xml ist mittlerweile
+# ueber 300 MB gross - stand dieser Block ganz am Schluss (wie fruehder),
+# landeten die 20 DYN-PPV-API-Kanaele (Land DE, feste "DE| DYN PPV N HD"-
+# IDs) im allerletzten Prozent der Datei. Ein Nutzer meldete, dass
+# TiviMate auf einem leistungsschwaecheren Geraet fuer GENAU diese 20
+# Kanaele durchgaengig "Keine Information" zeigte, obwohl die Daten
+# nachweislich in der Datei standen und alle anderen ~18.000 Sender
+# (deren Daten alle VOR diesem Block lagen) korrekt angezeigt wurden -
+# ein starkes Indiz fuer einen Download-/Parse-Abbruch nach einer
+# bestimmten Groesse auf schwaecheren Geraeten, nicht fuer fehlende
+# Daten. Durch die Verschiebung an den Anfang der Datei (gleich nach den
+# Kanaldefinitionen) sind diese 20 Kanaele jetzt unter den ersten
+# Prozentpunkten der Datei zu finden, unabhaengig von einer moeglichen
+# Truncation weiter hinten.
+# ==========================================================
+
+jetzt = datetime.now(timezone.utc).replace(
+    hour=0, minute=0, second=0, microsecond=0
+)
+
+# Die DYN-API kuendigt manche Events (z.B. Handball-/Basketball-Termine)
+# schon Wochen bis Monate im Voraus an (dyn_synth_api_fenster kann daher
+# weit ueber die normalen ANZAHL_TAGE=3 hinausreichende Fenster
+# enthalten) - lief die Leerzeiten-Fuellung nur ueber die festen
+# DYN_LEERZEIT_TAGE, entstanden zwischen einem nahen und einem fernen
+# echten Event riesige, komplett leere Zeitraeume ohne jeden
+# <programme>-Eintrag (TiviMate zeigte dort "Keine Information" statt
+# des Leerlauf-Platzhalters - September 2026 behoben). Die Fuellung
+# deckt jetzt dynamisch bis zum spaetesten bekannten API-Fenster-Ende ab
+# (mit einer Obergrenze von 180 Tagen, um die Dateigroesse nicht
+# unbegrenzt wachsen zu lassen), mindestens aber weiterhin
+# DYN_LEERZEIT_TAGE.
+_dyn_leerzeit_tage_max = DYN_LEERZEIT_TAGE
+for _fenster_liste in dyn_synth_api_fenster.values():
+    for _fenster_start, _fenster_ende in _fenster_liste:
+        _benoetigte_tage = (_fenster_ende - jetzt).days + 1
+        if _benoetigte_tage > _dyn_leerzeit_tage_max:
+            _dyn_leerzeit_tage_max = min(_benoetigte_tage, 180)
+
+for i in range(1, DYN_PPV_ANZAHL + 1):
+    kanal_ids = dyn_ppv_kanal_ids(i)
+    api_fenster = dyn_synth_api_fenster.get(i, [])
+
+    for stunde in range(24 * _dyn_leerzeit_tage_max):
+        block_start = jetzt + timedelta(hours=stunde)
+        block_ende = block_start + timedelta(hours=1)
+
+        # Nur den mit einem API-Event ueberlappenden Teil dieser Stunde
+        # ausschneiden (siehe segmente_ohne_ueberlappung weiter oben) -
+        # der Rest bekommt weiterhin den Leerzeit-Platzhalter, statt
+        # eine ganze Stunde vor/nach dem Event wegzulassen.
+        for start, ende in segmente_ohne_ueberlappung(block_start, block_ende, api_fenster):
+            # Gleiche Leerlauf-Konvention wie bei den Playlist-basierten
+            # DYN PPV 1-50-Sendern ("Dyn Sport (N) ᴺᵒ ᴸⁱᵛᵉ") statt eines
+            # eigenen, abweichenden Textes - auf Nutzerwunsch vereinheitlicht.
+            leerlauf_text = f"Dyn Sport ({i}) ᴺᵒ ᴸⁱᵛᵉ"
+            dyn_kanal_programme.setdefault(i, []).append(
+                (start, ende, leerlauf_text, leerlauf_text)
+            )
+
+    # Echte Events UND Leerzeit-Platzhalter dieses Kanals zusammen nach
+    # Startzeit sortiert ausgeben (siehe Kommentar bei
+    # dyn_kanal_programme oben) - verhindert den Rueckwaertssprung in
+    # der Zeitachse, der einige EPG-Parser (u.a. TiviMate) dazu brachte,
+    # die weitere Anzeige fuer diesen Kanal abzubrechen.
+    for start, ende, titel, beschreibung in sorted(
+        dyn_kanal_programme.get(i, []), key=lambda eintrag: eintrag[0]
+    ):
+        start_str = start.strftime("%Y%m%d%H%M%S +0000")
+        ende_str = ende.strftime("%Y%m%d%H%M%S +0000")
+        for kanal_id in kanal_ids:
+            xml_teile.append(
+                f' <programme start="{start_str}" stop="{ende_str}" channel="{escape(kanal_id)}">'
+                f' <title>{escape(titel)}</title>'
+                f' <desc>{escape(beschreibung)}</desc> </programme> '
+            )
+
+# Hinweis Clubber-PPV (Irland, GAA-Club-Spiele): laeuft ueber denselben
+# generischen Playlist-Namensabgleich wie DYN PPV - der Anbieter fuehrt
+# die 50 echten Clubber-Kanaele mit demselben Kern ("(IE) (Clubber 01)"
+# usw.) nur in Kern-vorne- statt Kern-hinten-Konvention (siehe
+# kern_vorne_und_event_extrahieren()).
+
+# ==========================================================
+# PARALLELISIERUNG DER NETZWERK-ABRUFE (September 2026)
+#
+# Die groessten Quellen (Telemach/mtel.ba/klix.ba, Sky, mts.rs, A1/
+# MojMaxTV/SportKlub, TVPassport) fragen fuer JEDEN einzelnen Sender
+# einen eigenen HTTP-Request ab - bei tausenden Sendern lief das bisher
+# rein sequenziell (ein Request nach dem anderen), was den groessten
+# Anteil an der Workflow-Laufzeit ausmacht. `_parallel_abrufen()`
+# fuehrt den REINEN Netzwerk-Abruf-Teil (Kanalsuche + Programmabruf,
+# OHNE die anschliessende XML-Erzeugung) fuer eine ganze Senderliste
+# gleichzeitig in mehreren Threads aus (I/O-gebunden, GIL ist dabei
+# kein Flaschenhals) - das eigentliche Schreiben in xml_teile bleibt
+# danach unveraendert sequenziell in der urspruenglichen Reihenfolge,
+# damit sich am Zero-Risk-Verhalten (jeder Fehler faellt still auf die
+# naechste Quelle zurueck) nichts aendert.
+# ==========================================================
+
+PARALLEL_WORKER = 12
+
+# Manche Quellen antworten bei 12 gleichzeitigen Anfragen zunehmend mit
+# HTTP 429/503 (Too Many Requests/Service Unavailable) statt echter
+# Daten - sichtbar im Log des ersten produktiven 12-Worker-Laufs
+# (September 2026, siehe docs/HISTORIE.md):
+# - tvmovie.de/hoerzu.de (Teil der DE-Kaskade): deutlich weniger echte
+#   Treffer als vorher (Hoerzu 31 statt 58, TvMovie 71 statt 86).
+# - a1.hr (A1): fast durchgaengig 503/Verbindungsfehler (491 Fehlschlaege
+#   bei 278 Sendern), Trefferquote von 123 auf 46 eingebrochen.
+# Fuer diese ratenbegrenzten Quellen daher eine eigene, niedrigere
+# Worker-Zahl, waehrend alle anderen Quellen (die diese Drosselung im
+# Test nicht zeigten) bei PARALLEL_WORKER bleiben.
+GEDROSSELTE_QUELLE_WORKER = 6
+
+# TVPassport und mtel.ba waren im Lauf vom 18.09.2026 (siehe
+# QUELLEN_ZEITEN-Log) mit PARALLEL_WORKER=12 die beiden laengsten Bloecke
+# (184.6s/1070 Sender bzw. 123.2s/432 Sender), dabei aber OHNE jeden
+# 429/503-Fehler - versuchsweise auf mehr Worker angehoben, um die
+# Laufzeit zu druecken. Bei neuen 429/503-Fehlern im Log wieder auf
+# PARALLEL_WORKER zurueckstellen.
+ERHOEHTE_QUELLE_WORKER = 16
+
+# TVPassport blieb im Lauf vom 18.09.2026 (Run #864, 16 Worker) weiterhin
+# OHNE jeden 429/503-Fehler (siehe Rate-Limit-/Fehler-Uebersicht im Log:
+# nur hoerzu.de/tvmovie.de gelistet) und war mit 249.6s/1070 Sendern
+# weiterhin der laengste Block - noch mehr Luft nach oben. Eigene,
+# hoehere Konstante NUR fuer TVPassport (statt ERHOEHTE_QUELLE_WORKER
+# weiter global anzuheben, das wuerde ungewollt auch mtel.ba mit
+# erhoehen, das bei 16 Workern bereits gut laeuft und nicht angefasst
+# werden sollte). Bei neuen 429/503-Fehlern im Log wieder auf
+# ERHOEHTE_QUELLE_WORKER zurueckstellen.
+TVPASSPORT_WORKER = 24
+
+# Separater Executor NUR fuer die drei grossen, nachweislich voneinander
+# unabhaengigen Verarbeitungsbloecke Sky/TVPassport/DE-Kaskade (siehe
+# deren _gruppe_*()-Funktionen weiter unten) - laesst sie zeitgleich mit
+# dem Rest der (weiterhin rein sequenziellen) Laender-Kaskaden
+# (Telemach/mts.rs/A1/Siol/...) im Hintergrund laufen, statt wie bisher
+# strikt nacheinander. Diese drei Bloecke pruefen bzw. beeinflussen an
+# keiner Stelle dieselben sender.txt-Zeilen/daten-Dicts wie die
+# uebrigen Kaskaden (RS/HR/BA/SI/MK haben eigene, disjunkte Sender-
+# Listen) - nur der GEMEINSAME xml_teile/echte_quelle_zaehler-Zustand
+# wird angefasst, dafuer sorgt _xml_lock (siehe oben).
+#
+# Ein vierter Versuch (September 2026, HR-Kaskade A1/MojMaxTV/
+# SportKlub HR/Pickbox HR/RTL Adria HR/index.hr als zusaetzliches
+# Pool-Mitglied) wurde nach zwei echten Workflow-Laeufen wieder
+# zurueckgenommen: selbst nach Korrektur der Einhaenge-Stelle (die
+# HR-Kaskade ueberlappte dann korrekt mit der kompletten RS-Kaskade)
+# wurde der Lauf klar LANGSAMER statt schneller (Run #877: 23:22 statt
+# 16:17/16:35 Minuten) - vermutlich CPU-/GIL-Konkurrenz auf dem
+# GitHub-Actions-Runner, wenn vier grosse BeautifulSoup/lxml-lastige
+# Bloecke gleichzeitig laufen, statt echtem Netzwerk-Overlap-Gewinn.
+# Siehe docs/HISTORIE.md fuer die vollstaendige Fallgeschichte. Bewusst
+# NICHT auf Telemach/mts.rs ausgeweitet: die haben eine echte
+# Abhaengigkeit (ME/MNG/MO/CG-Sender teilen sich
+# daten["telemach_intervalle"] als Startbestand fuer die RS-Luecken-
+# Fuellung, siehe dortiger Kommentar) und duerfen NICHT parallel dazu
+# laufen.
+_HINTERGRUND_POOL = ThreadPoolExecutor(max_workers=3)
+
+# Sammelt fuer jede benannte Quelle (siehe _parallel_abrufen()/
+# _zeitmessung() Aufrufe unten) die gebrauchte Zeit in Sekunden und die
+# Anzahl verarbeiteter Sender - am Ende des Laufs als kurze Tabelle
+# ausgegeben (siehe ganz unten bei der Gzip-Ausgabe), um Laufzeit-
+# Bottlenecks oder leise 0-Treffer-Quellen (wie zuletzt Samsung TV Plus/
+# mymedia.ba) schneller zu erkennen, ohne den Workflow-Log komplett
+# durchsuchen zu muessen.
+QUELLEN_ZEITEN = []
+
+
+class _zeitmessung:
+    """Kontextmanager: misst die Laufzeit eines Codeblocks und traegt
+    sie unter `name` in QUELLEN_ZEITEN ein. `anzahl` (optional, z.B.
+    len(sender_liste)) wird mit ausgegeben."""
+
+    def __init__(self, name, anzahl=None):
+        self.name = name
+        self.anzahl = anzahl
+
+    def __enter__(self):
+        self._start = time.perf_counter()
+        # Kurzer, NICHT gefilterter Start-Marker (siehe LOG-FILTER-
+        # Kommentar oben) - haelt den sichtbaren Log waehrend des Laufs
+        # am Fliessen, ohne die eigentlichen Messwerte/Zahlen zu zeigen
+        # (die kommen erst am Laufende in der Zusammenfassung).
+        print(f"Rufe {self.name} ab...", flush=True)
+        return self
+
+    def __exit__(self, *exc):
+        sekunden = time.perf_counter() - self._start
+        QUELLEN_ZEITEN.append((self.name, sekunden, self.anzahl))
+        # Sofort ausgeben (nicht erst in der Zusammenfassung ganz am
+        # Ende) - damit bei einem externen Abbruch mitten im Lauf
+        # (z.B. Ressourcenknappheit auf dem Runner) im Workflow-Log
+        # sichtbar bleibt, wie weit der Lauf tatsaechlich kam, statt
+        # komplett stumm zu wirken.
+        anzahl_text = f", {self.anzahl} Sender" if self.anzahl is not None else ""
+        # RSS-Speicherverbrauch (ru_maxrss ist unter Linux in KB) direkt
+        # mitloggen - Verdacht (September 2026, siehe docs/HISTORIE.md):
+        # wiederholte externe Abbrueche des GitHub-Actions-Runners mitten
+        # im Lauf, ohne Python-Fehler, deuten auf Speicherdruck hin. Mit
+        # dieser Messung wird das beim naechsten Abbruch nachweisbar,
+        # statt weiter zu raten.
+        speicher_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+        print(f"[Laufzeit] {self.name}: {sekunden:.1f}s{anzahl_text} (RSS: {speicher_mb:.0f} MB)", flush=True)
+        return False
+
+
+def _parallel_abrufen(sender_liste, abruf_fn, worker=PARALLEL_WORKER, name=None):
+    """Fuehrt abruf_fn(daten) fuer jeden Eintrag in sender_liste parallel
+    in mehreren Threads aus und gibt eine Liste von Ergebnissen in
+    DERSELBEN Reihenfolge wie sender_liste zurueck (ThreadPoolExecutor.
+    map erhaelt die Eingabereihenfolge). abruf_fn muss selbst jeden
+    Fehler abfangen und im Fehlerfall eine leere Liste liefern (wie
+    bisher schon in den einzelnen Verarbeitungsbloecken) - ein
+    unerwarteter Fehler hier wuerde sonst den gesamten Lauf abbrechen,
+    statt nur diesen einen Sender auf generisch zurueckfallen zu
+    lassen. `name` (optional) beschriftet die Laufzeitmessung in
+    QUELLEN_ZEITEN."""
+    if not sender_liste:
+        return []
+    with _zeitmessung(name or abruf_fn.__name__, len(sender_liste)):
+        with ThreadPoolExecutor(max_workers=min(worker, len(sender_liste))) as pool:
+            return list(pool.map(abruf_fn, sender_liste))
+
+
+# ==========================================================
+# TELEMACH: echte Programmdaten fuer TELEMACH:-Sender (siehe
+# telemach_epg.py und der Parsing-Kommentar oben bei "TELEMACH:").
+# Login und Kanalliste werden dank Caching in telemach_epg.py nur
+# einmal pro Land geholt, egal wie viele TELEMACH:-Sender es gibt.
+# Ohne jegliche TELEMACH:-Zeile in sender.txt passiert hier gar
+# nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+TELEMACH_TAGE = 3
+MTEL_TAGE = 2
+KLIX_TAGE = 3
+RTVHB_TAGE = 3
+TVDUGAPLUS_TAGE = 2
+SKY_TAGE = 2
+MAGENTA_TAGE = 2
+ARENA_TAGE = 2
+DAZN_TAGE = 3
+FREEVIEW_TAGE = 2
+TVGUIDE_TAGE = 2
+TVPASSPORT_TAGE = 2
+MTS_TAGE = 2
+MOJMAXTV_TAGE = 2
+A1_TAGE = 6
+SIOL_TAGE = 2
+DESWIRD_TAGE = 3
+PLUTOTV_TAGE = 2
+TVMOVIE_TAGE = 1
+JOYN_VOD_TAGE = 1
+SEARCH_CH_TAGE = 3
+TUBI_TAGE = 2
+TVPROFIL_TAGE = 3
+MK_TAGE = 3
+MAGENTATV_MK_TAGE = 2
+MAGENTATV_ME_TAGE = 2
+IPTVEPG_DE_TAGE = 2
+RAKUTEN_TV_TAGE = 2
+TVPROGRAMDANAS_TAGE = 3
+VIKOM_TAGE = 7
+MYMEDIA_TAGE = 3
+RTVSLON_TAGE = 14
+telemach_sender = [d for d in sender_daten if d.get("telemach")]
+sky_sender = [d for d in sender_daten if d.get("sky")]
+sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
+magenta_sender = [d for d in sender_daten if d.get("magenta")]
+arena_sender = [d for d in sender_daten if d.get("arena")]
+dazn_sender = [d for d in sender_daten if d.get("dazn")]
+freeview_sender = [d for d in sender_daten if d.get("freeview")]
+tvguide_sender = [d for d in sender_daten if d.get("tvguide")]
+tvpassport_sender = [d for d in sender_daten if d.get("tvpassport")]
+tvpassport_callsign_sender = [d for d in sender_daten if d.get("tvpassport_callsign")]
+mts_sender = [d for d in sender_daten if d.get("mts")]
+mojmaxtv_sender = [d for d in sender_daten if d.get("mojmaxtv")]
+siol_sender = [d for d in sender_daten if d.get("siol")]
+tvprofil_sender = [d for d in sender_daten if d.get("tvprofil")]
+mk_sender = [d for d in sender_daten if d.get("mk")]
+magentatv_mk_sender = [d for d in sender_daten if d.get("magentatv_mk")]
+magentatv_me_sender = [d for d in sender_daten if d.get("magentatv_me")]
+plutotv_sender = [d for d in sender_daten if d.get("plutotv")]
+tubi_sender = [d for d in sender_daten if d.get("tubi")]
+tvprogramdanas_sender = [d for d in sender_daten if d.get("tvprogramdanas")]
+open_epg_sender = [d for d in sender_daten if d.get("open_epg")]
+epgshare_us_universal_sender = [d for d in sender_daten if d.get("epgshare_us_universal")]
+ba_stanice_sender = [d for d in sender_daten if d.get("ba_stanice")]
+
+
+# ==========================================================
+# ARENA-SPORT LAND-UEBERSCHREIBUNG (siehe docs/HISTORIE.md, Abschnitt
+# "GEPLANT: Arena-Sport/Sport-Klub HR/RS-Vertauschung ueber Daten-
+# Remapping statt ID-Alias loesen"): einzelne, vom Nutzer konkret
+# bestaetigte Arena-Sport-Sender, deren Live-Stream vom Anbieter mit dem
+# FALSCHEN Land-Praefix versehen ist (z.B. laeuft unter "RS|ARENA SPORT 4
+# HD" tatsaechlich derselbe Feed wie der bosnische "Arena Sport 4 HD").
+# Die sender.txt-ID/<channel id> bleibt bewusst UNVERAENDERT (TiviMate
+# matcht sonst nach einem Neuaufbau ohne Backup nicht mehr automatisch
+# gegen die eigene Playlist) - nur die dahinterliegende Datenquelle wird
+# umgebogen. Key: (sender.txt-Land, exakter Sendername inkl. Suffix wie
+# in sender.txt, GROSSGESCHRIEBEN), Value: (Quellenart, Kanalname bei der
+# jeweiligen Zielquelle).
+# "ARENA_HR": kroatische tvarenaprogram.com-Daten (arena_epg.py, Land
+# "HR", gleiche Quelle wie beim ARENA:-Praefix).
+# "TELEMACH_BA": bosnische Telemach-Daten (telemach_epg.py, Land "ba") -
+# tvarenasport.com kennt kein eigenes "BA"-Land, Telemach fuehrt die
+# Arena-Sport-Kanaele aber ebenfalls (siehe bestehende
+# "TELEMACH:BA|ARENA SPORT N HD"-Zeilen in sender.txt).
+# NUR fuer exakt diese Sender aktiv - kein pauschales Umbiegen aller
+# Arena-Sport-Sender, siehe Vorbedingung im HISTORIE.md-Abschnitt (pro
+# Kanal einzeln vom Nutzer bestaetigt).
+# ==========================================================
+
+_ARENA_QUELLEN_UEBERSCHREIBUNG = {
+    ("HR", "ARENA SPORT 2 HD"): ("TELEMACH_BA", "ARENA SPORT 2 HD"),
+    ("RS", "ARENA SPORT 4 HD"): ("TELEMACH_BA", "ARENA SPORT 4 HD"),
+    ("RS", "ARENA SPORT 2 HD"): ("ARENA_HR", "ARENA SPORT 2 HD"),
+    ("RS", "ARENA SPORT 3 FHD"): ("ARENA_HR", "ARENA SPORT 3 FHD"),
+    ("RS", "ARENA SPORT 4 FHD"): ("ARENA_HR", "ARENA SPORT 4 FHD"),
+    ("RS", "ARENA SPORT 5"): ("ARENA_HR", "ARENA SPORT 5"),
+    ("RS", "ARENA SPORT 6 FHD"): ("ARENA_HR", "ARENA SPORT 6 FHD"),
+    ("RS", "ARENA SPORT 7 HD"): ("ARENA_HR", "ARENA SPORT 7 HD"),
+}
+
+
+def _arena_ueberschreibung_abrufen(daten, tage):
+    """Prueft, ob dieser Sender in _ARENA_QUELLEN_UEBERSCHREIBUNG steht.
+    Gibt (True, programme) zurueck, wenn ja - `programme` kann dabei auch
+    [] sein (Netzwerkfehler/kein Treffer bei der Zielquelle), es darf dann
+    aber NICHT mehr auf die normale, laenderbasierte Quelle desselben
+    Senders zurueckgefallen werden (sonst wuerde wieder die falsche
+    Landesquelle greifen). Gibt (False, []) zurueck, wenn dieser Sender
+    NICHT ueberschrieben ist - dann laeuft der normale Abgleich wie
+    gewohnt weiter."""
+    schluessel = (daten["land"].strip().upper(), daten["sender"].strip().upper())
+    override = _ARENA_QUELLEN_UEBERSCHREIBUNG.get(schluessel)
+    if override is None:
+        return False, []
+
+    art, zielname = override
+    try:
+        if art == "ARENA_HR":
+            site_id = arena_kanal_finden(zielname, "HR")
+            if site_id is not None:
+                return True, arena_hole_programme(site_id, "HR", tage)
+        elif art == "TELEMACH_BA":
+            site_id = telemach_kanal_finden(zielname, "ba")
+            if site_id is not None:
+                return True, telemach_hole_programme(site_id, "ba", tage)
+    except Exception:
+        pass
+    return True, []
+
+
+BESCHREIBUNG_MAX_LAENGE = 150
+BESCHREIBUNG_SATZ_WORT_MINDEST = 6
+BESCHREIBUNG_SATZENDE_MUSTER = re.compile(r"(?<!\d)[.!?](?:\s+(?=[A-ZÀ-ÖØ-Þ])|$)")
+
+
+def _wirkt_wie_ausformulierter_satz(segment):
+    """True, wenn ein an ": " abgetrenntes Textsegment wie ein
+    ausformulierter Erklaersatz aussieht (grossgeschrieben, endet mit
+    Satzzeichen, mehrere Woerter) statt wie ein kompaktes Namens-/Datums-
+    Fragment (z.B. "Ried - Grazer" oder "15.8.")."""
+    segment = segment.strip()
+    if not segment:
+        return False
+    if not segment[0].isupper():
+        return False
+    if not segment.rstrip().endswith((".", "!", "?", "…")):
+        return False
+    return len(segment.split()) >= BESCHREIBUNG_SATZ_WORT_MINDEST
+
+
+def kuerze_beschreibung(text, max_laenge=BESCHREIBUNG_MAX_LAENGE):
+    """Kuerzt lange Sendungstitel/-beschreibungen echter Quellen (z.B.
+    Telemachs "shortDescription", das bei Sport-/Magazin-Events oft
+    einen generischen Liga-/Ankuendigungstext nach den eigentlichen
+    Kerndaten anhaengt, etwa "Fudbal - Austrijska liga: Ried - Grazer:
+    Salzburg je austrijski fudbal podigao..." oder "Vijesti: Najnovije
+    informacije iz...") auf die reinen Kerndaten statt des kompletten
+    Fliesstexts - manche Player (z.B. TiviMate) zeigen sonst den ganzen
+    Text direkt im kompakten EPG-Raster an. Der Text wird an ": "
+    aufgeteilt; jedes abschliessende Segment, das wie ein ausformulierter
+    Satz aussieht (siehe _wirkt_wie_ausformulierter_satz()), wird
+    entfernt - so bleiben nur die kompakten Kern-Segmente (Kategorie/
+    Liga/Teams/Datum) uebrig, unabhaengig vom genauen Format der
+    jeweiligen Quelle. Ohne erkennbares Satz-Segment wird bei sehr
+    langen Texten hart bei einer Wortgrenze abgeschnitten und "…"
+    angehaengt. Kurze Texte bleiben unveraendert."""
+    if not text:
+        return text
+    text = text.strip()
+    segmente = text.split(": ")
+    while len(segmente) > 1 and _wirkt_wie_ausformulierter_satz(segmente[-1]):
+        segmente.pop()
+    gekuerzter_text = ": ".join(segmente).strip().rstrip(" :;,")
+    if gekuerzter_text != text:
+        return gekuerzter_text
+    # Kein Doppelpunkt-Segment erkannt (z.B. reiner Fliesstext ohne
+    # "Kategorie: Teams:"-Struktur, nur durchgehende Saetze): auf den
+    # ersten vollstaendigen Satz kuerzen, falls der noch deutlich
+    # kompakter als der Gesamttext ist.
+    satzende = BESCHREIBUNG_SATZENDE_MUSTER.search(text)
+    if satzende and satzende.end() < len(text) and satzende.end() <= max_laenge:
+        return text[: satzende.end()].strip()
+    if len(text) <= max_laenge:
+        return text
+    gekuerzt = text[:max_laenge].rsplit(" ", 1)[0]
+    return gekuerzt.rstrip(".,;: ") + "…"
+
+
+def _schreibe_echte_programme(daten, programme):
+    """Haengt die uebergebenen echten Programmdaten (Telemach ODER
+    mtel.ba, gleiches dict-Format) als <programme>-Eintraege an
+    xml_teile an. Durch _xml_lock abgesichert (siehe dort) - xml_teile/
+    _echte_programme_index werden inzwischen aus mehreren Threads
+    heraus beschrieben (Sky/TVPassport/DE-Kaskade, siehe
+    _HINTERGRUND_POOL)."""
+    kanal_ids = kanal_id_varianten(daten["kanal"])
+    with _xml_lock:
+        for p in programme:
+            start_str = p["start"].strftime("%Y%m%d%H%M%S +0000")
+            stop_str = p["stop"].strftime("%Y%m%d%H%M%S +0000")
+            titel_text = normalisiere_grossschreibung(kuerze_beschreibung(p["title"]))
+            titel_escaped = escape(titel_text)
+            beschr_text = normalisiere_grossschreibung(kuerze_beschreibung(p["beschreibung"] or p["title"]))
+            beschr_escaped = escape(beschr_text)
+            # Bewusst KEIN <sub-title> mehr: manche Player (z.B. TiviMate)
+            # haengen den Untertitel im kompakten Wochenraster direkt hinter
+            # den Titel an, wodurch trotz gekuerztem Titel wieder ein langer
+            # Text in der Zeile stand. Nur der Titel soll dort sichtbar
+            # sein - die volle Beschreibung bleibt im <desc>-Feld erhalten
+            # und ist ueber die Detailansicht weiterhin abrufbar.
+            icon_tag = f' <icon src="{escape(p["bild"])}"/>' if p.get("bild") else ""
+            for kanal_id in kanal_ids:
+                xml_teile.append(
+                    f' <programme start="{start_str}" stop="{stop_str}" channel="{escape(kanal_id)}">'
+                    f' <title lang="de">{titel_escaped}</title>'
+                    f' <desc lang="de">{beschr_escaped}</desc>{icon_tag} </programme> '
+                )
+                _echte_programme_index[(kanal_id, stop_str)] = len(xml_teile) - 1
+
+
+def _verlaengere_vorherige_sendung(kanal, alter_stop, neuer_stop):
+    """Verlaengert die bereits geschriebene echte Sendung, die exakt bei
+    `alter_stop` endet, bis `neuer_stop` - genutzt um eine kleine
+    Datenluecke zwischen zwei echten Sendungen (z.B. RS|ARENA SPORT)
+    nahtlos zu schliessen, statt einen "<Sender> ᴸⁱᵛᵉ"-Platzhalterblock
+    dazwischen einzufuegen. Gibt True zurueck, wenn eine passende
+    vorherige Sendung gefunden und verlaengert wurde, sonst False (dann
+    faellt der Aufrufer auf den normalen Platzhalter zurueck)."""
+    alter_stop_str = alter_stop.strftime("%Y%m%d%H%M%S +0000")
+    neuer_stop_str = neuer_stop.strftime("%Y%m%d%H%M%S +0000")
+    gefunden = False
+    with _xml_lock:
+        for kanal_id in kanal_id_varianten(kanal):
+            schluessel = (kanal_id, alter_stop_str)
+            idx = _echte_programme_index.get(schluessel)
+            if idx is None:
+                continue
+            alt_attribut = f'stop="{alter_stop_str}"'
+            neu_attribut = f'stop="{neuer_stop_str}"'
+            if alt_attribut not in xml_teile[idx]:
+                continue
+            xml_teile[idx] = xml_teile[idx].replace(alt_attribut, neu_attribut, 1)
+            del _echte_programme_index[schluessel]
+            _echte_programme_index[(kanal_id, neuer_stop_str)] = idx
+            gefunden = True
+    return gefunden
+
+
+def _telemach_abrufen(daten):
+    try:
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        site_id = telemach_kanal_finden(suchname, daten["telemach"]["country"])
+        if site_id is not None:
+            return telemach_hole_programme(site_id, daten["telemach"]["country"], TELEMACH_TAGE)
+    except Exception:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass
+    return []
+
+
+def _mtel_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        mtel_site_id = mtel_kanal_finden(suchname)
+        if mtel_site_id is not None:
+            return mtel_hole_programme(mtel_site_id, MTEL_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+def _klix_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        klix_site_id = klix_kanal_finden(suchname)
+        if klix_site_id is not None:
+            return klix_hole_programme(klix_site_id, KLIX_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+def _rtvhb_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        if rtvhb_kanal_finden(suchname):
+            return rtvhb_hole_programme(RTVHB_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+def _tvdugaplus_abrufen(daten):
+    if daten["telemach"]["country"] != "ba":
+        return []
+    try:
+        suchname = daten["telemach"].get("suchname") or daten["sender"]
+        slug = tvdugaplus_kanal_finden(suchname)
+        if slug is not None:
+            return tvdugaplus_hole_programme(slug, TVDUGAPLUS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+# Alle drei BA-Quellen (Telemach/mtel.ba/klix.ba) werden fuer JEDEN
+# Sender IMMER der Reihe nach versucht (nicht mehr abgebrochen, sobald
+# die erste Quelle etwas liefert) - eine Quelle mit nur TEILWEISER
+# Tagesabdeckung liess den Rest frueher faelschlich auf den
+# generischen Platzhaltertext fallen, obwohl eine nachfolgende Quelle
+# fuer genau dieses Zeitfenster echte Daten gehabt haette (siehe
+# gleiche Luecken-Fuellung in der DE-Kaskade weiter unten). Jede
+# Quelle schreibt nur die Zeitfenster, die noch von keiner vorherigen
+# Quelle abgedeckt sind - keine doppelten/widerspruechlichen
+# <programme>-Eintraege. Die drei Netzwerk-Abrufe selbst laufen jetzt
+# PARALLEL ueber alle telemach_sender hinweg (siehe _parallel_abrufen()
+# oben) - die anschliessende, von den Ergebnissen vorheriger Quellen
+# abhaengige Ueberlappungs-/Schreiblogik bleibt unveraendert sequenziell.
+_telemach_ergebnisse = _parallel_abrufen(telemach_sender, _telemach_abrufen, name="Telemach")
+_mtel_ergebnisse = _parallel_abrufen(
+    telemach_sender, _mtel_abrufen, worker=ERHOEHTE_QUELLE_WORKER, name="mtel.ba"
+)
+_klix_ergebnisse = _parallel_abrufen(telemach_sender, _klix_abrufen, name="klix.ba")
+_rtvhb_ergebnisse = _parallel_abrufen(telemach_sender, _rtvhb_abrufen, name="rtv-hb.com")
+_tvdugaplus_ergebnisse = _parallel_abrufen(telemach_sender, _tvdugaplus_abrufen, name="tvdugaplus.com")
+
+for _idx, daten in enumerate(telemach_sender):
+    _telemach_geschrieben_intervalle = []
+
+    def _telemach_ohne_ueberlappung(programme_liste):
+        return [
+            p for p in programme_liste
+            if not ueberlappt_intervall(_telemach_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+
+    programme = _telemach_ergebnisse[_idx]
+
+    daten["telemach_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Telemach")
+        _schreibe_echte_programme(daten, programme)
+        _telemach_geschrieben_intervalle.extend(daten["telemach_intervalle"])
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+    # mtel.ba als zweiter Versuch: nur fuer BA-Sender (mtel.ba kennt kein
+    # Montenegro). Wird immer versucht (fuellt ggf. Luecken von
+    # Telemach), schreibt aber nur die noch unbedeckten Zeitfenster.
+    if daten["telemach"]["country"] == "ba":
+        mtel_programme = _mtel_ergebnisse[_idx]
+
+        daten["mtel_intervalle"] = [(p["start"], p["stop"]) for p in mtel_programme]
+
+        if mtel_programme:
+            neue_programme = _telemach_ohne_ueberlappung(mtel_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("mtel.ba")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+        # klix.ba als dritter Versuch fuer BA-Sender (siehe klix_epg.py).
+        # (mymedia.ba war frueher hier als dritter Versuch eingehaengt,
+        # deckte technisch nur den einen festen Kanal "MY TV" ab -
+        # September 2026 dauerhaft entfernt: die Seite lief auf ein
+        # neues Plugin um, das fuer "MY TV" auf jedem geprueften Datum
+        # nur noch einen "Keine Sendungen"-Leerzustand zeigt, keine
+        # echten Daten mehr.) Wird immer versucht, schreibt aber nur die
+        # noch unbedeckten Zeitfenster.
+        klix_programme = _klix_ergebnisse[_idx]
+
+        daten["klix_intervalle"] = [(p["start"], p["stop"]) for p in klix_programme]
+
+        if klix_programme:
+            neue_programme = _telemach_ohne_ueberlappung(klix_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("klix.ba")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+        # rtv-hb.com als vierter Versuch fuer BA-Sender (siehe
+        # rtvhb_epg.py) - nur ein einziger Kanal ("RTV Herceg Bosne"),
+        # rtvhb_kanal_finden() prueft daher nur, ob der Sendername
+        # ueberhaupt gemeint ist, statt eine site_id zu liefern. Wird
+        # immer versucht, schreibt aber nur die noch unbedeckten
+        # Zeitfenster.
+        rtvhb_programme = _rtvhb_ergebnisse[_idx]
+
+        daten["rtvhb_intervalle"] = [(p["start"], p["stop"]) for p in rtvhb_programme]
+
+        if rtvhb_programme:
+            neue_programme = _telemach_ohne_ueberlappung(rtvhb_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("rtv-hb.com")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+        # tvdugaplus.com als fuenfter Versuch fuer BA-Sender (siehe
+        # tvdugaplus_epg.py) - nur ein einziger Kanal ("TV Dugaplus"),
+        # liefert einen statischen, woechentlich wiederkehrenden
+        # Rahmenplan (kein tagesaktueller Sendeplan wie bei den
+        # uebrigen Quellen, siehe Modul-Docstring). Wird immer
+        # versucht, schreibt aber nur die noch unbedeckten Zeitfenster.
+        tvdugaplus_programme = _tvdugaplus_ergebnisse[_idx]
+
+        daten["tvdugaplus_intervalle"] = [(p["start"], p["stop"]) for p in tvdugaplus_programme]
+
+        if tvdugaplus_programme:
+            neue_programme = _telemach_ohne_ueberlappung(tvdugaplus_programme)
+            if neue_programme:
+                _echte_quelle_zaehlen("tvdugaplus.com")
+                _schreibe_echte_programme(daten, neue_programme)
+                _telemach_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SKY: echte Programmdaten fuer SKY:-Sender (siehe sky_epg.py und der
+# Parsing-Kommentar oben bei "SKY:"). Rein opt-in, unabhaengig von
+# Telemach/mtel.ba (die sind BA/ME-only, Sky ist DE-only - beide
+# Mechanismen schliessen sich gegenseitig aus). Ohne jegliche
+# SKY:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+def _sky_abrufen(daten):
+    try:
+        site_id = sky_kanal_finden(daten["sender"], daten["sky"]["territory"])
+        if site_id is not None:
+            return sky_hole_programme(site_id, daten["sky"]["territory"], SKY_TAGE)
+    except Exception:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass
+    return []
+
+
+def _gruppe_sky():
+    """Kompletter Sky-Verarbeitungsblock (Abruf + Schreiben) als eine
+    Funktion, damit er ueber _HINTERGRUND_POOL zeitgleich mit den
+    uebrigen, unabhaengigen Laender-Kaskaden laufen kann (siehe
+    _HINTERGRUND_POOL-Kommentar oben)."""
+    _sky_ergebnisse = _parallel_abrufen(sky_sender, _sky_abrufen, name="Sky")
+
+    for _idx, daten in enumerate(sky_sender):
+        programme = _sky_ergebnisse[_idx]
+
+        daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            _echte_quelle_zaehlen("Sky")
+            _schreibe_echte_programme(daten, programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+
+_zukunft_sky = _HINTERGRUND_POOL.submit(_gruppe_sky)
+
+# ==========================================================
+# WOW|SKY SPORT BUNDESLIGA N: derselbe echte Sky-HAWK-API-Kanal wie die
+# SKY:DE|SKY SPORT BUNDESLIGA-Opt-in-Zeilen (siehe sky_wow-Flag oben) -
+# Unicode-Suffixe (ᴴᴰ/◉) werden vor der Suche entfernt, da sky_epg.py
+# diese nicht kennt.
+# ==========================================================
+
+_SKY_WOW_SUFFIX_ENTFERNEN = re.compile(r"[ᴴᴰ◉]")
+
+for daten in sky_wow_sender:
+    programme = []
+    try:
+        sky_wow_name = _SKY_WOW_SUFFIX_ENTFERNEN.sub("", daten["sender"]).strip()
+        site_id = sky_kanal_finden(sky_wow_name, "DE")
+        if site_id is not None:
+            programme = sky_hole_programme(site_id, "DE", SKY_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["sky_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Sky")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MAGENTA: echte Programmdaten fuer MAGENTA:-Sender (siehe magenta_epg.py
+# und der Parsing-Kommentar oben bei "MAGENTA:"). Rein opt-in,
+# unabhaengig von den anderen Quellen. Ohne jegliche MAGENTA:-Zeile in
+# sender.txt passiert hier gar nichts - keine zusaetzlichen
+# Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in magenta_sender:
+    programme = []
+    try:
+        kanal_ref = magenta_kanal_finden(daten["sender"])
+        if kanal_ref is not None:
+            programme = magenta_hole_programme(kanal_ref, MAGENTA_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["magenta_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Magenta")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# ARENA: echte Programmdaten fuer ARENA:-Sender (siehe arena_epg.py und
+# der Parsing-Kommentar oben bei "ARENA:"). Rein opt-in, unabhaengig von
+# den anderen Quellen. Ohne jegliche ARENA:-Zeile in sender.txt passiert
+# hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in arena_sender:
+    programme = []
+    try:
+        site_id = arena_kanal_finden(daten["sender"], daten["arena"]["land"])
+        if site_id is not None:
+            programme = arena_hole_programme(site_id, daten["arena"]["land"], ARENA_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Arena Sport")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# DAZN: echte Programmdaten fuer DAZN:-Sender (siehe dazn_epg.py und der
+# Parsing-Kommentar oben bei "DAZN:"). Rein opt-in, unabhaengig von den
+# anderen Quellen. Ohne jegliche DAZN:-Zeile in sender.txt passiert hier
+# gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in dazn_sender:
+    programme = []
+    try:
+        site_id = dazn_kanal_finden(daten["sender"], daten["dazn"]["land"])
+        if site_id is not None:
+            programme = dazn_hole_programme(site_id, daten["dazn"]["land"], DAZN_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["dazn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("DAZN")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# FREEVIEW: echte Programmdaten fuer FREEVIEW:-Sender (siehe
+# freeview_epg.py und der Parsing-Kommentar oben bei "FREEVIEW:"). Rein
+# opt-in, unabhaengig von den anderen Quellen. Ohne jegliche
+# FREEVIEW:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in freeview_sender:
+    programme = []
+    try:
+        site_id = freeview_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = freeview_hole_programme(site_id, FREEVIEW_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["freeview_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Freeview")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVGUIDE: echte Programmdaten fuer TVGUIDE:-Sender (siehe
+# tvguide_epg.py und der Parsing-Kommentar oben bei "TVGUIDE:"). Rein
+# opt-in, unabhaengig von den anderen Quellen. Ohne jegliche
+# TVGUIDE:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+for daten in tvguide_sender:
+    programme = []
+    try:
+        site_id = tvguide_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = tvguide_hole_programme(site_id, TVGUIDE_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    # Zweiter Versuch bei TVGuide.com-Fehlschlag: epgshare01.online
+    # deckt (anders als TVGuide.com's feste kleine nationale Grund-
+    # aufstellung und tvpassport.com's ueberwiegend lokale Sender)
+    # gezielt nationale US-KABELnetzwerke ab (siehe epgshare_us_epg.py).
+    # Nur exakter Namens-/Alias-Abgleich, kein Fuzzy-Risiko.
+    if not programme:
+        try:
+            us2_site_id = epgshare_us_kanal_finden(daten["sender"])
+            if us2_site_id is not None:
+                programme = epgshare_us_hole_programme(us2_site_id, TVGUIDE_TAGE)
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
+    daten["tvguide_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("TVGuide/EpgshareUS")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVPASSPORT: echte Programmdaten fuer TVPASSPORT:-Sender (siehe
+# tvpassport_epg.py und der Parsing-Kommentar oben bei "TVPASSPORT:").
+# Rein opt-in, unabhaengig von den anderen Quellen. Ohne jegliche
+# TVPASSPORT:-Zeile in sender.txt passiert hier gar nichts - keine
+# zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+def _tvpassport_abrufen(daten):
+    try:
+        site_id = tvpassport_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+    except Exception:
+        # Darf den Lauf niemals abbrechen - jeder Fehler faellt auf die
+        # generische Generierung fuer diesen Sender zurueck.
+        pass
+    return []
+
+
+# ==========================================================
+# EPGSHARE-US-LOCALS / TVPASSPORT (Call-Sign): automatischer Abgleich
+# fuer alle "CITY|"-Sender (lokale US-Sender mit Call-Sign im Namen).
+# Erster Versuch ist epgshare_us_locals_epg.py (epgshare01.online,
+# ~4.400 US-Lokalsender, Quelle tmsapi.com/Gracenote) - stabileres
+# XMLTV statt HTML-Scraping, deckt teils Call-Signs ab, die bei
+# tvpassport.com keinen Haupt-Affiliate-Eintrag haben. tvpassport.com
+# (siehe tvpassport_kanal_finden_callsign()) bleibt zweiter Versuch,
+# falls epgshare01 fuer einen Call-Sign nichts liefert. Kein eigenes
+# Praefix noetig. Ohne jegliche CITY|-Zeile in sender.txt passiert hier
+# gar nichts.
+# ==========================================================
+
+def _tvpassport_callsign_abrufen(daten):
+    programme = []
+    try:
+        site_id = epgshare_us_locals_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = epgshare_us_locals_hole_programme(site_id, TVPASSPORT_TAGE)
+    except Exception:
+        programme = []
+
+    if programme:
+        return ("EpgshareUS-Locals", programme)
+
+    try:
+        site_id = tvpassport_kanal_finden_callsign(daten["sender"])
+        if site_id is not None:
+            programme = tvpassport_hole_programme(site_id, TVPASSPORT_TAGE)
+    except Exception:
+        programme = []
+
+    if programme:
+        return ("TVPassport-CallSign", programme)
+    return (None, [])
+
+
+def _gruppe_tvpassport():
+    """Kompletter TVPassport(+Call-Sign)-Verarbeitungsblock (Abruf +
+    Schreiben) als eine Funktion, damit er ueber _HINTERGRUND_POOL
+    zeitgleich mit den uebrigen, unabhaengigen Laender-Kaskaden laufen
+    kann (siehe _HINTERGRUND_POOL-Kommentar oben) - mit Abstand der
+    laengste Einzelblock (~379s), daher besonders lohnend."""
+    _tvpassport_ergebnisse = _parallel_abrufen(
+        tvpassport_sender, _tvpassport_abrufen, worker=TVPASSPORT_WORKER, name="TVPassport"
+    )
+
+    for _idx, daten in enumerate(tvpassport_sender):
+        programme = _tvpassport_ergebnisse[_idx]
+
+        daten["tvpassport_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            _echte_quelle_zaehlen("TVPassport")
+            _schreibe_echte_programme(daten, programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+    _tvpassport_callsign_ergebnisse = _parallel_abrufen(
+        tvpassport_callsign_sender, _tvpassport_callsign_abrufen, name="TVPassport-CallSign/EpgshareUS-Locals",
+    )
+
+    for _idx, daten in enumerate(tvpassport_callsign_sender):
+        _quelle, programme = _tvpassport_callsign_ergebnisse[_idx]
+
+        daten["tvpassport_intervalle"] = daten.get("tvpassport_intervalle", []) + [
+            (p["start"], p["stop"]) for p in programme
+        ]
+
+        if programme:
+            _echte_quelle_zaehlen(_quelle)
+            _schreibe_echte_programme(daten, programme)
+
+
+_zukunft_tvpassport = _HINTERGRUND_POOL.submit(_gruppe_tvpassport)
+
+# ==========================================================
+# DESWIRD / PLUTOTV / TVMOVIE / HOERZU / JOYN-VOD: automatischer
+# Abgleich fuer alle DE-Sender (siehe deswird_epg.py, plutotv_epg.py,
+# tvmovie_epg.py, hoerzu_epg.py, joyn_vod_epg.py). Kein eigenes
+# Praefix noetig, einzige automatischen Quellen fuer DE - deswird.org
+# als primaere Quelle (beste Abdeckung/Qualitaet, mehrere Tage im
+# Voraus), Pluto TV als zweiter Versuch, tvmovie.de als dritter
+# Versuch, hoerzu.de als vierter Versuch, Joyn-VOD als fuenfter und
+# letzter Versuch, jeweils nur wenn die vorherige(n) Quelle(n) nichts
+# gefunden haben. Ohne jegliche DE-Zeile in sender.txt passiert hier
+# gar nichts.
+# (Samsung TV Plus war frueher hier als fuenfter Versuch eingehaengt -
+# September 2026 dauerhaft entfernt, der Host hat die XMLTV-Datei
+# entfernt, 404 bei jedem Abruf.)
+#
+# WICHTIG (September 2026, Performance-Fix): dieser Block wird bewusst
+# HIER, direkt nach dem TVPassport-Hintergrund-Submit, in den
+# Hintergrund geschickt (statt wie zuvor erst nach der kompletten
+# RS/HR/BA/SI/MK-Laenderkaskade) - er hatte sonst fast keine Zeit mehr,
+# um mit dem sequenziellen Hauptthread zu ueberlappen, und lief real
+# fast komplett zusaetzlich obendrauf statt parallel dazu (siehe
+# docs/HISTORIE.md, Nachtrag zur Parallelisierung).
+# ==========================================================
+
+def _de_kaskade_abrufen(daten):
+    """Fuehrt ALLE Netzwerk-Abrufe der DE-Kaskade (Magenta-myTeamTV bei
+    MAGENTA-SPORT-PPV-Sendern, sonst deswird/PlutoTV/tvmovie/hoerzu/
+    Joyn-VOD/Search.ch/iptv-epg.org) fuer EINEN Sender aus und gibt eine
+    Liste von (Quellenname, bereits ueberlappungsgefilterte Programme)-
+    Tupeln in Ausfuehrungsreihenfolge zurueck - nur fuer Stufen, die
+    tatsaechlich etwas Neues gefunden haben. `daten["<quelle>_intervalle"]`
+    wird wie bisher direkt gesetzt (reiner Lese-/Schreibzugriff auf das
+    EIGENE, sender-spezifische Dict - unproblematisch aus mehreren
+    Threads heraus, siehe unten).
+
+    Das eigentliche Schreiben ins XML (_schreibe_echte_programme()/
+    _echte_quelle_zaehlen(), beide mit Seiteneffekt auf das GEMEINSAME
+    xml_teile/echte_quelle_zaehler) passiert bewusst NICHT hier, sondern
+    sequenziell danach im Hauptthread (siehe _parallel_abrufen()) - sonst
+    koennten mehrere Threads gleichzeitig in xml_teile schreiben."""
+    ergebnisse = []
+
+    # "MAGENTA SPORT PPV N"/"MYTEAM SPORT N"-Sender (beide Namensschemata
+    # fuer dieselben 18 Kanaele, siehe magenta_myteam_epg.py) ueberspringen
+    # deswird.org/PlutoTV/tvmovie.de/hoerzu.de komplett und gehen direkt zu
+    # myTeamTV - deswird.org matcht diese Sender sonst per unscharfem
+    # Abgleich faelschlich auf den voellig anderen, echten Basis-Kanal
+    # "MagentaSport" und liefert dessen generischen "MagentaSport
+    # Programmübersicht"-Platzhaltertext, der als "echter Treffer"
+    # durchgeht und myTeamTV nie zum Zug kommen laesst (Bug September
+    # 2026 behoben).
+    if re.match(r"^(?:MAGENTA\s*SPORT\s*PPV|MYTEAM\s*SPORT)\s*\d+", daten["sender"], re.IGNORECASE):
+        programme = []
+        try:
+            myteam_kanal_ref = magenta_myteam_kanal_finden(daten["sender"])
+            if myteam_kanal_ref is not None:
+                programme = magenta_myteam_hole_programme(myteam_kanal_ref, PLUTOTV_TAGE)
+        except Exception:
+            programme = []
+
+        daten["magenta_myteam_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            ergebnisse.append(("Magenta-myTeamTV", programme))
+        return ergebnisse
+
+    # "MYSPORTS <Nummer>"/"MYSPORTS EDGE"-Sender (CH) ueberspringen
+    # deswird.org/PlutoTV/tvmovie.de/hoerzu.de komplett und gehen direkt
+    # zu mysports.ch selbst (siehe mysports_epg.py) - deswird.org & Co.
+    # kennen gar keinen echten "MySports"-Kanal, der unscharfe Abgleich
+    # matchte "MYSPORTS" bisher faelschlich auf den voellig anderen
+    # echten Sender "Sky Sport"/"eSports1" (aehnliche Buchstabenfolge),
+    # der als "echter Treffer" durchging und dauerhaft falsche fremde
+    # Programmdaten anzeigte (Bug September 2026 behoben). Eine erste
+    # Version nutzte teleboy.ch als Quelle - lief lokal einwandfrei,
+    # wurde aber vom echten GitHub-Actions-Runner mit 403 Forbidden
+    # geblockt (Geo-/Cloud-IP-Sperre, siehe docs/HISTORIE.md) und wurde
+    # komplett durch die offizielle mysports.ch-eigene API ersetzt.
+    if re.match(r"^MYSPORTS\s*(\d{1,2}|EDGE)\b", daten["sender"], re.IGNORECASE):
+        programme = []
+        try:
+            mysports_station_id = mysports_kanal_finden(daten["sender"])
+            if mysports_station_id is not None:
+                programme = mysports_hole_programme(mysports_station_id, PLUTOTV_TAGE)
+        except Exception:
+            programme = []
+
+        daten["mysports_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            ergebnisse.append(("MySports (mysports.ch)", programme))
+        return ergebnisse
+
+    # "MOTORVISION TV"-Sender (jede Qualitaets-/VIP-/RAW-Variante):
+    # dieselbe mysports.ch-API fuehrt "Motorvision TV" als eigenstaendigen
+    # Kanal (siehe motorvision_kanal_finden() in mysports_epg.py) -
+    # NICHT die anderen, eigenstaendigen Motorvision-Sender in
+    # sender.txt (Classic/More Than Sports/DE/.TV), die bleiben
+    # unveraendert bei der generischen DE-Kaskade.
+    if re.match(r"^MOTORVISION\s*TV\b", daten["sender"], re.IGNORECASE):
+        programme = []
+        try:
+            motorvision_channel_id = motorvision_kanal_finden(daten["sender"])
+            if motorvision_channel_id is not None:
+                programme = mysports_hole_programme(motorvision_channel_id, PLUTOTV_TAGE)
+        except Exception:
+            programme = []
+
+        daten["mysports_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            ergebnisse.append(("MySports (mysports.ch)", programme))
+        return ergebnisse
+
+    # ARD-Regionalsender-Alias: deswird.org/tvmovie.de/hoerzu.de fuehren
+    # WDR/NDR/MDR/SWR/RBB/BR/HR nur als EINEN nationalen Sammelkanal,
+    # nicht die einzelnen sender.txt-Regional-/Studio-Varianten (z.B.
+    # "WDR DORTMUND HD"/"NDR MECKLENBURG-VORPOMMERN HD") - der normale
+    # Namensabgleich fand dafuer nie einen Treffer, obwohl der jeweilige
+    # Sender selbst (nur ohne Regionalfenster) real existiert. Fuer
+    # GENAU diese festen ARD-Kuerzel wird bei fehlendem Direkttreffer
+    # zusaetzlich der blosse Sender-Kern (ohne Regional-/Studioname)
+    # als zweiter Suchbegriff probiert - kein Fehltreffer-Risiko, da nur
+    # dieser feste, kurze Kuerzel-Satz betroffen ist.
+    _ard_regional_treffer = re.match(
+        r"^(WDR|NDR|MDR|SWR|RBB|BR|HR)\b", daten["sender"], re.IGNORECASE
+    )
+    _deswird_suchbegriffe = [daten["sender"]]
+    if _ard_regional_treffer and _ard_regional_treffer.group(0) != daten["sender"]:
+        _deswird_suchbegriffe.append(_ard_regional_treffer.group(1))
+
+    # Alle sieben DE-Quellen werden IMMER der Reihe nach versucht (nicht
+    # mehr abgebrochen, sobald die erste Quelle irgendetwas liefert) -
+    # frueher beendete ein Treffer bei deswird.org die Kaskade komplett,
+    # auch wenn deswird.org nur einen TEIL des Tages abdeckte (z.B. nur
+    # vormittags/nachmittags). Der unbedeckte Rest bekam dann faelschlich
+    # den generischen "<Sender> ᴸⁱᵛᵉ"-Platzhaltertext, obwohl z.B.
+    # hoerzu.de fuer genau dieses Zeitfenster echte Daten gehabt haette
+    # (September 2026 an "SIXX HD" entdeckt: deswird.org deckte nur
+    # 00:00-13:30 und 20:05-24:00 Uhr ab, hoerzu.de aber den kompletten
+    # Tag). Jede nachfolgende Quelle wird jetzt IMMER befragt; ihre
+    # Sendungen werden nur dort tatsaechlich ins XML geschrieben, wo sie
+    # NICHT mit einer bereits von einer frueheren Quelle geschriebenen
+    # Sendung ueberlappen (_ohne_bereits_geschriebene_ueberlappung()) -
+    # keine doppelten/widerspruechlichen <programme>-Eintraege fuer
+    # denselben Zeitpunkt, aber echte Luecken werden jetzt mit echten
+    # Daten der naechsten Quelle statt mit dem generischen Text gefuellt.
+    _de_geschrieben_intervalle = []
+
+    def _ohne_bereits_geschriebene_ueberlappung(programme_liste):
+        return [
+            p for p in programme_liste
+            if not ueberlappt_intervall(_de_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+
+    programme = []
+    try:
+        site_id = None
+        for _suchbegriff in _deswird_suchbegriffe:
+            site_id = deswird_kanal_finden(_suchbegriff)
+            if site_id is not None:
+                break
+        if site_id is not None:
+            programme = deswird_hole_programme(site_id, DESWIRD_TAGE)
+    except Exception:
+        programme = []
+
+    daten["deswird_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        ergebnisse.append(("Deswird", programme))
+        _de_geschrieben_intervalle.extend(daten["deswird_intervalle"])
+
+    # Pluto TV als zweiter Versuch fuer DE-Sender (siehe plutotv_epg.py) -
+    # wird immer versucht, schreibt aber nur die Zeitfenster, die
+    # deswird.org (falls es etwas fand) noch NICHT abgedeckt hat.
+    programme = []
+    try:
+        site_id = plutotv_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = plutotv_hole_programme(site_id, PLUTOTV_TAGE)
+    except Exception:
+        programme = []
+
+    daten["plutotv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(programme)
+        if neue_programme:
+            ergebnisse.append(("PlutoTV", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
+    # tvmovie_epg.py) - wird immer versucht, schreibt aber nur die
+    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
+    tvmovie_programme = []
+    try:
+        tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
+        if tvmovie_site_id is not None:
+            tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
+    except Exception:
+        tvmovie_programme = []
+
+    daten["tvmovie_intervalle"] = [(p["start"], p["stop"]) for p in tvmovie_programme]
+
+    if tvmovie_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(tvmovie_programme)
+        if neue_programme:
+            ergebnisse.append(("TvMovie", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # hoerzu.de als vierter Versuch fuer DE-Sender (siehe hoerzu_epg.py) -
+    # wird immer versucht, schreibt aber nur die Zeitfenster, die noch
+    # von keiner vorherigen Quelle abgedeckt sind.
+    hoerzu_programme = []
+    try:
+        hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
+        if hoerzu_slug is not None:
+            hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
+    except Exception:
+        hoerzu_programme = []
+
+    daten["hoerzu_intervalle"] = [(p["start"], p["stop"]) for p in hoerzu_programme]
+
+    if hoerzu_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(hoerzu_programme)
+        if neue_programme:
+            ergebnisse.append(("Hoerzu", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # Joyn-VOD als fuenfter Versuch fuer DE-Sender (siehe joyn_vod_epg.py)
+    # - deckt Joyns eigene thematische Serien-/Doku-"Sender" ab (z.B.
+    # "Ancient Aliens", "Der letzte Bulle"), die keiner der vorherigen
+    # vier Quellen kennt. Wird immer versucht, schreibt aber nur die
+    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
+    # (Samsung TV Plus war frueher hier eingehaengt - September 2026
+    # dauerhaft entfernt, der Host hat die XMLTV-Datei entfernt, 404 bei
+    # jedem Abruf.)
+    joyn_vod_programme = []
+    try:
+        joyn_vod_site_id = joyn_vod_kanal_finden(daten["sender"])
+        if joyn_vod_site_id is not None:
+            joyn_vod_programme = joyn_vod_hole_programme(joyn_vod_site_id, JOYN_VOD_TAGE)
+    except Exception:
+        joyn_vod_programme = []
+
+    daten["joyn_vod_intervalle"] = [(p["start"], p["stop"]) for p in joyn_vod_programme]
+
+    if joyn_vod_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(joyn_vod_programme)
+        if neue_programme:
+            ergebnisse.append(("Joyn-VOD", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # search.ch/tv als sechster Versuch - aktuell NUR fuer "BLUE SPORT 1"/
+    # "BLUE SPORT 2" (siehe search_ch_epg.py, festes Mapping ohne
+    # Fuzzy-Abgleich). Keiner der vorherigen fuenf DE-Quellen fuehrt
+    # diese Schweizer Swisscom-Sportkanaele. Wird immer versucht,
+    # schreibt aber nur die Zeitfenster, die noch von keiner vorherigen
+    # Quelle abgedeckt sind.
+    search_ch_programme = []
+    try:
+        search_ch_slug = search_ch_kanal_finden(daten["sender"])
+        if search_ch_slug is not None:
+            search_ch_programme = search_ch_hole_programme(search_ch_slug, SEARCH_CH_TAGE)
+    except Exception:
+        search_ch_programme = []
+
+    daten["search_ch_intervalle"] = [(p["start"], p["stop"]) for p in search_ch_programme]
+
+    if search_ch_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(search_ch_programme)
+        if neue_programme:
+            ergebnisse.append(("Search.ch", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # iptv-epg.org als SIEBTER und letzter Versuch fuer DE-Sender (siehe
+    # iptvepg_de_epg.py) - deckt u.a. ARD-Regionalstudios (WDR/MDR/NDR/
+    # rbb) ab, die deswird.org nur als bundesweiten Sammelkanal kennt.
+    # Wird immer versucht, schreibt aber nur die Zeitfenster, die noch
+    # von keiner vorherigen Quelle abgedeckt sind.
+    iptvepg_de_programme = []
+    try:
+        iptvepg_de_site_id = iptvepg_de_kanal_finden(daten["sender"])
+        if iptvepg_de_site_id is not None:
+            iptvepg_de_programme = iptvepg_de_hole_programme(iptvepg_de_site_id, IPTVEPG_DE_TAGE)
+    except Exception:
+        iptvepg_de_programme = []
+
+    daten["iptvepg_de_intervalle"] = [(p["start"], p["stop"]) for p in iptvepg_de_programme]
+
+    if iptvepg_de_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(iptvepg_de_programme)
+        if neue_programme:
+            ergebnisse.append(("iptv-epg.org (DE)", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # Rakuten TV als ACHTER und letzter Versuch fuer DE-Sender (siehe
+    # rakuten_tv_epg.py) - deckt viele generische Themen-/Nischenkanaele
+    # ab (z.B. "Red Bull TV", "Top Gear", "Naruto", "GLORY Kickboxing"),
+    # die keine der vorherigen sieben Quellen kennt (Nutzeranfrage
+    # September 2026, Rakuten-TV-Browser-Snapshot als Hinweis). Wird
+    # immer versucht, schreibt aber nur die Zeitfenster, die noch von
+    # keiner vorherigen Quelle abgedeckt sind.
+    rakuten_tv_programme = []
+    try:
+        rakuten_tv_site_id = rakuten_tv_kanal_finden(daten["sender"])
+        if rakuten_tv_site_id is not None:
+            rakuten_tv_programme = rakuten_tv_hole_programme(rakuten_tv_site_id, RAKUTEN_TV_TAGE)
+    except Exception:
+        rakuten_tv_programme = []
+
+    daten["rakuten_tv_intervalle"] = [(p["start"], p["stop"]) for p in rakuten_tv_programme]
+
+    if rakuten_tv_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(rakuten_tv_programme)
+        if neue_programme:
+            ergebnisse.append(("Rakuten TV", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    return ergebnisse
+
+
+def _gruppe_de_kaskade_und_tubi():
+    """DE-Kaskade + Tubi (teilen sich PRIME-Sender-Ueberschneidungen,
+    siehe Tubi-Kommentar unten - muessen daher im SELBEN Thread in
+    dieser Reihenfolge bleiben) als eine Funktion, damit sie ueber
+    _HINTERGRUND_POOL zeitgleich mit dem noch laufenden TVPassport-/
+    Sky-Hintergrund-Thread UND allen nachfolgenden sequenziellen
+    Bloecken (MTS/Telemach/A1/Siol/MK/Blagovesti/BN2/GrandTV/
+    open-epg/...) laufen kann.
+    tvprogramdanas.net bleibt bewusst AUSSERHALB dieser Funktion (siehe
+    dortiger Kommentar) - es braucht die HIER geschriebenen Ergebnisse
+    UND die Ergebnisse aller vorherigen, bereits synchron im
+    Hauptthread abgeschlossenen Laender-Kaskaden (mts.rs/A1/Siol/MK)."""
+    _de_kaskade_ergebnisse = _parallel_abrufen(
+        plutotv_sender, _de_kaskade_abrufen, worker=GEDROSSELTE_QUELLE_WORKER,
+        name="DE-Kaskade (deswird/Pluto/tvmovie/hoerzu/Joyn/Magenta/iptv-epg)",
+    )
+
+    for _idx, daten in enumerate(plutotv_sender):
+        for _quelle, _programme in _de_kaskade_ergebnisse[_idx]:
+            _echte_quelle_zaehlen(_quelle)
+            _schreibe_echte_programme(daten, _programme)
+
+    # TUBI: automatischer Abgleich fuer alle PRIME-Sender (siehe
+    # tubi_epg.py - community-gepflegte, loginfreie XMLTV-Datei mit
+    # echten Tubi-TV-Sendungen und Kanal-Icons). Kein eigenes Praefix
+    # noetig. Ohne jegliche PRIME-Zeile in sender.txt passiert hier gar
+    # nichts.
+    for daten in tubi_sender:
+        # PRIME-Sender laufen zusaetzlich durch die DE-Kaskade (siehe
+        # oben, deswird.org/Pluto TV/tvmovie.de/hoerzu.de) - hat die
+        # bereits echte Daten gefunden UND geschrieben, wird Tubi hier
+        # uebersprungen, damit dieselben Sendungen nicht doppelt ins
+        # XML geschrieben werden.
+        if any(daten.get(feld) for feld in (
+            "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
+            "hoerzu_intervalle",
+        )):
+            continue
+
+        programme = []
+        try:
+            site_id = tubi_kanal_finden(daten["sender"])
+            if site_id is not None:
+                programme = tubi_hole_programme(site_id, TUBI_TAGE)
+                # Kanal-Icon von Tubi uebernehmen, aber nur wenn noch kein
+                # manuelles Logo in sender.txt gesetzt wurde (leeres Feld
+                # oder der "AUTO"-Marker fuer die spaetere automatische
+                # Logo-Suche).
+                if daten["logo"].strip().upper() in ("", LOGO_AUTO_MARKER):
+                    tubi_icon = tubi_kanal_icon(site_id)
+                    if tubi_icon:
+                        daten["logo"] = tubi_icon
+            else:
+                pass  # log unterdrueckt: keine echten Programmdaten
+        except Exception as e:
+            pass  # log unterdrueckt: keine echten Programmdaten
+            programme = []
+
+        daten["tubi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+        if programme:
+            _echte_quelle_zaehlen("Tubi")
+            _schreibe_echte_programme(daten, programme)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+
+
+_zukunft_de_kaskade = _HINTERGRUND_POOL.submit(_gruppe_de_kaskade_und_tubi)
+
+# ==========================================================
+# MTS: automatischer Abgleich fuer alle RS-Sender (siehe mts_epg.py und
+# der Parsing-Kommentar oben bei "Automatischer Abgleich fuer RS/HR/
+# SI-Sender"). Kein eigenes Praefix noetig. Ohne jegliche RS-Zeile in
+# sender.txt passiert hier gar nichts - keine zusaetzlichen Netzwerk-
+# Aufrufe.
+# ==========================================================
+
+def _mts_abrufen(daten):
+    try:
+        site_id = mts_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return mts_hole_programme(site_id, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mts_ergebnisse = _parallel_abrufen(mts_sender, _mts_abrufen, name="mts.rs")
+
+for _idx, daten in enumerate(mts_sender):
+    programme = _mts_ergebnisse[_idx]
+
+    daten["mts_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    # Sammelt ueber die drei RS-Fallback-Schritte (mts.rs/SportKlub/
+    # Arena) hinweg, was bereits tatsaechlich geschrieben wurde - jede
+    # nachfolgende Quelle fuellt damit nur noch unbedeckte Zeitfenster,
+    # statt bei jeder Teilabdeckung komplett uebersprungen zu werden
+    # (gleiche Luecken-Fuellung wie in der DE-Kaskade, siehe dort).
+    # WICHTIG: fuer ME/MNG/MO/CG-Sender lief VORHER bereits Telemach
+    # (telemach_sender/mts_sender ueberschneiden sich jetzt, siehe
+    # TELEMACH_LAND_ALIAS/mts-Routing weiter oben) - dessen bereits
+    # geschriebene Zeitfenster (daten["telemach_intervalle"]) muessen
+    # hier als Startbestand uebernommen werden, sonst wuerde mts.rs
+    # fuer denselben Sender/Zeitraum ein zweites, ueberlappendes
+    # <programme> schreiben (der "doppelte Kanal-ID/ueberlappende
+    # Sendung"-Bug-Typ, siehe ARENA:BA-Fall in docs/HISTORIE.md).
+    daten["_rs_geschrieben_intervalle"] = list(daten.get("telemach_intervalle", []))
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("mts.rs")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SPORTKLUB: zweiter Versuch fuer alle RS-Sender (siehe sportklub_epg.py
+# - mts.rs fuehrt KEINE "Sport Klub"-Kanaele, epgshare01.online hat sie,
+# bereits als HR-/SI-Fallback im Einsatz). Wird immer versucht (fuellt
+# ggf. Luecken von mts.rs), schreibt aber nur die noch unbedeckten
+# Zeitfenster. Kein eigenes Praefix noetig.
+# ==========================================================
+
+def _mts_sportklub_abrufen(daten):
+    try:
+        site_id = sportklub_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return sportklub_hole_programme(site_id, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mts_sportklub_ergebnisse = _parallel_abrufen(mts_sender, _mts_sportklub_abrufen, name="SportKlub (RS)")
+
+for _idx, daten in enumerate(mts_sender):
+    programme = _mts_sportklub_ergebnisse[_idx]
+
+    daten["mts_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("SportKlub")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# ARENA (RS-Fallback): dritter Versuch fuer alle RS-Sender, deren Name
+# auf "ARENA SPORT" beginnt (siehe arena_epg.py/mts_epg.py -
+# _ARENA_SPORT_GUARD). mts.rs fuehrt zwar einen eigenen "Arena Sport N"-
+# Kanal, dessen Sendezeiten aber live nachweislich falsch sind (ca. 4h
+# Versatz, siehe Kommentar bei _ARENA_SPORT_GUARD) - tvarenasport.com
+# (dieselbe Quelle wie beim ARENA:-Praefix) uebernimmt stattdessen. Kein
+# eigenes Praefix noetig, die bestehenden "RS|ARENA SPORT N ..."-Zeilen
+# in sender.txt bleiben unveraendert (ihre Kanal-IDs matchen bereits
+# korrekt gegen die eigene Playlist). Wird immer versucht, schreibt aber
+# nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _mts_arena_abrufen(daten):
+    behandelt, programme = _arena_ueberschreibung_abrufen(daten, MTS_TAGE)
+    if behandelt:
+        return programme
+    try:
+        site_id = arena_kanal_finden(daten["sender"], "RS")
+        if site_id is not None:
+            return arena_hole_programme(site_id, "RS", MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mts_arena_sender = [
+    d for d in mts_sender
+    if d["land"].strip().upper() == "RS"
+    and re.match(r"^ARENA\s*SPORT\b", d["sender"].strip(), re.IGNORECASE)
+]
+_mts_arena_ergebnisse = _parallel_abrufen(_mts_arena_sender, _mts_arena_abrufen, name="Arena Sport")
+
+for _idx, daten in enumerate(_mts_arena_sender):
+    programme = _mts_arena_ergebnisse[_idx]
+
+    daten["mts_arena_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Arena Sport")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RTV.rs (RS-Fallback): vierter Versuch fuer alle RS-Sender, deren Name
+# auf "RT VOJVODINA 1/2" bzw. "RTV VOJVODINA 1/2" passt (siehe
+# rtv_rs_epg.py - oeffentlicher Sender aus Novi Sad, weder in mts.rs
+# noch SportKlub/Arena enthalten). Kein eigenes Praefix noetig. Wird
+# immer versucht, schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _rtv_rs_abrufen(daten):
+    try:
+        slug = rtv_rs_kanal_finden(daten["sender"])
+        if slug is not None:
+            return rtv_rs_hole_programme(slug, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_rtv_rs_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_rtv_rs_ergebnisse = _parallel_abrufen(_rtv_rs_sender, _rtv_rs_abrufen, name="RTV RS")
+
+for _idx, daten in enumerate(_rtv_rs_sender):
+    programme = _rtv_rs_ergebnisse[_idx]
+
+    daten["rtv_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("RTV.rs")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SCIFI.RS (RS-Fallback): fuenfter Versuch fuer alle RS-Sender, deren
+# Name auf "SYFY" passt (siehe scifi_epg.py - eigene NBCUniversal-EPG-
+# Seite fuer genau diesen einen Kanal, weder in mts.rs noch SportKlub/
+# Arena/RTV.rs enthalten). Kein eigenes Praefix noetig. Wird immer
+# versucht, schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _scifi_abrufen(daten):
+    try:
+        slug = scifi_kanal_finden(daten["sender"])
+        if slug is not None:
+            return scifi_hole_programme(slug, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_scifi_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_scifi_ergebnisse = _parallel_abrufen(_scifi_sender, _scifi_abrufen, name="scifi.rs")
+
+for _idx, daten in enumerate(_scifi_sender):
+    programme = _scifi_ergebnisse[_idx]
+
+    daten["scifi_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("scifi.rs")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# NATGEOTV.COM (RS-Fallback): sechster Versuch fuer alle RS-Sender,
+# deren Name auf "National Geo(graphic)" bzw. "National Geo(graphic)
+# Wild" passt (siehe natgeo_epg.py - eigene, server-seitig gerenderte
+# Programmseite je Kanal, weder in mts.rs noch SportKlub/Arena/
+# RTV.rs/scifi.rs enthalten). Kein eigenes Praefix noetig. Wird immer
+# versucht, schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _natgeo_abrufen(daten):
+    try:
+        slug = natgeo_kanal_finden(daten["sender"])
+        if slug is not None:
+            return natgeo_hole_programme(slug, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_natgeo_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_natgeo_ergebnisse = _parallel_abrufen(_natgeo_sender, _natgeo_abrufen, name="NatGeo")
+
+for _idx, daten in enumerate(_natgeo_sender):
+    programme = _natgeo_ergebnisse[_idx]
+
+    daten["natgeo_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("NatGeo")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# AXNTV.RS (RS-Fallback): siebter Versuch fuer alle RS-Sender, deren
+# Name auf "AXN Adria" passt (siehe axn_epg.py - eigene, server-seitig
+# gerenderte 14-Tage-Programmseite, weder in mts.rs noch SportKlub/
+# Arena/RTV.rs/scifi.rs/NatGeo enthalten). Kein eigenes Praefix noetig.
+# Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _axn_abrufen(daten):
+    try:
+        schluessel = axn_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return axn_hole_programme(schluessel, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_axn_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_axn_ergebnisse = _parallel_abrufen(_axn_sender, _axn_abrufen, name="AXN Adria")
+
+for _idx, daten in enumerate(_axn_sender):
+    programme = _axn_ergebnisse[_idx]
+
+    daten["axn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("AXN Adria")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# PICKBOX.TV (RS-Fallback): achter Versuch fuer alle RS-Sender, deren
+# Name auf "Pickbox" passt (siehe pickbox_epg.py - eigene, server-
+# seitig gerenderte Programmseite mit komplettem 8-Tage-Sendeplan in
+# einem Abruf, weder in mts.rs noch SportKlub/Arena/RTV.rs/scifi.rs/
+# NatGeo enthalten). Kein eigenes Praefix noetig. Wird immer versucht,
+# schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _pickbox_abrufen(daten):
+    try:
+        slug = pickbox_kanal_finden(daten["sender"])
+        if slug is not None:
+            return pickbox_hole_programme(slug, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_pickbox_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_pickbox_ergebnisse = _parallel_abrufen(_pickbox_sender, _pickbox_abrufen, name="Pickbox")
+
+for _idx, daten in enumerate(_pickbox_sender):
+    programme = _pickbox_ergebnisse[_idx]
+
+    daten["pickbox_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Pickbox")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RTL.HR (RS-Fallback): neunter Versuch fuer alle RS-Sender, deren Name
+# auf "RTL Adria" passt (siehe rtl_hr_epg.py - eigene, server-seitig
+# gerenderte 8-Tage-Programmseite, weder in mts.rs noch SportKlub/
+# Arena/RTV.rs/scifi.rs/NatGeo/Pickbox enthalten). Kein eigenes
+# Praefix noetig. Wird immer versucht, schreibt aber nur die noch
+# unbedeckten Zeitfenster.
+# ==========================================================
+
+def _rtl_hr_rs_abrufen(daten):
+    try:
+        schluessel = rtl_hr_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return rtl_hr_hole_programme(schluessel, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_rtl_hr_rs_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_rtl_hr_rs_ergebnisse = _parallel_abrufen(_rtl_hr_rs_sender, _rtl_hr_rs_abrufen, name="RTL Adria (RS)")
+
+for _idx, daten in enumerate(_rtl_hr_rs_sender):
+    programme = _rtl_hr_rs_ergebnisse[_idx]
+
+    daten["rtl_hr_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("RTL Adria")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# VIASATKINO.RS (RS-Fallback): zehnter Versuch fuer alle RS-Sender,
+# deren Name auf "VIASAT KINO" ODER den Alias "TV1000" passt (siehe
+# viasatkino_epg.py - eigene, server-seitig gerenderte Tagesplanseite
+# je Kanal, weder in mts.rs noch SportKlub/Arena/RTV.rs/scifi.rs/
+# NatGeo/AXN/Pickbox/RTL.hr enthalten). Kein eigenes Praefix noetig.
+# "TV1000" wird bewusst als Alias mitgefuehrt: derselbe Kanal wurde
+# umbenannt, damit ein versehentlicher alter Sendername in sender.txt
+# trotzdem dieselben echten Programmdaten bekommt. Wird immer versucht,
+# schreibt aber nur die noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _viasatkino_abrufen(daten):
+    try:
+        schluessel = viasatkino_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return viasatkino_hole_programme(schluessel, MTS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_viasatkino_sender = [d for d in mts_sender if d["land"].strip().upper() == "RS"]
+_viasatkino_ergebnisse = _parallel_abrufen(_viasatkino_sender, _viasatkino_abrufen, name="Viasat Kino")
+
+for _idx, daten in enumerate(_viasatkino_sender):
+    programme = _viasatkino_ergebnisse[_idx]
+
+    daten["viasatkino_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_rs_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Viasat Kino")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_rs_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# A1 (Kroatien): ERSTER Versuch fuer alle HR-Sender, VOR MojMaxTV
+# (siehe a1_epg.py). Oeffentliche, loginfreie API von www.a1.hr -
+# liefert echte Beschreibungstexte, bereits normal geschriebene Titel
+# und ein laengeres Vorschau-Fenster als MojMaxTV, deckt aber
+# insgesamt weniger Kanaele ab - MojMaxTV/SportKlub bleiben Fallback
+# fuer alles, was A1 nicht kennt. Kein eigenes Praefix noetig.
+# ==========================================================
+
+def _a1_abrufen(daten):
+    # Ueberschriebene Sender (siehe _ARENA_QUELLEN_UEBERSCHREIBUNG) werden
+    # bewusst NICHT hier, sondern erst im nachfolgenden MojMaxTV-Schritt
+    # aufgeloest - A1 wuerde sonst weiterhin die (falsche) native Land-
+    # Quelle fuer diesen Sender liefern, bevor die Umleitung greifen kann.
+    if (daten["land"].strip().upper(), daten["sender"].strip().upper()) in _ARENA_QUELLEN_UEBERSCHREIBUNG:
+        return []
+    try:
+        site_id = a1_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return a1_hole_programme(site_id, A1_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_a1_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _a1_abrufen, worker=GEDROSSELTE_QUELLE_WORKER, name="A1")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _a1_ergebnisse[_idx]
+
+    daten["a1_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    # Sammelt ueber die sechs HR-Fallback-Schritte hinweg, was bereits
+    # tatsaechlich geschrieben wurde - jede nachfolgende Quelle fuellt
+    # damit nur noch unbedeckte Zeitfenster, statt bei jeder
+    # Teilabdeckung komplett uebersprungen zu werden (gleiche
+    # Luecken-Fuellung wie in der DE-Kaskade, siehe dort).
+    daten["_hr_geschrieben_intervalle"] = []
+
+    if programme:
+        _echte_quelle_zaehlen("A1")
+        _schreibe_echte_programme(daten, programme)
+        daten["_hr_geschrieben_intervalle"].extend(daten["a1_intervalle"])
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MOJMAXTV: zweiter Versuch fuer alle HR-Sender (siehe mojmaxtv_epg.py).
+# Wird immer versucht (fuellt ggf. Luecken von A1), schreibt aber nur
+# die noch unbedeckten Zeitfenster. Kein eigenes Praefix noetig.
+# ==========================================================
+
+def _mojmaxtv_abrufen(daten):
+    behandelt, programme = _arena_ueberschreibung_abrufen(daten, MOJMAXTV_TAGE)
+    if behandelt:
+        return programme
+    try:
+        site_id = mojmaxtv_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return mojmaxtv_hole_programme(site_id, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mojmaxtv_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojmaxtv_abrufen, name="MojMaxTV")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _mojmaxtv_ergebnisse[_idx]
+
+    daten["mojmaxtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("MojMaxTV")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SPORTKLUB: dritter Versuch fuer alle HR-Sender (siehe sportklub_epg.py
+# - MojMaxTV fuehrt seit September 2026 keine "Sport Klub"-Kanaele mehr,
+# betrifft "HR|SK N"). Wird immer versucht, schreibt aber nur die noch
+# unbedeckten Zeitfenster. Kein eigenes Praefix noetig, laeuft
+# automatisch als Fallback innerhalb derselben mojmaxtv_sender-Liste.
+# ==========================================================
+
+def _hr_sportklub_abrufen(daten):
+    try:
+        site_id = sportklub_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return sportklub_hole_programme(site_id, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_hr_sportklub_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_sportklub_abrufen, name="SportKlub (HR)")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _hr_sportklub_ergebnisse[_idx]
+
+    daten["sportklub_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("SportKlub")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# PICKBOX.TV (HR-Fallback): vierter Versuch fuer alle HR-Sender, deren
+# Name auf "Pickbox TV" passt (siehe pickbox_epg.py - eigene, server-
+# seitig gerenderte Programmseite, laeuft auf derselben Website wie der
+# RS-Kanal "Pickbox", nur anderer Sprachpfad). Kein eigenes Praefix
+# noetig. Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _hr_pickbox_abrufen(daten):
+    try:
+        schluessel = pickbox_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return pickbox_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_hr_pickbox_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _hr_pickbox_abrufen, name="Pickbox (HR)")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _hr_pickbox_ergebnisse[_idx]
+
+    daten["pickbox_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("Pickbox")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RTL.HR (HR-Fallback): fuenfter Versuch fuer alle HR-Sender, deren
+# Name auf "RTL Adria" passt (siehe rtl_hr_epg.py - eigene, server-
+# seitig gerenderte 8-Tage-Programmseite). Kein eigenes Praefix noetig.
+# Wird immer versucht, schreibt aber nur die noch unbedeckten
+# Zeitfenster.
+# ==========================================================
+
+def _rtl_hr_hr_abrufen(daten):
+    try:
+        schluessel = rtl_hr_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return rtl_hr_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_rtl_hr_hr_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _rtl_hr_hr_abrufen, name="RTL Adria (HR)")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _rtl_hr_hr_ergebnisse[_idx]
+
+    daten["rtl_hr_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("RTL Adria")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# INDEX.HR (HR-Fallback): sechster Versuch fuer 26 feste HR-Sender
+# (siehe mojtv_index_epg.py - spiegelt mojtv.hr, das per Cloudflare aus
+# GitHub Actions blockiert wird, index.hr selbst aber nicht). Exakter
+# Namensabgleich (kein Fuzzy-Abgleich, siehe Modul-Kommentar). Kein
+# eigenes Praefix noetig. Wird immer versucht, schreibt aber nur die
+# noch unbedeckten Zeitfenster.
+# ==========================================================
+
+def _mojtv_index_abrufen(daten):
+    try:
+        schluessel = mojtv_index_kanal_finden(daten["sender"])
+        if schluessel is not None:
+            return mojtv_index_hole_programme(schluessel, MOJMAXTV_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_mojtv_index_ergebnisse = _parallel_abrufen(mojmaxtv_sender, _mojtv_index_abrufen, name="index.hr (mojtv.hr)")
+
+for _idx, daten in enumerate(mojmaxtv_sender):
+    programme = _mojtv_index_ergebnisse[_idx]
+
+    daten["mojtv_index_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        neue_programme = [
+            p for p in programme
+            if not ueberlappt_intervall(daten["_hr_geschrieben_intervalle"], p["start"], p["stop"])
+        ]
+        if neue_programme:
+            _echte_quelle_zaehlen("index.hr (mojtv.hr)")
+            _schreibe_echte_programme(daten, neue_programme)
+            daten["_hr_geschrieben_intervalle"].extend((p["start"], p["stop"]) for p in neue_programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# SIOL: automatischer Abgleich fuer alle SI- UND MK-Sender (siehe
+# siol_epg.py - HTML-Scraping, fragiler als die anderen Quellen). Kein
+# eigenes Praefix noetig. Ohne jegliche SI-/MK-Zeile in sender.txt
+# passiert hier gar nichts - keine zusaetzlichen Netzwerk-Aufrufe.
+# ==========================================================
+
+def _siol_abrufen(daten):
+    """Fuehrt beide Netzwerk-Abrufe (Siol, dann Delo.si/SportKlub) fuer
+    EINEN SI-/MK-Sender aus und gibt eine Liste von (Quellenname,
+    Programme)-Tupeln zurueck - siehe _de_kaskade_abrufen() fuer das
+    gleiche Grundmuster (Schreiben ins XML bleibt sequenziell danach)."""
+    ergebnisse = []
+
+    programme = []
+    try:
+        site_id = siol_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = siol_hole_programme(site_id, SIOL_TAGE)
+    except Exception:
+        programme = []
+
+    daten["siol_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    # Wird immer versucht (fuellt ggf. Luecken von Siol), schreibt aber
+    # nur die noch unbedeckten Zeitfenster - gleiche Luecken-Fuellung
+    # wie in der DE-Kaskade, siehe dort.
+    _siol_geschrieben_intervalle = []
+
+    if programme:
+        ergebnisse.append(("Siol", programme))
+        _siol_geschrieben_intervalle.extend(daten["siol_intervalle"])
+
+    # Delo.si (echte SLOWENISCHE Sport-Klub-Daten) als zweiter Versuch
+    # fuer SI-Sender nach siol.net - siol.net fuehrt selbst keine
+    # "Sport Klub"-Kanaele. WICHTIG (September 2026): Sport Klub
+    # Kroatien (epgshare01.online, siehe sportklub_epg.py) zeigt NICHT
+    # immer dasselbe Programm wie Sport Klub Slowenien (per Nutzer-
+    # Screenshot bestaetigt: echtes SI|SK1 zeigte "Ingolstadt -
+    # Aachen", die kroatischen Daten fuer "SK 1" zeigten zeitgleich die
+    # saudische Liga) - delo.si (tvspored.delo.si) hat dagegen eine
+    # echte slowenische Sendungsliste und wird deshalb zuerst versucht.
+    sportklub_programme = []
+    sportklub_quelle = None
+    try:
+        delo_slug = delo_si_kanal_finden(daten["sender"])
+        if delo_slug is not None:
+            sportklub_programme = delo_si_hole_programme(delo_slug)
+    except Exception:
+        sportklub_programme = []
+
+    if sportklub_programme:
+        sportklub_quelle = "Delo.si (SK Slowenien)"
+    else:
+        # Sport Klub Kroatien (epgshare01.online) als letzter Fallback,
+        # falls delo.si fuer diesen Sender einmal nichts liefert.
+        try:
+            sportklub_site_id = sportklub_kanal_finden(daten["sender"])
+            if sportklub_site_id is not None:
+                sportklub_programme = sportklub_hole_programme(sportklub_site_id, SIOL_TAGE)
+        except Exception:
+            sportklub_programme = []
+
+        if sportklub_programme:
+            sportklub_quelle = "SportKlub"
+
+    daten["siol_sportklub_intervalle"] = [(p["start"], p["stop"]) for p in sportklub_programme]
+
+    if sportklub_programme:
+        neue_programme = [
+            p for p in sportklub_programme
+            if not ueberlappt_intervall(_siol_geschrieben_intervalle, p["start"], p["stop"])
+        ]
+        if neue_programme:
+            ergebnisse.append((sportklub_quelle, neue_programme))
+
+    return ergebnisse
+
+
+_siol_ergebnisse = _parallel_abrufen(siol_sender, _siol_abrufen, name="Siol/Delo.si/SportKlub")
+
+for _idx, daten in enumerate(siol_sender):
+    for _quelle, _programme in _siol_ergebnisse[_idx]:
+        _echte_quelle_zaehlen(_quelle)
+        _schreibe_echte_programme(daten, _programme)
+
+# ==========================================================
+# TVPROFIL.NET: schmaler LETZTER Fallback fuer HR/BA/RS/SI/MK/ME/MNG/MO/
+# CG-Sender, nur wenn keine der vorherigen Quellen (Telemach/mtel.ba/
+# klix.ba/mts.rs/MojMaxTV/SportKlub/Siol) bereits echte Daten
+# geliefert hat (siehe tvprofil_net_epg.py - kleine, feste Kanalliste,
+# nur exakter Namensabgleich).
+# ==========================================================
+
+def _tvprofil_abrufen(daten):
+    if hat_aktive_echte_quelle(daten):
+        return []  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    try:
+        site_id = tvprofil_kanal_finden(daten["sender"])
+        if site_id is not None:
+            return tvprofil_hole_programme(site_id, TVPROFIL_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_tvprofil_ergebnisse = _parallel_abrufen(tvprofil_sender, _tvprofil_abrufen, name="TvProfil.net")
+
+for _idx, daten in enumerate(tvprofil_sender):
+    programme = _tvprofil_ergebnisse[_idx]
+
+    daten["tvprofil_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("TvProfil.net")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVPROGRAM.RS: weiterer schmaler Fallback fuer HR/BA/RS/SI/MK/ME/MNG/
+# MO/CG-Sender, NACH TvProfil.net (siehe tvprogramrs_epg.py - 91
+# Kanaele, aber NUR exakter Name-/Kern-Abgleich ohne unscharfen
+# Fallback, siehe Moduldocstring dort). Deckt vor allem kleinere,
+# sonst unabgedeckte serbische Sender ab (Studio B, SOS Kanal, RTS 3,
+# Pink Extra/Family/Kids, Lov i Ribolov, Minimax, Cinemania, ...).
+# ==========================================================
+
+def _tvprogramrs_abrufen(daten):
+    if hat_aktive_echte_quelle(daten):
+        return []  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    try:
+        kanal = tvprogramrs_kanal_finden(daten["sender"])
+        if kanal is not None:
+            return tvprogramrs_hole_programme(kanal)
+    except Exception:
+        pass
+    return []
+
+
+_tvprogramrs_ergebnisse = _parallel_abrufen(tvprofil_sender, _tvprogramrs_abrufen, name="TvProgram.rs")
+
+for _idx, daten in enumerate(tvprofil_sender):
+    programme = _tvprogramrs_ergebnisse[_idx]
+
+    daten["tvprogramrs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("TvProgram.rs")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# IPTV-EPG.ORG (Mazedonien): LETZTER Fallback speziell fuer MK-Sender,
+# nach Siol und TvProfil.net (siehe mk_epg.py - 109 mazedonische
+# Kanaele, ~6 Tage Vorschau). Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in mk_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        site_id = mk_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = mk_hole_programme(site_id, MK_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["mk_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("iptv-epg.org (MK)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MAGENTATV GO (Nordmazedonien): LETZTER Fallback fuer MK-Sender (nach
+# iptv-epg.org) UND zusaetzlich fuer BA/RS/HR-Sender, die im selben
+# Balkan-Paket mitlaufen (siehe magentatv_mk_epg.py - feste
+# station_id->Name-Tabelle aus mehreren Snapshots, kein Login noetig).
+# Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in magentatv_mk_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        station_id = magentatv_mk_kanal_finden(daten["sender"])
+        if station_id is not None:
+            programme = magentatv_mk_hole_programme(station_id, MAGENTATV_MK_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["magentatv_mk_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("MagentaTV GO (MK)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MAGENTATV (Montenegro): LETZTER Fallback fuer ME/MNG/MO/CG-Sender
+# (nach Telemach/mtel.ba/klix.ba, siehe magentatv_me_epg.py - gleiche
+# Plattform wie MagentaTV MK, aber dynamische Kanalliste statt fester
+# Tabelle). Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in magentatv_me_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        station_id = magentatv_me_kanal_finden(daten["sender"])
+        if station_id is not None:
+            programme = magentatv_me_hole_programme(station_id, MAGENTATV_ME_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["magentatv_me_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("MagentaTV (ME)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# IPTV-EPG.ORG (ME): LETZTER Fallback fuer ME/MNG/MO/CG-Sender, nach
+# Telemach/mtel.ba/klix.ba/MagentaTV ME (siehe me_epg.py). Deckt ein
+# paar sonst ungedeckte Sender ab (z.B. Gradska TV, MNEsport 1/3, TV
+# Pobeda). Kein eigenes Praefix noetig.
+# ==========================================================
+
+ME_IPTVEPG_TAGE = 3
+
+for daten in magentatv_me_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        site_id = me_kanal_finden(daten["sender"])
+        if site_id is not None:
+            programme = me_hole_programme(site_id, ME_IPTVEPG_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["me_iptvepg_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("iptv-epg.org (ME)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# TVPROGRAMDANAS.NET: BREITESTER, ALLERLETZTER Fallback fuer HR/BA/RS/
+# SI/MK/ME/MNG/MO/CG/GO/DE-Sender, nach ALLEN anderen Quellen (siehe
+# tvprogramdanas_epg.py). Nur fuer Sender ohne jede bisherige echte
+# Quelle (hat_aktive_echte_quelle()) - fuellt ausschliesslich noch
+# unbedeckte Platzhalter-Sender, ruehrt laufende Quellen (insbesondere
+# Arena Sport/Sport Klub) nicht an.
+#
+# WICHTIG: wartet hier BEWUSST auf den DE-Kaskade/Tubi-Hintergrund-
+# Thread (siehe _HINTERGRUND_POOL) - hat_aktive_echte_quelle() prueft
+# u.a. die DORT gesetzten *_intervalle-Felder (deswird/plutotv/tvmovie/
+# hoerzu/... via "plutotv"-Flag) fuer DE/GO-Sender. Ohne dieses .result()
+# koennte tvprogramdanas.net faelschlich DE-Sender als "noch unbedeckt"
+# behandeln, obwohl die DE-Kaskade nur zeitlich noch nicht fertig war.
+# ==========================================================
+
+_zukunft_de_kaskade.result()
+
+
+def _tvprogramdanas_abrufen(daten):
+    if hat_aktive_echte_quelle(daten):
+        return []  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    try:
+        slug = tvprogramdanas_kanal_finden(daten["sender"])
+        if slug is not None:
+            return tvprogramdanas_hole_programme(slug, TVPROGRAMDANAS_TAGE)
+    except Exception:
+        pass
+    return []
+
+
+_tvprogramdanas_ergebnisse = _parallel_abrufen(tvprogramdanas_sender, _tvprogramdanas_abrufen, name="tvprogramdanas.net")
+
+for _idx, daten in enumerate(tvprogramdanas_sender):
+    programme = _tvprogramdanas_ergebnisse[_idx]
+
+    daten["tvprogramdanas_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("tvprogramdanas.net")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# OPEN-EPG.COM: ALLERENGSTER, ALLERLETZTER Fallback - nur fuer die
+# feste Sender-Whitelist in open_epg_epg.py (siehe dort). Laeuft trotz
+# "letzter Fallback" ungated durch hat_aktive_echte_quelle(), weil die
+# Whitelist selbst schon ausschliesslich Sender enthaelt, die bei jeder
+# anderen Quelle nachweislich durchgefallen sind - ein zusaetzlicher
+# Check waere redundant, schadet aber auch nicht.
+# ==========================================================
+
+for daten in open_epg_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        treffer = open_epg_kanal_finden(daten["sender"])
+        if treffer is not None:
+            land, kanal_id = treffer
+            programme = open_epg_hole_programme(land, kanal_id, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["open_epg_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("open-epg.com")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# AL JAZEERA ENGLISH (Freeview): ALLERENGSTER, fest verdrahteter
+# Fallback NUR fuer eine kleine feste Whitelist von "Al Jazeera"-
+# Sendern, die bei JEDER anderen Quelle durchgefallen sind
+# (Nutzeranfrage September 2026: "Al Jazeera Balkans" zeigte trotz BA-
+# Kaskade nur Platzhalter; Telemach/mtel.ba/klix.ba/rtv-hb.com/
+# open-epg.com kennen den Sender nicht). Auf Nutzerwunsch ausdruecklich
+# die internationale Marke "Al Jazeera English" (echte Programmdaten
+# ueber die Freeview-UK-API, siehe freeview_epg.py) als Ersatzquelle
+# fuer "BA|AL JAZEERA BALKANS(FHD)" sowie "US|AL JAZEERA AMERICA HD"
+# (laut Nutzer laeuft unter diesem eingestellten Namen in seiner
+# eigenen Playlist tatsaechlich der normale Al-Jazeera-Live-Stream,
+# daher inhaltlich passend). Bewusst NICHT fuer "HR|AL JAZEERA
+# BALKANS ⱽᴵᴾ ᴿᴬᵂ" (gleicher normalisierter Sendername wie die BA-
+# Zeilen, aber auf ausdruecklichen Nutzerwunsch ausgeschlossen - siehe
+# Land-Check unten). Wird NUR EINMAL pro Lauf abgerufen (gecached),
+# dann auf alle passenden Sender angewandt - laeuft bewusst OHNE
+# eigenes FREEVIEW:-Praefix in sender.txt (anders als die normale,
+# rein opt-in gedachte Freeview-Quelle, siehe deren Modul-Docstring).
+# ==========================================================
+_ALJAZEERA_EN_WHITELIST = {
+    normalisiere_sendername("Al Jazeera Balkans"),
+    normalisiere_sendername("Al Jazeera Balkans FHD"),
+    normalisiere_sendername("Al Jazeera America HD"),
+}
+
+_aljazeera_en_programme_cache = None
+
+
+def _aljazeera_en_programme_holen():
+    global _aljazeera_en_programme_cache
+    if _aljazeera_en_programme_cache is not None:
+        return _aljazeera_en_programme_cache
+    programme = []
+    try:
+        site_id = freeview_kanal_finden("Al Jazeera English")
+        if site_id is not None:
+            programme = freeview_hole_programme(site_id, FREEVIEW_TAGE)
+    except Exception:
+        programme = []
+    _aljazeera_en_programme_cache = programme
+    return programme
+
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() not in ("BA", "US"):
+        continue
+    if normalisiere_sendername(daten["sender"]) not in _ALJAZEERA_EN_WHITELIST:
+        continue
+
+    daten["aljazeera_en"] = True
+    programme = _aljazeera_en_programme_holen()
+    daten["aljazeera_en_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Al Jazeera English (Freeview)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MAKKAH LIVE (BA|MEKA TV): ALLERENGSTER, fest verdrahteter Fallback
+# NUR fuer diesen einen 24/7-Dauerstream-Sender (siehe
+# makkahlive_epg.py - Nutzeranfrage September 2026, Screenshot bestaetigt
+# eine mehrtaegige Gebetszeiten-Tabelle auf makkahlive.net). Kein
+# klassisches EPG-Matching noetig (nur EIN Kanal), Pseudo-Sendeplan aus
+# echten taeglichen Gebetszeiten (Sabah/Podne/Ikindija/Akšam/Jacija
+# namaz + Fuellbloecke "Uživo prijenos iz Harama"). Wird NUR EINMAL
+# pro Lauf abgerufen (gecached).
+# ==========================================================
+_makkahlive_programme_cache = None
+
+
+def _makkahlive_programme_holen():
+    global _makkahlive_programme_cache
+    if _makkahlive_programme_cache is not None:
+        return _makkahlive_programme_cache
+    try:
+        programme = makkahlive_hole_programme(TELEMACH_TAGE)
+    except Exception:
+        programme = []
+    _makkahlive_programme_cache = programme
+    return programme
+
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() != "BA":
+        continue
+    if normalisiere_sendername(daten["sender"]) != normalisiere_sendername("Meka TV"):
+        continue
+
+    daten["makkahlive"] = True
+    programme = _makkahlive_programme_holen()
+    daten["makkahlive_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Makkah Live (Gebetszeiten)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# CINESTAR ACTION (RS): derselbe echte Kanal wie HR|CINESTAR ACTION,
+# nur regionale Playlist-Kopie mit anderem Laender-Praefix (Nutzerauftrag
+# September 2026, "beide Laender-Sender zeigen dasselbe Programm").
+# HR|CINESTAR ACTION bekommt bereits automatisch echte Programmdaten
+# ueber die normale HR-Kaskade (mojmaxtv_kanal_finden() findet "CineStar
+# Action" bei MojMaxTV per exaktem Namensabgleich, siehe dortiger
+# Kommentar/docs/HISTORIE.md). Statt eine zweite, komplett unabhaengige
+# echte Quelle fuer den RS-Sender zu suchen, wird hier bewusst NUR der
+# bestehende MojMaxTV-Treffer fuer den FESTEN Namen "CineStar Action"
+# wiederverwendet (kein Fuzzy-Abgleich mit dem RS-Sendernamen selbst -
+# das waere unnoetig fehleranfaellig fuer eine reine 1:1-Kanalgleichheit).
+# ==========================================================
+
+_cinestar_action_rs_kern = normalisiere_sendername_kern("CineStar Action")
+_cinestar_action_rs_site_id = None
+_cinestar_action_rs_site_id_geladen = False
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() != "RS":
+        continue
+    if normalisiere_sendername_kern(daten["sender"]) != _cinestar_action_rs_kern:
+        continue
+
+    if not _cinestar_action_rs_site_id_geladen:
+        try:
+            _cinestar_action_rs_site_id = mojmaxtv_kanal_finden("CineStar Action")
+        except Exception:
+            _cinestar_action_rs_site_id = None
+        _cinestar_action_rs_site_id_geladen = True
+
+    daten["cinestar_action_rs"] = True
+    programme = []
+    if _cinestar_action_rs_site_id is not None:
+        try:
+            programme = mojmaxtv_hole_programme(_cinestar_action_rs_site_id, MTS_TAGE)
+        except Exception:
+            programme = []
+    daten["cinestar_action_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("CineStar Action (RS, ueber MojMaxTV)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# CINESTAR COMEDY (RS): derselbe echte Kanal wie MojMaxTV's "CineStar
+# Comedy" (Nutzerauftrag September 2026, live gegen cinestartvchannels.rs/
+# raspored/ verifiziert - identische Sendungen "Kauboji"/"Jahač zmaja"
+# zur selben Uhrzeit). Anders als bei CINESTAR ACTION gibt es hier
+# KEINEN bereits automatisch versorgten HR-Sender mit exakt demselben
+# Namen (HR fuehrt nur "CINESTAR TV COMEDY & FAMILY", ein ANDERER,
+# eigenstaendiger Kanal) - MojMaxTV wird deshalb direkt und gezielt fuer
+# den festen Namen "CineStar Comedy" abgefragt, exakt gleiches Muster
+# wie beim CINESTAR-ACTION-Block oben.
+# ==========================================================
+
+_cinestar_comedy_rs_kern = normalisiere_sendername_kern("CineStar Comedy")
+_cinestar_comedy_rs_site_id = None
+_cinestar_comedy_rs_site_id_geladen = False
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land", "").strip().upper() != "RS":
+        continue
+    if normalisiere_sendername_kern(daten["sender"]) != _cinestar_comedy_rs_kern:
+        continue
+
+    if not _cinestar_comedy_rs_site_id_geladen:
+        try:
+            _cinestar_comedy_rs_site_id = mojmaxtv_kanal_finden("CineStar Comedy")
+        except Exception:
+            _cinestar_comedy_rs_site_id = None
+        _cinestar_comedy_rs_site_id_geladen = True
+
+    daten["cinestar_comedy_rs"] = True
+    programme = []
+    if _cinestar_comedy_rs_site_id is not None:
+        try:
+            programme = mojmaxtv_hole_programme(_cinestar_comedy_rs_site_id, MTS_TAGE)
+        except Exception:
+            programme = []
+    daten["cinestar_comedy_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("CineStar Comedy (RS, ueber MojMaxTV)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# EPGSHARE01.ONLINE (US2, UNIVERSAL): ALLERENGSTER Fallback fuer
+# PRIME/GO-Sender ohne TVGUIDE:-Praefix, die epgshare_us_kanal_finden()
+# trotzdem per exaktem Namens-/Alias-Abgleich kennt (siehe
+# epgshare_us_epg.py). Laeuft ungated durch hat_aktive_echte_quelle(),
+# aus demselben Grund wie bei open-epg.com oben.
+# ==========================================================
+
+for daten in epgshare_us_universal_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        us2_site_id = epgshare_us_kanal_finden(daten["sender"])
+        if us2_site_id is not None:
+            programme = epgshare_us_hole_programme(us2_site_id, TVGUIDE_TAGE)
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["epgshare_us_universal_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("EpgshareUS")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# BA-STANICE: einzeln gepruefte, eigenstaendige Webseiten bosnischer
+# Regionalsender mit eigener kleiner XMLTV-Datei (siehe
+# ba_stanice_epg.py). Laeuft ungated durch hat_aktive_echte_quelle(),
+# da die Whitelist selbst schon nur Sender enthaelt, die bei jeder
+# anderen Quelle nachweislich durchgefallen sind.
+# ==========================================================
+
+for daten in ba_stanice_sender:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        eintrag = ba_stanice_kanal_finden(daten["sender"])
+        if eintrag is not None:
+            programme = ba_stanice_hole_programme(eintrag, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["ba_stanice_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("BA-Stanice (RTV Vogosca u.ae.)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# BLAGOVESTI TV: einzeln gepruefter, eigenstaendiger geistlicher Sender
+# (siehe blagovesti_epg.py - sieben statische Wochentags-Seiten von
+# program.blagovesti.tv). Kein eigenes Praefix noetig, matcht direkt
+# gegen den Sendernamen "BLAGOVESTI TV" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        marker = blagovesti_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = blagovesti_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["blagovesti_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Blagovesti TV")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# BN2: einzeln gepruefter, eigenstaendiger zweiter Kanal von rtvbn.tv
+# (siehe rtvbn_epg.py - "Program BN 2"-Kartenblock auf rtvbn.tv/program,
+# separat vom Hauptkanal "TV BN"). Kein eigenes Praefix noetig, matcht
+# direkt gegen den Sendernamen "BN2"/"BN 2" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        marker = rtvbn_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = rtvbn_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["rtvbn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("BN2 (rtvbn.tv)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# GRAND TV: einzeln gepruefter, eigenstaendiger serbischer Sender
+# (siehe grand_epg.py - rollierendes Wochenraster von
+# grand.rs/tv-program/). Kein eigenes Praefix noetig, matcht direkt
+# gegen den Sendernamen "GRAND TV" (mit HD/VIP/RAW-Zusaetzen), NICHT
+# "Grand 1"/"Grand 2" (eigenstaendige, andere Kanaele).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        marker = grand_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = grand_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["grand_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Grand TV (grand.rs)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# VIKOM TV: einzeln gepruefter, eigenstaendiger Sender (siehe
+# vikom_epg.py - sieben statische Wochentags-Seiten von vikom.tv, das
+# Wochenschema wiederholt sich). Kein eigenes Praefix noetig, matcht
+# direkt gegen den Sendernamen "VIKOM TV" (mit VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        if vikom_kanal_treffer(daten["sender"]):
+            programme = vikom_hole_programme(VIKOM_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["vikom_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Vikom TV (vikom.tv)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# MY TV (mymedia.ba): einzeln gepruefter, eigenstaendiger Sender (siehe
+# mymedia_epg.py - echte Kalendertage mit Start-und-Endzeit direkt aus
+# den HTML-data-Attributen). Kein eigenes Praefix noetig, matcht direkt
+# gegen den Sendernamen "MY TV"/"MY TV BHT" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        if mymedia_kanal_treffer(daten["sender"]):
+            programme = mymedia_hole_programme(MYMEDIA_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["mymedia_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("MY TV (mymedia.ba)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RTV SLON: einzeln gepruefter, eigenstaendiger Sender (siehe
+# rtvslon_epg.py - eine einzelne Seite mit zwei kompletten
+# Kalenderwochen). Kein eigenes Praefix noetig, matcht direkt gegen den
+# Sendernamen "RTV SLON" (mit HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        if rtvslon_kanal_treffer(daten["sender"]):
+            programme = rtvslon_hole_programme(RTVSLON_TAGE)
+        else:
+            pass  # log unterdrueckt: keine echten Programmdaten
+    except Exception as e:
+        pass  # log unterdrueckt: keine echten Programmdaten
+        programme = []
+
+    daten["rtvslon_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("RTV Slon (rtvslon.ba)")
+        _schreibe_echte_programme(daten, programme)
+    else:
+        pass  # log unterdrueckt: keine echten Programmdaten
+
+# Wartet hier auf ALLE drei Hintergrund-Bloecke (siehe
+# _HINTERGRUND_POOL-Kommentar oben) - Sky/TVPassport/DE-Kaskade
+# schreiben alle in dieselben *_intervalle-Felder, die die folgende
+# Luecken-Fuellung (alle_echten_intervalle()/hat_aktive_echte_quelle())
+# pro Sender auswertet. _zukunft_de_kaskade wurde zwar schon vor
+# tvprogramdanas.net abgewartet, .result() auf einem bereits fertigen
+# Future ist aber verlustfrei (liefert sofort den gecachten Wert) - hier
+# trotzdem nochmal aufgefuehrt, damit diese Stelle für sich lesbar
+# bleibt und nicht von der Reihenfolge weiter oben abhaengt.
+_zukunft_sky.result()
+_zukunft_tvpassport.result()
+_zukunft_de_kaskade.result()
+_HINTERGRUND_POOL.shutdown(wait=True)
+
+# ==========================================================
+# STANDARD-EPG (variable Tagesraster-Bloecke, als Platzhalter).
+# Statt starrer 2h-Slots orientieren sich die Blocklaengen an
+# einem realistischen Tagesablauf (Nacht/Morgen/Vormittag/
+# Mittag/Nachmittag/Abend/Spaetabend). Zeitraum: ANZAHL_TAGE
+# (siehe zentrale Konfiguration oben).
+# ==========================================================
+
+starttag = datetime.now(timezone.utc).replace(
+    hour=0, minute=0, second=0, microsecond=0
+)
+
+# Sender-Hash haengt nur vom (unveraenderlichen) Sendernamen ab - einmal
+# pro Sender berechnen statt bei jedem Tag/Block-Durchlauf erneut.
+for daten in sender_daten:
+    daten["_hash"] = sender_hash(daten["sender"])
+
+for tag_index in range(ANZAHL_TAGE):
+
+    tag_start = starttag + timedelta(days=tag_index)
+    stunden_cursor = 0
+
+    for block_index, (dauer, tageszeit) in enumerate(TAGESRASTER):
+
+        start = tag_start + timedelta(hours=stunden_cursor)
+        ende = start + timedelta(hours=dauer)
+        stunden_cursor += dauer
+
+        for daten in sender_daten:
+            kategorie_key = daten.get("kategorie")
+            hash_wert = daten["_hash"]
+
+            # DYN PPV 1-50, Flo Racing, Clubber & andere NAME:-Sender: hat
+            # sich der Kanalname wegen eines laufenden/angekuendigten
+            # Events geaendert (siehe Erkennung weiter oben beim
+            # Einlesen bzw. beim EPG-Anbieter-Abgleich), wird dieser
+            # Event-Name hier 1:1 als Sendungstitel/-beschreibung
+            # uebernommen - unabhaengig von einer im Text erkennbaren
+            # Uhrzeit. Steht das Event im Kanalnamen, steht es auch im
+            # EPG-Raster; verschwindet es dort wieder, verschwindet es
+            # auch hier wieder (naechster Skriptlauf). Ohne Event bleibt
+            # es beim bisherigen kategoriebasierten Text.
+            event_titel = daten.get("event_titel")
+
+            if event_titel:
+                # Ausnahme (Bug September 2026 behoben): hat dieser Sender
+                # ZUSAETZLICH eine aktive echte Quelle (z.B. DE|MAGENTA
+                # SPORT PPV N mit manuellem Beschreibungstext "<Name>
+                # Live" UND echten myTeamTV-Daten), durfte der feste
+                # event_titel nicht blind den GANZEN Block ueberschreiben -
+                # sonst wurde die echte Sendung zwar zusaetzlich
+                # geschrieben, aber vom unveraenderten, ueberlappenden
+                # event_titel-Block komplett verdeckt/dupliziert, statt
+                # dass nur die tatsaechlich unbedeckte Luecke den
+                # event_titel-Text bekommt. Gleiche Segmentierung wie beim
+                # generischen Fallback weiter unten.
+                if hat_aktive_echte_quelle(daten):
+                    rest_segmente = segmente_ohne_ueberlappung(
+                        start, ende, alle_echten_intervalle(daten)
+                    )
+                    if rest_segmente:
+                        schreibe_programme_segmente(
+                            xml_teile, rest_segmente, daten["kanal"],
+                            escape(event_titel), event_titel, "de",
+                            kategorie_key, daten["land"], True,
+                        )
+                    continue
+
+                titel_text = escape(event_titel)
+                beschr_text = event_titel
+                lang_code = "de"
+                schreibe_programme_segmente(
+                    xml_teile, [(start, ende)], daten["kanal"],
+                    titel_text, beschr_text, lang_code,
+                    kategorie_key, daten["land"], True,
+                )
+                continue
+
+            # Echte EPG-Quellen (Telemach/mtel.ba/klix.ba, Sky,
+            # Magenta, Arena, DAZN, Freeview, TVGuide, TVPassport, Pluto TV/
+            # tvmovie.de/hoerzu.de, MTS, MojMaxTV, Siol, Tubi - siehe
+            # _ECHTE_QUELLEN_INTERVALLE): fuer den von einer echten Quelle
+            # bereits ABGEDECKTEN Teil dieses Blocks wird hier nichts
+            # generisch nachgeneriert - sonst gaebe es doppelte/
+            # ueberlappende <programme>-Eintraege fuer denselben Zeitraum.
+            # Frueher wurde bei einer nur TEILWEISEN Ueberlappung (z.B.
+            # weil eine Quelle wie tvmovie.de nur ca. 05:00-20:00 Uhr statt
+            # des vollen Tages abdeckt, oder weil die letzte echte Sendung
+            # mitten in diesem Block endet) der KOMPLETTE Block
+            # uebersprungen - der unbedeckte Rest bekam dadurch GAR KEINEN
+            # <programme>-Eintrag, was im Player als "Keine Information"-
+            # Luecke zwischen letzter echter Sendung und dem naechsten
+            # generischen Block auffiel. Jetzt wird ueber
+            # segmente_ohne_ueberlappung() praezise nur der tatsaechlich
+            # unbedeckte Rest ermittelt und mit "<Sendername> ᴸⁱᵛᵉ" gefuellt
+            # statt des generischen, abwechslungsreichen Kategorietexts -
+            # weniger verwirrend als ein zufaellig wirkender Platzhaltertext
+            # neben echten Sendungen am selben Tag.
+            if hat_aktive_echte_quelle(daten):
+                echte_intervalle = alle_echten_intervalle(daten)
+                rest_segmente = segmente_ohne_ueberlappung(start, ende, echte_intervalle)
+                if rest_segmente:
+                    # RS|ARENA SPORT/ARENA SPORT PREMIUM (Nutzerwunsch
+                    # September 2026): kleine Datenluecken zwischen zwei
+                    # echten Sendungen (mts.rs/SportKlub/Arena-Kaskade,
+                    # siehe _mts_arena_abrufen weiter oben) sollen nicht
+                    # mehr als eigener "<Sender> ᴸⁱᵛᵉ"-Platzhalterblock
+                    # zwischen den echten Sendungen erscheinen. Statt
+                    # dessen wird die VORHERIGE echte Sendung bis zum
+                    # Beginn der naechsten verlaengert - wirkt im
+                    # EPG-Raster wie durchgehendes echtes Programm.
+                    # Grenzt eine Luecke NICHT an eine vorherige echte
+                    # Sendung (z.B. ganz am Tagesanfang, bevor ueberhaupt
+                    # die erste echte Sendung beginnt), gibt es nichts
+                    # zu verlaengern - dort bleibt der normale
+                    # Platzhalter wie bisher.
+                    ist_rs_arena = (
+                        daten["land"].strip().upper() == "RS"
+                        and re.match(r"^ARENA\s*SPORT\b", daten["sender"].strip(), re.IGNORECASE)
+                    )
+                    if ist_rs_arena:
+                        vorherige_stops = {stop for _, stop in echte_intervalle}
+                        uebrige_segmente = []
+                        for seg_start, seg_ende in rest_segmente:
+                            if seg_start in vorherige_stops and _verlaengere_vorherige_sendung(
+                                daten["kanal"], seg_start, seg_ende
+                            ):
+                                continue
+                            uebrige_segmente.append((seg_start, seg_ende))
+                        rest_segmente = uebrige_segmente
+
+                if rest_segmente:
+                    luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
+                    schreibe_programme_segmente(
+                        xml_teile, rest_segmente, daten["kanal"],
+                        escape(luecken_titel), luecken_titel, "de",
+                        kategorie_key, daten["land"], True,
+                    )
+                continue
+
+            # Kein echtes Programm bekannt: statt eines abwechslungsreichen,
+            # kategoriebasierten Zufallstitels wird hier einheitlich nur
+            # "<Sendername> ᴸⁱᵛᵉ" fuer den gesamten Block angezeigt - gleiche
+            # Konvention wie bei den Luecken echter Quellen weiter oben.
+            luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
+            schreibe_programme_segmente(
+                xml_teile, [(start, ende)], daten["kanal"],
+                escape(luecken_titel), luecken_titel, "de",
+                kategorie_key, daten["land"], True,
+            )
+
+# ==========================================================
+# XML ABSCHLIESSEN
+# ==========================================================
+
+xml_teile.append("\n</tv>")
+
+xml_inhalt = "".join(xml_teile)
+
+# ==========================================================
+# XML-Validitätsprüfung
+#
+# Bevor die Datei geschrieben (und später committet) wird, wird
+# geprüft, ob das erzeugte XML überhaupt wohlgeformt ist. Bricht das
+# Skript hier ab, bleibt die zuletzt funktionierende Epg_365_Tage.xml
+# unangetastet erhalten, statt durch eine kaputte Datei ersetzt zu
+# werden.
+# ==========================================================
+
+try:
+    ET.fromstring(xml_inhalt)
+except ET.ParseError as e:
+    raise SystemExit(f"Fehler: Erzeugtes XML ist ungültig, Abbruch ohne Schreiben: {e}")
+
+with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
+    f.write(xml_inhalt)
+
+# Zusaetzlich gzip-komprimiert schreiben (Epg_365_Tage.xml.gz) - seit dem
+# Playlist-Vollimport (August/September 2026, ~19.000 statt ~2.200 Sender)
+# ueberschreitet die unkomprimierte XML-Datei GitHubs 100-MB-Dateilimit
+# (ca. 200+ MB), wodurch der automatische Commit im Workflow fehlschlagen
+# wuerde. XML komprimiert sehr gut (repetitive Tags/Whitespace), die
+# gezippte Datei bleibt deutlich unter dem Limit. Git LFS wurde bewusst
+# NICHT gewaehlt, da GitHubs kostenloses LFS-Bandbreiten-Kontingent
+# (1 GB/Monat) bei einer alle 3 Stunden neu gepushten ~100+ MB-Datei
+# sofort aufgebraucht waere. Fast jeder IPTV-Player (u.a. TiviMate)
+# unterstuetzt gezippte XMLTV-Quellen direkt per URL.
+with gzip.open("Epg_365_Tage.xml.gz", "wb") as f:
+    f.write(xml_inhalt.encode("utf-8"))
+
+gesamt_echte_daten = sum(echte_quelle_zaehler.values())
+if echte_quelle_zaehler:
+    print(f"Echte Programmdaten pro Quelle ({gesamt_echte_daten} Sender gesamt):")
+    for quelle, anzahl in sorted(echte_quelle_zaehler.items()):
+        print(f"  {quelle}: {anzahl} Sender")
+        print()
+
+if _name_kern_automatisch_bereinigt or _name_kern_duplikate_uebersprungen:
+    print(
+        f"NAME:-Datenmuell automatisch bereinigt: {_name_kern_automatisch_bereinigt} "
+        f"Kanal-IDs korrigiert, {_name_kern_duplikate_uebersprungen} Duplikate uebersprungen."
+    )
+
+print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
+
+# Laufzeit-Uebersicht pro Quelle, absteigend nach Dauer - hilft, kuenftige
+# Bottlenecks (langsame/haengende Quellen) oder leise 0-Treffer-Quellen
+# (wie zuletzt Samsung TV Plus/mymedia.ba, siehe docs/HISTORIE.md) im
+# Workflow-Log schneller zu erkennen, ohne jede einzelne Quelle manuell
+# zu stoppen.
+if QUELLEN_ZEITEN:
+    print("Laufzeit pro Quelle:")
+    for _name, _sekunden, _anzahl in sorted(QUELLEN_ZEITEN, key=lambda e: e[1], reverse=True):
+        _anzahl_text = f", {_anzahl} Sender" if _anzahl is not None else ""
+        print(f"  {_name}: {_sekunden:.1f}s{_anzahl_text}")
+        print()
+
+# Fehler-/Rate-Limit-Uebersicht pro Host - macht Faelle wie die 429-Flut
+# bei hoerzu.de/tvmovie.de (September 2026, siehe docs/HISTORIE.md) direkt
+# im Log sichtbar, ohne den kompletten Rohlog nach "429"/"503" durchsuchen
+# zu muessen.
+_fehler_uebersicht = _http.fehler_uebersicht()
+if _fehler_uebersicht:
+    print("Rate-Limit-/Fehler-Uebersicht pro Quelle (Host):")
+    for _host, _versuche, _rate_limit, _fehlgeschlagen, _wartezeit, _retry_after_treffer in _fehler_uebersicht:
+        print(
+            f"  {_host}: {_versuche} Versuche, {_rate_limit}x 429/503, "
+            f"{_fehlgeschlagen} endgueltig fehlgeschlagen, "
+            f"{_wartezeit:.1f}s Retry-Wartezeit gesamt "
+            f"({_retry_after_treffer}x mit Retry-After-Header)"
+        )
+        print()

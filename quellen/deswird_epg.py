@@ -1,0 +1,356 @@
+"""Optionale, echte Programmdaten von deswird.org (Deutschland) -
+AUTOMATISCH als ERSTE/primaere Quelle in der DE-Kaskade (vor Pluto TV,
+tvmovie.de, hoerzu.de, Samsung TV Plus), kein eigenes sender.txt-Praefix
+noetig.
+
+Datenquelle ist die frei zugaengliche, loginfreie XMLTV-Datei
+"Tempest EPG Generator" (https://deswird.org/iptv/GuideFull.xml.gz) -
+EINE komplette Datei mit knapp 800 deutschen Kanaelen UND allen
+Sendungen darin (Titel, Sub-Title/Episodentitel, ausfuehrliche
+Beschreibung mit Jahr/Staffel/Episode), wird nur EINMAL pro Lauf
+geladen und geparst (Modul-weiter Cache), danach werden alle DE-Sender
+lokal dagegen gematcht ohne weitere Netzwerk-Aufrufe.
+
+Deckt mehrere Tage im Voraus ab (deutlich mehr als Pluto TV/tvmovie.de/
+hoerzu.de/Samsung TV Plus, die nur 1-2 Tage liefern).
+
+Im EPG-Raster soll NUR der Titel (plus ggf. ein kompakter
+Episodentitel) erscheinen, keine ausformulierten Magazin-Teaser -
+_episodentitel_kompakt() filtert deshalb lange/mehrteilige Sub-Titles
+(Semikolon, sehr lang) heraus, bevor sie an den Titel angehaengt
+werden. Die volle Beschreibung bleibt unveraendert im <desc>-Feld
+(Detailansicht) erhalten, siehe _schreibe_echte_programme() in
+generate_epg.py, das ohnehin nie ein eigenes <sub-title>-Tag schreibt.
+
+Im Gegensatz zu den anderen echten EPG-Quellen dieses Repos ist das
+eine kleine, nicht-offizielle Drittanbieter-Seite ohne erkennbare
+Stabilitaetsgarantie (siehe CLAUDE.md) - degradiert deshalb nach dem
+gleichen Zero-Risk-Prinzip an JEDER Stelle graceful auf None/[]/leere
+Ergebnisse statt zu werfen: schlaegt der Download, das Parsen oder die
+Kanalsuche fehl, bekommt der betroffene Sender in generate_epg.py
+einfach die normale, kategoriebasierte generische EPG-Generierung wie
+jeder andere Sender - dieses Modul darf einen Lauf niemals zum Absturz
+bringen.
+"""
+
+import re
+from datetime import datetime, timedelta, timezone
+
+import gzip
+import xml.etree.ElementTree as ET
+
+import threading
+import requests
+from quellen import _http
+
+from epg_lib import normalisiere_sendername, normalisiere_sendername_kern, kanal_index_suchen
+
+URL = "https://deswird.org/iptv/GuideFull.xml.gz"
+
+REQUEST_TIMEOUT_SEKUNDEN = 60
+
+EPISODENTITEL_MAX_LAENGE = 60
+
+# Modul-weiter Cache: {"kanaele": [...], "programme": {kanal_id: [...]}}
+_daten_cache = None
+# Schuetzt den Erstzugriff auf _daten_cache: bei gleichzeitigem Zugriff aus
+# mehreren Threads (siehe _parallel_abrufen() in generate_epg.py)
+# wuerden ohne diese Sperre alle Threads gleichzeitig "noch nicht
+# geladen" sehen und dieselbe Datei jeder fuer sich parallel
+# herunterladen, statt dass nur einer laedt und die anderen warten.
+_daten_cache_lock = threading.Lock()
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+}
+
+
+def _episodentitel_kompakt(untertitel):
+    """True, wenn untertitel wie ein kompakter Episodentitel aussieht
+    (nicht wie ein ausformulierter Magazin-Teaser mit mehreren Themen,
+    z.B. "u.a.: Radfahrer entpuppt sich als Entführer; ..."). Solche
+    Teaser sollen NICHT an den Titel angehaengt werden - nur kurze,
+    echte Episodentitel."""
+    if not untertitel:
+        return False
+    if len(untertitel) > EPISODENTITEL_MAX_LAENGE:
+        return False
+    if ";" in untertitel:
+        return False
+    if untertitel.lower().startswith("u.a"):
+        return False
+    return True
+
+
+def _xml_laden():
+    """Laedt und parst (und cached) die komplette deswird.org-DE-XMLTV-
+    Datei. Gibt {"kanaele": [...], "programme": {id: [...]}} zurueck,
+    oder None bei jedem Fehler (Netzwerk, HTTP-Status, kaputtes
+    Gzip/XML)."""
+    global _daten_cache
+
+    if _daten_cache is not None:
+        return _daten_cache
+
+    with _daten_cache_lock:
+        # Erneut pruefen: ein anderer Thread koennte das Laden
+        # bereits erledigt haben, waehrend dieser Thread auf die
+        # Sperre wartete.
+        if _daten_cache is not None:
+            return _daten_cache
+
+        try:
+            response = _http.mit_retry(requests.get, URL, headers=HEADERS, timeout=REQUEST_TIMEOUT_SEKUNDEN)
+            response.raise_for_status()
+            rohbytes = response.content
+
+            try:
+                xml_bytes = gzip.decompress(rohbytes)
+            except OSError:
+                xml_bytes = rohbytes
+
+            wurzel = ET.fromstring(xml_bytes)
+
+            kanaele = []
+            for kanal_tag in wurzel.findall("channel"):
+                kanal_id = kanal_tag.get("id")
+                name_tag = kanal_tag.find("display-name")
+                name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
+                if not kanal_id or not name:
+                    continue
+                kanaele.append({"site_id": kanal_id, "name": name})
+
+            programme = {}
+            for prog_tag in wurzel.findall("programme"):
+                kanal_id = prog_tag.get("channel")
+                start_roh = prog_tag.get("start")
+                stop_roh = prog_tag.get("stop")
+                if not kanal_id or not start_roh or not stop_roh:
+                    continue
+
+                start = _xmltv_zeit_parsen(start_roh)
+                stop = _xmltv_zeit_parsen(stop_roh)
+                if start is None or stop is None:
+                    continue
+
+                titel_tag = prog_tag.find("title")
+                titel = titel_tag.text.strip() if titel_tag is not None and titel_tag.text else ""
+                if not titel:
+                    continue
+
+                untertitel_tag = prog_tag.find("sub-title")
+                untertitel = (
+                    untertitel_tag.text.strip()
+                    if untertitel_tag is not None and untertitel_tag.text
+                    else ""
+                )
+                if _episodentitel_kompakt(untertitel):
+                    titel = f"{titel}: {untertitel}"
+
+                beschr_tag = prog_tag.find("desc")
+                beschreibung = ""
+                if beschr_tag is not None and beschr_tag.text:
+                    beschreibung = re.sub(r"\s+", " ", beschr_tag.text).strip()
+
+                icon_tag = prog_tag.find("icon")
+                bild = icon_tag.get("src") if icon_tag is not None else None
+
+                programme.setdefault(kanal_id, []).append({
+                    "title": titel,
+                    "beschreibung": beschreibung,
+                    "bild": bild,
+                    "start": start,
+                    "stop": stop,
+                })
+
+            for eintraege in programme.values():
+                eintraege.sort(key=lambda s: s["start"])
+
+            print(f"Deswird-EPG: {len(kanaele)} Kanaele, {len(programme)} Kanaele mit Sendungen geladen.")
+
+            daten = {"kanaele": kanaele, "programme": programme}
+            _daten_cache = daten
+            return daten
+        except Exception as e:
+            print(f"Deswird-EPG: Laden/Parsen fehlgeschlagen ({e}), ueberspringe.")
+            # Fehlschlag wird ebenfalls gecacht (leeres, aber nicht-None
+            # Dict statt None) - verhindert, dass bei einem dauerhaften Fehler
+            # (Netzwerk down, Host tot) JEDER einzelne Sender in generate_epg.py
+            # denselben fehlschlagenden Download erneut versucht.
+            _daten_cache = {"kanaele": [], "programme": {}}
+            return _daten_cache
+
+def _xmltv_zeit_parsen(text):
+    """Parst das XMLTV-Zeitformat 'YYYYMMDDHHMMSS +ZZZZ' zu einem
+    tz-aware datetime (UTC). None bei Parse-Fehler."""
+    try:
+        return datetime.strptime(text.strip(), "%Y%m%d%H%M%S %z").astimezone(timezone.utc)
+    except Exception:
+        return None
+
+
+def _de_id_bevorzugen(bestehende_id, neue_id):
+    """deswird.org fuehrt fuer manche Sendernamen (z.B. "Cartoon
+    Network") mehrere, unterschiedliche Feeds unter identischem
+    Anzeigenamen (nur die Kanal-ID unterscheidet sich, z.B.
+    "CartoonNetwork.de" vs. "CartoonNetwork.ch" vs. eine dritte,
+    kuerzere ID ohne Laenderkuerzel) - ohne Vorzugsregel wuerde der
+    normale Namens-/Kern-Index das als mehrdeutig verwerfen und der
+    riskante difflib-Fallback koennte einen komplett falschen,
+    aehnlich benannten Kanal treffen (siehe CLAUDE.md: Sky Cinema
+    Special/Highlights-Verwechslung). Eine explizit mit ".de"
+    gekennzeichnete ID ist fuer diese DE-spezifische Quelle eindeutig
+    die richtige Wahl und wird deshalb bevorzugt, statt den Namen ganz
+    zu verwerfen."""
+    if neue_id.lower().endswith(".de") and not bestehende_id.lower().endswith(".de"):
+        return neue_id
+    return bestehende_id
+
+
+# Bekannte Marken-Umbenennung: der eigene sender.txt-Name "RTL NITRO"
+# weicht vom aktuellen deswird.org-Namen nicht nur um ein HD/FHD-
+# Qualitaetssuffix ab (das faengt der normale Kern-Abgleich ab),
+# sondern im Markennamen selbst (RTL Nitro wurde zu "Nitro"
+# umbenannt) - der automatische Abgleich findet das daher nicht.
+# deswird.org fuehrt den Sender unter drei verschiedenen IDs mit
+# unterschiedlichem Inhalt (per Live-Abgleich September 2026
+# verifiziert): "RTLNitro.de" und "NITRO" teilen sich dieselben
+# Sendungen (deutscher Feed, "RTLNitro.de" davon vollstaendiger),
+# "RTLNitro.ch" ist dagegen nachweislich der SCHWEIZER Feed (andere
+# Sendungen, u.a. Teleshopping) - direkt die verifizierte deutsche ID
+# verwenden statt sich auf den (hier mehrdeutigen) Kern-Abgleich zu
+# verlassen, der bei mehreren Kandidaten ohne .de-Praeferenz bewusst
+# gar nichts liefert (kein Fallback-Risiko).
+# "GEO TV" wurde bewusst NICHT aufgenommen: deswird.org fuehrt dort
+# zwei "GEO Television" benannte IDs mit klar unterschiedlichem
+# Sendungsinhalt (GEOTV.de vs. GEO.de/"GEO Television") - welche davon
+# zum eigenen Playlist-Kanal passt, laesst sich ohne weitere Evidenz
+# nicht sicher bestimmen, daher lieber gar keine automatische
+# Zuordnung als eine geratene.
+_BEKANNTE_KERN_ALIASE = {
+    "RTLNITRO": "RTLNitro.de",
+    # "KABEL 1 DOKU" (eigene Schreibweise mit Ziffer) vs. deswird.org
+    # "Kabel Eins Doku"/"kabel eins Doku" (ausgeschrieben) - reine
+    # Schreibweisen-Abweichung, kein Kern-Suffix. Mehrere IDs mit
+    # unterschiedlichem Inhalt vorhanden (u.a. "KabelEinsDoku.ch" als
+    # separater Schweizer Feed) - die vollstaendigste deutsche ID
+    # verwendet, analog zur RTL-Nitro-Praeferenz.
+    "KABEL1DOKU": "KabelEinsDoku.de",
+    # "N24 DOKCU" - Tippfehler im sender.txt-Namen (Dokcu statt Doku),
+    # keine reine Suffix-Abweichung, daher vom Kern-Abgleich nicht
+    # erkannt. Ebenfalls mehrere IDs, vollstaendigste deutsche
+    # verwendet.
+    "N24DOKCU": "N24Doku.de",
+    # "SKY ONE" - deswird.org fuehrt den Sender nur als "Sky One D"
+    # (Laenderkennzeichnung direkt im Namen statt als Suffix), einzige
+    # vorhandene ID, keine Mehrdeutigkeit.
+    "SKYONE": "Sky One D",
+    # "TLC" - deswird.org fuehrt den Sender unter drei IDs mit
+    # identischem Anzeigenamen "TLC" (TLC.ch/TLC/TLC.de, per Live-
+    # Abgleich September 2026 verifiziert: TLC.de und TLC zeigen
+    # dieselben deutschen Sendungen, TLC.ch ist der separate Schweizer
+    # Feed). Der Name selbst hat KEIN HD/FHD/UHD/SD/HEVC-Suffix, daher
+    # matcht "TLC HD" nur zufaellig ueber den unscharfen difflib-
+    # Fallback (Aehnlichkeit knapp ueber dem Cutoff), waehrend "TLC
+    # HEVC"/"TLC FHD" (laengere Suffixe, Aehnlichkeit unter dem
+    # Cutoff) dort GAR KEINEN Treffer fanden und auf die schwaecheren
+    # Quellen (tvmovie.de/hoerzu.de, nur ca. 1-2 statt mehrerer Tage
+    # Abdeckung) zurueckfielen, obwohl deswird.org echte Daten haette
+    # liefern koennen - der eigentliche Kern-Abgleich verwirft "TLC"
+    # zudem bewusst als mehrdeutig (TLC vs. TLC.ch ohne .de-Praeferenz
+    # zwischen den beiden), da die generische Ambiguitaets-Pruefung
+    # nicht "durchsieht", dass die dritte ID (TLC.de) die Mehrdeutigkeit
+    # bereits eindeutig zugunsten von TLC.de aufloest. Explizite Alias-
+    # Zuordnung wie bei RTL NITRO/KABEL1 DOKU/N24 DOKCU/SKY ONE.
+    "TLC": "TLC.de",
+}
+
+
+def deswird_kanal_finden(kanalname):
+    """Sucht den deswird.org-Kanal, der am besten zu kanalname passt -
+    zuerst eine einzelne, manuell verifizierte Marken-Alias-Ausnahme
+    (siehe _BEKANNTE_KERN_ALIASE), dann exakter Abgleich nach
+    normalisiere_sendername(), dann ein eindeutiger Kern-Abgleich ohne
+    HD/FHD/UHD/SD, zuletzt unscharfer difflib-Abgleich (siehe
+    epg_lib.kanal_index_suchen()). Bei
+    mehreren Kanaelen mit identischem (Kern-)Namen wird die explizit
+    mit ".de" gekennzeichnete Kanal-ID bevorzugt (siehe
+    _de_id_bevorzugen()) statt den Treffer als mehrdeutig zu verwerfen.
+    Gibt die Kanal-ID zurueck oder None."""
+    daten = _xml_laden()
+    if not daten or not daten["kanaele"]:
+        return None
+
+    name_index = {}
+    for kanal in daten["kanaele"]:
+        schluessel = normalisiere_sendername(kanal["name"])
+        if not schluessel:
+            continue
+        if schluessel in name_index:
+            name_index[schluessel] = _de_id_bevorzugen(name_index[schluessel], kanal["site_id"])
+        else:
+            name_index[schluessel] = kanal["site_id"]
+
+    kern_roh = {}
+    kern_mehrdeutig = set()
+    for kanal in daten["kanaele"]:
+        kern = normalisiere_sendername_kern(kanal["name"])
+        if not kern:
+            continue
+        site_id = kanal["site_id"]
+        if kern not in kern_roh:
+            kern_roh[kern] = site_id
+        elif kern_roh[kern].lower() == site_id.lower():
+            # Nur Gross-/Kleinschreibung unterschiedlich (z.B. "VOX.de"
+            # vs. "Vox.de") - deswird.org fuehrt denselben Kanal manchmal
+            # doppelt mit nur anderer ID-Schreibweise, keine echte
+            # Mehrdeutigkeit. Ohne diese Pruefung wuerde eine dritte,
+            # gleich geschriebene ".de"-ID den Kern faelschlich als
+            # mehrdeutig markieren, obwohl er es vorher schon eindeutig
+            # via _de_id_bevorzugen() aufgeloest hatte.
+            pass
+        elif kern_roh[kern] != site_id:
+            if site_id.lower().endswith(".de") != kern_roh[kern].lower().endswith(".de"):
+                # Genau einer der beiden ist explizit ".de" - eindeutig
+                # bevorzugt, keine echte Mehrdeutigkeit.
+                kern_roh[kern] = _de_id_bevorzugen(kern_roh[kern], site_id)
+            else:
+                # Beide oder keiner ".de" - echte Mehrdeutigkeit wie
+                # bisher, kein Fallback-Risiko eingehen.
+                kern_mehrdeutig.add(kern)
+    kern_index = {k: v for k, v in kern_roh.items() if k not in kern_mehrdeutig}
+
+    eingabe_kern = normalisiere_sendername_kern(kanalname)
+    alias_site_id = _BEKANNTE_KERN_ALIASE.get(eingabe_kern)
+    if alias_site_id and any(k["site_id"] == alias_site_id for k in daten["kanaele"]):
+        return alias_site_id
+
+    return kanal_index_suchen(kanalname, name_index, kern_index)
+
+
+def deswird_hole_programme(site_id, tage=3):
+    """Liefert die bereits geladenen Programmdaten fuer den gegebenen
+    Kanal (site_id) aus dem Modul-Cache, begrenzt auf die naechsten
+    `tage` Tage ab heute (UTC). Leere Liste bei jedem Fehler oder wenn
+    fuer diesen Kanal keine Sendungen vorhanden sind."""
+    if site_id is None:
+        return []
+
+    daten = _xml_laden()
+    if not daten:
+        return []
+
+    eintraege = daten["programme"].get(site_id, [])
+    if not eintraege:
+        return []
+
+    heute = datetime.now(timezone.utc).date()
+    erlaubte_tage = {heute + timedelta(days=i) for i in range(tage)}
+
+    return [
+        p for p in eintraege
+        if p["start"].date() in erlaubte_tage or p["stop"].date() in erlaubte_tage
+    ]

@@ -1,0 +1,37 @@
+name: Cleanup Branches
+
+on:
+  schedule:
+    # Woechentlich, Sonntag 03:00 UTC - loescht alte "claude/"-Session-
+    # Branches (ausser dem neuesten) (siehe CLAUDE.md: Claude-Code-
+    # Sessions committen direkt auf main, der technische Session-Branch
+    # bleibt danach als reine Altlast im Repo stehen).
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Delete old claude/ branches (keep newest)
+        run: |
+          # Neuester claude/-Branch (letzter Commit) bleibt als aktive
+          # Session stehen, alle anderen werden geloescht - auch wenn sie
+          # wegen abweichender Historie nicht als "merged" erkannt werden.
+          newest=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/claude/ | head -n1)
+          echo "Behalte: $newest"
+          for ref in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin/claude/); do
+            [ "$ref" = "$newest" ] && continue
+            branch=${ref#origin/}
+            echo "Loesche Branch: $branch"
+            git push origin --delete "$branch" || true
+          done

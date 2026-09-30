@@ -1,0 +1,86 @@
+name: Update EPG
+
+on:
+  schedule:
+    # Alle 3 Stunden (8x täglich) - kürzeres Intervall als vorher (4h),
+    # damit Live-Kanalname-Aenderungen (DYN PPV, Flo Racing, ...) nicht so
+    # lange veraltet im EPG-Raster stehen bleiben. Oeffentliches Repo,
+    # daher keine GitHub-Actions-Minutenkosten durch die hoehere Frequenz.
+    # 2,5h waere noch aktueller, laesst sich aber nicht sauber als
+    # Cron-Ausdruck abbilden (24h nicht ganzzahlig durch 150 Min. teilbar,
+    # Uhrzeiten wuerden taeglich verschieben) - daher 3h. Minute bewusst
+    # auf :07 statt :00 gesetzt, da GitHub Actions "schedule"-Trigger nur
+    # "best effort" sind und zur vollen Stunde durch viele gleichzeitig
+    # feuernde Cron-Jobs anderer Repos eher verzoegert/uebersprungen
+    # werden.
+    - cron: '7 */3 * * *'
+  workflow_dispatch:
+
+# Verhindert, dass zwei Laeufe gleichzeitig aktiv sind (z.B. ein
+# verspätet feuernder Schedule-Trigger ueberlappt mit einem manuellen
+# workflow_dispatch) - ein neuer Lauf wartet, bis der aktuelle fertig
+# ist, statt parallel auf demselben Runner-Kontingent zu konkurrieren
+# (Verdacht: Ursache fuer mehrere externe Laufabbrueche ohne jeden
+# Python-Fehler, September 2026, siehe docs/HISTORIE.md).
+concurrency:
+  group: update-epg
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: |
+          python -m pytest test_generate_epg.py -v
+
+      - name: Generate EPG
+        env:
+          PROVIDER: ${{ secrets.PROVIDER }}
+        run: |
+          python generate_epg.py
+
+      - name: Commit EPG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git rm --cached --ignore-unmatch Epg_365_Tage.xml > /dev/null
+          git add Epg_365_Tage.xml.gz
+
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen."
+            exit 0
+          fi
+
+          git commit -m "Daily EPG update"
+
+          # Vor dem Push den aktuellen Stand von main einholen und die
+          # eigenen Commits obendrauf setzen (Rebase). Verhindert den
+          # "rejected - fetch first"-Fehler, falls zwischen Checkout
+          # und Push bereits ein anderer Commit (z.B. manueller Upload)
+          # auf main gelandet ist. Bei echtem Merge-Konflikt (sehr
+          # unwahrscheinlich, da nur Epg_365_Tage.xml committet wird)
+          # bricht der Rebase ab und der Job schlägt sichtbar fehl,
+          # statt fehlerhaft zu pushen.
+          # -X theirs: Epg_365_Tage.xml.gz wird bei jedem Lauf komplett neu
+          # generiert, ein inhaltlicher Merge der Binärdatei ist weder
+          # möglich noch nötig - bei einem Konflikt (z.B. zwei Läufe kurz
+          # hintereinander) soll einfach die gerade frisch generierte
+          # Version gewinnen, statt den Job abbrechen zu lassen.
+          git pull --rebase -X theirs origin main
+          git push
