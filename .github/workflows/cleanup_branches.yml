@@ -35,3 +35,13 @@ jobs:
             echo "Loesche Branch: $branch"
             git push origin --delete "$branch" || true
           done
+
+      - name: Delete test-* branches
+        run: |
+          # Temporaere Test-Branches (z.B. "test-schlank") werden immer
+          # geloescht - sie enthalten nur Testdateien, nie echten Stand.
+          for ref in $(git for-each-ref --format='%(refname:short)' 'refs/remotes/origin/test-*'); do
+            branch=${ref#origin/}
+            echo "Loesche Test-Branch: $branch"
+            git push origin --delete "$branch" || true
+          done
