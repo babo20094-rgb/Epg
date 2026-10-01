@@ -6859,3 +6859,29 @@ ausgegeben.
 **Fix:** In `_kern_und_event_aus_rohname()` dritter Fallback "PRAEFIX |
 NN -" (nur wenn der Kern im `name_pipe_kanal_index` existiert, Event-Text
 leer). Lokal mit der echten Playlist geprueft: 0 Namen ohne Kern-Treffer.
+
+## Oktober 2026: Schlanke EPG-Datei getestet und VERWORFEN (nichts geaendert)
+
+Idee: Kanal-IDs je Sender nur in den Schreibweisen schreiben, die in der
+Anbieter-Playlist exakt vorkommen (~56 % weniger Kanaele/Sendungen). Lokal
+getestet (0 verlorene exakte Zuordnungen bei festen Sendern) und als Testdatei
+auf einem eigenen Branch ausgeliefert.
+
+Ergebnis am Fernseher (TiviMate, jeweils einzelne Quelle, Cache geleert): alte
+Hauptdatei ~7:20 min, schlanke Datei ~8:50 min - KEINE Beschleunigung. Am PC
+war das Einlesen der schlanken Datei 3x schneller (47 s -> 16,5 s), am TV kam
+davon nichts an. Die Dauer haengt also NICHT an der Dateigroesse/Sendungszahl,
+sondern vermutlich an TiviMate selbst (Zuordnung der ~18.900 Playlist-Kanaele
+bzw. Geraetegeschwindigkeit). Code, Test-Workflow und Test-Branch wurden
+wieder entfernt, der normale Ablauf ist unveraendert.
+
+Lehren:
+- Die Test-URL ist fuer TiviMate eine NEUE Quelle: manuelle Zuordnungen der
+  bisherigen Quelle (z.B. HR Arena Sport/Sport Klub trotz Anbieter-
+  Fehlbenennung) gelten dort nicht - Vergleiche mit der Hauptquelle sind
+  dadurch nur eingeschraenkt aussagekraeftig.
+- Bevor an der Dateigroesse optimiert wird: erst mit einer winzigen Test-EPG
+  pruefen, ob TiviMates Zeit ueberhaupt von der EPG abhaengt.
+- Anbieter-API `player_api.php?action=get_live_streams` liefert sofort die
+  Senderliste, `get.php` (M3U) antwortet nach Abrufen kurz hintereinander mit
+  HTTP 461 - Testabrufe sparsam halten.
