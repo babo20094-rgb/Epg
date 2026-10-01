@@ -18,13 +18,14 @@ def playlist_laden(quelle):
     if os.path.isfile(quelle):
         with open(quelle, encoding="utf-8", errors="ignore") as f:
             return f.read()
-    # Der Anbieter bereitet die Playlist erst beim ersten Abruf vor und
-    # antwortet bis dahin mit einem Fehler (403/461). Deshalb mehrere
-    # Versuche mit steigender Pause (zusammen ca. 4 Minuten) - wie im
-    # Browser: erst Fehler, nach kurzem Warten beginnt der Download.
+    # Der Anbieter weist den ersten Abruf sofort mit einem Fehler (403/461)
+    # ab, bereitet die Playlist aber offenbar im Hintergrund vor: im
+    # Browser startet der Download erst nach einiger Wartezeit. Deshalb
+    # wenige Abrufe mit LANGEN Pausen (Abstaende 3/5/7 Minuten, zusammen
+    # ca. 15 Minuten) statt vieler kurzer - schont zugleich den Anbieter.
     import time
     import requests
-    pausen = [0, 15, 30, 45, 60, 90]
+    pausen = [0, 180, 300, 420]
     letzter = "unbekannt"
     for versuch, pause in enumerate(pausen, start=1):
         time.sleep(pause)
