@@ -18,7 +18,18 @@ def playlist_laden(quelle):
     if os.path.isfile(quelle):
         with open(quelle, encoding="utf-8", errors="ignore") as f:
             return f.read()
-    with urllib.request.urlopen(quelle, timeout=180) as r:
+    # Wie generate_epg.py ueber "requests" laden - der Anbieter weist die
+    # Standard-Kennung von urllib mit 403 ab.
+    try:
+        import requests
+    except ImportError:
+        requests = None
+    if requests is not None:
+        antwort = requests.get(quelle, timeout=180)
+        antwort.raise_for_status()
+        return antwort.content.decode("utf-8", errors="ignore")
+    anfrage = urllib.request.Request(quelle, headers={"User-Agent": "python-requests/2.32"})
+    with urllib.request.urlopen(anfrage, timeout=180) as r:
         return r.read().decode("utf-8", errors="ignore")
 
 
