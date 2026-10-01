@@ -6859,3 +6859,41 @@ ausgegeben.
 **Fix:** In `_kern_und_event_aus_rohname()` dritter Fallback "PRAEFIX |
 NN -" (nur wenn der Kern im `name_pipe_kanal_index` existiert, Event-Text
 leer). Lokal mit der echten Playlist geprueft: 0 Namen ohne Kern-Treffer.
+
+## Oktober 2026: Schlanke EPG-Datei (Schalter EPG_SCHLANK, Testphase)
+
+Ausgangslage: Die generierte Datei enthielt ~50.300 Kanal-IDs fuer ~18.900
+Playlist-Sender (~23.100 verschiedene nach Normalisierung), weil
+`kanal_id_varianten()` jeden festen Sender auf Vorrat unter mehreren
+Schreibweisen anlegt (Leerzeichen nach dem Pipe, HD/ᴴᴰ, VIP/ⱽᴵᴾ,
+UK-NOWTV-/BBCI-Aliase, ...). TiviMate matcht ausschliesslich ueber den
+exakten Namen (`tvg-id` ist leer), deshalb die Absicherung - sie kostet aber
+TiviMate-Ladezeit.
+
+Analyse gegen die Anbieter-Senderliste (`player_api.php?...&action=get_live_streams`,
+18.912 Eintraege, 18.527 verschiedene Namen; einmalig abgerufen, nichts
+gespeichert): 16.453 Namen hatten eine exakt passende ID, die uebrigen 2.074
+waren AUSSCHLIESSLICH dynamische Event-Namen (Datum/Uhrzeit/"vs."), bei den
+festen Sendern gab es keine Luecke. ~14.900 IDs waren reine
+Schreibvarianten eines Senders, den der Anbieter exakt anders fuehrt.
+
+Umsetzung (standardmaessig AUS): `EPG_SCHLANK=1` -> fuer feste
+"Land|Sender"-Kanaele nur die Varianten behalten, die in der geladenen
+Playlist EXAKT vorkommen (`epg_lib.schlank_filtern`, Playlist-Namen aus dem
+bereits geladenen `_m3u_playlist_cache`, kein Extra-Abruf). Sicherheitsnetze:
+Playlist nicht geladen -> volle Datei; kein Treffer -> alle Varianten bleiben;
+NAME:-/"PRAEFIX | NN -"-Kerne und Kanaele mit Live-Aliasen bleiben immer
+unveraendert; die Namensmenge wird beim ersten Aufruf nach dem Laden
+einmalig festgelegt (Kanal-Block und Sendungen bekommen immer dieselben IDs).
+Lokaler Test mit der Anbieterliste: 13.407 -> 6.086 IDs bei 5.126
+Land|Sender-Zeilen, 0 verlorene exakte Zuordnungen.
+
+Ausgabe im Schlank-Modus: `Epg_schlank.xml(.gz)` (nie die Hauptdatei).
+Test: manueller Workflow `test_schlank.yml` legt die Datei als EINEN Commit
+auf den Branch `test-schlank` (Test-URL siehe Workflow-Kommentar), main und
+die Player-URL bleiben unberuehrt. Erst nach erfolgreichem TiviMate-Test
+entscheiden, ob der Filter dauerhaft eingeschaltet wird.
+
+Lehre: Die Anbieter-Playlist (get.php) antwortet auf Abrufe kurz nach einem
+Lauf mit HTTP 461 (leer, sofort) - mehrere Testabrufe hintereinander
+vermeiden; `player_api.php?action=get_live_streams` lieferte dagegen sofort.

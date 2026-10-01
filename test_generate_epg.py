@@ -31,6 +31,9 @@ from epg_lib import (
     standard_beschreibung,
     kategorie_label,
     sprache_fuer_land,
+    playlist_namen_aus_m3u,
+    schlank_filtern,
+    schlank_geeignet,
 )
 
 from quellen import telemach_epg
@@ -2136,3 +2139,61 @@ def test_tvmovie_ohne_relevante_sender_werden_keine_requests_ausgeloest():
             tvmovie_epg.tvmovie_hole_programme(daten["sender"])
 
     assert tvmovie_relevante_sender_leer == []
+
+
+# ==========================================================
+# Schlanke EPG-Datei (epg_lib.schlank_*)
+# ==========================================================
+
+_M3U_BEISPIEL = (
+    "#EXTM3U\n"
+    '#EXTINF:-1 tvg-id="" tvg-name="TV| ASPIRE (ᴴᴰ) ᴿᴬᵂ" tvg-logo="x" group-title="G",TV| ASPIRE (ᴴᴰ) ᴿᴬᵂ\n'
+    "http://x/1\n"
+    '#EXTINF:-1 tvg-id="" tvg-name="DE| RTL" tvg-logo="x" group-title="G",DE| RTL\n'
+    "http://x/2\n"
+)
+
+
+def test_playlist_namen_aus_m3u_liest_tvg_name_und_anzeigename():
+    namen = playlist_namen_aus_m3u(_M3U_BEISPIEL)
+    assert "TV| ASPIRE (ᴴᴰ) ᴿᴬᵂ" in namen
+    assert "DE| RTL" in namen
+
+
+def test_playlist_namen_aus_m3u_ignoriert_andere_zeilen():
+    assert playlist_namen_aus_m3u("#EXTM3U\nhttp://x/1\n") == set()
+
+
+def test_schlank_filtern_behaelt_nur_exakte_playlist_varianten():
+    varianten = ["TV| ASPIRE (HD) RAW", "TV| ASPIRE (ᴴᴰ) ᴿᴬᵂ", "TV|ASPIRE (HD) RAW"]
+    namen = playlist_namen_aus_m3u(_M3U_BEISPIEL)
+    assert schlank_filtern(varianten, namen) == ["TV| ASPIRE (ᴴᴰ) ᴿᴬᵂ"]
+
+
+def test_schlank_filtern_ohne_treffer_bleibt_alles_erhalten():
+    varianten = ["US| X HD", "US|X HD"]
+    assert schlank_filtern(varianten, {"irgendwas"}) == varianten
+
+
+def test_schlank_filtern_ohne_playlist_bleibt_alles_erhalten():
+    varianten = ["US| X HD", "US|X HD"]
+    assert schlank_filtern(varianten, None) == varianten
+    assert schlank_filtern(varianten, set()) == varianten
+
+
+def test_schlank_filtern_behaelt_mehrere_exakte_treffer():
+    varianten = ["DE| A HD", "DE| A ᴴᴰ", "DE|A HD"]
+    assert schlank_filtern(varianten, {"DE| A HD", "DE| A ᴴᴰ"}) == ["DE| A HD", "DE| A ᴴᴰ"]
+
+
+@pytest.mark.parametrize("kanal,erwartet", [
+    ("DE|RTL", True),
+    ("UK|ALIBI HD", True),
+    ("PRIME|X", True),
+    ("US: ESPN+ PPV 1", False),
+    ("UEFA | 01 -", False),
+    ("NHL | 05 -", False),
+    ("24/7 ALL RISE", False),
+])
+def test_schlank_geeignet_nur_feste_land_sender_kanaele(kanal, erwartet):
+    assert schlank_geeignet(kanal) is erwartet

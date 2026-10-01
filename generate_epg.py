@@ -52,6 +52,9 @@ def escape(text, *args, **kwargs):
     return _sax_escape(text, *args, **kwargs)
 
 from epg_lib import (
+    playlist_namen_aus_m3u,
+    schlank_filtern,
+    schlank_geeignet,
     KATEGORIEN, KATEGORIE_PRIORITAET,
     DE_STANDARD, EXYU_STANDARD, EN_STANDARD,
     EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
@@ -216,6 +219,36 @@ _NACHLAUFENDES_LEERZEICHEN_KANAELE = {
 _KANAL_ALIASE = {}
 
 
+# Schlanke Datei (Test): bei EPG_SCHLANK=1 werden fuer feste Sender nur die
+# Kanal-ID-Varianten geschrieben, die in der geladenen Playlist exakt
+# vorkommen (siehe epg_lib.schlank_filtern). Standardmaessig AUS - der
+# normale Lauf und die Datei Epg_365_Tage.xml.gz bleiben unveraendert.
+# Die Ausgabe geht dann in Epg_schlank.xml(.gz), nie in die Hauptdatei.
+SCHLANK_MODUS = os.environ.get("EPG_SCHLANK") == "1"
+AUSGABE_BASIS = "Epg_schlank" if SCHLANK_MODUS else "Epg_365_Tage"
+
+# Wird beim ersten Aufruf NACH dem Laden der Playlist einmalig festgelegt
+# und danach nie mehr geaendert, damit jeder Kanal im ganzen Lauf immer
+# dieselben IDs bekommt (Kanal-Block und Sendungen muessen uebereinstimmen).
+_schlank_namen_festgelegt = {"fertig": False, "namen": None}
+
+
+def _schlank_playlist_namen():
+    if not SCHLANK_MODUS:
+        return None
+    if not _schlank_namen_festgelegt["fertig"]:
+        cache = globals().get("_m3u_playlist_cache")
+        if not cache:
+            return None  # Playlist noch nicht (oder nicht) geladen
+        namen = set()
+        for text in cache.values():
+            namen |= playlist_namen_aus_m3u(text)
+        _schlank_namen_festgelegt["namen"] = namen or None
+        _schlank_namen_festgelegt["fertig"] = True
+        print(f"Schlank-Modus aktiv: {len(namen)} exakte Playlist-Namen als Filter.")
+    return _schlank_namen_festgelegt["namen"]
+
+
 def kanal_id_varianten(kanal):
     """Alle Kanal-IDs fuer `kanal`: die Schreibweisen-Varianten aus
     _kanal_id_varianten_basis(), bei Bedarf eine Variante mit
@@ -282,6 +315,12 @@ def kanal_id_varianten(kanal):
         )
         if hochgestellt not in varianten:
             varianten.append(hochgestellt)
+    # Schlank-Modus: nur Varianten behalten, die in der Playlist exakt
+    # vorkommen. Kanaele mit Live-Aliasen (dynamische Event-Sender) und
+    # NAME:-/"PRAEFIX | NN -"-Kerne bleiben immer unveraendert.
+    namen = _schlank_playlist_namen()
+    if namen and kanal not in _KANAL_ALIASE and schlank_geeignet(kanal):
+        return schlank_filtern(varianten, namen)
     return varianten
 
 
@@ -6408,7 +6447,7 @@ try:
 except ET.ParseError as e:
     raise SystemExit(f"Fehler: Erzeugtes XML ist ungültig, Abbruch ohne Schreiben: {e}")
 
-with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
+with open(f"{AUSGABE_BASIS}.xml", "w", encoding="utf-8") as f:
     f.write(xml_inhalt)
 
 # Zusaetzlich gzip-komprimiert schreiben (Epg_365_Tage.xml.gz) - seit dem
@@ -6421,7 +6460,7 @@ with open("Epg_365_Tage.xml", "w", encoding="utf-8") as f:
 # (1 GB/Monat) bei einer alle 3 Stunden neu gepushten ~100+ MB-Datei
 # sofort aufgebraucht waere. Fast jeder IPTV-Player (u.a. TiviMate)
 # unterstuetzt gezippte XMLTV-Quellen direkt per URL.
-with gzip.open("Epg_365_Tage.xml.gz", "wb") as f:
+with gzip.open(f"{AUSGABE_BASIS}.xml.gz", "wb") as f:
     f.write(xml_inhalt.encode("utf-8"))
 
 gesamt_echte_daten = sum(echte_quelle_zaehler.values())
