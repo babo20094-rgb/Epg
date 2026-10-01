@@ -18,19 +18,28 @@ def playlist_laden(quelle):
     if os.path.isfile(quelle):
         with open(quelle, encoding="utf-8", errors="ignore") as f:
             return f.read()
-    # Wie generate_epg.py ueber "requests" laden - der Anbieter weist die
-    # Standard-Kennung von urllib mit 403 ab.
-    try:
-        import requests
-    except ImportError:
-        requests = None
-    if requests is not None:
-        antwort = requests.get(quelle, timeout=180)
-        antwort.raise_for_status()
-        return antwort.content.decode("utf-8", errors="ignore")
-    anfrage = urllib.request.Request(quelle, headers={"User-Agent": "python-requests/2.32"})
-    with urllib.request.urlopen(anfrage, timeout=180) as r:
-        return r.read().decode("utf-8", errors="ignore")
+    # Der Anbieter bereitet die Playlist erst beim ersten Abruf vor und
+    # antwortet bis dahin mit einem Fehler (403/461). Deshalb mehrere
+    # Versuche mit steigender Pause (zusammen ca. 4 Minuten) - wie im
+    # Browser: erst Fehler, nach kurzem Warten beginnt der Download.
+    import time
+    import requests
+    pausen = [0, 15, 30, 45, 60, 90]
+    letzter = "unbekannt"
+    for versuch, pause in enumerate(pausen, start=1):
+        time.sleep(pause)
+        try:
+            antwort = requests.get(quelle, timeout=300)
+            text = antwort.content.decode("utf-8", errors="ignore")
+            if antwort.ok and text.lstrip().startswith("#EXTM3U"):
+                print(f"Playlist geladen bei Versuch {versuch} ({len(text)} Zeichen)")
+                return text
+            # Nur Statuscode und Anfang der Antwort melden, nie die URL.
+            letzter = f"HTTP {antwort.status_code}, Antwortanfang: {text[:80]!r}"
+        except requests.RequestException as fehler:
+            letzter = f"{type(fehler).__name__}"
+        print(f"Versuch {versuch}/{len(pausen)} fehlgeschlagen: {letzter}", flush=True)
+    sys.exit(f"Playlist nicht ladbar nach {len(pausen)} Versuchen: {letzter}")
 
 
 def playlist_namen(text):
