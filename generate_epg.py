@@ -919,6 +919,11 @@ DYN_API_ENDPUNKTE = [
     "https://streaming.contentdesk.sport/api/public/live-productions",
 ]
 DYN_API_TIMEOUT_SEKUNDEN = 15
+# Die API liefert keinen Kanalbezug - die Verteilung auf die 20 Kanaele ist
+# geraten. Nur Spiele der naechsten N Tage werden uebernommen (Nutzerwunsch
+# Oktober 2026), weiter entfernte Spiele landeten fast sicher auf dem
+# falschen Kanal; dort greift stattdessen der Leerlauf-Text.
+DYN_API_VORSCHAU_TAGE = 2
 
 # Bekannte Leerlauf-Platzhalter-Texte fuer NAME:-Sender (Pipe-
 # Konvention, siehe Einlese-Logik weiter unten). Enthaelt der
@@ -2929,6 +2934,19 @@ try:
             # Verteilung nur nachvollziehbarer/stabiler, nicht "richtig".
             daten = sorted(daten, key=lambda event: event.get("scheduledAt") or "")
 
+            _api_grenze = datetime.now(timezone.utc) + timedelta(days=DYN_API_VORSCHAU_TAGE)
+            _api_gesamt = len(daten)
+            _gefiltert = []
+            for event in daten:
+                try:
+                    _start = datetime.fromisoformat((event.get("scheduledAt") or "").replace("Z", "+00:00"))
+                except ValueError:
+                    continue
+                if _start <= _api_grenze:
+                    _gefiltert.append(event)
+            daten = _gefiltert
+            print(f"DYN-API: {len(daten)} von {_api_gesamt} Events im {DYN_API_VORSCHAU_TAGE}-Tage-Fenster")
+
             kanal_nummer = 1
             real_kanal_nummer = 1
 
@@ -3005,7 +3023,7 @@ DYN_BASKETBALL_SPIELDAUER = timedelta(hours=2)
 # Spielplaene fuer Monate im Voraus) - konsistent mit dem sonstigen
 # Vorschau-Horizont dieses Skripts, statt hunderter kaum relevanter
 # Eintraege weit in der Zukunft.
-DYN_BASKETBALL_VORSCHAU_TAGE = 14
+DYN_BASKETBALL_VORSCHAU_TAGE = DYN_API_VORSCHAU_TAGE
 
 basketball_kanal_nummer = 1
 jetzt_utc = datetime.now(timezone.utc)

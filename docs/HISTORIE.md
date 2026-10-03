@@ -362,8 +362,9 @@ bevor an der falschen Stelle gesucht wird.
   20 HD`) sind fest im Code definiert, stehen NICHT in `sender.txt` und
   bekommen ihre Sendungstitel unabhaengig von der Nutzer-Playlist direkt
   aus der oeffentlichen DYN-API (`streaming.contentdesk.sport`).
-- Haupt-Endpunkt `/public/live-productions` liefert bisher nur Handball
-  und Tischtennis - andere Sportarten (Basketball, Volleyball,
+- Haupt-Endpunkt `/public/live-productions` lieferte frueher nur Handball
+  und Tischtennis (Stand Oktober 2026: auch Hockey, Basketball,
+  Volleyball, ca. 268 Events bis Dezember) - andere Sportarten (Basketball, Volleyball,
   Feldhockey) fehlen dort komplett, auch wenn DYN sie tatsaechlich
   streamt (z. B. Sonderwettbewerbe wie der "Rexel Super Cup" haben oft
   keine "liveProduction"-Verknuepfung und tauchen deshalb dort nicht
@@ -388,6 +389,20 @@ bevor an der falschen Stelle gesucht wird.
   Degradiert bei jedem Fehler (Netzwerk, einzelner Wettbewerb nicht
   erreichbar) graceful auf den generischen Platzhalter fuer die
   betroffenen Kanaele/Wettbewerbe - kein Abbruch des gesamten Laufs.
+
+### Oktober 2026: 2-Tage-Fenster, keine echte Kanal-Zuordnung moeglich
+
+- Die API hat KEIN Kanal-/Court-Feld (auch Einzel-Endpunkte und
+  dyn.sport-Eventseite nicht). Die Playlist-Sender `DE| DYN PPV N HD`
+  (Kategorie 1517) haben festen Namen ohne Event, leere
+  `epg_channel_id`, `get_short_epg` leer. Die `DE: DYN PPV 1-50`
+  (Kat. 1743, Event im Rohnamen) sind ANDERE Streams (vom Nutzer
+  geprueft: Nummern stimmen nicht ueberein) - ein Abgleich darueber ist
+  nicht moeglich.
+- Daher nur Naeherung: `DYN_API_VORSCHAU_TAGE = 2` - nur Spiele mit
+  Anstoss in den naechsten 2 Tagen werden reihum auf die 20 Kanaele
+  verteilt (gilt auch fuer Basketball-Competitions), Rest entfaellt,
+  Leerlauf-Text greift. Zuordnung bleibt geraten.
 
 ## TELEMACH:-Sender (echte Programmdaten, opt-in)
 
