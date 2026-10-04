@@ -10,6 +10,11 @@ Land (DE1 ~4 MB, AT1 ~4 MB, CH1 ~6 MB, je ca. 5 Tage im Voraus) - nur
 EINMAL pro Lauf geladen und geparst (Modul-weiter Cache), danach lokal
 gematcht ohne weitere Netzwerk-Aufrufe.
 
+Platzhalter wie "Sendepause" (z.B. 4-Stunden-Bloecke bei Sky-Kanaelen, wenn
+kein Spiel laeuft) sind KORREKTE Daten und werden bewusst uebernommen:
+tvmovie/hoerzu ordnen z.B. "Sky Sport Bundesliga 3-10" faelschlich dem Kanal
+"Bundesliga 1" zu und wuerden dort falsche Spiele einblenden.
+
 Kanalabgleich ABSICHTLICH ohne unscharfen difflib-Abgleich (nur exakter
 und eindeutiger Kern-Abgleich plus kleine ALIAS-Tabelle): die Feeds
 enthalten viele fremdsprachige/regionale Kanaele (v.a. CH1), bei denen
@@ -42,23 +47,15 @@ REQUEST_TIMEOUT_SEKUNDEN = 120
 # Kanaele mit weniger Sendungen sind Platzhalter/Dummy-Eintraege.
 MIN_SENDUNGEN_PRO_KANAL = 10
 
-# Platzhalter-Sendungen der Feeds (keine echten Programmdaten, z.B. 4-Stunden-
-# Bloecke "Sendepause" bei Sky-Kanaelen). Werden NICHT uebernommen: sie wuerden
-# sonst als "abgedeckt" zaehlen und echte Sendungen der nachfolgenden Stufen
-# (tvmovie/hoerzu) blockieren (A/B-Vergleich Oktober 2026).
-PLATZHALTER_TITEL = {
-    "sendepause", "sendeschluss", "kein programm", "keine sendung",
-    "mytv: momentan kein programm", "myteamtv: momentan kein programm",
-    "fin des programmes", "programmes de nuit",
-    "zurzeit keine session / pas de séance actuellement", "canale non disponibile",
-}
-
 # Playlist-Name -> epgshare01-Name (jeweils nach normalisiere_sendername()).
 ALIAS = {
     "ARD": "DASERSTE",
     "KABEL1": "KABELEINS",
     "RTL2": "RTLZWEI",
     "RTLII": "RTLZWEI",
+    # Sky: Playlist-Schreibweise vs. epgshare01-Schreibweise
+    "SKYCINEMAHIGHLIGHT": "SKYCINEMAHIGHLIGHTS",
+    "SKYSPORTSF1": "SKYSPORTF1",
 }
 
 # Modul-weiter Cache: {"kanaele": [{"site_id", "name"}], "programme": {id: [...]}}
@@ -99,7 +96,7 @@ def _feed_parsen(feed, xml_bytes):
 
         titel_tag = prog_tag.find("title")
         titel = titel_tag.text.strip() if titel_tag is not None and titel_tag.text else ""
-        if not titel or titel.casefold() in PLATZHALTER_TITEL:
+        if not titel:
             continue
 
         beschr_tag = prog_tag.find("desc")
@@ -204,12 +201,16 @@ def epgshare_de_kanal_finden(kanalname):
     name_index = daten["name_index"]
     kern_index = daten["kern_index"]
 
+    # Klammerzusatz der Playlist ignorieren, z.B. "SKY SPORT 10 HD (NUR WAEHREND
+    # DER LIVE SPIELE)" -> "SKY SPORT 10 HD".
+    kanalname = re.sub(r"\s*\([^)]*\)", "", kanalname).strip()
     exakt = normalisiere_sendername(kanalname)
     kern = normalisiere_sendername_kern(kanalname)
     for schluessel in (exakt, kern):
         schluessel = ALIAS.get(schluessel, schluessel)
         if schluessel in name_index:
             return name_index[schluessel]
+    kern = ALIAS.get(kern, kern)
     return kern_index.get(kern) if kern else None
 
 

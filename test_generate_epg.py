@@ -2233,7 +2233,7 @@ def test_abgedeckte_minuten_zaehlt_ueberlappungen_nur_einmal_und_schneidet_am_fe
     assert abgedeckte_minuten([], von, bis) == 0
 
 
-def test_epgshare_de_ignoriert_platzhalter_sendungen(_epgshare_de_cache_zuruecksetzen):
+def test_epgshare_de_uebernimmt_sendepause_als_korrekte_daten(_epgshare_de_cache_zuruecksetzen):
     heute = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
     xml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
@@ -2246,4 +2246,25 @@ def test_epgshare_de_ignoriert_platzhalter_sendungen(_epgshare_de_cache_zuruecks
     with patch("quellen.epgshare_de_epg.requests.get", side_effect=_epgshare_de_antworten({"DE1": xml})):
         site_id = epgshare_de_epg.epgshare_de_kanal_finden("SKY SPORT 2")
         programme = epgshare_de_epg.epgshare_de_hole_programme(site_id, tage=1)
-    assert [p["title"] for p in programme] == ["Fussball: Bundesliga"]
+    assert [p["title"] for p in programme] == ["Sendepause", "Fussball: Bundesliga"]
+
+
+def test_epgshare_de_ignoriert_klammerzusatz_und_sternchen_im_playlist_namen(_epgshare_de_cache_zuruecksetzen):
+    feeds = {"DE1": _epgshare_de_xml([("Sky.Sport.10.de", "Sky Sport 10")])}
+    with patch("quellen.epgshare_de_epg.requests.get", side_effect=_epgshare_de_antworten(feeds)):
+        for name in (
+            "SKY SPORT 10 HD (NUR WÄHREND DER LIVE SPIELE)",
+            "SKY SPORT 10 FHD* (NUR WÄHREND DER LIVE SPIELE)",
+            "SKY SPORT 10 HEVC",
+        ):
+            assert epgshare_de_epg.epgshare_de_kanal_finden(name) == "DE1:Sky.Sport.10.de", name
+
+
+def test_epgshare_de_alias_sky_cinema_highlight_und_sky_sports_f1(_epgshare_de_cache_zuruecksetzen):
+    feeds = {"DE1": _epgshare_de_xml([
+        ("Sky.Cinema.Highlights.HD.de", "Sky Cinema Highlights HD"), ("Sky.Sport.F1.de", "Sky Sport F1"),
+    ])}
+    with patch("quellen.epgshare_de_epg.requests.get", side_effect=_epgshare_de_antworten(feeds)):
+        assert epgshare_de_epg.epgshare_de_kanal_finden("SKY CINEMA HIGHLIGHT HD") == "DE1:Sky.Cinema.Highlights.HD.de"
+        assert epgshare_de_epg.epgshare_de_kanal_finden("SKY CINEMA HIGHLIGHT HEVC") == "DE1:Sky.Cinema.Highlights.HD.de"
+        assert epgshare_de_epg.epgshare_de_kanal_finden("SKY SPORTS F1 FHD") == "DE1:Sky.Sport.F1.de"

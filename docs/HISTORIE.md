@@ -6925,12 +6925,23 @@ ist (`TVMOVIE_HOERZU_NUR_BEI_LUECKEN`, `abgedeckte_minuten()` in
 `epg_lib.py`). Zurueck zum alten Verhalten: Schalter auf `False` (oder Commit
 reverten).
 
-**Lehre (A/B-Lauf):** epgshare01 liefert Platzhalter wie 4-Stunden-Bloecke
-"Sendepause" (v.a. Sky-Kanaele), die als "abgedeckt" zaehlten und echte
-tvmovie/hoerzu-Sendungen blockierten (~195 Min pro Sky-Bundesliga-Kanal).
-Fix: `PLATZHALTER_TITEL` in `epgshare_de_epg.py` ignoriert solche Eintraege.
-Ergebnis nur DE/JOYN/WOW-Zeilen, lokaler Lauf alt vs. neu: echte Minuten
-+1%, 1214 statt 1209 Kanaele mit echten Daten, 35 Gewinner (ARD, KABEL 1,
-RTL II, Folx TV, UHD1, Motorvision ...), 13 kleine Verlierer (Sky Sport
-Mix/Bundesliga/Austria 2, je 65-90 Min), DE-Kaskade lokal 122 s -> 70 s
-(auf dem Runner mit Rate-Limits vermutlich deutlich staerker).
+**Lehre (A/B-Lauf, ein Fehlversuch):** epgshare01 liefert fuer Sky-Kanaele
+4-Stunden-Bloecke "Sendepause", wenn gerade kein Spiel laeuft - das ist
+KORREKT (Nutzer bestaetigt). Ein zwischenzeitlicher Filter, der solche
+Platzhalter ignorierte, war FALSCH: tvmovie/hoerzu ordnen "Sky Sport
+Bundesliga 3-10" faelschlich dem hoerzu-Kanal `skysportbundesliga1`
+(= Bundesliga 1) zu, "Sky Sport Mix/Bundesliga FHD/Sport 4" dem
+tvmovie-Kanal `sky-sport-news-hd` - der Filter blendete dadurch wieder
+falsche Spiele ein. Platzhalter wie "Sendepause" bleiben deshalb erhalten.
+"Echte Minuten" als Metrik taeuscht hier: weniger Minuten bei diesen Sky-Sendern
+sind die Korrektur, nicht ein Verlust. Offen (alter Bug, nicht Teil dieser
+Aenderung): die Fehlzuordnungen in `hoerzu_kanal_finden`/`tvmovie_kanal_finden`
+treffen weiter Sky-Sender, die epgshare01 nicht kennt (z.B. "SKY SPORT 4 HD").
+
+**Nachtrag (Namensabgleich epgshare01):** Klammerzusaetze der Playlist werden
+beim Abgleich ignoriert ("SKY SPORT 10 HD (NUR WAEHREND DER LIVE SPIELE)" ->
+`Sky.Sport.10.de`), plus ALIAS fuer "SKY CINEMA HIGHLIGHT" -> "Sky Cinema
+Highlights" und "SKY SPORTS F1" -> "Sky Sport F1". Nicht abgedeckt bleiben
+(bewusst, keine echten Daten in den Feeds): Sky Go Filme/Kinder, Sky
+Select/Max/Super Select, Sky Sport 12-14, 4K-Live-Event-Kanaele - dort laufen
+tvmovie/hoerzu weiter (mit ihren alten Fehlzuordnungen).
