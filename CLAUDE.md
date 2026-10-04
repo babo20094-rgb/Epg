@@ -192,7 +192,7 @@ Parallelisierung/Vorab-Abrufen, siehe `docs/HISTORIE.md`).
   - `ARENA 1X2`/`ARENASPORT 1X2`/`ARENA SPORT 1X2` (jede Groß-/
     Kleinschreibung, mit/ohne Leerzeichen, jedes Land/Suffix wie
     ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) → `logos/arena_1x2/arena_1x2.png`
-  - `EUROPA LEAGUE REPLAY N`/`INFO` (UK/FREEVIEW:GB, jede Nummer/Suffix wie
+  - `EUROPA LEAGUE REPLAY N`/`INFO`/`HIGHLIGHTS` (UK/FREEVIEW:GB, jede Nummer/Suffix wie
     ᴴᴰ) → `logos/europa_league_replay/europa_league_replay.png` (nur die
     Sender, NICHT der Header `##### EUROPA LEAGUE REPLAY #####`)
   - `RT VOJVODINA 1`/`RTV VOJVODINA 1` bzw. `... 2` (jede Groß-/

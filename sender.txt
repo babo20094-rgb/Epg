@@ -4604,7 +4604,7 @@ FREEVIEW:GB|EPL SUNDERLAND|https://raw.githubusercontent.com/babo20094-rgb/Epg/m
 FREEVIEW:GB|EPL TOTTENHAM|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/203d0e70aeb4c558.png
 FREEVIEW:GB|EURONEWS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80453534d4d7fa02.png
 FREEVIEW:GB|EURONEWS EN HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/80453534d4d7fa02.png
-FREEVIEW:GB|EUROPA LEAGUE HIGHLIGHTS ᴴᴰ|http://51.158.145.100/picons/logos/UKNEW/EUROPALEAGUEREPLAY.png
+FREEVIEW:GB|EUROPA LEAGUE HIGHLIGHTS ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/europa_league_replay/europa_league_replay.png
 FREEVIEW:GB|EUROPA LEAGUE REPLAY 1 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/europa_league_replay/europa_league_replay.png
 FREEVIEW:GB|EUROPA LEAGUE REPLAY 10 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/europa_league_replay/europa_league_replay.png
 FREEVIEW:GB|EUROPA LEAGUE REPLAY 11 ᴴᴰ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/europa_league_replay/europa_league_replay.png
