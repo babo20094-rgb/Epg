@@ -7140,3 +7140,19 @@ Kanaele, Laden ~5 s CPU, kein Riesen-XML-Problem wie bei US-Locals). Der
 Finder wird in der Startphase fuer jeden der ~20.000 Sender aufgerufen und
 baute den Namensindex pro Aufruf neu (769 Normalisierungen): ohne Cache
 ~43 s, mit dem `lru_cache` aus Fund 1 jetzt ~2 s - schon abgedeckt.
+
+**Ergebnis Run 960 (04.10.2026, Commit 05c67ff):** Generate EPG 9:34 Min.
+(Run 959: 18:16). Log: "Gesamt: Wanduhr 568s, Prozess-CPU 429s" (CPU ~76 % der
+Wanduhr = Lauf ist weiter CPU-/Interpreter-gebunden, nicht netzwerkgebunden).
+Quellen: DE-Kaskade 223 s (763), TVPassport 186 s (605), US-Locals 57 s (648),
+mtel.ba 27 s (433), Sky 118 s (250), A1 38 s (225). Startphase 3:07 (vorher
+4:01) - die erwartete Ersparnis von ~2 Min. trat nur zu ~1 Min. ein, der Rest
+ist noch ungeklaert. Vorab-Phase 6:22 (vorher 14:09); Ende der
+Vordergrund-Kette 17:07:38 (MagentaTV MK/ME, 16 Zeitfenster je Land), danach
+~51 s tvprogramdanas + XML-Schreiben/gzip.
+Auffaelligkeiten (nicht durch die Aenderungen erklaert, Log filtert Fehler):
+(1) A1 lieferte 0 Treffer (vorher 122; MojMaxTV sprang 69 -> 177, HR-Summe
+191 -> 177), (2) "DYN-PPV-API-Kanalnamen-Abgleich Fehler: HTTPError" (Playlist
+beim ersten Abruf nicht erreichbar -> DYN PPV 1-20 nutzen den festen Namen
+"DE| DYN PPV N HD"; spaeterer Playlist-Abruf klappte). Beides vermutlich
+voruebergehend (Serverseite) - beim naechsten Lauf pruefen.
