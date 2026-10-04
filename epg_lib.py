@@ -10,6 +10,7 @@ dass dabei sender.txt gelesen oder die DYN-API angefragt werden muss.
 import re
 import unicodedata
 import difflib
+from functools import lru_cache
 import zlib
 
 
@@ -2116,6 +2117,27 @@ EN_LAENDER = UK_LAENDER + US_LAENDER + [
 ]
 
 
+_KATEGORIE_MUSTER_CACHE = {}
+
+
+def _kategorie_muster(kategorie_key):
+    """Ein vorkompiliertes Regex pro Kategorie: trifft, wenn IRGENDEIN
+    Keyword der Kategorie als ganzes Wort vorkommt (identisch zur frueheren
+    Schleife ueber alle Keywords - der Text haengt nur von der Kategorie ab,
+    nicht vom Keyword). Vorher wurde pro Sender und Keyword ein Muster aus
+    ~545 Keywords ueber den re-Cache (512 Eintraege) neu kompiliert, ~6 ms
+    pro Sender bei ~20.000 Sendern (Startphase, Run 959)."""
+    muster = _KATEGORIE_MUSTER_CACHE.get(kategorie_key)
+    if muster is None:
+        keywords = KATEGORIEN[kategorie_key]["keywords"]
+        if keywords:
+            muster = re.compile("|".join(rf"\b{re.escape(k)}\b" for k in keywords))
+        else:
+            muster = re.compile(r"(?!x)x")
+        _KATEGORIE_MUSTER_CACHE[kategorie_key] = muster
+    return muster
+
+
 def standard_beschreibung(land, sender):
     """
     Ermittelt Sprache + passende Kategorie für einen Sender und gibt
@@ -2140,14 +2162,12 @@ def standard_beschreibung(land, sender):
     for kategorie_key in KATEGORIE_PRIORITAET:
         daten = KATEGORIEN[kategorie_key]
 
-        for keyword in daten["keywords"]:
-
-            if re.search(rf"\b{re.escape(keyword)}\b", sender_upper):
-                varianten = daten[sprache]
-                nummer = hash_wert % len(varianten)
-                label = daten["label"][sprache]
-                text = varianten[nummer].format(sender=sender, label=label)
-                return text, kategorie_key
+        if _kategorie_muster(kategorie_key).search(sender_upper):
+            varianten = daten[sprache]
+            nummer = hash_wert % len(varianten)
+            label = daten["label"][sprache]
+            text = varianten[nummer].format(sender=sender, label=label)
+            return text, kategorie_key
 
     if sprache == "DE":
         texte = DE_STANDARD
@@ -2376,6 +2396,7 @@ def normalisiere_grossschreibung(text):
 LAND_ISO_MAPPING = {"UK": "GB", "MO": "ME"}
 
 
+@lru_cache(maxsize=None)
 def normalisiere_sendername(name):
     """Reduziert einen Sendernamen auf reine Grossbuchstaben/Ziffern
     (keine Leerzeichen, Satzzeichen, Akzente) fuer einen robusten
@@ -2428,6 +2449,7 @@ def abgedeckte_minuten(intervalle, von, bis):
     return summe / 60.0
 
 
+@lru_cache(maxsize=None)
 def normalisiere_sendername_kern(name):
     """Wie normalisiere_sendername(), entfernt zusaetzlich die
     Qualitaets-Suffixe "HD"/"FHD"/"UHD"/"SD" als eigene Woerter (z.B.

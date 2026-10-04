@@ -7074,3 +7074,69 @@ EPG fehlt.
 - Kompletter Stand davor: Commits revertieren (`e069bd6` epgshare01,
   `c7bef0d` Sendepause/Klammer/Aliase, dazu der Commit "Vorab-Abrufe
   parallel, Playlist-genaue IDs ...").
+
+
+## Oktober 2026 (04.10., Nachtrag): Namensabgleich-Cache + mtel.ba-Tagescache + Log gekuerzt
+
+**Messung Run 959 (18:16 Min.):** Startphase ~4 Min. (13:48:54-13:52:55), dann
+laufen alle Vorab-Quellen gleichzeitig. Das Ende bestimmt die DE-Kaskade
+(763 s, vorher 455 s) - tvprogramdanas wartet auf sie (+65 s). Entgegen der
+Annahme aus Run 956 liegt die DE-Kaskade damit auf dem kritischen Pfad,
+sobald ~100 Threads anderer Quellen gleichzeitig laufen (gemeinsamer
+Interpreter/GIL: ein 6-Worker-Pool bekommt nur einen kleinen CPU-Anteil).
+Die epgshare01-Stufe steht korrekt VOR tvmovie/hoerzu (hinter deswird und
+Pluto, NICHT ganz vorne - Pluto muss bleiben, siehe Abschnitt epgshare01).
+
+**Fund 1 (CPU):** `deswird_kanal_finden()` (und die gleich gebauten
+`*_kanal_finden()` anderer Quellen) baute bei JEDEM Aufruf den Namensindex neu
+(deswird: ~700 Kanaele x 2 Normalisierungen pro Sender). Fix:
+`@lru_cache` auf `normalisiere_sendername()`/`normalisiere_sendername_kern()`
+(`epg_lib.py`, reine Funktionen, Ergebnis identisch - verifiziert per Hash
+ueber 2000 Namen x 3 Quellen). Lokal: 19,7 s -> 3,9 s.
+
+**Fund 2 (mtel.ba, 433 s statt 99 s):** `mtel_hole_programme()` lud die
+komplette Tages-EPG ALLER Kanaele (pageSize 999) fuer JEDEN Kanal und JEDEN
+Tag neu (~100 identische Grossabrufe). Fix: Cache pro (Plattform, Tag) mit
+Sperre (`_epg_tag_laden()`), Fehler werden nicht gecached.
+
+**Log:** `_playlist_id_statistik()` gibt nur noch eine Zeile aus (keine
+A/B/C-Auswertung mehr). Neu: Zeile "Gesamt: Wanduhr ..s, Prozess-CPU ..s"
+am Lauf-Ende - liegt die CPU-Zeit nahe an der Wanduhr, bremst der
+Interpreter (GIL), nicht das Netzwerk. Erst damit entscheiden, ob weitere
+Massnahmen (weniger Threads, Prozesse) noetig sind.
+
+**Fund 3 (TVPassport, 605 s):** `tvpassport_kanal_finden()` baute bei jedem der
+~1070 Aufrufe name_index + kern_index ueber ~19.000 Kanaele neu. Fix:
+Indizes einmal pro Lauf (`_indizes_holen()`, mit Sperre). Lokal 300 Namen:
+63,6 s -> 15,1 s, Ergebnisse identisch (Hash). Rest ist der unscharfe
+difflib-Abgleich fuer ~40 % Nicht-Treffer. (bs4-Parsen einer Seite: ~23 ms
+statt ~3 ms mit reinem lxml - moegliche spaetere Verbesserung, nicht gemacht.)
+
+**Fund 4 (US-Locals, 648 s):** `epgshare_us_locals_epg._xml_laden()` entpackte
+~540 MB XML (557.000 Sendungen, 4.456 Kanaele) und parste ALLES per
+ElementTree (~70 s CPU, haelt den Interpreter, viel RAM), obwohl nur
+Call-Sign-Hauptkanaele (`KXXX`/`KXXX-DT`, exakt was `kanal_finden` akzeptiert)
+gebraucht werden. Fix: Kopf (Kanalliste) per ET, Programmbloecke per Regex
+nur fuer Hauptkanaele als Rohbytes gemerkt und erst in `hole_programme`
+geparst (nur angefragte Kanaele). Fallback auf Voll-Parse, falls das Format
+nicht passt. Lokal 71 s -> 7 s CPU, Ergebnisse fuer alle 175 CITY-Sender
+identisch (Titel/Zeiten/Bild/Beschreibung).
+
+**Fund 5 (Startphase ~4 Min., 13:48:54-13:52:55 in Run 959):** Die Log-Zeilen der
+Startphase tragen alle denselben Zeitstempel (stdout gepuffert), daher per
+faulthandler-Stacksamples lokal untersucht. Hauptursache:
+`standard_beschreibung()` (`epg_lib.py`) lief fuer jeden der ~20.000
+sender.txt-Eintraege ueber alle 545 Kategorie-Keywords mit
+`re.search(rf"\b{keyword}\b", ...)`. Bei 545 > 512 Eintraegen im
+re-Modul-Cache (LRU) wurde jedes Muster staendig neu kompiliert: ~6,2 ms pro
+Sender = ~125 s. Fix: ein vorkompiliertes Regex pro Kategorie
+(`_kategorie_muster()`, Alternation der Keywords mit `\b`) - Ergebnis
+identisch (Text haengt nur von der Kategorie ab). Lokal 20.000 Sender: ~125 s
+-> 0,85 s. Kleinerer Rest in der Startphase: automatische Logo-Suche (189
+Sender, difflib ueber alle Logo-Namen, ~10 s) - nicht angefasst.
+
+**epgshare_us_epg.py geprueft (kein Handlungsbedarf):** die Datei ist klein (769
+Kanaele, Laden ~5 s CPU, kein Riesen-XML-Problem wie bei US-Locals). Der
+Finder wird in der Startphase fuer jeden der ~20.000 Sender aufgerufen und
+baute den Namensindex pro Aufruf neu (769 Normalisierungen): ohne Cache
+~43 s, mit dem `lru_cache` aus Fund 1 jetzt ~2 s - schon abgedeckt.

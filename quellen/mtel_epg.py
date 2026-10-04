@@ -21,6 +21,7 @@ keinen zusaetzlichen Netzwerk-Request, der Live-Abruf bleibt bei
 Ueberschneidungen immer massgeblich.
 """
 
+import threading
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -209,6 +210,49 @@ def _zeit_parsen(wert):
         return None
 
 
+# Die Mtel-EPG-API liefert pro (Plattform, Tag) IMMER alle Kanaele auf einmal
+# (pageSize 999). Frueher wurde diese grosse Antwort fuer JEDEN Kanal und
+# JEDEN Tag neu geladen und geparst (~100 identische Abrufe pro Lauf, Run 959:
+# 433 s). Jetzt wird sie pro (Plattform, Tag) nur einmal geladen und nach
+# Kanal-Code indiziert; Fehler werden NICHT gecached (jeder Kanal versucht
+# es wie bisher erneut).
+_epg_tag_cache = {}
+_epg_tag_sperren = {}
+_epg_tag_sperre_global = threading.Lock()
+
+
+def _epg_tag_laden(platform, datum):
+    """Gibt {kanal_code: kanal_eintrag} fuer (platform, datum) zurueck -
+    wirft bei Netzwerk-/HTTP-/JSON-Fehlern (der Aufrufer faengt pro Tag)."""
+    schluessel = (platform, datum)
+    if schluessel in _epg_tag_cache:
+        return _epg_tag_cache[schluessel]
+    with _epg_tag_sperre_global:
+        sperre = _epg_tag_sperren.setdefault(schluessel, threading.Lock())
+    with sperre:
+        if schluessel in _epg_tag_cache:
+            return _epg_tag_cache[schluessel]
+        response = _http.mit_retry(requests.get,
+            EPG_URL,
+            params={
+                "platform": f"tv-{platform}",
+                "pageSize": 999,
+                "date": datum,
+            },
+            timeout=REQUEST_TIMEOUT_SEKUNDEN,
+        )
+        response.raise_for_status()
+        daten = response.json()
+        produkte = daten.get("products", []) if isinstance(daten, dict) else []
+        index = {}
+        for produkt in produkte:
+            code = produkt.get("code")
+            if code is not None and code not in index:
+                index[code] = produkt
+        _epg_tag_cache[schluessel] = index
+        return index
+
+
 def mtel_hole_programme(site_id, tage=2):
     """Holt Programmdaten fuer den gegebenen Mtel-Kanal (site_id im
     Format "<platform>#<code>") fuer `tage` aufeinanderfolgende Tage ab
@@ -230,25 +274,7 @@ def mtel_hole_programme(site_id, tage=2):
         tag = heute + timedelta(days=tag_index)
 
         try:
-            response = _http.mit_retry(requests.get, 
-                EPG_URL,
-                params={
-                    "platform": f"tv-{platform}",
-                    "pageSize": 999,
-                    "date": tag.strftime("%Y-%m-%d"),
-                },
-                timeout=REQUEST_TIMEOUT_SEKUNDEN,
-            )
-            response.raise_for_status()
-            daten = response.json()
-
-            produkte = daten.get("products", []) if isinstance(daten, dict) else []
-
-            kanal_eintrag = None
-            for produkt in produkte:
-                if produkt.get("code") == code:
-                    kanal_eintrag = produkt
-                    break
+            kanal_eintrag = _epg_tag_laden(platform, tag.strftime("%Y-%m-%d")).get(code)
 
             if not kanal_eintrag:
                 continue

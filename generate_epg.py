@@ -8,6 +8,7 @@ import resource
 import sys
 import threading
 import time
+_SKRIPT_START_WANDUHR = time.perf_counter()
 import requests
 import unicodedata
 import xml.etree.ElementTree as ET
@@ -6659,87 +6660,21 @@ print(f"EPG erfolgreich erstellt ({len(sender_daten)} Sender).")
 
 
 def _playlist_id_statistik():
-    """Vorschau/Kontrolle der playlist-genauen IDs (siehe
-    NUR_PLAYLIST_IDS_AKTIV). Erfasst JEDEN Sender und JEDEN Playlist-Namen
-    und ordnet sie nach der Art des Unterschieds ein (Zahlen vollstaendig,
-    Beispiele als ascii()-Text begrenzt - macht Leerzeichen-/Sonderzeichen-
-    Unterschiede sichtbar):
-    A) Sender, bei denen mindestens eine ID exakt in der Playlist steht
-       (hier greift die Einschraenkung),
-    B) Sender OHNE exakten Treffer (behalten alle Varianten), eingeordnet,
-    C) Playlist-Namen OHNE passende ID in unserem EPG (= Kanaele ohne EPG),
-       eingeordnet nach "Sender existiert, nur Schreibweise anders" und
-       "kein passender Sender"."""
+    """Kurze Kontrollzeile zu den playlist-genauen IDs (siehe
+    NUR_PLAYLIST_IDS_AKTIV): Anzahl Playlist-Namen und ID-Varianten vorher/
+    nachher. (Die frueher ausfuehrliche A/B/C-Auswertung mit Beispielen wurde
+    auf Nutzerwunsch entfernt, siehe docs/HISTORIE.md.)"""
     namen = _PLAYLIST_EXAKTE_NAMEN
     if len(namen) < _PLAYLIST_MIN_NAMEN:
         print("Playlist-genaue IDs: Playlist nicht (vollstaendig) geladen - keine Einschraenkung moeglich, alle Varianten bleiben.")
         return
-
-    def _praefix(text):
-        treffer = re.match(r"\s*([A-Za-z0-9+\-]+)\s*[|:]", text)
-        return treffer.group(1).upper() if treffer else "?"
-
-    def _ohne_leerraum(text):
-        return re.sub(r"\s+", "", text)
-
-    # Index Playlist: normalisierter Name -> Namen
-    playlist_index = {}
-    for name in namen:
-        playlist_index.setdefault(normalisiere_sendername(name), []).append(name)
-
-    vorher = nachher = reduziert = unveraendert_treffer = 0
-    klassen = {}   # Klasse -> [Anzahl, Beispiele]
-    alle_ids = set()
-    sender_schluessel = set()
-
-    def _zaehle(klasse, beispiel):
-        eintrag = klassen.setdefault(klasse, [0, []])
-        eintrag[0] += 1
-        if len(eintrag[1]) < 5:
-            eintrag[1].append(beispiel)
-
+    vorher = nachher = 0
     for daten in sender_daten:
         roh = _kanal_id_varianten_ungefiltert(daten["kanal"])
-        neu = _auf_playlist_ids_einschraenken(roh)
-        alle_ids.update(roh)
-        sender_schluessel.add(normalisiere_sendername(daten["kanal"]))
         vorher += len(roh)
-        nachher += len(neu)
-        if any(v in namen for v in roh):
-            if len(neu) < len(roh):
-                reduziert += 1
-            else:
-                unveraendert_treffer += 1
-            continue
-        # B) kein exakter Treffer
-        kandidaten = playlist_index.get(normalisiere_sendername(daten["kanal"]), [])
-        if len(roh) < 2:
-            klasse = "B0 nur eine Variante, steht nicht in der Playlist"
-        elif not kandidaten:
-            klasse = "B1 Name kommt in der Playlist gar nicht vor (alter/dynamischer Sender?)"
-        elif any(_ohne_leerraum(k) == _ohne_leerraum(v) for k in kandidaten for v in roh):
-            klasse = "B2 gleicher Name, nur Leerzeichen/Pipe-Abstand anders"
-        else:
-            klasse = "B3 aehnlicher Name, Schreibweise/Suffix/Sonderzeichen anders"
-        _zaehle(klasse, f"{ascii(daten['kanal'])} -> Playlist: {[ascii(k) for k in kandidaten[:3]] or 'kein Name'}")
-
-    # C) Playlist-Namen ohne ID in unserem EPG
-    for n in sorted(namen):
-        if n in alle_ids or len(n) <= 3:
-            continue
-        if normalisiere_sendername(n) in sender_schluessel:
-            _zaehle("C1 Playlist-Name ohne ID, aber Sender existiert (Schreibweise fehlt!)", ascii(n))
-        else:
-            _zaehle("C2 Playlist-Name ohne passenden Sender in sender.txt", ascii(n))
-
+        nachher += len(_auf_playlist_ids_einschraenken(roh))
     modus = "AKTIV" if NUR_PLAYLIST_IDS_AKTIV else "AUS (nur Vorschau)"
-    print(f"Playlist-genaue IDs ({modus}): {len(namen)} Playlist-Namen; {vorher} ID-Varianten -> {nachher}; "
-          f"{reduziert} Sender reduziert, {unveraendert_treffer} Sender mit Treffer ohne Einsparung.")
-    for klasse in sorted(klassen):
-        anzahl, beispiele = klassen[klasse]
-        print(f"Playlist-genaue IDs: {klasse}: {anzahl}")
-        for beispiel in beispiele:
-            print(f"Playlist-genaue IDs:     z.B. {beispiel}")
+    print(f"Playlist-genaue IDs ({modus}): {len(namen)} Playlist-Namen; {vorher} ID-Varianten -> {nachher}.")
 
 
 try:
@@ -6753,6 +6688,10 @@ except Exception as _e:
 # Workflow-Log schneller zu erkennen, ohne jede einzelne Quelle manuell
 # zu stoppen.
 if QUELLEN_ZEITEN:
+    # Wanduhr vs. Prozess-CPU-Zeit: liegt die CPU-Zeit nahe an der Wanduhr,
+    # bremst der gemeinsame Interpreter (GIL) den Lauf, nicht das Netzwerk.
+    print(f"Gesamt: Wanduhr {time.perf_counter() - _SKRIPT_START_WANDUHR:.0f}s, "
+          f"Prozess-CPU {time.process_time():.0f}s")
     print("Laufzeit pro Quelle:")
     for _name, _sekunden, _anzahl in sorted(QUELLEN_ZEITEN, key=lambda e: e[1], reverse=True):
         _anzahl_text = f", {_anzahl} Sender" if _anzahl is not None else ""

@@ -220,6 +220,8 @@ def test_telemach_kein_kanal_treffer_gibt_none():
 
 @pytest.fixture(autouse=True)
 def _mtel_cache_zuruecksetzen():
+    mtel_epg._epg_tag_cache = {}
+    mtel_epg._epg_tag_sperren = {}
     mtel_epg._kanalliste_cache = {}
     yield
     mtel_epg._kanalliste_cache = {}

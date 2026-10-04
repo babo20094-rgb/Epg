@@ -39,6 +39,7 @@ bringen.
 
 import os
 import re
+import threading
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -103,6 +104,31 @@ def tvpassport_hole_kanalliste():
     return _lade_statische_kanalliste()
 
 
+_index_cache = None
+_index_sperre = threading.Lock()
+
+
+def _indizes_holen(kanaele):
+    """Baut name_index/kern_index der ~19.000 Kanaele nur EINMAL pro Lauf
+    (frueher bei jedem tvpassport_kanal_finden()-Aufruf neu, also ~1000x pro
+    Lauf - Run 959: TVPassport 605 s, davon ein grosser Teil CPU im
+    gemeinsamen Interpreter)."""
+    global _index_cache
+    if _index_cache is not None and _index_cache[0] is kanaele:
+        return _index_cache[1], _index_cache[2]
+    with _index_sperre:
+        if _index_cache is not None and _index_cache[0] is kanaele:
+            return _index_cache[1], _index_cache[2]
+        name_index = {}
+        for kanal in kanaele:
+            schluessel = normalisiere_sendername(kanal["name"])
+            if schluessel:
+                name_index.setdefault(schluessel, kanal["site_id"])
+        kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
+        _index_cache = (kanaele, name_index, kern_index)
+        return name_index, kern_index
+
+
 def tvpassport_kanal_finden(kanalname):
     """Sucht den TVPassport-Kanal, der am besten zu kanalname passt - erst
     exakter Abgleich nach normalisiere_sendername(), dann ein
@@ -119,13 +145,7 @@ def tvpassport_kanal_finden(kanalname):
     if not kanaele:
         return None
 
-    name_index = {}
-    for kanal in kanaele:
-        schluessel = normalisiere_sendername(kanal["name"])
-        if schluessel:
-            name_index.setdefault(schluessel, kanal["site_id"])
-
-    kern_index = kern_index_aufbauen(kanaele, "name", "site_id")
+    name_index, kern_index = _indizes_holen(kanaele)
     return kanal_index_suchen(kanalname, name_index, kern_index)
 
 

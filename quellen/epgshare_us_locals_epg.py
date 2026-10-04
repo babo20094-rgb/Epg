@@ -63,6 +63,43 @@ HEADERS = {
 _CALLSIGN_PATTERN = re.compile(r"\b([KW][A-Z0-9]{2,4})\b")
 
 
+_HAUPTKANAL_NAME = re.compile(r"^[KW][A-Z0-9]{2,4}(-DT)?$")
+_PROGRAMM_BLOCK = re.compile(rb'<programme [^>]*?channel="([^"]*)"[^>]*>.*?</programme>', re.S)
+
+
+def _kanaele_aus_kopf(wurzel):
+    kanaele = []
+    for kanal_tag in wurzel.findall("channel"):
+        kanal_id = kanal_tag.get("id")
+        name_tag = kanal_tag.find("display-name")
+        name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
+        if not kanal_id or not name:
+            continue
+        kanaele.append({"site_id": kanal_id, "name": name})
+    return kanaele
+
+
+def _programm_parsen(prog_tag):
+    """Ein <programme>-Element -> Sendungs-Dict oder None."""
+    start_roh = prog_tag.get("start")
+    stop_roh = prog_tag.get("stop")
+    if not start_roh or not stop_roh:
+        return None
+    start = _xmltv_zeit_parsen(start_roh)
+    stop = _xmltv_zeit_parsen(stop_roh)
+    if start is None or stop is None:
+        return None
+    titel_tag = prog_tag.find("title")
+    titel = titel_tag.text.strip() if titel_tag is not None and titel_tag.text else ""
+    if not titel:
+        return None
+    beschr_tag = prog_tag.find("desc")
+    beschreibung = beschr_tag.text.strip() if beschr_tag is not None and beschr_tag.text else ""
+    icon_tag = prog_tag.find("icon")
+    bild = icon_tag.get("src") if icon_tag is not None else None
+    return {"title": titel, "beschreibung": beschreibung, "bild": bild, "start": start, "stop": stop}
+
+
 def _xml_laden():
     """Laedt und parst (und cached) die komplette epgshare01-US-LOCALS1-
     XMLTV-Datei. Gibt {"kanaele": [...], "programme": {id: [...]}} zurueck,
@@ -89,63 +126,54 @@ def _xml_laden():
             except OSError:
                 xml_bytes = rohbytes
 
-            wurzel = ET.fromstring(xml_bytes)
-
+            # Die entpackte Datei ist ~540 MB gross (557.000 Sendungen fuer
+            # 4.456 Kanaele). Alles per ET zu parsen kostete ~75 s CPU im
+            # gemeinsamen Interpreter (Run 959: 648 s Wanduhr, andere
+            # Threads standen derweil). Benoetigt werden nur Kanaele, die
+            # epgshare_us_locals_kanal_finden() treffen kann (Call-Sign
+            # bzw. Call-Sign-DT) - nur deren Sendungen werden geparst.
             kanaele = []
-            for kanal_tag in wurzel.findall("channel"):
-                kanal_id = kanal_tag.get("id")
-                name_tag = kanal_tag.find("display-name")
-                name = name_tag.text.strip() if name_tag is not None and name_tag.text else ""
-                if not kanal_id or not name:
-                    continue
-                kanaele.append({"site_id": kanal_id, "name": name})
-
             programme = {}
-            for prog_tag in wurzel.findall("programme"):
-                kanal_id = prog_tag.get("channel")
-                if not kanal_id:
-                    continue
+            gefiltert = False
+            roh_bloecke = {}
+            erstes_prog = xml_bytes.find(b"<programme")
+            if erstes_prog > 0:
+                kopf = ET.fromstring(xml_bytes[:erstes_prog] + b"</tv>")
+                kanaele = _kanaele_aus_kopf(kopf)
+                brauchbar = {k["site_id"] for k in kanaele if _HAUPTKANAL_NAME.match(k["name"].upper())}
+                for treffer in _PROGRAMM_BLOCK.finditer(xml_bytes, erstes_prog):
+                    kanal_id = treffer.group(1).decode("utf-8", "replace")
+                    if kanal_id not in brauchbar:
+                        continue
+                    gefiltert = True
+                    # Rohbloecke nur merken; geparst wird erst bei Bedarf
+                    # (epgshare_us_locals_hole_programme), also nur fuer die
+                    # tatsaechlich angefragten Kanaele.
+                    roh_bloecke.setdefault(kanal_id, []).append(treffer.group(0))
 
-                start_roh = prog_tag.get("start")
-                stop_roh = prog_tag.get("stop")
-                if not start_roh or not stop_roh:
-                    continue
-
-                start = _xmltv_zeit_parsen(start_roh)
-                stop = _xmltv_zeit_parsen(stop_roh)
-                if start is None or stop is None:
-                    continue
-
-                titel_tag = prog_tag.find("title")
-                titel = titel_tag.text.strip() if titel_tag is not None and titel_tag.text else ""
-                if not titel:
-                    continue
-
-                beschr_tag = prog_tag.find("desc")
-                beschreibung = beschr_tag.text.strip() if beschr_tag is not None and beschr_tag.text else ""
-
-                icon_tag = prog_tag.find("icon")
-                bild = icon_tag.get("src") if icon_tag is not None else None
-
-                programme.setdefault(kanal_id, []).append({
-                    "title": titel,
-                    "beschreibung": beschreibung,
-                    "bild": bild,
-                    "start": start,
-                    "stop": stop,
-                })
+            if not gefiltert:
+                # Fallback (Dateiformat unerwartet / nichts gefunden): wie
+                # frueher komplett per ET parsen.
+                wurzel = ET.fromstring(xml_bytes)
+                kanaele = _kanaele_aus_kopf(wurzel)
+                programme = {}
+                for prog_tag in wurzel.findall("programme"):
+                    kanal_id = prog_tag.get("channel")
+                    eintrag = _programm_parsen(prog_tag) if kanal_id else None
+                    if eintrag is not None:
+                        programme.setdefault(kanal_id, []).append(eintrag)
 
             for eintraege in programme.values():
                 eintraege.sort(key=lambda s: s["start"])
 
-            print(f"EpgshareUS-Locals-EPG: {len(kanaele)} Kanaele, {len(programme)} Kanaele mit Sendungen geladen.")
+            print(f"EpgshareUS-Locals-EPG: {len(kanaele)} Kanaele, {len(roh_bloecke) if gefiltert else len(programme)} Kanaele mit Sendungen geladen.")
 
-            daten = {"kanaele": kanaele, "programme": programme}
+            daten = {"kanaele": kanaele, "programme": programme, "roh": roh_bloecke}
             _daten_cache = daten
             return daten
         except Exception as e:
             print(f"EpgshareUS-Locals-EPG: Laden/Parsen fehlgeschlagen ({e}), ueberspringe.")
-            _daten_cache = {"kanaele": [], "programme": {}}
+            _daten_cache = {"kanaele": [], "programme": {}, "roh": {}}
             return _daten_cache
 
 
@@ -196,7 +224,18 @@ def epgshare_us_locals_hole_programme(site_id, tage=2):
     if not daten:
         return []
 
-    eintraege = daten["programme"].get(site_id, [])
+    eintraege = daten["programme"].get(site_id)
+    if eintraege is None:
+        with _daten_cache_lock:
+            eintraege = daten["programme"].get(site_id)
+            if eintraege is None:
+                eintraege = []
+                for block in daten.get("roh", {}).get(site_id, []):
+                    eintrag = _programm_parsen(ET.fromstring(block))
+                    if eintrag is not None:
+                        eintraege.append(eintrag)
+                eintraege.sort(key=lambda s: s["start"])
+                daten["programme"][site_id] = eintraege
     if not eintraege:
         return []
 
