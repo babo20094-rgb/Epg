@@ -2136,3 +2136,114 @@ def test_tvmovie_ohne_relevante_sender_werden_keine_requests_ausgeloest():
             tvmovie_epg.tvmovie_hole_programme(daten["sender"])
 
     assert tvmovie_relevante_sender_leer == []
+
+
+# ---------------------------------------------------------------------------
+# epgshare01 DE1/AT1/CH1 (epgshare_de_epg.py) + abgedeckte_minuten()
+# ---------------------------------------------------------------------------
+
+from quellen import epgshare_de_epg
+from epg_lib import abgedeckte_minuten
+
+
+@pytest.fixture
+def _epgshare_de_cache_zuruecksetzen(monkeypatch):
+    epgshare_de_epg._daten_cache = None
+    monkeypatch.setattr(epgshare_de_epg, "MIN_SENDUNGEN_PRO_KANAL", 1)
+    yield
+    epgshare_de_epg._daten_cache = None
+
+
+def _epgshare_de_antworten(feeds):
+    """feeds: {"DE1": xml_bytes, ...} -> requests.get-Ersatz je Feed-URL."""
+    def fake_get(url, **kwargs):
+        response = MagicMock()
+        response.raise_for_status.return_value = None
+        for feed, xml_bytes in feeds.items():
+            if f"epg_ripper_{feed}.xml.gz" in url:
+                response.content = gzip.compress(xml_bytes)
+                return response
+        raise RuntimeError("Feed nicht erreichbar")
+    return fake_get
+
+
+def _epgshare_de_xml(kanaele):
+    heute = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
+    for kid, name in kanaele:
+        xml += f'<channel id="{kid}"><display-name>{name}</display-name></channel>\n'
+        xml += (
+            f'<programme start="{heute}180000 +0000" stop="{heute}190000 +0000" channel="{kid}">'
+            f'<title>Sendung {name}</title><desc>Beschreibung</desc></programme>\n'
+        )
+    return (xml + "</tv>").encode("utf-8")
+
+
+def test_epgshare_de_findet_exakt_alias_und_kern_aber_kein_fuzzy(_epgshare_de_cache_zuruecksetzen):
+    feeds = {"DE1": _epgshare_de_xml([
+        ("Das.Erste.de", "Das Erste"), ("kabel.eins.de", "kabel eins"),
+        ("RTLZWEI.de", "RTLZWEI"), ("Sky.Sport.2.de", "Sky Sport 2"),
+    ])}
+    with patch("quellen.epgshare_de_epg.requests.get", side_effect=_epgshare_de_antworten(feeds)):
+        assert epgshare_de_epg.epgshare_de_kanal_finden("ARD HD") == "DE1:Das.Erste.de"
+        assert epgshare_de_epg.epgshare_de_kanal_finden("KABEL 1 HEVC") == "DE1:kabel.eins.de"
+        assert epgshare_de_epg.epgshare_de_kanal_finden("RTL II") == "DE1:RTLZWEI.de"
+        assert epgshare_de_epg.epgshare_de_kanal_finden("SKY SPORT 2 ᴴᴰ") == "DE1:Sky.Sport.2.de"
+        # kein unscharfer Treffer: "Sky Sport 3" darf NICHT auf "Sky Sport 2" fallen
+        assert epgshare_de_epg.epgshare_de_kanal_finden("SKY SPORT 3") is None
+        assert epgshare_de_epg.epgshare_de_kanal_finden("BLOOMBERG") is None
+
+
+def test_epgshare_de_erster_feed_gewinnt_bei_gleichem_namen(_epgshare_de_cache_zuruecksetzen):
+    feeds = {
+        "DE1": _epgshare_de_xml([("ORF.1.de", "ORF 1")]),
+        "CH1": _epgshare_de_xml([("ORF1.ch", "ORF 1")]),
+    }
+    with patch("quellen.epgshare_de_epg.requests.get", side_effect=_epgshare_de_antworten(feeds)):
+        site_id = epgshare_de_epg.epgshare_de_kanal_finden("ORF 1")
+        assert site_id == "DE1:ORF.1.de"
+        programme = epgshare_de_epg.epgshare_de_hole_programme(site_id, tage=1)
+    assert len(programme) == 1
+    assert programme[0]["title"] == "Sendung ORF 1"
+    assert programme[0]["start"].tzinfo is not None
+
+
+def test_epgshare_de_fehlgeschlagener_feed_laesst_andere_nutzbar_und_wirft_nie(_epgshare_de_cache_zuruecksetzen):
+    feeds = {"AT1": _epgshare_de_xml([("PRO.7.at", "PRO 7")])}  # DE1/CH1 nicht erreichbar
+    with patch("quellen.epgshare_de_epg.requests.get", side_effect=_epgshare_de_antworten(feeds)):
+        assert epgshare_de_epg.epgshare_de_kanal_finden("PRO7") == "AT1:PRO.7.at"
+        assert epgshare_de_epg.epgshare_de_hole_programme(None) == []
+        assert epgshare_de_epg.epgshare_de_hole_programme("DE1:gibts.nicht") == []
+
+
+def test_epgshare_de_alles_kaputt_gibt_none_statt_exception(_epgshare_de_cache_zuruecksetzen):
+    with patch("quellen.epgshare_de_epg.requests.get", side_effect=RuntimeError("down")):
+        assert epgshare_de_epg.epgshare_de_kanal_finden("ARD") is None
+        assert epgshare_de_epg.epgshare_de_hole_programme("DE1:x") == []
+
+
+def test_abgedeckte_minuten_zaehlt_ueberlappungen_nur_einmal_und_schneidet_am_fenster():
+    utc = datetime.timezone.utc
+    von = datetime.datetime(2026, 10, 4, 0, 0, tzinfo=utc)
+    bis = von + datetime.timedelta(days=1)
+    h = lambda stunde: von + datetime.timedelta(hours=stunde)
+    intervalle = [(h(-2), h(1)), (h(0), h(2)), (h(10), h(12)), (h(23), h(27))]
+    # 00-02 (2h, ueberlappend nur einmal) + 10-12 (2h) + 23-24 (1h, am Fenster geschnitten)
+    assert abgedeckte_minuten(intervalle, von, bis) == 5 * 60
+    assert abgedeckte_minuten([], von, bis) == 0
+
+
+def test_epgshare_de_ignoriert_platzhalter_sendungen(_epgshare_de_cache_zuruecksetzen):
+    heute = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n<tv>\n'
+        '<channel id="Sky.Sport.2.de"><display-name>Sky Sport 2</display-name></channel>\n'
+        f'<programme start="{heute}000000 +0000" stop="{heute}040000 +0000" channel="Sky.Sport.2.de">'
+        '<title>Sendepause</title></programme>\n'
+        f'<programme start="{heute}040000 +0000" stop="{heute}060000 +0000" channel="Sky.Sport.2.de">'
+        '<title>Fussball: Bundesliga</title></programme>\n</tv>'
+    ).encode("utf-8")
+    with patch("quellen.epgshare_de_epg.requests.get", side_effect=_epgshare_de_antworten({"DE1": xml})):
+        site_id = epgshare_de_epg.epgshare_de_kanal_finden("SKY SPORT 2")
+        programme = epgshare_de_epg.epgshare_de_hole_programme(site_id, tage=1)
+    assert [p["title"] for p in programme] == ["Fussball: Bundesliga"]

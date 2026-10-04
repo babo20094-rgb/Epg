@@ -6900,3 +6900,37 @@ Lehren:
 - Anbieter-API `player_api.php?action=get_live_streams` liefert sofort die
   Senderliste, `get.php` (M3U) antwortet nach Abrufen kurz hintereinander mit
   HTTP 461 - Testabrufe sparsam halten.
+
+
+## DE-Kaskade: epgshare01 (DE1/AT1/CH1) vor tvmovie.de/hoerzu.de (Oktober 2026)
+
+**Anlass:** Die DE-Kaskade war mit ~11 Min (667 s) die laengste Stufe des
+Laufs; tvmovie.de (129 Versuche, 165 s Retry-Wartezeit) und hoerzu.de (192
+Versuche, 54 s) fragen jeden Sender einzeln ab und laufen in Rate-Limits.
+Beide liefern nur den aktuellen Tag.
+
+**Diagnose (zwei temporaere Diagnose-Workflows, wieder entfernt):**
+- Pluto muss BLEIBEN: 17 DE-Sender (v.a. Pluto-eigene FAST-Kanaele wie
+  "PLUTO TV SERIE", Moviedome, Big Brother Classics) haetten ohne Pluto gar
+  keine echten Daten, ~20.300 Min nur durch Pluto.
+- tvmovie/hoerzu durch epgshare01 ersetzbar bis auf wenige Sender: von 197
+  Sendern mit tvmovie/hoerzu-Treffer waren 160 ohne wesentlichen
+  Unterschied, nur Bloomberg, Boomerang, Sony AXN hingen allein daran.
+
+**Umsetzung:** `quellen/epgshare_de_epg.py` (DE1, AT1, CH1, Kanalabgleich
+nur exakt/Kern + ALIAS fuer ARD/KABEL 1/RTL II, KEIN Fuzzy), eingehaengt
+nach Pluto. tvmovie/hoerzu werden nur noch befragt, wenn der Tag (heute
+00:00 UTC bis morgen 04:00 UTC) von den vorherigen Stufen zu <95% abgedeckt
+ist (`TVMOVIE_HOERZU_NUR_BEI_LUECKEN`, `abgedeckte_minuten()` in
+`epg_lib.py`). Zurueck zum alten Verhalten: Schalter auf `False` (oder Commit
+reverten).
+
+**Lehre (A/B-Lauf):** epgshare01 liefert Platzhalter wie 4-Stunden-Bloecke
+"Sendepause" (v.a. Sky-Kanaele), die als "abgedeckt" zaehlten und echte
+tvmovie/hoerzu-Sendungen blockierten (~195 Min pro Sky-Bundesliga-Kanal).
+Fix: `PLATZHALTER_TITEL` in `epgshare_de_epg.py` ignoriert solche Eintraege.
+Ergebnis nur DE/JOYN/WOW-Zeilen, lokaler Lauf alt vs. neu: echte Minuten
++1%, 1214 statt 1209 Kanaele mit echten Daten, 35 Gewinner (ARD, KABEL 1,
+RTL II, Folx TV, UHD1, Motorvision ...), 13 kleine Verlierer (Sky Sport
+Mix/Bundesliga/Austria 2, je 65-90 Min), DE-Kaskade lokal 122 s -> 70 s
+(auf dem Runner mit Rate-Limits vermutlich deutlich staerker).

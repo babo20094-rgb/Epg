@@ -52,6 +52,7 @@ def escape(text, *args, **kwargs):
     return _sax_escape(text, *args, **kwargs)
 
 from epg_lib import (
+    abgedeckte_minuten,
     KATEGORIEN, KATEGORIE_PRIORITAET,
     DE_STANDARD, EXYU_STANDARD, EN_STANDARD,
     EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
@@ -90,6 +91,7 @@ from quellen.tvpassport_epg import tvpassport_kanal_finden, tvpassport_hole_prog
 from quellen.epgshare_us_locals_epg import epgshare_us_locals_kanal_finden, epgshare_us_locals_hole_programme
 from quellen.tvmovie_epg import tvmovie_kanal_finden, tvmovie_hole_programme
 from quellen.plutotv_epg import plutotv_kanal_finden, plutotv_hole_programme
+from quellen.epgshare_de_epg import epgshare_de_kanal_finden, epgshare_de_hole_programme
 from quellen.hoerzu_epg import hoerzu_kanal_finden, hoerzu_hole_programme
 from quellen.joyn_vod_epg import joyn_vod_kanal_finden, joyn_vod_hole_programme
 from quellen.rakuten_tv_epg import rakuten_tv_kanal_finden, rakuten_tv_hole_programme
@@ -513,7 +515,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "mts": ["mts_intervalle", "mts_sportklub_intervalle", "mts_arena_intervalle", "rtv_rs_intervalle"],
     "mojmaxtv": ["a1_intervalle", "mojmaxtv_intervalle", "sportklub_intervalle"],
     "siol": ["siol_intervalle", "siol_sportklub_intervalle"],
-    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "mysports_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle", "rakuten_tv_intervalle"],
+    "plutotv": ["deswird_intervalle", "plutotv_intervalle", "epgshare_de_intervalle", "tvmovie_intervalle", "hoerzu_intervalle", "magenta_myteam_intervalle", "mysports_intervalle", "joyn_vod_intervalle", "search_ch_intervalle", "iptvepg_de_intervalle", "rakuten_tv_intervalle"],
     "tubi": ["tubi_intervalle"],
     "tvprofil": ["tvprofil_intervalle"],
     "mk": ["mk_intervalle"],
@@ -3680,7 +3682,19 @@ A1_TAGE = 6
 SIOL_TAGE = 2
 DESWIRD_TAGE = 3
 PLUTOTV_TAGE = 2
+EPGSHARE_DE_TAGE = 2
 TVMOVIE_TAGE = 1
+# tvmovie.de/hoerzu.de fragen jeden Sender einzeln ab (Rate-Limits, mehrere
+# Minuten Laufzeit) und liefern nur den aktuellen Tag. Sie werden nur noch
+# befragt, wenn die vorherigen Stufen (deswird/Pluto/epgshare01) den Tag
+# (heute, UTC) zu weniger als diesem Anteil abdecken - sonst koennten sie
+# hoechstens die restlichen Minuten fuellen. Auf False setzen = altes
+# Verhalten (tvmovie/hoerzu immer befragen).
+TVMOVIE_HOERZU_NUR_BEI_LUECKEN = True
+TVMOVIE_HOERZU_MIN_ABDECKUNG = 0.95
+# Pruef-Fenster: heute 00:00 UTC bis morgen 04:00 UTC - der Programmtag von
+# tvmovie.de/hoerzu.de reicht bis ca. 05:00 Uhr (MEZ/MESZ) am Folgetag.
+TVMOVIE_HOERZU_PRUEF_STUNDEN = 28
 JOYN_VOD_TAGE = 1
 SEARCH_CH_TAGE = 3
 TUBI_TAGE = 2
@@ -4605,12 +4619,46 @@ def _de_kaskade_abrufen(daten):
             ergebnisse.append(("PlutoTV", neue_programme))
             _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
 
-    # tvmovie.de als dritter Versuch fuer DE-Sender (siehe
-    # tvmovie_epg.py) - wird immer versucht, schreibt aber nur die
-    # Zeitfenster, die noch von keiner vorherigen Quelle abgedeckt sind.
+    # epgshare01 (DE1/AT1/CH1) als dritter Versuch fuer DE-Sender (siehe
+    # epgshare_de_epg.py) - EINE Datei pro Land, nur einmal pro Lauf
+    # geladen, danach lokal gematcht (kein Rate-Limit). Ersetzt den
+    # Grossteil der Einzelabrufe bei tvmovie.de/hoerzu.de (Diagnose-
+    # Workflow Oktober 2026). Schreibt nur die Zeitfenster, die noch von
+    # keiner vorherigen Quelle abgedeckt sind.
+    epgshare_de_programme = []
+    try:
+        epgshare_de_site_id = epgshare_de_kanal_finden(daten["sender"])
+        if epgshare_de_site_id is not None:
+            epgshare_de_programme = epgshare_de_hole_programme(epgshare_de_site_id, EPGSHARE_DE_TAGE)
+    except Exception:
+        epgshare_de_programme = []
+
+    daten["epgshare_de_intervalle"] = [(p["start"], p["stop"]) for p in epgshare_de_programme]
+
+    if epgshare_de_programme:
+        neue_programme = _ohne_bereits_geschriebene_ueberlappung(epgshare_de_programme)
+        if neue_programme:
+            ergebnisse.append(("EpgshareDE", neue_programme))
+            _de_geschrieben_intervalle.extend((p["start"], p["stop"]) for p in neue_programme)
+
+    # tvmovie.de/hoerzu.de werden nur noch befragt, wenn der heutige Tag
+    # (UTC) von deswird/Pluto/epgshare01 noch nicht (fast) komplett
+    # abgedeckt ist (siehe TVMOVIE_HOERZU_NUR_BEI_LUECKEN) - spart die
+    # meisten Einzelabrufe und die Rate-Limit-Wartezeit.
+    _tvmovie_hoerzu_noetig = True
+    if TVMOVIE_HOERZU_NUR_BEI_LUECKEN:
+        _tag_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        _abgedeckt = abgedeckte_minuten(
+            _de_geschrieben_intervalle, _tag_start, _tag_start + timedelta(hours=TVMOVIE_HOERZU_PRUEF_STUNDEN)
+        )
+        _tvmovie_hoerzu_noetig = _abgedeckt < TVMOVIE_HOERZU_MIN_ABDECKUNG * TVMOVIE_HOERZU_PRUEF_STUNDEN * 60
+
+    # tvmovie.de als vierter Versuch fuer DE-Sender (siehe
+    # tvmovie_epg.py) - schreibt nur die Zeitfenster, die noch von keiner
+    # vorherigen Quelle abgedeckt sind.
     tvmovie_programme = []
     try:
-        tvmovie_site_id = tvmovie_kanal_finden(daten["sender"])
+        tvmovie_site_id = tvmovie_kanal_finden(daten["sender"]) if _tvmovie_hoerzu_noetig else None
         if tvmovie_site_id is not None:
             tvmovie_programme = tvmovie_hole_programme(tvmovie_site_id, TVMOVIE_TAGE)
     except Exception:
@@ -4629,7 +4677,7 @@ def _de_kaskade_abrufen(daten):
     # von keiner vorherigen Quelle abgedeckt sind.
     hoerzu_programme = []
     try:
-        hoerzu_slug = hoerzu_kanal_finden(daten["sender"])
+        hoerzu_slug = hoerzu_kanal_finden(daten["sender"]) if _tvmovie_hoerzu_noetig else None
         if hoerzu_slug is not None:
             hoerzu_programme = hoerzu_hole_programme(hoerzu_slug)
     except Exception:
@@ -4770,8 +4818,8 @@ def _gruppe_de_kaskade_und_tubi():
         # uebersprungen, damit dieselben Sendungen nicht doppelt ins
         # XML geschrieben werden.
         if any(daten.get(feld) for feld in (
-            "deswird_intervalle", "plutotv_intervalle", "tvmovie_intervalle",
-            "hoerzu_intervalle",
+            "deswird_intervalle", "plutotv_intervalle", "epgshare_de_intervalle",
+            "tvmovie_intervalle", "hoerzu_intervalle",
         )):
             continue
 

@@ -142,7 +142,7 @@ Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
   über `normalisiere_grossschreibung()` (`epg_lib.py`) in normale
   Schreibweise umgewandelt, bereits normale Texte bleiben unverändert.
 - Bei Änderungen an dieser Logik immer `python3 -m pytest
-  test_generate_epg.py` laufen lassen (aktuell ~95 Tests).
+  test_generate_epg.py` laufen lassen (aktuell ~102 Tests).
 
 ## Logos
 
@@ -226,7 +226,11 @@ manuellem Trigger (~25-30 Min. Laufzeit).
 
 **Automatisch (kein sender.txt-Präfix nötig, nur passendes Land):**
 - **DE / JOYN / WOW** (auch ergänzend bei **PRIME**): Kaskade
-  deswird.org → Pluto TV → tvmovie.de → hoerzu.de → Joyn-VOD →
+  deswird.org → Pluto TV → epgshare01 (DE1/AT1/CH1, `epgshare_de_epg.py`,
+  ohne Fuzzy-Abgleich, Platzhalter wie "Sendepause" werden ignoriert) →
+  tvmovie.de → hoerzu.de (nur noch bei Lücken: sie werden übersprungen,
+  wenn der Tag bis 04:00 UTC des Folgetags zu >=95% abgedeckt ist, Schalter
+  `TVMOVIE_HOERZU_NUR_BEI_LUECKEN` in `generate_epg.py`) → Joyn-VOD →
   Magenta-myTeamTV (nur `MAGENTA SPORT PPV N`) → iptv-epg.org/DE. Jede
   Stufe füllt nur die von vorherigen Stufen noch unbedeckte Restzeit.
   (Samsung TV Plus wurde entfernt, Host liefert die Datei nicht mehr.)

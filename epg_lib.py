@@ -2408,6 +2408,26 @@ def normalisiere_sendername(name):
     return name
 
 
+def abgedeckte_minuten(intervalle, von, bis):
+    """Summe der Minuten, die von den (start, stop)-Intervallen im
+    Zeitfenster [von, bis) abgedeckt sind (Ueberlappungen zaehlen nur
+    einmal)."""
+    ausschnitt = sorted(
+        (max(start, von), min(stop, bis))
+        for start, stop in intervalle
+        if stop > von and start < bis
+    )
+    summe, ende = 0.0, None
+    for start, stop in ausschnitt:
+        if ende is None or start > ende:
+            summe += (stop - start).total_seconds()
+            ende = stop
+        elif stop > ende:
+            summe += (stop - ende).total_seconds()
+            ende = stop
+    return summe / 60.0
+
+
 def normalisiere_sendername_kern(name):
     """Wie normalisiere_sendername(), entfernt zusaetzlich die
     Qualitaets-Suffixe "HD"/"FHD"/"UHD"/"SD" als eigene Woerter (z.B.
