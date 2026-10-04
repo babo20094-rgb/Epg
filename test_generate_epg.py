@@ -2268,3 +2268,70 @@ def test_epgshare_de_alias_sky_cinema_highlight_und_sky_sports_f1(_epgshare_de_c
         assert epgshare_de_epg.epgshare_de_kanal_finden("SKY CINEMA HIGHLIGHT HD") == "DE1:Sky.Cinema.Highlights.HD.de"
         assert epgshare_de_epg.epgshare_de_kanal_finden("SKY CINEMA HIGHLIGHT HEVC") == "DE1:Sky.Cinema.Highlights.HD.de"
         assert epgshare_de_epg.epgshare_de_kanal_finden("SKY SPORTS F1 FHD") == "DE1:Sky.Sport.F1.de"
+
+
+# ---------------------------------------------------------------------------
+# Playlist-genaue Kanal-IDs (epg_lib.playlist_exakte_namen_sammeln /
+# ids_auf_playlist_einschraenken)
+# ---------------------------------------------------------------------------
+
+import re as _re
+from epg_lib import playlist_exakte_namen_sammeln, ids_auf_playlist_einschraenken
+
+_SONDER = _re.compile("[\t\xa0\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]")
+
+_M3U_BEISPIEL = (
+    "#EXTM3U\r\n"
+    '#EXTINF:-1 tvg-id="" tvg-name="UK| BBC ONE" group-title="UK",UK| BBC ONE\r\n'
+    "http://x/1\r\n"
+    '#EXTINF:-1 tvg-id="" tvg-name="EN|  EPIX" group-title="EN",EN|  EPIX\r\n'
+    "http://x/2\r\n"
+    '#EXTINF:-1 tvg-id="x1" tvg-name="" group-title="US",US| NESN HD (bk) \r\n'
+    "http://x/3\r\n"
+    '#EXTINF:-1 tvg-id="" tvg-name="" group-title="NHL",NHL | 05 - Spiel, mit Komma\r\n'
+    "http://x/4\r\n"
+)
+
+
+def test_playlist_namen_exakt_inkl_leerzeichen_komma_und_attribute():
+    namen = playlist_exakte_namen_sammeln(_M3U_BEISPIEL)
+    assert "UK| BBC ONE" in namen
+    assert "EN|  EPIX" in namen            # zwei Leerzeichen bleiben erhalten
+    assert "EN| EPIX" not in namen
+    assert "US| NESN HD (bk) " in namen    # nachlaufendes Leerzeichen bleibt
+    assert "NHL | 05 - Spiel, mit Komma" in namen
+    assert "x1" in namen                   # tvg-id
+
+
+def test_ids_einschraenken_behaelt_nur_playlist_varianten():
+    namen = playlist_exakte_namen_sammeln(_M3U_BEISPIEL) | {f"n{i}" for i in range(10)}
+    varianten = ["UK|BBC ONE", "UK| BBC ONE", "UK|  BBC ONE", "UK-NOWTV| BBC ONE", "UK-BBCI| BBC ONE"]
+    assert ids_auf_playlist_einschraenken(varianten, namen, 5, _SONDER) == ["UK| BBC ONE"]
+
+
+def test_ids_einschraenken_ohne_treffer_oder_zu_kleine_playlist_behaelt_alle():
+    varianten = ["UK|X", "UK| X", "UK|  X"]
+    namen = frozenset({"ganz anderer Name"} | {f"n{i}" for i in range(10)})
+    assert ids_auf_playlist_einschraenken(varianten, namen, 5, _SONDER) == varianten      # kein Treffer
+    assert ids_auf_playlist_einschraenken(varianten, frozenset({"UK| X"}), 5, _SONDER) == varianten  # Playlist zu klein
+    assert ids_auf_playlist_einschraenken(["EINZIG"], namen, 5, _SONDER) == ["EINZIG"]    # nur eine Variante
+
+
+def test_ids_einschraenken_laesst_sender_mit_sonderzeichen_oder_anfuehrungszeichen_unberuehrt(_=None):
+    namen = frozenset({"US| THE BLAZE\xa0HD"} | {f"n{i}" for i in range(10)})
+    # Die vom Player normalisierte Variante ("US| THE BLAZE HD") steht NICHT roh in der Playlist,
+    # ist aber die, die TiviMate trifft -> Sender mit Sonderzeichen werden gar nicht eingeschraenkt.
+    varianten = ["US| THE BLAZE\xa0HD", "US| THE BLAZE HD", "US|THE BLAZE HD"]
+    assert ids_auf_playlist_einschraenken(varianten, namen, 5, _SONDER) == varianten
+    namen2 = frozenset({'US| "X" Y'} | {f"n{i}" for i in range(10)})
+    varianten2 = ['US| "X" Y', "US| ", "US|  "]
+    assert ids_auf_playlist_einschraenken(varianten2, namen2, 5, _SONDER) == varianten2
+
+
+def test_ids_einschraenken_laesst_header_kanaele_unveraendert():
+    namen = frozenset({"##### 24/7 COMEDY VIP #####"} | {f"n{i}" for i in range(10)})
+    varianten = ["##### 24/7 COMEDY VIP #####", "##### 24/7 COMEDY \u2c7d\u1d35\u1d3e #####"]
+    assert ids_auf_playlist_einschraenken(varianten, namen, 5, _SONDER) == varianten
+    namen2 = frozenset({"### WOW SPORT ###"} | {f"n{i}" for i in range(10)})
+    varianten2 = ["### WOW SPORT ###", "### WOW SPORT  ###", "###  WOW SPORT ###"]
+    assert ids_auf_playlist_einschraenken(varianten2, namen2, 5, _SONDER) == varianten2

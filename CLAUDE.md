@@ -92,9 +92,8 @@ Der GitHub-Actions-Workflow "Update EPG"
 direkter, expliziter Anweisung des Nutzers ausgelöst (z. B. "starte den
 Workflow") — niemals automatisch oder proaktiv, auch nicht direkt nachdem
 gemeinsam etwas am Skript geändert wurde, solange der Nutzer nicht
-ausdrücklich danach fragt. Aktuelle Laufzeit: ca. 25-30 Minuten (nach
-Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
-`docs/HISTORIE.md`).
+ausdrücklich danach fragt. Aktuelle Laufzeit: ca. 15-20 Minuten (nach
+Parallelisierung/Vorab-Abrufen, siehe `docs/HISTORIE.md`).
 
 ## Neue Sender in sender.txt
 
@@ -142,7 +141,7 @@ Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
   über `normalisiere_grossschreibung()` (`epg_lib.py`) in normale
   Schreibweise umgewandelt, bereits normale Texte bleiben unverändert.
 - Bei Änderungen an dieser Logik immer `python3 -m pytest
-  test_generate_epg.py` laufen lassen (aktuell ~102 Tests).
+  test_generate_epg.py` laufen lassen (aktuell ~109 Tests).
 
 ## Logos
 
@@ -206,7 +205,7 @@ Parallelisierung der Netzwerk-Abrufe der groessten Quellen, siehe
 Workflow committet NUR die `.gz`-Datei, Player-URL muss auf `.xml.gz`
 zeigen). `epg_lib.py` enthält Kategorie-/Sprach-/Text-Logik. Der
 GitHub-Actions-Workflow `update_epg.yml` läuft alle 4h automatisch und bei
-manuellem Trigger (~25-30 Min. Laufzeit).
+manuellem Trigger (~15-20 Min. Laufzeit, Run 957: 18:53 Min.).
 
 **sender.txt-Zeilenformate:**
 - `Land|Sender|Beschreibung|Logo` - Standardformat.
@@ -227,7 +226,7 @@ manuellem Trigger (~25-30 Min. Laufzeit).
 **Automatisch (kein sender.txt-Präfix nötig, nur passendes Land):**
 - **DE / JOYN / WOW** (auch ergänzend bei **PRIME**): Kaskade
   deswird.org → Pluto TV → epgshare01 (DE1/AT1/CH1, `epgshare_de_epg.py`,
-  ohne Fuzzy-Abgleich, Platzhalter wie "Sendepause" werden ignoriert) →
+  ohne Fuzzy-Abgleich, "Sendepause" ist KORREKT und bleibt) →
   tvmovie.de → hoerzu.de (nur noch bei Lücken: sie werden übersprungen,
   wenn der Tag bis 04:00 UTC des Folgetags zu >=95% abgedeckt ist, Schalter
   `TVMOVIE_HOERZU_NUR_BEI_LUECKEN` in `generate_epg.py`) → Joyn-VOD →
@@ -265,6 +264,27 @@ Alle Quellen degradieren bei jedem Fehler (Netzwerk, kein Treffer, kaputte
 Daten) graceful auf die normale generische EPG-Generierung - nie ein
 Absturz des gesamten Laufs. Details, Sonderfälle und die komplette
 Fallgeschichte zu jeder Quelle: `docs/HISTORIE.md`.
+
+## Schalter in generate_epg.py (Stand Oktober 2026, Details: docs/HISTORIE.md)
+
+Drei Schalter machen die Oktober-2026-Optimierungen einzeln rückgängig:
+- `NUR_PLAYLIST_IDS_AKTIV` (**True**): schreibt pro Sender nur die Kanal-ID-
+  Varianten, die zeichengenau in der PROVIDER-Playlist stehen (~50.000 ->
+  ~21.000 `<channel>`-Einträge, ~58 % weniger Sendungen, kleinere XML /
+  schnelleres Laden in TiviMate). Immer ALLE Varianten bleiben bei: keinem
+  Treffer in der Playlist, Playlist < 5000 Namen, Namen mit Anführungszeichen
+  oder unsichtbaren Sonderzeichen (TiviMate normalisiert diese Namen), und
+  allen HEADER-Kanälen (Name enthält `###`, z. B. `##### DE| STAIGE PPV
+  #####` - Nutzerwunsch: Header bleiben immer unverändert). Am Lauf-Ende
+  steht eine Statistik im Log ("Playlist-genaue IDs: ..."). Logik in
+  `epg_lib.ids_auf_playlist_einschraenken()`.
+- `VORAB_ABRUFE_AKTIV` (**True**): 26 reine Netzwerk-Abrufe (`_xxx_abrufen`)
+  starten vorab gleichzeitig (`_vorab_starten()`/`_vorab_ergebnis()`), das
+  Schreiben ins XML bleibt unverändert sequenziell. Ausgenommen: tvprofil,
+  tvprogramrs, tvprogramdanas (lesen `hat_aktive_echte_quelle()`).
+- `TVMOVIE_HOERZU_NUR_BEI_LUECKEN` (**True**): tvmovie.de/hoerzu.de nur bei
+  Lücken nach deswird/Pluto/epgshare01.
+Bei Problemen: Schalter auf `False` (oder Commit reverten).
 
 ## Bekannter offener Fall
 

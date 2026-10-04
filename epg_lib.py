@@ -2590,3 +2590,45 @@ def finde_logo(sender_name, land, name_index, logo_by_id, min_score=0.72):
 
     return None
 
+
+
+
+def playlist_exakte_namen_sammeln(m3u_text):
+    """Sammelt die EXAKTEN Namen aller #EXTINF-Zeilen einer M3U-Playlist
+    (Text nach dem Komma, tvg-name, tvg-id) als frozenset - zeichengenau,
+    ohne strip() (Leer-/Sonderzeichen sind fuer TiviMates Namensabgleich
+    relevant, nur CR/LF werden entfernt). Das erste Komma NACH dem letzten
+    Anfuehrungszeichen trennt Attribute und Anzeigename (Namen koennen
+    selbst Kommas enthalten)."""
+    namen = set()
+    for zeile in m3u_text.split("\n"):
+        zeile = zeile.rstrip("\r")
+        if not zeile.startswith("#EXTINF") or "," not in zeile:
+            continue
+        letztes_anfuehrungszeichen = zeile.rfind('"')
+        komma_pos = zeile.find(",", letztes_anfuehrungszeichen if letztes_anfuehrungszeichen != -1 else 0)
+        if komma_pos != -1:
+            namen.add(zeile[komma_pos + 1:])
+        for attribut in ("tvg-name", "tvg-id"):
+            treffer = re.search(attribut + r'="([^"]*)"', zeile)
+            if treffer and treffer.group(1):
+                namen.add(treffer.group(1))
+    return frozenset(namen)
+
+
+def ids_auf_playlist_einschraenken(varianten, playlist_namen, min_namen, sonder_regex):
+    """Behaelt von den ID-Varianten eines Senders nur die, die zeichengenau
+    als Name in der Playlist stehen. Sicherheitsnetze (dann bleiben ALLE
+    Varianten): Playlist zu klein/leer, nur eine Variante, KEINE Variante
+    trifft die Playlist, es ist ein HEADER-Kanal (Name mit "###", z.B.
+    "##### DE| STAIGE PPV #####" - bleibt immer unveraendert), oder eine
+    Variante enthaelt Anfuehrungszeichen bzw. unsichtbare Sonderzeichen - dort normalisiert der Player den Namen
+    (die bereinigte Variante, die TiviMate trifft, steht NICHT roh in der
+    Playlist), eine Einschraenkung waere dort unsicher."""
+    if len(playlist_namen) < min_namen or len(varianten) < 2:
+        return varianten
+    if any('"' in v or sonder_regex.search(v) or "###" in v for v in varianten):
+        return varianten
+    if not any(v in playlist_namen for v in varianten):
+        return varianten
+    return [v for v in varianten if v in playlist_namen]

@@ -6945,3 +6945,132 @@ Highlights" und "SKY SPORTS F1" -> "Sky Sport F1". Nicht abgedeckt bleiben
 (bewusst, keine echten Daten in den Feeds): Sky Go Filme/Kinder, Sky
 Select/Max/Super Select, Sky Sport 12-14, 4K-Live-Event-Kanaele - dort laufen
 tvmovie/hoerzu weiter (mit ihren alten Fehlzuordnungen).
+
+
+## Oktober 2026 (04.10.): Laufzeit + XML-Groesse - Vorab-Abrufe und playlist-genaue Kanal-IDs
+
+Zusammenfassung der Session vom 04.10.2026. Reihenfolge der Aenderungen auf
+main: (1) `e069bd6` epgshare01-Stufe (siehe Abschnitt weiter oben), (2)
+`c7bef0d` Sendepause behalten + Klammerzusatz + Sky-Aliase, (3) der Commit
+"Vorab-Abrufe parallel, Playlist-genaue IDs ..." (dieser Abschnitt).
+
+### 1. Quellen-Pruefung (kein Einbau)
+Geprueft und verworfen: TVinfo (nur Startseite/Teaser, selber Anbieter wie
+tvmovie/hoerzu), Rytec (404), streamstv.me/it999.com (geparkte Domains),
+Hulu (kein Rasterdaten/Login), tvgids/TV Spielfilm/TV Today/prisma (403/
+robots.txt-Verbot - Sperre wird NICHT umgangen), TMDB (keine EPG-Quelle),
+Kodi-Addon Takealug (selbe Anbieter wie vorhanden, teils Login),
+plus.rtl.de (React-App, GraphQL-API hinter gesperrtem Host). epgshare01 BEIN1
+liefert nur ~3 Tage, nicht eingebaut. Diagnose-Workflows (Pluto,
+tvmovie/hoerzu) wurden gebaut, ausgewertet und wieder entfernt (Ergebnisse
+im Abschnitt "DE-Kaskade: epgshare01" oben).
+
+### 2. Vorab-Abrufe (Laufzeit)
+**Messung (Run 956, vor allen Aenderungen):** "Generate EPG" 21:51 Min.
+Summe aller Quellenzeiten 1961 s, Wanduhr 1311 s - die DE-Kaskade (667 s)
+laeuft im Hintergrund-Pool und liegt NICHT auf dem kritischen Pfad; der
+bestimmt die sequenzielle Vordergrund-Kette (~15 Min.: A1 155 s, mts.rs
+118 s, MagentaTV MK/ME ~105 s, mtel.ba 99 s, tvprogramdanas 65 s, RTV RS
+64 s, ...) plus ~4 Min. Startphase. **Fehleinschaetzung:** vor dem Umbau
+der DE-Kaskade (epgshare01) wurden 10-14 Min. Ersparnis geschaetzt, ohne zu
+pruefen, ob sie auf dem kritischen Pfad liegt - real brachte epgshare01
+nur ~3 Min. (Run 957: 18:53 Min., DE-Kaskade 455 s, tvmovie/hoerzu-
+Rate-Limit-Zeilen verschwunden). Lehre: erst kritischen Pfad aus dem Log
+bestimmen, dann schaetzen.
+
+**Befund (AST-Pruefung aller 29 `_xxx_abrufen`-Funktionen):** keine liest
+Ergebnisse anderer Quellen; nur `_de_kaskade_abrufen` und `_siol_abrufen`
+schreiben eigene `daten[...]`-Felder. Ausnahmen mit Abhaengigkeit:
+`_tvprofil_abrufen`, `_tvprogramrs_abrufen`, `_tvprogramdanas_abrufen`
+(rufen `hat_aktive_echte_quelle()` -> lesen die Ergebnisse aller vorherigen
+Quellen) - diese drei bleiben am alten Platz. Die Abhaengigkeit "Telemach
+vor mts.rs" (ME/MNG/MO/CG teilen `telemach_intervalle`) betrifft nur das
+SCHREIBEN, nicht den Abruf.
+
+**Umsetzung:** neuer Abschnitt "VORAB-ABRUF" in `generate_epg.py` direkt
+vor dem BA-Block (Telemach/mtel/klix/...): `_VORAB_POOL` (10 Worker),
+`_vorab_starten(schluessel, sender_liste, abruf_fn, **kw)` und
+`_vorab_ergebnis(...)` (liefert das fertige Ergebnis, bei fehlendem
+Vorab-Start/Fehler faellt es auf den direkten Abruf zurueck). 26 Abrufe
+starten gleichzeitig (Reihenfolge: TVPassport, DE-Kaskade, Telemach, mtel,
+klix, rtv-hb, tvdugaplus, A1, mts.rs, Sky, dann Rest); 29 Funktions-/
+Senderlisten-Bloecke wurden dazu nach oben verschoben, jede alte
+`_parallel_abrufen`-Zeile wurde zu `_vorab_ergebnis("...", ...)`. Das
+Schreiben ins XML (Ueberlappungs-/Luecken-Logik) bleibt unveraendert
+sequenziell an der alten Stelle. Die Umformung wurde skriptgesteuert per
+`ast` gemacht (Namenspruefung: jede verschobene Funktion nutzt nur Namen,
+die am neuen Platz schon existieren). Schalter `VORAB_ABRUFE_AKTIV`.
+
+**Verifikation (lokal, volle sender.txt, alt und neu parallel):** 50.152
+Kanaele in beiden XML, 50.002 (99,7 %) mit identischen Sendungen, 150
+abweichend (120 davon RS) - zeitabhaengig (fruehere Abrufe, Randsendung am
+Fensterende), identische Fehlerzahlen (mtel.ba 208, mts.rs 12), neu ~5 Min.
+schneller (23 statt 28 Min. lokal). **Noch nicht parallelisiert:** MK-EPG/
+MagentaTV MK/ME/Tubi (~100 s, Abruf und Schreiben ineinander), Startphase
+(~4 Min.), tvprofil/tvprogramrs/tvprogramdanas. Hinweis: beide
+Hintergrund-Bloecke (Sky/TVPassport/DE-Kaskade) nutzen jetzt ebenfalls
+`_vorab_ergebnis`.
+
+### 3. Playlist-genaue Kanal-IDs (XML-Groesse / TiviMate-Ladezeit)
+**Analyse (Epg_365_Tage.xml.gz):** 19.981 verschiedene Sender, aber 50.316
+`<channel>`-Eintraege; 30.335 ueberzaehlige IDs tragen 986.627 von 1.568.267
+Sendungen (63 %). Groesster Posten UK (20.295 ueberzaehlige IDs: 0/1/2
+Leerzeichen x `UK|`/`UK-NOWTV|`/`UK-BBCI|` x `FHD`/`ᶠᴴᴰ`), sonst RS, EN, US,
+DE, PRIME. 574 MB unkomprimiert / 27 MB gepackt. Ursache der Varianten:
+`kanal_id_varianten()` (Playlist schreibt Leerzeichen/Suffixe uneinheitlich,
+TiviMate matcht EXAKT).
+
+**Umsetzung:** die PROVIDER-Playlist wird ohnehin geladen
+(`_m3u_playlist_roh_text_laden`). Dort werden jetzt ALLE exakten Namen
+gesammelt (`epg_lib.playlist_exakte_namen_sammeln()`: Text nach dem Komma,
+`tvg-name`, `tvg-id`, zeichengenau, nur CR/LF entfernt).
+`kanal_id_varianten()` ist jetzt ein Wrapper um
+`_kanal_id_varianten_ungefiltert()` und ruft bei `NUR_PLAYLIST_IDS_AKTIV =
+True` `epg_lib.ids_auf_playlist_einschraenken()` auf. **Regeln - es bleiben
+ALLE Varianten, wenn:** Playlist < 5000 Namen, nur eine Variante, KEINE
+Variante in der Playlist steht, eine Variante `"` oder unsichtbare
+Sonderzeichen enthaelt (**Lehre:** TiviMate normalisiert diese Namen, die
+bereinigte Variante steht NICHT roh in der Playlist - ein erster Entwurf, der
+nur die rohe Variante behielt, haette z.B. "US| THE BLAZE HD" gestrichen;
+aufgedeckt durch einen Unit-Test), oder es ein HEADER-Kanal ist (Name mit
+`###`, z.B. `##### DE| STAIGE PPV #####`, Nutzerwunsch: Header bleiben immer
+unveraendert; die Playlist hat 401 solcher Namen, 603 Header-Sender in der
+XML). Sonst bleiben nur die Varianten, die zeichengenau in der Playlist
+stehen (mehrere gleichnamige Playlist-Schreibweisen bleiben alle erhalten).
+Am Lauf-Ende gibt `_playlist_id_statistik()` eine Auswertung ins Log (A:
+reduziert/unveraendert, B0-B3: Sender ohne exakten Treffer nach Art des
+Unterschieds mit Beispielen, C1/C2: Playlist-Namen ohne ID).
+
+**Verifikation mit der echten Playlist-Liste (Xtream `get_live_streams`,
+18.912 Streams / 18.527 eindeutige Namen; vom Sandbox-Host liefert die API
+nur zeitweise HTTP 200, sonst 403):** IDs 49.971 -> 21.397, Sendungen
+-58 %, Playlist-Namen mit passender ID 18.310 vorher UND nachher (0
+verlorene Zuordnungen). Event/PPV-Sender (5.493): 5.019 nur 1 ID
+(unberuehrt, z.B. "LIVE | ... | DE: STAIGE PPV 3"), 445 reduziert (z.B. DYN
+PPV 1-20: `ᴴᴰ`-Variante faellt weg - alle 20 Playlist-Namen heissen
+"DE| DYN PPV N HD"), 29 mit Sonderzeichen unberuehrt. Ohne exakten Treffer
+(1.690 Sender, behalten alle IDs): B0 1.142 (v.a. dynamische Event-Namen
+und Sender, deren Playlist-Name mit `ⱽᴵᴾ ᴿᴬᵂ` endet, z.B. "BA| K3", "RS|
+TRAVEL XP" - vermutlich schon vorher ohne EPG), B1 494 (Name nicht mehr in
+der Playlist, z.B. `CITY| ABC ...`), B2 6 (u.a. `\xa0` im Playlist-Namen),
+B3 48 (Schreibweise: `4K` vs `4k`, `(KTTW)`, ...). 217 Playlist-Namen
+haben keinen Sender in sender.txt (v.a. DE 99, LIVE 58, ENDED/NEXT).
+Ein Ende-zu-Ende-Test mit nachgebauter M3U (lokaler HTTP-Server, aus
+dieser Liste erzeugt) lief ohne Fehler.
+
+**Offen / Ideen:** (a) ~50 Sender mit Schreibweise-Abweichung gegenueber der
+Playlist ("exakte Playlist-Schreibweise als ID uebernehmen"), (b) 217
+Playlist-Namen ohne Sender, (c) restliche Parallelisierung (MK/Magenta/
+Tubi, Startphase), (d) ob TiviMate dadurch wirklich schneller laedt, ist
+nicht messbar von hier - Nutzer prueft nach dem ersten Lauf, ob irgendwo
+EPG fehlt.
+
+### 4. Rueckgaengig machen (alles vom 04.10.2026)
+- Nur die kleinere XML wieder abschalten: `NUR_PLAYLIST_IDS_AKTIV = False`.
+- Vorab-Abrufe abschalten (Abruf wieder am jeweiligen Block):
+  `VORAB_ABRUFE_AKTIV = False`.
+- tvmovie/hoerzu wieder immer befragen: `TVMOVIE_HOERZU_NUR_BEI_LUECKEN =
+  False`.
+- Kompletter Stand davor: Commits revertieren (`e069bd6` epgshare01,
+  `c7bef0d` Sendepause/Klammer/Aliase, dazu der Commit "Vorab-Abrufe
+  parallel, Playlist-genaue IDs ...").
