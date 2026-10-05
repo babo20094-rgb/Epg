@@ -203,6 +203,14 @@ Parallelisierung/Vorab-Abrufen, siehe `docs/HISTORIE.md`).
 
 ## Architektur-Überblick
 
+**Wichtig - Name "365 Tage" ist irreführend:** `Epg_365_Tage.xml` deckt
+NICHT 365 Tage ab. Das war die ursprüngliche Projektidee; der Umfang hat
+sich seitdem geändert (echte Quellen liefern meist nur wenige Tage bis ca.
+2 Wochen, danach generische Einträge). Nur der Dateiname ist geblieben (die
+Player-URL hängt daran). Bei Bewertung neuer Quellen deshalb NICHT daran
+messen, ob sie 365 Tage abdecken - ein kürzerer Zeitraum ist kein
+Ausschlussgrund und kein Missverständnis mehr nötig.
+
 `generate_epg.py` liest `sender.txt` und erzeugt daraus `Epg_365_Tage.xml`
 (+ komprimiert `Epg_365_Tage.xml.gz`, wegen GitHub-100-MB-Limit - der
 Workflow committet NUR die `.gz`-Datei, Player-URL muss auf `.xml.gz`

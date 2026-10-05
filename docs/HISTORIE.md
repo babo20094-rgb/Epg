@@ -7156,3 +7156,12 @@ Auffaelligkeiten (nicht durch die Aenderungen erklaert, Log filtert Fehler):
 beim ersten Abruf nicht erreichbar -> DYN PPV 1-20 nutzen den festen Namen
 "DE| DYN PPV N HD"; spaeterer Playlist-Abruf klappte). Beides vermutlich
 voruebergehend (Serverseite) - beim naechsten Lauf pruefen.
+
+
+## Oktober 2026 (05.10.): Dateiname "Epg_365_Tage" ist historisch
+
+Die Datei heißt `Epg_365_Tage.xml(.gz)`, deckt aber keine 365 Tage ab. Die
+ursprüngliche Projektidee wurde später geändert, nur der Name blieb
+(Player-URLs hängen daran). Beim Prüfen neuer Quellen (z. B. iptvx.one,
+ca. 2 Wochen Daten) ist die kurze Laufzeit daher kein Mangel. Siehe
+Hinweis in `CLAUDE.md` (Architektur-Überblick).
