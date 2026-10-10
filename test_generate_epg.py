@@ -2438,3 +2438,37 @@ def test_epgshare_balkan_degradiert_bei_netzwerkfehler():
         assert m.epgshare_balkan_kanal_finden("TV ZVEZDA", "RS") is None
         assert m.epgshare_balkan_hole_programme("RS1:Zvezda.TV.rs", 3) == []
     m._daten_cache = None
+
+
+# --- Generischer Platzhalter-Titel (schoener_sendername), Oktober 2026 ---
+
+def test_schoener_sendername_entfernt_qualitaet_klammern_und_marker():
+    from epg_lib import schoener_sendername as f
+    assert f("STARS IN GEFAHR ᴿᴬᵂ") == "Stars in Gefahr"
+    assert f("LANDLUST-TV-HD ᴿᴬᵂ") == "Landlust TV"
+    assert f("NFL NETWORK (N573) ROANOKE") == "NFL Network Roanoke"
+    assert f("COLORS HEVC FHD") == "Colors"
+    assert f("DAZN BAR 1 FHD*") == "DAZN Bar 1"
+    assert f("ESPN 2 ᴴᴰ ²⁵ᶠᵖˢ") == "ESPN 2"
+    assert f("RTV USK ⱽᴵᴾ ᴿᴬᵂ") == "RTV USK"
+    assert f("TV| A&E ᴿᴬᵂ") == "A&E"
+    assert f("UK| BBC ONE EAST") == "BBC One East"
+
+
+def test_schoener_sendername_grossschreibung_und_sonderfaelle():
+    from epg_lib import schoener_sendername as f
+    assert f("HBO EAST") == "HBO East" and f("CNN") == "CNN" and f("N1 HR") == "N1 HR"
+    assert f("3SAT") == "3Sat" and f("ABC7 NEW YORK") == "ABC7 New York"
+    assert f("US: ESPN+ PPV 1") == "US: ESPN+ PPV 1"
+    # Bleibt nach der Bereinigung fast nichts uebrig, bleiben die Zusaetze stehen
+    assert f("24 4K") == "24 4K"
+    assert f("") == ""
+
+
+def test_ist_automatischer_platzhaltertitel_nur_fuer_alte_auto_texte():
+    from epg_lib import ist_automatischer_platzhaltertitel as g
+    assert g("Sr Hd ᴸⁱᵛᵉ", "SR HD")
+    assert g("20/20 ᴿᴬᵂ ᴸⁱᵛᵉ", "TV| 20/20 ᴿᴬᵂ")
+    assert not g("MySports 2 - Kein Live Spiel", "MYSPORTS 2 HD")      # handgeschrieben
+    assert not g("Sport Live ᴸⁱᵛᵉ", "SPORT1")        # anderer Name
+    assert not g("", "SR HD")

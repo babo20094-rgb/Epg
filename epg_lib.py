@@ -2325,6 +2325,129 @@ def kanalname_normal_geschrieben(name):
     return " ".join(ergebnis)
 
 
+# --- Generischer Platzhalter-Titel (Oktober 2026, Nutzerwunsch) ---
+# Qualitaets-/Anbieter-Zusaetze, die im EPG-Raster nur Ballast sind.
+_TITEL_QUALITAET = {
+    "HD", "FHD", "UHD", "SD", "4K", "8K", "HEVC", "H265", "H264", "RAW", "VIP",
+    "1080P", "720P", "3840P", "60FPS", "50FPS", "30FPS", "25FPS",
+}
+# Abkuerzungen, die im Titel GROSS bleiben (Sender-/Marken-Kuerzel). Bewusst
+# ohne Land-/Kategorie-Kuerzel wie "SI"/"NA" aus KANALNAME_ABKUERZUNGEN, die
+# bei Sendernamen auch normale Woerter sein koennen.
+_TITEL_ABKUERZUNGEN = {
+    "BBC", "HBO", "CNN", "CNBC", "MSNBC", "NFL", "NBA", "NHL", "MLB", "NCAA", "UFC", "WWE",
+    "AEW", "ESPN", "DAZN", "QVC", "CBS", "NBC", "ABC", "PBS", "FOX", "MTV", "RTL", "ZDF",
+    "ARD", "WDR", "NDR", "MDR", "SWR", "RBB", "BR", "SR", "HR", "ORF", "SRF", "AMC", "TNT",
+    "ITV", "STV", "TLC", "TCM", "HGTV", "BET", "CMT", "TV", "TVP", "HRT", "RTS", "RTV",
+    "RTRS", "BHT", "USK", "BN", "N1", "PPV", "NRK", "SVT", "TV2", "RT", "UK", "US",
+    "VOD", "DJ", "DIY", "OTT", "UEFA", "FIFA", "ACL", "EPL", "MLS", "SPFL", "NOW",
+}
+# Vokallose Woerter, die KEINE Abkuerzung sind (bleiben normal geschrieben).
+_TITEL_KEINE_KUERZEL = {"DR", "MR", "MRS", "ST", "VS", "MS"}
+# 4-Buchstaben-Woerter mit K/W am Anfang, die KEINE US-Senderkennung sind.
+_TITEL_KEIN_SENDERCODE = {
+    "KIDS", "KING", "KIND", "KILL", "KISS", "KNOW", "KART", "KEEP", "KICK", "KILT", "KIWI",
+    "WEST", "WILD", "WINE", "WORK", "WAVE", "WARS", "WEEK", "WOLF", "WILL", "WIRE", "WIND",
+    "WAKE", "WALK", "WALL", "WANT", "WARM", "WASH", "WATCH", "WEAR", "WELL", "WERE", "WHAT",
+    "WHEN", "WHOM", "WIDE", "WIFE", "WINS", "WISE", "WITH", "WOOD", "WORD", "WORE", "WORN",
+    "WRAP", "WIEN", "WELT", "WAHL", "WUNDER", "KINO", "KLUB", "KURS", "KANAL",
+}
+_TITEL_KLEINWOERTER = {"in", "of", "the", "and", "und", "de", "la", "el", "am", "an", "im", "der", "die", "das"}
+
+
+def schoener_sendername(name, land=None):
+    """Bereinigter Sendername fuer generische Platzhalter-Titel (ohne
+    Land-Praefix "XX|", ohne Klammerzusaetze, ohne Qualitaets-/Anbieter-
+    Zusaetze wie HD/FHD/4K/HEVC/RAW/VIP und hochgestellte Marker wie
+    "ᴿᴬᵂ"/"ⱽᴵᴾ"/"ᴴᴰ"/"²⁵ᶠᵖˢ"), mit sauberer Gross-/Kleinschreibung
+    (bekannte Abkuerzungen gross, Fuellwoerter klein).
+
+    Bleibt nach der Bereinigung fast nichts uebrig (z.B. "24 4K" -> "24"),
+    bleiben die Qualitaets-Zusaetze zur Unterscheidung stehen. `land` (Land-
+    Feld aus sender.txt) steuert nur, ob US-Senderkennungen (KUSA, WNYW) gross
+    geschrieben werden."""
+    if not name:
+        return name
+
+    n = re.sub(r"^[A-Za-z0-9\-]+\|\s*", "", name.strip())
+    n = re.sub(r"\([^)]*\)|\[[^\]]*\]", " ", n)
+    n = re.sub(r"[\u00b2\u00b3\u00b9\u1d2c-\u1dbf\u2070-\u209f\u2c7c\u2c7d\u02b0-\u02ff]+", " ", n)
+    n = n.replace("*", " ")
+    n = re.sub(r"(?<=\w)-(?=\w)", " ", n) if re.search(r"-(TV|HD|FHD|4K)\b", n, re.IGNORECASE) else n
+
+    alle = n.split()
+    ohne_qualitaet = [t for t in alle if t.upper() not in _TITEL_QUALITAET]
+    kern = ohne_qualitaet if len("".join(ohne_qualitaet)) >= 3 and not "".join(ohne_qualitaet).isdigit() else [
+        t for t in alle if t.upper() not in {"RAW", "VIP"}
+    ]
+    if not kern:
+        return kanalname_normal_geschrieben(name)
+
+    praefix_match = re.match(r"^([A-Za-z0-9\-]+)\|", name.strip())
+    land_oder_praefix = ((praefix_match.group(1) if praefix_match else "") or (land or "")).strip().upper()
+    us_lokal = land_oder_praefix in {"TV", "CITY", "GO", "PRIME", "US", "EN", "NA"}
+
+    ergebnis = []
+    for i, token in enumerate(kern):
+        if i > 0 and kern[i - 1].endswith(",") and re.fullmatch(r"[A-Za-z]{2}", token):
+            ergebnis.append(token.upper())  # US-Bundesstaat: "Green Bay, WI"
+            continue
+        if us_lokal and re.fullmatch(r"[KkWw][A-Za-z]{3}", token) and token.upper() not in _TITEL_KEIN_SENDERCODE:
+            ergebnis.append(token.upper())  # US-Senderkennung: KUSA, WNYW, WTRF
+            continue
+        # Land-Doppelpunkt ("US:", "DE:") getrennt behandeln, sonst bleibt
+        # er als Teil des Wortes und das Kuerzel wird nicht erkannt.
+        doppelpunkt = ":" if token.endswith(":") and len(token) > 1 else ""
+        token = token[:-1] if doppelpunkt else token
+        u = token.upper()
+        if doppelpunkt and u in (_TITEL_ABKUERZUNGEN | KANALNAME_ABKUERZUNGEN):
+            ergebnis.append(u + doppelpunkt)
+            continue
+        token = token + doppelpunkt
+        u = token.upper()
+        plus = "+" if token.endswith("+") and len(token) > 2 else ""
+        if plus and u[:-1] in _TITEL_ABKUERZUNGEN:
+            ergebnis.append(u)  # z.B. "ESPN+"
+        elif u in _TITEL_ABKUERZUNGEN or u in _TITEL_QUALITAET:
+            ergebnis.append(u)
+        elif "&" in token and len(token) <= 5:
+            ergebnis.append(token.upper())  # z.B. "A&E", "AT&T"
+        elif "&" in token:
+            ergebnis.append("&".join(t.capitalize() for t in token.split("&")))  # "Vlad&Niki"
+        elif re.fullmatch(r"[A-Za-z]{2,4}", token) and not re.search(r"[AEIOUYaeiouy]", token) \
+                and u not in _TITEL_KEINE_KUERZEL:
+            ergebnis.append(u)  # vokallose Kurzform ist fast immer ein Kuerzel (MTM, MRT, FM, FX)
+        elif any(c.isdigit() for c in token):
+            # Mit Ziffern: kurze Kennungen ("N1", "ABC7", "80S", "20/20") gross,
+            # sonst jeden Buchstabenblock einzeln kapitalisieren ("3SAT" -> "3Sat").
+            if re.fullmatch(r"[A-Za-z]{1,4}\d+[A-Za-z]?|\d+[A-Za-z]?|[0-9/+]+", token):
+                ergebnis.append(token.upper())
+            else:
+                ergebnis.append(re.sub(r"[A-Za-z]+", lambda m: m.group().capitalize(), token))
+        elif i > 0 and token.lower() in _TITEL_KLEINWOERTER:
+            ergebnis.append(token.lower())
+        else:
+            ergebnis.append("-".join(teil.capitalize() for teil in token.split("-")))
+    return " ".join(ergebnis)
+
+
+def ist_automatischer_platzhaltertitel(text, sender):
+    """True, wenn `text` (Beschreibungsfeld aus sender.txt) nur der alte,
+    automatisch erzeugte Platzhalter "<Sendername> ᴸⁱᵛᵉ" ist (gleicher Name
+    wie der Sender, nur andere Gross-/Kleinschreibung) - dann darf er durch
+    den neuen, bereinigten Titel ersetzt werden. Handgeschriebene Texte
+    (z.B. "MySports 2 - Kein Live Spiel") bleiben unveraendert."""
+    suffix = " ᴸⁱᵛᵉ"
+    if not text or not text.endswith(suffix):
+        return False
+
+    def vergleichbar(t):
+        t = re.sub(r"^[A-Za-z0-9\-]+\|\s*", "", (t or "").strip())
+        return re.sub(r"\s+", " ", t).casefold()
+
+    return vergleichbar(text[:-len(suffix)]) == vergleichbar(sender)
+
+
 # Bewusst eine EIGENE, viel kleinere Abkuerzungsliste als
 # KANALNAME_ABKUERZUNGEN - jene enthaelt auch Land-/Kategorie-Kuerzel
 # wie "LIGA"/"SK"/"NA"/"SI", die in kroatischen/serbischen Sendungs-

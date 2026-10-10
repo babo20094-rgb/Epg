@@ -103,7 +103,12 @@ Parallelisierung/Vorab-Abrufen, siehe `docs/HISTORIE.md`).
   abbildet). Das Suchbegriff-Feld (2. Feld bei Opt-in-Präfixen) bleibt
   immer in der Original-Schreibweise der Quelle. Die generische
   Beschreibung (`Land|Sender|Beschreibung ᴸⁱᵛᵉ|Logo`) bleibt normale
-  Schrift/Title Case + `ᴸⁱᵛᵉ`, NICHT großgeschrieben.
+  Schrift/Title Case + `ᴸⁱᵛᵉ`, NICHT großgeschrieben. Beim Erzeugen der EPG
+  wird dieser alte Auto-Platzhalter automatisch durch einen bereinigten
+  Titel ersetzt (`epg_lib.schoener_sendername()`: ohne HD/FHD/4K/HEVC/RAW/
+  VIP, ohne Klammerzusätze und hochgestellte Marker, Abkürzungen groß,
+  z. B. "Bbc One East Hd ᴸⁱᵛᵉ" → "BBC One East ᴸⁱᵛᵉ"). Handgeschriebene
+  Texte (z. B. "MySports 2 - Kein Live Spiel") bleiben unverändert.
 - Neue Sender werden immer **ganz oben** in `sender.txt` eingefügt (nicht
   ans Ende anhängen), außer der Nutzer nennt explizit eine andere Stelle.
 - Bevor ein neuer Sender eingetragen wird, IMMER zuerst gezielt prüfen, ob

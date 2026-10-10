@@ -7242,3 +7242,26 @@ Netz echte Programmdaten). Befunde und Fixes:
   (12:25 UTC) die Playlist dreimal "verdaechtig" bekam -> keine playlist-genauen IDs
   (50.499 statt ~21.500 Kanaele) und kein Live-Kanalabgleich. Naechster Lauf normal.
 
+## Oktober 2026: bereinigte generische Platzhalter-Titel (`schoener_sendername`)
+
+Nutzerwunsch: Sender ohne echte Daten sollen im EPG-Raster sauberer aussehen.
+Vorher "Sr Hd ᴸⁱᵛᵉ", "Landlust-Tv-Hd ᴿᴬᵂ ᴸⁱᵛᵉ", "Bbc One East ᴸⁱᵛᵉ", "Cbs Austin News
+(Keye) ᴿᴬᵂ ᴸⁱᵛᵉ"; jetzt "SR ᴸⁱᵛᵉ", "Landlust TV ᴸⁱᵛᵉ", "BBC One East ᴸⁱᵛᵉ",
+"CBS Austin News ᴸⁱᵛᵉ".
+- `epg_lib.schoener_sendername(name, land=None)`: entfernt Land-Praefix "XX|",
+  Klammerzusaetze, Qualitaets-/Anbieter-Zusaetze (HD/FHD/UHD/4K/HEVC/RAW/VIP/
+  Aufloesung/fps) und ALLE hochgestellten Modifier-Buchstaben/Ziffern (ᴿᴬᵂ, ⱽᴵᴾ,
+  ᴴᴰ, ²⁵ᶠᵖˢ, ᶜᶦᵗʸ); Abkuerzungen gross (BBC, HBO, CNN, ESPN, QVC, RTV ...), vokallose
+  Kurzformen gross (MTM, MRT, FM, FX), Fuellwoerter klein, US-Bundesstaat nach Komma
+  gross, US-Senderkennung (KUSA, WNYW) nur fuer US-Lokalsender (Land TV/CITY/GO/PRIME/
+  US/EN/NA). Bleibt fast nichts uebrig (z.B. "24 4K"), bleiben die Zusaetze stehen.
+- `epg_lib.ist_automatischer_platzhaltertitel(text, sender)`: erkennt den alten
+  Auto-Text "<Sendername> ᴸⁱᵛᵉ" im Beschreibungsfeld von sender.txt (ca. 4.500 von 4.930
+  solcher Zeilen) - nur DIESE werden ersetzt (`generate_epg.py`, Parser), handgeschriebene
+  Texte (z.B. "MySports 2 - Kein Live Spiel") und Sonderformate (ᴺᵒ ᴸⁱᵛᵉ bei DYN/Flo/...)
+  bleiben unveraendert. sender.txt selbst wurde NICHT veraendert.
+- Auch die Luecken-Fuellung und die Opt-in-Quellen (Telemach/Sky/Magenta/Arena/DAZN/
+  Freeview/TVGuide/TVPassport, vorher `.title()`) nutzen jetzt `schoener_sendername`.
+- Bekannte Restfehler: Senderkennungen mit Bindestrich ("Wbbj-D2") und seltene
+  Eigennamen bleiben in "Title Case".
+

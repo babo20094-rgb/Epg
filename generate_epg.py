@@ -63,6 +63,8 @@ from epg_lib import (
     sender_anzeigename, standard_beschreibung, kategorie_label,
     sender_hash,
     kanalname_normal_geschrieben,
+    schoener_sendername,
+    ist_automatischer_platzhaltertitel,
     normalisiere_grossschreibung,
     normalisiere_sendername,
     normalisiere_sendername_kern,
@@ -1621,7 +1623,7 @@ for zeile in zeilen:
         # Sender, deren exakter Playlist-Name per NAME:-Format
         # uebernommen wird.
         if event_titel is None:
-            event_titel = f"{kanalname_normal_geschrieben(kurzname)} ᴸⁱᵛᵉ"
+            event_titel = f"{schoener_sendername(kurzname)} ᴸⁱᵛᵉ"
 
         # Automatische Datenmuell-/Duplikat-Erkennung (siehe Registry-
         # Kommentar oben bei sender_daten). Wurde oben ein abweichender
@@ -1712,7 +1714,7 @@ for zeile in zeilen:
         if not telemach_kanalname:
             continue
 
-        telemach_auto_beschreibung = f"{telemach_anzeigename.title()} ᴸⁱᵛᵉ"
+        telemach_auto_beschreibung = f"{schoener_sendername(telemach_anzeigename)} ᴸⁱᵛᵉ"
         telemach_kategorie_key = None
 
         sender_daten.append({
@@ -1800,7 +1802,7 @@ for zeile in zeilen:
         # display-name daher "UK" zeigen, nicht "GB".
         sky_anzeige_land = "UK" if sky_territory == "GB" else sky_territory
 
-        sky_auto_beschreibung = f"{sky_kanalname.title()} ᴸⁱᵛᵉ"
+        sky_auto_beschreibung = f"{schoener_sendername(sky_kanalname)} ᴸⁱᵛᵉ"
         sky_kategorie_key = None
 
         sender_daten.append({
@@ -1860,7 +1862,7 @@ for zeile in zeilen:
         if not magenta_kanalname:
             continue
 
-        magenta_auto_beschreibung = f"{magenta_kanalname.title()} ᴸⁱᵛᵉ"
+        magenta_auto_beschreibung = f"{schoener_sendername(magenta_kanalname)} ᴸⁱᵛᵉ"
         magenta_kategorie_key = None
 
         sender_daten.append({
@@ -1919,7 +1921,7 @@ for zeile in zeilen:
         if not arena_kanalname:
             continue
 
-        arena_auto_beschreibung = f"{arena_kanalname.title()} ᴸⁱᵛᵉ"
+        arena_auto_beschreibung = f"{schoener_sendername(arena_kanalname)} ᴸⁱᵛᵉ"
         arena_kategorie_key = None
 
         sender_daten.append({
@@ -1977,7 +1979,7 @@ for zeile in zeilen:
         if not dazn_kanalname:
             continue
 
-        dazn_auto_beschreibung = f"{dazn_kanalname.title()} ᴸⁱᵛᵉ"
+        dazn_auto_beschreibung = f"{schoener_sendername(dazn_kanalname)} ᴸⁱᵛᵉ"
         dazn_kategorie_key = None
 
         sender_daten.append({
@@ -2041,7 +2043,7 @@ for zeile in zeilen:
         if not freeview_kanalname:
             continue
 
-        freeview_auto_beschreibung = f"{freeview_kanalname.title()} ᴸⁱᵛᵉ"
+        freeview_auto_beschreibung = f"{schoener_sendername(freeview_kanalname)} ᴸⁱᵛᵉ"
         freeview_kategorie_key = None
 
         sender_daten.append({
@@ -2100,7 +2102,7 @@ for zeile in zeilen:
         if not tvguide_kanalname:
             continue
 
-        tvguide_auto_beschreibung = f"{tvguide_kanalname.title()} ᴸⁱᵛᵉ"
+        tvguide_auto_beschreibung = f"{schoener_sendername(tvguide_kanalname)} ᴸⁱᵛᵉ"
         tvguide_kategorie_key = None
 
         sender_daten.append({
@@ -2168,7 +2170,7 @@ for zeile in zeilen:
         if not tvpassport_kanalname:
             continue
 
-        tvpassport_auto_beschreibung = f"{tvpassport_kanalname.title()} ᴸⁱᵛᵉ"
+        tvpassport_auto_beschreibung = f"{schoener_sendername(tvpassport_kanalname)} ᴸⁱᵛᵉ"
         tvpassport_kategorie_key = None
 
         sender_daten.append({
@@ -2235,6 +2237,14 @@ for zeile in zeilen:
     # Beschreibungsfeld statt im Logofeld landet und woertlich als
     # Sendungstext erscheinen wuerde.
     manueller_text = beschreibung if beschreibung.strip().upper() != LOGO_AUTO_MARKER else ""
+
+    # Alter, automatisch erzeugter Platzhalter "<Sendername> ᴸⁱᵛᵉ" im
+    # Beschreibungsfeld (z.B. "Sr Hd ᴸⁱᵛᵉ", "Landlust-Tv-Hd ᴿᴬᵂ ᴸⁱᵛᵉ") wird durch
+    # den bereinigten Titel ersetzt (ohne HD/RAW/Klammerzusaetze, saubere
+    # Gross-/Kleinschreibung). Handgeschriebene Texte bleiben unveraendert.
+    if manueller_text and ist_automatischer_platzhaltertitel(manueller_text, sender):
+        manueller_text = f"{schoener_sendername(sender, land)} ᴸⁱᵛᵉ"
+        beschreibung = manueller_text
 
     if beschreibung == "" or beschreibung.strip().upper() == LOGO_AUTO_MARKER:
         beschreibung = auto_beschreibung
@@ -6653,7 +6663,7 @@ for tag_index in range(ANZAHL_TAGE):
                         rest_segmente = uebrige_segmente
 
                 if rest_segmente:
-                    luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
+                    luecken_titel = f"{schoener_sendername(daten['sender'], daten['land'])} ᴸⁱᵛᵉ"
                     schreibe_programme_segmente(
                         xml_teile, rest_segmente, daten["kanal"],
                         escape(luecken_titel), luecken_titel, "de",
@@ -6665,7 +6675,7 @@ for tag_index in range(ANZAHL_TAGE):
             # kategoriebasierten Zufallstitels wird hier einheitlich nur
             # "<Sendername> ᴸⁱᵛᵉ" fuer den gesamten Block angezeigt - gleiche
             # Konvention wie bei den Luecken echter Quellen weiter oben.
-            luecken_titel = f"{kanalname_normal_geschrieben(daten['sender'])} ᴸⁱᵛᵉ"
+            luecken_titel = f"{schoener_sendername(daten['sender'], daten['land'])} ᴸⁱᵛᵉ"
             schreibe_programme_segmente(
                 xml_teile, [(start, ende)], daten["kanal"],
                 escape(luecken_titel), luecken_titel, "de",
