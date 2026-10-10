@@ -2755,7 +2755,10 @@ def _m3u_playlist_roh_text_laden(url):
     Lauf, bei dem alle ~9921 NAME:-Kanaele auf einen Schlag 0 Live-
     Treffer hatten, obwohl vorherige/spaetere Laeufe wieder normal
     funktionierten (eindeutig ein einmaliger Anbieter-Aussetzer, kein
-    dauerhafter Fehler). Deshalb hier bis zu drei Versuche: eine Antwort,
+    dauerhafter Fehler). Deshalb hier bis zu fuenf Versuche mit wachsenden
+    Pausen (5/15/30/60 s, Oktober 2026 - Lauf #980 scheiterte nach 3
+    Versuchen im 5-s-Abstand komplett, der naechste Lauf 2 Stunden spaeter
+    lud die Playlist wieder normal): eine Antwort,
     die kuerzer als _M3U_PROVIDER_MIN_ZEICHEN ist oder nicht mit
     '#EXTM3U' beginnt, gilt als verdaechtig/kaputt und wird NICHT
     gecached, stattdessen wird (mit kurzer Pause) erneut abgerufen.
@@ -2765,9 +2768,10 @@ def _m3u_playlist_roh_text_laden(url):
         return _m3u_playlist_cache[url]
 
     letzter_fehler = None
-    for versuch in range(3):
-        if versuch > 0:
-            time.sleep(5)
+    pausen_sekunden = (0, 5, 15, 30, 60)
+    for versuch, pause in enumerate(pausen_sekunden):
+        if pause:
+            time.sleep(pause)
         try:
             antwort = requests.get(url, timeout=M3U_PROVIDER_TIMEOUT_SEKUNDEN, stream=True)
             antwort.raise_for_status()
