@@ -1,0 +1,40 @@
+name: Logos holen
+
+# Diagnose-/Einmal-Workflow (nur manuell): laedt die noch externen
+# Logo-URLs aus sender.txt auf dem GitHub-Runner (dessen Netz kommt an
+# Hosts heran, die aus der Claude-Sandbox blockiert sind), legt sie unter
+# logos/externe_logos_import/ ab, stellt sender.txt um und committet NUR
+# diese Aenderungen. Der Bericht pro Host steht im Log.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: logos-holen
+  cancel-in-progress: false
+
+jobs:
+  logos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests pillow cairosvg
+      - name: Logos holen
+        run: python tools/logos_holen.py
+      - name: Committen und pushen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sender.txt logos/externe_logos_import
+          if git diff --cached --quiet; then echo "Keine Aenderungen."; exit 0; fi
+          git commit -m "Externe Logos selbst gehostet (Workflow)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
