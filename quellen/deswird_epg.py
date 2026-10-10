@@ -266,6 +266,12 @@ _BEKANNTE_KERN_ALIASE = {
     # bereits eindeutig zugunsten von TLC.de aufloest. Explizite Alias-
     # Zuordnung wie bei RTL NITRO/KABEL1 DOKU/N24 DOKCU/SKY ONE.
     "TLC": "TLC.de",
+    # "SR"/"SR HD"/"SR RAW" - Playlist fuehrt den Saarlaendischen
+    # Rundfunk nur als "SR", deswird.org als "SR Fernsehen"
+    # (SRFernsehen.de, einzige vorhandene ID, verifiziert Oktober 2026:
+    # ~200 Sendungen). Der Kern "SR" ist zu kurz fuer den unscharfen
+    # Abgleich, daher exakte Alias-Zuordnung.
+    "SR": "SRFernsehen.de",
 }
 
 
