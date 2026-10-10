@@ -2,18 +2,13 @@ name: Update EPG
 
 on:
   schedule:
-    # Alle 3 Stunden (8x täglich) - kürzeres Intervall als vorher (4h),
-    # damit Live-Kanalname-Aenderungen (DYN PPV, Flo Racing, ...) nicht so
-    # lange veraltet im EPG-Raster stehen bleiben. Oeffentliches Repo,
-    # daher keine GitHub-Actions-Minutenkosten durch die hoehere Frequenz.
-    # 2,5h waere noch aktueller, laesst sich aber nicht sauber als
-    # Cron-Ausdruck abbilden (24h nicht ganzzahlig durch 150 Min. teilbar,
-    # Uhrzeiten wuerden taeglich verschieben) - daher 3h. Minute bewusst
-    # auf :07 statt :00 gesetzt, da GitHub Actions "schedule"-Trigger nur
-    # "best effort" sind und zur vollen Stunde durch viele gleichzeitig
-    # feuernde Cron-Jobs anderer Repos eher verzoegert/uebersprungen
-    # werden.
-    - cron: '7 */3 * * *'
+    # Alle 2 Stunden (12x geplant). GitHub verwirft bei schedule-Triggern
+    # oefter einen Teil der Laeufe (Oktober 2026: nur ca. 3 von 8 geplanten
+    # 3h-Laeufen kamen an, Abstaende 6-10h) - deshalb dichterer Takt, damit
+    # trotz Ausfaellen genug Laeufe zustande kommen. Oeffentliches Repo,
+    # daher keine Minutenkosten. Minute bewusst :07 statt :00, da der
+    # Trigger zur vollen Stunde noch staerker ueberlastet ist.
+    - cron: '7 */2 * * *'
   workflow_dispatch:
 
 # Verhindert, dass zwei Laeufe gleichzeitig aktiv sind (z.B. ein
