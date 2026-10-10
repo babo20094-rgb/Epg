@@ -195,6 +195,12 @@ Parallelisierung/Vorab-Abrufen, siehe `docs/HISTORIE.md`).
   - `EUROPA LEAGUE REPLAY N`/`INFO`/`HIGHLIGHTS` (UK/FREEVIEW:GB, jede Nummer/Suffix wie
     ᴴᴰ) → `logos/europa_league_replay/europa_league_replay.png` (nur die
     Sender, NICHT der Header `##### EUROPA LEAGUE REPLAY #####`)
+  - `MOTORVISION MORE THAN SPORTS` (jede Groß-/Kleinschreibung, jedes
+    Land/Suffix wie ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) →
+    `logos/motorvision_more_than_sports/motorvision_more_than_sports.png`
+    (NUR dieser Kern-Sendername - `MOTORVISION ᴿᴬᵂ`, `MOTORVISION
+    CLASSIC`, `MOTORVISION TV`/`.TV`/`DE` sind andere Sendernamen und
+    behalten ihr eigenes Logo)
   - `RT VOJVODINA 1`/`RTV VOJVODINA 1` bzw. `... 2` (jede Groß-/
     Kleinschreibung, jedes Land/Suffix wie ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) →
     `logos/rt_vojvodina_<N>/rt_vojvodina_<N>_weiss.png` (Version mit

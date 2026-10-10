@@ -2524,7 +2524,7 @@ JOYN|MDR SACHSEN ᴿᴬᵂ|Mdr Sachsen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.github
 JOYN|MDR SACHSEN-ANHALT ᴿᴬᵂ|Mdr Sachsen-Anhalt ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/50026ce59c730fc2.png
 JOYN|MDR THÜRINGEN ᴿᴬᵂ|Mdr Thüringen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cdd9117994ebef38.png
 JOYN|MOTORVISION CLASSIC ᴿᴬᵂ|Motorvision Classic ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5e276afd23cc65cc.png
-JOYN|MOTORVISION MORE THAN SPORTS ᴿᴬᵂ|Motorvision More Than Sports ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/logos/1929260.png
+JOYN|MOTORVISION MORE THAN SPORTS ᴿᴬᵂ|Motorvision More Than Sports ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/motorvision_more_than_sports/motorvision_more_than_sports.png
 JOYN|MOTORVISION ᴿᴬᵂ|Motorvision ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/motorvision.png
 JOYN|MOVIEDOME FAMILY ᴿᴬᵂ|Moviedome Family ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/6e4ad82d6b7e857f.png
 JOYN|MOVIEDOME ᴿᴬᵂ|Moviedome ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1fa070551974973a.png
