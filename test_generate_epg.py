@@ -2337,3 +2337,54 @@ def test_ids_einschraenken_laesst_header_kanaele_unveraendert():
     namen2 = frozenset({"### WOW SPORT ###"} | {f"n{i}" for i in range(10)})
     varianten2 = ["### WOW SPORT ###", "### WOW SPORT  ###", "###  WOW SPORT ###"]
     assert ids_auf_playlist_einschraenken(varianten2, namen2, 5, _SONDER) == varianten2
+
+
+# --- Regional Fernsehen Oberbayern (rfo.de), Oktober 2026 ---
+
+def _rfo_html(eintraege):
+    """Baut Mini-HTML mit doppelt escapten JSON-Eintraegen wie auf rfo.de,
+    inklusive vorangestelltem fremdem Objekt (darf nie als Titel landen)."""
+    teile = ['{"title":"Livestream","meta":[],"blocks":[{"x":1}]}']
+    for titel, von, bis, beschr, datum in eintraege:
+        teile.append(
+            '{"title":"%s","from":"%s","to":"%s","description":"%s","date":"%s","time":"00:00:00.00"}'
+            % (titel, von, bis, beschr, datum)
+        )
+    return "<html>" + ",".join(teile) + "</html>"
+
+
+def test_rfo_kanal_treffer_nur_oberbayern():
+    from quellen.rfo_epg import rfo_kanal_treffer
+    assert rfo_kanal_treffer("REGIONAL FERNSEHEN OBERBAYERN ᴿᴬᵂ")
+    assert rfo_kanal_treffer("Regional Fernsehen Oberbayern HD")
+    assert not rfo_kanal_treffer("RFH Regionalfernsehen Harz")
+    assert not rfo_kanal_treffer("ZDF")
+
+
+def test_rfo_parst_doppelt_escapte_eintraege_mit_mitternacht_und_umlauten():
+    from quellen import rfo_epg
+    heute = datetime.datetime.now(rfo_epg.BERLIN_TZ).date()
+    datum = heute.strftime("%Y.%m.%d")
+    html_text = _rfo_html([
+        ("S\\\\u00fcd Journal (Wh.)", "10:00", "10:10", "Beschr \\\\u201eA\\\\u201c", datum),
+        ("S\\\\u00fcd Kultur", "23:45", "00:00", "", datum),
+    ])
+    antwort = MagicMock()
+    antwort.text = html_text
+    antwort.raise_for_status = lambda: None
+    rfo_epg._programme_cache = None
+    with patch("quellen.rfo_epg._http.mit_retry", return_value=antwort):
+        programme = rfo_epg.rfo_hole_programme(7)
+    rfo_epg._programme_cache = None
+    assert [p["title"] for p in programme] == ["Süd Journal (Wh.)", "Süd Kultur"]
+    assert programme[0]["beschreibung"] == "Beschr „A“"
+    # Sendung ueber Mitternacht endet am Folgetag, nicht vor dem Start
+    assert programme[1]["stop"] - programme[1]["start"] == datetime.timedelta(minutes=15)
+
+
+def test_rfo_degradiert_bei_netzwerkfehler_auf_leere_liste():
+    from quellen import rfo_epg
+    rfo_epg._programme_cache = None
+    with patch("quellen.rfo_epg._http.mit_retry", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert rfo_epg.rfo_hole_programme(7) == []
+    rfo_epg._programme_cache = None

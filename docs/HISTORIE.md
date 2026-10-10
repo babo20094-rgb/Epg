@@ -7165,3 +7165,52 @@ ursprüngliche Projektidee wurde später geändert, nur der Name blieb
 (Player-URLs hängen daran). Beim Prüfen neuer Quellen (z. B. iptvx.one,
 ca. 2 Wochen Daten) ist die kurze Laufzeit daher kein Mangel. Siehe
 Hinweis in `CLAUDE.md` (Architektur-Überblick).
+
+## Oktober 2026: SR, Regio TV Schwaben, Regional Fernsehen Oberbayern (DE/JOYN-Sender nur generisch)
+
+Nutzer meldete per Screenshot "SR" und "Stars in Gefahr" (nur "... RAW Live"),
+danach "Regio TV Schwaben" und "Regional Fernsehen Oberbayern" (haben im
+Netz echte Programmdaten). Befunde und Fixes:
+
+- **SR** (`JOYN|SR RAW`, `DE|SR HD`): Playlist heisst nur "SR", die Quellen
+  fuehren "SR Fernsehen" (`SRFernsehen.de` bei deswird.org/iptv-epg.org). Der
+  Kern "SR" ist zu kurz fuer den difflib-Abgleich -> Alias
+  `"SR": "SRFernsehen.de"` in `quellen/deswird_epg.py`
+  (`_BEKANNTE_KERN_ALIASE`).
+- **Stars in Gefahr**: deswird.org kennt den Kanal, hat aber 0 Sendungen; keine
+  andere Quelle fuehrt ihn -> bleibt generisch (kein Fehler).
+- **Regio TV Schwaben**: iptv-epg.org fuehrt nur den Sammelkanal "DE - Regio TV"
+  (`RegioTV.de`, ~100 Sendungen, Regionalfenster Schwaben/Bodensee/Stuttgart im
+  Wechsel). Alias `"REGIOTVSCHWABEN": "RegioTV.de"` in
+  `quellen/iptvepg_de_epg.py` (`_BEKANNTE_KERN_ALIASE`).
+- **Falscher Fuzzy-Treffer**: `REGIONAL FERNSEHEN OBERBAYERN` bekam per difflib
+  das Programm von "RFH Regionalfernsehen Harz". Neue Sperrliste
+  `_BEKANNTE_FALSCHE_TREFFER` in `iptvepg_de_epg.py` verwirft diesen Treffer.
+- **Oberbayern: neue Quelle `quellen/rfo_epg.py`** (`https://www.rfo.de/livestream/`):
+  EINE Seite liefert das komplette 7-Tage-Programm (810 Eintraege) eingebettet
+  als doppelt escapter JSON-Text (`{"title":..,"from":"HH:MM","to":"HH:MM",
+  "description":..,"date":"YYYY.MM.DD"}`). Wichtig: Strings per
+  `((?:[^"\\]|\\.)*)` matchen, nicht per `.*?` (sonst landet der Text
+  vorheriger Objekte im Titel); Mitternachts-Sendungen (to < from) enden am
+  Folgetag; Zeiten sind Europe/Berlin und werden nach UTC konvertiert.
+  Automatisch fuer Sender "Regional Fernsehen Oberbayern" (kein Praefix), Block
+  in `generate_epg.py` direkt nach dem RTV-Slon-Block (`RFO_TAGE = 7`). Hinweis:
+  Der erste Versuch mit `curl` zeigte nur 62 KB, weil `size_download` die
+  komprimierte Groesse ist - die Seite hat entpackt ~815 KB und enthaelt die Daten.
+- **Lehre:** Bei "Sender hat im Netz echte Daten": zuerst die Seite des Senders
+  direkt abrufen (`requests.get`, kein Headless-Browser noetig) und nach dem
+  Programm im HTML suchen - bei JS-Seiten steckt es oft als JSON im Quelltext
+  (nach bekanntem Titel in der Roh-HTML suchen, auch in der doppelt escapten
+  Form `\\u00fc`).
+- **Motorvision More Than Sports** (`JOYN|MOTORVISION MORE THAN SPORTS ᴿᴬᵂ`):
+  `motorvision-group.com`/`morethansports.tv/tv-guide/` haben keine
+  auslesbaren Programmdaten (Programmliste leer, nur Tag-Reiter). Der Sender
+  blieb generisch, weil deswird.org beim vollen Namen den LEEREN Kanal
+  "Motorvision More than sports" (0 Sendungen) traf; der echte Kanal heisst
+  dort "More than Sports TV" (120 Sendungen, auch iptv-epg.org `MoreThanSportsTV.de`
+  44, epgshare01 43). Alias `MOTORVISIONMORETHANSPORTS` in `deswird_epg.py` und
+  `iptvepg_de_epg.py`. Zusaetzlich Logo selbst gehostet
+  (`logos/motorvision_more_than_sports/`) und als Dauerregel in `CLAUDE.md`.
+  **Lehre:** Findet der exakte Abgleich einen Kanal mit 0 Sendungen, blockiert
+  das die Kaskade - bei "Sender generisch, obwohl Daten existieren" immer auch
+  die Sendungszahl des gefundenen Kanals pruefen (`*_hole_programme(site_id)`).

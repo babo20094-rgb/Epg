@@ -124,6 +124,7 @@ from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
 from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
 from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
+from quellen.rfo_epg import rfo_kanal_treffer, rfo_hole_programme
 from quellen.grand_epg import grand_kanal_finden, grand_hole_programme
 
 # ==========================================================
@@ -3759,6 +3760,7 @@ TVPROGRAMDANAS_TAGE = 3
 VIKOM_TAGE = 7
 MYMEDIA_TAGE = 3
 RTVSLON_TAGE = 14
+RFO_TAGE = 7
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
@@ -6438,6 +6440,31 @@ for daten in sender_daten:
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# REGIONAL FERNSEHEN OBERBAYERN (rfo): einzeln gepruefter,
+# eigenstaendiger Sender (siehe rfo_epg.py - eine einzelne Seite mit
+# dem kompletten 7-Tage-Programm). Kein eigenes Praefix noetig, matcht
+# direkt gegen den Sendernamen "REGIONAL FERNSEHEN OBERBAYERN" (mit
+# HD/VIP/RAW-Zusaetzen).
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        if rfo_kanal_treffer(daten["sender"]):
+            programme = rfo_hole_programme(RFO_TAGE)
+    except Exception as e:
+        programme = []
+
+    daten["rfo_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("Regional Fernsehen Oberbayern (rfo.de)")
+        _schreibe_echte_programme(daten, programme)
 
 # Wartet hier auf ALLE drei Hintergrund-Bloecke (siehe
 # _HINTERGRUND_POOL-Kommentar oben) - Sky/TVPassport/DE-Kaskade

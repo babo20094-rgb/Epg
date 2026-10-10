@@ -154,6 +154,32 @@ def _xmltv_zeit_parsen(text):
         return None
 
 
+# Manuell verifizierte Alias-Zuordnungen (Kern nach
+# normalisiere_sendername_kern() -> site_id), fuer Playlist-Namen, die
+# vom Quell-Namen abweichen und weder exakt noch ueber den Kern-/
+# difflib-Abgleich gefunden werden.
+# "REGIO TV SCHWABEN" - iptv-epg.org fuehrt Regio TV nur als EINEN
+# Sammelkanal "DE - Regio TV" (RegioTV.de, Oktober 2026: ~100 Sendungen,
+# z.B. "JOURNAL Schwaben"/"JOURNAL Bodensee"/"JOURNAL Stuttgart" im
+# Wechsel) - das Regionalfenster Schwaben ist darin enthalten.
+_BEKANNTE_KERN_ALIASE = {
+    "REGIOTVSCHWABEN": "RegioTV.de",
+    # "MOTORVISION MORE THAN SPORTS" = "More than Sports TV" (siehe
+    # deswird_epg.py, dort der Hauptfall).
+    "MOTORVISIONMORETHANSPORTS": "MoreThanSportsTV.de",
+}
+
+
+# Bekannte FALSCHE Fuzzy-Treffer (Kern des Playlist-Namens -> site_ids,
+# die der unscharfe difflib-Abgleich dafuer liefert, die aber ein anderer
+# Sender sind). "REGIONAL FERNSEHEN OBERBAYERN" lieferte per difflib
+# "RFH Regionalfernsehen Harz" (Sachsen-Anhalt, voellig anderes Programm);
+# fuer Oberbayern gibt es bei iptv-epg.org keinen Kanal.
+_BEKANNTE_FALSCHE_TREFFER = {
+    "REGIONALFERNSEHENOBERBAYERN": {"RFHRegionalfernsehenHarz.de"},
+}
+
+
 def iptvepg_de_kanal_finden(kanalname):
     """Sucht den iptv-epg.org-Kanal, der am besten zu kanalname passt.
     Jeder Quell-Kanal liefert bis zu zwei Namens-Kandidaten fuer den
@@ -192,12 +218,18 @@ def iptvepg_de_kanal_finden(kanalname):
         return name_index[ziel_schluessel]
 
     ziel_kern = normalisiere_sendername_kern(kanalname)
+    alias_site_id = _BEKANNTE_KERN_ALIASE.get(ziel_kern)
+    if alias_site_id and any(k["site_id"] == alias_site_id for k in daten["kanaele"]):
+        return alias_site_id
     if ziel_kern and ziel_kern in kern_index and ziel_kern not in kern_mehrdeutig:
         return kern_index[ziel_kern]
 
     aehnliche = difflib.get_close_matches(ziel_schluessel, name_index.keys(), n=1, cutoff=0.72)
     if aehnliche:
-        return name_index[aehnliche[0]]
+        treffer = name_index[aehnliche[0]]
+        if treffer in _BEKANNTE_FALSCHE_TREFFER.get(ziel_kern, ()):
+            return None
+        return treffer
 
     return None
 
