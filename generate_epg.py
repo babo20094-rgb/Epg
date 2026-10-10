@@ -125,6 +125,7 @@ from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
 from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
 from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
 from quellen.rfo_epg import rfo_kanal_treffer, rfo_hole_programme
+from quellen.epgshare_balkan_epg import epgshare_balkan_kanal_finden, epgshare_balkan_hole_programme
 from quellen.grand_epg import grand_kanal_finden, grand_hole_programme
 
 # ==========================================================
@@ -579,6 +580,14 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "makkahlive": ["makkahlive_intervalle"],
     "cinestar_action_rs": ["cinestar_action_rs_intervalle"],
     "cinestar_comedy_rs": ["cinestar_comedy_rs_intervalle"],
+    # Einzel-Quellen, die bisher NICHT registriert waren: ohne Eintrag hier
+    # fuellte die generische Platzhalter-Luecken-Fuellung den KOMPLETTEN
+    # Zeitraum zusaetzlich zu den echten Sendungen (ueberlappende "<Sender>
+    # ᴸⁱᵛᵉ"-Bloecke, Oktober 2026 bei RTV Slon und Regional Fernsehen
+    # Oberbayern festgestellt).
+    "rtvslon": ["rtvslon_intervalle"],
+    "rfo": ["rfo_intervalle"],
+    "epgshare_balkan": ["epgshare_balkan_intervalle"],
 }
 
 
@@ -3765,6 +3774,7 @@ VIKOM_TAGE = 7
 MYMEDIA_TAGE = 3
 RTVSLON_TAGE = 14
 RFO_TAGE = 7
+EPGSHARE_BALKAN_TAGE = 3
 telemach_sender = [d for d in sender_daten if d.get("telemach")]
 sky_sender = [d for d in sender_daten if d.get("sky")]
 sky_wow_sender = [d for d in sender_daten if d.get("sky_wow")]
@@ -6438,6 +6448,7 @@ for daten in sender_daten:
         programme = []
 
     daten["rtvslon_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["rtvslon"] = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("RTV Slon (rtvslon.ba)")
@@ -6465,9 +6476,35 @@ for daten in sender_daten:
         programme = []
 
     daten["rfo_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["rfo"] = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("Regional Fernsehen Oberbayern (rfo.de)")
+        _schreibe_echte_programme(daten, programme)
+
+# ==========================================================
+# EPGSHARE01 RS1/BA1 (Ex-YU-Sender ohne andere echte Quelle, siehe
+# epgshare_balkan_epg.py): EINE Datei je Feed, nur einmal pro Lauf
+# geladen, exakter Namensabgleich ohne Fuzzy. Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        site_id = epgshare_balkan_kanal_finden(daten["sender"], daten["land"])
+        if site_id is not None:
+            programme = epgshare_balkan_hole_programme(site_id, EPGSHARE_BALKAN_TAGE)
+    except Exception as e:
+        programme = []
+
+    daten["epgshare_balkan_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["epgshare_balkan"] = bool(programme)
+
+    if programme:
+        _echte_quelle_zaehlen("epgshare01 RS1/BA1 (Ex-YU)")
         _schreibe_echte_programme(daten, programme)
 
 # Wartet hier auf ALLE drei Hintergrund-Bloecke (siehe

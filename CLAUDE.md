@@ -268,6 +268,11 @@ manuellem Trigger (~15-20 Min. Laufzeit, Run 957: 18:53 Min.).
   slowenische Daten, NICHT identisch mit den kroatischen SportKlub-Daten)
   → SportKlub als letzter Fallback.
 - **MK**: tv-spored.siol.net → iptv-epg.org/MK.
+- **EXYU/RS/HR/MK/BA/SI/MNG/MO (nur Sender ohne andere echte Quelle)**: epgshare01
+  RS1/BA1 (`epgshare_balkan_epg.py`, exakter Namensabgleich, ca. 25 Sender).
+- **DE-Einzelsender**: `Regional Fernsehen Oberbayern` direkt von rfo.de
+  (`rfo_epg.py`); neue Einzel-Quellen immer in `_ECHTE_QUELLEN_INTERVALLE`
+  registrieren (sonst überlappende Platzhalter, siehe `docs/HISTORIE.md`).
 - **PRIME / TUBI / GO**: Tubi TV (XMLTV-Mirror, vor der DE-Kaskade).
 - **CITY**: automatischer Call-Sign-Abgleich gegen tvpassport.com
   (`tvpassport_kanal_finden_callsign()`).

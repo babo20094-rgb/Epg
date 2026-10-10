@@ -7214,3 +7214,31 @@ Netz echte Programmdaten). Befunde und Fixes:
   **Lehre:** Findet der exakte Abgleich einen Kanal mit 0 Sendungen, blockiert
   das die Kaskade - bei "Sender generisch, obwohl Daten existieren" immer auch
   die Sendungszahl des gefundenen Kanals pruefen (`*_hole_programme(site_id)`).
+
+## Oktober 2026: epgshare01 RS1/BA1 fuer Ex-YU-Sender + Ueberlappungs-Bug bei RTV Slon/rfo
+
+- **Quellensuche (Nutzerwunsch "tiefer graben, DE und Ex-YU"):** Alle ca. 6.500
+  generischen Kanaele wurden gegen freie Feeds abgeglichen (epg.pw GB/US/DE/CA/AU/FR,
+  iptv-epg.org BA/HR/RS/ME/MK/SI/AL/DE/AT/CH, epgshare01 BA1/HR1/RS1/AL1/DE1/AT1/CH1,
+  epg.lat). Ergebnis DE: praktisch nichts (die ~540 generischen DE-Zeilen sind
+  Serien-Staffeln/Filmsammlungen/Replays ohne EPG). Ex-YU: nur ca. 25 Zeilen
+  zusaetzlich (TV Zvezda, Hype, Belle Amie, Tanjug, UNA TV, Vijesti, Zadruga 2-4, RTL
+  Croatia World, Jim Jam, Pikaboo, BN2, SLO TV 1, 5 Radios). epg.lat ist eine Kopie
+  von epgshare01. epg.pw (UK ca. 300, US ca. 380 Zeilen) wurde auf Nutzerwunsch
+  NICHT eingebaut.
+- **Neue Quelle `quellen/epgshare_balkan_epg.py`:** RS1 + BA1 (zusammen ca. 3 s), exakter
+  Namensabgleich (kein Fuzzy), nur Laender EXYU/RS/HR/MK/BA/SI/MNG/MO ("BS" bewusst
+  ausgeschlossen: Film-Rubriken wie "BS| SCI-FI" wuerden zufaellig auf echte Kanaele
+  passen). Block in `generate_epg.py` nach dem rfo-Block (`EPGSHARE_BALKAN_TAGE = 3`).
+- **Bug behoben (auch fuer RTV Slon und rfo):** Einzel-Quellen, deren `*_intervalle`-Feld
+  NICHT in `_ECHTE_QUELLEN_INTERVALLE` registriert war, bekamen zusaetzlich zu den
+  echten Sendungen die generischen "<Sender> ᴸⁱᵛᵉ"-Bloecke fuer den GANZEN Zeitraum
+  (ueberlappende Eintraege, z.B. RTV Slon 18, rfo 40 Ueberlappungen in der XML).
+  Jetzt sind `rtvslon`, `rfo` und `epgshare_balkan` mit Flag (`daten["..."] = True`)
+  registriert, die Luecken-Fuellung fuellt nur noch die unbedeckte Restzeit.
+  **Lehre:** Jede neue Einzel-Quelle MUSS in `_ECHTE_QUELLEN_INTERVALLE` eingetragen und
+  das Flag gesetzt werden; Kontrolle: XML auf Ueberlappungen pro Kanal pruefen.
+- **Playlist-Abruf:** bis zu 5 Versuche (Pausen 5/15/30/60 s) statt 3x5 s, weil Lauf #980
+  (12:25 UTC) die Playlist dreimal "verdaechtig" bekam -> keine playlist-genauen IDs
+  (50.499 statt ~21.500 Kanaele) und kein Live-Kanalabgleich. Naechster Lauf normal.
+

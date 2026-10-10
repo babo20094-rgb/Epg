@@ -2388,3 +2388,53 @@ def test_rfo_degradiert_bei_netzwerkfehler_auf_leere_liste():
     with patch("quellen.rfo_epg._http.mit_retry", side_effect=Exception("Netzwerk nicht erreichbar")):
         assert rfo_epg.rfo_hole_programme(7) == []
     rfo_epg._programme_cache = None
+
+
+# --- epgshare01 RS1/BA1 fuer Ex-YU-Sender (epgshare_balkan_epg.py), Oktober 2026 ---
+
+def _balkan_feed_gz(kanal_id, anzeigename, anzahl=12):
+    start = datetime.datetime.now(datetime.timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    teile = [f'<tv><channel id="{kanal_id}"><display-name>{anzeigename}</display-name></channel>']
+    for i in range(anzahl):
+        s = start + datetime.timedelta(hours=i)
+        e = s + datetime.timedelta(hours=1)
+        teile.append(
+            f'<programme start="{s.strftime("%Y%m%d%H%M%S")} +0000" stop="{e.strftime("%Y%m%d%H%M%S")} +0000" '
+            f'channel="{kanal_id}"><title>Sendung {i}</title></programme>'
+        )
+    teile.append("</tv>")
+    return gzip.compress("".join(teile).encode("utf-8"))
+
+
+def test_epgshare_balkan_normierung_ignoriert_zusaetze_und_diakritika():
+    from quellen.epgshare_balkan_epg import _norm
+    assert _norm("TV ZVEZDA ⱽᴵᴾ ᴿᴬᵂ") == _norm("Zvezda TV") == "ZVEZDA"
+    assert _norm("ZADRUGA 2") == _norm("Zadruga Live 2 (BIH)") == "ZADRUGA2"
+    assert _norm("UNA HD") == _norm("UNA TV") == "UNA"
+    assert _norm("Šaržo Đurđev") == _norm("Sarzo Durdev")
+
+
+def test_epgshare_balkan_findet_nur_exakt_und_nur_fuer_exyu_laender():
+    from quellen import epgshare_balkan_epg as m
+    antwort = MagicMock()
+    antwort.content = _balkan_feed_gz("Zvezda.TV.rs", "Zvezda TV")
+    antwort.raise_for_status = lambda: None
+    m._daten_cache = None
+    with patch("quellen.epgshare_balkan_epg._http.mit_retry", return_value=antwort):
+        sid = m.epgshare_balkan_kanal_finden("TV ZVEZDA VIP RAW", "RS")
+        assert sid is not None and sid.endswith(":Zvezda.TV.rs")
+        assert len(m.epgshare_balkan_hole_programme(sid, 3)) >= 10
+        assert m.epgshare_balkan_kanal_finden("TV ZVEZDA", "EXYU") == sid
+        assert m.epgshare_balkan_kanal_finden("TV ZVEZDA", "BS") is None   # Film-Rubriken ausgeschlossen
+        assert m.epgshare_balkan_kanal_finden("TV ZVEZDA", "DE") is None   # nur Ex-YU-Laender
+        assert m.epgshare_balkan_kanal_finden("TV ZVEZDA PLUS", "RS") is None  # kein Fuzzy-Treffer
+    m._daten_cache = None
+
+
+def test_epgshare_balkan_degradiert_bei_netzwerkfehler():
+    from quellen import epgshare_balkan_epg as m
+    m._daten_cache = None
+    with patch("quellen.epgshare_balkan_epg._http.mit_retry", side_effect=Exception("Netzwerk nicht erreichbar")):
+        assert m.epgshare_balkan_kanal_finden("TV ZVEZDA", "RS") is None
+        assert m.epgshare_balkan_hole_programme("RS1:Zvezda.TV.rs", 3) == []
+    m._daten_cache = None
