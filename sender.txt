@@ -1879,7 +1879,7 @@ EN|ONEPLAY SuperWings ᴴᴰ|Oneplay Superwings ᴴᴰ ᴸⁱᵛᵉ|https://raw.
 EN|ONEPLAY THRILLER ᴴᴰ|Oneplay Thriller ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/704c25d7b2f08577.png
 EN|ONEPLAY Tom&Jerry ᴴᴰ|Oneplay Tom&Jerry ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7640cb106e58503c.png
 EN|ONEPLAY Vlad&Niki ᴴᴰ|Oneplay Vlad&Niki ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7640cb106e58503c.png
-EN|ONEPLAY Vlad-Challenge ᴴᴰ|Oneplay Vlad-Challenge ᴴᴰ ᴸⁱᵛᵉ|https://iili.io/Jl7UoT7.md.png
+EN|ONEPLAY Vlad-Challenge ᴴᴰ|Oneplay Vlad-Challenge ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7640cb106e58503ccb301ef7c76f7bd4eb8bddc6.png
 EN|ONEPLAY WARZONE ᴴᴰ|Oneplay Warzone ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f21f094c45b4be9d.png
 EN|ONEPLAY WESTERN ᴴᴰ|Oneplay Western ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/cbfb9fb6cc427979.png
 EN|ONEPLAY Wolfo ᴴᴰ|Oneplay Wolfo ᴴᴰ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c9da6623cb599323.png
@@ -3104,7 +3104,7 @@ PRIME|CRIME & JUSTICE ᴿᴬᵂ|Crime & Justice ᴿᴬᵂ ᴸⁱᵛᵉ|https://r
 PRIME|CRIME CULTS KILLERS BY A&E ᴿᴬᵂ|Crime Cults Killers By A&E ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920326.png
 |PRIME| CRIME SCENE TV | DE ᴿᴬᵂ|Crime Scene Tv De ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crime_scene_tv.png
 PRIME|CRIME SCENES ᴿᴬᵂ|Crime Scenes ᴿᴬᵂ ᴸⁱᵛᵉ|http://51.158.145.100/picons/logos/USA/1920324.png
-PRIME|CRIMEN ᴿᴬᵂ|Crimen ᴿᴬᵂ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/FoxCrimeAU-Logo.svg/960px-FoxCrimeAU-Logo.svg.png
+PRIME|CRIMEN ᴿᴬᵂ|Crimen ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab4ca13ef06c6739ac0e7a6f1ae5e80b4bad18c.png
 PRIME|CRUNCHYROLL ᴿᴬᵂ|Crunchyroll ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32257354a45cf66ba898cc93af6d796622be56a4.png
 PRIME|CURB APPEAL ᴿᴬᵂ|Curb Appeal ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/48d29fccb2b66030680b94f9e80b162fb9aebaa0.png
 PRIME|CURIOSITY NOW ᴿᴬᵂ|Curiosity Now ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0ba27bdc3d69d9f4.png
@@ -7286,7 +7286,7 @@ TVGUIDE:US|MOVIEPLEX HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 TVGUIDE:US|MR AND MRS SMITH ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8c8f601bf34c0f8.png
 TVGUIDE:US|MR BEAN ANIMATED FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/0a983a63c819789f59c8d425e253ca4bc5b77402.png
 TVGUIDE:US|MS MARVEL ᴿᴬᵂ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ddc1e2ee7cb1030a.png
-TVGUIDE:US|MS NOW HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/ms-now-us.png
+TVGUIDE:US|MS NOW HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/02da8ecf0f309c99a1408d5b025849529e472d7b.png
 TVGUIDE:US|MSG 2 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d3446ea15532a47.png
 TVGUIDE:US|MSG 2 PLUS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d3446ea15532a47.png
 TVGUIDE:US|MSG HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9d3446ea15532a47.png
@@ -7299,7 +7299,7 @@ TVGUIDE:US|MUPPET BABIES FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg
 TVGUIDE:US|MUSIC CHOICE  MAX|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/09272c174aae9ed8.png
 TVGUIDE:US|MUSIC CHOICE '70's|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/760adea08aeef01405512620c2554df7e6e7e6c0.png
 TVPASSPORT:US|MUSIC CHOICE CLASSIC COUNTRY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b0c7454074b1c91e.png
-TVPASSPORT:US|MUSIC CHOICE HIP-HOP AND R&B|https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/Music_Choice_logo.png/960px-Music_Choice_logo.png
+TVPASSPORT:US|MUSIC CHOICE HIP-HOP AND R&B|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e22dfe8090cbf47107ddf8f905cb4af1812dd951.png
 TVGUIDE:US|MUSIC CHOICE JAZZ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ba5e75c41df0c4ed.png
 TVGUIDE:US|MUSIC CHOICE POP HITS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/82385506b7730d4c.png
 TVGUIDE:US|MUSIC CHOICE ROCK HITS|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9755fc20142c1606.png
@@ -13438,31 +13438,31 @@ NAME:MLS St Louis CITY SC|https://raw.githubusercontent.com/babo20094-rgb/Epg/ma
 NAME:MLS Toronto FC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME:MLS Vancouver Whitecaps FC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
 NAME::MLS  03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1507ad97c1b389602e2448c27b1545871ef850d0.png
-NAME:Matchroom Event 00|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 01|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 02|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 03|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 04|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 05|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 06|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 07|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 08|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 09|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 10|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 11|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 12|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 13|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 14|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 15|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 16|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 17|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 18|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 19|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 20|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 21|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 22|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 23|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
-NAME:Matchroom Event 24|https://upload.wikimedia.org/wikipedia/en/9/92/Matchroom_logo.jpeg
+NAME:Matchroom Event 00|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 01|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 02|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 03|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 04|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 05|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 06|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 07|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 08|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 09|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 10|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 11|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 12|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 13|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 14|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 15|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 16|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 17|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 18|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 19|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 20|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 21|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 23|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
+NAME:Matchroom Event 24|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/09c3b3ba4b359abe3122160279a99d104401a33a.png
 NAME::Milb  22|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/03ac64565f463ad9dc73bfb3728a1d9d8cdf03e0.png
 NAME:Mola Event 00 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
 NAME:Mola Event 01 :|https://upload.wikimedia.org/wikipedia/id/thumb/b/b9/Mola_logo_%282023%29.svg/1280px-Mola_logo_%282023%29.svg.png
@@ -17548,7 +17548,7 @@ MAGENTA:DE| BILD+ EVENT FAME FIGHTING|https://raw.githubusercontent.com/babo2009
 DE|HR HD|Hr Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/205055542907f459a6cd4a6b52c07b3263f4fb76.png
 DE|YU-GI-OH!|Yu-Gi-Oh! ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2c9d2bad9822f2bc3dd0e13c7be2b358f08f812f.png
 MAGENTA:DE| SR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/6d3bcbf55e15cbe01fbe6374227a7aca10af343c.png
-SKY:DE|AXN BLACK HD|https://logo.m3uassets.com/axnblack.png|DE| AXN BLACK HD
+SKY:DE|AXN BLACK HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/350dc68187a48a133725400c07c560b5e90b13b2.png|DE| AXN BLACK HD
 MAGENTA:DE| SONY CHANNEL FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5aa294634bd005cbb4a34485e8d0afc2a6d8c2b8.png
 DE| CNN||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/aee4baea06419fdebbae0a4b34b4fd9dc33aa906.png
 TVPASSPORT:US|FOX (KFFX) Yakima, WA|AUTO
@@ -17559,19 +17559,19 @@ FREEVIEW:GB| BBC ARABIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 FREEVIEW:GB| NICK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d3d933231c4b25f40cb137360f644deba8dccbd0.png
 FREEVIEW:GB| 4 MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f8342918caceebcf42e84265e6aa933562e71280.png
 TVGUIDE:US|NBC 16 LAFAYETTE LA (WPBI)|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/nbc.png
-TVGUIDE:US| C-SPAN 1 HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/c-span-1-us.png
-TVGUIDE:US| UFC HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/ufc-us.png
+TVGUIDE:US| C-SPAN 1 HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1db859c7d1302a5a712c45ce525f0ad9c8076a64.png
+TVGUIDE:US| UFC HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/75655f75859019a10ad06f093b37ef92013551a2.png
 TVGUIDE:US| GINX ESPORTS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/17ab80946a5bd9e11ab3314d3702b79a64047553.png
 TVGUIDE:US| CSN PHILADELPHIA HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/63108aa4db7016f99196bda7c7c84240f275090f.png
 TVGUIDE:US|CBS PHILADELPHIA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/63108aa4db7016f99196bda7c7c84240f275090f.png
 TVGUIDE:US| SPACE CITY HD|AUTO
-TVGUIDE:US|REELZ HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/reelz-us.png
+TVGUIDE:US|REELZ HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/64f33654206996d1b75a25946d797de4c7fd754f.png
 TVGUIDE:US| PBS HD|https://upload.wikimedia.org/wikipedia/commons/8/89/PBS_logo_2019.svg
 TVGUIDE:US| PARAMOUNT HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/cedc5c99150207943539c08807fa3912a1360db4.png
-TVGUIDE:US|RT DOCUMENTARY HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/international/rt-documentary-int.png
+TVGUIDE:US|RT DOCUMENTARY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/cfff5eec70ccd0e60bcf548b8a8769487ab8ead3.png
 TELEMACH:RS|DISCOVERY XTRA|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac37aaf5e7d1b12b78181bc575fe8fad22091c53.png
 TELEMACH:RS|DM SAT|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1c8b0e81cdf1f2e33adc8d2b5f1d8941b7395011.png
-TELEMACH:RS|MTV CLUB|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/serbia/mtv-club-rs.png
+TELEMACH:RS|MTV CLUB|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/9b382e41934c83c3d0384d184095483f0a4f9bd7.png
 TELEMACH:BA|ATV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/38a8bbe53b6fe46fe5e87559b7a162a0c040cfe1.png
 TELEMACH:BA|HERCEG TV|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/12d7bfef1d0e6b077c2b54547e6b67f480e4b436.png
 TELEMACH:BA|RTV BPK|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1bbeecd0facdf9efa2890af1d781605210a38765.png
@@ -17624,17 +17624,17 @@ US| ViX+ DEPORTES 17|Vix+ Deportes (17) ᴸⁱᵛᵉ|AUTO
 US| ViX+ DEPORTES 18|Vix+ Deportes (18) ᴸⁱᵛᵉ|AUTO
 US| ViX+ DEPORTES 19|Vix+ Deportes (19) ᴸⁱᵛᵉ|AUTO
 US| ViX+ DEPORTES 20|Vix+ Deportes (20) ᴸⁱᵛᵉ|AUTO
-SKY:UK| SKY ONE|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-one-uk.png
+SKY:UK| SKY ONE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8ca469223acd9e860d72f881eb5d9eb3770b7ef8.png
 FREEVIEW:GB| TCM FHD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3e59d330423a5bb67f0246a304a357021a06ad84.png
 UK| SKY ONE FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fae30a817b3d65032a998f82f639e538d16a8fec.png
 SKY:UK| SKY ONE+1|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/710da176d07b96d3e08076178ca2d5bd8b7f06ca.png
 UK| BT BOX OFFICE HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/10028f291f17358d5acf6d0c6b0c67b69d7ab2a4.png
-FREEVIEW:GB| BBC World Service|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/bbc-world-service-uk.png
+FREEVIEW:GB| BBC World Service|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/a036c7d74d95d9023437f0f17591da945b7f7005.png
 SKY:UK| SKY REPLAY|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4b0791e1359c0be5e07a38f91b2bd709e4427860.png
 FREEVIEW:GB| LONDON LIVE|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/66a2c36de0f4606603492ecc337e8d917d2c6103.png
 FREEVIEW:GB| RT DOCUMENTRY HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e1ea72be4c7840c5317bd20d08e47d1846952a92.png
 FREEVIEW:GB| RTE TWO HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/763da6f06e2daac36815fa7eb2f5aa8b4166f2c6.png
-FREEVIEW:GB| TALK TV HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/talk-tv-uk.png
+FREEVIEW:GB| TALK TV HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/11340fdd94f509cb9e0d237cc20646194a2c04c5.png
 UK| TALK TV FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/297e9e917eca9fd9336f9f3d84cfea8bb2db39d3.png
 #US| TELEMUNDO NETWORK
 TVPASSPORT:US|Telemundo (WTCL-LP) Cleveland, OH|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/telemundo/telemundo.png
@@ -17954,7 +17954,7 @@ CITY| NBC WRCB WASHINGTON ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094
 NAME:NFL TEAMS| FOX REDSKINS WASHINGTON DC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/commanders.png
 TVPASSPORT:US|PBS (KOPB) Portland, OR|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/pbs/pbs.png
 UK| NOW HK PREMIER SPORTS 8||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/10a281011739d7b9224cb455582790d456d6f58f.png
-SKY:UK| SKY CINEMA OSCARS HD|https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-kingdom/sky-cinema-oscars-uk.png
+SKY:UK| SKY CINEMA OSCARS HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/69b8643a44fd2d3b48164ca7d835e3b5aee75a96.png
 FREEVIEW:GB| MTV MUSIC|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/60aa37e1d777db22b89164405eb2985cc8892c3c.png
 IR| RTE TWO HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/15edb259895543c380d0f0d76a2928aa59a5a2fe.png
 IT| RAI 1 HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fe2a2122db8e493a04e309bd12e551223cb3ee50.png
@@ -18038,7 +18038,7 @@ EN| THE GODFATHER||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 EN| THE HANGOVER||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/fab878be0bed600b645ccf4d6aba981abcf5ba08.png
 EN| TERMINATOR||https://upload.wikimedia.org/wikipedia/commons/2/28/Terminator_%28franchise_logo%29.png
 EN| THE A-TEAM||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/36777427c2d791ef597149b006f7e1d255e8212b.png
-EN| THE AVENGERS||https://upload.wikimedia.org/wikipedia/commons/f/f4/The_avengers_logo.png
+EN| THE AVENGERS||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/257132eb59d6309b0ec602344e66f4a4b8d85531.png
 EN| THE CROCODILE||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/crocodile_dundee.png
 EN| SPY KIDS||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/34d34a53c5141c11ef90c12541ffddaec0e355ab.png
 EN| STAND UP COMEDY FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/comedy_masks.png
@@ -18058,7 +18058,7 @@ EN| MORTAL KOMBAT||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logo
 EN| LETHAL WEAPON||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1ad850f3c85ffbc7ae59590f651abba966391f74.png
 EN| LIFE TIME||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/49a9b9fe57b7a6527cc4e0a61f82d34338d23cff.png
 EN| JAMES BOND 007||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9e0e5a5835ee705bf08fa18f2de2f59e53dda05a.png
-EN| JEEPERS CREEPERS||https://media.themoviedb.org/t/p/w500/g410Y1U1ELbmJG14Zru3UAimm1G.jpg
+EN| JEEPERS CREEPERS||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ad60c938099ab56d22073a010348cecc78bb6fe5.png
 EN| JOHN WICK||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/4c5c2481afb61d46f8584ce806ef8939689ffc1a.png
 EN| JURASSIC WORLD/PARK||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/jurassic.png
 EN| INDIANA JONES||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/indiana_jones.png
@@ -18348,8 +18348,8 @@ DE|DDR|Ddr ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main
 DE|ALLESKINO|Alleskino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1896619858b71869b79db9f12e2882173c05d8db.png
 DE|HEIMATKINO|Heimatkino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ea6da263ba3f20f101e85eb543adf7d3538bdac9.png
 DE|ZDF KOCHT|Zdf Kocht ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/86a0cafb255531931310e54aafdee80fbd2e0e21.png
-DE|BARES FUR RARES|Bares Fur Rares ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/7/75/Bares_f%C3%BCr_Rares_Logo.png
-DE|SPANNUNG EMOTIONEN|Spannung Emotionen ᴸⁱᵛᵉ|https://logopond.com/logos/5d2ec3777399bd2f055193a4894f2a75.png
+DE|BARES FUR RARES|Bares Fur Rares ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/d322e222f21b34013c384eb73b07da93045c599b.png
+DE|SPANNUNG EMOTIONEN|Spannung Emotionen ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f7018ce712058a4bfa10415b38f1d80805cd7654.png
 DE|WILDER PLANET|Wilder Planet ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/f0d25cc1fcb641d481d822eb189f56ff1490b369.png
 DE|CNN FAST|Cnn Fast ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8cf4c51d790bd1638df6af8f9ab32f6c90d27fca.png
 DE|FRANCE 24 FAST|France 24 Fast ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c0770bd7b9602f6555a01002a6af2100b7cc1e61.png
@@ -18441,7 +18441,7 @@ UK|W!-Watch FHD|
 UK|RTE 1 HEVC FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38a47e56d070deb29bcc267ec47b48340e376ece.png
 FREEVIEW:GB|Praise Tv Network|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/praise_tv/praise_tv.png
 FREEVIEW:GB|N4 Iceland HD|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/13e7f69e1f1336b23d2c241b93203e34384d5a7b.png
-US|THE CROWN ᴿᴬᵂ| |https://upload.wikimedia.org/wikipedia/commons/f/fd/Netflix-Logo.png
+US|THE CROWN ᴿᴬᵂ| |https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/8e8be0f42eea4a53365dfdc2b05ad6b644b5a30d.png
 US|FOX 39 LAREDO TX (KXOF)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
 US|FOX 43 TOPEKA KS (KTMJ)||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/fox.png
 TVPASSPORT:US|FOX (KKFX) Santa Barbara, CA|AUTO
@@ -18628,7 +18628,7 @@ EXYU| A NIGHTMARE ON ELM STREET|A Nightmare On Elm Street ²⁴/⁷ ᴸⁱᵛᵉ
 EXYU| BAD BOYS|Bad Boys ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e9ecc80113fc59f9b7719aff2a6c666c9422016a.png
 EXYU| BEVERLY HILLS COP|Beverly Hills Cop ²⁴/⁷ ᴸⁱᵛᵉ
 EXYU| DC COLLECTION|Dc Collection ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/da1a11f06207dfa41e63878b0868775a6c52f2ff.png
-EXYU| DIE HARD|Die Hard ²⁴/⁷ ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/commons/d/d1/Die_Hard_film_logo.png
+EXYU| DIE HARD|Die Hard ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/72c8c92c454ba07745d998eb4cff43ca36de6317.png
 EXYU| FINAL DESTINATION|Final Destination ²⁴/⁷ ᴸⁱᵛᵉ
 EXYU| HAJDE DA SE VOLIMO|Hajde Da Se Volimo ²⁴/⁷ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/07f86720c5a4ecc30ffd67edc48fd1d5fbf940e4.png
 EXYU| HARRY POTTER|Harry Potter ²⁴/⁷ ᴸⁱᵛᵉ
@@ -18731,16 +18731,16 @@ NAME:DIRTVISION 07:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/log
 NAME:DIRTVISION 08:|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd3544412c64f092.png
 NAME:Dirtvision Now | 24/7|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bd3544412c64f092.png
 #US| FLO RACING
-NAME:Flo Racing 01 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 02 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 03 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 04 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 05 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 06 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 07 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 08 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 09 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
-NAME:Flo Racing 10 :|https://cdn.myracepass.com/images/v2/1200x1200-eF6W9btT73rCyXx1168713.jpg
+NAME:Flo Racing 01 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 02 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 03 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 04 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 05 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 06 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 07 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 08 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 09 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
+NAME:Flo Racing 10 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
 NAME:Flo Racing 11 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
 NAME:Flo Racing 12 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
 NAME:Flo Racing 13 :|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ac593c1b911a6d2169a07c41cc1291840dc72d8a.png
@@ -19214,7 +19214,7 @@ PRIME|CARTOON REWIND RAW|Cartoon Rewind ᴸⁱᵛᵉ|https://raw.githubuserconte
 PRIME|CHAOS ON CAM BY A E RAW|Chaos On Cam By A E ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/chaos_on_cam.png
 PRIME|CNN EXPRESS RAW|Cnn Express ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/1559c1ae44826c5f50e4c60b9fbab940c144db48.png
 PRIME|CRIME JUSTICE RAW|Crime Justice ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/gavel.png
-PRIME|CRIMEN RAW|Crimen ᴸⁱᵛᵉ|https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/FoxCrimeAU-Logo.svg/960px-FoxCrimeAU-Logo.svg.png
+PRIME|CRIMEN RAW|Crimen ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/7ab4ca13ef06c6739ac0e7a6f1ae5e80b4bad18c.png
 PRIME|CURB APPEAL RAW|Curb Appeal ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/48d29fccb2b66030680b94f9e80b162fb9aebaa0.png
 PRIME|DR PHIL PRIMETIME ON MERIT STREET RAW|Dr Phil Primetime On Merit Street ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/drphil.png
 PRIME|DR PHIL RAW|Dr Phil ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/drphil.png
@@ -19248,7 +19248,7 @@ PRIME|WESTERN BOUND WRANGLED BY INSP ᴿᴬᵂ||https://raw.githubusercontent.co
 PRIME|WENDY WILLIAMS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/wendy_williams.png
 PRIME|VEVO R&B ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/32dcdc6c42643b1269950e999f2adc7de2439f96.png
 PRIME|VEVO HIP-HOP ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/38ced67eb5e9fd1114207ea0acd518fddf5e0f09.png
-PRIME|UNTOLD STORIES OF THE ER ᴿᴬᵂ||https://media.themoviedb.org/t/p/w500/l5hg2Qe15DuAdF2Apey8NKTDpNw.jpg
+PRIME|UNTOLD STORIES OF THE ER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/bfe612800ea289ba181ea371f8a45b59fe30e5e7.png
 PRIME|ULTIMATE BUILDS ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/found/construction.png
 PRIME|TRIBUNAL JUSTICE ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3354f7939eaf2b0f27f423d92de850b2acc75848.png
 PRIME|TO CATCH A SMUGGLER ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/21db2e9ce8c135a1e37c108c7de0f6f5d093d748.png
