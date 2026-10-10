@@ -1167,12 +1167,12 @@ DE|MR. ROBOT 2015|Mr. Robot 2015 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/
 DE|MS GOLF 1 HD|Ms Golf 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ms_golf/ms_golf.png
 DE|MS GOLF 2 HD|Ms Golf 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/ms_golf/ms_golf.png
 DE|MTV HD|Mtv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a96d9bab6d9047f1.png
-DE|MYSPORTS 1 4K|Mysports 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/711da339d2c5183e.png
-DE|MYSPORTS 1 HD|Mysports 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/711da339d2c5183e.png
-DE|MYSPORTS 10 4K|Mysports 10 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/711da339d2c5183e.png
-DE|MYSPORTS 10 HD|Mysports 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/711da339d2c5183e.png
-DE|MYSPORTS 2 4K|Mysports 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e43a645156247773.png
-DE|MYSPORTS 2 HD|Mysports 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e43a645156247773.png
+DE|MYSPORTS 1 4K|Mysports 1 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mysports/mysports_1.png
+DE|MYSPORTS 1 HD|Mysports 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mysports/mysports_1.png
+DE|MYSPORTS 10 4K|Mysports 10 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mysports/mysports_10.png
+DE|MYSPORTS 10 HD|Mysports 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mysports/mysports_10.png
+DE|MYSPORTS 2 4K|Mysports 2 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mysports/mysports_2.png
+DE|MYSPORTS 2 HD|Mysports 2 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mysports/mysports_2.png
 DE|MYSPORTS 3 4K|Mysports 3 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8739348e89d7c6a.png
 DE|MYSPORTS 3 HD|Mysports 3 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8739348e89d7c6a.png
 DE|MYSPORTS 4 4K|Mysports 4 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/db0e7e777222f5e8.png
@@ -1187,7 +1187,7 @@ DE|MYSPORTS 8 4K|Mysports 8 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/ba
 DE|MYSPORTS 8 HD|Mysports 8 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/88a94ec6437a4c79.png
 DE|MYSPORTS 9 4K|Mysports 9 4K ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7b05757edbc71789.png
 DE|MYSPORTS 9 HD|Mysports 9 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7b05757edbc71789.png
-DE|MYSPORTS EDGE HD|Mysports Edge Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e43a645156247773.png
+DE|MYSPORTS EDGE HD|Mysports Edge Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/mysports/mysports_edge.png
 DE|MYTEAM SPORT 1 HD|Myteam Sport 1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b06728266bf287c5.png
 DE|MYTEAM SPORT 10 HD|Myteam Sport 10 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/249869f85ede61f6.png
 DE|MYTEAM SPORT 11 HD|Myteam Sport 11 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3a74186ebc2da8e5.png

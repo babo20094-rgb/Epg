@@ -201,6 +201,14 @@ Parallelisierung/Vorab-Abrufen, siehe `docs/HISTORIE.md`).
     (NUR dieser Kern-Sendername - `MOTORVISION ᴿᴬᵂ`, `MOTORVISION
     CLASSIC`, `MOTORVISION TV`/`.TV`/`DE` sind andere Sendernamen und
     behalten ihr eigenes Logo)
+  - `MYSPORTS EDGE`/`MYSPORTS 1`/`MYSPORTS 2`/`MYSPORTS 10` (DE, jede
+    Groß-/Kleinschreibung, jedes Suffix 4K/HD/...) →
+    `logos/mysports/mysports_edge.png` bzw. `mysports_1.png`/
+    `mysports_2.png`/`mysports_10.png` (selbst erzeugt im Stil der
+    vorhandenen MySports-3-bis-9-Logos aus `logos/playlist_import/`:
+    weißer Schriftzug "MYSPORTS" oben, darunter Nummer/"EDGE" in
+    Orange-Rot-Verlauf, Inter ExtraBold; 4K und HD teilen sich ein Logo.
+    MySports 3-9 behalten ihre bestehenden Logos)
   - `RT VOJVODINA 1`/`RTV VOJVODINA 1` bzw. `... 2` (jede Groß-/
     Kleinschreibung, jedes Land/Suffix wie ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) →
     `logos/rt_vojvodina_<N>/rt_vojvodina_<N>_weiss.png` (Version mit
