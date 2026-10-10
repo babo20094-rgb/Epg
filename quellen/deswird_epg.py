@@ -272,6 +272,12 @@ _BEKANNTE_KERN_ALIASE = {
     # ~200 Sendungen). Der Kern "SR" ist zu kurz fuer den unscharfen
     # Abgleich, daher exakte Alias-Zuordnung.
     "SR": "SRFernsehen.de",
+    # "MOTORVISION MORE THAN SPORTS" - Playlist-Name ist die Marken-
+    # Kombination, deswird.org fuehrt den Sender als "More than Sports TV"
+    # (120 Sendungen, Oktober 2026). Der exakte Namensabgleich fand
+    # stattdessen den LEEREN Kanal "Motorvision More than sports" (0
+    # Sendungen) - dadurch blieb der Sender trotz echter Daten generisch.
+    "MOTORVISIONMORETHANSPORTS": "More than Sports TV",
 }
 
 
