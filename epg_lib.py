@@ -1,0 +1,3029 @@
+"""
+epg_lib.py - Reine Definitionen (Kategorien, Sprachlogik, Hilfsfunktionen)
+ohne Seiteneffekte (kein Dateizugriff, kein Netzwerk-Request, kein Schreiben).
+
+Ausgelagert aus generate_epg.py, damit diese Funktionen isoliert per
+Unit-Tests geprueft werden koennen (siehe test_generate_epg.py), ohne
+dass dabei sender.txt gelesen oder die DYN-API angefragt werden muss.
+"""
+
+import re
+import unicodedata
+import difflib
+from functools import lru_cache
+import zlib
+
+
+def sender_hash(sender):
+    """Liefert einen gut gestreuten, deterministischen Hash-Wert fuer
+    einen Sendernamen (fuer die Auswahl von Text-/Titel-Varianten).
+
+    Bewusst NICHT einfach sum(ord(c) for c in sender): bei
+    durchnummerierten Sendern wie "KIDS 1", "KIDS 2", "KIDS 3", ...
+    unterscheidet sich der Name nur in einer Ziffer, wodurch die
+    Zeichensumme (und damit die gewaehlte Textvariante) exakt um 1 pro
+    Sender steigt - die Vorlagen liefen dann strikt der Reihe nach
+    durch statt "zufaellig" zu wirken (sichtbar z.B. bei den
+    VODAFONE-GO-Kanaelen). zlib.crc32 streut auch bei minimalen
+    Namensunterschieden gut, bleibt aber deterministisch (gleicher
+    Sender -> gleicher Wert bei jedem Lauf)."""
+    return zlib.crc32(sender.encode("utf-8"))
+
+
+# ==========================================================
+# Automatische Beschreibungen nach Kategorie
+# ==========================================================
+
+KATEGORIEN = {
+    "REALITY": {
+        "label": {"DE": "Reality-TV", "EXYU": "Rijaliti", "EN": "Reality TV", "SI": "Resničnostni šov", "MK": "Rijaliti"},
+        "keywords": [
+            "REALITY", "BIG BROTHER", "TEMPTATION", "LOVE ISLAND", "PAROVI", "ZADRUGA", "FARMA", "SURVIVOR", "BACHELOR", "BACHELORETTE", "TOWIE", "GEORDIE SHORE", "KARDASHIAN", "HOUSEWIVES", "90 DAY", "MAFS", "MARRIED AT FIRST SIGHT"
+        ],
+        "DE": [
+            "{label} live auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{sender}: {label} pur."
+        ],
+        "EXYU": [
+            "Non-stop {label} na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{sender} donosi {label}.",
+            "{label} bez pauze na {sender}.",
+            "{label} uzivo na {sender}.",
+            "Cijeli dan {label} na {sender}."
+        ],
+        "SI": [
+            "{sender}: {label} brez prekinitve.",
+            "{sender}: {label} vsako uro.",
+            "Vedno sveze: {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "Ves dan {label} na {sender}.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "{label} cel den na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "{label} 24 casa na den.",
+            "{label} nonstop na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "Cel den {label} na {sender}."
+        ],
+        "EN": [
+            "{label} live on {sender}.",
+            "Nonstop {label} on {sender}.",
+            "All day {label} on {sender}.",
+            "{sender} presents {label}.",
+            "{sender}: {label} every hour.",
+            "{sender}: {label} nonstop."
+        ]
+    },
+
+    "NEWS": {
+        "label": {"DE": "Nachrichten", "EXYU": "Vijesti", "EN": "News", "SI": "Novice", "MK": "Vesti"},
+        "keywords": [
+            "NEWS", "CNN", "BBC NEWS", "SKY NEWS", "AL JAZEERA", "N24", "NTV", "WELT", "EURONEWS", "FRANCE 24", "BLOOMBERG", "DW", "CNBC", "FOX NEWS", "MSNBC", "RTRS", "RTS", "HRT", "BHT", "N1", "VIJESTI", "DNEVNIK", "ABC NEWS", "ITV NEWS", "GB NEWS", "TALKTV", "TALK TV", "C-SPAN", "NEWSMAX", "OANN", "PHOENIX", "TAGESSCHAU", "ARD", "ZDFINFO", "CHANNEL 4 NEWS", "SKY NEWS ARABIA", "KLAN", "RTV21", "MREZA", "PINK VIJESTI", "K3", "NOVA VIJESTI", "PBS NEWSHOUR"
+        ],
+        "DE": [
+            "{label} jederzeit bei {sender}.",
+            "{label} live auf {sender}.",
+            "{sender} bringt {label}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} ohne Unterbrechung auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} predstavlja {label}.",
+            "{label} uzivo na {sender}.",
+            "{label} u svako doba na {sender}.",
+            "Cijeli dan {label} na {sender}.",
+            "{label} cijeli dan na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}."
+        ],
+        "SI": [
+            "Vedno sveze: {label} na {sender}.",
+            "{label} brez premora na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{sender}: {label} vsako uro.",
+            "{sender}: {label} brez prekinitve."
+        ],
+        "MK": [
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "{label} cel den na {sender}.",
+            "{label} 24 casa na den.",
+            "{label} nonstop na {sender}.",
+            "{label} vo zivo na {sender}."
+        ],
+        "EN": [
+            "Always on: {label} on {sender}.",
+            "{sender} brings you {label}.",
+            "{label} anytime on {sender}.",
+            "All day {label} on {sender}.",
+            "{sender} presents {label}.",
+            "{label} live on {sender}."
+        ]
+    },
+
+    "KINDER": {
+        "label": {"DE": "Kinder", "EXYU": "Dječiji program", "EN": "Kids", "SI": "Otroški program", "MK": "Detska programa"},
+        "keywords": [
+            "KIDS", "KID", "KINDER", "JR", "JUNIOR", "DISNEY", "CARTOON", "CARTOONS", "NICKELODEON", "NICK", "BOOMERANG", "BABY", "TOON", "CBEEBIES", "MINIMAX", "TINY", "POPCORN", "GULLI", "DJECA", "CRTANI", "CBBC", "PBS KIDS", "MILKSHAKE", "BABY TV", "BABYTV", "SUPER RTL", "SUPERRTL", "KIKA", "PANDA", "DUCK TV", "MINI", "PLANETA DJECA"
+        ],
+        "DE": [
+            "{label} jederzeit bei {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "Non-Stop {label} auf {sender}.",
+            "{label} live auf {sender}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{label} rund um die Uhr."
+        ],
+        "EXYU": [
+            "{sender} donosi {label}.",
+            "{label} uzivo na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{label} u svako doba na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} svakog sata."
+        ],
+        "SI": [
+            "{label} nonstop na {sender}.",
+            "{label} ves dan na {sender}.",
+            "Vedno sveze: {label} na {sender}.",
+            "{label} brez premora na {sender}.",
+            "{sender} prinasa {label}.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "{sender} pretstavuva {label}.",
+            "{sender}: {label} bez prekin.",
+            "{label} vo zivo na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "Sekogas aktuelno: {label} na {sender}."
+        ],
+        "EN": [
+            "Always on: {label} on {sender}.",
+            "{label} live on {sender}.",
+            "{label} nonstop on {sender}.",
+            "{label} anytime on {sender}.",
+            "{label} all day on {sender}.",
+            "{sender}: {label} nonstop."
+        ]
+    },
+
+    "GAMING": {
+        "label": {"DE": "Gaming", "EXYU": "Gaming", "EN": "Gaming", "SI": "Igre", "MK": "Gejming"},
+        "keywords": [
+            "GAMING", "ESPORTS", "E-SPORTS", "GAME", "IGRE", "TWITCH", "GAMER", "PLAYSTATION", "XBOX", "NINTENDO", "GINX"
+        ],
+        "DE": [
+            "{label} jederzeit bei {sender}.",
+            "{sender} praesentiert {label}.",
+            "{label} rund um die Uhr.",
+            "Non-Stop {label} auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender} bringt {label}."
+        ],
+        "EXYU": [
+            "{label} u svako doba na {sender}.",
+            "{label} uzivo na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{label} cijeli dan na {sender}.",
+            "{sender} predstavlja {label}."
+        ],
+        "SI": [
+            "Nonstop {label} na {sender}.",
+            "{label} ves dan na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} 24 ur na dan.",
+            "{sender} predstavlja {label}.",
+            "{label} kadarkoli na {sender}."
+        ],
+        "MK": [
+            "{sender} - vasiot kanal za {label}.",
+            "{label} nonstop na {sender}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "{label} cel den na {sender}.",
+            "{sender}: {label} bez prekin."
+        ],
+        "EN": [
+            "All day {label} on {sender}.",
+            "Nonstop {label} on {sender}.",
+            "{sender}: {label} every hour.",
+            "{label} without a break on {sender}.",
+            "{sender} brings you {label}.",
+            "{label} live on {sender}."
+        ]
+    },
+
+    "RADIO": {
+        "label": {"DE": "Radio", "EXYU": "Radio", "EN": "Radio", "SI": "Radio", "MK": "Radio"},
+        "keywords": [
+            "RADIO", "HÖRFUNK", "FM", "BBC RADIO", "CLASSIC FM", "HEART RADIO", "CAPITAL FM"
+        ],
+        "DE": [
+            "{label} live auf {sender}.",
+            "{label} jederzeit bei {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{sender}: {label} pur.",
+            "{label} ohne Unterbrechung auf {sender}."
+        ],
+        "EXYU": [
+            "Cijeli dan {label} na {sender}.",
+            "{label} bez pauze na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender} donosi {label}.",
+            "{label} 24 sata na dan."
+        ],
+        "SI": [
+            "{label} ves dan na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} kadarkoli na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "Ves dan {label} na {sender}.",
+            "{label} 24 ur na dan."
+        ],
+        "MK": [
+            "{sender} nudi {label}.",
+            "Cel den {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} 24 casa na den.",
+            "{sender}: {label} bez prekin.",
+            "{sender} pretstavuva {label}."
+        ],
+        "EN": [
+            "{sender} presents {label}.",
+            "{sender}: {label} every hour.",
+            "{label} all day on {sender}.",
+            "All day {label} on {sender}.",
+            "Nonstop {label} on {sender}.",
+            "{label} live on {sender}."
+        ]
+    },
+
+    "SHOPPING": {
+        "label": {"DE": "Shopping", "EXYU": "Kupovina", "EN": "Shopping", "SI": "Nakupovanje", "MK": "Kupuvanje"},
+        "keywords": [
+            "SHOP", "SHOPPING", "QVC", "HSE", "KUPOVINA", "IDEAL WORLD", "BID TV", "JEWELLERY MAKER", "STUDIO SHOP", "TELESHOPPING", "TV SHOP"
+        ],
+        "DE": [
+            "Immer aktuell: {label} auf {sender}.",
+            "Non-Stop {label} auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{label} live auf {sender}.",
+            "{label} jederzeit bei {sender}."
+        ],
+        "EXYU": [
+            "{sender} donosi {label}.",
+            "{sender} - vas kanal za {label}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} cijeli dan na {sender}.",
+            "{label} uzivo na {sender}."
+        ],
+        "SI": [
+            "{sender}: {label} vsako uro.",
+            "{sender} predstavlja {label}.",
+            "Nonstop {label} na {sender}.",
+            "{label} kadarkoli na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{label} v zivo na {sender}."
+        ],
+        "MK": [
+            "{sender} - vasiot kanal za {label}.",
+            "Nonstop {label} na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "{label} bez pauza na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "{sender}: {label} sekoj cas."
+        ],
+        "EN": [
+            "{sender}: {label} every hour.",
+            "{sender} presents {label}.",
+            "{sender} - your channel for {label}.",
+            "{sender}: {label} nonstop.",
+            "Nonstop {label} on {sender}.",
+            "Always on: {label} on {sender}."
+        ]
+    },
+
+    "WISSEN": {
+        "label": {"DE": "Wissen & Bildung", "EXYU": "Znanje i edukacija", "EN": "Science & Education", "SI": "Znanje in izobraževanje", "MK": "Znaenje i obrazovanie"},
+        "keywords": [
+            "SCIENCE", "EDUCATION", "ZNANJE", "NAUKA", "BILDUNG", "LEARN", "DISCOVERY SCIENCE", "OPEN UNIVERSITY"
+        ],
+        "DE": [
+            "{sender} praesentiert {label}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{label} rund um die Uhr.",
+            "Rund um die Uhr {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} nonstop na {sender}.",
+            "{sender} donosi {label}.",
+            "{sender}: {label} svakog sata.",
+            "{label} u svako doba na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{label} bez pauze na {sender}."
+        ],
+        "SI": [
+            "{label} v zivo na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "{sender} predstavlja {label}.",
+            "{sender} prinasa {label}.",
+            "{sender}: {label} brez prekinitve.",
+            "Ves dan {label} na {sender}."
+        ],
+        "MK": [
+            "{label} cel den na {sender}.",
+            "{label} 24 casa na den.",
+            "{sender} pretstavuva {label}.",
+            "{label} nonstop na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "Sekogas aktuelno: {label} na {sender}."
+        ],
+        "EN": [
+            "Always on: {label} on {sender}.",
+            "{label} around the clock.",
+            "Nonstop {label} on {sender}.",
+            "{label} nonstop on {sender}.",
+            "{sender} - your channel for {label}.",
+            "All day {label} on {sender}."
+        ]
+    },
+
+    "NATUR": {
+        "label": {"DE": "Natur", "EXYU": "Priroda", "EN": "Nature", "SI": "Narava", "MK": "Priroda"},
+        "keywords": [
+            "NATURE", "WILD", "ANIMAL", "SAFARI", "PLANET", "EARTH", "PRIRODA", "ZIVOTINJE", "ANIMAL PLANET"
+        ],
+        "DE": [
+            "{sender}: {label} zu jeder Stunde.",
+            "{sender}: {label} pur.",
+            "{label} jederzeit bei {sender}.",
+            "{label} rund um die Uhr.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{label} live auf {sender}."
+        ],
+        "EXYU": [
+            "{label} u svako doba na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{sender}: {label} svakog sata.",
+            "{sender}: {label} bez prekida.",
+            "{label} 24 sata na dan.",
+            "{label} cijeli dan na {sender}."
+        ],
+        "SI": [
+            "{label} brez premora na {sender}.",
+            "{label} v zivo na {sender}.",
+            "{label} ves dan na {sender}.",
+            "Ves dan {label} na {sender}.",
+            "{sender} prinasa {label}.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "Cel den {label} na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "{sender} nudi {label}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{sender}: {label} bez prekin."
+        ],
+        "EN": [
+            "{label} all day on {sender}.",
+            "{sender} - your channel for {label}.",
+            "{label} around the clock.",
+            "Nonstop {label} on {sender}.",
+            "{label} nonstop on {sender}.",
+            "{sender} presents {label}."
+        ]
+    },
+
+    "DOKU": {
+        "label": {"DE": "Dokumentation", "EXYU": "Dokumentarni program", "EN": "Documentary", "SI": "Dokumentarni program", "MK": "Dokumentarna programa"},
+        "keywords": [
+            "DISCOVERY", "NAT GEO", "NATIONAL", "HISTORY", "DOC", "DOKUMENTARNI", "SMITHSONIAN", "TRUE CRIME", "INVESTIGATION", "PBS", "ARTE", "YESTERDAY", "CURIOSITY", "VIASAT EXPLORE", "ID", "INVESTIGATION DISCOVERY"
+        ],
+        "DE": [
+            "{sender} - Ihr Kanal fuer {label}.",
+            "Non-Stop {label} auf {sender}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{label} jederzeit bei {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{label} ohne Unterbrechung auf {sender}."
+        ],
+        "EXYU": [
+            "Non-stop {label} na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{sender} donosi {label}.",
+            "{label} cijeli dan na {sender}.",
+            "{label} nonstop na {sender}."
+        ],
+        "SI": [
+            "{label} brez premora na {sender}.",
+            "{label} 24 ur na dan.",
+            "{sender} prinasa {label}.",
+            "{label} ves dan na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "{label} bez pauza na {sender}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{sender} - vasiot kanal za {label}.",
+            "{sender}: {label} sekoj cas.",
+            "{label} vo zivo na {sender}.",
+            "{sender}: {label} bez prekin."
+        ],
+        "EN": [
+            "{label} all day on {sender}.",
+            "{sender}: {label} every hour.",
+            "{label} nonstop on {sender}.",
+            "{label} anytime on {sender}.",
+            "{label} around the clock.",
+            "{sender} presents {label}."
+        ]
+    },
+
+    "AUTO": {
+        "label": {"DE": "Auto & Motor", "EXYU": "Auto i motor", "EN": "Auto & Motor", "SI": "Avto in motor", "MK": "Avtomobili i moto"},
+        "keywords": [
+            "AUTO", "MOTOR", "MOTORVISION", "AUTOMOBIL", "GARAZA", "TOP GEAR", "GRAND TOUR", "MOTORTREND", "VELOCITY", "AUTO MOTO", "DRIVE"
+        ],
+        "DE": [
+            "{sender} bringt {label}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{label} jederzeit bei {sender}."
+        ],
+        "EXYU": [
+            "{label} 24 sata na dan.",
+            "{label} u svako doba na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{label} uzivo na {sender}.",
+            "{sender}: {label} bez prekida.",
+            "{label} bez pauze na {sender}."
+        ],
+        "SI": [
+            "{sender} predstavlja {label}.",
+            "{label} kadarkoli na {sender}.",
+            "{label} brez premora na {sender}.",
+            "{sender} prinasa {label}.",
+            "{sender}: {label} brez prekinitve.",
+            "{sender}: {label} vsako uro."
+        ],
+        "MK": [
+            "{sender}: {label} sekoj cas.",
+            "{label} 24 casa na den.",
+            "{sender} - vasiot kanal za {label}.",
+            "{sender} nudi {label}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{sender}: {label} bez prekin."
+        ],
+        "EN": [
+            "{sender}: {label} every hour.",
+            "All day {label} on {sender}.",
+            "{label} live on {sender}.",
+            "Always on: {label} on {sender}.",
+            "{label} nonstop on {sender}.",
+            "{label} all day on {sender}."
+        ]
+    },
+
+    "REISEN": {
+        "label": {"DE": "Reisen", "EXYU": "Putovanja", "EN": "Travel", "SI": "Potovanja", "MK": "Patuvanja"},
+        "keywords": [
+            "TRAVEL", "TOUR", "TOURISM", "VACATION", "EXPLORE", "PUTOVANJA", "TRAVEL CHANNEL", "GEO TRAVEL"
+        ],
+        "DE": [
+            "{sender}: {label} zu jeder Stunde.",
+            "{sender} praesentiert {label}.",
+            "Non-Stop {label} auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} live auf {sender}.",
+            "{label} den ganzen Tag auf {sender}."
+        ],
+        "EXYU": [
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{sender} donosi {label}.",
+            "{label} cijeli dan na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{label} u svako doba na {sender}.",
+            "{sender}: {label} bez prekida."
+        ],
+        "SI": [
+            "{sender}: {label} brez prekinitve.",
+            "{sender} - vas kanal za {label}.",
+            "Ves dan {label} na {sender}.",
+            "{label} ves dan na {sender}.",
+            "Vedno sveze: {label} na {sender}.",
+            "{sender}: {label} vsako uro."
+        ],
+        "MK": [
+            "{label} 24 casa na den.",
+            "Nonstop {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender} nudi {label}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "{label} vo zivo na {sender}."
+        ],
+        "EN": [
+            "{label} around the clock.",
+            "All day {label} on {sender}.",
+            "{sender}: {label} nonstop.",
+            "{label} anytime on {sender}.",
+            "{label} nonstop on {sender}.",
+            "{label} live on {sender}."
+        ]
+    },
+
+    "KOCHEN": {
+        "label": {"DE": "Kochen", "EXYU": "Kuhinja", "EN": "Food & Cooking", "SI": "Kuhanje", "MK": "Gotvenje"},
+        "keywords": [
+            "FOOD", "KITCHEN", "COOK", "CUISINE", "CHEF", "GUSTO", "KUHINJA", "RECEPTI", "MASTERCHEF", "BAKE OFF", "FOOD NETWORK", "TASTE", "GORDON RAMSAY", "COOKING CHANNEL", "KOCHT", "KOCHEN", "KOCHSHOW", "KOCHSTUDIO", "KÜCHE"
+        ],
+        "DE": [
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{sender} praesentiert {label}.",
+            "{label} rund um die Uhr.",
+            "{sender} bringt {label}.",
+            "Immer aktuell: {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} bez pauze na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "{sender}: {label} bez prekida.",
+            "{label} u svako doba na {sender}.",
+            "{label} cijeli dan na {sender}."
+        ],
+        "SI": [
+            "{label} 24 ur na dan.",
+            "{sender} - vas kanal za {label}.",
+            "{label} ves dan na {sender}.",
+            "{sender} prinasa {label}.",
+            "{sender}: {label} brez prekinitve.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "{label} vo zivo na {sender}.",
+            "{sender} - vasiot kanal za {label}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{label} 24 casa na den."
+        ],
+        "EN": [
+            "{sender}: {label} nonstop.",
+            "{label} live on {sender}.",
+            "{label} all day on {sender}.",
+            "{sender} - your channel for {label}.",
+            "{label} around the clock.",
+            "{sender} presents {label}."
+        ]
+    },
+
+    "MUSIK": {
+        "label": {"DE": "Musik", "EXYU": "Muzika", "EN": "Music", "SI": "Glasba", "MK": "Muzika"},
+        "keywords": [
+            "MUSIC", "MUSIK", "MTV", "VH1", "DELUXE", "CLUB", "HITS", "MEZZO", "TRACE", "4MUSIC", "CMC", "DM SAT", "FOLK", "BALKAN MUSIC", "NRJ", "KISS", "DANCE", "ROCK", "POP", "JAZZ", "MUZIKA", "HEART", "CAPITAL", "SMOOTH", "MAGIC RADIO", "GRAND", "HITRADIO", "ENERGY", "SCHLAGER", "NARODNA", "TURBO FOLK", "PARTY"
+        ],
+        "DE": [
+            "{sender}: {label} pur.",
+            "{label} rund um die Uhr.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{label} ohne Unterbrechung auf {sender}.",
+            "{label} live auf {sender}.",
+            "{sender}: {label} zu jeder Stunde."
+        ],
+        "EXYU": [
+            "{label} 24 sata na dan.",
+            "Cijeli dan {label} na {sender}.",
+            "{label} uzivo na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{label} nonstop na {sender}.",
+            "{label} cijeli dan na {sender}."
+        ],
+        "SI": [
+            "{label} ves dan na {sender}.",
+            "{sender} prinasa {label}.",
+            "{label} 24 ur na dan.",
+            "{sender}: {label} brez prekinitve.",
+            "{sender} predstavlja {label}.",
+            "Nonstop {label} na {sender}."
+        ],
+        "MK": [
+            "{label} nonstop na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "{sender} - vasiot kanal za {label}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "{label} cel den na {sender}."
+        ],
+        "EN": [
+            "All day {label} on {sender}.",
+            "{sender} presents {label}.",
+            "Nonstop {label} on {sender}.",
+            "{sender} brings you {label}.",
+            "{label} around the clock.",
+            "{label} live on {sender}."
+        ]
+    },
+
+    "COMEDY": {
+        "label": {"DE": "Comedy", "EXYU": "Komedija", "EN": "Comedy", "SI": "Komedija", "MK": "Komedija"},
+        "keywords": [
+            "COMEDY", "HUMOR", "FUNNY", "LAUGH", "KOMEDIJA", "DAVE", "COMEDY CENTRAL", "PARANDOVCI", "SMIJEH"
+        ],
+        "DE": [
+            "Non-Stop {label} auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{sender} bringt {label}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{label} jederzeit bei {sender}."
+        ],
+        "EXYU": [
+            "{sender}: {label} svakog sata.",
+            "{label} nonstop na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Non-stop {label} na {sender}.",
+            "{label} uzivo na {sender}.",
+            "{label} 24 sata na dan."
+        ],
+        "SI": [
+            "{label} v zivo na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "{label} nonstop na {sender}.",
+            "{label} brez premora na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "{label} kadarkoli na {sender}."
+        ],
+        "MK": [
+            "{sender} pretstavuva {label}.",
+            "{sender}: {label} bez prekin.",
+            "{label} nonstop na {sender}.",
+            "{sender} nudi {label}.",
+            "Nonstop {label} na {sender}.",
+            "{sender} - vasiot kanal za {label}."
+        ],
+        "EN": [
+            "{label} live on {sender}.",
+            "{label} anytime on {sender}.",
+            "{label} all day on {sender}.",
+            "{sender} brings you {label}.",
+            "{sender}: {label} every hour.",
+            "{sender}: {label} nonstop."
+        ]
+    },
+
+    "RELIGION": {
+        "label": {"DE": "Religion", "EXYU": "Vjera", "EN": "Religion", "SI": "Vera", "MK": "Religija"},
+        "keywords": [
+            "EWTN", "KTV", "GOD", "ISLAM", "QURAN", "BIBLE", "CHURCH", "SVET", "VJERA", "HAYAT PLUS", "TRINITY", "GOOD TV", "DAAI"
+        ],
+        "DE": [
+            "{label} live auf {sender}.",
+            "{sender} bringt {label}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{label} jederzeit bei {sender}."
+        ],
+        "EXYU": [
+            "{sender} - vas kanal za {label}.",
+            "{label} bez pauze na {sender}.",
+            "{label} 24 sata na dan.",
+            "Non-stop {label} na {sender}.",
+            "{label} u svako doba na {sender}.",
+            "{label} cijeli dan na {sender}."
+        ],
+        "SI": [
+            "{label} nonstop na {sender}.",
+            "{label} v zivo na {sender}.",
+            "Ves dan {label} na {sender}.",
+            "{label} brez premora na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{label} ves dan na {sender}."
+        ],
+        "MK": [
+            "{label} 24 casa na den.",
+            "{label} cel den na {sender}.",
+            "{sender} - vasiot kanal za {label}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "Nonstop {label} na {sender}.",
+            "{sender}: {label} sekoj cas."
+        ],
+        "EN": [
+            "{sender}: {label} nonstop.",
+            "All day {label} on {sender}.",
+            "Nonstop {label} on {sender}.",
+            "{sender}: {label} every hour.",
+            "{sender} brings you {label}.",
+            "{label} all day on {sender}."
+        ]
+    },
+
+    "SPORT": {
+        "label": {"DE": "Sport", "EXYU": "Sport", "EN": "Sport", "SI": "Šport", "MK": "Sport"},
+        "keywords": [
+            "SPORT", "SPORTS", "ESPN", "EUROSPORT", "DAZN", "SKY SPORT", "ARENA", "NBA", "NFL", "NHL", "MLB", "TENNIS", "GOLF", "RACING", "FORMULA", "F1", "MOTOGP", "BOX", "FIGHT", "UFC", "BT SPORT", "TNT SPORTS", "PREMIER LEAGUE", "SOCCER", "RUGBY", "CRICKET", "FLO SPORTS", "FLO RACING", "FANDUEL SPORTS", "BEIN SPORTS", "SPORT KLUB", "ARENA SPORT", "SPORTKLUB", "NASCAR", "PGA TOUR", "SKY SPORTS", "VIAPLAY SPORT", "DYN PPV", "WWE", "OLYMPIC", "OLIMPIJSKI"
+        ],
+        "DE": [
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "Non-Stop {label} auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "{sender}: {label} zu jeder Stunde."
+        ],
+        "EXYU": [
+            "{label} bez pauze na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{sender}: {label} bez prekida.",
+            "{sender} predstavlja {label}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{sender} donosi {label}."
+        ],
+        "SI": [
+            "Ves dan {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "{label} ves dan na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{label} brez premora na {sender}."
+        ],
+        "MK": [
+            "Cel den {label} na {sender}.",
+            "{label} cel den na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "{label} vo zivo na {sender}.",
+            "Nonstop {label} na {sender}."
+        ],
+        "EN": [
+            "Always on: {label} on {sender}.",
+            "{label} all day on {sender}.",
+            "All day {label} on {sender}.",
+            "{label} around the clock.",
+            "{label} live on {sender}.",
+            "{sender} presents {label}."
+        ]
+    },
+
+    "SERIEN": {
+        "label": {"DE": "Serien", "EXYU": "Serije", "EN": "Series", "SI": "Serije", "MK": "Serii"},
+        "keywords": [
+            "SERIES", "SERIJA", "SERIJE", "DRAMA", "SOAP", "SITCOM", "EPIX", "BRAVO", "USA NETWORK"
+        ],
+        "DE": [
+            "Rund um die Uhr {label} auf {sender}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} live auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{sender}: {label} pur."
+        ],
+        "EXYU": [
+            "{sender}: {label} bez prekida.",
+            "{label} bez pauze na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{label} 24 sata na dan.",
+            "Non-stop {label} na {sender}.",
+            "{sender} donosi {label}."
+        ],
+        "SI": [
+            "Nonstop {label} na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "Vedno sveze: {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} brez premora na {sender}.",
+            "{label} kadarkoli na {sender}."
+        ],
+        "MK": [
+            "{sender}: {label} bez prekin.",
+            "{label} bez pauza na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "{label} cel den na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} sekoj cas."
+        ],
+        "EN": [
+            "{sender} - your channel for {label}.",
+            "{sender}: {label} every hour.",
+            "All day {label} on {sender}.",
+            "{label} around the clock.",
+            "{label} all day on {sender}.",
+            "Always on: {label} on {sender}."
+        ]
+    },
+
+    "FILM": {
+        "label": {"DE": "Filme", "EXYU": "Filmovi", "EN": "Movies", "SI": "Filmi", "MK": "Filmovi"},
+        "keywords": [
+            "CINEMA", "FILM", "FILME", "MOVIE", "MOVIES", "HOLLYWOOD", "HBO", "CINEMAX", "SKY CINEMA", "WARNER", "PARAMOUNT", "UNIVERSAL", "SONY", "STAR", "AXN", "AMC", "SYFY", "TNT", "THRILLER", "FILMOVI", "FILM4", "ITV MOVIES", "MGM", "EPIC DRAMA", "PINK FILM", "KLASIK FILM", "CINESTAR", "CINE"
+        ],
+        "DE": [
+            "{sender}: {label} pur.",
+            "{sender} praesentiert {label}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{sender} bringt {label}.",
+            "{label} jederzeit bei {sender}."
+        ],
+        "EXYU": [
+            "Non-stop {label} na {sender}.",
+            "{label} uzivo na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} cijeli dan na {sender}.",
+            "{sender}: {label} svakog sata.",
+            "{sender}: {label} bez prekida."
+        ],
+        "SI": [
+            "{sender} - vas kanal za {label}.",
+            "{sender} predstavlja {label}.",
+            "{sender}: {label} vsako uro.",
+            "Ves dan {label} na {sender}.",
+            "{label} kadarkoli na {sender}.",
+            "Nonstop {label} na {sender}."
+        ],
+        "MK": [
+            "{label} vo sekoe vreme na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "{sender}: {label} bez prekin.",
+            "{label} cel den na {sender}.",
+            "{sender}: {label} sekoj cas.",
+            "{label} bez pauza na {sender}."
+        ],
+        "EN": [
+            "All day {label} on {sender}.",
+            "Nonstop {label} on {sender}.",
+            "{label} all day on {sender}.",
+            "Always on: {label} on {sender}.",
+            "{sender}: {label} nonstop.",
+            "{label} anytime on {sender}."
+        ]
+    },
+
+    "WETTER": {
+        "label": {"DE": "Wetter", "EXYU": "Vrijeme", "EN": "Weather", "SI": "Vreme", "MK": "Vreme"},
+        "keywords": [
+            "WEATHER", "WETTER", "VRIJEME", "STORM", "METEO"
+        ],
+        "DE": [
+            "{sender} bringt {label}.",
+            "{label} live auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} ohne Unterbrechung auf {sender}."
+        ],
+        "EXYU": [
+            "{sender}: {label} svakog sata.",
+            "{label} nonstop na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{label} bez pauze na {sender}.",
+            "{label} uzivo na {sender}.",
+            "Cijeli dan {label} na {sender}."
+        ],
+        "SI": [
+            "{label} brez premora na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "Ves dan {label} na {sender}.",
+            "{label} ves dan na {sender}.",
+            "Vedno sveze: {label} na {sender}.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "Cel den {label} na {sender}.",
+            "{sender} nudi {label}.",
+            "{label} bez pauza na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "{label} nonstop na {sender}.",
+            "{label} vo zivo na {sender}."
+        ],
+        "EN": [
+            "{label} nonstop on {sender}.",
+            "{sender}: {label} nonstop.",
+            "{label} all day on {sender}.",
+            "{label} anytime on {sender}.",
+            "Always on: {label} on {sender}.",
+            "{label} live on {sender}."
+        ]
+    },
+
+    "JAGD_FISCHEREI": {
+        "label": {"DE": "Jagd & Angeln", "EXYU": "Lov i ribolov", "EN": "Hunting & Fishing", "SI": "Lov in ribolov", "MK": "Lov i ribolov"},
+        "keywords": [
+            "HUNT", "FISHING", "OUTDOOR", "ANGELN", "JAGD", "LOV", "RIBOLOV"
+        ],
+        "DE": [
+            "Non-Stop {label} auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender} praesentiert {label}."
+        ],
+        "EXYU": [
+            "{label} 24 sata na dan.",
+            "{sender} - vas kanal za {label}.",
+            "{label} bez pauze na {sender}.",
+            "{label} cijeli dan na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "{sender}: {label} svakog sata."
+        ],
+        "SI": [
+            "{sender} predstavlja {label}.",
+            "{label} 24 ur na dan.",
+            "Vedno sveze: {label} na {sender}.",
+            "Ves dan {label} na {sender}.",
+            "{label} v zivo na {sender}.",
+            "{sender} - vas kanal za {label}."
+        ],
+        "MK": [
+            "Cel den {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "Nonstop {label} na {sender}.",
+            "{sender} - vasiot kanal za {label}.",
+            "{sender} pretstavuva {label}.",
+            "Sekogas aktuelno: {label} na {sender}."
+        ],
+        "EN": [
+            "{label} all day on {sender}.",
+            "{label} anytime on {sender}.",
+            "{sender}: {label} every hour.",
+            "{sender} presents {label}.",
+            "{label} live on {sender}.",
+            "{sender} brings you {label}."
+        ]
+    },
+
+    "MILITAER": {
+        "label": {"DE": "Militär & Krieg", "EXYU": "Vojska i rat", "EN": "Military & War", "SI": "Vojska in vojna", "MK": "Vojska i vojna"},
+        "keywords": [
+            "MILITARY", "WAR", "ARMY", "VOJSKA", "RAT", "WEHRMACHT"
+        ],
+        "DE": [
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "{sender}: {label} pur.",
+            "{sender} bringt {label}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{label} live auf {sender}."
+        ],
+        "EXYU": [
+            "{label} bez pauze na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{sender} predstavlja {label}.",
+            "{sender}: {label} bez prekida.",
+            "{label} cijeli dan na {sender}.",
+            "Non-stop {label} na {sender}."
+        ],
+        "SI": [
+            "{label} 24 ur na dan.",
+            "Ves dan {label} na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "{label} v zivo na {sender}.",
+            "{label} kadarkoli na {sender}.",
+            "{sender} prinasa {label}."
+        ],
+        "MK": [
+            "{sender} nudi {label}.",
+            "{label} nonstop na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "{sender} - vasiot kanal za {label}.",
+            "Cel den {label} na {sender}."
+        ],
+        "EN": [
+            "{sender}: {label} every hour.",
+            "All day {label} on {sender}.",
+            "Always on: {label} on {sender}.",
+            "{sender} brings you {label}.",
+            "{label} nonstop on {sender}.",
+            "{sender} - your channel for {label}."
+        ]
+    },
+
+    "FAMILIE": {
+        "label": {"DE": "Familie", "EXYU": "Porodica", "EN": "Family", "SI": "Družina", "MK": "Semejstvo"},
+        "keywords": [
+            "FAMILY", "FAMILIE", "PORODICA", "HALLMARK"
+        ],
+        "DE": [
+            "{label} nonstop bei {sender}.",
+            "Non-Stop {label} auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "{label} jederzeit bei {sender}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender} - Ihr Kanal fuer {label}."
+        ],
+        "EXYU": [
+            "{sender}: {label} svakog sata.",
+            "{label} u svako doba na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "Cijeli dan {label} na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{sender}: {label} bez prekida."
+        ],
+        "SI": [
+            "{label} 24 ur na dan.",
+            "{sender}: {label} brez prekinitve.",
+            "{sender} - vas kanal za {label}.",
+            "{label} nonstop na {sender}.",
+            "Vedno sveze: {label} na {sender}.",
+            "Ves dan {label} na {sender}."
+        ],
+        "MK": [
+            "{label} cel den na {sender}.",
+            "{sender} - vasiot kanal za {label}.",
+            "Cel den {label} na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "{label} 24 casa na den."
+        ],
+        "EN": [
+            "{label} nonstop on {sender}.",
+            "{sender} brings you {label}.",
+            "{label} live on {sender}.",
+            "All day {label} on {sender}.",
+            "{label} around the clock.",
+            "Nonstop {label} on {sender}."
+        ]
+    },
+
+    "ANIME": {
+        "label": {"DE": "Anime", "EXYU": "Anime", "EN": "Anime", "SI": "Anime", "MK": "Anime"},
+        "keywords": [
+            "ANIME", "TOONAMI", "CRUNCHYROLL", "MANGA"
+        ],
+        "DE": [
+            "Rund um die Uhr {label} auf {sender}.",
+            "{label} jederzeit bei {sender}.",
+            "{sender}: {label} pur.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{label} live auf {sender}.",
+            "{label} rund um die Uhr."
+        ],
+        "EXYU": [
+            "{label} u svako doba na {sender}.",
+            "{label} 24 sata na dan.",
+            "{label} uzivo na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} svakog sata.",
+            "Cijeli dan {label} na {sender}."
+        ],
+        "SI": [
+            "Nonstop {label} na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{sender}: {label} vsako uro.",
+            "{label} brez premora na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} brez prekinitve."
+        ],
+        "MK": [
+            "{sender} - vasiot kanal za {label}.",
+            "{label} vo zivo na {sender}.",
+            "{label} 24 casa na den.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} cel den na {sender}.",
+            "{label} nonstop na {sender}."
+        ],
+        "EN": [
+            "{sender} - your channel for {label}.",
+            "{sender} presents {label}.",
+            "All day {label} on {sender}.",
+            "{label} all day on {sender}.",
+            "{label} nonstop on {sender}.",
+            "{label} without a break on {sender}."
+        ]
+    },
+
+    "KRIMI": {
+        "label": {"DE": "Krimi", "EXYU": "Krimi", "EN": "Crime", "SI": "Kriminalka", "MK": "Kriminal"},
+        "keywords": [
+            "CRIME", "DETECTIVE", "MURDER", "CSI", "LAW & ORDER", "KRIMI"
+        ],
+        "DE": [
+            "{label} live auf {sender}.",
+            "{label} rund um die Uhr.",
+            "{label} jederzeit bei {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{sender}: {label} pur.",
+            "{sender} bringt {label}."
+        ],
+        "EXYU": [
+            "{label} 24 sata na dan.",
+            "{label} cijeli dan na {sender}.",
+            "{sender}: {label} svakog sata.",
+            "Non-stop {label} na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Uvijek aktuelno: {label} na {sender}."
+        ],
+        "SI": [
+            "{label} v zivo na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "{label} 24 ur na dan.",
+            "Nonstop {label} na {sender}.",
+            "{label} ves dan na {sender}.",
+            "{sender}: {label} vsako uro."
+        ],
+        "MK": [
+            "{sender} - vasiot kanal za {label}.",
+            "{sender} pretstavuva {label}.",
+            "{label} vo zivo na {sender}.",
+            "{sender} nudi {label}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} bez prekin."
+        ],
+        "EN": [
+            "{sender} presents {label}.",
+            "{label} without a break on {sender}.",
+            "Nonstop {label} on {sender}.",
+            "{label} nonstop on {sender}.",
+            "Always on: {label} on {sender}.",
+            "{sender}: {label} nonstop."
+        ]
+    },
+
+    "GESUNDHEIT": {
+        "label": {"DE": "Gesundheit & Fitness", "EXYU": "Zdravlje i fitnes", "EN": "Health & Fitness", "SI": "Zdravje in fitnes", "MK": "Zdravje i fitnes"},
+        "keywords": [
+            "FITNESS", "HEALTH", "WELLNESS", "YOGA", "GYM", "ZDRAVLJE"
+        ],
+        "DE": [
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{label} ohne Unterbrechung auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "{sender}: {label} pur.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender} praesentiert {label}."
+        ],
+        "EXYU": [
+            "{label} 24 sata na dan.",
+            "{label} u svako doba na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "Cijeli dan {label} na {sender}.",
+            "{sender}: {label} bez prekida.",
+            "{sender}: {label} svakog sata."
+        ],
+        "SI": [
+            "{sender}: {label} brez prekinitve.",
+            "{label} ves dan na {sender}.",
+            "{sender} prinasa {label}.",
+            "{label} kadarkoli na {sender}.",
+            "{label} v zivo na {sender}.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "{sender} pretstavuva {label}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "{label} bez pauza na {sender}.",
+            "{sender}: {label} sekoj cas."
+        ],
+        "EN": [
+            "{sender}: {label} nonstop.",
+            "{label} all day on {sender}.",
+            "{label} around the clock.",
+            "Always on: {label} on {sender}.",
+            "{sender} - your channel for {label}.",
+            "{sender} presents {label}."
+        ]
+    },
+
+    "TECH": {
+        "label": {"DE": "Technik", "EXYU": "Tehnologija", "EN": "Technology", "SI": "Tehnologija", "MK": "Tehnologija"},
+        "keywords": [
+            "TECH", "TECHNOLOGY", "GADGET", "TEHNOLOGIJA"
+        ],
+        "DE": [
+            "{label} nonstop bei {sender}.",
+            "{label} jederzeit bei {sender}.",
+            "Non-Stop {label} auf {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender} bringt {label}."
+        ],
+        "EXYU": [
+            "{sender}: {label} bez prekida.",
+            "{label} 24 sata na dan.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{sender} donosi {label}.",
+            "Non-stop {label} na {sender}.",
+            "{label} cijeli dan na {sender}."
+        ],
+        "SI": [
+            "{sender}: {label} brez prekinitve.",
+            "{label} brez premora na {sender}.",
+            "Vedno sveze: {label} na {sender}.",
+            "Ves dan {label} na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "{sender} prinasa {label}."
+        ],
+        "MK": [
+            "{sender} nudi {label}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "Nonstop {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} bez prekin."
+        ],
+        "EN": [
+            "{label} anytime on {sender}.",
+            "{sender}: {label} every hour.",
+            "All day {label} on {sender}.",
+            "{sender} - your channel for {label}.",
+            "{sender} brings you {label}.",
+            "{label} around the clock."
+        ]
+    },
+
+    "HORROR": {
+        "label": {"DE": "Horror & Thriller", "EXYU": "Horor i triler", "EN": "Horror & Thriller", "SI": "Grozljivke in trilerji", "MK": "Horor i triler"},
+        "keywords": [
+            "HORROR", "SCARY", "SCREAM", "CHILLER", "TERROR", "SLASHER"
+        ],
+        "DE": [
+            "{label} rund um die Uhr.",
+            "{sender}: {label} pur.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "{label} live auf {sender}."
+        ],
+        "EXYU": [
+            "{label} bez pauze na {sender}.",
+            "{sender} donosi {label}.",
+            "{label} cijeli dan na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{sender}: {label} bez prekida."
+        ],
+        "SI": [
+            "{sender} prinasa {label}.",
+            "{sender}: {label} vsako uro.",
+            "{label} nonstop na {sender}.",
+            "Nonstop {label} na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "Vedno sveze: {label} na {sender}."
+        ],
+        "MK": [
+            "{sender} pretstavuva {label}.",
+            "{label} vo zivo na {sender}.",
+            "{sender}: {label} sekoj cas.",
+            "Nonstop {label} na {sender}.",
+            "{sender} - vasiot kanal za {label}.",
+            "{label} vo sekoe vreme na {sender}."
+        ],
+        "EN": [
+            "Nonstop {label} on {sender}.",
+            "{sender}: {label} every hour.",
+            "{sender} brings you {label}.",
+            "Always on: {label} on {sender}.",
+            "{label} nonstop on {sender}.",
+            "{sender} - your channel for {label}."
+        ]
+    },
+
+    "TALKSHOW": {
+        "label": {"DE": "Talkshow", "EXYU": "Tok šou", "EN": "Talk Show", "SI": "Pogovorna oddaja", "MK": "Tok-šou"},
+        "keywords": [
+            "TALK SHOW", "TALKSHOW", "LATE NIGHT", "TONIGHT SHOW", "THIS MORNING"
+        ],
+        "DE": [
+            "{sender} praesentiert {label}.",
+            "{sender} bringt {label}.",
+            "Non-Stop {label} auf {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "{label} ohne Unterbrechung auf {sender}."
+        ],
+        "EXYU": [
+            "{label} u svako doba na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} bez prekida.",
+            "{label} 24 sata na dan.",
+            "{sender} donosi {label}.",
+            "{label} cijeli dan na {sender}."
+        ],
+        "SI": [
+            "{sender}: {label} vsako uro.",
+            "{sender} - vas kanal za {label}.",
+            "Nonstop {label} na {sender}.",
+            "{label} 24 ur na dan.",
+            "{label} nonstop na {sender}.",
+            "{label} brez premora na {sender}."
+        ],
+        "MK": [
+            "{sender} - vasiot kanal za {label}.",
+            "{label} vo sekoe vreme na {sender}.",
+            "{label} cel den na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "{label} 24 casa na den.",
+            "Nonstop {label} na {sender}."
+        ],
+        "EN": [
+            "{label} anytime on {sender}.",
+            "{sender} presents {label}.",
+            "{label} around the clock.",
+            "{label} without a break on {sender}.",
+            "All day {label} on {sender}.",
+            "{label} live on {sender}."
+        ]
+    },
+
+    "WIRTSCHAFT": {
+        "label": {"DE": "Wirtschaft & Finanzen", "EXYU": "Biznis i finansije", "EN": "Business & Finance", "SI": "Posel in finance", "MK": "Biznis i finansii"},
+        "keywords": [
+            "BUSINESS", "FINANCE", "MONEY", "MARKETS", "WIRTSCHAFT", "BIZNIS"
+        ],
+        "DE": [
+            "{sender} - Ihr Kanal fuer {label}.",
+            "{label} ohne Unterbrechung auf {sender}.",
+            "Non-Stop {label} auf {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "{label} live auf {sender}."
+        ],
+        "EXYU": [
+            "{label} 24 sata na dan.",
+            "{sender}: {label} svakog sata.",
+            "{label} nonstop na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{label} bez pauze na {sender}.",
+            "{sender}: {label} bez prekida."
+        ],
+        "SI": [
+            "Ves dan {label} na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "{label} kadarkoli na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "{sender} predstavlja {label}.",
+            "{label} nonstop na {sender}."
+        ],
+        "MK": [
+            "{sender}: {label} sekoj cas.",
+            "{label} vo zivo na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{label} cel den na {sender}.",
+            "{sender} nudi {label}.",
+            "{label} 24 casa na den."
+        ],
+        "EN": [
+            "{label} without a break on {sender}.",
+            "{label} live on {sender}.",
+            "{sender}: {label} nonstop.",
+            "Nonstop {label} on {sender}.",
+            "All day {label} on {sender}.",
+            "{sender} - your channel for {label}."
+        ]
+    },
+
+    "LIFESTYLE": {
+        "label": {"DE": "Lifestyle", "EXYU": "Lifestyle", "EN": "Lifestyle", "SI": "Življenjski slog", "MK": "Lifestyle"},
+        "keywords": [
+            "LIFESTYLE", "STYLE", "FASHION", "HOME", "LIVING", "HGTV", "TLC", "BEAUTY", "DESIGN", "WOMAN", "LADY", "W NETWORK", "OPRAH", "OWN", "LIFETIME", "DECOR", "STIL"
+        ],
+        "DE": [
+            "{label} live auf {sender}.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender}: {label} pur.",
+            "{sender} praesentiert {label}."
+        ],
+        "EXYU": [
+            "{label} u svako doba na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{label} uzivo na {sender}.",
+            "{label} 24 sata na dan.",
+            "{sender} donosi {label}.",
+            "Cijeli dan {label} na {sender}."
+        ],
+        "SI": [
+            "{sender}: {label} vsako uro.",
+            "{label} kadarkoli na {sender}.",
+            "{label} v zivo na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{label} ves dan na {sender}.",
+            "{sender}: {label} brez prekinitve."
+        ],
+        "MK": [
+            "{label} cel den na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "{label} vo zivo na {sender}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{label} 24 casa na den."
+        ],
+        "EN": [
+            "{sender}: {label} every hour.",
+            "{label} all day on {sender}.",
+            "{label} without a break on {sender}.",
+            "{sender} brings you {label}.",
+            "Nonstop {label} on {sender}.",
+            "{label} nonstop on {sender}."
+        ]
+    },
+
+    "REGIONAL": {
+        "label": {"DE": "Regional", "EXYU": "Regionalni program", "EN": "Regional", "SI": "Regionalni program", "MK": "Regionalna programa"},
+        "keywords": [
+            "REGIONAL", "LOKAL", "LOKALNA"
+        ],
+        "DE": [
+            "{label} ohne Unterbrechung auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "{sender} bringt {label}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{label} den ganzen Tag auf {sender}.",
+            "{label} rund um die Uhr."
+        ],
+        "EXYU": [
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{label} u svako doba na {sender}.",
+            "{sender}: {label} svakog sata.",
+            "{sender} predstavlja {label}.",
+            "{label} nonstop na {sender}.",
+            "{sender} - vas kanal za {label}."
+        ],
+        "SI": [
+            "{sender}: {label} brez prekinitve.",
+            "{label} nonstop na {sender}.",
+            "{label} v zivo na {sender}.",
+            "Ves dan {label} na {sender}.",
+            "Nonstop {label} na {sender}.",
+            "{sender} prinasa {label}."
+        ],
+        "MK": [
+            "{sender} - vasiot kanal za {label}.",
+            "{label} 24 casa na den.",
+            "Nonstop {label} na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "Cel den {label} na {sender}.",
+            "{sender} pretstavuva {label}."
+        ],
+        "EN": [
+            "{label} around the clock.",
+            "{label} without a break on {sender}.",
+            "{sender}: {label} nonstop.",
+            "{sender} - your channel for {label}.",
+            "Nonstop {label} on {sender}.",
+            "{label} nonstop on {sender}."
+        ]
+    },
+
+    "UNTERHALTUNG": {
+        "label": {"DE": "Unterhaltung", "EXYU": "Zabava", "EN": "Entertainment", "SI": "Zabava", "MK": "Zabava"},
+        "keywords": [
+            "RTL", "VOX", "SAT", "PRO7", "PRO SIEBEN", "KABEL", "NOVA", "PINK", "HAPPY", "HAYAT", "OBN", "FACE", "ATV", "KANAL", "TV", "FOX", "ABC", "CBS", "NBC", "SHOW", "PLUS", "PRIME", "ZABAVA", "ITV", "CHANNEL 4", "CHANNEL4", "CHANNEL 5", "CHANNEL5", "E4", "MORE4", "DAVE", "ITV2", "ITV3", "ITV4", "5STAR", "5 STAR", "DIREKT", "MREZA PLUS", "K1", "K3", "MTEL"
+        ],
+        "DE": [
+            "{sender}: {label} pur.",
+            "{label} nonstop bei {sender}.",
+            "Non-Stop {label} auf {sender}.",
+            "Rund um die Uhr {label} auf {sender}.",
+            "{label} jederzeit bei {sender}.",
+            "{sender} bringt {label}."
+        ],
+        "EXYU": [
+            "{label} nonstop na {sender}.",
+            "{label} u svako doba na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{sender}: {label} bez prekida.",
+            "{label} bez pauze na {sender}.",
+            "Non-stop {label} na {sender}."
+        ],
+        "SI": [
+            "{label} 24 ur na dan.",
+            "Ves dan {label} na {sender}.",
+            "{label} ves dan na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "{label} kadarkoli na {sender}.",
+            "Vedno sveze: {label} na {sender}."
+        ],
+        "MK": [
+            "{label} nonstop na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "Nonstop {label} na {sender}.",
+            "{sender}: {label} sekoj cas.",
+            "{sender}: {label} bez prekin.",
+            "{sender} pretstavuva {label}."
+        ],
+        "EN": [
+            "{label} around the clock.",
+            "{label} nonstop on {sender}.",
+            "{sender}: {label} every hour.",
+            "{label} live on {sender}.",
+            "Always on: {label} on {sender}.",
+            "{label} anytime on {sender}."
+        ]
+    },
+
+    "GARTEN_HEIM": {
+        "label": {"DE": "Garten & Heim", "EXYU": "Vrt i dom", "EN": "Home & Garden", "SI": "Vrt in dom", "MK": "Gradina i dom"},
+        "keywords": [
+            "GARDEN", "GARDENING", "HGTV", "HOME AND GARDEN", "DIY", "MONTY DON", "HOME NETWORK", "PROPERTY", "RENOVATION", "VRT", "DOM"
+        ],
+        "DE": [
+            "{label} den ganzen Tag auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} live auf {sender}.",
+            "{label} ohne Unterbrechung auf {sender}.",
+            "{sender} bringt {label}."
+        ],
+        "EXYU": [
+            "Cijeli dan {label} na {sender}.",
+            "{label} 24 sata na dan.",
+            "{label} u svako doba na {sender}.",
+            "{sender} predstavlja {label}.",
+            "{label} uzivo na {sender}.",
+            "{label} nonstop na {sender}."
+        ],
+        "SI": [
+            "{label} 24 ur na dan.",
+            "{sender} prinasa {label}.",
+            "{label} nonstop na {sender}.",
+            "{label} ves dan na {sender}.",
+            "{sender}: {label} vsako uro.",
+            "Vedno sveze: {label} na {sender}."
+        ],
+        "MK": [
+            "{label} vo sekoe vreme na {sender}.",
+            "{sender}: {label} sekoj cas.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "{label} vo zivo na {sender}.",
+            "{sender} - vasiot kanal za {label}."
+        ],
+        "EN": [
+            "{sender} - your channel for {label}.",
+            "{sender}: {label} every hour.",
+            "{label} live on {sender}.",
+            "{sender} brings you {label}.",
+            "{label} all day on {sender}.",
+            "All day {label} on {sender}."
+        ]
+    },
+
+    "WELTRAUM_WISSENSCHAFT": {
+        "label": {"DE": "Weltraum & Wissenschaft", "EXYU": "Svemir i nauka", "EN": "Space & Science", "SI": "Vesolje in znanost", "MK": "Vselena i nauka"},
+        "keywords": [
+            "SPACE", "NASA", "COSMOS", "UNIVERSE", "GALAXY", "SVEMIR", "VESOLJE", "VSELENA"
+        ],
+        "DE": [
+            "{label} den ganzen Tag auf {sender}.",
+            "{label} nonstop bei {sender}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{sender} bringt {label}.",
+            "{label} ohne Unterbrechung auf {sender}.",
+            "Immer aktuell: {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} - vas kanal za {label}.",
+            "Cijeli dan {label} na {sender}.",
+            "{sender}: {label} svakog sata.",
+            "{label} nonstop na {sender}.",
+            "{label} bez pauze na {sender}.",
+            "{label} u svako doba na {sender}."
+        ],
+        "SI": [
+            "{label} brez premora na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "{sender} - vas kanal za {label}.",
+            "{sender} prinasa {label}.",
+            "Nonstop {label} na {sender}.",
+            "Vedno sveze: {label} na {sender}."
+        ],
+        "MK": [
+            "{sender} nudi {label}.",
+            "{sender} - vasiot kanal za {label}.",
+            "{label} vo zivo na {sender}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} nonstop na {sender}.",
+            "{sender}: {label} bez prekin."
+        ],
+        "EN": [
+            "{label} without a break on {sender}.",
+            "{sender} brings you {label}.",
+            "Nonstop {label} on {sender}.",
+            "{label} around the clock.",
+            "Always on: {label} on {sender}.",
+            "{sender} presents {label}."
+        ]
+    },
+
+    "MODE": {
+        "label": {"DE": "Mode", "EXYU": "Moda", "EN": "Fashion", "SI": "Moda", "MK": "Moda"},
+        "keywords": [
+            "FASHION", "VOGUE", "GLAMOUR", "FASHION TV", "FASHIONTV", "STYLE NETWORK", "MODA"
+        ],
+        "DE": [
+            "{label} live auf {sender}.",
+            "Immer aktuell: {label} auf {sender}.",
+            "{label} jederzeit bei {sender}.",
+            "{sender}: {label} pur.",
+            "{label} den ganzen Tag auf {sender}.",
+            "Non-Stop {label} auf {sender}."
+        ],
+        "EXYU": [
+            "Cijeli dan {label} na {sender}.",
+            "{sender}: {label} svakog sata.",
+            "{sender} donosi {label}.",
+            "Non-stop {label} na {sender}.",
+            "Uvijek aktuelno: {label} na {sender}.",
+            "{label} uzivo na {sender}."
+        ],
+        "SI": [
+            "{label} nonstop na {sender}.",
+            "Vedno sveze: {label} na {sender}.",
+            "{sender} - vas kanal za {label}.",
+            "{sender}: {label} brez prekinitve.",
+            "{sender} predstavlja {label}.",
+            "{sender}: {label} vsako uro."
+        ],
+        "MK": [
+            "{sender} - vasiot kanal za {label}.",
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{label} bez pauza na {sender}.",
+            "Cel den {label} na {sender}.",
+            "{sender}: {label} sekoj cas.",
+            "{label} nonstop na {sender}."
+        ],
+        "EN": [
+            "{sender}: {label} every hour.",
+            "{label} nonstop on {sender}.",
+            "{label} around the clock.",
+            "All day {label} on {sender}.",
+            "{label} without a break on {sender}.",
+            "{label} all day on {sender}."
+        ]
+    },
+
+    "GLUECKSSPIEL": {
+        "label": {"DE": "Glücksspiel", "EXYU": "Kockanje", "EN": "Gambling", "SI": "Igre na srečo", "MK": "Kockanje"},
+        "keywords": [
+            "CASINO", "POKER", "GAMBLING", "LOTTO", "BETTING", "BET365", "KOCKANJE"
+        ],
+        "DE": [
+            "{sender}: {label} pur.",
+            "{label} live auf {sender}.",
+            "{sender} bringt {label}.",
+            "{label} jederzeit bei {sender}.",
+            "{sender} - Ihr Kanal fuer {label}.",
+            "Rund um die Uhr {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} uzivo na {sender}.",
+            "{label} 24 sata na dan.",
+            "{sender} predstavlja {label}.",
+            "Cijeli dan {label} na {sender}.",
+            "Non-stop {label} na {sender}.",
+            "{sender}: {label} svakog sata."
+        ],
+        "SI": [
+            "{sender} prinasa {label}.",
+            "{sender} - vas kanal za {label}.",
+            "Vedno sveze: {label} na {sender}.",
+            "{label} brez premora na {sender}.",
+            "{label} 24 ur na dan.",
+            "{sender} predstavlja {label}."
+        ],
+        "MK": [
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{sender}: {label} sekoj cas.",
+            "{label} 24 casa na den.",
+            "{sender}: {label} bez prekin.",
+            "{label} nonstop na {sender}.",
+            "{label} cel den na {sender}."
+        ],
+        "EN": [
+            "{sender}: {label} every hour.",
+            "{sender} brings you {label}.",
+            "{label} without a break on {sender}.",
+            "{sender}: {label} nonstop.",
+            "{sender} presents {label}.",
+            "{label} anytime on {sender}."
+        ]
+    },
+
+    "EROTIK": {
+        "label": {"DE": "Erotik", "EXYU": "Erotika", "EN": "Adult", "SI": "Erotika", "MK": "Erotika"},
+        "keywords": [
+            "XXX", "EROTIC", "EROTIK", "EROTIKA", "PLAYBOY", "VENUS", "HUSTLER", "PRIVATE TV", "BRAZZERS"
+        ],
+        "DE": [
+            "Immer aktuell: {label} auf {sender}.",
+            "{sender}: {label} zu jeder Stunde.",
+            "{label} nonstop bei {sender}.",
+            "{sender}: {label} pur.",
+            "{label} ohne Unterbrechung auf {sender}.",
+            "Non-Stop {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{sender} donosi {label}.",
+            "Cijeli dan {label} na {sender}.",
+            "{label} u svako doba na {sender}.",
+            "{label} 24 sata na dan.",
+            "{sender} predstavlja {label}.",
+            "{sender}: {label} svakog sata."
+        ],
+        "SI": [
+            "Ves dan {label} na {sender}.",
+            "{label} v zivo na {sender}.",
+            "{label} 24 ur na dan.",
+            "{sender} prinasa {label}.",
+            "{label} brez premora na {sender}.",
+            "{sender} - vas kanal za {label}."
+        ],
+        "MK": [
+            "Sekogas aktuelno: {label} na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "{label} vo zivo na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "{sender}: {label} sekoj cas.",
+            "{sender} nudi {label}."
+        ],
+        "EN": [
+            "{sender} presents {label}.",
+            "{label} anytime on {sender}.",
+            "{label} around the clock.",
+            "{label} live on {sender}.",
+            "Nonstop {label} on {sender}.",
+            "{sender} - your channel for {label}."
+        ]
+    },
+
+    "KLASSIKER": {
+        "label": {"DE": "Klassiker & Retro-TV", "EXYU": "Klasici i retro program", "EN": "Classics & Retro TV", "SI": "Klasika in retro program", "MK": "Klasici i retro programa"},
+        "keywords": [
+            "CLASSIC", "CLASSICS", "RETRO", "VINTAGE", "RIFLEMAN", "GUNSMOKE", "LEAVE IT TO BEAVER",
+            "HONEYMOONERS", "ADDAMS FAMILY", "THREE STOOGES", "HITCHCOCK", "DICK VAN DYKE",
+            "LONE RANGER", "SAVED BY THE BELL", "REAL MCCOYS", "GREEN ACRES", "OUTER LIMITS",
+            "SIX MILLION DOLLAR MAN", "CHARLIES ANGELS", "FLINTSTONES", "JEFFERSONS", "GOOD TIMES",
+            "GIRLFRIENDS", "A DIFFERENT WORLD", "CINEVAULT"
+        ],
+        "DE": [
+            "{label} von damals.",
+            "Retro-Klassiker auf {sender}.",
+            "{sender}: {label} in voller Laenge.",
+            "TV-Klassiker rund um die Uhr auf {sender}.",
+            "{label} - die alten Folgen auf {sender}.",
+            "Nostalgie pur: {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} iz starih dana.",
+            "Retro klasici na {sender}.",
+            "{sender}: {label} u cjelosti.",
+            "TV klasici cijeli dan na {sender}.",
+            "{label} - stare epizode na {sender}.",
+            "Nostalgija na {sender}: {label}."
+        ],
+        "SI": [
+            "{label} iz starih casov.",
+            "Retro klasika na {sender}.",
+            "{sender}: {label} v celoti.",
+            "TV klasika ves dan na {sender}.",
+            "{label} - stare epizode na {sender}.",
+            "Nostalgija na {sender}: {label}."
+        ],
+        "MK": [
+            "{label} od starite denovi.",
+            "Retro klasici na {sender}.",
+            "{sender}: {label} vo celost.",
+            "TV klasici cel den na {sender}.",
+            "{label} - starite epizodi na {sender}.",
+            "Nostalgija na {sender}: {label}."
+        ],
+        "EN": [
+            "{label} from way back.",
+            "Retro classics on {sender}.",
+            "{sender}: {label} in full.",
+            "Classic TV all day on {sender}.",
+            "{label} - the old episodes on {sender}.",
+            "Pure nostalgia on {sender}: {label}."
+        ]
+    },
+
+    "SPIELSHOW": {
+        "label": {"DE": "Spielshow", "EXYU": "Kviz emisija", "EN": "Game Show", "SI": "Kvizovna oddaja", "MK": "Kviz emisija"},
+        "keywords": [
+            "GAME SHOW", "GAMESHOW", "QUIZ", "FAMILY FEUD", "SUPERMARKET SWEEP", "LET'S MAKE A DEAL",
+            "LETS MAKE A DEAL", "NAME GAME", "THE APPRENTICE", "WHEEL OF FORTUNE",
+            "JEOPARDY", "NINJA WARRIOR"
+        ],
+        "DE": [
+            "{label} mit Spannung auf {sender}.",
+            "{sender}: {label} rund um die Uhr.",
+            "Ratefieber: {label} auf {sender}.",
+            "{label} - mitraten auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "Spannung pur: {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} sa napetoscu na {sender}.",
+            "{sender}: {label} cijeli dan.",
+            "Kvizovska groznica: {label} na {sender}.",
+            "{label} - pogadjajte na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Napetost na {sender}: {label}."
+        ],
+        "SI": [
+            "{label} z napetostjo na {sender}.",
+            "{sender}: {label} ves dan.",
+            "Kvizovska vrocica: {label} na {sender}.",
+            "{label} - ugibajte na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Napetost na {sender}: {label}."
+        ],
+        "MK": [
+            "{label} so napnatost na {sender}.",
+            "{sender}: {label} cel den.",
+            "Kviz treska: {label} na {sender}.",
+            "{label} - pogodete na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "Napnatost na {sender}: {label}."
+        ],
+        "EN": [
+            "{label} with suspense on {sender}.",
+            "{sender}: {label} around the clock.",
+            "Quiz fever: {label} on {sender}.",
+            "{label} - play along on {sender}.",
+            "{sender} presents {label}.",
+            "Pure suspense on {sender}: {label}."
+        ]
+    },
+
+    "KARAOKE": {
+        "label": {"DE": "Karaoke", "EXYU": "Karaoke", "EN": "Karaoke", "SI": "Karaoke", "MK": "Karaoke"},
+        "keywords": [
+            "KARAOKE"
+        ],
+        "DE": [
+            "{label} zum Mitsingen auf {sender}.",
+            "{sender}: {label} nonstop.",
+            "Singen Sie mit: {label} auf {sender}.",
+            "{label} rund um die Uhr auf {sender}.",
+            "{sender} bringt {label}.",
+            "Mikrofon an: {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} za pjevanje na {sender}.",
+            "{sender}: {label} bez prekida.",
+            "Pjevajte s nama: {label} na {sender}.",
+            "{label} cijeli dan na {sender}.",
+            "{sender} donosi {label}.",
+            "Mikrofon upaljen: {label} na {sender}."
+        ],
+        "SI": [
+            "{label} za petje na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "Pojte z nami: {label} na {sender}.",
+            "{label} ves dan na {sender}.",
+            "{sender} prinasa {label}.",
+            "Mikrofon prizgan: {label} na {sender}."
+        ],
+        "MK": [
+            "{label} za peenje na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "Peejte so nas: {label} na {sender}.",
+            "{label} cel den na {sender}.",
+            "{sender} nudi {label}.",
+            "Mikrofonot vklucen: {label} na {sender}."
+        ],
+        "EN": [
+            "{label} for singalongs on {sender}.",
+            "{sender}: {label} nonstop.",
+            "Sing along: {label} on {sender}.",
+            "{label} around the clock on {sender}.",
+            "{sender} brings you {label}.",
+            "Mic's on: {label} on {sender}."
+        ]
+    },
+
+    "TELENOVELA": {
+        "label": {"DE": "Telenovela", "EXYU": "Sapunica", "EN": "Soap Opera", "SI": "Nadaljevanka", "MK": "Sapunica"},
+        "keywords": [
+            "TELENOVELA", "TELENOVELAS", "SOAP OPERA", "SOAP OPERAS", "PRIMETIME SOAPS", "GENERAL HOSPITAL",
+            "BOLD AND THE BEAUTIFUL", "REBELDE", "LAS 3 MARIAS", "GRANDES PAREJAS", "GALANES", "ALL DAY DRAMA"
+        ],
+        "DE": [
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender}: {label} ohne Unterbrechung.",
+            "Dramatisch: {label} auf {sender}.",
+            "{label} rund um die Uhr auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "Non-Stop {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} cijeli dan na {sender}.",
+            "{sender}: {label} bez prekida.",
+            "Dramatično: {label} na {sender}.",
+            "{label} 24 sata na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Non-stop {label} na {sender}."
+        ],
+        "SI": [
+            "{label} ves dan na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "Dramatično: {label} na {sender}.",
+            "{label} 24 ur na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Non-stop {label} na {sender}."
+        ],
+        "MK": [
+            "{label} cel den na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "Dramatično: {label} na {sender}.",
+            "{label} 24 časa na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "Non-stop {label} na {sender}."
+        ],
+        "EN": [
+            "{label} all day on {sender}.",
+            "{sender}: {label} nonstop.",
+            "Drama alert: {label} on {sender}.",
+            "{label} around the clock on {sender}.",
+            "{sender} presents {label}.",
+            "Non-stop {label} on {sender}."
+        ]
+    },
+
+    "GERICHTSSHOW": {
+        "label": {"DE": "Gerichtsshow", "EXYU": "Sudska emisija", "EN": "Court Show", "SI": "Sodna oddaja", "MK": "Sudska emisija"},
+        "keywords": [
+            "COURT", "TRIBUNAL JUSTICE", "COUPLES COURT", "PERSONAL INJURY COURT", "JUDGE & JURY", "JUDGE AND JURY",
+            "RELATIVE JUSTICE", "CASO CEBRADO", "PATERNITY COURT"
+        ],
+        "DE": [
+            "{label} den ganzen Tag auf {sender}.",
+            "{sender}: {label} nonstop.",
+            "Urteil folgt: {label} auf {sender}.",
+            "{label} rund um die Uhr auf {sender}.",
+            "{sender} praesentiert {label}.",
+            "Verhandlung laeuft: {label} auf {sender}."
+        ],
+        "EXYU": [
+            "{label} cijeli dan na {sender}.",
+            "{sender}: {label} bez prekida.",
+            "Presuda stiže: {label} na {sender}.",
+            "{label} 24 sata na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Rasprava u toku: {label} na {sender}."
+        ],
+        "SI": [
+            "{label} ves dan na {sender}.",
+            "{sender}: {label} brez prekinitve.",
+            "Sodba prihaja: {label} na {sender}.",
+            "{label} 24 ur na {sender}.",
+            "{sender} predstavlja {label}.",
+            "Obravnava poteka: {label} na {sender}."
+        ],
+        "MK": [
+            "{label} cel den na {sender}.",
+            "{sender}: {label} bez prekin.",
+            "Presudata doaǵa: {label} na {sender}.",
+            "{label} 24 časa na {sender}.",
+            "{sender} pretstavuva {label}.",
+            "Rasprava vo tek: {label} na {sender}."
+        ],
+        "EN": [
+            "{label} all day on {sender}.",
+            "{sender}: {label} nonstop.",
+            "Verdict pending: {label} on {sender}.",
+            "{label} around the clock on {sender}.",
+            "{sender} presents {label}.",
+            "In session: {label} on {sender}."
+        ]
+    }
+}
+
+# Feste Prüfreihenfolge: spezifischere Kategorien zuerst, damit
+# generische Keywords (z.B. "TV", "SHOW" in UNTERHALTUNG) nicht
+# fälschlich vor eindeutigeren Treffern (z.B. "SCIENCE", "REALITY")
+# gewinnen. UNTERHALTUNG steht bewusst ganz am Ende als breitester
+# Auffang-Kategorie vor dem generischen Fallback-Text.
+KATEGORIE_PRIORITAET = [
+    "REALITY", "NEWS", "WETTER", "KINDER", "ANIME", "FAMILIE", "GAMING", "RADIO", "KARAOKE", "SHOPPING",
+    "EROTIK", "GLUECKSSPIEL", "WELTRAUM_WISSENSCHAFT", "MODE", "GARTEN_HEIM",
+    "WISSEN", "NATUR", "JAGD_FISCHEREI", "DOKU", "MILITAER", "AUTO", "REISEN", "KOCHEN",
+    "MUSIK", "COMEDY", "RELIGION", "HORROR", "KRIMI", "GERICHTSSHOW", "SPIELSHOW", "TALKSHOW",
+    "WIRTSCHAFT", "GESUNDHEIT", "TECH",
+    "KLASSIKER", "TELENOVELA", "SPORT", "SERIEN", "FILM",
+    "LIFESTYLE", "REGIONAL", "UNTERHALTUNG"
+]
+
+DE_STANDARD = [
+    "{sender} sendet abwechslungsreiches Programm rund um die Uhr.",
+    "Vielseitige Unterhaltung erwartet Sie bei {sender}.",
+    "{sender} - Programm fuer die ganze Familie.",
+    "Schalten Sie ein bei {sender} fuer kurzweiliges Programm.",
+    "{sender} - rund um die Uhr fuer Sie auf Sendung.",
+    "Verpassen Sie nichts - {sender} begleitet Sie durch den Tag."
+]
+
+EXYU_STANDARD = [
+    "{sender} emituje raznovrstan program tokom cijelog dana.",
+    "Raznovrsna zabava vas ocekuje na {sender}.",
+    "{sender} - program za cijelu porodicu.",
+    "Ukljucite se na {sender} za zanimljiv program.",
+    "{sender} - na programu 24 sata dnevno.",
+    "Ne propustite nista - {sender} vas prati tokom dana."
+]
+
+SI_STANDARD = [
+    "{sender} predvaja raznolik program 24 ur na dan.",
+    "Pestra zabava vas čaka na {sender}.",
+    "{sender} - program za vso družino.",
+    "Prižgite {sender} za zanimiv program.",
+    "{sender} - na sporedu 24 ur na dan.",
+    "Ne zamudite nič - {sender} vas spremlja skozi dan."
+]
+
+MK_STANDARD = [
+    "{sender} emituva raznovidna programa tekom celiot den.",
+    "Raznovidna zabava ve čeka na {sender}.",
+    "{sender} - programa za celoto semejstvo.",
+    "Vklučete se na {sender} za interesna programa.",
+    "{sender} - na programa 24 časa na den.",
+    "Ne propuštajte ništo - {sender} ve prati tekom denot."
+]
+
+EN_STANDARD = [
+    "{sender} broadcasts varied programming around the clock.",
+    "Varied entertainment awaits you on {sender}.",
+    "{sender} - programming for the whole family.",
+    "Tune in to {sender} for engaging programming.",
+    "{sender} - on air 24 hours a day.",
+    "Don't miss out - {sender} keeps you company all day long."
+]
+
+
+# ==========================================================
+# Automatische Beschreibung
+# ==========================================================
+
+EXYU_LAENDER = [
+    "BA", "RS", "HR", "ME", "CG", "MNE", "MNG", "MO",
+    "EXYU", "BS", "SRB", "SRBIJA", "HRVATSKA", "BIH", "CRNA GORA",
+    "KOSOVO", "KS",
+    "SANDZAK", "SANDŽAK"
+]
+
+# Slowenisch und Mazedonisch waren frueher Teil des gemeinsamen
+# EXYU-Textpools (mit BA/RS/HR/ME geteilt), obwohl sie eigenstaendige
+# Sprachen sind (nicht nur Dialektunterschiede wie bei den anderen 4).
+# Bekommen daher jetzt eigene Laenderlisten + eigene Texte.
+SI_LAENDER = ["SI", "SLOVENIJA", "SLOVENIA"]
+MK_LAENDER = ["MK", "MAKEDONIJA", "SEVERNA MAKEDONIJA", "MACEDONIA", "NORTH MACEDONIA"]
+
+# UK und US laufen beide über die Sprache "EN", werden hier aber
+# bewusst als eigene Listen gefuehrt (statt einer gemeinsamen), damit
+# sie unabhaengig voneinander erweitert werden koennen, falls spaeter
+# doch einmal britisches/amerikanisches Englisch unterschieden werden
+# soll.
+UK_LAENDER = [
+    "UK", "GB", "ENGLAND", "SCOTLAND", "WALES", "BRITAIN", "UNITED KINGDOM",
+    "NORTHERN IRELAND", "N.IRELAND"
+]
+
+US_LAENDER = [
+    "US", "USA", "UNITED STATES", "AMERICA"
+]
+
+EN_LAENDER = UK_LAENDER + US_LAENDER + [
+    "AU", "AUS", "AUSTRALIA", "CA", "CAN", "CANADA", "NZ", "IRELAND", "IE",
+    "TUBI", "CITY", "GO", "PRIME", "JOYN", "WOW", "PLUTO", "ROKU"
+]
+
+
+_KATEGORIE_MUSTER_CACHE = {}
+
+
+def _kategorie_muster(kategorie_key):
+    """Ein vorkompiliertes Regex pro Kategorie: trifft, wenn IRGENDEIN
+    Keyword der Kategorie als ganzes Wort vorkommt (identisch zur frueheren
+    Schleife ueber alle Keywords - der Text haengt nur von der Kategorie ab,
+    nicht vom Keyword). Vorher wurde pro Sender und Keyword ein Muster aus
+    ~545 Keywords ueber den re-Cache (512 Eintraege) neu kompiliert, ~6 ms
+    pro Sender bei ~20.000 Sendern (Startphase, Run 959)."""
+    muster = _KATEGORIE_MUSTER_CACHE.get(kategorie_key)
+    if muster is None:
+        keywords = KATEGORIEN[kategorie_key]["keywords"]
+        if keywords:
+            muster = re.compile("|".join(rf"\b{re.escape(k)}\b" for k in keywords))
+        else:
+            muster = re.compile(r"(?!x)x")
+        _KATEGORIE_MUSTER_CACHE[kategorie_key] = muster
+    return muster
+
+
+def standard_beschreibung(land, sender):
+    """
+    Ermittelt Sprache + passende Kategorie für einen Sender und gibt
+    ein Tupel (beschreibungstext, kategorie_key) zurueck. kategorie_key
+    ist None, wenn keine Kategorie erkannt wurde (generischer Fallback-
+    Text) - in dem Fall wird spaeter kein <category>-Tag geschrieben.
+
+    Die Auswahl zwischen den mehreren Text-Varianten pro Kategorie/
+    Sprache erfolgt deterministisch ueber einen Hash aus dem Sender-
+    namen (Summe der Zeichencodes), NICHT per Zufall. So bekommt
+    derselbe Sender bei jedem taeglichen Lauf wieder dieselbe Variante -
+    kein "Flackern" zwischen unterschiedlichen Texten von Tag zu Tag.
+    """
+
+    # Sprachzuordnung ueber die zentrale Funktion (inkl. SI/MK), statt
+    # die Laendererkennung ein zweites Mal hier zu duplizieren.
+    sprache = sprache_fuer_land(land)
+
+    sender_upper = sender.upper()
+    hash_wert = sender_hash(sender)
+
+    for kategorie_key in KATEGORIE_PRIORITAET:
+        daten = KATEGORIEN[kategorie_key]
+
+        if _kategorie_muster(kategorie_key).search(sender_upper):
+            varianten = daten[sprache]
+            nummer = hash_wert % len(varianten)
+            label = daten["label"][sprache]
+            text = varianten[nummer].format(sender=sender, label=label)
+            return text, kategorie_key
+
+    if sprache == "DE":
+        texte = DE_STANDARD
+
+    elif sprache == "EXYU":
+        texte = EXYU_STANDARD
+
+    elif sprache == "SI":
+        texte = SI_STANDARD
+
+    elif sprache == "MK":
+        texte = MK_STANDARD
+
+    else:
+        texte = EN_STANDARD
+
+    nummer = hash_wert % len(texte)
+
+    return texte[nummer].format(sender=sender), None
+
+
+def kategorie_label(kategorie_key, land):
+    """Liefert den sprachlich passenden Anzeigenamen fuer das
+    <category>-Tag, oder None, falls keine Kategorie erkannt wurde."""
+
+    if not kategorie_key:
+        return None
+
+    land_code = land.split("(")[0].strip().upper()
+
+    if land_code == "DE":
+        sprache = "DE"
+    elif land_code in EXYU_LAENDER:
+        sprache = "EXYU"
+    else:
+        sprache = "EN"
+
+    return KATEGORIEN[kategorie_key]["label"][sprache]
+
+
+# ==========================================================
+# Altersfreigabe je Kategorie (fuer <rating>-Tag)
+# ==========================================================
+
+ALTERSFREIGABE = {
+    "HORROR": "16", "KRIMI": "12", "KINDER": "0", "FAMILIE": "0",
+    "ANIME": "12", "REALITY": "12", "GAMING": "6", "COMEDY": "6",
+    "SERIEN": "12", "FILM": "12", "SPORT": "0", "NEWS": "0",
+    "MILITAER": "12", "TALKSHOW": "12", "WETTER": "0",
+    "SHOPPING": "0", "RADIO": "0", "MUSIK": "0",
+    "TELENOVELA": "12", "GERICHTSSHOW": "12",
+}
+DEFAULT_ALTERSFREIGABE = "6"
+
+# ==========================================================
+# Tagesraster: variable Blocklaengen statt starrer 2h-Slots.
+# Die 10 Bloecke ergeben zusammen 24h (3+3+3+3+2+2+2+2+2+2).
+#
+# Frueher gab es einen 6h-Block (NACHT) und zwei 4h-Bloecke
+# (NACHMITTAG/ABEND) - im EPG-Raster (z.B. TiviMate) wirkte ein derart
+# langer Platzhalterblock mit identischem Text auffaellig "leer"
+# (Nutzer meldete konkret einen durchgehenden Block von 02:00-08:00
+# Uhr). Max. Blocklaenge jetzt auf 3h gedeckelt (NACHT/NACHMITTAG/ABEND
+# entsprechend aufgeteilt) - der Platzhaltertext selbst bleibt
+# unveraendert "<Sendername> ᴸⁱᵛᵉ" (bewusst kein abwechslungsreicher
+# Text, siehe docs/HISTORIE.md), nur kleinteiliger segmentiert.
+# ==========================================================
+
+TAGESRASTER = [
+    (3, "NACHT FRUEH"),
+    (3, "NACHT SPAET"),
+    (3, "MORGEN"),
+    (3, "VORMITTAG"),
+    (2, "MITTAG"),
+    (2, "NACHMITTAG FRUEH"),
+    (2, "NACHMITTAG SPAET"),
+    (2, "ABEND FRUEH"),
+    (2, "ABEND SPAET"),
+    (2, "SPAETABEND"),
+]
+
+def sprache_fuer_land(land):
+    land_code = land.split("(")[0].strip().upper()
+    if land_code == "DE":
+        return "DE"
+    elif land_code in SI_LAENDER:
+        return "SI"
+    elif land_code in MK_LAENDER:
+        return "MK"
+    elif land_code in EXYU_LAENDER:
+        return "EXYU"
+    else:
+        return "EN"
+
+
+def sender_anzeigename(name):
+    worte = [wort.capitalize() for wort in name.split()]
+    return " ".join(worte)
+
+
+# ==========================================================
+# Normale (nicht durchgehend groSSgeschriebene) Anzeige von
+# Kanalnamen, z.B. fuer DAZN-Sender, deren Name direkt als
+# Sendungstitel/-beschreibung uebernommen wird (siehe
+# generate_epg.py). Ein simples str.capitalize() je Wort wuerde
+# bekannte Abkuerzungen wie "HD"/"DAZN"/"TV" haesslich verhunzen
+# (z.B. "Dazn Bar 1 Hevc" oder "(dazn Stream)"), daher bleiben
+# Woerter aus KANALNAME_ABKUERZUNGEN unveraendert groSS, der Rest
+# wird normal kapitalisiert. Fuehrende/folgende Klammern bzw.
+# Satzzeichen an einem Wort werden dabei erhalten.
+# ==========================================================
+
+KANALNAME_ABKUERZUNGEN = {
+    "DAZN", "HD", "FHD", "UHD", "SD", "HEVC", "TV", "ACL", "RAW", "4K", "8K",
+    "ZDF", "ARD", "RTL", "MDR", "NDR", "WDR", "SWR", "BR", "HR", "SR", "RBB",
+    "PPV", "VIP", "UFC", "NFL", "NBA", "NHL", "MLB", "NCAA", "MLS", "EPL",
+    "DE", "US", "UK", "BA", "RS", "SI", "MK", "EXYU", "MO", "MNG", "CG",
+    "SPFL", "NA", "SK", "GO", "CITY", "EN", "IR", "LIGA", "JOYN", "PRIME",
+    "WOW", "TUBI",
+}
+
+
+def kanalname_normal_geschrieben(name):
+    """Formatiert einen (oft komplett groSSgeschriebenen) Kanalnamen
+    lesbarer: normale Woerter werden kapitalisiert ("BAR" -> "Bar"),
+    bekannte Abkuerzungen bleiben unveraendert groSS ("HD" bleibt
+    "HD", "DAZN" bleibt "DAZN")."""
+    if not name:
+        return name
+
+    worte = name.split(" ")
+    ergebnis = []
+
+    for wort in worte:
+        praefix = ""
+        suffix = ""
+        kern = wort
+
+        while kern and kern[0] in "([":
+            praefix += kern[0]
+            kern = kern[1:]
+        while kern and kern[-1] in ")]:":
+            suffix = kern[-1] + suffix
+            kern = kern[:-1]
+
+        if kern.upper() in KANALNAME_ABKUERZUNGEN:
+            kern_formatiert = kern.upper()
+        else:
+            # Jeden Bindestrich-Teil einzeln kapitalisieren, sonst wird
+            # aus "YU-GI-OH!" nur "Yu-gi-oh!" statt "Yu-Gi-Oh!".
+            kern_formatiert = "-".join(teil.capitalize() for teil in kern.split("-"))
+
+        ergebnis.append(praefix + kern_formatiert + suffix)
+
+    return " ".join(ergebnis)
+
+
+# --- Generischer Platzhalter-Titel (Oktober 2026, Nutzerwunsch) ---
+# Qualitaets-/Anbieter-Zusaetze, die im EPG-Raster nur Ballast sind.
+_TITEL_QUALITAET = {
+    "HD", "FHD", "UHD", "SD", "4K", "8K", "HEVC", "H265", "H264", "RAW", "VIP",
+    "1080P", "720P", "3840P", "60FPS", "50FPS", "30FPS", "25FPS",
+}
+# Abkuerzungen, die im Titel GROSS bleiben (Sender-/Marken-Kuerzel). Bewusst
+# ohne Land-/Kategorie-Kuerzel wie "SI"/"NA" aus KANALNAME_ABKUERZUNGEN, die
+# bei Sendernamen auch normale Woerter sein koennen.
+_TITEL_ABKUERZUNGEN = {
+    "BBC", "HBO", "CNN", "CNBC", "MSNBC", "NFL", "NBA", "NHL", "MLB", "NCAA", "UFC", "WWE",
+    "AEW", "ESPN", "DAZN", "QVC", "CBS", "NBC", "ABC", "PBS", "FOX", "MTV", "RTL", "ZDF",
+    "ARD", "WDR", "NDR", "MDR", "SWR", "RBB", "BR", "SR", "HR", "ORF", "SRF", "AMC", "TNT",
+    "ITV", "STV", "TLC", "TCM", "HGTV", "BET", "CMT", "TV", "TVP", "HRT", "RTS", "RTV",
+    "RTRS", "BHT", "USK", "BN", "N1", "PPV", "NRK", "SVT", "TV2", "RT", "UK", "US",
+    "VOD", "DJ", "DIY", "OTT", "UEFA", "FIFA", "ACL", "EPL", "MLS", "SPFL", "NOW",
+}
+# Vokallose Woerter, die KEINE Abkuerzung sind (bleiben normal geschrieben).
+_TITEL_KEINE_KUERZEL = {"DR", "MR", "MRS", "ST", "VS", "MS"}
+# 4-Buchstaben-Woerter mit K/W am Anfang, die KEINE US-Senderkennung sind.
+_TITEL_KEIN_SENDERCODE = {
+    "KIDS", "KING", "KIND", "KILL", "KISS", "KNOW", "KART", "KEEP", "KICK", "KILT", "KIWI",
+    "WEST", "WILD", "WINE", "WORK", "WAVE", "WARS", "WEEK", "WOLF", "WILL", "WIRE", "WIND",
+    "WAKE", "WALK", "WALL", "WANT", "WARM", "WASH", "WATCH", "WEAR", "WELL", "WERE", "WHAT",
+    "WHEN", "WHOM", "WIDE", "WIFE", "WINS", "WISE", "WITH", "WOOD", "WORD", "WORE", "WORN",
+    "WRAP", "WIEN", "WELT", "WAHL", "WUNDER", "KINO", "KLUB", "KURS", "KANAL",
+}
+_TITEL_KLEINWOERTER = {"in", "of", "the", "and", "und", "de", "la", "el", "am", "an", "im", "der", "die", "das"}
+
+
+def schoener_sendername(name, land=None):
+    """Bereinigter Sendername fuer generische Platzhalter-Titel (ohne
+    Land-Praefix "XX|", ohne Klammerzusaetze, ohne Qualitaets-/Anbieter-
+    Zusaetze wie HD/FHD/4K/HEVC/RAW/VIP und hochgestellte Marker wie
+    "ᴿᴬᵂ"/"ⱽᴵᴾ"/"ᴴᴰ"/"²⁵ᶠᵖˢ"), mit sauberer Gross-/Kleinschreibung
+    (bekannte Abkuerzungen gross, Fuellwoerter klein).
+
+    Bleibt nach der Bereinigung fast nichts uebrig (z.B. "24 4K" -> "24"),
+    bleiben die Qualitaets-Zusaetze zur Unterscheidung stehen. `land` (Land-
+    Feld aus sender.txt) steuert nur, ob US-Senderkennungen (KUSA, WNYW) gross
+    geschrieben werden."""
+    if not name:
+        return name
+
+    n = re.sub(r"^[A-Za-z0-9\-]+\|\s*", "", name.strip())
+    n = re.sub(r"\([^)]*\)|\[[^\]]*\]", " ", n)
+    n = re.sub(r"[\u00b2\u00b3\u00b9\u1d2c-\u1dbf\u2070-\u209f\u2c7c\u2c7d\u02b0-\u02ff]+", " ", n)
+    n = n.replace("*", " ")
+    n = re.sub(r"(?<=\w)-(?=\w)", " ", n) if re.search(r"-(TV|HD|FHD|4K)\b", n, re.IGNORECASE) else n
+
+    alle = n.split()
+    ohne_qualitaet = [t for t in alle if t.upper() not in _TITEL_QUALITAET]
+    kern = ohne_qualitaet if len("".join(ohne_qualitaet)) >= 3 and not "".join(ohne_qualitaet).isdigit() else [
+        t for t in alle if t.upper() not in {"RAW", "VIP"}
+    ]
+    if not kern:
+        return kanalname_normal_geschrieben(name)
+
+    praefix_match = re.match(r"^([A-Za-z0-9\-]+)\|", name.strip())
+    land_oder_praefix = ((praefix_match.group(1) if praefix_match else "") or (land or "")).strip().upper()
+    us_lokal = land_oder_praefix in {"TV", "CITY", "GO", "PRIME", "US", "EN", "NA"}
+
+    ergebnis = []
+    for i, token in enumerate(kern):
+        if i > 0 and kern[i - 1].endswith(",") and re.fullmatch(r"[A-Za-z]{2}", token):
+            ergebnis.append(token.upper())  # US-Bundesstaat: "Green Bay, WI"
+            continue
+        if us_lokal and re.fullmatch(r"[KkWw][A-Za-z]{3}", token) and token.upper() not in _TITEL_KEIN_SENDERCODE:
+            ergebnis.append(token.upper())  # US-Senderkennung: KUSA, WNYW, WTRF
+            continue
+        # Land-Doppelpunkt ("US:", "DE:") getrennt behandeln, sonst bleibt
+        # er als Teil des Wortes und das Kuerzel wird nicht erkannt.
+        doppelpunkt = ":" if token.endswith(":") and len(token) > 1 else ""
+        token = token[:-1] if doppelpunkt else token
+        u = token.upper()
+        if doppelpunkt and u in (_TITEL_ABKUERZUNGEN | KANALNAME_ABKUERZUNGEN):
+            ergebnis.append(u + doppelpunkt)
+            continue
+        token = token + doppelpunkt
+        u = token.upper()
+        plus = "+" if token.endswith("+") and len(token) > 2 else ""
+        if plus and u[:-1] in _TITEL_ABKUERZUNGEN:
+            ergebnis.append(u)  # z.B. "ESPN+"
+        elif u in _TITEL_ABKUERZUNGEN or u in _TITEL_QUALITAET:
+            ergebnis.append(u)
+        elif "&" in token and len(token) <= 5:
+            ergebnis.append(token.upper())  # z.B. "A&E", "AT&T"
+        elif "&" in token:
+            ergebnis.append("&".join(t.capitalize() for t in token.split("&")))  # "Vlad&Niki"
+        elif re.fullmatch(r"[A-Za-z]{2,4}", token) and not re.search(r"[AEIOUYaeiouy]", token) \
+                and u not in _TITEL_KEINE_KUERZEL:
+            ergebnis.append(u)  # vokallose Kurzform ist fast immer ein Kuerzel (MTM, MRT, FM, FX)
+        elif any(c.isdigit() for c in token):
+            # Mit Ziffern: kurze Kennungen ("N1", "ABC7", "80S", "20/20") gross,
+            # sonst jeden Buchstabenblock einzeln kapitalisieren ("3SAT" -> "3Sat").
+            if re.fullmatch(r"[A-Za-z]{1,4}\d+[A-Za-z]?|\d+[A-Za-z]?|[0-9/+]+", token):
+                ergebnis.append(token.upper())
+            else:
+                ergebnis.append(re.sub(r"[A-Za-z]+", lambda m: m.group().capitalize(), token))
+        elif i > 0 and token.lower() in _TITEL_KLEINWOERTER:
+            ergebnis.append(token.lower())
+        else:
+            ergebnis.append("-".join(teil.capitalize() for teil in token.split("-")))
+    return " ".join(ergebnis)
+
+
+def ist_automatischer_platzhaltertitel(text, sender):
+    """True, wenn `text` (Beschreibungsfeld aus sender.txt) nur der alte,
+    automatisch erzeugte Platzhalter "<Sendername> ᴸⁱᵛᵉ" ist (gleicher Name
+    wie der Sender, nur andere Gross-/Kleinschreibung) - dann darf er durch
+    den neuen, bereinigten Titel ersetzt werden. Handgeschriebene Texte
+    (z.B. "MySports 2 - Kein Live Spiel") bleiben unveraendert."""
+    suffix = " ᴸⁱᵛᵉ"
+    if not text or not text.endswith(suffix):
+        return False
+
+    def vergleichbar(t):
+        t = re.sub(r"^[A-Za-z0-9\-]+\|\s*", "", (t or "").strip())
+        return re.sub(r"\s+", " ", t).casefold()
+
+    return vergleichbar(text[:-len(suffix)]) == vergleichbar(sender)
+
+
+# Bewusst eine EIGENE, viel kleinere Abkuerzungsliste als
+# KANALNAME_ABKUERZUNGEN - jene enthaelt auch Land-/Kategorie-Kuerzel
+# wie "LIGA"/"SK"/"NA"/"SI", die in kroatischen/serbischen Sendungs-
+# titeln aber ganz normale Woerter sind ("liga" = Liga, "na" = auf,
+# "si" = du bist) - eine Wiederverwendung der Kanalnamen-Liste wuerde
+# solche Woerter faelschlich gross stehen lassen (z.B. "Talijanska
+# LIGA" statt "Talijanska Liga").
+SATZ_ABKUERZUNGEN = {
+    "HD", "FHD", "UHD", "SD", "HEVC", "4K", "8K", "DAZN", "TV",
+    "UFC", "NFL", "NBA", "NHL", "MLB", "NCAA", "MLS", "EPL",
+}
+
+
+def normalisiere_grossschreibung(text):
+    """Wandelt einen komplett grossgeschriebenen Sendungstitel/-text
+    (z.B. von MojMaxTV/Arena Sport, die ihre Programmdaten oft komplett
+    in GROSSBUCHSTABEN liefern, siehe HR|ARENA SPORT 1-10) in normale
+    Schreibweise um - jedes Wort wird einzeln kapitalisiert, nur die
+    kleine, kollisionsfreie SATZ_ABKUERZUNGEN-Liste (reine technische
+    Kuerzel wie "HD"/"UFC", keine Land-/Kategorie-Codes) bleibt gross.
+    Texte, die nicht komplett grossgeschrieben sind (also bereits normal
+    formatierte echte Quellen wie Telemach/mtel.ba), bleiben unveraendert
+    - kein Risiko, bereits korrekt geschriebene Texte zu verhunzen."""
+    if not text:
+        return text
+    if not any(zeichen.isalpha() for zeichen in text) or text != text.upper():
+        return text
+
+    worte = text.split(" ")
+    ergebnis = []
+    for wort in worte:
+        praefix = ""
+        suffix = ""
+        kern = wort
+
+        while kern and kern[0] in "([":
+            praefix += kern[0]
+            kern = kern[1:]
+        while kern and kern[-1] in ")]:":
+            suffix = kern[-1] + suffix
+            kern = kern[:-1]
+
+        if kern.upper() in SATZ_ABKUERZUNGEN:
+            kern_formatiert = kern.upper()
+        else:
+            kern_formatiert = "-".join(teil.capitalize() for teil in kern.split("-"))
+
+        ergebnis.append(praefix + kern_formatiert + suffix)
+
+    return " ".join(ergebnis)
+
+
+# ==========================================================
+# Automatische Logo-Suche ueber die oeffentliche iptv-org-Datenbank
+# (https://iptv-org.github.io/api/ - freie, offene Sammlung von
+# Kanal-Metadaten inkl. Logos, unabhaengig von jeder konkreten
+# IPTV-Quelle). Fehlt einem Sender in sender.txt/logo_only.txt ein
+# Logo, wird hier versucht, per (fuzzy) Namensabgleich ein passendes
+# Logo automatisch zuzuordnen - der eigentliche Netzwerk-Abruf der
+# beiden JSON-Dateien (channels.json/logos.json) passiert bewusst in
+# generate_epg.py, hier stehen nur die reinen, testbaren
+# Verarbeitungsfunktionen ohne Seiteneffekte.
+# ==========================================================
+
+# Manche unserer "Land"-Kuerzel in sender.txt entsprechen nicht dem
+# ISO-3166-1-Alpha-2-Code, den die iptv-org-Datenbank nutzt (z.B.
+# "UK" statt "GB"). Nur fuer die Priorisierung von Treffern relevant,
+# nicht fuer eine harte Filterung.
+LAND_ISO_MAPPING = {"UK": "GB", "MO": "ME"}
+
+
+@lru_cache(maxsize=None)
+def normalisiere_sendername(name):
+    """Reduziert einen Sendernamen auf reine Grossbuchstaben/Ziffern
+    (keine Leerzeichen, Satzzeichen, Akzente) fuer einen robusten
+    Namensabgleich, z.B. "Al Jazeera Balkans FHD" und "AL JAZEERA
+    BALKANS" ergeben denselben Schluessel.
+
+    Entfernt zusaetzlich die Anbieter-eigenen Deko-Marker "VIP"/"RAW"
+    (auch in hochgestellter Unicode-Schreibweise wie "ⱽᴵᴾ ᴿᴬᵂ" - NFKD
+    zerlegt diese Zeichen zu normalen Buchstaben, siehe unten) als
+    eigene Woerter, BEVOR die Buchstaben zusammengeschoben werden -
+    diese Marker sind reine Playlist-Tags des Nutzers, tauchen in
+    keiner echten Sender-API auf und wuerden sonst bei kurzen
+    Sendernamen (z.B. "ATV ⱽᴵᴾ ᴿᴬᵂ" -> "ATVVIPRAW") den unscharfen
+    difflib-Abgleich gegen den echten Namen ("ATV") unter die
+    Aehnlichkeits-Schwelle druecken und den Treffer verhindern.
+
+    Wandelt ausserdem "+" in das Wort "PLUS" um (statt es ersatzlos zu
+    entfernen), damit z.B. "Sky Premieren +24" und "Sky Premieren Plus
+    24" auf denselben Schluessel abbilden - beide Schreibweisen sind in
+    freier Wildbahn ueblich (eigene Playlist vs. Anbieter-API)."""
+    if not name:
+        return ""
+
+    name = unicodedata.normalize("NFKD", name)
+    name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
+    name = name.upper()
+    name = re.sub(r"\bVIP\b|\bRAW\b", " ", name)
+    name = name.replace("+", " PLUS ")
+    name = re.sub(r"[^A-Z0-9]", "", name)
+    return name
+
+
+def abgedeckte_minuten(intervalle, von, bis):
+    """Summe der Minuten, die von den (start, stop)-Intervallen im
+    Zeitfenster [von, bis) abgedeckt sind (Ueberlappungen zaehlen nur
+    einmal)."""
+    ausschnitt = sorted(
+        (max(start, von), min(stop, bis))
+        for start, stop in intervalle
+        if stop > von and start < bis
+    )
+    summe, ende = 0.0, None
+    for start, stop in ausschnitt:
+        if ende is None or start > ende:
+            summe += (stop - start).total_seconds()
+            ende = stop
+        elif stop > ende:
+            summe += (stop - ende).total_seconds()
+            ende = stop
+    return summe / 60.0
+
+
+@lru_cache(maxsize=None)
+def normalisiere_sendername_kern(name):
+    """Wie normalisiere_sendername(), entfernt zusaetzlich die
+    Qualitaets-Suffixe "HD"/"FHD"/"UHD"/"SD" als eigene Woerter (z.B.
+    "QVC FHD" -> gleicher Kern wie "QVC"). Nur als KERN-Fallback
+    gedacht, NICHT als Ersatz fuer normalisiere_sendername(): manche
+    Anbieter fuehren HD/SD als eigene, unterschiedliche Kanaele (z.B.
+    zwei getrennte TVPassport-Eintraege fuer dieselbe Lokalstation), der
+    exakte Abgleich nach normalisiere_sendername() muss daher immer
+    zuerst versucht werden - der Kern-Vergleich ist nur ein Fallback,
+    wenn dieser keinen Treffer findet."""
+    if not name:
+        return ""
+
+    name = unicodedata.normalize("NFKD", name)
+    name = "".join(zeichen for zeichen in name if not unicodedata.combining(zeichen))
+    name = name.upper()
+    name = re.sub(r"\bVIP\b|\bRAW\b|\bU?HD\b|\bFHD\b|\bSD\b|\bHEVC\b|\b[48]K\b", " ", name)
+    name = name.replace("+", " PLUS ")
+    name = re.sub(r"[^A-Z0-9]", "", name)
+    return name
+
+
+_FUZZY_QUALITAET_ENDE = re.compile(r"(?:UHD|FHD|HD|SD|HEVC|4K|VIP|RAW)+$")
+
+
+# Zusaetze am Namensende, die einen ANDEREN Kanal kennzeichnen (z.B.
+# "ProSieben" != "ProSieben FUN"/"MAXX", "Discovery" != "Discovery XTRA").
+_FUZZY_FREMDKANAL_ZUSATZ = frozenset({
+    "FUN", "MAXX", "GOLD", "NEO", "KIDS", "KID", "JUNIOR", "JR", "MUSIC",
+    "ACTION", "CRIME", "COMEDY", "WILD", "XTRA", "HITS", "NEWS", "SPORT",
+    "SPORTS", "Y", "S", "M",
+})
+
+
+def _fuzzy_kern(name):
+    """Kern-Schluessel fuer den Plausibilitaetscheck von Fuzzy-Treffern:
+    wie normalisiere_sendername_kern(), entfernt aber Qualitaets-Suffixe
+    (HD/FHD/UHD/SD/HEVC/4K/VIP/RAW) auch am Ende eines bereits
+    zusammengezogenen Schluessels ("SKYSPORTF1HD" -> "SKYSPORTF1"),
+    gleicht "SPORTS"/"SPORT" an und fuehrt die gleichwertigen Arena-
+    Premium-Schreibweisen zusammen ("ARENA SPORT 1 PREMIUM", "ARENA SPORT
+    PREMIUM 1", "ARENA M1 PREMIUM" -> "ARENAPREMIUM1", siehe
+    docs/HISTORIE.md). Der Rest muss mind. 3 Zeichen behalten."""
+    kern = normalisiere_sendername_kern(name)
+    ohne = _FUZZY_QUALITAET_ENDE.sub("", kern)
+    if len(ohne) >= 3:
+        kern = ohne
+    kern = kern.replace("SPORTS", "SPORT")
+    kern = re.sub(r"ARENASPORT(\d)PREMIUM", r"ARENAPREMIUM\1", kern)
+    kern = kern.replace("ARENASPORTPREMIUM", "ARENAPREMIUM")
+    kern = re.sub(r"ARENAM(\d)PREMIUM", r"ARENAPREMIUM\1", kern)
+    # Sky UK kuerzt seine Kanalnamen ab ("SkySp F1" fuer "Sky Sports F1",
+    # "Sky Action" fuer "Sky Cinema Action", "SkyDocmntrs", "SkySp F'ball",
+    # "Premier 1" fuer "Premier Sports 1") - beide Seiten auf dieselbe
+    # Kurzform bringen (12.10.2026, Sky-UK-Ausfall nach Fuzzy-Verschaerfung).
+    kern = kern.replace("SKYCINEMA", "SKY").replace("SKYSPORT", "SKYSP")
+    kern = kern.replace("FOOTBALL", "FBALL").replace("PREMIERSPORT", "PREMIER")
+    kern = kern.replace("DOCUMENTARIES", "DOCMNTRS").replace("DOCUMNTRS", "DOCMNTRS")
+    # "Crime & Investigation" / "Crime + Investigation" (&amp; bleibt als AMP)
+    kern = kern.replace("CRIMEAMPINVESTIGATION", "CRIMEINVESTIGATION")
+    kern = kern.replace("CRIMEPLUSINVESTIGATION", "CRIMEINVESTIGATION")
+    # Vor-/Nachgestelltes "TV" ist Namensvariante ("Sitel" = "TV Sitel",
+    # "Jadran TV" = "TV Jadran"); nur wenn danach noch mind. 4 Zeichen bleiben
+    for teil in ("TV",):
+        if kern.startswith(teil) and len(kern) - len(teil) >= 4:
+            kern = kern[len(teil):]
+        if kern.endswith(teil) and len(kern) - len(teil) >= 4:
+            kern = kern[: -len(teil)]
+    return kern
+
+
+def fuzzy_treffer_plausibel(ziel_name, treffer_schluessel):
+    """Prueft, ob ein reiner difflib-Fuzzy-Treffer wirklich derselbe Kanal
+    ist. Qualitaets-Suffixe (HD/FHD/...) sind egal. Erlaubt nur, wenn
+    (a) die Kerne gleich sind, oder (b) die Zahlen im Namen identisch sind
+    ("Sky Sport Austria 2" != "... 1", "Arena Sport 2" != "Magenta Sport";
+    Ausnahme: Ziel ohne Zahl -> Treffer = Ziel + "1", z.B. "BHT" -> "BHT 1")
+    UND entweder der kuerzere Kern (mind. 3 Zeichen) steht komplett AM
+    ANFANG des laengeren und der Rest ist hoechstens 6 Zeichen und kein
+    Fremdkanal-Zusatz ("Comedy Central East HD" -> "Comedy Central", "Hayat
+    Folk" -> "Hayat Folk Box"; aber "ProSieben" != "ProSieben FUN") oder
+    die Aehnlichkeit betraegt mind. 93 %. Faengt Fehltreffer wie "RTL
+    Comedy" -> "TNT Comedy", "NHL Network" -> "NFL Network", "RTL 2" ->
+    "RTL" ab. HISTORIE: erste, zu strenge Fassung (nur 93 %/Substring >= 90 %)
+    liess 24 % aller echten Kanaele auf Platzhalter fallen (12.10.2026)."""
+    ziel = _fuzzy_kern(ziel_name)
+    treffer = _fuzzy_kern(treffer_schluessel)
+    if not ziel or not treffer:
+        return False
+    if ziel == treffer:
+        return True
+    zahlen_ziel = re.findall(r"\d+", ziel)
+    zahlen_treffer = re.findall(r"\d+", treffer)
+    kurz, lang = sorted((ziel, treffer), key=len)
+    if zahlen_ziel != zahlen_treffer:
+        # "BHT" -> "BHT 1"; "Sky Arts 1" -> "Sky Arts" (nur bei "1" und
+        # mind. 6 Zeichen, damit "RTL 2"/"HBO 1" abgelehnt bleiben)
+        return (
+            (len(ziel) >= 3 and not zahlen_ziel and treffer == ziel + "1")
+            or (len(treffer) >= 6 and ziel == treffer + "1")
+        )
+    if len(kurz) >= 3 and lang.startswith(kurz):
+        rest = lang[len(kurz):]
+        return len(rest) <= 6 and rest not in _FUZZY_FREMDKANAL_ZUSATZ
+    return difflib.SequenceMatcher(None, ziel, treffer).ratio() >= 0.93
+
+
+def fuzzy_kandidaten(ziel_name, ziel_schluessel, schluessel_liste, cutoff=0.72):
+    """Wie difflib.get_close_matches(..., n=1), prueft aber bis zu 5 aehnlichste
+    Kandidaten der Reihe nach mit fuzzy_treffer_plausibel() und liefert den
+    ersten plausiblen (als Liste mit 0/1 Eintrag). Grund: der aehnlichste
+    Kandidat ist oft der falsche ("Arena Sport 1 Premium" -> "Arena Premium
+    3" statt "Arena Premium 1"), der richtige steht dann auf Platz 2-3."""
+    kandidaten = difflib.get_close_matches(
+        ziel_schluessel, list(schluessel_liste), n=5, cutoff=cutoff
+    )
+    for kandidat in kandidaten:
+        if fuzzy_treffer_plausibel(ziel_name, kandidat):
+            return [kandidat]
+    return []
+
+
+# Feste Aliase fuer Sendernamen, die ein Anbieter anders schreibt als die
+# EPG-Quellen (Kern-Schluessel -> Kern-Schluessel). "RTL II" ist die
+# roemische Schreibweise von RTL ZWEI, "RTL ZWEL" ein Tippfehler des
+# Anbieters (12.10.2026). Bewusst NICHT "RTL2" (Kroatien/Montenegro: "RTL 2"
+# ist ein anderer Sender).
+_NAMENS_ALIASE = {
+    "RTLII": "RTLZWEI",
+    "RTLZWEL": "RTLZWEI",
+}
+
+
+def kanal_index_suchen(ziel_name, name_index, kern_index=None, cutoff=0.72):
+    """Generischer Kanal-Namensabgleich fuer die *_kanal_finden()-
+    Funktionen: erst exakter Abgleich nach normalisiere_sendername(),
+    dann (falls kern_index uebergeben) ein eindeutiger Kern-Abgleich
+    ohne HD/FHD/UHD/SD, zuletzt unscharfer difflib-Abgleich auf dem
+    vollen Namen. name_index/kern_index sind Dicts Schluessel->Wert,
+    kern_index sollte bei mehrdeutigem Kern-Schluessel keinen Eintrag
+    enthalten (siehe Aufrufer), damit dieser Fallback nie einen von
+    mehreren echten HD/SD-Varianten falsch auswaehlt. Gibt den Wert aus
+    name_index/kern_index zurueck oder None."""
+    ziel_schluessel = normalisiere_sendername(ziel_name)
+    if not ziel_schluessel:
+        return None
+
+    if ziel_schluessel in name_index:
+        return name_index[ziel_schluessel]
+
+    if kern_index:
+        ziel_kern = normalisiere_sendername_kern(ziel_name)
+        if ziel_kern and ziel_kern in kern_index:
+            return kern_index[ziel_kern]
+
+    # Bekannte, feste Namens-Aliase (nur DE-spezifische Schreibweisen).
+    alias = _NAMENS_ALIASE.get(normalisiere_sendername_kern(ziel_name))
+    if alias:
+        if alias in name_index:
+            return name_index[alias]
+        if kern_index and alias in kern_index:
+            return kern_index[alias]
+
+    aehnliche = fuzzy_kandidaten(ziel_name, ziel_schluessel, name_index.keys(), cutoff)
+    if aehnliche:
+        treffer = aehnliche[0]
+        # Kurze/mittellange Namen (<=8 Zeichen, z.B. "K3" oder "NOW70S")
+        # sind fuer den reinen Aehnlichkeits-Score zu riskant: difflib
+        # haelt z.B. "K3" und "SK3" (85% Aehnlichkeit) faelschlich fuer
+        # denselben Kanal, obwohl es zwei komplett verschiedene Sender
+        # sind (live entdeckt bei MK|K3 vs. "MK - SK 3"/Sport Klub 3,
+        # September 2026, siehe docs/HISTORIE.md). Gleiches Muster bei
+        # "NOW70S"/"NOW80S" (PRIME|NOW 70S/80S RAW) vs. dem echten
+        # deswird.org-Kanal "NOW US" (72% Aehnlichkeit, knapp ueber dem
+        # Cutoff) - voellig unterschiedliche Sender, die nur das
+        # generische Praefix "NOW" teilen. Ein echtes Kurzform-Match wie
+        # "BHT" -> "BHT1" (Telemachs "BHT 1") bleibt dagegen erlaubt,
+        # da hier der kurze Name ein reiner PRAEFIX des Treffers ist
+        # (bzw. umgekehrt) - "K3" ist dagegen kein Praefix von "SK3"
+        # und "SK3" keins von "K3", genauso "NOW70S" keins von "NOWUS".
+        if len(ziel_schluessel) <= 8 and not (
+            treffer.startswith(ziel_schluessel) or ziel_schluessel.startswith(treffer)
+        ):
+            return None
+        return name_index[treffer]
+
+    return None
+
+
+def kern_index_aufbauen(eintraege, namensfeld, wertfeld):
+    """Baut aus einer Liste von Kanal-Dicts einen Kern-Index (siehe
+    normalisiere_sendername_kern()) fuer kanal_index_suchen(). Ist ein
+    Kern-Schluessel mehrdeutig (mehrere unterschiedliche Werte, z.B.
+    echte getrennte HD/SD-Kanaele desselben Namens), wird er bewusst
+    NICHT aufgenommen, damit der Fallback nie zufaellig die falsche
+    Variante trifft."""
+    kern_index = {}
+    mehrdeutig = set()
+    for eintrag in eintraege:
+        kern = normalisiere_sendername_kern(eintrag[namensfeld])
+        if not kern:
+            continue
+        wert = eintrag[wertfeld]
+        if kern in kern_index and kern_index[kern] != wert:
+            mehrdeutig.add(kern)
+        else:
+            kern_index.setdefault(kern, wert)
+    for kern in mehrdeutig:
+        kern_index.pop(kern, None)
+    return kern_index
+
+
+def baue_logo_index(channels_daten, logos_daten):
+    """Baut aus den beiden iptv-org-JSON-Listen (channels.json/
+    logos.json) zwei Nachschlage-Strukturen:
+    - name_index: normalisierter Sendername -> Liste von (Kanal-ID, Land)
+    - logo_by_id: Kanal-ID -> Logo-Eintrag (bevorzugt "in_use"-Logos)
+    """
+    logo_by_id = {}
+    for eintrag in logos_daten:
+        kanal_id = eintrag.get("channel")
+        if not kanal_id:
+            continue
+        bisheriger = logo_by_id.get(kanal_id)
+        if bisheriger is None or (eintrag.get("in_use") and not bisheriger.get("in_use")):
+            logo_by_id[kanal_id] = eintrag
+
+    name_index = {}
+    for kanal in channels_daten:
+        kanal_id = kanal.get("id")
+        if not kanal_id:
+            continue
+        land = kanal.get("country") or ""
+        namen = [kanal.get("name", "")] + list(kanal.get("alt_names") or [])
+        for name in namen:
+            schluessel = normalisiere_sendername(name)
+            if not schluessel:
+                continue
+            name_index.setdefault(schluessel, []).append((kanal_id, land))
+
+    return name_index, logo_by_id
+
+
+def finde_logo(sender_name, land, name_index, logo_by_id, min_score=0.72):
+    """Sucht fuer einen gegebenen Sendernamen ein passendes Logo in
+    der iptv-org-Datenbank. Erst exakter Namensabgleich (nach
+    Normalisierung), sonst unscharfer Abgleich (difflib) mit
+    Mindest-Aehnlichkeit min_score. Treffer aus demselben Land werden
+    bevorzugt, sind aber keine harte Bedingung (viele unserer
+    Land-Kuerzel wie EXYU/TUBI/PRIME sind keine echten Laendercodes).
+    Gibt die Logo-URL zurueck oder None, wenn nichts Passendes
+    gefunden wurde."""
+    schluessel = normalisiere_sendername(sender_name)
+    if not schluessel or not name_index:
+        return None
+
+    land_iso = LAND_ISO_MAPPING.get(land, land)
+
+    if schluessel in name_index:
+        kandidaten = name_index[schluessel]
+    else:
+        aehnliche_schluessel = difflib.get_close_matches(
+            schluessel, name_index.keys(), n=5, cutoff=min_score
+        )
+        if not aehnliche_schluessel:
+            return None
+        kandidaten = []
+        for treffer in aehnliche_schluessel:
+            kandidaten.extend(name_index[treffer])
+
+    # Treffer aus demselben Land bevorzugen, falls vorhanden
+    land_treffer = [kanal_id for kanal_id, l in kandidaten if l == land_iso]
+    ziel_ids = land_treffer if land_treffer else [kanal_id for kanal_id, l in kandidaten]
+
+    for kanal_id in ziel_ids:
+        logo_eintrag = logo_by_id.get(kanal_id)
+        if logo_eintrag and logo_eintrag.get("url"):
+            return logo_eintrag["url"]
+
+    return None
+
+
+
+
+def playlist_exakte_namen_sammeln(m3u_text):
+    """Sammelt die EXAKTEN Namen aller #EXTINF-Zeilen einer M3U-Playlist
+    (Text nach dem Komma, tvg-name, tvg-id) als frozenset - zeichengenau,
+    ohne strip() (Leer-/Sonderzeichen sind fuer TiviMates Namensabgleich
+    relevant, nur CR/LF werden entfernt). Das erste Komma NACH dem letzten
+    Anfuehrungszeichen trennt Attribute und Anzeigename (Namen koennen
+    selbst Kommas enthalten)."""
+    namen = set()
+    for zeile in m3u_text.split("\n"):
+        zeile = zeile.rstrip("\r")
+        if not zeile.startswith("#EXTINF") or "," not in zeile:
+            continue
+        letztes_anfuehrungszeichen = zeile.rfind('"')
+        komma_pos = zeile.find(",", letztes_anfuehrungszeichen if letztes_anfuehrungszeichen != -1 else 0)
+        if komma_pos != -1:
+            namen.add(zeile[komma_pos + 1:])
+        for attribut in ("tvg-name", "tvg-id"):
+            treffer = re.search(attribut + r'="([^"]*)"', zeile)
+            if treffer and treffer.group(1):
+                namen.add(treffer.group(1))
+    return frozenset(namen)
+
+
+def playlist_kanaele_sammeln(m3u_text):
+    """Liest aus einer M3U-Playlist alle LIVE-Kanaele als Liste von
+    {"name": Anzeigename (Text nach dem Komma), "gruppe": group-title}.
+    Gleiche Trennlogik wie playlist_exakte_namen_sammeln() (erstes Komma NACH
+    dem letzten Anfuehrungszeichen), Namen zeichengenau ohne strip().
+    Filme/Serien (Stream-URL mit "/movie/" oder "/series/") werden
+    ausgelassen: sie erscheinen im Player nicht als Live-Kanaele und haben
+    bewusst kein EPG."""
+    kanaele = []
+    zeilen = m3u_text.split("\n")
+    for i, zeile in enumerate(zeilen):
+        zeile = zeile.rstrip("\r")
+        if not zeile.startswith("#EXTINF") or "," not in zeile:
+            continue
+        letztes = zeile.rfind('"')
+        komma = zeile.find(",", letztes if letztes != -1 else 0)
+        if komma == -1:
+            continue
+        url = ""
+        for naechste in zeilen[i + 1:i + 4]:
+            naechste = naechste.strip()
+            if naechste and not naechste.startswith("#"):
+                url = naechste
+                break
+        if "/movie/" in url or "/series/" in url:
+            continue
+        gruppe = re.search(r'group-title="([^"]*)"', zeile)
+        kanaele.append({
+            "name": zeile[komma + 1:],
+            "gruppe": gruppe.group(1) if gruppe else "",
+        })
+    return kanaele
+
+
+def xml_kanal_namen(xml_inhalt):
+    """Alle Kanal-IDs und display-name-Texte einer erzeugten XMLTV-Datei
+    (unescaped) als Menge - das ist die Menge, gegen die ein Player beim
+    automatischen Zuordnen vergleichen kann."""
+    import html
+    namen = set()
+    for treffer in re.finditer(r'<channel id="([^"]*)"', xml_inhalt):
+        namen.add(html.unescape(treffer.group(1)))
+    for treffer in re.finditer(r"<display-name[^>]*>([^<]*)</display-name>", xml_inhalt):
+        namen.add(html.unescape(treffer.group(1)))
+    return namen
+
+
+def _luecken_schluessel(name):
+    """Tolerante Schreibweise fuer den Lueckenbericht: Gross-/Kleinschreibung,
+    Leerzeichen, Sonderzeichen und hochgestellte Zeichen ignoriert."""
+    name = unicodedata.normalize("NFKC", name).upper()
+    return re.sub(r"[^A-Z0-9]", "", name)
+
+
+def zuordnung_luecken(playlist_kanaele, xml_namen):
+    """Vergleicht Playlist-Kanaele mit den Namen der XML. Liefert
+    (exakt_fehlt, nicht_zuordenbar): exakt_fehlt = Name steht nicht
+    zeichengenau in der XML (ein Player mit exaktem Namensabgleich findet ihn
+    nicht), nicht_zuordenbar = steht auch in tolerant normalisierter
+    Schreibweise nicht in der XML (dort fehlt der Sender wirklich).
+    Header-Kanaele (mit "###") werden ignoriert."""
+    toleranz = {_luecken_schluessel(n) for n in xml_namen}
+    exakt_fehlt, nicht_zuordenbar = [], []
+    for kanal in playlist_kanaele:
+        name = kanal["name"]
+        if not name.strip() or "###" in name or name in xml_namen:
+            continue
+        exakt_fehlt.append(kanal)
+        if _luecken_schluessel(name) not in toleranz:
+            nicht_zuordenbar.append(kanal)
+    return exakt_fehlt, nicht_zuordenbar
+
+
+def zuordnung_luecken_bericht(playlist_kanaele, xml_namen, max_zeilen=30000):
+    """Textbericht fuer Zuordnung_Luecken.txt: Gesamtzahlen, Aufstellung je
+    Playlist-Kategorie und die Namen ohne Treffer. Ohne Zeitstempel, damit
+    sich die Datei nur aendert, wenn sich die Luecken aendern."""
+    exakt_fehlt, nicht_zuordenbar = zuordnung_luecken(playlist_kanaele, xml_namen)
+    zeilen = [
+        "Zuordnungs-Luecken: Playlist-Kanaele ohne passenden Namen in Epg_365_Tage.xml.gz",
+        f"Playlist-Kanaele gesamt: {len(playlist_kanaele)}",
+        f"Davon eindeutige Namen (zeichengenau): {len({k['name'] for k in playlist_kanaele})}",
+        f"Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): {len({_luecken_schluessel(k['name']) for k in playlist_kanaele})}",
+        f"Name nicht zeichengenau in der XML: {len(exakt_fehlt)}",
+        f"davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: {len(nicht_zuordenbar)}",
+        "",
+        "== Je Playlist-Kategorie (nicht zuordenbar / nur abweichende Schreibweise) ==",
+    ]
+    nach_gruppe = {}
+    nicht_set = {id(k) for k in nicht_zuordenbar}
+    for kanal in exakt_fehlt:
+        eintrag = nach_gruppe.setdefault(kanal["gruppe"] or "(ohne Kategorie)", [0, 0, []])
+        if id(kanal) in nicht_set:
+            eintrag[0] += 1
+            eintrag[2].append(kanal["name"])
+        else:
+            eintrag[1] += 1
+    for gruppe, (fehlt, abweichend, _) in sorted(nach_gruppe.items(), key=lambda e: (-e[1][0], e[0])):
+        zeilen.append(f"{fehlt:5d} / {abweichend:5d}  {gruppe}")
+    zaehler = {}
+    for kanal in playlist_kanaele:
+        zaehler[kanal["name"]] = zaehler.get(kanal["name"], 0) + 1
+    doppelt = sorted((n, c) for n, c in zaehler.items() if c > 1)
+    zeilen += ["", f"== Mehrfach vorkommende Playlist-Namen ({len(doppelt)}) - ein Player zaehlt sie nur einmal =="]
+    for name, anzahl in doppelt[:200]:
+        zeilen.append(f"   {anzahl}x {name}")
+    zeilen += ["", "== Namen, die in der XML ganz fehlen (je Kategorie) =="]
+    ausgegeben = 0
+    for gruppe, (fehlt, _, namen) in sorted(nach_gruppe.items(), key=lambda e: (-e[1][0], e[0])):
+        if not namen:
+            continue
+        zeilen.append(f"-- {gruppe} ({fehlt})")
+        for name in sorted(namen):
+            if ausgegeben >= max_zeilen:
+                zeilen.append("... (Liste gekuerzt)")
+                return "\n".join(zeilen) + "\n"
+            zeilen.append(f"   {name}")
+            ausgegeben += 1
+    return "\n".join(zeilen) + "\n"
+
+
+def ids_auf_playlist_einschraenken(varianten, playlist_namen, min_namen, sonder_regex, immer_regex=None):
+    """Behaelt von den ID-Varianten eines Senders nur die, die zeichengenau
+    als Name in der Playlist stehen. Sicherheitsnetze (dann bleiben ALLE
+    Varianten): Playlist zu klein/leer, nur eine Variante, KEINE Variante
+    trifft die Playlist, es ist ein HEADER-Kanal (Name mit "###", z.B.
+    "##### DE| STAIGE PPV #####" - bleibt immer unveraendert), oder eine
+    Variante enthaelt Anfuehrungszeichen bzw. unsichtbare Sonderzeichen - dort normalisiert der Player den Namen
+    (die bereinigte Variante, die TiviMate trifft, steht NICHT roh in der
+    Playlist), eine Einschraenkung waere dort unsicher.
+
+    immer_regex (optional): Varianten, die darauf passen, bleiben IMMER
+    erhalten, auch wenn sie nicht in der Provider-Playlist stehen. Grund
+    (12.10.2026, UK| AMAZON UK EVENT N): die Playlist in TiviMate hatte
+    "UK| AMAZON UK EVENT 0" (ein Leerzeichen), die Provider-Playlist beim
+    Lauf aber nur "UK|AMAZON UK EVENT 0" - die Leerzeichen-Variante wurde
+    weggefiltert, TiviMate fand keine Sendungen mehr ("Keine Information")."""
+    if len(playlist_namen) < min_namen or len(varianten) < 2:
+        return varianten
+    if any('"' in v or sonder_regex.search(v) or "###" in v for v in varianten):
+        return varianten
+    if not any(v in playlist_namen for v in varianten):
+        return varianten
+    return [
+        v for v in varianten
+        if v in playlist_namen or (immer_regex is not None and immer_regex.search(v))
+    ]

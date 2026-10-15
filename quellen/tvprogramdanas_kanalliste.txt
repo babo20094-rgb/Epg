@@ -1,0 +1,499 @@
+24kitchen|24Kitchen
+360-tune-box|360 Tune box
+3sat|3sat
+adria-tv|ADRIA TV
+agro-tv|Agro TV
+al-jazeera-balkans|Al Jazeera Balkans
+al-jazeera-english|Al Jazeera English
+amc|AMC
+arena-adrenalin|Arena Adrenalin
+arena-esport|Arena Esport
+arena-fight|Arena Fight
+arena-tenis|Arena Tenis
+arte|arte
+atv|ATV
+aurora-tv|Aurora TV
+axn|AXN
+axn-spin|AXN Spin
+b1|B1
+b92|B92
+baby-tv|Baby TV
+balkan-trip|Balkan Trip
+balkanika-tv|Balkanika TV
+bbc-earth|BBC Earth
+bbc-first|BBC First
+bbc-news|BBC News
+bdc-tv|BDC TV
+behar-tv|Behar TV
+bht-1|BHT 1
+blic-tv|Blic TV
+bloomberg-adria|Bloomberg Adria
+bn|BN
+bn-2|BN 2
+bn-music|BN Music
+bnt4|BNT4
+bravo-kids|bravo! KIDS
+bravo-music|Bravo Music
+bravo-tv|bravo! TV
+btv|BTV
+cartoon-network|Cartoon Network
+cartoonito|Cartoonito
+cgtn|CGTN
+cinemax|Cinemax
+cinemax-2|Cinemax 2
+cinestar-tv-1|CineStar TV 1
+cinestar-tv-2|CineStar TV 2
+cinestar-tv-action-and-thriller|CineStar TV Action and Thriller
+cinestar-tv-comedy-and-family|CineStar TV Comedy and Family
+cinestar-tv-fantasy|CineStar TV Fantasy
+cinestar-tv-premiere-1|CineStar TV Premiere 1
+cinestar-tv-premiere-2|CineStar TV Premiere 2
+city-play|City play
+club-mtv|Club MTV
+cmc|CMC
+cnbc|CNBC
+cnn|CNN
+da-vinci|Da Vinci
+da-vinci-learning|Da Vinci Learning
+dankos-plus-tv|Dankos Plus TV
+das-erste|Das Erste
+deutsche-welle|Deutsche Welle
+dexy-tv|Dexy TV
+diadora-tv|Diadora TV
+discovery-channel|Discovery Channel
+disney-channel|Disney Channel
+disney-junior|Disney Junior
+diva|DIVA
+dizi|Dizi
+dm-sat|DM SAT
+dmc|DMC
+docubox|DocuBox
+doku-tv|Doku TV
+doma-tv|Doma TV
+dox-tv|DOX TV
+duna-tv|DUNA TV
+duna-world|DUNA World
+dunav-tv|Dunav TV
+e|E!
+eko-vizija|Eko vizija
+elita-live-1|Elita live 1
+elita-live-2|Elita live 2
+elita-live-3|Elita live 3
+elita-live-4|Elita live 4
+epic-drama|Epic Drama
+euro-cinema-1|Euro Cinema 1
+euro-cinema-2|Euro Cinema 2
+euro-cinema-3|Euro Cinema 3
+euro-cinema-4|Euro Cinema 4
+eurochannel|Eurochannel
+euronews|Euronews
+euronews-serbia|Euronews Serbia
+eurosport-1|Eurosport 1
+eurosport-2|Eurosport 2
+extra-tv|Extra TV
+extreme-sports|Extreme Sports
+face-tv|Face TV
+fashion-box|Fashion box
+fashion-tv|Fashion TV
+fast-and-fun|Fast and Fun
+federalna-tv|Federalna TV
+fight-box|Fight Box
+fight-network|Fight Network
+filmbox-arthouse|FilmBox Arthouse
+filmbox-extra|Filmbox Extra
+filmbox-premium|FilmBox Premium
+filmbox-stars|FilmBox Stars
+flashback|Flashback
+fox-news|FOX News
+france-24-eng|France 24 (eng)
+france-24-fra|France 24 (fra)
+gamehub|GameHub
+gametoon|Gametoon
+good-times|Good Times
+gp1|GP1
+gradska-m-televizija|Gradska M televizija
+ha-ha|HA HA
+happy-reality-1|Happy Reality 1
+happy-reality-2|Happy Reality 2
+happy-tv|Happy TV
+hayat-2|Hayat 2
+hayat-folk-box|Hayat Folk Box
+hayat-music-box|Hayat Music Box
+hayat-tv|Hayat TV
+hayatovci|Hayatovci
+hbo|HBO
+hbo-2|HBO 2
+hbo-3|HBO 3
+hema-tv|HEMA TV
+herceg-tv|Herceg TV
+hgtv|HGTV
+hifi-music|HiFi Music
+history|History
+history-2|History 2
+hrt-1|HRT 1
+hrt-2|HRT 2
+hrt-3|HRT 3
+hrt-4|HRT 4
+hrt-int|HRT INT
+humana-tv-plus|Humana TV Plus
+hype|Hype
+ictbusiness-tv|ICTbusiness TV
+id|ID
+info-24-plus|INFO 24 Plus
+informer-tv|Informer TV
+insajder|Insajder
+jeka|Jeka
+jimjam|JimJam
+jugoton|Jugoton
+k1|K1
+k3|K3
+ka-tv|KA TV
+kanal-6|Kanal 6
+kanal-mjeseca|Kanal mjeseca
+kanalri|KanalRi
+kazbuka|Kazbuka
+kcn-k|K::CN K
+kcn-music-2|KCN Music 2
+kcn-svet-plus3|KCN Svet +3
+kcn-zapad|K::CN Zapad
+kino-tv|Kino TV
+kitchen-tv|Kitchen TV
+klape-i-tambure|Klape i Tambure
+klasik|Klasik
+koreni|Koreni
+kurir-tv|Kurir TV
+kuvo-tv|Kuvo TV
+laudato-tv|Laudato TV
+libertas-tv|Libertas TV
+lol|LOL
+luxetv|Luxe.tv
+maxsport-1|MaxSport 1
+maxsport-2|MaxSport 2
+mediaset-italia|Mediaset Italia
+mezzo|Mezzo
+minimax|Minimax
+minitv|MiniTV
+mktv-sat|MKTV Sat
+moj-happy-ivot|Moj Happy Život
+moja-happy-muzika|Moja Happy Muzika
+moja-happy-zemlja|Moja Happy Zemlja
+moja-tv|Moja TV
+moje-happy-drutvo|Moje Happy Društvo
+mtv|MTV
+mtv-00s|MTV 00s
+mtv-80s|MTV 80s
+mtv-90s|MTV 90s
+mtv-hits-international|MTV Hits International
+mtv-igman|MTV Igman
+muzsika-tv|Muzsika TV
+muzzik-tv|Muzzik TV
+myzentv|myZen.tv
+naa-tv|Naša TV
+nais-tv|Nais TV
+narodna-tv|Narodna TV
+national-geographic|National Geographic
+national-geographic-wild|National Geographic Wild
+nautical-channel|Nautical Channel
+neon-tv-kalesija|Neon TV
+newsmax-balkans|Newsmax Balkans
+nick-jr|Nick Jr
+nickelodeon|Nickelodeon
+nickelodeon-junior|Nickelodeon Junior
+nickmusic|NickMusic
+nicktoons|Nicktoons
+nitv|NIŠtv
+nonstop|NONSTOP
+nova-bh|Nova BH
+nova-cinema|Nova Cinema
+nova-family|Nova Family
+nova-s|Nova S
+nova-tv|Nova TV
+novosadska-tv|Novosadska TV
+ntv|NTV
+ntv-101|NTV 101
+o-kanal|O Kanal
+obn|OBN
+ona-tv|Ona TV
+osjeka-tv|Osječka TV
+otv|OTV
+otv-valentino|OTV Valentino
+panon-tv|Panon TV
+peter-tv|Pešter TV
+pickbox-1|Pickbox 1
+pink-action|Pink Action
+pink-bh|Pink BH
+pink-classic|Pink Classic
+pink-comedy|Pink Comedy
+pink-crime-and-mystery|Pink Crime and Mystery
+pink-extra|Pink Extra
+pink-family|Pink Family
+pink-fashion|Pink Fashion
+pink-film|Pink Film
+pink-folk|Pink Folk
+pink-folk-2|Pink Folk 2
+pink-hits-1|Pink Hits 1
+pink-hits-2|Pink Hits 2
+pink-horror|Pink Horror
+pink-kids|Pink Kids
+pink-koncert|Pink Koncert
+pink-kuvar|Pink Kuvar
+pink-m|Pink M
+pink-movies|Pink Movies
+pink-music|Pink Music
+pink-music-2|Pink Music 2
+pink-n-roll|Pink N Roll
+pink-pedia|Pink Pedia
+pink-plus|Pink Plus
+pink-premium|Pink Premium
+pink-reality|Pink Reality
+pink-romance|Pink Romance
+pink-sci-fi-and-fantasy|Pink Sci-Fi and Fantasy
+pink-serije|Pink Serije
+pink-show|Pink Show
+pink-soap|Pink Soap
+pink-style|Pink Style
+pink-super-kids|Pink Super Kids
+pink-thriller|Pink Thriller
+pink-western|Pink Western
+pink-world|Pink World
+pink-world-cinema|Pink World Cinema
+pink-zabava|Pink Zabava
+plava-vinkovacka|Plava Vinkovacka
+pop-star|Pop Star
+posavina-tv|PosavinaTV
+pro7|Pro7
+prva|Prva
+prva-cg|Prva CG
+prva-files|Prva Files
+prva-kick|Prva Kick
+prva-life|Prva Life
+prva-max|Prva MAX
+prva-world|Prva World
+rai-due|RAI Due
+rai-news24|Rai News24
+rai-tre|RAI Tre
+rai-uno|RAI Uno
+red-tv|Red TV
+ric|RiC
+rock-and-roll|Rock and Roll
+rossia-24|Rossia 24
+rt-documentary|RT Documentary
+rtcg|RTCG
+rti|RTI
+rtl|RTL
+rtl-2|RTL 2
+rtl-adria|RTL Adria
+rtl-crime|RTL Crime
+rtl-croatia-world|RTL Croatia World
+rtl-gold|RTL Gold
+rtl-kockica|RTL Kockica
+rtl-living|RTL Living
+rtl-passion|RTL Passion
+rtp|RTP
+rtr-planeta|RTR Planeta
+rtrs|RTRS
+rtrs-plus|RTRS PLUS
+rts-1|RTS 1
+rts-2|RTS 2
+rts-3|RTS 3
+rts-drama|RTS Drama
+rts-ivot|RTS Život
+rts-klasika|RTS Klasika
+rts-kolo|RTS Kolo
+rts-muzika|RTS Muzika
+rts-nauka|RTS Nauka
+rts-poletarac|RTS Poletarac
+rts-svet|RTS Svet
+rts-trezor|RTS Trezor
+rtv-1|RTV 1
+rtv-101|RTV 101
+rtv-2|RTV 2
+rtv-7-tuzla|RTV 7
+rtv-bpk-gorazde|RTV BPK Goražde
+rtv-fortuna|RTV Fortuna
+rtv-hb|RTV HB
+rtv-hit|RTV Hit
+rtv-homolje|RTV Homolje
+rtv-kiss|RTV KISS
+rtv-kragujevac|RTV Kragujevac
+rtv-lukavac|RTV Lukavac
+rtv-novi-pazar|RTV Novi Pazar
+rtv-slon|RTV Slon
+rtv-stara-pazova|RTV Stara Pazova
+rtv-umadija|RTV Šumadija
+rtv-usk|RTV USK
+rtv-vikom-tv|RTV Vikom
+rtv-vogosca|RTV Vogošća
+rtv-zenica|RTV Zenica
+rtv1|RTV1
+rtv2|RTV2
+rtvtk|RTVTK
+russia-today-tv|Russia Today TV
+saga|SAGA
+sat-tv|SAT TV
+sbtv|SBTV
+sci-fi|Sci Fi
+sevdah-tv|Sevdah TV
+shift-tv|Shift TV
+sk-1|SK 1
+sk-2|SK 2
+sk-3|SK 3
+sk-4|SK 4
+sk-5|SK 5
+sk-6|SK 6
+sk-golf|SK Golf
+sk-hd|SK HD
+skay-tv|SKAY TV
+sky-news|Sky News
+sky-showtime-1|Sky Showtime 1
+sky-showtime-2|Sky Showtime 2
+skymusic-entertainment|Skymusic entertainment
+slavonska-tv|Slavonska TV
+slo1|SLO 1
+slo2|SLO 2
+slobodna-televizija|Slobodna televizija
+slobomir-tv|Slobomir
+sos-kanal-plus|SOS Kanal Plus
+sportska-tv|Sportska TV
+sremska-tv|Sremska TV
+srpska-tv|Srpska TV
+srt|SRT
+star-channel|STAR Channel
+star-crime|STAR Crime
+star-life|STAR Life
+star-movies|STAR Movies
+studio-b|Studio B
+supersat-tv|SuperSat TV
+superstar|SUPERSTAR
+superstar-2|SUPERSTAR 2
+superstar-3|SUPERSTAR 3
+t1|T1
+tanjug-tv|Tanjug TV
+telemark|Telemark
+televizija-5|Televizija 5
+televizija-dalmacija|Televizija Dalmacija
+tiji|TIJI
+tlc|TLC
+toon-kids|Toon Kids
+top-tv|TOP TV
+toxic-folk|Toxic Folk
+toxic-rap|Toxic Rap
+toxic-tv|Toxic TV
+trace-urban|Trace Urban
+travel-xp|Travel XP
+trend-tv|Trend TV
+turizam-plus-tv|Turizam + TV
+tv-4s|TV 4S
+tv-5-uice|TV 5 Užice
+tv-alfa|TV Alfa
+tv-apatin|TV Apatin
+tv-arena-bijeljina|TV Arena Bijeljina
+tv-as|TV AS
+tv-baka|TV Bačka
+tv-bap|TV Bap
+tv-beej|TV Bečej
+tv-bor|TV Bor
+tv-brus|TV Brus
+tv-bujanovac|TV Bujanovac
+tv-caribrod|TV Caribrod
+tv-cink|TV CINK
+tv-city|TV City
+tv-delta|TV Delta
+tv-diskos|TV Diskos
+tv-duga-plus|TV Duga plus
+tv-fokus|TV Fokus
+tv-forum|TV Forum
+tv-front|TV Front
+tv-fruka-gora|TV Fruška Gora
+tv-galaksija-32|TV Galaksija 32
+tv-gem|TV GEM
+tv-gm-plus|TV GM Plus
+tv-hit-plus-batoina|TV HIT plus Batočina
+tv-hram|TV Hram
+tv-iks|TV IKS
+tv-info-24|TV Info 24
+tv-istok|TV Istok
+tv-jadran|TV Jadran
+tv-jasenica|TV Jasenica
+tv-jefimija|TV Jefimija
+tv-k-1|TV K-1
+tv-k23|TV K23
+tv-kanal-25|TV Kanal 25
+tv-kanal-m|TV Kanal M
+tv-kcn-1|TV K::CN 1
+tv-kcn-istok|TV K::CN Istok
+tv-kcn-music-2|TV K::CN Music 2
+tv-kcn-raka|TV K::CN Raška
+tv-kcn-svet-plus-3|TV K::CN Svet Plus 3
+tv-kikinda|TV Kikinda
+tv-kladovo|TV Kladovo
+tv-kraljevo|TV Kraljevo
+tv-kruevac|TV Kruševac
+tv-kula|TV Kula
+tv-lav|TV Lav
+tv-lav-plus|TV Lav Plus
+tv-leskovac|TV Leskovac
+tv-lotel-plus|TV Lotel plus
+tv-mag|TV MAG
+tv-mar|TV Marš
+tv-melos|TV Melos
+tv-most|TV Most
+tv-mostnet|TV Mostnet
+tv-mrea-most|TV Mreža Most
+tv-nova|TV Nova
+tv-novi-beej|TV Novi Bečej
+tv-palma-plus|TV Palma plus
+tv-panevo|TV Pančevo
+tv-petrovec|TV Petrovec
+tv-pi-kanal|TV PI kanal
+tv-pink|Pink TV
+tv-pirot|TV Pirot
+tv-plus|TV Plus
+tv-podrinje|TV Podrinje
+tv-poega|TV Požega
+tv-priboj|TV Priboj
+tv-ras|TV Ras
+tv-s|TV S
+tv-sandak|TV Sandžak
+tv-santos|TV Santos
+tv-sokobanja|TV Sokobanja
+tv-strela|TV Strela
+tv-subotica|TV Subotica
+tv-sunce|TV Sunce
+tv-trans|TV Trans
+tv-trstenik|TV Trstenik
+tv-va-plus|TV VA PLUS
+tv-visoko|TV Visoko
+tv-vlasotince|TV Vlasotince
+tv-vod|TV Vožd
+tv-vranje|TV Vranje
+tv-zapad|TV Zapad
+tv-zlatar|TV Zlatar
+tv1-mreza|TV1 Mreža
+tv1000|TV1000
+tv5-monde|TV5 Monde
+tvcg-1|TVCG 1
+tvcg-2|TVCG 2
+tvcg-3|TVCG 3
+tvsa|TVSA
+ultra-puls-tv|Ultra Puls TV
+una-tv|UNA TV
+v5|V5
+vesti|VESTI
+viasat-explore|Viasat Explore
+viasat-history|Viasat History
+viasat-kino|Viasat Kino
+viasat-nature|Viasat Nature
+vox|VOX
+vranjska-plus|Vranjska plus
+vtv|VTV
+vtv-varazdin|VTV Varazdin
+wness-tv|WNESS TV
+world-wide-muzzik|World Wide Muzzik
+yachting-tv|Yachting TV
+z1|Z1
+zdf|ZDF
+zdrava-tv-7|Zdrava TV-7
+zelena-tv-zdravlje|Zelena TV Zdravlje
+zvezda-tv|Zvezda TV
+zz-tv|ZZ TV

@@ -1,0 +1,55 @@
+59|BHT1
+61|FTV
+72|RTRS
+62|Hayat TV
+76|TV1
+69|OBN
+70|Pink BH
+209|AJB
+78|TVSA
+77|TV1 Mreža
+66|NOVA TV
+64|HTV1
+65|HTV2
+71|RTL
+53|Arena Sport 1 BiH
+54|Arena Sport 2
+55|Arena Sport 3
+56|Arena Sport 4
+57|ATV
+58|BEL kanal
+60|BN
+63|HEMA TV
+67|NTV IC
+68|NTV Jasmin
+73|RTV USK
+74|RTV ZE
+75|RTVTK
+290|24Kitchen
+297|B92
+301|FACE TV
+302|FOX Crime
+303|FOX Life
+304|FOX Movies
+307|HBO
+311|HTV3
+317|Prva
+319|RTL+
+321|RTS SAT
+322|RTS1
+323|RTS2
+329|TVCG SAT
+331|Universal
+512|CineStar TV
+513|Eurosport 2
+514|Eurosport
+530|Pink BH
+541|Sport Klub+
+542|Sport Klub
+698|Cinestar A&T
+1897|SK2
+849|Doma TV
+848|RTL2
+2106|HappyTV
+2103|PINK
+2144|RTL Living
