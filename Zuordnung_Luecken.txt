@@ -16,6 +16,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x ####### SOCCER PPV #######
    2x ######## NETFLIX PPV ########
    2x - NO EVENT STREAMING - | 8K EXCLUSIVE | UK: MAX PPV 100
+   2x - NO EVENT STREAMING - | 8K EXCLUSIVE | US: MLS PPV 1
    2x 24/7 AMERICAN DAD
    2x 24/7 AMERICAN PICKERS
    2x 24/7 BOB'S BURGERS
@@ -141,8 +142,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x DE| VOX HD
    2x DE| ZDF HD
    2x DE| ZDFNEO HD
-   2x ENDED | MLS COUNTDOWN | Wed 14 Oct 18:30 EDT (US) | 8K EXCLUSIVE | US: MLS PPV 1
-   2x ENDED | TOUR OF GUANGXI | STAGE 2  | Wed 14 Oct 01:40 EDT (US) | 8K EXCLUSIVE | US: MAX PPV 1
+   2x ENDED | TOUR OF GUANGXI | STAGE 3 | Thu 15 Oct 02:30 EDT (US) | 8K EXCLUSIVE | US: MAX PPV 1
    2x EN| CHAPPELLES SHOW 4K
    2x EN| NETFLIX ACTION
    2x EN| NETFLIX CRIME
@@ -151,7 +151,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x EN| NETFLIX SCI-FI
    2x EN| NETFLIX WAR
    2x EN| VAN DAMME
-   2x End | WM | Tag 1 | Finals Shanghai | Männer / Frauen | all | 14-10-2026 | 12:25 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
+   2x End | Eneco Tour | 2. Etappe UCI Women Elite | Frauen | all | 15-10-2026 | 10:35 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
    2x Fite TV 19 HD (D)
    2x HR| NOVA TV ⱽᴵᴾ ᴿᴬᵂ
    2x LIVE EVENT 01 - NO EVENT
