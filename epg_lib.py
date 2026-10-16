@@ -3089,3 +3089,85 @@ def quellen_gesundheit_pruefen(status_alt, zaehler_neu, jetzt_iso,
                 "referenz": referenz, "zuletzt_ok": zuletzt_ok, "aktuell": aktuell,
             }
     return status_neu, warnungen
+
+
+# ----------------------------------------------------------
+# DYN PPV 1-20 (API-Kanaele): STABILE Kanal-Zuordnung (Oktober 2026)
+# Anlass: Die DYN-API hat kein Kanalfeld, die Spiele wurden reihum auf die
+# 20 Kanaele verteilt. Fiel ein Spiel weg oder kam eines dazu, rutschten bei
+# jedem Lauf fast alle Spiele auf einen anderen Kanal (13:20 -> 18:03:
+# 53 von 57 Spielen verschoben) - TiviMate zeigte durch die Ueberlagerung
+# alter/neuer Daten "Keine Information"-Luecken. Ausserdem stand dasselbe
+# Basketballspiel doppelt (live-productions + Competitions-API).
+# ----------------------------------------------------------
+def _dyn_titel_norm(titel):
+    import re as _re
+    return _re.sub(r"[^a-z0-9]+", "", (titel or "").lower())
+
+
+def dyn_event_schluessel(start, titel):
+    """Stabile Kennung eines Spiels: Anstoss (UTC, auf die Minute) + Titel."""
+    return f"{start.strftime('%Y%m%d%H%M')}|{_dyn_titel_norm(titel)}"
+
+
+def dyn_events_entduplizieren(events, max_start_diff_minuten=90, schwelle=0.85):
+    """Entfernt doppelte Spiele (z.B. dasselbe Basketballspiel aus
+    live-productions UND Competitions-API). `events`: Liste von Dicts mit
+    "start", "ende", "titel" und "quelle" ("live" gewinnt vor anderen).
+    Zwei Events gelten als dasselbe Spiel, wenn die Anstosszeiten hoechstens
+    `max_start_diff_minuten` auseinanderliegen und die normalisierten Titel
+    gleich sind oder aehnlich (difflib >= schwelle)."""
+    import difflib
+    rang = lambda e: (0 if e.get("quelle") == "live" else 1)
+    behalten = []
+    for ev in sorted(events, key=lambda e: (rang(e), e["start"])):
+        n1 = _dyn_titel_norm(ev["titel"])
+        doppelt = False
+        for b in behalten:
+            if abs((b["start"] - ev["start"]).total_seconds()) > max_start_diff_minuten * 60:
+                continue
+            n2 = _dyn_titel_norm(b["titel"])
+            if n1 == n2 or difflib.SequenceMatcher(None, n1, n2).ratio() >= schwelle:
+                doppelt = True
+                break
+        if not doppelt:
+            behalten.append(ev)
+    return sorted(behalten, key=lambda e: (e["start"], e["ende"]))
+
+
+def dyn_kanaele_stabil_zuweisen(events, alt_zuordnung, anzahl_kanaele=20):
+    """Verteilt Spiele auf Kanaele 1..anzahl_kanaele, ohne dass sich zwei
+    Spiele auf demselben Kanal zeitlich ueberlappen. Spiele, die schon in
+    `alt_zuordnung` ({schluessel: kanal}) stehen, behalten ihren Kanal
+    (sofern frei); neue Spiele bekommen den freien Kanal mit den wenigsten
+    bisherigen Spielen (bei Gleichstand die niedrigste Nummer).
+    Gibt (neue_zuordnung, [(kanal, event), ...]) zurueck; Spiele ohne freien
+    Kanal werden ausgelassen."""
+    if not isinstance(alt_zuordnung, dict):
+        alt_zuordnung = {}
+    belegt = {k: [] for k in range(1, anzahl_kanaele + 1)}
+
+    def frei(kanal, ev):
+        return all(ev["ende"] <= s or ev["start"] >= e for s, e in belegt[kanal])
+
+    neue, ergebnis = {}, []
+    sortiert = sorted(events, key=lambda e: (e["start"], e["ende"], e["titel"]))
+    rest = []
+    for ev in sortiert:  # Durchlauf 1: bekannte Spiele behalten ihren Kanal
+        schluessel = dyn_event_schluessel(ev["start"], ev["titel"])
+        kanal = alt_zuordnung.get(schluessel)
+        if isinstance(kanal, int) and kanal in belegt and frei(kanal, ev):
+            belegt[kanal].append((ev["start"], ev["ende"]))
+            neue[schluessel] = kanal
+            ergebnis.append((kanal, ev))
+        else:
+            rest.append((schluessel, ev))
+    for schluessel, ev in rest:  # Durchlauf 2: neue Spiele
+        kandidaten = [k for k in belegt if frei(k, ev)]
+        if not kandidaten:
+            continue
+        kanal = min(kandidaten, key=lambda k: (len(belegt[k]), k))
+        belegt[kanal].append((ev["start"], ev["ende"]))
+        neue[schluessel] = kanal
+        ergebnis.append((kanal, ev))
+    return neue, ergebnis

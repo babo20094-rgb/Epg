@@ -70,6 +70,7 @@ jobs:
           git add Epg_365_Tage.xml.gz
           git add Zuordnung_Luecken.txt || true
           git add Quellen_Status.json Quellen_Warnungen.txt || true
+          git add DYN_Kanalzuordnung.json || true
 
           if git diff --cached --quiet; then
             echo "Keine Änderungen."

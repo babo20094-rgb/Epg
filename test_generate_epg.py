@@ -2946,3 +2946,45 @@ def test_arenamk_parser():
     assert erste["stop"] == dt.datetime(2026, 10, 16, 21, 0, tzinfo=dt.timezone.utc)
     # 00:30 liegt nach Mitternacht -> naechster Kalendertag
     assert ergebnis["M2"][2]["start"] == dt.datetime(2026, 10, 16, 22, 30, tzinfo=dt.timezone.utc)
+
+
+# --- DYN PPV 1-20: stabile Kanal-Zuordnung ---
+
+def _dyn_ev(start_std, dauer_std, titel, quelle="live", tag=16):
+    import datetime as dt
+    s = dt.datetime(2026, 10, tag, start_std, 0, tzinfo=dt.timezone.utc)
+    return {"start": s, "ende": s + dt.timedelta(hours=dauer_std), "titel": titel, "quelle": quelle}
+
+
+def test_dyn_entduplizieren_basketball_doppelt():
+    from epg_lib import dyn_events_entduplizieren
+    live = _dyn_ev(17, 3, "EWE Baskets Oldenburg Telekom Baskets Bonn", "live")
+    comp = _dyn_ev(18, 2, "EWE Baskets Oldenburg - Telekom Baskets Bonn", "basketball")
+    anderes = _dyn_ev(18, 2, "Alba Berlin - Bayern Muenchen", "basketball")
+    ergebnis = dyn_events_entduplizieren([comp, anderes, live])
+    assert len(ergebnis) == 2
+    assert any(e["quelle"] == "live" for e in ergebnis)  # live gewinnt
+
+
+def test_dyn_zuweisung_keine_ueberlappung_und_stabil():
+    from epg_lib import dyn_kanaele_stabil_zuweisen, dyn_event_schluessel
+    events = [_dyn_ev(10 + i % 3, 2, f"Spiel {i}") for i in range(14)]
+    neu1, erg1 = dyn_kanaele_stabil_zuweisen(events, {}, 20)
+    assert len(erg1) == 14
+    # keine zeitliche Ueberlappung je Kanal
+    for kanal in set(k for k, _ in erg1):
+        evs = sorted((e for k, e in erg1 if k == kanal), key=lambda e: e["start"])
+        assert all(a["ende"] <= b["start"] for a, b in zip(evs, evs[1:]))
+    # zweiter Lauf: erstes Spiel faellt weg, neues kommt dazu -> alle anderen bleiben auf ihrem Kanal
+    events2 = events[1:] + [_dyn_ev(11, 2, "Neues Spiel")]
+    neu2, erg2 = dyn_kanaele_stabil_zuweisen(events2, neu1, 20)
+    for ev in events[1:]:
+        k = dyn_event_schluessel(ev["start"], ev["titel"])
+        assert neu2[k] == neu1[k]
+    assert len(erg2) == 14
+
+
+def test_dyn_zuweisung_kaputte_alte_zuordnung():
+    from epg_lib import dyn_kanaele_stabil_zuweisen
+    neu, erg = dyn_kanaele_stabil_zuweisen([_dyn_ev(10, 2, "A")], "kaputt", 20)
+    assert len(erg) == 1

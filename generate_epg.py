@@ -58,6 +58,7 @@ from epg_lib import (
     playlist_exakte_namen_sammeln, ids_auf_playlist_einschraenken,
     playlist_kanaele_sammeln, xml_kanal_namen, zuordnung_luecken_bericht,
     abgedeckte_minuten, quellen_gesundheit_pruefen,
+    dyn_events_entduplizieren, dyn_kanaele_stabil_zuweisen,
     KATEGORIEN, KATEGORIE_PRIORITAET,
     DE_STANDARD, EXYU_STANDARD, EN_STANDARD,
     EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
@@ -3050,6 +3051,13 @@ dyn_synth_api_fenster = {}
 # Rueckwaertssprung fuer diesen Kanal ab).
 dyn_kanal_programme = {}
 
+# Alle API-Spiele (live-productions + Basketball-Competitions) werden erst
+# GESAMMELT, dann entdoppelt und STABIL auf die 20 Kanaele verteilt (siehe
+# epg_lib.dyn_kanaele_stabil_zuweisen und den Abschnitt nach dem Basketball-
+# Block) - vorher wurde reihum verteilt und die Spiele wanderten bei jedem
+# Lauf auf andere Kanaele.
+dyn_alle_events = []
+
 try:
     response = None
     letzter_fehler = None
@@ -3103,9 +3111,6 @@ try:
             daten = _gefiltert
             print(f"DYN-API: {len(daten)} von {_api_gesamt} Events im {DYN_API_VORSCHAU_TAGE}-Tage-Fenster")
 
-            kanal_nummer = 1
-            real_kanal_nummer = 1
-
             for event in daten:
                 titel = event.get("title", "Dyn Sport")
 
@@ -3139,17 +3144,10 @@ try:
                 startzeit = start_dt.strftime("%Y%m%d%H%M%S +0000")
                 endzeit = ende_dt.strftime("%Y%m%d%H%M%S +0000")
 
-                dyn_kanal_programme.setdefault(kanal_nummer, []).append(
-                    (start_dt, ende_dt, titel, beschreibung)
-                )
-
-                dyn_synth_api_fenster.setdefault(kanal_nummer, []).append(
-                    (start_dt, ende_dt)
-                )
-
-                kanal_nummer += 1
-                if kanal_nummer > DYN_PPV_ANZAHL:
-                    kanal_nummer = 1
+                dyn_alle_events.append({
+                    "start": start_dt, "ende": ende_dt, "titel": titel,
+                    "beschreibung": beschreibung, "quelle": "live",
+                })
 
 except Exception as e:
     print("DYN Fehler:", e)
@@ -3181,7 +3179,6 @@ DYN_BASKETBALL_SPIELDAUER = timedelta(hours=2)
 # Eintraege weit in der Zukunft.
 DYN_BASKETBALL_VORSCHAU_TAGE = DYN_API_VORSCHAU_TAGE
 
-basketball_kanal_nummer = 1
 jetzt_utc = datetime.now(timezone.utc)
 
 # Erst ALLE Spiele ueber alle drei Wettbewerbe hinweg sammeln, dann nach
@@ -3221,17 +3218,48 @@ for competition_id, competition_name in DYN_BASKETBALL_COMPETITION_IDS.items():
         basketball_spiele.append((start_dt, ende_dt, titel))
 
 for start_dt, ende_dt, titel in sorted(basketball_spiele, key=lambda spiel: spiel[0]):
-    dyn_kanal_programme.setdefault(basketball_kanal_nummer, []).append(
-        (start_dt, ende_dt, titel, titel)
-    )
+    dyn_alle_events.append({
+        "start": start_dt, "ende": ende_dt, "titel": titel,
+        "beschreibung": titel, "quelle": "basketball",
+    })
 
-    dyn_synth_api_fenster.setdefault(basketball_kanal_nummer, []).append(
-        (start_dt, ende_dt)
-    )
+# ==========================================================
+# DYN PPV 1-20: Spiele entdoppeln + STABIL auf Kanaele verteilen
+# ==========================================================
+# Zuordnung wird in DYN_Kanalzuordnung.json gemerkt (vom Workflow
+# mitcommittet): ein Spiel behaelt seinen Kanal bei allen Folgelaeufen,
+# solange es in der API steht. Jeder Fehler hier faellt auf eine frische
+# Verteilung ohne gemerkte Zuordnung zurueck.
+DYN_ZUORDNUNG_DATEI = "DYN_Kanalzuordnung.json"
 
-    basketball_kanal_nummer += 1
-    if basketball_kanal_nummer > DYN_PPV_ANZAHL:
-        basketball_kanal_nummer = 1
+try:
+    with open(DYN_ZUORDNUNG_DATEI, encoding="utf-8") as _f:
+        _dyn_alt = (json.load(_f) or {}).get("zuordnung", {})
+except Exception:
+    _dyn_alt = {}
+
+try:
+    _vorher = len(dyn_alle_events)
+    dyn_alle_events = dyn_events_entduplizieren(dyn_alle_events)
+    _dyn_neu, _dyn_zugewiesen = dyn_kanaele_stabil_zuweisen(dyn_alle_events, _dyn_alt, DYN_PPV_ANZAHL)
+    for _kanal, _ev in _dyn_zugewiesen:
+        dyn_kanal_programme.setdefault(_kanal, []).append(
+            (_ev["start"], _ev["ende"], _ev["titel"], _ev.get("beschreibung") or _ev["titel"])
+        )
+        dyn_synth_api_fenster.setdefault(_kanal, []).append((_ev["start"], _ev["ende"]))
+    _beibehalten = sum(1 for k, v in _dyn_neu.items() if _dyn_alt.get(k) == v)
+    print(
+        f"DYN PPV 1-20: {_vorher} Spiele gesammelt, {_vorher - len(dyn_alle_events)} Duplikate entfernt, "
+        f"{len(_dyn_zugewiesen)} verteilt ({_beibehalten} auf unveraendertem Kanal), "
+        f"{len(dyn_alle_events) - len(_dyn_zugewiesen)} ohne freien Kanal."
+    )
+    with open(DYN_ZUORDNUNG_DATEI, "w", encoding="utf-8") as _f:
+        json.dump(
+            {"stand": datetime.now(timezone.utc).isoformat(timespec="seconds"), "zuordnung": _dyn_neu},
+            _f, ensure_ascii=False, indent=0, sort_keys=True,
+        )
+except Exception as _e:
+    print(f"DYN PPV 1-20: stabile Zuordnung fehlgeschlagen ({_e}).")
 
 # ==========================================================
 # LIVE-KANALNAMEN VOM EPG-ANBIETER (alle NAME:-Sender, z.B. DYN PPV)

@@ -7635,3 +7635,27 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   `logos/arena_m_premium_mk/arena_m<N>_premium.png` im Repo abgelegt und in
   den drei `MK|ARENA M<N> PREMIUM FHD`-Zeilen eingetragen (Dauerregel in
   `CLAUDE.md`, ersetzt die alten `logos/arena_premium_mk/*`).
+
+## DYN PPV 1-20: stabile Kanal-Zuordnung + Duplikate (Oktober 2026)
+
+- Symptom (Nutzer, TiviMate-Foto): "Keine Information"-Blöcke auf DYN PPV 1-20 zu
+  verschiedenen Uhrzeiten, obwohl die XML lückenlos, chronologisch und ohne
+  Überlappung war (alle 20 Kanäle, alle letzten 8 Versionen geprüft).
+- Ursache (wahrscheinlich): Die Spiele wurden reihum auf die 20 Kanäle verteilt
+  (`kanal_nummer += 1`). Fiel ein Spiel weg oder kam eines dazu, wanderten fast
+  alle Spiele bei jedem Lauf auf einen anderen Kanal (13:20 -> 18:03 UTC: 53
+  von 57 Spielen verschoben). TiviMate scheint alte Einträge nicht sauber zu
+  ersetzen (Überlagerung alter/neuer Daten). Außerdem stand dasselbe
+  Basketballspiel doppelt (live-productions + Competitions-API, z. B. "EWE
+  Baskets Oldenburg - Telekom Baskets Bonn" auf Kanal 1 und 8).
+- Fix: `epg_lib.dyn_events_entduplizieren()` (Anstoß ±90 min + ähnlicher Titel,
+  "live" gewinnt) und `dyn_kanaele_stabil_zuweisen()` (bekannte Spiele behalten
+  ihren Kanal, neue bekommen den freien Kanal mit den wenigsten Spielen, nie
+  Überlappung je Kanal). Zuordnung in `DYN_Kanalzuordnung.json` (vom Workflow
+  committet). Test mit Live-API: 59 Spiele auf 20 Kanäle, im simulierten
+  Folgelauf 56 von 57 unverändert.
+- Alle 5 Sportarten der dyn.sport-Startseite (Basketball, Handball, Volleyball,
+  Tischtennis, Hockey) liefert die API (224 Spiele bis 20.12.); gleichzeitig
+  laufen im 2-Tage-Fenster max. 14 Spiele (< 20 Kanäle).
+- Nach dem ersten Lauf mit der neuen Logik in TiviMate Cache leeren und EPG neu
+  laden (alte, anders verteilte Einträge).
