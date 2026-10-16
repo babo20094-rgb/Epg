@@ -7595,12 +7595,15 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   "HBO 1" allein: normalisiert auf "HBO1" wie "HBO 1 VIP RAW"/MK|HBO 1 und
   würde auch MK/SI-Zeilen mit serbischen Daten füllen (die Whitelist prüft
   das Land der Sender-Zeile nicht).
-- **Zeitversatz (16.10.2026):** `RS| HBO HD`/`HBO 2 HD`/`HBO 3 HD` (und AMC HD)
-  standen im EPG ca. 4h später als bei MO/HR/MK|HBO, tvprogramdanas.net und
-  epgshare01 RS1 (z. B. "Oskar" 14:01 statt 10:01 Uhr). Nutzerfoto: zur
-  "Oskar"-Zeit lief eine Serie. Ursache: mts.rs-Zeiten (gleiches bekanntes
-  Muster wie bei ARENA SPORT, siehe `_ARENA_SPORT_GUARD`). Fix:
-  `_HBO_GUARD` in `quellen/mts_epg.py` - HBO-Namen überspringen mts.rs, dann
-  greifen tvprogramdanas.net (HBO/HBO 2/HBO 3) bzw. die Whitelist
-  (`HBO 1 FHD`) mit den korrekten Zeiten. OFFEN: AMC HD und weitere RS-Sender
-  über mts.rs auf denselben Versatz prüfen.
+- **Zeitversatz (16.10.2026) - Ursache gefunden:** `RS| HBO HD`/`HBO 2 HD`/
+  `HBO 3 HD`, AMC und fast alle Filmkanäle standen 2-4 h zu spät. Test-
+  Workflow `probe_mts.yml` (Rohzeiten, danach gelöscht) zeigte: mts.rs
+  liefert `"...Z"`-Zeiten, die um den DOPPELTEN Belgrader UTC-Offset zu spät
+  sind (HBO "Društvena mreža": mts 05:38Z, echt 01:38 UTC wie bei epgshare01
+  RS1/mtel.ba/tvprogramdanas.net). Der Vergleich über alle RS-Kanäle ergab
+  bei ~400 Varianten +2/+4 h. Fix zentral in `quellen/mts_epg.py::
+  _zeit_parsen()` (doppelten Offset abziehen). Der einzelne `_HBO_GUARD`
+  wurde dafür wieder entfernt; der ARENA-SPORT-Schutz bleibt (arena_epg.py
+  ist dort die bessere Quelle). **Annahme Winterzeit** (Offset 1 h -> -2 h)
+  ist NICHT bestätigt - nach der Zeitumstellung am 25.10.2026 mit einem
+  bekannten Programm (z. B. HBO) gegenprüfen.

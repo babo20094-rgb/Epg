@@ -2895,8 +2895,13 @@ def test_idjtv_parser():
     assert programme[0]["stop"] == programme[1]["start"]
 
 
-def test_mts_ueberspringt_hbo_wegen_zeitversatz(monkeypatch):
-    from quellen import mts_epg
-    monkeypatch.setattr(mts_epg, "mts_hole_kanalliste", lambda: [{"name": "HBO HD", "site_id": "x"}])
-    assert mts_epg.mts_kanal_finden("HBO HD") is None
-    assert mts_epg.mts_kanal_finden("HBO 1 FHD") is None
+def test_mts_zeit_doppelter_offset_wird_abgezogen():
+    import datetime as dt
+    from quellen.mts_epg import _zeit_parsen
+    # Sommer: "Z"-Wert ist 4 h zu spaet (HBO Društvena mreža, 16.10.2026)
+    assert _zeit_parsen("2026-10-16T05:38:00.000Z") == dt.datetime(2026, 10, 16, 1, 38, tzinfo=dt.timezone.utc)
+    # Winter: doppelter Offset = 2 h
+    assert _zeit_parsen("2026-12-16T03:38:00.000Z") == dt.datetime(2026, 12, 16, 1, 38, tzinfo=dt.timezone.utc)
+    # zeitzonenlose Werte bleiben Belgrader Lokalzeit (unveraendert)
+    assert _zeit_parsen("2026-10-16T03:38:00") == dt.datetime(2026, 10, 16, 1, 38, tzinfo=dt.timezone.utc)
+    assert _zeit_parsen("") is None
