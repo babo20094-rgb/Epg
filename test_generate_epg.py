@@ -2760,3 +2760,62 @@ def test_zuordnung_luecken_bericht():
     text = epg_lib.zuordnung_luecken_bericht(kanaele, namen)
     assert "Playlist-Kanaele gesamt: 4" in text
     assert "DE| UNBEKANNT HD" in text and "HEADER" not in text
+
+
+# --- rtvbn.tv (BN TV / BN2 / BN Music) ---
+
+_RTVBN_HTML = """
+<div class="row showHide showHide%d">
+ <h3>Program BN</h3><div class="frequency_box"><ul>
+  <li>
+   <span>07:20</span>
+   <b>Folklor magazin</b>
+   <br>
+   <em class="program-category">Muzicki program</em>
+  </li>
+  <li>
+   <span>08:00</span>
+   <b>Dnevnik</b>
+  </li>
+ </ul></div>
+ <h3>Program BN 2</h3><div class="frequency_box"><ul>
+  <li><span>08:50</span><b>Poreznik Gavro</b></li>
+ </ul></div>
+ <h3>Program BN Music</h3><div class="frequency_box"><ul>
+  <li><span>09:00</span><b>Narodna muzika</b></li>
+ </ul></div>
+</div>
+"""
+
+
+@pytest.mark.parametrize("name,erwartet", [
+    ("BN TV ⱽᴵᴾ ᴿᴬᵂ", "Program BN"),
+    (" BN TV HD", "Program BN"),
+    ("BN2 TV", "Program BN 2"),
+    ("BN MUSIC", "Program BN Music"),
+    ("BN Plus", None),
+    ("BHT", None),
+])
+def test_rtvbn_kanal_finden(name, erwartet):
+    from quellen.rtvbn_epg import rtvbn_kanal_finden
+    assert rtvbn_kanal_finden(name) == erwartet
+
+
+def test_rtvbn_parser_neues_layout(monkeypatch):
+    from quellen import rtvbn_epg
+
+    class _Antwort:
+        text = "".join(_RTVBN_HTML % i for i in range(7))
+
+        def raise_for_status(self):
+            pass
+
+    monkeypatch.setattr(rtvbn_epg._http, "mit_retry", lambda *a, **k: _Antwort())
+    monkeypatch.setattr(rtvbn_epg, "_programme_cache", None)
+    daten = rtvbn_epg._alle_tage_laden()
+    assert len(daten["Program BN"]) == 14
+    assert len(daten["Program BN 2"]) == 7
+    assert len(daten["Program BN Music"]) == 7
+    assert daten["Program BN"][0]["title"] in ("Folklor magazin", "Dnevnik")
+    assert any("Muzicki program" in p["beschreibung"] for p in daten["Program BN"])
+    monkeypatch.setattr(rtvbn_epg, "_programme_cache", None)

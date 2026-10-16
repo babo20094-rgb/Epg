@@ -6333,10 +6333,10 @@ for daten in sender_daten:
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
-# BN2: einzeln gepruefter, eigenstaendiger zweiter Kanal von rtvbn.tv
-# (siehe rtvbn_epg.py - "Program BN 2"-Kartenblock auf rtvbn.tv/program,
-# separat vom Hauptkanal "TV BN"). Kein eigenes Praefix noetig, matcht
-# direkt gegen den Sendernamen "BN2"/"BN 2" (mit HD/VIP/RAW-Zusaetzen).
+# BN TV / BN2 / BN Music: Radio-televizija BN (rtvbn.tv/program, siehe
+# rtvbn_epg.py - je ein Kartenblock "Program BN"/"Program BN 2"/"Program
+# BN Music"). Kein eigenes Praefix noetig, matcht direkt gegen den
+# Sendernamen (mit HD/VIP/RAW-Zusaetzen).
 # ==========================================================
 
 for daten in sender_daten:
@@ -6357,7 +6357,7 @@ for daten in sender_daten:
     daten["rtvbn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
 
     if programme:
-        _echte_quelle_zaehlen("BN2 (rtvbn.tv)")
+        _echte_quelle_zaehlen("BN (rtvbn.tv)")
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten

@@ -7489,3 +7489,18 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   zugeordnete Kanäle).
 - Fix: 4. Feld `US|CW 43 CLEVELAND OH (WUAB)` (Suchbegriff bleibt, die
   Call-Sign-Suche findet WUAB) + Eintrag in `_LEERZEICHEN_AUSNAHME_KANAELE`.
+
+## BN TV / BN2 / BN Music (rtvbn.tv) - Parser nach Layout-Aenderung (Okt. 2026)
+
+- Symptom: "BN televizija" zeigte in TiviMate nur Platzhalter. Ursachen:
+  (1) `quellen/rtvbn_epg.py` war nur fuer BN2 gebaut, der Hauptkanal
+  "BN TV" hatte gar keine Zuordnung; (2) rtvbn.tv/program hat das
+  HTML-Layout geaendert (Zeilen jetzt mehrzeilig mit Kategorie-`<em>`),
+  der alte Regex fand fuer BN2 ebenfalls 0 Sendungen.
+- Fix: layout-toleranter Regex, alle drei Kartenblocks ("Program BN",
+  "Program BN 2", "Program BN Music") werden geparst; Namensabgleich
+  `^BN(\s*TV)?`, `^BN\s*2`, `^BN\s*MUSIC` (NICHT "BN Plus" o. ae.).
+  Tests: `test_rtvbn_*` in `test_generate_epg.py`.
+- Lehre: Bei "nur Platzhalter" einer Einzel-Quelle zuerst pruefen, ob die
+  Quellseite ihr HTML-Layout geaendert hat (Log-Zeile "rtvbn.tv-EPG: ...
+  N Sendungen geladen" zeigt 0).
