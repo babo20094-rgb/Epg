@@ -2861,3 +2861,35 @@ def test_parser_layout_verdacht():
     _status.parser_meldung("leer", 100, 0)  # zu kleine Seite = kein Layout-Verdacht
     assert _status.layout_verdacht() == [("kaputt", 180000)]
     _status._meldungen.clear()
+
+
+# --- idjtv.com (IDJ TV / IDJ MUZIKA 24/7) ---
+
+@pytest.mark.parametrize("name,erwartet", [
+    ("IDJ TV ⱽᴵᴾ ᴿᴬᵂ", 1),
+    ("IDJ MUZIKA 24/7", 1),
+    ("IDJ TV", 1),
+    ("IDJ KIDS HD", None),
+    ("IDJKids HD", None),
+])
+def test_idjtv_kanal_finden(name, erwartet):
+    from quellen.idjtv_epg import idjtv_kanal_finden
+    assert idjtv_kanal_finden(name) == erwartet
+
+
+def test_idjtv_parser():
+    import datetime as dt
+    from quellen import idjtv_epg
+    zeile = (
+        '<div class="grid rounded-2xl px-3.5 py-5"><div class="x font-bold">%s</div>'
+        '<h3 class="a">\n<a href="u">%s</a></h3><div>%s</div><h3><a href="u">%s</a></h3></div>'
+    )
+    panel = "".join([
+        zeile % ("00:00h", "IDJMASH", "00:00h", "IDJMASH"),
+        zeile % ("01:30h", "IDJ RAP", "01:30h", "IDJ RAP"),
+    ])
+    html_text = "<div x-tabs:panels>" + "".join("<div x-tabs:panel>" + panel for _ in range(7))
+    programme, zeilen = idjtv_epg._html_parsen(html_text, dt.date(2026, 10, 16))
+    assert zeilen == 14 and len(programme) == 14
+    assert programme[0]["title"] == "IDJMASH"
+    assert programme[0]["stop"] == programme[1]["start"]

@@ -658,8 +658,6 @@ BA|IMPERIA TV ⱽᴵᴾ ᴿᴬᵂ|Imperia Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|ht
 BA|IZVORNA TV|Izvorna Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/30f0ad00617c4552.png
 BA|IZVORNA TV ⱽᴵᴾ ᴿᴬᵂ|Izvorna Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/30f0ad00617c4552.png
 BA|K3 ⱽᴵᴾ ᴿᴬᵂ|K3 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5da104cd4c399dc0.png
-BA|KCN 1|Kcn 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1ba57af2af08255.png
-BA|KCN 2|Kcn 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1ba57af2af08255.png
 BA|MTV IGMAN|Mtv Igman ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d0f461e577164a3c.png
 BA|MY TV BHT ⱽᴵᴾ ᴿᴬᵂ|My Tv Bht ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/my_tv_bht/my_tv_bht.png
 BA|N1 BH|N1 Bh ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/20e48a94e77efd0f.png
@@ -678,7 +676,6 @@ BA|O KANAL ⱽᴵᴾ ᴿᴬᵂ|O Kanal ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://
 BA|O MUSIC ⱽᴵᴾ ᴿᴬᵂ|O Music ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3861f280b5276d57.png
 BA|OBN|Obn ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/98c0fb29440db891.png
 BA|OBN ⱽᴵᴾ ᴿᴬᵂ|Obn ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/98c0fb29440db891.png
-BA|OTV VALENTINO|Otv Valentino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3e3064c59ad611e9.png
 BA|PINK BH|Pink Bh ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/0c1326dd64ec8d05.png
 BA|PINK ⱽᴵᴾ ᴿᴬᵂ|Pink ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f051b3518f1b614e.png
 BA|POSAVINA TV|Posavina Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f9d51977c8c5e0a.png
@@ -2309,7 +2306,6 @@ HR|CINESTAR TV 2 ⱽᴵᴾ ᴿᴬᵂ|Cinestar Tv 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ
 HR|CINESTAR TV ACTION & THRILLER ⱽᴵᴾ ᴿᴬᵂ|Cinestar Tv Action & Thriller ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3e44a080cb8bfee3.png
 HR|CINESTAR TV COMEDY & FAMILY ⱽᴵᴾ ᴿᴬᵂ|Cinestar Tv Comedy & Family ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/95fa18426efe6404.png
 HR|CINESTAR TV FANTASY ⱽᴵᴾ ᴿᴬᵂ|Cinestar Tv Fantasy ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/146435b4e1f5bbb3.png
-HR|CMC|Cmc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8fe96dce2f28bd75.png
 HR|CMC MUSIC|Cmc Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/86d769100fedfa3c.png
 HR|CMC ⱽᴵᴾ ᴿᴬᵂ|Cmc ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8fe96dce2f28bd75.png
 HR|CRIME AND INVESTIGATION ⱽᴵᴾ ᴿᴬᵂ|Crime And Investigation ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/51c1778961ef9bfb.png
@@ -2351,7 +2347,6 @@ HR|ICTBUSINESS TV ⱽᴵᴾ ᴿᴬᵂ|Ictbusiness Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱ�
 HR|JADRAN TV|Jadran Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9f0e049779550134.png
 HR|JIM JAM ⱽᴵᴾ ᴿᴬᵂ|Jim Jam ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/14deae7efbb9fefe.png
 HR|JUGOTON TC ⱽᴵᴾ ᴿᴬᵂ|Jugoton Tc ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/929d9107b35866a0.png
-HR|JUGOTON TV|Jugoton Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/34c7d7d1eaeb1680.png
 HR|JUGOTON ⱽᴵᴾ ᴿᴬᵂ|Jugoton ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/929d9107b35866a0.png
 HR|KANAL RI|Kanal Ri ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31923dec07c6f529.png
 HR|KANAL RI ⱽᴵᴾ ᴿᴬᵂ|Kanal Ri ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31923dec07c6f529.png
@@ -2384,10 +2379,6 @@ HR|MINI TV ⱽᴵᴾ ᴿᴬᵂ|Mini Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://
 HR|MREZA ST|Mreza St ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/764226fca326f40e.png
 HR|MREZA ZG|Mreza Zg ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/818284cfbc5a4713.png
 HR|MREŽA TV ⱽᴵᴾ ᴿᴬᵂ|Mreža Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f756e46b86f7116a.png
-HR|MTV 00S|Mtv 00S ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/362f0d5370b2e83f.png
-HR|MTV 80S|Mtv 80S ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e57c7ced8dc0991a.png
-HR|MTV MUSIC|Mtv Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b43a2b88ebfd06af.png
-HR|MTV ROCK|Mtv Rock ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/69232669317daee7.png
 HR|N1 HR|N1 Hr ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/daa24911ae2ddde1.png
 HR|N1 ⱽᴵᴾ ᴿᴬᵂ|N1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/daa24911ae2ddde1.png
 HR|NARODNI TV|Narodni Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f587911b67ea7375.png
@@ -2448,8 +2439,6 @@ HR|STAR MOVIES ⱽᴵᴾ ᴿᴬᵂ|Star Movies ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|
 HR|STAR ⱽᴵᴾ ᴿᴬᵂ|Star ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/26a2dff4681c2f9b.png
 HR|TELEVIZIJA ZAPAD HD|Televizija Zapad Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/27744b13b0559d6b.png
 HR|TELEVIZIJA ZAPAD ⱽᴵᴾ ᴿᴬᵂ|Televizija Zapad ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/27744b13b0559d6b.png
-HR|TOXIC FOLK|Toxic Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e1b1e298de79883b.png
-HR|TOXIC RAP|Toxic Rap ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29bacc5313e047a8.png
 HR|TREND TV ⱽᴵᴾ ᴿᴬᵂ|Trend Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e4cc98856bf6a62d.png
 HR|TV BANOVINA ⱽᴵᴾ ᴿᴬᵂ|Tv Banovina ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d62874346fbc1f69.png
 HR|TV DALMACIJA ⱽᴵᴾ ᴿᴬᵂ|Tv Dalmacija ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/tv_dalmacija/tv_dalmacija.png
@@ -3666,8 +3655,6 @@ RS|FILMBOX STARS ⱽᴵᴾ ᴿᴬᵂ|Filmbox Stars ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛ
 RS|FOOD NETWORK|Food Network ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3c2880cdd63e4df6.png
 RS|GAMETOON  ⱽᴵᴾ ᴿᴬᵂ|Gametoon  ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b8cb991bba59fada.png
 RS|GRAND 1 ⱽᴵᴾ ᴿᴬᵂ|Grand 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7bf4f8b37a971c1c.png
-RS|GRAND 2|Grand 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a66d7cd95049615f.png
-RS|GRAND TV|Grand Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/grand_tv/grand_tv.png
 RS|HAPPY DRUSTVO|Happy Drustvo ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/2cdef3b47f827474.png
 RS|HAPPY REALITY 1 ⱽᴵᴾ ᴿᴬᵂ|Happy Reality 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a2663a2252597759.png
 RS|HAPPY REALITY 2 ⱽᴵᴾ ᴿᴬᵂ|Happy Reality 2 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/794da5ff53203ad0.png
@@ -3694,7 +3681,6 @@ RS|HISTORY ⱽᴵᴾ ᴿᴬᵂ|History ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://
 RS|HYPE 1|Hype 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ca1c0b0aed4d79b3.png
 RS|HYPE 2|Hype 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/4be2e73f90387a10.png
 RS|IDJ KIDS HD|Idj Kids Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/bb4ef4b07b4f8d82.png
-RS|IDJ MUZIKA 24/7|Idj Muzika 24/7 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/953829b4b036206e.png
 RS|IDJ TV ⱽᴵᴾ ᴿᴬᵂ|Idj Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b56def69c70ab870.png
 RS|INFORMER TV|Informer Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f832166c2ade21a.png
 RS|INFORMER TV  ⱽᴵᴾ ᴿᴬᵂ|Informer Tv  ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3f832166c2ade21a.png
@@ -3706,15 +3692,12 @@ RS|K1 HD|K1 Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/
 RS|K1 ⱽᴵᴾ ᴿᴬᵂ|K1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/470d9fd3c4a79749.png
 RS|KAZBUKA ⱽᴵᴾ ᴿᴬᵂ|Kazbuka ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1b0baf547d156a26.png
 RS|KCN 1 ⱽᴵᴾ ᴿᴬᵂ|Kcn 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1ba57af2af08255.png
-RS|KCN 3|Kcn 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31f1624e83e81c37.png
 RS|KLASIK TV ⱽᴵᴾ ᴿᴬᵂ|Klasik Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b1e9360e7b49e57.png
 RS|KURIR|Kurir ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ea115ced357ab447.png
 RS|KURIR TV ⱽᴵᴾ ᴿᴬᵂ|Kurir Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/ea115ced357ab447.png
 RS|LOV I RIBOLOV|Lov I Ribolov ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/1f9f8ae0c06b45c5.png
 RS|MINIMAX|Minimax ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/add88af262b46a9d.png
 RS|MINIMAX ⱽᴵᴾ ᴿᴬᵂ|Minimax ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/add88af262b46a9d.png
-RS|MTV ADRIA|Mtv Adria ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c69b35e3d1f37251.png
-RS|MTV HITS|Mtv Hits ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/377d2e3826c16ec8.png
 RS|N1 INFO|N1 Info ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/d53daab4f5eb523a.png
 RS|N1 ⱽᴵᴾ ᴿᴬᵂ|N1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/daa24911ae2ddde1.png
 RS|NARODNA TV|Narodna Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b04d5a932cc72eb.png
@@ -3825,7 +3808,6 @@ RS|PINK ZABAVA|Pink Zabava ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20
 RS|PINK ZABAVA ⱽᴵᴾ ᴿᴬᵂ|Pink Zabava ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5b0020d1e11919ff.png
 RS|PINK ⱽᴵᴾ ᴿᴬᵂ|Pink ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f051b3518f1b614e.png
 RS|PINK&ROLL ⱽᴵᴾ ᴿᴬᵂ|Pink&Roll ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c6346e2c1fb9b8e7.png
-RS|PLANETA TV|Planeta Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/97056334c8f0cc9e.png
 RS|PREMIER LEAGUE TV ⱽᴵᴾ ᴿᴬᵂ|Premier League Tv ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/5bf6d111ab285f08.png
 RS|PRVA|Prva ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/eb6b5dd31c646e91.png
 RS|PRVA FILES|Prva Files ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/34a116eb3e229833.png
@@ -18918,20 +18900,13 @@ BA|HAYAT PLUS VIP RAW|Hayat Plus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/
 BA|HAYAT PLUS|Hayat Plus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/3d9c290294dc18f6cefdec85c0de059c820fa15a.png
 BA|HIT TELEVIZIJA BRCKO|Hit Televizija Brcko ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/98ff8313494c0e21.png
 BA|RTV VOGOSCA|Rtv Vogosca ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/7278d8a86b1698aabbf134109e102a66ab56effd.png
-BA|HAYAT MUSIC|Hayat Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ceb9b20de7712a4796a16fff453ed8d37399fcd0.png
-BA|HAYAT FOLK|Hayat Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/afbc9f835a1263140f958e7e44540de9baed85df.png
-BA|YU PLANET|Yu Planet ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c2374f1e2934f7f5f55bc567b0c0becd5d8829a6.png
-BA|TV DUGAPLUS|TV Dugaplus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c52e3882efbb114d10e51c799c6a425dd7c93b73.png
-BA|BN MUSIC|Bn Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3861f280b5276d57503411631422e1a76138c411.png
 #RS| SRBIJA
 RS| DELUXE RAP||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/d59eff0b0432102e2db5403cad53e80af543d3e0.png
 RS| RTS SVET HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/rts_svet_white.png
 RS| PARTIZAN TV FHD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/fdf2dea6b2fb20ca88809e0f94f0318f49c585b6.png
 RS| KCN 2 ⱽᴵᴾ ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/bd2df828930a74bb24f1c103236c92fc9028b39a.png
 RS| KCN 3 ⱽᴵᴾ ᴿᴬᵂ||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e29dad0fa275475fbec6fba3d558e0ebd8ab8422.png
-RS| DM SAT|Dm Sat ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c3443e8d8e7c7f1c0c18031b554f2e6acdd0925e.png
 RS| SYFY||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/8e8d40b2c14143d7482404c24106ff54f2c15c53.png
-RS|BALKANIKA|Balkanika ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2a257175c20f026f6b35c25fe71e46574a90a2e7.png
 RS|HRAM TV HD|Hram TV HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0c7bf18c9d4763a3072aae910f8a0cf52d909ac2.png
 RS|ROMA TV|Roma TV ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/ada143391e2012e1cb2f34557809219a41142164.png
 RS|KTV|Ktv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/e36eee1582b8125558087b3039ab589c4d3e8cb3.png
@@ -18972,7 +18947,6 @@ RS|DISNEY CHANNEL|Disney Channel ᴸⁱᵛᵉ|https://raw.githubusercontent.com/
 RS|PAROVI LIVE|Parovi Live ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/parovi/parovi.png
 RS|NGC HD|Ngc HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/5029beb9f887683cff0300f62c9571395253ce3e.png
 RS|DOCU BOX|Docu Box ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/0c373fec0b6587103c6ef8ea8502f7bce3a17f02.png
-RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9c7d3bc40fe9dd7addf80087fa4b2420f3e343f8.png
 RS|GORA SELECT 1 HD|Gora Select 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/gora_select.png
 RS|NETIP FILM 1 HD|Netip Film 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_1.png
 RS|NETIP FILM 2 HD|Netip Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_film_2.png
@@ -18980,6 +18954,36 @@ RS|NETIP INT. FILM 1 HD|Netip Int. Film 1 HD ᴸⁱᵛᵉ|https://raw.githubuser
 RS|NETIP INT. FILM 2 HD|Netip Int. Film 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_2.png
 RS|NETIP INT. FILM 3 HD|Netip Int. Film 3 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/netip/netip_int_film_3.png
 RS|FILM KLUB EXTRA|Film Klub Extra ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/16147b0cb4837712408ecafc47d1bb1f7e2f1ae9.png
+##### EXYU| MUZICKI KANALI #####
+RS|IDJ TV|Idj Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b56def69c70ab870.png
+RS| DM SAT|Dm Sat ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c3443e8d8e7c7f1c0c18031b554f2e6acdd0925e.png
+RS|GRAND TV|Grand Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/grand_tv/grand_tv.png
+RS|GRAND 2|Grand 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/a66d7cd95049615f.png
+RS|BALKANIKA|Balkanika ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/2a257175c20f026f6b35c25fe71e46574a90a2e7.png
+RS|IDJ MUZIKA 24/7|Idj Muzika 24/7 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/953829b4b036206e.png
+BA|KCN 1|Kcn 1 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1ba57af2af08255.png
+BA|KCN 2|Kcn 2 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b1ba57af2af08255.png
+RS|KCN 3|Kcn 3 ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/31f1624e83e81c37.png
+RS| RADIO LOLA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/96bbc11020f399e419bde238730b2fdd4c32a02c.png
+BA|BN MUSIC|Bn Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/3861f280b5276d57503411631422e1a76138c411.png
+RS|TOP SOUND|Top Sound ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/9c7d3bc40fe9dd7addf80087fa4b2420f3e343f8.png
+BA|TV DUGAPLUS|TV Dugaplus ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/c52e3882efbb114d10e51c799c6a425dd7c93b73.png
+BA|OTV VALENTINO|Otv Valentino ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/3e3064c59ad611e9.png
+BA|HAYAT FOLK|Hayat Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/afbc9f835a1263140f958e7e44540de9baed85df.png
+BA|HAYAT MUSIC|Hayat Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ceb9b20de7712a4796a16fff453ed8d37399fcd0.png
+BA|YU PLANET|Yu Planet ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/c2374f1e2934f7f5f55bc567b0c0becd5d8829a6.png
+HR|CMC|Cmc ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/8fe96dce2f28bd75.png
+HR|JUGOTON TV|Jugoton Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/34c7d7d1eaeb1680.png
+RS|MTV ADRIA|Mtv Adria ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/c69b35e3d1f37251.png
+RS| MTV CLUB||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1e43a2cff784278c285ed50fa28170ab9109ce0a.png
+RS|MTV HITS|Mtv Hits ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/377d2e3826c16ec8.png
+HR|MTV MUSIC|Mtv Music ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b43a2b88ebfd06af.png
+HR|MTV ROCK|Mtv Rock ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/69232669317daee7.png
+HR|MTV 00S|Mtv 00S ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/362f0d5370b2e83f.png
+HR|MTV 80S|Mtv 80S ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e57c7ced8dc0991a.png
+HR|TOXIC FOLK|Toxic Folk ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/e1b1e298de79883b.png
+HR|TOXIC RAP|Toxic Rap ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/29bacc5313e047a8.png
+RS|PLANETA TV|Planeta Tv ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/97056334c8f0cc9e.png
 ##### EXYU| DJECIJI KANALI #####
 BA|HAYATOVCI|Hayatovci ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/b0fe5b44523d7f2759600f7a250a5970dfa67ba5.png
 HR|MASA I MEDVJED|Masa I Medvjed ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/gefunden_2026_09/masa_i_medvjed.png
@@ -18998,8 +19002,6 @@ HR| MAX TV SELECT 5 HD|Max Tv Select 5 HD ᴸⁱᵛᵉ|https://raw.githubusercon
 HR| MAX TV SELECT 6 HD|Max Tv Select 6 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_select_6.png
 HR| MAX TV SELECT KIDS 1 HD|Max Tv Select Kids 1 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_1.png
 HR| MAX TV SELECT KIDS 2 HD|Max Tv Select Kids 2 HD ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/maxtv_select/maxtv_kids_2.png
-RS| RADIO LOLA||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/96bbc11020f399e419bde238730b2fdd4c32a02c.png
-RS| MTV CLUB||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/1e43a2cff784278c285ed50fa28170ab9109ce0a.png
 #US| NEWS NETWORK
 TVPASSPORT:US|FOX (WDAF) Kansas City, MO HD|AUTO
 TVPASSPORT:US|Seattle 11 (KSTW) Tacoma, WA HD|AUTO

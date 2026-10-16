@@ -7569,3 +7569,18 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
 - SBB/EON (epg.sbb.rs) wurde nur testweise abgerufen (anonymer Token aus dem
   öffentlichen Seiten-JS, Kanalliste), nichts davon ist im Projekt eingebaut;
   dieselben Daten kommen bereits über epgshare01 RS1 (SBB-Ripper).
+
+## RS| IDJ TV / IDJ MUZIKA 24/7 über idjtv.com (Oktober 2026)
+
+- Der Anbieter beschriftet den Kanal "RS| IDJ MUZIKA 24/7", es ist aber
+  IDJ TV (Nutzer benennt ihn in TiviMate in "RS| IDJ TV" um).
+- Neue Quelle `quellen/idjtv_epg.py`: idjtv.com/tv/guide/ ist statisches
+  HTML mit 7 Wochentag-Panels (nur Uhrzeiten, Titel in Großbuchstaben, 207
+  Sendungen pro Woche), Datum aus dem nächsten Wochentag ab heute. Matcht
+  `^IDJ\s*(TV|MUZIKA(\s*24/?7)?)`, NICHT "IDJ KIDS". Neue Zeile
+  `RS|IDJ TV` ganz oben in `sender.txt`; Parser meldet an die
+  Quellen-Überwachung ("idjtv.com").
+- Header `##### EXYU| MUZICKI KANALI #####` (Playlist-Kategorie mit 28 Sendern,
+  vorher ohne Header-Block in `sender.txt`) angelegt, vor `EXYU| DJECIJI
+  KANALI`; alle 28 Sender der Kategorie (Liste: `logos_bei_bedarf/
+  kategorien.txt`) und die neue Zeile `RS|IDJ TV` stehen darunter.

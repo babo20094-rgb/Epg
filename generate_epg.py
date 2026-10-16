@@ -126,6 +126,7 @@ from quellen.mysports_epg import mysports_kanal_finden, mysports_hole_programme,
 from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_programme
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
+from quellen.idjtv_epg import idjtv_kanal_finden, idjtv_hole_programme
 from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
 from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
 from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
@@ -651,6 +652,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "ba_stanice": ["ba_stanice_intervalle"],
     "blagovesti": ["blagovesti_intervalle"],
     "rtvbn": ["rtvbn_intervalle"],
+    "idjtv": ["idjtv_intervalle"],
     "mtel_fuer_rs": ["mtel_fuer_rs_intervalle"],
     "aljazeera_en": ["aljazeera_en_intervalle"],
     "makkahlive": ["makkahlive_intervalle"],
@@ -6420,6 +6422,30 @@ for daten in sender_daten:
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# IDJ TV (idjtv.com/tv/guide/, siehe idjtv_epg.py): matcht "IDJ TV" und
+# "IDJ MUZIKA 24/7" (der Anbieter beschriftet den Kanal falsch, es ist IDJ
+# TV), NICHT "IDJ KIDS". Kein eigenes Praefix noetig.
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+
+    programme = []
+    try:
+        marker = idjtv_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = idjtv_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+    except Exception:
+        programme = []
+
+    daten["idjtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("IDJ TV (idjtv.com)")
+        _schreibe_echte_programme(daten, programme)
 
 # ==========================================================
 # RS-Sender mit Daten von mtel.ba: derselbe pan-regionale Adria-Feed, den
