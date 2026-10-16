@@ -1,14 +1,16 @@
 Zuordnungs-Luecken: Playlist-Kanaele ohne passenden Namen in Epg_365_Tage.xml.gz
-Playlist-Kanaele gesamt: 18912
-Davon eindeutige Namen (zeichengenau): 18526
-Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18447
-Name nicht zeichengenau in der XML: 10
-davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 10
+Playlist-Kanaele gesamt: 18913
+Davon eindeutige Namen (zeichengenau): 18527
+Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18448
+Name nicht zeichengenau in der XML: 11
+davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 11
 
 == Je Playlist-Kategorie (nicht zuordenbar / nur abweichende Schreibweise) ==
     7 /     0  UK| GAA GO PPV
-    2 /     0  US| TV ᴿᴬᵂ ⁶⁰ᶠᵖˢ
     1 /     0  DE| STAIGE PPV
+    1 /     0  US| NETFLIX ON AIR ᴿᴬᵂ ⁶⁰ᶠᵖˢ
+    1 /     0  US| PRIME
+    1 /     0  |EN| CLASSIC SERIES
 
 == Mehrfach vorkommende Playlist-Namen (358) - ein Player zaehlt sie nur einmal ==
    2x #### APPLE TV F1 PPV ####
@@ -143,6 +145,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x DE| VOX HD
    2x DE| ZDF HD
    2x DE| ZDFNEO HD
+   2x ENDED | ENECO TOUR | STAGE 3 | Fri 16 Oct 08:20 EDT (US) | 8K EXCLUSIVE | US: MAX PPV 1
    2x EN| CHAPPELLES SHOW 4K
    2x EN| NETFLIX ACTION
    2x EN| NETFLIX CRIME
@@ -151,10 +154,10 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x EN| NETFLIX SCI-FI
    2x EN| NETFLIX WAR
    2x EN| VAN DAMME
-   2x End | Eneco Tour | 2. Etappe UCI Women Elite | Frauen | all | 15-10-2026 | 10:35 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
+   2x End | 2026 Dongfeng Voyah Wuhan Open Tennis | all | 16-10-2026 | 13:00 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
    2x Fite TV 19 HD (D)
    2x HR| NOVA TV ⱽᴵᴾ ᴿᴬᵂ
-   2x LIVE EVENT 01 - 9:30am ONE Friday Fights 175 Lamsing v Rhenimi
+   2x LIVE EVENT 01 - NO EVENT
    2x LIVE EVENT 02 - 2pm True Grit Wrestling Last Rites
    2x LIVE EVENT 03 - 6pm Bison Kombat 10
    2x LIVE EVENT 04 - 6/8pm PFL Carmouche v Bishop 2
@@ -184,7 +187,6 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x LIVE EVENT 29 - MAINSTAGE SHORTS Tomorrowland 2026
    2x LIVE EVENT 30 - FREEDOM STAGE SHORTS Tomorrowland 2026
    2x LIVE EVENT 32 - QUASAR Live From Coachella 2026
-   2x LIVE | ENECO TOUR | STAGE 3 | Fri 16 Oct 08:20 EDT (US) | 8K EXCLUSIVE | US: MAX PPV 1
    2x Live Football 01 : Argentina vs Benin 12:00am Wed
    2x Live Football 02 : Usa vs Canada 1:00am Wed
    2x Live Football 03 : France vs Belgium  19:45 pm
@@ -221,8 +223,11 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    GaaTv 05: Sun 15:30 | Leitrim: Ballinamore v Fenagh
    GaaTv 06:  Sun 15:30 | Sligo: Shamrock Gaels v St. Marys
    GaaTv 07:  Sun 16:00 | Down: Burren v Clonduff
--- US| TV ᴿᴬᵂ ⁶⁰ᶠᵖˢ (2)
-   TV| ARIRANG TV ᴬᵂ
-   TV| PRIMETIME SOAPS ᴬᵂ
 -- DE| STAIGE PPV (1)
    NEXT | GENTOFTE VOLLEY - KSV (1. DIVISION KVINDER) | Sun 04 Oct 14:25 CEST (DK) | 8K EXCLUSIVE | DK: DIREKTE SPORT PPV 127
+-- US| NETFLIX ON AIR ᴿᴬᵂ ⁶⁰ᶠᵖˢ (1)
+   US| LUPIN ᴿᵂ
+-- US| PRIME (1)
+   PRIME| NIP / TUCK ᴬᵂ
+-- |EN| CLASSIC SERIES (1)
+   EN - The Incredible Hulk (1977) S04 E15
