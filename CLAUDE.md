@@ -225,6 +225,11 @@ Parallelisierung/Vorab-Abrufen, siehe `docs/HISTORIE.md`).
     (300x60, weißer Schriftzug auf transparentem Hintergrund, aus dem vom
     Nutzer gelieferten Bild; NICHT `HAYAT PLUS`/`LOVE BOX`/`STIL I ZIVOT`/
     `MUSIC`/`FOLK`/`HAYATOVCI`/`HAYAT 2` - eigene Sender mit eigenem Logo)
+  - `ARENA M1`/`ARENA M2`/`ARENA M3` (MK, `... PREMIUM`/FHD/HD/VIP/RAW, jede
+    Groß-/Kleinschreibung) → `logos/arena_m_premium_mk/arena_m1_premium.png`
+    bzw. `_m2_`/`_m3_` (exakte Originale von tvarenasport.mk, 300 px breit,
+    schwarzer Hintergrund mit weißem "ARENA", farbigem M-Feld und "PREMIUM";
+    NICHT `ARENA PREMIUM 1-3`/`ARENA SPORT ... PREMIUM` (RS/BA, andere Sender))
   - `RT VOJVODINA 1`/`RTV VOJVODINA 1` bzw. `... 2` (jede Groß-/
     Kleinschreibung, jedes Land/Suffix wie ` ⱽᴵᴾ ᴿᴬᵂ`/HD/...) →
     `logos/rt_vojvodina_<N>/rt_vojvodina_<N>_weiss.png` (Version mit

@@ -2905,3 +2905,44 @@ def test_mts_zeit_doppelter_offset_wird_abgezogen():
     # zeitzonenlose Werte bleiben Belgrader Lokalzeit (unveraendert)
     assert _zeit_parsen("2026-10-16T03:38:00") == dt.datetime(2026, 10, 16, 1, 38, tzinfo=dt.timezone.utc)
     assert _zeit_parsen("") is None
+
+
+# --- tvarenasport.mk (ARENA M1/M2/M3 PREMIUM, MK) ---
+
+@pytest.mark.parametrize("name,erwartet", [
+    ("ARENA M1 PREMIUM FHD", "M1"),
+    ("ARENA M2 PREMIUM", "M2"),
+    ("ARENA M3 VIP RAW", "M3"),
+    ("ARENA M4", None),
+    ("ARENA SPORT 1", None),
+    ("ARENA PREMIUM 1", None),
+])
+def test_arenamk_kanal_finden(name, erwartet):
+    from quellen.arenamk_epg import arenamk_kanal_finden
+    assert arenamk_kanal_finden(name) == erwartet
+
+
+def test_arenamk_parser():
+    import datetime as dt
+    from quellen import arenamk_epg
+    zeile = (
+        '<div class="tasmk-tvp__row"><span class="tasmk-tvp__time">%s</span>'
+        '<span class="tasmk-tvp__sport">Фудбал</span><span class="tasmk-tvp__main">'
+        '<span class="tasmk-tvp__title">%s<span class="tasmk-tvp__live">ВО ЖИВО</span></span>'
+        '<span class="tasmk-tvp__comp">Лига</span></span></div>'
+    )
+    html_text = (
+        '<section class="tasmk-tvp__ch" data-tvp-ch><img alt="Арена М2 Премиум">'
+        '<div data-tvp-day="0" data-tvp-date="2026-10-16">'
+        + zeile % ("20:00", "А – Б") + zeile % ("23:30", "В – Г") + zeile % ("00:30", "Д – Е")
+        + '</div></section>'
+    )
+    ergebnis, zeilen = arenamk_epg._html_parsen(html_text)
+    assert zeilen == 3 and len(ergebnis["M2"]) == 3
+    erste = ergebnis["M2"][0]
+    assert erste["title"] == "А – Б"
+    # 20:00 Skopje (CEST) = 18:00 UTC; Dauer auf 3 h begrenzt, naechste Sendung 23:30
+    assert erste["start"] == dt.datetime(2026, 10, 16, 18, 0, tzinfo=dt.timezone.utc)
+    assert erste["stop"] == dt.datetime(2026, 10, 16, 21, 0, tzinfo=dt.timezone.utc)
+    # 00:30 liegt nach Mitternacht -> naechster Kalendertag
+    assert ergebnis["M2"][2]["start"] == dt.datetime(2026, 10, 16, 22, 30, tzinfo=dt.timezone.utc)

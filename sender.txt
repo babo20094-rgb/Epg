@@ -2620,9 +2620,9 @@ MK|ALSAT M HD|Alsat M Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo2009
 MK|ALSAT M ⱽᴵᴾ ᴿᴬᵂ|Alsat M ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/9c47e5ec9c47e0f7.png
 MK|ANIMAL PLANET [Multi-Sub]|Animal Planet [Multi-Sub] ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
 MK|ANIMAL PLANET ⱽᴵᴾ ᴿᴬᵂ|Animal Planet ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b80d724067595948.png
-MK|ARENA M1 PREMIUM FHD|Arena M1 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_premium_mk/arena_premium_1.png
-MK|ARENA M2 PREMIUM FHD|Arena M2 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_premium_mk/arena_premium_2.png
-MK|ARENA M3 PREMIUM FHD|Arena M3 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_premium_mk/arena_premium_3.png
+MK|ARENA M1 PREMIUM FHD|Arena M1 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_m_premium_mk/arena_m1_premium.png
+MK|ARENA M2 PREMIUM FHD|Arena M2 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_m_premium_mk/arena_m2_premium.png
+MK|ARENA M3 PREMIUM FHD|Arena M3 Premium Fhd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/arena_m_premium_mk/arena_m3_premium.png
 MK|AXN ⱽᴵᴾ ᴿᴬᵂ|Axn ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/b6bb45b54bf28d14.png
 MK|BALKAN MUSIC HD|Balkan Music Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/efb8f401e1e8cb46.png
 MK|CINEMAX 1 ⱽᴵᴾ ᴿᴬᵂ|Cinemax 1 ⱽᴵᴾ ᴿᴬᵂ ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f8dfecb71a712a5e.png

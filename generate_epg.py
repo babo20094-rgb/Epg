@@ -127,6 +127,7 @@ from quellen.mojtv_index_epg import mojtv_index_kanal_finden, mojtv_index_hole_p
 from quellen.blagovesti_epg import blagovesti_kanal_finden, blagovesti_hole_programme
 from quellen.rtvbn_epg import rtvbn_kanal_finden, rtvbn_hole_programme
 from quellen.idjtv_epg import idjtv_kanal_finden, idjtv_hole_programme
+from quellen.arenamk_epg import arenamk_kanal_finden, arenamk_hole_programme
 from quellen.vikom_epg import vikom_kanal_treffer, vikom_hole_programme
 from quellen.mymedia_epg import mymedia_kanal_treffer, mymedia_hole_programme
 from quellen.rtvslon_epg import rtvslon_kanal_treffer, rtvslon_hole_programme
@@ -653,6 +654,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "blagovesti": ["blagovesti_intervalle"],
     "rtvbn": ["rtvbn_intervalle"],
     "idjtv": ["idjtv_intervalle"],
+    "arenamk": ["arenamk_intervalle"],
     "mtel_fuer_rs": ["mtel_fuer_rs_intervalle"],
     "aljazeera_en": ["aljazeera_en_intervalle"],
     "makkahlive": ["makkahlive_intervalle"],
@@ -664,6 +666,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     # ᴸⁱᵛᵉ"-Bloecke, Oktober 2026 bei RTV Slon und Regional Fernsehen
     # Oberbayern festgestellt).
     "rtvslon": ["rtvslon_intervalle"],
+    "grand": ["grand_intervalle"],
     "rfo": ["rfo_intervalle"],
     "epgshare_balkan": ["epgshare_balkan_intervalle"],
 }
@@ -4729,6 +4732,12 @@ def _siol_abrufen(daten):
     gleiche Grundmuster (Schreiben ins XML bleibt sequenziell danach)."""
     ergebnisse = []
 
+    # ARENA M1/M2/M3 (MK) haben mit tvarenasport.mk eine eigene, richtige
+    # Quelle (siehe arenamk_epg.py) - Siol/Delo.si liefern dort nur Titel
+    # eines anderen Arena-Kanals bzw. "No Data".
+    if arenamk_kanal_finden(daten["sender"]) is not None and daten["land"].upper() == "MK":
+        return ergebnisse
+
     programme = []
     try:
         site_id = siol_kanal_finden(daten["sender"])
@@ -5823,6 +5832,33 @@ for _idx, daten in enumerate(mojmaxtv_sender):
         pass  # log unterdrueckt: keine echten Programmdaten
 
 # ==========================================================
+# ARENA M1/M2/M3 PREMIUM (MK): tvarenasport.mk/tv-program/ (siehe
+# arenamk_epg.py). Steht VOR Siol, damit die spaeteren MK-Fallbacks
+# (iptv-epg.org/MK, TvProfil.net, ...) diese Sender ueberspringen.
+# ==========================================================
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue
+    if daten.get("land", "").upper() != "MK":
+        continue
+
+    programme = []
+    try:
+        marker = arenamk_kanal_finden(daten["sender"])
+        if marker is not None:
+            programme = arenamk_hole_programme(marker, TVPROGRAMDANAS_TAGE)
+    except Exception:
+        programme = []
+
+    daten["arenamk_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["arenamk"] = bool(programme)
+
+    if programme:
+        _echte_quelle_zaehlen("Arena MK (tvarenasport.mk)")
+        _schreibe_echte_programme(daten, programme)
+
+# ==========================================================
 # SIOL: automatischer Abgleich fuer alle SI- UND MK-Sender (siehe
 # siol_epg.py - HTML-Scraping, fragiler als die anderen Quellen). Kein
 # eigenes Praefix noetig. Ohne jegliche SI-/MK-Zeile in sender.txt
@@ -6386,6 +6422,7 @@ for daten in sender_daten:
         programme = []
 
     daten["blagovesti_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["blagovesti"] = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("Blagovesti TV")
@@ -6416,6 +6453,7 @@ for daten in sender_daten:
         programme = []
 
     daten["rtvbn_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["rtvbn"] = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("BN (rtvbn.tv)")
@@ -6442,6 +6480,7 @@ for daten in sender_daten:
         programme = []
 
     daten["idjtv_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["idjtv"] = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("IDJ TV (idjtv.com)")
@@ -6475,6 +6514,7 @@ for daten in sender_daten:
         programme = []
 
     daten["mtel_fuer_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["mtel_fuer_rs"] = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("RS via mtel.ba")
@@ -6504,6 +6544,7 @@ for daten in sender_daten:
         programme = []
 
     daten["grand_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+    daten["grand"] = bool(programme)
 
     if programme:
         _echte_quelle_zaehlen("Grand TV (grand.rs)")

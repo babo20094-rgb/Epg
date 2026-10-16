@@ -7607,3 +7607,31 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   ist dort die bessere Quelle). **Annahme Winterzeit** (Offset 1 h -> -2 h)
   ist NICHT bestätigt - nach der Zeitumstellung am 25.10.2026 mit einem
   bekannten Programm (z. B. HBO) gegenprüfen.
+
+## MK| ARENA M1/M2/M3 PREMIUM FHD über tvarenasport.mk (Oktober 2026)
+
+- Symptom (Nutzer): kein bzw. falsches Programm. M1 bekam über die Siol-
+  Kaskade slowenische Titel eines anderen Arena-Kanals ("Hokej (M): ...",
+  "Nogomet (M): ..."), M2/M3 nur "No Data".
+- Neue Quelle `quellen/arenamk_epg.py`: tvarenasport.mk/tv-program/ (vom Nutzer
+  als `.mht`-Snapshot geliefert, auch live per HTTP abrufbar), statisches
+  HTML mit Kanalblöcken (`tasmk-tvp__ch`, Logo-alt "Арена М1 Премиум"),
+  Tages-Panels (`data-tvp-date`) und Zeilen (Zeit/Sportart/Titel/
+  Wettbewerb); ca. 4 Tage, lokale Zeit (Europe/Skopje), Dauer bis zur
+  nächsten Sendung, max. 3 h (die Seite listet nur Events, Lücken füllt das
+  generische Raster). Siol/Delo wird für diese Namen in `_siol_abrufen()`
+  übersprungen; der Block steht VOR Siol.
+- **Fund dabei (gleiche Ursache wie überlappende Platzhalter):** Die
+  Einzelquellen-Blöcke setzten ihr "aktiv"-Flag nicht (`daten["rtvbn"]`,
+  `["blagovesti"]`, `["grand"]` fehlten, `"grand"` fehlte zusätzlich in
+  `_ECHTE_QUELLEN_INTERVALLE`) - `hat_aktive_echte_quelle()` und
+  `alle_echten_intervalle()` prüfen das Flag, deshalb überlappten bei BN2,
+  Blagovesti, Grand und IDJ TV echte Sendungen mit "<Sender> ᴸⁱᵛᵉ"-Platzhaltern
+  (z. B. BN2: 82 Überlappungen). Fix: Flag nach jedem Einzelquellen-Block
+  setzen (`daten["<quelle>"] = bool(programme)`); gilt für neue
+  Einzelquellen ab jetzt zwingend (Intervall-Feld UND Flag UND Registry).
+- Logos: die drei Original-Logos von tvarenasport.mk (arena-m1/m2/m3.png,
+  1177x120) auf 300 px verkleinert, 256-Farben-Palette, unter
+  `logos/arena_m_premium_mk/arena_m<N>_premium.png` im Repo abgelegt und in
+  den drei `MK|ARENA M<N> PREMIUM FHD`-Zeilen eingetragen (Dauerregel in
+  `CLAUDE.md`, ersetzt die alten `logos/arena_premium_mk/*`).
