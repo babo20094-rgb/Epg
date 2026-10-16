@@ -139,6 +139,14 @@ _SPORT_KLUB_GUARD = re.compile(r"^SPORT\s*KLUB\b", re.IGNORECASE)
 # generate_epg.py als Fallback fuer RS-Sender eingehaengt.
 _ARENA_SPORT_GUARD = re.compile(r"^ARENA\s*SPORT\b", re.IGNORECASE)
 
+# "HBO"/"HBO 2"/"HBO 3" (+HD/FHD): Sendezeiten von mts.rs liegen nachweislich
+# ca. 4h hinter den uebrigen Quellen (16.10.2026: "Oskar" lief laut mts.rs
+# 14:01-15:51 Uhr, laut mtel/tvprogramdanas/epgshare01 RS1 und den HR/MK/MO-
+# Zeilen 10:01 Uhr; der Nutzer sah zu der Zeit eine Serie, nicht den Film.
+# Gleiches Muster wie bei ARENA SPORT oben). mts.rs wird fuer HBO-Namen
+# uebersprungen - tvprogramdanas.net/epgshare01 RS1 uebernehmen.
+_HBO_GUARD = re.compile(r"^HBO\b", re.IGNORECASE)
+
 # "RS|INVESTIGATION DISCOVERY ID" (sender.txt) heisst bei mts.rs nur
 # knapp "ID" (Logo-Alt-Text bestaetigt, Nutzer-Screenshot September
 # 2026: echte Titel wie "Ubistva na dan utakmice"/"Ubica medju
@@ -205,6 +213,9 @@ def mts_kanal_finden(kanalname):
         return None
 
     if _ARENA_SPORT_GUARD.match(kanalname.strip()):
+        return None
+
+    if _HBO_GUARD.match(kanalname.strip()):
         return None
 
     name_index = {}

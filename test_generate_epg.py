@@ -2893,3 +2893,10 @@ def test_idjtv_parser():
     assert zeilen == 14 and len(programme) == 14
     assert programme[0]["title"] == "IDJMASH"
     assert programme[0]["stop"] == programme[1]["start"]
+
+
+def test_mts_ueberspringt_hbo_wegen_zeitversatz(monkeypatch):
+    from quellen import mts_epg
+    monkeypatch.setattr(mts_epg, "mts_hole_kanalliste", lambda: [{"name": "HBO HD", "site_id": "x"}])
+    assert mts_epg.mts_kanal_finden("HBO HD") is None
+    assert mts_epg.mts_kanal_finden("HBO 1 FHD") is None

@@ -115,6 +115,12 @@ _WHITELIST = {
     normalisiere_sendername("Animal Planet HD"): ("RS", "Animal.Planet.HD.(RS).rs"),
     normalisiere_sendername("E! Entertainment"): ("RS", "E!.Entertainment.(RS).rs"),
     normalisiere_sendername("Happy"): ("RS", "Happy.(RS).rs"),
+    # "RS|HBO 1 FHD" (Nutzer, Oktober 2026: kein echtes Programm): "HBO 1"
+    # ist der Hauptkanal "HBO HD (RS)". Nur die FHD-/HD-Schreibweise
+    # aufnehmen - "HBO 1 VIP RAW"/"HBO 1" normalisieren auf "HBO1" und
+    # wuerden sonst auch MK/SI-Zeilen mit serbischen Daten fuellen.
+    normalisiere_sendername("HBO 1 FHD"): ("RS", "HBO.HD.(RS).rs"),
+    normalisiere_sendername("HBO 1 HD"): ("RS", "HBO.HD.(RS).rs"),
     normalisiere_sendername("HBO 2 HD"): ("RS", "HBO.2.HD.(RS).rs"),
     normalisiere_sendername("HBO 3 HD"): ("RS", "HBO.3.HD.(RS).rs"),
     normalisiere_sendername("IDJKids HD"): ("RS", "IDJKids.HD.(RS).rs"),

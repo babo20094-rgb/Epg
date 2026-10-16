@@ -7584,3 +7584,23 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   vorher ohne Header-Block in `sender.txt`) angelegt, vor `EXYU| DJECIJI
   KANALI`; alle 28 Sender der Kategorie (Liste: `logos_bei_bedarf/
   kategorien.txt`) und die neue Zeile `RS|IDJ TV` stehen darunter.
+
+## RS| HBO 1 FHD ohne echtes Programm (Oktober 2026)
+
+- Ursache: `RS|HBO 1 ⱽᴵᴾ ᴿᴬᵂ` bekam Daten nur zufällig über den Fuzzy-Abgleich
+  von tvprogramdanas.net ("HBO1" ~ "HBO", 0,857 >= 0,85); "HBO 1 FHD"
+  ("HBO1FHD") fiel überall durch (mts.rs, mtel.ba, tvprogramrs, danas).
+- Fix: Whitelist-Einträge "HBO 1 FHD"/"HBO 1 HD" -> `HBO.HD.(RS).rs`
+  (epgshare01 RS1, 50 Sendungen) in `quellen/open_epg_epg.py`. Bewusst NICHT
+  "HBO 1" allein: normalisiert auf "HBO1" wie "HBO 1 VIP RAW"/MK|HBO 1 und
+  würde auch MK/SI-Zeilen mit serbischen Daten füllen (die Whitelist prüft
+  das Land der Sender-Zeile nicht).
+- **Zeitversatz (16.10.2026):** `RS| HBO HD`/`HBO 2 HD`/`HBO 3 HD` (und AMC HD)
+  standen im EPG ca. 4h später als bei MO/HR/MK|HBO, tvprogramdanas.net und
+  epgshare01 RS1 (z. B. "Oskar" 14:01 statt 10:01 Uhr). Nutzerfoto: zur
+  "Oskar"-Zeit lief eine Serie. Ursache: mts.rs-Zeiten (gleiches bekanntes
+  Muster wie bei ARENA SPORT, siehe `_ARENA_SPORT_GUARD`). Fix:
+  `_HBO_GUARD` in `quellen/mts_epg.py` - HBO-Namen überspringen mts.rs, dann
+  greifen tvprogramdanas.net (HBO/HBO 2/HBO 3) bzw. die Whitelist
+  (`HBO 1 FHD`) mit den korrekten Zeiten. OFFEN: AMC HD und weitere RS-Sender
+  über mts.rs auf denselben Versatz prüfen.
