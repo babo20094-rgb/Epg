@@ -7659,3 +7659,17 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   laufen im 2-Tage-Fenster max. 14 Spiele (< 20 Kanäle).
 - Nach dem ersten Lauf mit der neuen Logik in TiviMate Cache leeren und EPG neu
   laden (alte, anders verteilte Einträge).
+
+## Bestätigung mts.rs-Zeitfix (16.10.2026)
+
+- Der Nutzer hat bestätigt: Nach dem Lauf mit dem Fix in `quellen/mts_epg.py::
+  _zeit_parsen()` (doppelter Belgrader UTC-Offset wird bei "Z"-Zeiten
+  abgezogen) werden die Sender der Kategorie "EXYU| FILMSKI KANALI" (HBO, AMC,
+  Cinemax, Euro Cinema u. a.) jetzt **zur richtigen Zeit mit dem richtigen
+  Programm** angezeigt. Damit ist die Ursache (mts.rs liefert "Z"-Zeiten, die
+  um 2 x Offset zu spät sind) für die Sommerzeit belegt.
+- **Noch offen:** Winterzeit. Die Annahme "Offset 1 h -> 2 h Versatz" ist nicht
+  bestätigt. Zeitumstellung 2026: Sonntag, 25.10. Danach mit einem bekannten
+  Programm (z. B. HBO, AMC) gegenprüfen. Weicht es um 1-2 h ab, ist die
+  Korrektur in `_zeit_parsen()` anzupassen (fester Versatz statt doppeltem
+  Offset).
