@@ -1,14 +1,15 @@
 Zuordnungs-Luecken: Playlist-Kanaele ohne passenden Namen in Epg_365_Tage.xml.gz
-Playlist-Kanaele gesamt: 18913
-Davon eindeutige Namen (zeichengenau): 18527
-Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18448
-Name nicht zeichengenau in der XML: 9
-davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 9
+Playlist-Kanaele gesamt: 18763
+Davon eindeutige Namen (zeichengenau): 18377
+Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18299
+Name nicht zeichengenau in der XML: 10
+davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 10
 
 == Je Playlist-Kategorie (nicht zuordenbar / nur abweichende Schreibweise) ==
     7 /     0  UK| GAA GO PPV
     1 /     0  DE| STAIGE PPV
-    1 /     0  |EN| CLASSIC SERIES
+    1 /     0  HR| CROATIA ⱽᴵᴾ ᴿᴬᵂ
+    1 /     0  US| PRIME
 
 == Mehrfach vorkommende Playlist-Namen (358) - ein Player zaehlt sie nur einmal ==
    2x #### APPLE TV F1 PPV ####
@@ -155,15 +156,15 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x End | Eneco Tour | 2. Etappe UCI Women Elite | Frauen | all | 15-10-2026 | 10:35 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
    2x Fite TV 19 HD (D)
    2x HR| NOVA TV ⱽᴵᴾ ᴿᴬᵂ
-   2x LIVE EVENT 01 - NO EVENT
-   2x LIVE EVENT 02 - NO EVENT
-   2x LIVE EVENT 03 - NO EVENT
-   2x LIVE EVENT 04 - NO EVENT
-   2x LIVE EVENT 05 - NO EVENT
-   2x LIVE EVENT 06 - NO EVENT
-   2x LIVE EVENT 07 - NO EVENT
-   2x LIVE EVENT 08 - NO EVENT
-   2x LIVE EVENT 09 - NO EVENT
+   2x LIVE EVENT 01 - 9:30am ONE Friday Fights 175 Lamsing v Rhenimi
+   2x LIVE EVENT 02 - 2pm True Grit Wrestling Last Rites
+   2x LIVE EVENT 03 - 6pm Bison Kombat 10
+   2x LIVE EVENT 04 - 6/8pm PFL Carmouche v Bishop 2
+   2x LIVE EVENT 05 - 8pm Brandrisk 016
+   2x LIVE EVENT 06 - 9pm Budo Sento Championship 37
+   2x LIVE EVENT 07 - 5:45pm Super DIRTcar Series Brockville
+   2x LIVE EVENT 08 - 6:15pm World of Outlaws Sprint Cars Lincoln
+   2x LIVE EVENT 09 - 7pm High Limit Racing Texas
    2x LIVE EVENT 11 - NO EVENT
    2x LIVE EVENT 12 - NO EVENT
    2x LIVE EVENT 13 - NO EVENT
@@ -223,5 +224,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    GaaTv 07:  Sun 16:00 | Down: Burren v Clonduff
 -- DE| STAIGE PPV (1)
    NEXT | GENTOFTE VOLLEY - KSV (1. DIVISION KVINDER) | Sun 04 Oct 14:25 CEST (DK) | 8K EXCLUSIVE | DK: DIREKTE SPORT PPV 127
--- |EN| CLASSIC SERIES (1)
-   EN - The Incredible Hulk (1977) S02 E11
+-- HR| CROATIA ⱽᴵᴾ ᴿᴬᵂ (1)
+   HR| ZDRAVA TV ⱽᴵ ᴿᴬᵂ
+-- US| PRIME (1)
+   PRIME| MAVERICK BLACK CINEMA ᴬᵂ
