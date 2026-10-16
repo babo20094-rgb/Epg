@@ -3027,3 +3027,65 @@ def ids_auf_playlist_einschraenken(varianten, playlist_namen, min_namen, sonder_
         v for v in varianten
         if v in playlist_namen or (immer_regex is not None and immer_regex.search(v))
     ]
+
+
+# ----------------------------------------------------------
+# QUELLEN-ÜBERWACHUNG (Oktober 2026)
+# Anlass: rtvbn.tv hat sein HTML-Layout geändert, der Parser fand 0
+# Sendungen, und das fiel erst auf, als der Nutzer Platzhalter sah.
+# Vergleicht die Zahl der Sender mit echten Daten je Quelle mit der
+# letzten "guten" Referenz und meldet Einbrüche.
+# ----------------------------------------------------------
+def quellen_gesundheit_pruefen(status_alt, zaehler_neu, jetzt_iso,
+                               min_referenz=3, schwelle=0.5, max_tage=14):
+    """Liefert (status_neu, warnungen).
+
+    status_alt: {quelle: {"referenz": n, "zuletzt_ok": iso, "aktuell": n}}
+    zaehler_neu: {quelle: anzahl_sender_mit_echten_daten} dieses Laufs.
+
+    Eine Quelle ist auffällig, wenn sie zuletzt mindestens `min_referenz`
+    Sender lieferte und jetzt unter `schwelle` * Referenz liegt (auch bei
+    0 / komplett fehlender Quelle). Die Referenz bleibt dann auf dem
+    letzten guten Wert stehen (damit ein dauerhafter Ausfall nicht
+    "normal" wird); nach `max_tage` Tagen Auffälligkeit gilt der neue Wert
+    als gewollte Änderung (z.B. Sender aus sender.txt entfernt) und wird
+    zur neuen Referenz. Wirft nie bei kaputtem status_alt."""
+    from datetime import datetime
+    if not isinstance(status_alt, dict):
+        status_alt = {}
+    status_neu = {}
+    warnungen = []
+    try:
+        jetzt = datetime.fromisoformat(jetzt_iso)
+    except Exception:
+        jetzt = None
+    for quelle in sorted(set(status_alt) | set(zaehler_neu)):
+        alt = status_alt.get(quelle)
+        alt = alt if isinstance(alt, dict) else {}
+        try:
+            referenz = int(alt.get("referenz", 0))
+        except Exception:
+            referenz = 0
+        zuletzt_ok = alt.get("zuletzt_ok") or jetzt_iso
+        aktuell = int(zaehler_neu.get(quelle, 0))
+        auffaellig = referenz >= min_referenz and aktuell < referenz * schwelle
+        if auffaellig and jetzt is not None:
+            try:
+                tage = (jetzt - datetime.fromisoformat(zuletzt_ok)).days
+            except Exception:
+                tage = 0
+            if tage >= max_tage:
+                auffaellig = False
+        if auffaellig:
+            warnungen.append(
+                f"{quelle}: {aktuell} Sender statt zuletzt {referenz} "
+                f"(letzter guter Lauf: {zuletzt_ok[:16].replace('T', ' ')} UTC)"
+            )
+        else:
+            referenz = aktuell
+            zuletzt_ok = jetzt_iso
+        if referenz or aktuell:
+            status_neu[quelle] = {
+                "referenz": referenz, "zuletzt_ok": zuletzt_ok, "aktuell": aktuell,
+            }
+    return status_neu, warnungen

@@ -7504,3 +7504,26 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
 - Lehre: Bei "nur Platzhalter" einer Einzel-Quelle zuerst pruefen, ob die
   Quellseite ihr HTML-Layout geaendert hat (Log-Zeile "rtvbn.tv-EPG: ...
   N Sendungen geladen" zeigt 0).
+
+## Quellen-Überwachung + Playlist-Namen-Cache (Oktober 2026)
+
+- Anlass: rtvbn.tv-Layoutänderung blieb unbemerkt (Parser fand 0
+  Sendungen), außerdem schrieb ein Ausfall der Anbieter-Playlist alle
+  ~50.000 ID-Varianten (Lauf ~15 statt ~8 Min.).
+- **Quellen-Überwachung:** `epg_lib.quellen_gesundheit_pruefen()` vergleicht
+  am Lauf-Ende die Sender-Zahl je Quelle (`echte_quelle_zaehler`) mit der
+  letzten guten Referenz (`Quellen_Status.json`, vom Workflow committet).
+  Einbruch unter 50 % (Referenz >= 3) -> Eintrag in `Quellen_Warnungen.txt`
+  + gelbe `::warning`-Zeile im Actions-Log. Nach 14 Tagen Auffälligkeit
+  wird der neue Wert zur Referenz (gewollte Änderung). Lauf bleibt grün.
+- **Layout-Verdacht:** `quellen/_status.py` (`parser_meldung()`), bisher
+  angebunden an rtvbn.tv, grand.rs, rtvslon: "Seite geladen, Parser findet
+  0 Zeilen". Weitere HTML-Quellen bei Bedarf einzeln anbinden (nicht bei
+  Quellen mit legitim leeren Tagen, z. B. Blagovesti pro Tag).
+- **Playlist-Namen-Cache:** bei jedem erfolgreichen Abruf wird die
+  Namensliste in `playlist_namen_cache.json.gz` gesichert (nur
+  GitHub-Actions-Cache `actions/cache@v4`, nicht im Repo, in `.gitignore`).
+  Fällt der Abruf aus, nutzt `_auf_playlist_ids_einschraenken()` den Stand
+  des letzten erfolgreichen Laufs (max. 14 Tage alt), Log: "Playlist-Namen-
+  Cache: ...". Live-Event-Titel (NAME:-Kanäle) kommen weiter nur aus dem
+  aktuellen Abruf.

@@ -25,7 +25,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 import requests
-from quellen import _http
+from quellen import _http, _status
 from zoneinfo import ZoneInfo
 
 URL = "https://grand.rs/tv-program/"
@@ -150,6 +150,7 @@ def _alle_tage_laden():
                 "stop": stop,
             })
 
+        _status.parser_meldung("grand.rs", len(html), len(programme))
         print(f"Grand-TV-EPG (grand.rs): {len(programme)} Sendungen geladen.")
         _programme_cache = programme
         return programme

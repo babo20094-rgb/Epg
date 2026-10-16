@@ -43,6 +43,18 @@ jobs:
         run: |
           python -m pytest test_generate_epg.py -v
 
+      # Zuletzt erfolgreich geladene Namensliste der Anbieter-Playlist:
+      # faellt der Anbieter aus, bleiben die ID-Varianten eingeschraenkt
+      # (kleinere XML, kurze Laufzeit) statt alle ~50.000 zu schreiben.
+      # Liegt NUR im Actions-Cache, nicht im Repo.
+      - name: Restore Playlist-Namen-Cache
+        uses: actions/cache@v4
+        with:
+          path: playlist_namen_cache.json.gz
+          key: playlist-namen-${{ github.run_id }}
+          restore-keys: |
+            playlist-namen-
+
       - name: Generate EPG
         env:
           PROVIDER: ${{ secrets.PROVIDER }}
@@ -57,6 +69,7 @@ jobs:
           git rm --cached --ignore-unmatch Epg_365_Tage.xml > /dev/null
           git add Epg_365_Tage.xml.gz
           git add Zuordnung_Luecken.txt || true
+          git add Quellen_Status.json Quellen_Warnungen.txt || true
 
           if git diff --cached --quiet; then
             echo "Keine Änderungen."

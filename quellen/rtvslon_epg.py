@@ -31,7 +31,7 @@ import html
 import re
 
 import requests
-from quellen import _http
+from quellen import _http, _status
 
 from epg_lib import normalisiere_sendername
 
@@ -110,6 +110,7 @@ def _seite_laden():
                 roh.append({"title": kern, "beschreibung": beschreibung, "start": start})
 
         roh.sort(key=lambda e: e["start"])
+        _status.parser_meldung("rtvslon", len(text), len(roh))
         _programme_cache = roh
         return roh
     except Exception as e:

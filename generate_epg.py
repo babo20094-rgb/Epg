@@ -2,6 +2,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from xml.sax.saxutils import escape as _sax_escape
 import gzip
+import json
 import os
 import re
 import resource
@@ -52,10 +53,11 @@ def escape(text, *args, **kwargs):
         return _sax_escape(text, {'"': "&quot;", "\t": "&#9;", "\n": "&#10;", "\r": "&#13;"})
     return _sax_escape(text, *args, **kwargs)
 
+from quellen import _status as _quellen_status
 from epg_lib import (
     playlist_exakte_namen_sammeln, ids_auf_playlist_einschraenken,
     playlist_kanaele_sammeln, xml_kanal_namen, zuordnung_luecken_bericht,
-    abgedeckte_minuten,
+    abgedeckte_minuten, quellen_gesundheit_pruefen,
     KATEGORIEN, KATEGORIE_PRIORITAET,
     DE_STANDARD, EXYU_STANDARD, EN_STANDARD,
     EXYU_LAENDER, UK_LAENDER, US_LAENDER, EN_LAENDER,
@@ -449,9 +451,63 @@ _PLAYLIST_EXAKTE_NAMEN = frozenset()
 _PLAYLIST_KANAELE = []  # [{"name", "gruppe"}] fuer Zuordnung_Luecken.txt
 
 
+# ----------------------------------------------------------
+# AUSFALL-SCHUTZ: faellt der Playlist-Abruf des Anbieters aus, blieben
+# bisher ALLE ~50.000 ID-Varianten stehen (groessere XML, Lauf ~15 statt
+# ~8 Min.). Deshalb wird bei jedem erfolgreichen Abruf die Namensliste
+# lokal gesichert (GitHub-Actions-Cache, NICHT im Repo - siehe
+# update_epg.yml) und bei einem Ausfall die zuletzt erfolgreiche Liste
+# (max. PLAYLIST_NAMEN_CACHE_MAX_TAGE alt) fuer die ID-Einschraenkung
+# weiterverwendet. NUR die Namensliste: Live-Event-Titel (NAME:-Kanaele)
+# kommen weiterhin ausschliesslich aus dem aktuellen Abruf, damit keine
+# veralteten Titel als aktuell erscheinen.
+# ----------------------------------------------------------
+PLAYLIST_NAMEN_CACHE_DATEI = os.environ.get("PLAYLIST_NAMEN_CACHE", "playlist_namen_cache.json.gz")
+PLAYLIST_NAMEN_CACHE_MAX_TAGE = 14
+_playlist_cache_versucht = False
+_PLAYLIST_NAMEN_AUS_CACHE = None  # ISO-Zeit des Cache-Standes, falls verwendet
+
+
+def _playlist_namen_cache_speichern(namen):
+    try:
+        if len(namen) < _PLAYLIST_MIN_NAMEN:
+            return
+        with gzip.open(PLAYLIST_NAMEN_CACHE_DATEI, "wt", encoding="utf-8") as f:
+            json.dump({"zeit": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                       "namen": sorted(namen)}, f, ensure_ascii=False)
+    except Exception as e:
+        print(f"Playlist-Namen-Cache: Speichern fehlgeschlagen ({e}).")
+
+
+def _playlist_namen_cache_laden_falls_noetig():
+    """Einmal pro Lauf: ist die Live-Namensliste zu klein/leer, die
+    gesicherte Liste des letzten erfolgreichen Abrufs verwenden."""
+    global _PLAYLIST_EXAKTE_NAMEN, _playlist_cache_versucht, _PLAYLIST_NAMEN_AUS_CACHE
+    if _playlist_cache_versucht:
+        return
+    _playlist_cache_versucht = True
+    try:
+        if not os.path.exists(PLAYLIST_NAMEN_CACHE_DATEI):
+            print("Playlist-Namen-Cache: keiner vorhanden - alle ID-Varianten bleiben.")
+            return
+        with gzip.open(PLAYLIST_NAMEN_CACHE_DATEI, "rt", encoding="utf-8") as f:
+            daten = json.load(f)
+        alter = datetime.now(timezone.utc) - datetime.fromisoformat(daten["zeit"])
+        namen = frozenset(daten["namen"])
+        if alter.days > PLAYLIST_NAMEN_CACHE_MAX_TAGE or len(namen) < _PLAYLIST_MIN_NAMEN:
+            print(f"Playlist-Namen-Cache: zu alt/zu klein ({alter.days} Tage, {len(namen)} Namen) - nicht verwendet.")
+            return
+        _PLAYLIST_EXAKTE_NAMEN = namen
+        _PLAYLIST_NAMEN_AUS_CACHE = daten["zeit"]
+        print(f"Playlist-Namen-Cache: Anbieter-Playlist nicht geladen - verwende Stand vom {daten['zeit']} ({len(namen)} Namen).")
+    except Exception as e:
+        print(f"Playlist-Namen-Cache: Laden fehlgeschlagen ({e}) - alle ID-Varianten bleiben.")
+
+
 def _playlist_exakte_namen_registrieren(m3u_text):
     global _PLAYLIST_EXAKTE_NAMEN, _PLAYLIST_KANAELE
     _PLAYLIST_EXAKTE_NAMEN = playlist_exakte_namen_sammeln(m3u_text)
+    _playlist_namen_cache_speichern(_PLAYLIST_EXAKTE_NAMEN)
     try:
         _PLAYLIST_KANAELE = playlist_kanaele_sammeln(m3u_text)
     except Exception:
@@ -466,6 +522,8 @@ _STANDARD_ID_REGEX = re.compile(r"^[A-Za-z]{2,5}\| \S")
 
 
 def _auf_playlist_ids_einschraenken(varianten):
+    if len(_PLAYLIST_EXAKTE_NAMEN) < _PLAYLIST_MIN_NAMEN:
+        _playlist_namen_cache_laden_falls_noetig()
     return ids_auf_playlist_einschraenken(
         varianten, _PLAYLIST_EXAKTE_NAMEN, _PLAYLIST_MIN_NAMEN, _SONDER_LEERRAUM,
         _STANDARD_ID_REGEX,
@@ -6766,6 +6824,45 @@ if echte_quelle_zaehler:
         print(f"  {quelle}: {anzahl} Sender")
         print()
 
+# ----------------------------------------------------------
+# QUELLEN-UEBERWACHUNG: Einbruch der Sender-Zahl je Quelle gegenueber dem
+# letzten guten Lauf + "Seite geladen, Parser findet 0 Zeilen" (= Layout
+# vermutlich geaendert). Nur Berichte, aendert nie die EPG-Daten; jeder
+# Fehler hier wird verschluckt (siehe epg_lib.quellen_gesundheit_pruefen).
+# ----------------------------------------------------------
+def _quellen_ueberwachung():
+    jetzt_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    try:
+        with open("Quellen_Status.json", encoding="utf-8") as f:
+            status_alt = json.load(f)
+    except Exception:
+        status_alt = {}
+    status_neu, warnungen = quellen_gesundheit_pruefen(status_alt, dict(echte_quelle_zaehler), jetzt_iso)
+    layout = [
+        f"{q}: Seite geladen ({z} Zeichen), aber 0 Zeilen gefunden - Layout vermutlich geaendert"
+        for q, z in _quellen_status.layout_verdacht()
+    ]
+    zeilen = [f"Quellen-Warnungen (Stand {jetzt_iso} UTC)"]
+    zeilen += [f"AUFFAELLIG: {w}" for w in warnungen]
+    zeilen += [f"LAYOUT: {w}" for w in layout]
+    if len(zeilen) == 1:
+        zeilen.append("Keine Auffaelligkeiten.")
+    with open("Quellen_Warnungen.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(zeilen) + "\n")
+    with open("Quellen_Status.json", "w", encoding="utf-8") as f:
+        json.dump(status_neu, f, ensure_ascii=False, indent=0, sort_keys=True)
+    for w in warnungen:
+        print(f"::warning title=Quelle liefert deutlich weniger::{w}")
+    for w in layout:
+        print(f"::warning title=Quelle Layout geaendert?::{w}")
+    print(f"Quellen-Ueberwachung: {len(warnungen)} auffaellige Quellen, {len(layout)} Layout-Verdacht.")
+
+
+try:
+    _quellen_ueberwachung()
+except Exception as _e:
+    print(f"Quellen-Ueberwachung: fehlgeschlagen ({_e}).")
+
 if _name_kern_automatisch_bereinigt or _name_kern_duplikate_uebersprungen:
     print(
         f"NAME:-Datenmuell automatisch bereinigt: {_name_kern_automatisch_bereinigt} "
@@ -6784,6 +6881,8 @@ def _playlist_id_statistik():
     if len(namen) < _PLAYLIST_MIN_NAMEN:
         print("Playlist-genaue IDs: Playlist nicht (vollstaendig) geladen - keine Einschraenkung moeglich, alle Varianten bleiben.")
         return
+    if _PLAYLIST_NAMEN_AUS_CACHE:
+        print(f"::warning title=Anbieter-Playlist nicht geladen::ID-Einschraenkung nutzt gesicherte Namensliste vom {_PLAYLIST_NAMEN_AUS_CACHE}")
     vorher = nachher = 0
     for daten in sender_daten:
         roh = _kanal_id_varianten_ungefiltert(daten["kanal"])

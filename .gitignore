@@ -3,3 +3,4 @@ __pycache__/
 .pytest_cache/
 Epg_365_Tage.xml
 debug_log.txt
+playlist_namen_cache.json.gz

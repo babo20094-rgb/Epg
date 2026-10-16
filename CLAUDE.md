@@ -253,6 +253,11 @@ per `/movie/`-/`/series/`-URL), deren Name NICHT in der XML steht - das sind
 die Sender, die ein Player (TiviMate) beim Neueintragen der EPG-URL nicht
 automatisch zuordnet. Logik: `epg_lib.zuordnung_luecken_bericht()`. Bei
 "viele Zuordnungen fehlen"-Meldungen zuerst diese Datei ansehen.
+Zusätzlich schreibt jeder Lauf `Quellen_Warnungen.txt` (+ Referenz in
+`Quellen_Status.json`): Quellen, deren Sender-Zahl gegenüber dem letzten
+guten Lauf eingebrochen ist oder deren Seite geladen wurde, der Parser aber
+0 Zeilen fand (Layout geändert). Bei "Sender X zeigt nur Platzhalter" dort
+zuerst nachsehen (Details: `docs/HISTORIE.md`).
 
 **sender.txt-Zeilenformate:**
 - `Land|Sender|Beschreibung|Logo` - Standardformat.

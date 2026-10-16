@@ -36,7 +36,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 import requests
-from quellen import _http
+from quellen import _http, _status
 from zoneinfo import ZoneInfo
 
 URL = "https://rtvbn.tv/program"
@@ -180,6 +180,7 @@ def _alle_tage_laden():
                 })
             ergebnis[ueberschrift] = programme
 
+        _status.parser_meldung("rtvbn.tv", len(html), sum(len(p) for p in ergebnis.values()))
         print("rtvbn.tv-EPG: " + ", ".join(f"{u}: {len(p)}" for u, p in ergebnis.items()) + " Sendungen geladen.")
         _programme_cache = ergebnis
         return ergebnis

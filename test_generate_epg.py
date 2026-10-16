@@ -2819,3 +2819,45 @@ def test_rtvbn_parser_neues_layout(monkeypatch):
     assert daten["Program BN"][0]["title"] in ("Folklor magazin", "Dnevnik")
     assert any("Muzicki program" in p["beschreibung"] for p in daten["Program BN"])
     monkeypatch.setattr(rtvbn_epg, "_programme_cache", None)
+
+
+# --- Quellen-Ueberwachung ---
+
+def test_quellen_gesundheit_einbruch_wird_gemeldet():
+    from epg_lib import quellen_gesundheit_pruefen
+    alt = {"BN (rtvbn.tv)": {"referenz": 5, "zuletzt_ok": "2026-10-14T01:00:00+00:00", "aktuell": 5}}
+    neu, warn = quellen_gesundheit_pruefen(alt, {}, "2026-10-15T01:00:00+00:00")
+    assert len(warn) == 1 and "BN (rtvbn.tv)" in warn[0]
+    assert neu["BN (rtvbn.tv)"]["referenz"] == 5  # Referenz bleibt auf letztem guten Wert
+
+
+def test_quellen_gesundheit_normal_und_kleine_quellen_still():
+    from epg_lib import quellen_gesundheit_pruefen
+    alt = {"A": {"referenz": 100, "zuletzt_ok": "2026-10-14T01:00:00+00:00", "aktuell": 100},
+           "B": {"referenz": 2, "zuletzt_ok": "2026-10-14T01:00:00+00:00", "aktuell": 2}}
+    neu, warn = quellen_gesundheit_pruefen(alt, {"A": 80, "B": 0}, "2026-10-15T01:00:00+00:00")
+    assert warn == []  # A nur -20 %, B unter min_referenz
+    assert neu["A"]["referenz"] == 80
+
+
+def test_quellen_gesundheit_dauerhaft_wird_neue_referenz():
+    from epg_lib import quellen_gesundheit_pruefen
+    alt = {"A": {"referenz": 50, "zuletzt_ok": "2026-09-01T00:00:00+00:00", "aktuell": 0}}
+    neu, warn = quellen_gesundheit_pruefen(alt, {"A": 10}, "2026-10-15T00:00:00+00:00")
+    assert warn == [] and neu["A"]["referenz"] == 10
+
+
+def test_quellen_gesundheit_kaputter_status_wirft_nicht():
+    from epg_lib import quellen_gesundheit_pruefen
+    neu, warn = quellen_gesundheit_pruefen("kaputt", {"A": 3}, "kein-datum")
+    assert warn == [] and neu["A"]["aktuell"] == 3
+
+
+def test_parser_layout_verdacht():
+    from quellen import _status
+    _status._meldungen.clear()
+    _status.parser_meldung("ok", 90000, 120)
+    _status.parser_meldung("kaputt", 180000, 0)
+    _status.parser_meldung("leer", 100, 0)  # zu kleine Seite = kein Layout-Verdacht
+    assert _status.layout_verdacht() == [("kaputt", 180000)]
+    _status._meldungen.clear()
