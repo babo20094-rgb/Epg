@@ -1,0 +1,48 @@
+name: Probe mts.rs
+
+# Einmaliger Test (nur manuell): schreibt die ROHZEITEN von mts.rs fuer ein
+# paar Kanaele ins Log, um den Zeitversatz (2-4 h) bei RS-Sendern zu
+# verstehen. Aendert nichts, committet nichts. Nach dem Test wieder loeschen.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Rohzeiten von mts.rs ausgeben
+        run: |
+          python - <<'PY'
+          import re
+          from datetime import datetime, timezone
+          from zoneinfo import ZoneInfo
+          from quellen import mts_epg as m
+
+          print("Jetzt UTC:", datetime.now(timezone.utc).isoformat(timespec="seconds"))
+          print("Jetzt Belgrad:", datetime.now(ZoneInfo("Europe/Belgrade")).isoformat(timespec="seconds"))
+          heute = datetime.now(ZoneInfo("Europe/Belgrade"))
+          produkte = m._hole_tagesdaten(heute)
+          print("Kanaele bei mts.rs heute:", len(produkte))
+          wanted = re.compile(r"^(HBO( HD)?|HBO 2( HD)?|AMC( HD)?|RTS 1( HD)?|Pink Film|Euro Cinema 1)$", re.I)
+          shown = 0
+          for p in produkte:
+              name = str(p.get("name") or p.get("title") or "")
+              if not wanted.match(name.strip()):
+                  continue
+              progs = p.get("programs") or []
+              print("=== Kanal:", repr(name), "code:", p.get("code"), "Sendungen:", len(progs))
+              for s in progs[:4]:
+                  print("  roh start:", repr(s.get("start")), "| roh end:", repr(s.get("end")),
+                        "| Titel:", s.get("title"))
+                  print("    von unserem Parser ->", m._zeit_parsen(s.get("start")))
+              shown += 1
+          print("Gezeigte Kanaele:", shown)
+          if shown == 0:
+              print("Namen-Beispiele:", [str(p.get("name")) for p in produkte[:15]])
+              print("Schluessel eines Kanals:", sorted(produkte[0].keys()) if produkte else None)
+          PY
