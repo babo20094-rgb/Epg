@@ -1,14 +1,14 @@
 Zuordnungs-Luecken: Playlist-Kanaele ohne passenden Namen in Epg_365_Tage.xml.gz
-Playlist-Kanaele gesamt: 18912
-Davon eindeutige Namen (zeichengenau): 18526
-Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18447
+Playlist-Kanaele gesamt: 18913
+Davon eindeutige Namen (zeichengenau): 18527
+Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18448
 Name nicht zeichengenau in der XML: 9
 davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 9
 
 == Je Playlist-Kategorie (nicht zuordenbar / nur abweichende Schreibweise) ==
     7 /     0  UK| GAA GO PPV
-    1 /     0  24/7 ONEPLAY
     1 /     0  DE| STAIGE PPV
+    1 /     0  |EN| CLASSIC SERIES
 
 == Mehrfach vorkommende Playlist-Namen (358) - ein Player zaehlt sie nur einmal ==
    2x #### APPLE TV F1 PPV ####
@@ -221,7 +221,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    GaaTv 05: Sun 15:30 | Leitrim: Ballinamore v Fenagh
    GaaTv 06:  Sun 15:30 | Sligo: Shamrock Gaels v St. Marys
    GaaTv 07:  Sun 16:00 | Down: Burren v Clonduff
--- 24/7 ONEPLAY (1)
-   EN| ONEPLAY Oggy ᴰ
 -- DE| STAIGE PPV (1)
    NEXT | GENTOFTE VOLLEY - KSV (1. DIVISION KVINDER) | Sun 04 Oct 14:25 CEST (DK) | 8K EXCLUSIVE | DK: DIREKTE SPORT PPV 127
+-- |EN| CLASSIC SERIES (1)
+   EN - The Incredible Hulk (1977) S02 E11
