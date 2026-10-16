@@ -138,6 +138,12 @@ _WHITELIST = {
     # "RS|DISCOVERY XTRA" ist laut Nutzer (Oktober 2026) in Wahrheit "ID
     # Xtra" (im Bild nur das Logo "ID" oben links) - der Anbieter
     # beschriftet den Kanal falsch. Gleicher RS1-Kanal wie "ID Xtra HD".
+    # "RS|CRIME & INVESTIGATION NETWORK" (Nutzer, Oktober 2026, Referenz
+    # bigtv.rs): RS1-Kanal "Crime & Investigation (RS)" mit den (+0000-
+    # beschrifteten, korrekten) Zeiten - 16.10.2026 "Upoznaj, oženi, ubij"
+    # 11:50-12:30 UTC = 13:50 Uhr, exakt wie bei bigtv.rs. NICHT den Kanal
+    # "Crime and Investigation" (.rs, +0200-beschriftet, ca. 2 h versetzt).
+    normalisiere_sendername("CRIME & INVESTIGATION NETWORK"): ("RS", "Crime.&.Investigation.(RS).rs"),
     normalisiere_sendername("Discovery Xtra"): ("RS", "ID.Xtra.HD.rs"),
     normalisiere_sendername("ID Xtra HD"): ("RS", "ID.Xtra.HD.rs"),
     # "NOVA BH BACKUP" (BA) - eigener sender.txt-Name, NICHT identisch

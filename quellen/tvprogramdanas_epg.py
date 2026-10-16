@@ -87,6 +87,16 @@ _seiten_cache = {}
 # benannten Kanal wie "Arena Esport" ausweichen - der Guard verhindert
 # das unabhaengig vom Inhalt der Kanalliste.
 _ARENA_SPORT_GUARD = re.compile(r"^ARENA\s*SPORT\b", re.IGNORECASE)
+
+# Der Anbieter beschriftet "RS| DISCOVERY SHOWCASE HD", es ist aber HGTV
+# (Oktober 2026, Nutzer hat ihn in TiviMate in "RS| HGTV HD" umbenannt).
+# tvprogramdanas.net fuehrt den Kanal als "HGTV" - der Alias sorgt dafuer,
+# dass auch die automatische Zuordnung ueber den falschen Anbieter-Namen
+# das HGTV-Programm zeigt (mts.rs hat HGTV nicht, der fruehere Alias dort
+# wirkte nie).
+_BEKANNTE_ALIASE = {
+    normalisiere_sendername("Discovery Showcase HD"): "HGTV",
+}
 _SPORT_KLUB_GUARD = re.compile(r"^SPORT\s*KLUB\b", re.IGNORECASE)
 # "SK N"/"SK Esports"/"SK Fight"/"SK Golf" (eigene sender.txt-Konvention
 # fuer Sport Klub, siehe sportklub_epg.py) - dieselbe Sperre wie fuer
@@ -146,6 +156,8 @@ def tvprogramdanas_kanal_finden(kanalname):
     kanaele = tvprogramdanas_hole_kanalliste()
     if not kanaele:
         return None
+
+    kanalname = _BEKANNTE_ALIASE.get(normalisiere_sendername(kanalname), kanalname)
 
     if _ARENA_SPORT_GUARD.match(kanalname.strip()):
         return None

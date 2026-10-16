@@ -2988,3 +2988,14 @@ def test_dyn_zuweisung_kaputte_alte_zuordnung():
     from epg_lib import dyn_kanaele_stabil_zuweisen
     neu, erg = dyn_kanaele_stabil_zuweisen([_dyn_ev(10, 2, "A")], "kaputt", 20)
     assert len(erg) == 1
+
+
+def test_open_epg_crime_investigation_network_rs1():
+    from quellen.open_epg_epg import open_epg_kanal_finden
+    assert open_epg_kanal_finden(" CRIME & INVESTIGATION NETWORK") == ("RS", "Crime.&.Investigation.(RS).rs")
+
+
+def test_tvprogramdanas_alias_discovery_showcase_ist_hgtv(monkeypatch):
+    from quellen import tvprogramdanas_epg as danas
+    monkeypatch.setattr(danas, "tvprogramdanas_hole_kanalliste", lambda: [{"slug": "hgtv", "name": "HGTV"}])
+    assert danas.tvprogramdanas_kanal_finden("DISCOVERY SHOWCASE HD") == "hgtv"

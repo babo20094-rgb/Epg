@@ -7673,3 +7673,32 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   Programm (z. B. HBO, AMC) gegenprüfen. Weicht es um 1-2 h ab, ist die
   Korrektur in `_zeit_parsen()` anzupassen (fester Versatz statt doppeltem
   Offset).
+
+## Lauf 1014 (16.10.2026, 17:56-18:04 UTC) ausgewertet + zwei Korrekturen
+
+- Lauf grün, 7:34 min, 19.999 Sender, **Quellen-Überwachung: 0 auffällige
+  Quellen, 0 Layout-Verdacht**, TvProgram.rs wieder normal (3,4 s statt 194 s),
+  Playlist-Namen-Cache gespeichert (`playlist-namen-<run>`, 2,3 MB).
+  rtvbn.tv (BN 171 / BN2 182 / BN Music 102), idjtv.com (207), grand.rs,
+  Blagovesti liefern; im Lauf-Log "Echte Programmdaten pro Quelle" erscheinen
+  "BN (rtvbn.tv): 3" und "IDJ TV (idjtv.com): 3".
+- **Zwei meiner früheren Änderungen wirkten NICHT** (nur im echten Lauf
+  prüfbar, lokal war mts.rs/mtel.ba nicht erreichbar):
+  1. `RS| CRIME & INVESTIGATION NETWORK` über mtel.ba (`_MTEL_FUER_RS`): kein
+     Treffer, der Kanal blieb Platzhalter. mtel hat dort offenbar keine Daten
+     (die MO-Zeile bekam sie aus epgshare01). Fix: Whitelist-Eintrag in
+     `open_epg_epg.py` -> RS1 `Crime.&.Investigation.(RS).rs` (Zeiten
+     verifiziert gegen bigtv.rs-Referenz des Nutzers); mtel-Block entfernt.
+  2. `RS| DISCOVERY SHOWCASE HD` (= HGTV): der mts-Alias half nicht, weil
+     mts.rs HGTV gar nicht führt - RS|HGTV HD bekommt seine Daten von
+     tvprogramdanas.net (Slug `hgtv`). Fix: Alias in `tvprogramdanas_epg.py`
+     (`_BEKANNTE_ALIASE`), mts-Alias entfernt.
+- **Lehre:** Eine neue Quelle/ein Alias erst als "fertig" melden, wenn der
+  nächste echte Lauf Daten für genau diese Sender zeigt (XML prüfen).
+- **Fund RS1-Zeitbeschriftung:** In `epg_ripper_RS1.xml.gz` sind die
+  `X.HD.(RS).rs`-Kanäle (+0000) korrekt, die gleichnamigen `X.rs`-Kanäle
+  (+0200-beschriftet, korrekt geparst) liegen ca. 2 h später. Bei Namens-
+  Kollisionen in `epgshare_balkan_epg._norm()` (135 Fälle) gewinnt der erste
+  Kanal der Datei - bei ca. 20 davon wäre das ein +0200-Kanal (u. a. Duna
+  World, Freedom, LOL, Pink Super Kids). Nicht angefasst, nur vermerkt;
+  prüfen, falls dort Zeitversatz gemeldet wird.
