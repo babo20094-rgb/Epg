@@ -129,6 +129,11 @@ _WHITELIST = {
     normalisiere_sendername("Star"): ("RS", "Star.rs"),
     normalisiere_sendername("STAR HD"): ("RS", "STAR.HD.(RS).rs"),
     normalisiere_sendername("LFCTV"): ("RS", "LFCTV.rs"),
+    # "RS|DISCOVERY XTRA" ist laut Nutzer (Oktober 2026) in Wahrheit "ID
+    # Xtra" (im Bild nur das Logo "ID" oben links) - der Anbieter
+    # beschriftet den Kanal falsch. Gleicher RS1-Kanal wie "ID Xtra HD".
+    normalisiere_sendername("Discovery Xtra"): ("RS", "ID.Xtra.HD.rs"),
+    normalisiere_sendername("ID Xtra HD"): ("RS", "ID.Xtra.HD.rs"),
     # "NOVA BH BACKUP" (BA) - eigener sender.txt-Name, NICHT identisch
     # mit "NOVA BH" (das laeuft schon ueber Telemach) - in derselben
     # RS1-Datei als "Nova BH HD (BIH)" gefunden, 137 Sendungen, bei

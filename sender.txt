@@ -17478,6 +17478,7 @@ PRIME| SHE-RA: PRINCESS OF POWER ᴿᴬᵂ|She-Ra: Princess Of Power ᴸⁱᵛ�
 PRIME| ROOKIE BLUE ᴿᴬᵂ|Rookie Blue ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/externe_logos_import/797743f16a600681fc6cb4f42349e7d3fe211b4f.png
 #EXYU| DOKUMENTARNI
 RS|HGTV HD|Hgtv Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/7dbb7c32c282d744.png
+RS|ID XTRA HD|Id Xtra Hd ᴸⁱᵛᵉ|https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/playlist_import/f068d2cb7058abac.png
 RS| CRIME & INVESTIGATION NETWORK||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/be6d00ae24566fa5262d555d281437fa456ac759.png
 RS| DISCOVERY CHANNEL||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ebb1b778c9ce5e8e42d7a77ed2224dfe81153557.png
 RS| DISCOVERY CHANNEL HD||https://raw.githubusercontent.com/babo20094-rgb/Epg/main/logos/m3uassets_import/ebb1b778c9ce5e8e42d7a77ed2224dfe81153557.png

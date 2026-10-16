@@ -7554,3 +7554,18 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   Zuordnung über den falschen Anbieter-Namen das richtige Programm zeigt.
 - Da "RS| HGTV HD" nicht in der Anbieter-Playlist steht, bleiben für diese
   Zeile alle ID-Varianten erhalten (Sicherheitsnetz der Playlist-IDs).
+
+## RS| DISCOVERY XTRA = ID Xtra (Oktober 2026)
+
+- Der Anbieter beschriftet den Kanal "RS| DISCOVERY XTRA", im Bild ist aber
+  nur das Logo "ID" zu sehen -> Sender ist "ID Xtra HD" (in epgshare01
+  RS1 und SBB/EON vorhanden). Fix: Whitelist-Eintrag in
+  `quellen/open_epg_epg.py` ("Discovery Xtra" und "ID Xtra HD" ->
+  `ID.Xtra.HD.rs`) + neue Zeile `RS|ID XTRA HD` unter `#EXYU| DOKUMENTARNI`
+  (für die in TiviMate umbenannte Variante).
+- `RS| DISCOVERY WORLD` bleibt offen: weder tvprogram.rs (Seite leer),
+  mts.rs, mtel.ba, epgshare01 RS1 noch SBB/EON (290 TV-Kanäle, geprüft
+  16.10.2026) führen den Kanal.
+- SBB/EON (epg.sbb.rs) wurde nur testweise abgerufen (anonymer Token aus dem
+  öffentlichen Seiten-JS, Kanalliste), nichts davon ist im Projekt eingebaut;
+  dieselben Daten kommen bereits über epgshare01 RS1 (SBB-Ripper).
