@@ -172,6 +172,12 @@ _BEKANNTE_ALIASE = {
     # exakten mts.rs-Namen, der unscharfe Abgleich liegt mit vertauschter
     # Wortreihenfolge ebenfalls unter dem 0.72-Cutoff (September 2026).
     normalisiere_sendername("Hram TV HD"): normalisiere_sendername("TV Hram"),
+    # Der Anbieter beschriftet seinen Kanal "RS| DISCOVERY SHOWCASE HD",
+    # es ist aber HGTV (Oktober 2026, Nutzer hat ihn in TiviMate in
+    # "RS| HGTV HD" umbenannt). Damit auch die automatische Zuordnung
+    # ueber den falschen Anbieter-Namen das richtige Programm zeigt,
+    # liefert der Showcase-Name hier die HGTV-Daten von mts.rs.
+    normalisiere_sendername("Discovery Showcase HD"): normalisiere_sendername("HGTV"),
 }
 
 

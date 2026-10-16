@@ -7527,3 +7527,30 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   des letzten erfolgreichen Laufs (max. 14 Tage alt), Log: "Playlist-Namen-
   Cache: ...". Live-Event-Titel (NAME:-Kanäle) kommen weiter nur aus dem
   aktuellen Abruf.
+
+## RS| CRIME & INVESTIGATION NETWORK über mtel.ba (Oktober 2026)
+
+- Nutzer nannte bigtv.rs/epg als echte Quelle. bigtv.rs liefert auf JEDE
+  Adresse `403 Access denied` (auch vom GitHub-Runner, Test-Workflow
+  `probe_bigtv.yml` am 16.10.2026, danach wieder gelöscht) -> als Quelle
+  unbrauchbar, Sperre wird nicht umgangen.
+- Der Kanal steht bei mtel.ba als "Crime & Investigation"
+  (`iptv#ch-crime-investigation`); die MO-Zeile hatte dort am 16.10.2026
+  exakt dieselben Titel/Zeiten wie bigtv.rs (gleicher Adria-Feed).
+- Lösung: kleiner Block in `generate_epg.py` (`_MTEL_FUER_RS`, Quelle
+  "RS via mtel.ba", Intervall-Registrierung `mtel_fuer_rs`). Weitere RS-
+  Sender mit identischem Feed bei Bedarf in die Tabelle eintragen.
+
+## RS| HGTV HD (Anbieter-Kanal "RS| DISCOVERY SHOWCASE HD" falsch beschriftet, Oktober 2026)
+
+- Der Anbieter nennt den Kanal "RS| DISCOVERY SHOWCASE HD", es ist aber
+  HGTV. Nutzer hat ihn in TiviMate in "RS| HGTV HD" umbenannt.
+- Fix: neue Zeile `RS|HGTV HD` ganz oben in `sender.txt` (gleiches Logo wie
+  `RS|HGTV`); die RS-Kaskade (mts.rs) matcht den Kern "HGTV" wie bei
+  `RS|HGTV ⱽᴵᴾ ᴿᴬᵂ`. Die Zeile steht unter dem Header `#EXYU| DOKUMENTARNI`.
+  Die alte Zeile `RS|DISCOVERY SHOWCASE HD` bleibt, bekommt aber über den
+  Alias in `quellen/mts_epg.py` (`_BEKANNTE_ALIASE`: "Discovery Showcase HD"
+  -> "HGTV") ebenfalls die HGTV-Daten, damit auch die automatische
+  Zuordnung über den falschen Anbieter-Namen das richtige Programm zeigt.
+- Da "RS| HGTV HD" nicht in der Anbieter-Playlist steht, bleiben für diese
+  Zeile alle ID-Varianten erhalten (Sicherheitsnetz der Playlist-IDs).

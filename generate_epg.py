@@ -651,6 +651,7 @@ _ECHTE_QUELLEN_INTERVALLE = {
     "ba_stanice": ["ba_stanice_intervalle"],
     "blagovesti": ["blagovesti_intervalle"],
     "rtvbn": ["rtvbn_intervalle"],
+    "mtel_fuer_rs": ["mtel_fuer_rs_intervalle"],
     "aljazeera_en": ["aljazeera_en_intervalle"],
     "makkahlive": ["makkahlive_intervalle"],
     "cinestar_action_rs": ["cinestar_action_rs_intervalle"],
@@ -6419,6 +6420,39 @@ for daten in sender_daten:
         _schreibe_echte_programme(daten, programme)
     else:
         pass  # log unterdrueckt: keine echten Programmdaten
+
+# ==========================================================
+# RS-Sender mit Daten von mtel.ba: derselbe pan-regionale Adria-Feed, den
+# mtel.ba fuer BA fuehrt (Vergleich 16.10.2026: Sendezeiten und Titel der
+# MO-Zeile "Crime & Investigation" stimmten exakt mit bigtv.rs ueberein -
+# bigtv.rs selbst sperrt Abrufe aus Rechenzentren, 403). Kein Praefix
+# noetig, nur Sender aus dieser Liste (RS-Name -> mtel.ba-Kanalname).
+# ==========================================================
+_MTEL_FUER_RS = {
+    normalisiere_sendername("CRIME & INVESTIGATION NETWORK"): "Crime & Investigation",
+}
+
+for daten in sender_daten:
+    if hat_aktive_echte_quelle(daten):
+        continue  # eine vorherige Quelle hat fuer diesen Sender bereits echte Daten geliefert
+    if daten.get("land") != "RS":
+        continue
+
+    programme = []
+    try:
+        mtel_name = _MTEL_FUER_RS.get(normalisiere_sendername(daten["sender"]))
+        if mtel_name:
+            mtel_site_id = mtel_kanal_finden(mtel_name)
+            if mtel_site_id is not None:
+                programme = mtel_hole_programme(mtel_site_id, MTEL_TAGE)
+    except Exception:
+        programme = []
+
+    daten["mtel_fuer_rs_intervalle"] = [(p["start"], p["stop"]) for p in programme]
+
+    if programme:
+        _echte_quelle_zaehlen("RS via mtel.ba")
+        _schreibe_echte_programme(daten, programme)
 
 # ==========================================================
 # GRAND TV: einzeln gepruefter, eigenstaendiger serbischer Sender
