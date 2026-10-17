@@ -7726,3 +7726,19 @@ Original-Stops stand -> Platzhalter. Fix: Vorab-Pruefung entfernt (Index ist
 immer aktuell), Regel gilt jetzt auch fuer `ARENA 1X2`. Noch ungeklaert:
 HR-Arena-Duplikate, `BA| ARENA SPORT 5 PREMIER LIGA` ohne Quelle.
 Erst nach naechstem Lauf verifizieren.
+
+## 17.10.2026: HR|ARENA SPORT 2 HD zeigte BA-Programm (Override entfernt)
+
+Der Nutzer meldete, dass `HR|ARENA SPORT 2 HD` das Programm von BA statt
+HR zeigte (live lief Frauen-Handball, angezeigt wurde Fussball
+Galatasaray). Ursache: der am 25.09.2026 bewusst angelegte Eintrag
+`("HR", "ARENA SPORT 2 HD"): ("TELEMACH_BA", ...)` in
+`_ARENA_QUELLEN_UEBERSCHREIBUNG` bog den Sender auf Telemach-BA-Daten
+um (damals lief unter dem HR-Praefix der BA-Feed). Der Anbieter hat das
+offenbar korrigiert: die kroatische Quelle (tvarenasport.hr, site_id 02)
+liefert im selben Zeitraum "Esbjerg - Brest, Liga prvaka Z"
+(Frauen-Handball) = was real laeuft. Fix: Eintrag entfernt, der Sender
+laeuft wieder ueber die normale HR-Kaskade (A1/MojMaxTV/Arena HR).
+Lehre: Overrides in `_ARENA_QUELLEN_UEBERSCHREIBUNG` haengen am
+Anbieter-Feed und koennen veralten - bei "falsches Land"-Meldungen
+zuerst diese Tabelle pruefen und die Live-Daten beider Laender vergleichen.

@@ -3941,7 +3941,6 @@ ba_stanice_sender = [d for d in sender_daten if d.get("ba_stanice")]
 # ==========================================================
 
 _ARENA_QUELLEN_UEBERSCHREIBUNG = {
-    ("HR", "ARENA SPORT 2 HD"): ("TELEMACH_BA", "ARENA SPORT 2 HD"),
     ("RS", "ARENA SPORT 4 HD"): ("TELEMACH_BA", "ARENA SPORT 4 HD"),
     ("RS", "ARENA SPORT 2 HD"): ("ARENA_HR", "ARENA SPORT 2 HD"),
     ("RS", "ARENA SPORT 3 FHD"): ("ARENA_HR", "ARENA SPORT 3 FHD"),
