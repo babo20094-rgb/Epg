@@ -1,13 +1,14 @@
 Zuordnungs-Luecken: Playlist-Kanaele ohne passenden Namen in Epg_365_Tage.xml.gz
-Playlist-Kanaele gesamt: 18912
-Davon eindeutige Namen (zeichengenau): 18527
-Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18448
-Name nicht zeichengenau in der XML: 8
-davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 8
+Playlist-Kanaele gesamt: 18913
+Davon eindeutige Namen (zeichengenau): 18528
+Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18449
+Name nicht zeichengenau in der XML: 9
+davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 9
 
 == Je Playlist-Kategorie (nicht zuordenbar / nur abweichende Schreibweise) ==
     7 /     0  UK| GAA GO PPV
     1 /     0  DE| STAIGE PPV
+    1 /     0  |EN| ENGLISH SERIES
 
 == Mehrfach vorkommende Playlist-Namen (357) - ein Player zaehlt sie nur einmal ==
    2x #### APPLE TV F1 PPV ####
@@ -141,7 +142,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x DE| VOX HD
    2x DE| ZDF HD
    2x DE| ZDFNEO HD
-   2x ENDED | ENECO TOUR | STAGE 3 | Fri 16 Oct 08:20 EDT (US) | 8K EXCLUSIVE | US: MAX PPV 1
+   2x ENDED | TOUR OF GUANGXI | STAGE 5 | Sat 17 Oct 01:10 EDT (US) | 8K EXCLUSIVE | US: MAX PPV 1
    2x EN| CHAPPELLES SHOW 4K
    2x EN| NETFLIX ACTION
    2x EN| NETFLIX CRIME
@@ -150,7 +151,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x EN| NETFLIX SCI-FI
    2x EN| NETFLIX WAR
    2x EN| VAN DAMME
-   2x End | 2026 Dongfeng Voyah Wuhan Open Tennis | all | 16-10-2026 | 13:00 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
+   2x End | 2026 Rolex Shanghai Masters Tennis | all | 17-10-2026 | 10:30 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
    2x Fite TV 19 HD (D)
    2x HR| NOVA TV ⱽᴵᴾ ᴿᴬᵂ
    2x LIVE EVENT 01 - 5pm UFC Fight Night Buckley v Malott
@@ -222,3 +223,5 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    GaaTv 07:  Sun 16:00 | Down: Burren v Clonduff
 -- DE| STAIGE PPV (1)
    NEXT | GENTOFTE VOLLEY - KSV (1. DIVISION KVINDER) | Sun 04 Oct 14:25 CEST (DK) | 8K EXCLUSIVE | DK: DIREKTE SPORT PPV 127
+-- |EN| ENGLISH SERIES (1)
+   EN - The Outer Limits (1995) S04 E26
