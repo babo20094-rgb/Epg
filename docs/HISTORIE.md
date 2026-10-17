@@ -7702,3 +7702,15 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
   Kanal der Datei - bei ca. 20 davon wäre das ein +0200-Kanal (u. a. Duna
   World, Freedom, LOL, Pink Super Kids). Nicht angefasst, nur vermerkt;
   prüfen, falls dort Zeitversatz gemeldet wird.
+
+## MK| ARENA M1-3: Titel in Lateinschrift (17.10.2026)
+
+- Nutzerwunsch: Programmdaten von tvarenasport.mk nicht kyrillisch, sondern in
+  "normaler Schreibweise". `epg_lib.kyrillisch_zu_latein()` transliteriert
+  (mazedonisch/serbisch: ѓ->gj, ќ->kj, љ->lj, њ->nj, џ->dž, ч->č, ш->š, ж->ž),
+  kapitalisiert ganz großgeschriebene Wörter normal und lässt Kürzel groß
+  (PSŽ, EHF, CSKA, LASK, UEFA, vokallose bis 4 Buchstaben). Angewendet auf
+  Titel, Sportart und Wettbewerb in `arenamk_epg.py`.
+- Hinweis: Die Umschrift ist rein lautlich, Fremdnamen erscheinen deshalb
+  phonetisch ("Mančester Siti", "Liverpul"), nicht in Originalschreibweise.
+  Eine Namensliste für bekannte Teams wäre ein möglicher Ausbau.

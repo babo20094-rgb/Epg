@@ -14,6 +14,11 @@ Siol-Kaskade slowenische Titel eines anderen Arena-Kanals, M2/M3 nur
 "No Data". Siol wird fuer diese Namen deshalb in generate_epg.py
 uebersprungen (`arenamk_kanal_finden()`).
 
+Die Seite liefert alles kyrillisch (mazedonisch, Titel in Grossbuchstaben) -
+Titel/Sportart/Wettbewerb werden per epg_lib.kyrillisch_zu_latein() in
+lateinische Schrift mit normaler Gross-/Kleinschreibung umgewandelt
+(Nutzerwunsch Oktober 2026, z. B. "ЛАСК – ЛИВЕРПУЛ" -> "LASK – Liverpul").
+
 Wird nur EINMAL pro Lauf geladen und geparst (Modul-weiter Cache).
 Degradiert an JEDER Stelle graceful auf []/None statt zu werfen.
 """
@@ -25,6 +30,7 @@ import re
 
 import requests
 from quellen import _http, _status
+from epg_lib import kyrillisch_zu_latein
 from zoneinfo import ZoneInfo
 
 URL = "https://tvarenasport.mk/tv-program/"
@@ -89,15 +95,15 @@ def _html_parsen(html_text):
             vorher = -1
             for zeile in block[panel.end():ende].split(_ZEILE_TRENNER)[1:]:
                 zeit = _ZEIT_PATTERN.search(zeile)
-                titel = _text(_TITEL_PATTERN.search(zeile))
+                titel = kyrillisch_zu_latein(_text(_TITEL_PATTERN.search(zeile)))
                 if not zeit or not titel:
                     continue
                 minuten = int(zeit.group(1)) * 60 + int(zeit.group(2))
                 tag_versatz = 1 if minuten < vorher else 0  # nach Mitternacht
                 vorher = max(vorher, minuten)
                 start_lokal = (datum + timedelta(days=tag_versatz, minutes=minuten)).replace(tzinfo=TZ_SKOPJE)
-                sport = _text(_SPORT_PATTERN.search(zeile))
-                wettbewerb = _text(_COMP_PATTERN.search(zeile))
+                sport = kyrillisch_zu_latein(_text(_SPORT_PATTERN.search(zeile)))
+                wettbewerb = kyrillisch_zu_latein(_text(_COMP_PATTERN.search(zeile)))
                 zusatz = " | ".join(t for t in (sport, wettbewerb) if t)
                 roh.append((start_lokal, titel, f"{titel}: {zusatz}" if zusatz else titel))
 

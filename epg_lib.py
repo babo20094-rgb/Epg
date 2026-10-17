@@ -3171,3 +3171,54 @@ def dyn_kanaele_stabil_zuweisen(events, alt_zuordnung, anzahl_kanaele=20):
         neue[schluessel] = kanal
         ergebnis.append((kanal, ev))
     return neue, ergebnis
+
+
+# ----------------------------------------------------------
+# Kyrillisch -> Latein (mazedonisch/serbisch), Oktober 2026
+# Anlass: tvarenasport.mk liefert alle Titel kyrillisch; der Nutzer will
+# "normale Schreibweise" (Latein) wie bei den anderen Balkan-Quellen.
+# Ganz grossgeschriebene Woerter werden danach normal kapitalisiert, kurze
+# vokallose Woerter (Kuerzel wie "ПСЖ" -> "PSŽ") bleiben gross.
+# ----------------------------------------------------------
+_KYR_ZU_LAT = {
+    "а": "a", "б": "b", "в": "v", "г": "g", "д": "d", "ѓ": "gj", "е": "e",
+    "ж": "ž", "з": "z", "ѕ": "dz", "и": "i", "ј": "j", "к": "k", "л": "l",
+    "љ": "lj", "м": "m", "н": "n", "њ": "nj", "о": "o", "п": "p", "р": "r",
+    "с": "s", "т": "t", "ќ": "kj", "у": "u", "ф": "f", "х": "h", "ц": "c",
+    "ч": "č", "џ": "dž", "ш": "š", "ђ": "đ", "ћ": "ć",
+}
+
+
+_KYR_KUERZEL = {
+    "EHF", "CSKA", "LASK", "UEFA", "FIFA", "NBA", "NHL", "ATP", "WTA", "UFC",
+    "AC", "FK", "NK", "KK", "RK", "HC", "FC", "SC", "SK", "BK", "OFK", "TSV",
+}
+
+
+def kyrillisch_zu_latein(text):
+    """Transliteriert kyrillischen Text (mazedonisch/serbisch) in lateinische
+    Schrift. Nicht-kyrillische Zeichen bleiben unveraendert; ganz
+    grossgeschriebene Woerter werden normal kapitalisiert (kurze, vokallose
+    Kuerzel bleiben gross). Text ohne Kyrillisch kommt unveraendert zurueck."""
+    if not text or not any(z.lower() in _KYR_ZU_LAT for z in text):
+        return text
+
+    def wort_umsetzen(wort):
+        if not any(z.lower() in _KYR_ZU_LAT for z in wort):
+            return wort
+        buchstaben = [z for z in wort if z.isalpha()]
+        gross = bool(buchstaben) and all(z.isupper() for z in buchstaben)
+        lat = "".join(_KYR_ZU_LAT.get(z.lower(), z) if z.lower() in _KYR_ZU_LAT else z for z in wort)
+        if not gross:
+            # gemischte Schreibweise: grosse Anfangsbuchstaben erhalten (Digraphe -> "Lj")
+            ergebnis, i = [], 0
+            for z in wort:
+                m = _KYR_ZU_LAT.get(z.lower())
+                ergebnis.append((m.capitalize() if z.isupper() else m) if m else z)
+            return "".join(ergebnis)
+        kern = "".join(z for z in lat if z.isalpha())
+        if kern.upper() in _KYR_KUERZEL or (len(kern) <= 4 and not any(v in kern.lower() for v in "aeiou")):
+            return lat.upper()  # Kuerzel wie PSŽ, EHF, CSKA
+        return "-".join(t.capitalize() for t in lat.split("-"))
+
+    return " ".join(wort_umsetzen(w) for w in text.split(" "))

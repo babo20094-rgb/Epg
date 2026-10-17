@@ -2940,7 +2940,7 @@ def test_arenamk_parser():
     ergebnis, zeilen = arenamk_epg._html_parsen(html_text)
     assert zeilen == 3 and len(ergebnis["M2"]) == 3
     erste = ergebnis["M2"][0]
-    assert erste["title"] == "А – Б"
+    assert erste["title"] == "A – B"  # kyrillisch -> Latein
     # 20:00 Skopje (CEST) = 18:00 UTC; Dauer auf 3 h begrenzt, naechste Sendung 23:30
     assert erste["start"] == dt.datetime(2026, 10, 16, 18, 0, tzinfo=dt.timezone.utc)
     assert erste["stop"] == dt.datetime(2026, 10, 16, 21, 0, tzinfo=dt.timezone.utc)
@@ -2999,3 +2999,13 @@ def test_tvprogramdanas_alias_discovery_showcase_ist_hgtv(monkeypatch):
     from quellen import tvprogramdanas_epg as danas
     monkeypatch.setattr(danas, "tvprogramdanas_hole_kanalliste", lambda: [{"slug": "hgtv", "name": "HGTV"}])
     assert danas.tvprogramdanas_kanal_finden("DISCOVERY SHOWCASE HD") == "hgtv"
+
+
+def test_kyrillisch_zu_latein():
+    from epg_lib import kyrillisch_zu_latein as k
+    assert k("МАНЧЕСТЕР СИТИ – ПСЖ") == "Mančester Siti – PSŽ"
+    assert k("ЛАСК – ЛИВЕРПУЛ") == "LASK – Liverpul"
+    assert k("Лига на шампиони") == "Liga na šampioni"
+    assert k("Љубљана") == "Ljubljana"
+    assert k("Rapid Wien") == "Rapid Wien"  # nicht-kyrillisch unveraendert
+    assert k("") == ""
