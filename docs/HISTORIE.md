@@ -7714,3 +7714,15 @@ sportklub (je <= 1,7 s). TVGuide/Freeview laden JSON (kein HTML).
 - Hinweis: Die Umschrift ist rein lautlich, Fremdnamen erscheinen deshalb
   phonetisch ("Mančester Siti", "Liverpul"), nicht in Originalschreibweise.
   Eine Namensliste für bekannte Teams wäre ein möglicher Ausbau.
+
+## Arena-Sport-Platzhalter: Luecken-Verlaengerung ketten (17.10.2026)
+
+Symptom: abends viele "Arena Sport N ᴸⁱᵛᵉ"-Platzhalter bei RS Arena. Ursache:
+Die Luecken-Verlaengerung (`_verlaengere_vorherige_sendung`) pruefte vorab gegen
+die URSPRUENGLICHEN Stops der echten Sendungen. Eine Luecke ueber mehrere
+stuendliche Bloecke (z.B. 21:59-23:00) wurde nur im ersten Block geschlossen;
+der naechste Block begann an der neuen Grenze (22:00), die nicht mehr in den
+Original-Stops stand -> Platzhalter. Fix: Vorab-Pruefung entfernt (Index ist
+immer aktuell), Regel gilt jetzt auch fuer `ARENA 1X2`. Noch ungeklaert:
+HR-Arena-Duplikate, `BA| ARENA SPORT 5 PREMIER LIGA` ohne Quelle.
+Erst nach naechstem Lauf verifizieren.

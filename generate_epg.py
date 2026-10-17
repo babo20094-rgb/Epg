@@ -6816,13 +6816,18 @@ for tag_index in range(ANZAHL_TAGE):
                     # Platzhalter wie bisher.
                     ist_rs_arena = (
                         daten["land"].strip().upper() == "RS"
-                        and re.match(r"^ARENA\s*SPORT\b", daten["sender"].strip(), re.IGNORECASE)
+                        and re.match(r"^ARENA\s*(SPORT\b|1X2)", daten["sender"].strip(), re.IGNORECASE)
                     )
                     if ist_rs_arena:
-                        vorherige_stops = {stop for _, stop in echte_intervalle}
+                        # Kein Vorab-Abgleich gegen die urspruenglichen Stops:
+                        # nach einer Verlaengerung (z.B. 21:59 -> 22:00) endet
+                        # die Sendung an einer NEUEN Grenze, die der naechste
+                        # stuendliche Block sonst nicht mehr findet (Luecke
+                        # blieb als Platzhalter). Der Index in
+                        # _verlaengere_vorherige_sendung() ist stets aktuell.
                         uebrige_segmente = []
                         for seg_start, seg_ende in rest_segmente:
-                            if seg_start in vorherige_stops and _verlaengere_vorherige_sendung(
+                            if _verlaengere_vorherige_sendung(
                                 daten["kanal"], seg_start, seg_ende
                             ):
                                 continue
