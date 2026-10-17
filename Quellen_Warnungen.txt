@@ -1,3 +1,2 @@
-Quellen-Warnungen (Stand 2026-10-17T00:27:03+00:00 UTC)
+Quellen-Warnungen (Stand 2026-10-17T06:59:40+00:00 UTC)
 AUFFAELLIG: Joyn-VOD: 0 Sender statt zuletzt 6 (letzter guter Lauf: 2026-10-16 21:02 UTC)
-AUFFAELLIG: iptv-epg.org (DE): 51 Sender statt zuletzt 106 (letzter guter Lauf: 2026-10-16 21:02 UTC)

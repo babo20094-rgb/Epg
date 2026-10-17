@@ -2,13 +2,12 @@ Zuordnungs-Luecken: Playlist-Kanaele ohne passenden Namen in Epg_365_Tage.xml.gz
 Playlist-Kanaele gesamt: 18912
 Davon eindeutige Namen (zeichengenau): 18527
 Davon eindeutige Namen (ohne Gross-/Kleinschreibung/Leerzeichen/Sonderzeichen): 18448
-Name nicht zeichengenau in der XML: 9
-davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 9
+Name nicht zeichengenau in der XML: 8
+davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht in der XML: 8
 
 == Je Playlist-Kategorie (nicht zuordenbar / nur abweichende Schreibweise) ==
     7 /     0  UK| GAA GO PPV
     1 /     0  DE| STAIGE PPV
-    1 /     0  US| TV ᴿᴬᵂ ⁶⁰ᶠᵖˢ
 
 == Mehrfach vorkommende Playlist-Namen (357) - ein Player zaehlt sie nur einmal ==
    2x #### APPLE TV F1 PPV ####
@@ -17,7 +16,6 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x ####### SOCCER PPV #######
    2x ######## NETFLIX PPV ########
    2x - NO EVENT STREAMING - | 8K EXCLUSIVE | UK: MAX PPV 100
-   2x - NO EVENT STREAMING - | 8K EXCLUSIVE | US: MLS PPV 1
    2x 24/7 AMERICAN DAD
    2x 24/7 AMERICAN PICKERS
    2x 24/7 BOB'S BURGERS
@@ -155,30 +153,30 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x End | 2026 Dongfeng Voyah Wuhan Open Tennis | all | 16-10-2026 | 13:00 (GMT) | 8K EXCLUSIVE | DE: SOCCER PPV 7
    2x Fite TV 19 HD (D)
    2x HR| NOVA TV ⱽᴵᴾ ᴿᴬᵂ
-   2x LIVE EVENT 01 - NO EVENT
-   2x LIVE EVENT 02 - 2pm True Grit Wrestling Last Rites
-   2x LIVE EVENT 03 - 6pm Bison Kombat 10
-   2x LIVE EVENT 04 - 6/8pm PFL Carmouche v Bishop 2
-   2x LIVE EVENT 05 - 8pm Brandrisk 016
-   2x LIVE EVENT 06 - 9pm Budo Sento Championship 37
-   2x LIVE EVENT 07 - NO EVENT
-   2x LIVE EVENT 08 - 6:15pm World of Outlaws Sprint Cars Lincoln
-   2x LIVE EVENT 09 - 7pm High Limit Racing Texas
-   2x LIVE EVENT 11 - NO EVENT
-   2x LIVE EVENT 12 - NO EVENT
-   2x LIVE EVENT 13 - NO EVENT
-   2x LIVE EVENT 14 - NO EVENT
-   2x LIVE EVENT 15 - NO EVENT
-   2x LIVE EVENT 16 - NO EVENT
-   2x LIVE EVENT 17 - NO EVENT
-   2x LIVE EVENT 18 - NO EVENT
-   2x LIVE EVENT 19 - NO EVENT
-   2x LIVE EVENT 20 - NO EVENT
+   2x LIVE EVENT 01 - 5pm UFC Fight Night Buckley v Malott
+   2x LIVE EVENT 02 - 11am Prelims Dubois v Wardley 2
+   2x LIVE EVENT 03 - 2pm Dubois v Wardley 2
+   2x LIVE EVENT 04 - 8pm BKFC 95 Herring v Dodson
+   2x LIVE EVENT 05 - 8pm Fundora v Hadribeaj
+   2x LIVE EVENT 06 - 8pm AEW WrestleDream
+   2x LIVE EVENT 07 - 12/2:30pm Cage Warriors 211
+   2x LIVE EVENT 08 - 12pm Oktagon 95 Kincl v Humburger
+   2x LIVE EVENT 09 - 12pm Volkovs v McIntyre
+   2x LIVE EVENT 11 - 2pm Fightstar Championship 38
+   2x LIVE EVENT 12 - 6:30pm ACW Mischief Night II
+   2x LIVE EVENT 13 - 12:50pm SMART Modified Tour North Wilkesboro
+   2x LIVE EVENT 14 - 1:15pm Halloween Fest IRP
+   2x LIVE EVENT 15 - 2pm STSS Octoberfest Hagerstown
+   2x LIVE EVENT 16 - 4:30pm Lucas Oil DTWC WVMS
+   2x LIVE EVENT 17 - 5pm FloZone FloRacing Championship Weekend
+   2x LIVE EVENT 18 - 6:15pm Millbridge Sprints
+   2x LIVE EVENT 19 - 6:15pm Cedar Lake Late Models
+   2x LIVE EVENT 20 - 6:45pm USAC National Sprints Route 66
    2x LIVE EVENT 21 -  Leeds vs Plymouth
-   2x LIVE EVENT 22 - NO EVENT
-   2x LIVE EVENT 23 - NO EVENT
-   2x LIVE EVENT 24 - NO EVENT
-   2x LIVE EVENT 25 - NO EVENT
+   2x LIVE EVENT 22 - 7pm USAC WS Midgets Ventura
+   2x LIVE EVENT 23 - 7:15pm World of Outlaws Sprint Cars Belle Clair
+   2x LIVE EVENT 24 - 8:30pm NARC Championship Night Kings
+   2x LIVE EVENT 25 - 9pm AMA EnduroCross Nampa
    2x LIVE EVENT 26 - MAIN STAGE Live From Coachella 2026
    2x LIVE EVENT 27 - FREEDOM STAGE Tomorrowland 2026
    2x LIVE EVENT 28 - ONE WORLD RADIO Live from Tomorrowland 2026
@@ -189,6 +187,7 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    2x Live Football 02 : Usa vs Canada 1:00am Wed
    2x Live Football 03 : France vs Belgium  19:45 pm
    2x MK| FFM MK FOOTBALL 5 [LIVE-EVENT]
+   2x NEXT | PHILADELPHIA VS. CHARLOTTE | Sat 17 Oct 14:30 EDT (US) | 8K EXCLUSIVE | US: MLS PPV 1
    3x PRIME| AMERICAN CRIMES ᴿᴬᵂ
    2x PRIME| ARE WE THERE YET? ᴿᴬᵂ
    2x PRIME| AX MEN ᴿᴬᵂ
@@ -223,5 +222,3 @@ davon auch tolerant (Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen) nicht i
    GaaTv 07:  Sun 16:00 | Down: Burren v Clonduff
 -- DE| STAIGE PPV (1)
    NEXT | GENTOFTE VOLLEY - KSV (1. DIVISION KVINDER) | Sun 04 Oct 14:25 CEST (DK) | 8K EXCLUSIVE | DK: DIREKTE SPORT PPV 127
--- US| TV ᴿᴬᵂ ⁶⁰ᶠᵖˢ (1)
-   TV| AMC ᴿᵂ
